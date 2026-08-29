@@ -45,6 +45,9 @@ Donc il faut :
 
 [Diagramme](https://lucid.app/lucidchart/11385ae2-093a-4a4a-a18d-7719b361128d/edit?viewport_loc=24%2C-8%2C991%2C517%2C0_0&invitationId=inv_ad916afa-9387-41ec-bbb5-33822a07e556)
 
+--> est-ce qu'il faut mettre sign up & sign in dans le diagramme ?
+Si oui est-ce qu'il faut mettre le rôle admin & user après le sign up & sign in ?
+
 ## Ressources
 
 [Site pour trouver une base de données](https://mobilitydatabase.org/feeds?gbfs=true)
@@ -57,3 +60,15 @@ A creuser : il faut une base de données qui contient les infos sur les stations
 * nombre des vélos électriques dispos
 * état de la station
 Il faut trouver une base de données utilisable en PostgreSQL
+
+Fonctionnement API / base de données : 
+* On choisit un flux Json GBFS actif sur le site
+* On fait des requêtes toutes les 15 minutes vers ce flux en utilisant le backend
+* On stocke ces données soi-même dans notre propre base PostgreSQL.
+Chacun de nous aura son propre service postgre sql sur le SSPCloud & le reliera à l'application.
+
+Lien vers des flux qui pourraient fonctionner : 
+
+[7 Vallées vélo](https://mobilitydatabase.org/feeds/gbfs/gbfs-7vallees) Mais seulement 4 stations, et que des vélos électriques ou à assistance électrique
+
+[Cité Cycle](https://mobilitydatabase.org/feeds/gbfs/gbfs-citecycle) pareil
