@@ -1,9 +1,9 @@
 from datetime import datetime
 from secrets import secrets
 
-from business_object_object.game import Game
-from business_object_object.game_mode import GameMode
-from business_object_object.player import Player
+from business_object.game import Game
+from business_object.game_mode import GameMode
+from business_object.player import Player
 
 
 class DiceMode(GameMode):
