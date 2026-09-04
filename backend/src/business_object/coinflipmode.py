@@ -1,5 +1,5 @@
+import secrets
 from datetime import datetime
-from secrets import secrets
 
 from business_object_object.game import Game
 from business_object_object.game_mode import GameMode
@@ -20,5 +20,5 @@ class CoinFlipMode(GameMode):
             p2,
             "coin_flip",
             winner,
-            "Coin flip game",
+            f"Coin flip game : {result}",
             datetime.now())

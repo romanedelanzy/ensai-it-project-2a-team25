@@ -1,5 +1,5 @@
+import secrets
 from datetime import datetime
-from secrets import secrets
 
 from business_object.game import Game
 from business_object.game_mode import GameMode
@@ -20,7 +20,7 @@ class DiceMode(GameMode):
         return Game(
             p1,
             p2,
-            "dice",
+            f"{d1} vs {d2}",
             winner,
             "Dice game",
             datetime.now())
