@@ -1,6 +1,6 @@
+from datetime import datetime
 
 from player import player
-from datetime import datetime
 
 
 class Game:
@@ -15,7 +15,7 @@ class Game:
         description: str,
         timestamp: datetime,
     ):
-        """Constructor """
+        """Constructor"""
         self.id_game = None
         self.player1 = player1
         self.player2 = player2
@@ -29,5 +29,8 @@ class Game:
         Returns:
             str: A string containing the two username of the players, the game type and winner.
         """
-        a = f"{self.game_mode} between {self.player1.username} and {self.player2.username}. Winner: {self.winner}"
+        a = (
+            f"{self.game_mode} between {self.player1.username} and "
+            f"{self.player2.username}. Winner: {self.winner}"
+            )
         return a
