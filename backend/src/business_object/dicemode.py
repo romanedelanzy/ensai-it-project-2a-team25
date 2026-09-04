@@ -20,7 +20,7 @@ class DiceMode(GameMode):
         return Game(
             p1,
             p2,
-            f"{d1} vs {d2}",
+            "Dice Mode",
             winner,
-            "Dice game",
+            f"{d1} vs {d2}",
             datetime.now())
