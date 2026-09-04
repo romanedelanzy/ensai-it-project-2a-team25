@@ -81,6 +81,8 @@ André RIVIERE\\
 
 ### Diagramme des cas d'utilisation
 
+![Diagramme des cas d'utilisation](ressources/Diagramme_cas_utilisation.png)
+
 ### Diagramme d'activité
 
 ### Modèle des données
