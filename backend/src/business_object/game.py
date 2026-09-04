@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from player import player
+from business_object_object.player import Player
 
 
 class Game:
@@ -8,10 +8,10 @@ class Game:
 
     def __init__(
         self,
-        player1: player,
-        player2: player,
+        player1: Player,
+        player2: Player,
         game_mode: str,
-        winner: player,
+        winner: Player,
         description: str,
         timestamp: datetime,
     ):
