@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from business_object_object.player import Player
+from business_object.player import Player
 
 
 class Game:
