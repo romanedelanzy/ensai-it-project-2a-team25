@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
-from business_object_object.game import Game
-from business_object_object.player import Player
+from business_object.game import Game
+from business_object.player import Player
 
 
 class GameMode(ABC):
