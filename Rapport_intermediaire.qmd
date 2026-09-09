@@ -59,21 +59,50 @@ André RIVIERE\\
 \vfill 
 \begin{center}
 École nationale de la statistique et de l’analyse de l’information\\
-2025--2026
+2026--2027
 \end{center}
 \end{titlepage}
 
 \tableofcontents
 
-# Planning
+# Organisation du groupe
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Le projet se décompose en une phrase d'analyse et de conception générale qui se déroule jusqu'à fin septembre et que ce rapport traite, et une phase d'implémentation d'octobre à novembre. 
+&nbsp;&nbsp;&nbsp;&nbsp; Pour ce qui est de l'organisation au sein du groupe, nous n'avons pas défini de rôle précis pour chacun pour cette phase d'analyse et de conception générale. Nous privilégions plutôt une réunion hebdomadaire au cours de laquelle le groupe se réunit pour présenter l'avancée des travaux, discuter des choix faits ou à faire et des tâches restantes et prioritaires. A l'issue de cette réunion, nous faisons une liste des travaux à réaliser pour la semaine suivante et nous nous les répartissons de manière équitable et en fonction des préférences et des dispositions de chacun. Bien que chacun privilégie les tâches auxquelles il est le plus préparé et disposé, le travail reste donc très collectif. Aussi, si des tâches nous semblent trop difficiles, nous les réalisons à plusieurs, ou avec l'ensemble du groupe lors des réunions hebdomadaires.
 
 ## Diagramme de Gantt
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; La planification du projet se fait grâce à un diagramme de GANTT que nous mettons à jour à chaque réunion hebdomadaire, en inscrivant les tâches finies et les nouvelles tâches à réaliser, ainsi que les membres du groupe qui se chargeront de chacune d'elles. Le diagramme de GANTT est donc un réel outil que nous utilisons chaque semaine pour nous organiser et faire le bilan de l'avancée de nos travaux.
 
 # Etude préalable
 
 ## Cahier des charges
 
-## Organisation du groupe
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; L'application doit comporter 5 fonctions principales et indispensables qui : 
+
+
+* permettront la collecte des données à travers l'API, qui sera interrogée toutes les 15 minutes pour récupérer des informations sur chaque station
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+* pour l'administrateur : 
+permettront de gérer les utilisateurs (créer un compte, se connecter, consulter les données et statistiques, gérer les stations favorites)
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+* pour l'utilisateur :  
+  * permettront de consulter une station à travers une barre de recherche, pour afficher l'état d'une station, le nombre de vélos disponibles, la capacité de la station, son taux de remplissage et l'évolution des disponibilités sur les dernières 24h, 7 jours, ou 30 derniers jours.  
+  * permettront d'afficher le score de fiabilité d'une station en fonction de son statut parmi vide, saturée et fonctionnelle. Une station sera considérée comme vide si aucun vélo n'y ets disponibles, saturée s'il n'y a plus de places pour ranger son vélo, et fonctionnelle dans les autres cas. Cette fonctionnalité utilisera l'historique pour calculer des statistiques en fonction du statut de la station au cours du temps, et retournera un score global de fiabilité de la station.  
+  * recommander une station à proximité de l'utilisateur en fonction de la distance et de la fiabilité des stations.  
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Il faudra donc trouver un réseau de location de vélos dont l'API pourra récupérer les informations suivantes : 
+
+* nom de chaque station
+* nombre de vélos disponibles pour chaque station et pour chaque type de vélo (électrique ou simple)
+* nombre de places disponibles dans chaque station
+* état de chaque station
 
 # Modèle de conception
 
@@ -81,7 +110,11 @@ André RIVIERE\\
 
 ### Diagramme des cas d'utilisation
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Il s'agit du premier diagramme que nous avons réalisé dans le cadre du projet. Il a pour objectif de représenter le fonctionnement de l'application que nous avons créée.
+
 ![Diagramme des cas d'utilisation](ressources/Diagramme_cas_utilisation.png)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Deux profils d'utilisateurs existent sur l'application : le profil utilisateur et le profil administrateur. Chacun doit créer puis se connecter à un compte auquel est associée la fonction utilisateur ou administrateur. Le compte administrateur permet de gérer les utilisateurs, c'est-à-dire modifier leurs données ou supprimer des comptes par exemple. Le compte utilisateur est celui qui donne accès au plus grand nombre de fonctionnalités. Parmi les fonctionnalités principales, un utilisateur peut rechercher une station afin d'accéder à ses données et statistiques, ajouter une station à ses favoris pour que son accès via l'application soit plus direct, plus largement gérer ses stations favorites, et demander une suggestion de station en fonction de sa fiabilité.
 
 ### Diagramme d'activité
 
@@ -92,6 +125,10 @@ André RIVIERE\\
 ### Diagrammes de séquence
 
 ## Fonctionnalités de l'application
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
 
 ## Présentation des menus
 
