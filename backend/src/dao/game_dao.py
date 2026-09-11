@@ -1,6 +1,6 @@
 from business_object.game import Game
 from business_object.player import Player
-from dao import PlayerDao
+from dao.player_dao import PlayerDao
 from dao.db_connection import DBConnection
 from utils.log_utils import get_logger, log
 from utils.singleton import Singleton
@@ -30,10 +30,10 @@ class GameDao(metaclass=Singleton):
                         "RETURNING id_game;",
                         {
                             "id_game": game.id_game,
-                            "id_player1": game.player1.id_player1,
-                            "id_player2": game.player2.id_player2,
+                            "id_player1": game.player1.id_player,
+                            "id_player2": game.player2.id_player,
                             "game_mode": game.game_mode,
-                            "id_winner": game.winner.id_winner,
+                            "id_winner": game.winner.id_player,
                             "detail": game.description,
                             "timestamp": game.timestamp
                         },
@@ -76,7 +76,7 @@ class GameDao(metaclass=Singleton):
         if res:
             p1 = PlayerDao().find_by_id(res["id_player1"])
             p2 = PlayerDao().find_by_id(res["id_player2"])
-            winner = PlayerDao().find_by_id(res["winner"])
+            winner = PlayerDao().find_by_id(res["id_winner"])
             game = Game(
                 id_game=res["id_game"],
                 player1=p1,
@@ -123,7 +123,49 @@ class GameDao(metaclass=Singleton):
                             player2=p2,
                             winner=winner,
                             description=row["detail"],
-                            timestamp=res["timestamp"]
+                            timestamp=row["timestamp"]
+                            )
+
+                games_list.append(game)
+
+        return games_list
+
+    def find_all_by_player(self, id_player) -> list[Game]:
+        """List all games for a player in the database.
+        Returns:
+            list[Game] sorted by id
+        """
+
+        try:
+            with DBConnection().connection as connection:
+                with connection.cursor() as cursor:
+                    cursor.execute(
+                        "SELECT *                                "
+                        " FROM game                           "
+                        " WHERE id_player1 = %(id_player)s OR id_player2 = %(id_player)s   "
+                        " ORDER BY id_game;                     ",
+                        {"id_player": id_player},
+                    )
+                    res = cursor.fetchall()
+        except Exception as e:
+            logger.error(e)
+            raise
+
+        games_list = []
+
+        if res:
+            for row in res:
+                p1 = PlayerDao().find_by_id(row["id_player1"])
+                p2 = PlayerDao().find_by_id(row["id_player2"])
+                winner = PlayerDao().find_by_id(row["id_winner"])
+                game = Game(
+                            id_game=row["id_game"],
+                            game_mode=row["game_mode"],
+                            player1=p1,
+                            player2=p2,
+                            winner=winner,
+                            description=row["detail"],
+                            timestamp=row["timestamp"]
                             )
 
                 games_list.append(game)
