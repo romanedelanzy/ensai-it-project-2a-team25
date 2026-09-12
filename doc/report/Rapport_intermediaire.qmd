@@ -141,9 +141,15 @@ Lorqu'un utilisateur effectue une requête qur l'application, le controller reç
 &nbsp;&nbsp;&nbsp;&nbsp; blablabla
 
 ![Diagramme d'activité préférences utilisateur](../ressources/Diagramme/Diagramme_activite_pref_utilisateur.png)
-&nbsp;&nbsp;&nbsp;&nbsp; blablahla
+&nbsp;&nbsp;&nbsp;&nbsp; Ce diagramme d'activité représente les grandes étapes de la recherche d'une station par l'utilisateur. Il commence par saisir le nom d'une ville. En renseigant sa position, l'application lui renvoie la station la plus proche. Si une station est trouvée, l'application récupère les informations asscoiées les plus récentes. Il peut ensuite lancer une nouvelle recherche au sein de la même ville, rechercher une nouvelle ville ou mettre fin à ses recherches. 
 
 ![Diagramme d'activité recherche station](../ressources/Diagramme/Diagramme_activite_recherche_station.png)
+
+Le diagramme d'activité ci-dessus est davantage détaillé. Lorsque l'utilisateur recherche une ville, il est confronté à différentes réponses de l'application. Dans le premier cas, la ville n'est pas reconnue. L'utilisateur doit relancer une recherche? Si les trois premiers caractères sont reconnus, l'application affiche la liste des villes correspondantes. Si la ville recherchée y figure ou si la ville avait été direcment reconnue, l'utilisateur peut choisir une station. Si la station est reconnue, l'application affiche les informations associées et la requête prend fin. De la même manière que pour les villes, une chaîne de trois caractères permet d'afficher une liste de stations correpondantes. Si la station recherchée n'apparaît pas, l'utilisateur est invité à saisir un nom de station diffent. Si la station est présente dans la liste, l'utilisateur la sélectionne et les informations associées d'affichent. L'utilisateur peut mettre fin à sa recherche, rechercher une autre ville ou une autre station. 
+
+
+
+
 
 ### Modèle des données
 
