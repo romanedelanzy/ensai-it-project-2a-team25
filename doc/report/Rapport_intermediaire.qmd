@@ -122,7 +122,19 @@ Il faudra donc trouver un réseau de location de vélos dont l'API pourra récup
 
 ![Diagramme d'architecture](../ressources/Diagramme/Diagramme_architecture.png)
 
-&nbsp;&nbsp;&nbsp;&nbsp; blablabla
+&nbsp;&nbsp;&nbsp;&nbsp; Le diagramme d’architecture présente les différentes composantes de l'application Véloscope ainsi que le manière dont elles intéragissent entre elles. Chacune répond à un rôle bien précis détaillé ci-dessous. Nous retrouvons également les éléments avec lesquels l'application communique : les utilisateurs et l'API externe. 
+
+L'utilisateur est extérieur à l'application. Il est à l'origine des requêtes à laquelle elle doit pouvoir répondre. Lorsqu'il effectue une demande, elle est reçu par le Controller. C'est le point d'entrée de notre application. Cette demande est ensuite transmise à la partie Analysis qui réalise l'ensemble des calculs nécessaires pour y répondre. Elle calcule le taux de remplissage d'une station ou son score de fiabilité. 
+
+La partie Model pemret de structurer les données utilisées par l'application. Elle associe à chaque objet l'ensemble des informations qui lui appartiennent. Une station dispose par exemple toujours d'un identifiant, d'un nom, d'une capacité et une position géographique. Elle est utilisé par le Parser et le Controller pour manipuler les données de manière structurée. 
+
+Le DAO est la partie qui permet de lire et d'enregistrer les relevés issus de l'API externe dans notre base de données. Avant que la DAO puisse les enregistrer, les données de l'API externe passent par le PARSER. Il les convertit  dans un format recevable pour l'application. Ce qui permet à la DAO de les stocker dans la base de données qui conserve l'ensemble des informations nécessaires à l'utilisation et au fonctionnement de l'application. Dans le cadre de notre projet, il s'agit de PostgreSQL.
+
+L'API externe est la base de données à partir de laquelle nous recueillons les données nécessaire au développement de notre application. 
+
+Finalement le fonctionnement de l'application est le suivant. Toutes les 15 minutes API externe envoie des information au Parser qui les convertit. La DAO les enregistre et les stocke dans notre base de données. 
+Lorqu'un utilisateur effectue une requête qur l'application, le controller reçoit sa demande et la trasnfère à la partie analysis qui effectuent les calculs nécessaires pour y répondre. 
+
 
 ### Diagramme d'activité
 
