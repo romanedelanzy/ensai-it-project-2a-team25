@@ -78,7 +78,9 @@ André RIVIERE\\
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; La planification du projet se fait grâce à un diagramme de GANTT que nous mettons à jour à chaque réunion hebdomadaire, en inscrivant les tâches finies et les nouvelles tâches à réaliser, ainsi que les membres du groupe qui se chargeront de chacune d'elles. Le diagramme de GANTT est donc un réel outil que nous utilisons chaque semaine pour nous organiser et faire le bilan de l'avancée de nos travaux.
 
-![Diagramme de Gantt](../ressources/Diagramme/Diagramme_gantt1.png)
+![Diagramme de Gantt du Rapport d'Analyse](../ressources/Diagramme/Diagramme_gantt1.png)
+![Diagramme de Gantt du Code et du Rapport Final](../ressources/Diagramme/Diagramme_gantt2.png)
+
 
 # Etude préalable
 
