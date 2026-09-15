@@ -191,6 +191,7 @@ Lorqu'un utilisateur effectue une requête qur l'application, le controller reç
 #### La collecte des données
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; La collecte des données se fait à travers le DAO qui interroge l'API toutes les 15 minutes pour en récupérer les données puis les stocker dans une base PostgreSQL qui conservera un historique complet. 
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Les informations récupérées par le DAO seront : 
 
 * le nom de la station
@@ -213,7 +214,9 @@ Lorqu'un utilisateur effectue une requête qur l'application, le controller reç
 #### Le score de fiabilité
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cette fonctionnalité attribue à chaque station un score qui reflète sa fiabilité dans le temps. 
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pour chaque appel de l'API, un statut est accordé à la station : la station ets qualifiée de vide si elle n'a plus de vélos disponibles, saturée si elle n'a plus de place disponible, et fonctionnelle dans les autres cas.
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A partir de ces données récoltées au fur et à mesure des actualisations de l'API, l'application calcule le pourcentage de temps passé vide ou saturée, et la durée moyenne des périodes de saturation ou de pérunie. A partir de ces statistiques et de l'évolution du statut au cours du temps, un score de fiabilité est calculé.
 
 #### La recommandation de station
