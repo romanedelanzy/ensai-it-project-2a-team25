@@ -293,7 +293,30 @@ Pour la fiabilité, nous utiliserons à la fois le temps passé vide, le temps p
 
 ## Présentation des menus
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; blabla
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Menu 1 : Connexion et inscription
+
+Au lancement de l'application, l'utilisateur accède à un écran lui permettant de se connecter avec son compte existant ou de créer un nouveau compte. Une fois connecté, il accède à l'ensemble des fonctionnalités de l'application.
+
+Menu 2 : Carte du réseau
+
+C'est l'écran principal de l'application. Il présente l'ensemble des stations du réseau, avec pour chacune le nombre de vélos disponibles et le nombre de places libres en temps réel. L'utilisateur peut parcourir le réseau visuellement et sélectionner une station pour en consulter le détail.
+
+Menu 3 : Détail d'une station
+
+En sélectionnant une station, l'utilisateur accède à une fiche détaillée présentant son état actuel (disponible, vide, saturée), sa capacité totale, ainsi que son taux de remplissage. Il peut choisir une période de consultation — dernières 24 heures, 7 derniers jours ou 30 derniers jours — pour visualiser l'évolution de la disponibilité de la station sur cette période. Ce même écran affiche également le score de fiabilité de la station, calculé à partir de son historique : le pourcentage de temps passé vide ou saturée, ainsi que la durée moyenne de ces épisodes. L'utilisateur peut, depuis cet écran, ajouter ou retirer la station de ses favoris.
+
+Menu 4 : Mes stations favorites
+
+Cet écran regroupe l'ensemble des stations que l'utilisateur a marquées comme favorites, avec pour chacune son état actuel affiché directement, sans avoir à les rechercher une à une sur la carte du réseau.
+
+Menu 5 : Recherche d'itinéraire
+
+L'utilisateur saisit une adresse de départ et une adresse d'arrivée. L'application lui propose alors une station de départ et une station d'arrivée adaptées, ainsi que le temps de trajet et la distance estimés. La proposition ne se limite pas à la station la plus proche : elle tient compte également du nombre de vélos actuellement disponibles, de la fiabilité historique de la station et de la présence éventuelle de vélos électriques, afin de proposer le trajet le plus pertinent plutôt que le plus court. L’itinéraire à suivre est tracé sur la carte interactive.
+
+Menu 6 : Gestion des utilisateurs (administrateur)
+
+Réservé aux comptes administrateur, cet écran permet de consulter la liste des utilisateurs inscrits, de créer ou supprimer un compte, et de modifier le rôle d'un utilisateur.
+
 
 
 ## Liste des principaux composants
