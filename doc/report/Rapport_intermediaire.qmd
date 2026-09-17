@@ -158,8 +158,55 @@ D'autre part, lorsqu'un utilisateur effectue une demande via l'interface, elle p
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; L'élément "Réseau" correspond au réseau de vélos en libre-service qui est associé à une ville. L'entité "Infos_stations" contient les informations sur chaque station. Elle est à la fois reliée à l'historique des relevés et aux favoris de chaque utilisateur. La table "Historique_stations" contient les relevés successifs récupérés par l'API pour chacune des stations. Chaque relevé est unique car la table contient deux clés primaires : l'identifiant de la station et la date et l'heure du relevé. La table "Statistiques_stations" stocke les statistiques et indicateurs calculés à partir de l'historique. La table "Favoris" fait le lien entre "Utilisateurs" et "Infos_stations" parce qu'un utilisateur peut ajouter plusieurs stations à ses favoris, et une même station peut être mise dans les favoris par plusieurs utilisateurs différents. L'élément "Utilisateurs" contient les informations de compte, notamment un booléen `admin` qui distingue les comptes administrateurs des comptes utilisateurs. 
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 ### Diagramme de classes
+
+![Diagramme d'interaction des classes ](../ressources/Diagramme/digramme classes simplifié.pdf)
+
+Module Controller:
+
+![Diagramme de classes du module Controller](../ressources/Diagramme/Diagramme classes Controller.pdf)
+
+blabla
+
+Module Sevice:
+
+
+![Diagramme de classes du module Service](../ressources/Diagramme/Diagramme classes Services.pdf)
+
+blabla
+
+Module DAO:
+
+![Diagramme de classes du module DAO](../ressources/Diagramme/Diagramme classes DAO.pdf)
+
+Comme expliqué ci-dessus, le DAO a pour rôle de recueillir les données de l’API externes et des utilisateurs, de les enregistrer et de les restituer sur demande du module Service. Ainsi, ce module possède 4 classes différentes qui découlent de notre modèle de données :
+
+* La classe CompteDAO a pour rôle de recueillir les informations des utilisateurs via la méthode create pour créer leur compte ou via la méthode update pour changer leurs informations personnelles. L’administrateur pourra, à l’inverse des utilisateurs, modifier les informations publiques de tous les utilisateurs comme leurs username ou leurs emails. Ce dernier pourra également supprimer des comptes si nécessaire via la méthode delete. L’administrateur pourra également, via la méthode find_by_id ou list_all faire des recherches sur les utilisateurs.La fonction login, quant à elle, vérifiera si le mot de passe correspond bien avec le nom de l'utilisateur, puis retourne un booléen qui sera renvoyé en passant par le service CompteService à la classe AuthController qui donnera ou non l’authentification de l’utilisateur.
+
+* La classe FavoriDAO a pour but via ses méthodes add_favorite et remove_favorite de permettre d'actualiser la liste des stations favorites de l'utilisateur. La méthode user_favorite permet de récupérer la liste des stations favorites de l'utilisateur. 
+
+* La classe StationDAO a pour but de stocker et d'actualiser les informations statiques des stations (coordonnées GPS,  adresse, nom, capacité). Les méthodes create et create_or_update permettent d’ajouter de nouvelles stations ou de modifier les données existantes d’une station. Les méthodes find_by_id et list_all ayant le rôle de restituer les informations d’une station ou d'obtenir la liste complète.
+
+
+* La classe StationStatusDAO s’occupe de stocker l’historique au cours du temps de la station. Elle est actualisée toutes les 15 min par l’API externe. La méthode create_status enregistre les données d’un nouveau relevé pour une station. La méthode find_current_status s’occupe de restituer le dernier relevé d’état d’une station, contrairement à la méthode find_history qui renvoie tous les relevés d’une station entre deux dates.
+
+
+ La méthode get_connection permet d'allouer la connexion à un DAO qui la rend via la méthode release_connection pour qu’elle soit de nouveau disponible pour la prochaine requête. La méthode close_all mettant fin à la connexion quand l’application est fermée.
+
+
+Module API Externe:
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.4\textwidth]{../ressources/Diagramme/Diagramme classes API Externe.pdf}
+\caption{Diagramme de classes du module API Externe}
+\end{figure}
+
+blabla
+
 
 ### Diagrammes de séquence
 
