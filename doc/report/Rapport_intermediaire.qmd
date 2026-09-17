@@ -123,46 +123,30 @@ Il faudra donc trouver un réseau de location de vélos dont l'API pourra récup
 
 ![Diagramme d'architecture](../ressources/Diagramme/diagramme_architecture_final.png)
 
-<<<<<<< HEAD
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Le diagramme d’architecture présente les différentes composantes de l'application Véloscope ainsi que la manière dont elles intéragissent entre elles. Chacune répond à un rôle bien précis détaillé ci-dessous. Nous retrouvons également les éléments avec lesquels l'application communique : les utilisateurs et l'API externe. 
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; L'utilisateur est extérieur à l'application. Il est à l'origine des requêtes auxquelles elle doit pouvoir répondre. Lorsqu'il effectue une demande, elle est reçue par le Controller. C'est le point d'entrée de notre application. Cette demande est ensuite transmise à la partie Analysis qui réalise l'ensemble des calculs nécessaires pour y répondre. Elle calcule le taux de remplissage d'une station ou son score de fiabilité. 
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; La partie Model permet de structurer les données utilisées par l'application. Elle associe à chaque objet l'ensemble des informations qui lui appartiennent. Une station dispose par exemple toujours d'un identifiant, d'un nom, d'une capacité et une position géographique. Elle est utilisé par le Parser et le Controller pour manipuler les données de manière structurée. 
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Le DAO est la partie qui permet de lire et d'enregistrer les relevés issus de l'API externe dans notre base de données. Avant que la DAO puisse les enregistrer, les données de l'API externe passent par le PARSER. Il les convertit  dans un format recevable pour l'application, ce qui permet à la DAO de les stocker dans la base de données qui conserve l'ensemble des informations nécessaires à l'utilisation et au fonctionnement de l'application. Dans le cadre de notre projet, il s'agit de PostgreSQL.
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; L'API externe est la base de données à partir de laquelle nous recueillons les données nécessaires au développement de notre application. 
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Finalement le fonctionnement de l'application est le suivant. Toutes les 15 minutes l'API externe envoie des informations au Parser qui les convertit. La DAO les enregistre et les stocke dans notre base de données. 
-Lorqu'un utilisateur effectue une requête qur l'application, le controller reçoit sa demande et la transfère à la partie analysis qui effectuent les calculs nécessaires pour y répondre. 
-=======
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Le diagramme d’architecture présente les différentes composantes de l'application Véloscope ainsi que le manière dont elles intéragissent entre elles. L'application est divisée en deux grandes parties : Le Backend qui contient la logique de gestion des données, et le Frontend qui permet à l'utilisateur d'intéragir avec l'application. L'application communique également avec une source de données externe afin de récupérer les informations sur des stations de vélo.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; L'utilisateur est à l'extérieur de l'application. Via l'interface, il effectue des requêtes à laquelle l'application doit pouvoir répondre. L'interface communique avec l'API et transmet les demandes au Backend. C'est le controller qui les reçoit et les transmets aux modules en capacité d'y répondre.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; L'utilisateur est à l'extérieur de l'application. Via l'interface, il effectue des requêtes auxquelles l'application doit pouvoir répondre. L'interface communique avec l'API et transmet les demandes au Backend. C'est le controller qui les reçoit et les transmet aux modules en capacité d'y répondre.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C'est la partie Service qui contient la logique métier. C'est au sein des services que l'on retrouve tout ce que l'application doit savoir faire et les règles qui déterminent sa manière de fonctionner. Ils réalisent nottament des calculs comme le taux de remplissage.
-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; C'est la partie Service qui contient la logique métier. C'est au sein des services que l'on retrouve tout ce que l'application doit savoir faire et les règles qui déterminent sa manière de fonctionner. Ils réalisent nottament des calculs comme le taux de remplissage.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; La partie Model permet de structurer les données utilisées par l'application. Elle associe à chaque objet l'ensemble des informations qui lui appartiennent. Une station dispose par exemple toujours d'un identifiant, d'un nom, d'une capacité et une position géographique. Elle est utilisé par le Parser et le Controller pour manipuler les données de manière structurée. 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Le DAO (Data Access Object) assure la communication avec la base de donnée. Il permet de lire et d'enregistrer et modifier les données nécessaires au fonctionnement de notre application. Dans notre projet, ces données sont stockées dans uen base de données PostgreSQL.
->>>>>>> bad87672bc5b42e54e4377c82c62c483b6c5a46d
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Le DAO (Data Access Object) assure la communication avec la base de donnée. Il permet de lire et d'enregistrer et modifier les données nécessaires au fonctionnement de notre application. Dans notre projet, ces données sont stockées dans une base de données PostgreSQL.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; L'API externe est la source depuis laquelle nous recueillons les données nécessaires au développement de notre application. Elle fournit les informations à propos des stations et de leur disponibilité. Les données en ligne correspondent ainsi aux informations disponibles à propos des vélos et stations du réseau choisi. 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Finalement, le fonctionnement général de notre application repose sur deux flux principaux. D'une part, toutes les 15 minutes, les données provenant de API externe sont récupérées, traitées et enregistrées. 
-D'autre part, lorsqu'un utilisateur effectue une demande via l'interface, elle passe par l'API et est prise en charge par le Controller. Le Service effectue les traitements nécessaires. Les données sont récupérées grâce au DAO afin de fournir une réponse à l'utilisateur.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Finalement, le fonctionnement général de notre application repose sur deux flux principaux. D'une part, toutes les 15 minutes, les données provenant de API externe sont récupérées, traitées et enregistrées. D'autre part, lorsqu'un utilisateur effectue une demande via l'interface, elle passe par l'API et est prise en charge par le Controller. Le Service effectue les traitements nécessaires. Les données sont récupérées grâce au DAO afin de fournir une réponse à l'utilisateur.
 
 ### Diagramme d'activité
 
 ![Diagramme d'activité préférences utilisateur](../ressources/Diagramme/Diagramme_activite_pref_utilisateur.png)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ce diagramme d'activité représente les grandes étapes de la recherche d'une station par l'utilisateur. Il commence par saisir le nom d'une ville. En renseigant sa position, l'application lui renvoie la station la plus proche. Si une station est trouvée, l'application récupère les informations associées les plus récentes. Il peut ensuite lancer une nouvelle recherche au sein de la même ville, rechercher une nouvelle ville ou mettre fin à ses recherches. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ce diagramme d'activité représente les grandes étapes de la recherche d'une station par l'utilisateur. Il commence par saisir le nom d'une ville. En renseignant sa position, l'application lui renvoie la station la plus proche. Si une station est trouvée, l'application récupère les informations asscoiées les plus récentes. Il peut ensuite lancer une nouvelle recherche au sein de la même ville, rechercher une nouvelle ville ou mettre fin à ses recherches. 
 
 ![Diagramme d'activité recherche station](../ressources/Diagramme/Diagramme_activite_recherche_station.png)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Le diagramme d'activité ci-dessus est davantage détaillé. Lorsque l'utilisateur recherche une ville, il est confronté à différentes réponses de l'application. Dans le premier cas, la ville n'est pas reconnue. L'utilisateur doit relancer une recherche. Si les trois premiers caractères sont reconnus, l'application affiche la liste des villes correspondantes. Si la ville recherchée y figure ou si la ville avait été directement reconnue, l'utilisateur peut choisir une station. Si la station est reconnue, l'application affiche les informations associées et la requête prend fin. De la même manière que pour les villes, une chaîne de trois caractères permet d'afficher une liste de stations correpondantes. Si la station recherchée n'apparaît pas, l'utilisateur est invité à saisir un nom de station différent. Si la station est présente dans la liste, l'utilisateur la sélectionne et les informations associées s'affichent. L'utilisateur peut mettre fin à sa recherche, rechercher une autre ville ou une autre station. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Le diagramme d'activité ci-dessus est davantage détaillé. Lorsque l'utilisateur recherche une ville, il est confronté à différentes réponses de l'application. Dans le premier cas, la ville n'est pas reconnue. L'utilisateur doit relancer une recherche. Si les trois premiers caractères sont reconnus, l'application affiche la liste des villes correspondantes. Si la ville recherchée y figure ou si la ville avait été direcment reconnue, l'utilisateur peut choisir une station. Si la station est reconnue, l'application affiche les informations associées et la requête prend fin. De la même manière que pour les villes, une chaîne de trois caractères permet d'afficher une liste de stations correpondantes. Si la station recherchée n'apparaît pas, l'utilisateur est invité à saisir un nom de station différent. Si la station est présente dans la liste, l'utilisateur la sélectionne et les informations associées s'affichent. L'utilisateur peut mettre fin à sa recherche, rechercher une autre ville ou une autre station. 
+
 
 ### Modèle des données
 
@@ -172,18 +156,17 @@ D'autre part, lorsqu'un utilisateur effectue une demande via l'interface, elle p
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; L'élément "Réseau" correspond au réseau de vélos en libre-service qui est associé à une ville. L'entité "Infos_stations" contient les informations sur chaque station. Elle est à la fois reliée à l'historique des relevés et aux favoris de chaque utilisateur. La table "Historique_stations" contient les relevés successifs récupérés par l'API pour chacune des stations. Chaque relevé est unique car la table contient deux clés primaires : l'identifiant de la station et la date et l'heure du relevé. La table "Statistiques_stations" stocke les statistiques et indicateurs calculés à partir de l'historique. La table "Favoris" fait le lien entre "Utilisateurs" et "Infos_stations" parce qu'un utilisateur peut ajouter plusieurs stations à ses favoris, et une même station peut être mise dans les favoris par plusieurs utilisateurs différents. L'élément "Utilisateurs" contient les informations de compte, notamment un booléen `admin` qui distingue les comptes administrateurs des comptes utilisateurs. 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 ### Diagramme de classes
 
 
 ![Diagramme d'interaction des classes ](../ressources/Diagramme/diagramme classes simplifié.pdf)
 
-Module Controller:
+#### Module Controller:
 
 ![Diagramme de classes du module Controller](../ressources/Diagramme/Diagramme classes Controller.pdf)
 
-La couche Controller se compose de 6 classes, 5 étant associées à un service métier et une 6ème pour gérer l’authentification d’un utilisateur à son compte. Le controller est l’interface entre une requête sur le site Streamlit VeloScope et le service métier. Il reçoit une requête depuis le site, par exemple une demande de création de compte en format JSON, et se charge de convertir cette requête en objet Python grâce à FastAPI/Pydantic et de transmettre cet objet au service métier. Des classes supplémentaires BaseModel, non représentées sur le diagramme de classes, pourront être créées afin de faciliter la première conversion JSON/objet Python.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; La couche Controller se compose de 6 classes, 5 étant associées à un service métier et une 6ème pour gérer l’authentification d’un utilisateur à son compte. Le controller est l’interface entre une requête sur le site Streamlit VeloScope et le service métier. Il reçoit une requête depuis le site, par exemple une demande de création de compte en format JSON, et se charge de convertir cette requête en objet Python grâce à FastAPI/Pydantic et de transmettre cet objet au service métier. Des classes supplémentaires BaseModel, non représentées sur le diagramme de classes, pourront être créées afin de faciliter la première conversion JSON/objet Python.
 
 Les classes concernées sont les suivantes :
 
@@ -199,12 +182,11 @@ Les classes concernées sont les suivantes :
     
 * FiabilityController : Correspond à la fonctionnalité F4. Comme un score de fiabilité doit être calculé pour chaque station, lors d’une recherche de station ou d’une recommandation, l’utilisateur doit pouvoir accéder au score de fiabilité. On pourrait aussi imaginer un scénario où le score de fiabilité n’est pas affiché dès le départ lors de la recherche d’une station et l’utilisateur en fait la demande explicite, bien que cela soit moins intuitif. La demande est transmise à FiabilityService.
 
-Module Sevice:
-
+#### Module Sevice:
 
 ![Diagramme de classes du module Service](../ressources/Diagramme/Diagramme classes Services.pdf)
 
-Il s’agit de la couche métier de notre application VeloScope. Elle reçoit les demandes des Controllers, applique les règles métier, réalise les calculs nécessaires (calcul de la fiabilité, recommandation d’une station…) et coordonne les appels à la couche DAO pour obtenir les informations nécessaires aux demandes. C’est la couche intermédiaire entre l’API/Controller qui reçoit les demandes extérieures et la couche DAO qui se charge d’obtenir ou de modifier les données nécessaires. Pour effectuer les calculs et obtenir les informations, elle utilise les objets métier Python (Station, Compte…). Une fois les opérations effectuées, elle retourne le résultat à la couche Controller afin que ces derniers soient transmis à l’utilisateur. Les classes concernées sont les suivantes :
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Il s’agit de la couche métier de notre application VeloScope. Elle reçoit les demandes des Controllers, applique les règles métier, réalise les calculs nécessaires (calcul de la fiabilité, recommandation d’une station…) et coordonne les appels à la couche DAO pour obtenir les informations nécessaires aux demandes. C’est la couche intermédiaire entre l’API/Controller qui reçoit les demandes extérieures et la couche DAO qui se charge d’obtenir ou de modifier les données nécessaires. Pour effectuer les calculs et obtenir les informations, elle utilise les objets métier Python (Station, Compte…). Une fois les opérations effectuées, elle retourne le résultat à la couche Controller afin que ce dernier soit transmis à l’utilisateur. Les classes concernées sont les suivantes :
 
 * CompteService : Gère les opérations métier qui concernent les comptes : créer un compte, modifier ses informations, le supprimer, rechercher un compte grâce à son identifiant, vérifier les identifiants de connexion, gérer les droits (admin ou non). Il communique avec CompteDAO pour avoir les informations dans la base de données. Par exemple, si un utilisateur veut se connecter, l’information reçue par le Controller est transmise à CompteService qui appelle CompteDAO pour retrouver le compte et vérifier le mot de passe.
   
@@ -216,11 +198,11 @@ Il s’agit de la couche métier de notre application VeloScope. Elle reçoit le
   
 * FiabilityService : S’occupe de la logique métier liée à la fiabilité des stations. Regarde si la station est vide, pleine, fonctionnelle, son pourcentage historique d’indisponibilité, le temps passé vide/saturée, la durée moyenne des épisodes de saturation et de pénurie, ainsi que le calcul du score global de fiabilité d’une station selon une règle qui reste à définir. Communique avec StationStatusDAO. 
 
-Module DAO:
+#### Module DAO:
 
 ![Diagramme de classes du module DAO](../ressources/Diagramme/Diagramme classes DAO.pdf)
 
-Comme expliqué ci-dessus, le DAO a pour rôle de recueillir les données de l’API externes et des utilisateurs, de les enregistrer et de les restituer sur demande du module Service. Ainsi, ce module possède 4 classes différentes qui découlent de notre modèle de données :
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Comme expliqué ci-dessus, le DAO a pour rôle de recueillir les données de l’API externes et des utilisateurs, de les enregistrer et de les restituer sur demande du module Service. Ainsi, ce module possède 4 classes différentes qui découlent de notre modèle de données :
 
 * La classe CompteDAO a pour rôle de recueillir les informations des utilisateurs via la méthode create pour créer leur compte ou via la méthode update pour changer leurs informations personnelles. L’administrateur pourra, à l’inverse des utilisateurs, modifier les informations publiques de tous les utilisateurs comme leurs username ou leurs emails. Ce dernier pourra également supprimer des comptes si nécessaire via la méthode delete. L’administrateur pourra également, via la méthode find_by_id ou list_all faire des recherches sur les utilisateurs.La fonction login, quant à elle, vérifiera si le mot de passe correspond bien avec le nom de l'utilisateur, puis retourne un booléen qui sera renvoyé en passant par le service CompteService à la classe AuthController qui donnera ou non l’authentification de l’utilisateur.
 
@@ -228,15 +210,12 @@ Comme expliqué ci-dessus, le DAO a pour rôle de recueillir les données de l�
 
 * La classe StationDAO a pour but de stocker et d'actualiser les informations statiques des stations (coordonnées GPS,  adresse, nom, capacité). Les méthodes create et create_or_update permettent d’ajouter de nouvelles stations ou de modifier les données existantes d’une station. Les méthodes find_by_id et list_all ayant le rôle de restituer les informations d’une station ou d'obtenir la liste complète.
 
-
 * La classe StationStatusDAO s’occupe de stocker l’historique au cours du temps de la station. Elle est actualisée toutes les 15 min par l’API externe. La méthode create_status enregistre les données d’un nouveau relevé pour une station. La méthode find_current_status s’occupe de restituer le dernier relevé d’état d’une station, contrairement à la méthode find_history qui renvoie tous les relevés d’une station entre deux dates.
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; La méthode get_connection permet d'allouer la connexion à un DAO qui la rend via la méthode release_connection pour qu’elle soit de nouveau disponible pour la prochaine requête. La méthode close_all mettant fin à la connexion quand l’application est fermée.
 
- La méthode get_connection permet d'allouer la connexion à un DAO qui la rend via la méthode release_connection pour qu’elle soit de nouveau disponible pour la prochaine requête. La méthode close_all mettant fin à la connexion quand l’application est fermée.
 
-
-Module API Externe:
-
+#### Module API Externe:
 
 \begin{figure}[htbp]
 \centering
@@ -244,17 +223,17 @@ Module API Externe:
 \caption{Diagramme de classes du module API Externe}
 \end{figure}
 
-Ce module a pour but d’envoyer au DAO des données régulières provenant d’une base de données extérieure. Dans ce projet son objectif est donc de fournir toutes les 15 minutes des données sur les vélos en libre-service.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ce module a pour but d’envoyer au DAO des données régulières provenant d’une base de données extérieure. Dans ce projet son objectif est donc de fournir toutes les 15 minutes des données sur les vélos en libre-service.
 
 * La classe CollectionService a pour but d’établir la connexion avec l’API externe et d'envoyer les données reçues au DAO et plus précisément aux classes StationStatusDAO et StationDAO. La méthode run_connexion ayant pour but d'automatiser la collecte de données toutes les 15 min en envoyant des requêtes à la classe GFBSProvider.
 
 * La classe GFBSProvider est une classe mère ayant pour but de standardiser les méthodes de collecte de données. Ceci nous permettant de facilement ajouter de nouveaux réseaux à analyser pour notre application. La méthode get_station se chargeant de récupérer la liste statique des stations alors que la méthode get_station_status récupère les données dynamiques de la station comme son nombre de vélo disponible entre autres.
 
 * La classe BordeauGFBSProvider hérite de la classe GFBSProvider et s’occupe directement de la récupération de données sur le réseau de Bordeaux. Elle fait appel à la classe GFBSClient pour récupérer les données qui sont ensuite transformées en objet via la classe BordeauxGFBSAdapter pour que les données soient lisibles pour le DAO.
+
 *La classe GFBSClient s’occupe de formuler les requêtes html vers l’API externe et récupère les données brutes. La méthode get_information_station captant les données statiques des stations et la méthode get_station_status captant les données dynamiques des stations.
 
 * La classe BordeauGFBSAdapter transforme via la méthode to_station les données statiques des stations reçues de GFBSClient en objets Station et fait de même avec les données dynamiques via la méthode to_station_status, transformée en objet StationStatus.
-
 
 
 ### Diagrammes de séquence
@@ -325,11 +304,11 @@ Ce module a pour but d’envoyer au DAO des données régulières provenant d’
 * de l'état actuel de la station (nombre de vélos disponibles, électriques ou non en fonction des préférences de l'utilisateur)
 * de la fiabilité historique de la station et de ses tendances récentes
 
-Nous avons réflechis à différentes manières de mettre en place cette fonction. Même si nous ne sommes qu'à l'étape de la réflexion, celle qui nous semble pour l'instant la plus pertinente est la suivante. Nous coefficientons chaque critère en fonction de l'importance que nous lui accordons. 35% pour la distance, 25% pour le nombre de vélos disponibles, 15% pour la fiabilité historique, 15% pour la disponibilité de vélo électrique et 10% pour la tendance récente. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nous avons réflechi à différentes manières de mettre en place cette fonction. Même si nous ne sommes qu'à l'étape de la réflexion, celle qui nous semble pour l'instant la plus pertinente est la suivante. Nous coefficientons chaque critère en fonction de l'importance que nous lui accordons. 35% pour la distance, 25% pour le nombre de vélos disponibles, 15% pour la fiabilité historique, 15% pour la disponibilité de vélo électrique et 10% pour la tendance récente. 
 
-Pour la distance, nous fixons une distance maximale, 2 kilomètres par exemple et on calcule le quotient entre la distance de la station et la distance maximale. Une station à 0 mètres rapporte 100 points, 50 pour une à 1 kilomètre et 0 pour une à 2 kilomètres. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pour la distance, nous fixons une distance maximale, 2 kilomètres par exemple et on calcule le quotient entre la distance de la station et la distance maximale. Une station à 0 mètres rapporte 100 points, 50 pour une à 1 kilomètre et 0 pour une à 2 kilomètres. 
 
-Pour le nombre de vélos disponibles, une station vide n'est pas prise en compte pour les recommandations. Pour les autres nous pensions diviser le nombre de vélos disponibles par la capacité de la station. Une station avec deux vélos disponibles sur 10 semble plus intéressante qu'une station de 40 places avec deux vélos disponibles. Le calcul pourra être le même pour les vélos électriques à noter que nous pourrions, à l'inscription sur l'application demander à l'utilisateur par quel type de vélo il est intéressé. Si les vélos électriques ne l'intéressent pas ce coefficient pourrait être réduit à 0. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pour le nombre de vélos disponibles, une station vide n'est pas prise en compte pour les recommandations. Pour les autres nous pensons diviser le nombre de vélos disponibles par la capacité de la station. Une station avec deux vélos disponibles sur 10 semble plus intéressante qu'une station de 40 places avec deux vélos disponibles. Le calcul pourra être le même pour les vélos électriques à noter que nous pourrions, à l'inscription sur l'application demander à l'utilisateur par quel type de vélo il est intéressé. Si les vélos électriques ne l'intéressent pas ce coefficient pourrait être réduit à 0. 
 
 Pour la fiabilité, nous utiliserons à la fois le temps passé vide, le temps passé saturé, la durée moyenne de pénurie et la durée moyenne saturée.
 
@@ -338,34 +317,32 @@ Pour la fiabilité, nous utiliserons à la fois le temps passé vide, le temps p
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nous nous concentrons pour l'instant sur les fonctionnalités obligatoires, mais avons commencé à appréhender les fonctionnalités facultatives (cf diagrammes de séquence).
 
-
 ## Présentation des menus
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 
-Menu 1 : Connexion et inscription
+#### Menu 1 : Connexion et inscription
 
-Au lancement de l'application, l'utilisateur accède à un écran lui permettant de se connecter avec son compte existant ou de créer un nouveau compte. Une fois connecté, il accède à l'ensemble des fonctionnalités de l'application.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Au lancement de l'application, l'utilisateur accède à un écran lui permettant de se connecter avec son compte existant ou de créer un nouveau compte. Une fois connecté, il accède à l'ensemble des fonctionnalités de l'application.
 
-Menu 2 : Carte du réseau
+#### Menu 2 : Carte du réseau
 
-C'est l'écran principal de l'application. Il présente l'ensemble des stations du réseau, avec pour chacune le nombre de vélos disponibles et le nombre de places libres en temps réel. L'utilisateur peut parcourir le réseau visuellement et sélectionner une station pour en consulter le détail.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; C'est l'écran principal de l'application. Il présente l'ensemble des stations du réseau, avec pour chacune le nombre de vélos disponibles et le nombre de places libres en temps réel. L'utilisateur peut parcourir le réseau visuellement et sélectionner une station pour en consulter le détail.
 
-Menu 3 : Détail d'une station
+#### Menu 3 : Détail d'une station
 
-En sélectionnant une station, l'utilisateur accède à une fiche détaillée présentant son état actuel (disponible, vide, saturée), sa capacité totale, ainsi que son taux de remplissage. Il peut choisir une période de consultation — dernières 24 heures, 7 derniers jours ou 30 derniers jours — pour visualiser l'évolution de la disponibilité de la station sur cette période. Ce même écran affiche également le score de fiabilité de la station, calculé à partir de son historique : le pourcentage de temps passé vide ou saturée, ainsi que la durée moyenne de ces épisodes. L'utilisateur peut, depuis cet écran, ajouter ou retirer la station de ses favoris.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En sélectionnant une station, l'utilisateur accède à une fiche détaillée présentant son état actuel (disponible, vide, saturée), sa capacité totale, ainsi que son taux de remplissage. Il peut choisir une période de consultation (dernières 24 heures, 7 derniers jours ou 30 derniers jours) pour visualiser l'évolution de la disponibilité de la station sur cette période. Ce même écran affiche également le score de fiabilité de la station, calculé à partir de son historique : le pourcentage de temps passé vide ou saturée, ainsi que la durée moyenne de ces épisodes. L'utilisateur peut, depuis cet écran, ajouter ou retirer la station de ses favoris.
 
-Menu 4 : Mes stations favorites
+#### Menu 4 : Mes stations favorites
 
-Cet écran regroupe l'ensemble des stations que l'utilisateur a marquées comme favorites, avec pour chacune son état actuel affiché directement, sans avoir à les rechercher une à une sur la carte du réseau.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cet écran regroupe l'ensemble des stations que l'utilisateur a marquées comme favorites, avec pour chacune son état actuel affiché directement, sans avoir à les rechercher une à une sur la carte du réseau.
 
-Menu 5 : Recherche d'itinéraire
+#### Menu 5 : Recherche d'itinéraire
 
-L'utilisateur saisit une adresse de départ et une adresse d'arrivée. L'application lui propose alors une station de départ et une station d'arrivée adaptées, ainsi que le temps de trajet et la distance estimés. La proposition ne se limite pas à la station la plus proche : elle tient compte également du nombre de vélos actuellement disponibles, de la fiabilité historique de la station et de la présence éventuelle de vélos électriques, afin de proposer le trajet le plus pertinent plutôt que le plus court. L’itinéraire à suivre est tracé sur la carte interactive.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; L'utilisateur saisit une adresse de départ et une adresse d'arrivée. L'application lui propose alors une station de départ et une station d'arrivée adaptées, ainsi que le temps de trajet et la distance estimés. La proposition ne se limite pas à la station la plus proche : elle tient compte également du nombre de vélos actuellement disponibles, de la fiabilité historique de la station et de la présence éventuelle de vélos électriques, afin de proposer le trajet le plus pertinent plutôt que le plus court. L’itinéraire à suivre est tracé sur la carte interactive.
 
-Menu 6 : Gestion des utilisateurs (administrateur)
+#### Menu 6 : Gestion des utilisateurs (administrateur)
 
-Réservé aux comptes administrateur, cet écran permet de consulter la liste des utilisateurs inscrits, de créer ou supprimer un compte, et de modifier le rôle d'un utilisateur.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Réservé aux comptes administrateur, cet écran permet de consulter la liste des utilisateurs inscrits, de créer ou supprimer un compte, et de modifier le rôle d'un utilisateur.
 
 
 
