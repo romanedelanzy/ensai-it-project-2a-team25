@@ -149,6 +149,7 @@ Dans notre cas, nous pensons partir sur l'API de la ville de Bordeaux "VLS Le V�
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Le diagramme d'activité ci-dessus est davantage détaillé. Lorsque l'utilisateur recherche une ville, il est confronté à différentes réponses de l'application. Dans le premier cas, la ville n'est pas reconnue. L'utilisateur doit relancer une recherche. Si les trois premiers caractères sont reconnus, l'application affiche la liste des villes correspondantes. Si la ville recherchée y figure ou si la ville avait été directement reconnue, l'utilisateur peut choisir une station. Si la station est reconnue, l'application affiche les informations associées et la requête prend fin. De la même manière que pour les villes, une chaîne de trois caractères permet d'afficher une liste de stations correspondantes. Si la station recherchée n'apparaît pas, l'utilisateur est invité à saisir un nom de station différent. Si la station est présente dans la liste, l'utilisateur la sélectionne et les informations associées s'affichent. L'utilisateur peut mettre fin à sa recherche, rechercher une autre ville ou une autre station. 
 
+\newpage
 
 ### Modèle des données
 
