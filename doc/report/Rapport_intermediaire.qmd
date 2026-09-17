@@ -154,7 +154,7 @@ Dans notre cas, nous pensons partir sur l'API de la ville de Bordeaux "VLS Le V�
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Le modèle de données représente les différentes entités utilisées par l'application et les liens qui existent entre elles.
 
-![Modèle de données](../ressources/Diagramme/Modele_donnees.pdf)
+![Modèle de données](../ressources/Diagramme/Modele_donnees.pdf){width=70% fig-pos='H'}
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; L'élément "Réseau" correspond au réseau de vélos en libre-service qui est associé à une ville. L'entité "Station" contient les informations sur chaque station. Elle est à la fois reliée à l'historique des relevés, aux favoris de chaque utilisateur, et aux statistiques. La table "StationsStatus" contient les relevés successifs récupérés par l'API pour chacune des stations. Chaque relevé est unique car la table contient deux clés primaires : l'identifiant de la station et la date et l'heure du relevé. La table "FiabilitiesStations" stocke les statistiques et indicateurs calculés à partir de l'historique. La table "Favoris" fait le lien entre "Compte" et "Infos_stations" parce qu'un utilisateur peut ajouter plusieurs stations à ses favoris, et une même station peut être mise dans les favoris par plusieurs utilisateurs différents. L'élément "Compte" contient les informations de compte, dont un booléen `admin` qui distingue les comptes administrateurs des comptes utilisateurs. 
 
