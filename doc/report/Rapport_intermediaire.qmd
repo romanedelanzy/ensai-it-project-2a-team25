@@ -169,14 +169,38 @@ Module Controller:
 
 ![Diagramme de classes du module Controller](../ressources/Diagramme/Diagramme classes Controller.pdf)
 
-blabla
+La couche Controller se compose de 6 classes, 5 étant associées à un service métier et une 6ème pour gérer l’authentification d’un utilisateur à son compte. Le controller est l’interface entre une requête sur le site Streamlit VeloScope et le service métier. Il reçoit une requête depuis le site, par exemple une demande de création de compte en format JSON, et se charge de convertir cette requête en objet Python grâce à FastAPI/Pydantic et de transmettre cet objet au service métier. Des classes supplémentaires BaseModel, non représentées sur le diagramme de classes, pourront être créées afin de faciliter la première conversion JSON/objet Python.
+
+Les classes concernées sont les suivantes :
+
+  • CompteController : La classe permet de transmettre l’information pour créer un compte (admin ou utilisateur), mettre à jour ses informations, le supprimer, lister tous les comptes, ou encore rechercher un compte grâce à son identifiant (ce qui peut être utile en tant qu’admin). (F1)
+    
+  • AuthController : Elle reçoit la demande de connexion de l’utilisateur depuis Streamlit, la convertit en objet Python et transmet cette demande à CompteService pour vérifier la conformité de l’identifiant et du mot de passe.
+    
+  • FavoriController : Si une demande d’ajout ou de suppression de favori est faite par un utilisateur, la classe se charge de la transmettre. Elle permettra aussi de faire le lien avec l’application Streamlit pour qu’un utilisateur puisse avoir accès à sa liste de favoris. (F1)
+    
+  • StationController : Elle sert à recevoir les demandes liées aux stations et à les transmettre à StationService. Cela correspond à la fonctionnalité F3. Si un utilisateur veut consulter les stations de la ville de Bordeaux, savoir si une station est disponible ou non, savoir le nombre de vélos électriques dans une station, etc.
+    
+  • RecommendationController : Classe Controller relative à la fonctionnalité F5. Elle permet de transmettre la position courante de l’utilisateur quand celui-ci fait une demande de recommandation afin de prendre en compte la distance à une station pour la pertinence. L’information est transmise à RecommendationService.
+    
+  • FiabilityController : Correspond à la fonctionnalité F4. Comme un score de fiabilité doit être calculé pour chaque station, lors d’une recherche de station ou d’une recommandation, l’utilisateur doit pouvoir accéder au score de fiabilité. On pourrait aussi imaginer un scénario où le score de fiabilité n’est pas affiché dès le départ lors de la recherche d’une station et l’utilisateur en fait la demande explicite, bien que cela soit moins intuitif. La demande est transmise à FiabilityService.
 
 Module Sevice:
 
 
 ![Diagramme de classes du module Service](../ressources/Diagramme/Diagramme classes Services.pdf)
 
-blabla
+Il s’agit de la couche métier de notre application VeloScope. Elle reçoit les demandes des Controllers, applique les règles métier, réalise les calculs nécessaires (calcul de la fiabilité, recommandation d’une station…) et coordonne les appels à la couche DAO pour obtenir les informations nécessaires aux demandes. C’est la couche intermédiaire entre l’API/Controller qui reçoit les demandes extérieures et la couche DAO qui se charge d’obtenir ou de modifier les données nécessaires. Pour effectuer les calculs et obtenir les informations, elle utilise les objets métier Python (Station, Compte…). Une fois les opérations effectuées, elle retourne le résultat à la couche Controller afin que ces derniers soient transmis à l’utilisateur. Les classes concernées sont les suivantes :
+
+  • CompteService : Gère les opérations métier qui concernent les comptes : créer un compte, modifier ses informations, le supprimer, rechercher un compte grâce à son identifiant, vérifier les identifiants de connexion, gérer les droits (admin ou non). Il communique avec CompteDAO pour avoir les informations dans la base de données. Par exemple, si un utilisateur veut se connecter, l’information reçue par le Controller est transmise à CompteService qui appelle CompteDAO pour retrouver le compte et vérifier le mot de passe.
+  
+  • FavoriService : Gère les opérations concernant les favoris d’un utilisateur. Permet d’ajouter un favori (en vérifiant que la station n’est pas déjà dans la liste de favoris), d’en supprimer un ou d’accéder à tous les favoris d’un utilisateur. Il communique avec FavoriDAO.
+  
+  • StationService : Gère les demandes de consultation et de recherche des stations : consulter les informations d’une station grâce à son identifiant, savoir si la station est opérationnelle, préparer les données nécessaires à l’affichage (notamment l’historique). Il communique avec StationDAO et StationStatusDAO.
+  
+  • RecommendationService : Le service qui construit les recommandations de stations. Il permet de calculer la distance entre la position d’un utilisateur (reçue depuis RecommendationController) et une station, d’en sortir les stations les plus proches, de calculer un score pour classer les recommandations, et d’envoyer au Controller les stations recommandées. Pour les recommandations, il pourra aussi prendre en compte les critères de l’utilisateur. Comme la recommandation prendra en compte le score de fiabilité, il communique avec FiabilityService. Il récupère les informations nécessaires relatives aux stations grâce à StationDAO et StationStatusDAO.
+  
+  • FiabilityService : S’occupe de la logique métier liée à la fiabilité des stations. Regarde si la station est vide, pleine, fonctionnelle, son pourcentage historique d’indisponibilité, le temps passé vide/saturée, la durée moyenne des épisodes de saturation et de pénurie, ainsi que le calcul du score global de fiabilité d’une station selon une règle qui reste à définir. Communique avec StationStatusDAO. 
 
 Module DAO:
 
