@@ -162,7 +162,8 @@ D'autre part, lorsqu'un utilisateur effectue une demande via l'interface, elle p
 
 ### Diagramme de classes
 
-![Diagramme d'interaction des classes ](../ressources/Diagramme/digramme classes simplifié.pdf)
+
+![Diagramme d'interaction des classes ](../ressources/Diagramme/diagramme classes simplifié.pdf)
 
 Module Controller:
 
