@@ -154,7 +154,7 @@ D'autre part, lorsqu'un utilisateur effectue une demande via l'interface, elle p
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Le modèle de données représente les différentes entités utilisées par l'application et leurs liens entre elles.
 
-![Modèle de données](../ressources/Diagramme/Modele_donnees.png)
+![Modèle de données](../ressources/Diagramme/Modele_donnees.pdf)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; L'élément "Réseau" correspond au réseau de vélos en libre-service qui est associé à une ville. L'entité "Infos_stations" contient les informations sur chaque station. Elle est à la fois reliée à l'historique des relevés et aux favoris de chaque utilisateur. La table "Historique_stations" contient les relevés successifs récupérés par l'API pour chacune des stations. Chaque relevé est unique car la table contient deux clés primaires : l'identifiant de la station et la date et l'heure du relevé. La table "Statistiques_stations" stocke les statistiques et indicateurs calculés à partir de l'historique. La table "Favoris" fait le lien entre "Utilisateurs" et "Infos_stations" parce qu'un utilisateur peut ajouter plusieurs stations à ses favoris, et une même station peut être mise dans les favoris par plusieurs utilisateurs différents. L'élément "Utilisateurs" contient les informations de compte, notamment un booléen `admin` qui distingue les comptes administrateurs des comptes utilisateurs. 
 
@@ -230,7 +230,17 @@ Module API Externe:
 \caption{Diagramme de classes du module API Externe}
 \end{figure}
 
-blabla
+Ce module a pour but d’envoyer au DAO des données régulières provenant d’une base de données extérieure. Dans ce projet son objectif est donc de fournir toutes les 15 minutes des données sur les vélos en libre-service.
+
+* La classe CollectionService a pour but d’établir la connexion avec l’API externe et d'envoyer les données reçues au DAO et plus précisément aux classes StationStatusDAO et StationDAO. La méthode run_connexion ayant pour but d'automatiser la collecte de données toutes les 15 min en envoyant des requêtes à la classe GFBSProvider.
+
+* La classe GFBSProvider est une classe mère ayant pour but de standardiser les méthodes de collecte de données. Ceci nous permettant de facilement ajouter de nouveaux réseaux à analyser pour notre application. La méthode get_station se chargeant de récupérer la liste statique des stations alors que la méthode get_station_status récupère les données dynamiques de la station comme son nombre de vélo disponible entre autres.
+
+* La classe BordeauGFBSProvider hérite de la classe GFBSProvider et s’occupe directement de la récupération de données sur le réseau de Bordeaux. Elle fait appel à la classe GFBSClient pour récupérer les données qui sont ensuite transformées en objet via la classe BordeauxGFBSAdapter pour que les données soient lisibles pour le DAO.
+*La classe GFBSClient s’occupe de formuler les requêtes html vers l’API externe et récupère les données brutes. La méthode get_information_station captant les données statiques des stations et la méthode get_station_status captant les données dynamiques des stations.
+
+* La classe BordeauGFBSAdapter transforme via la méthode to_station les données statiques des stations reçues de GFBSClient en objets Station et fait de même avec les données dynamiques via la méthode to_station_status, transformée en objet StationStatus.
+
 
 
 ### Diagrammes de séquence
