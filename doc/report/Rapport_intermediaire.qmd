@@ -154,7 +154,7 @@ Il faudra donc trouver un réseau de location de vélos dont l'API pourra récup
 
 ![Modèle de données](../ressources/Diagramme/Modele_donnees.pdf)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; L'élément "Réseau" correspond au réseau de vélos en libre-service qui est associé à une ville. L'entité "Infos_stations" contient les informations sur chaque station. Elle est à la fois reliée à l'historique des relevés et aux favoris de chaque utilisateur. La table "Historique_stations" contient les relevés successifs récupérés par l'API pour chacune des stations. Chaque relevé est unique car la table contient deux clés primaires : l'identifiant de la station et la date et l'heure du relevé. La table "Statistiques_stations" stocke les statistiques et indicateurs calculés à partir de l'historique. La table "Favoris" fait le lien entre "Utilisateurs" et "Infos_stations" parce qu'un utilisateur peut ajouter plusieurs stations à ses favoris, et une même station peut être mise dans les favoris par plusieurs utilisateurs différents. L'élément "Utilisateurs" contient les informations de compte, notamment un booléen `admin` qui distingue les comptes administrateurs des comptes utilisateurs. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; L'élément "Réseau" correspond au réseau de vélos en libre-service qui est associé à une ville. L'entité "Station" contient les informations sur chaque station. Elle est à la fois reliée à l'historique des relevés, aux favoris de chaque utilisateur, et aux statistiques. La table "StationsStatus" contient les relevés successifs récupérés par l'API pour chacune des stations. Chaque relevé est unique car la table contient deux clés primaires : l'identifiant de la station et la date et l'heure du relevé. La table "FiabilitiesStations" stocke les statistiques et indicateurs calculés à partir de l'historique. La table "Favoris" fait le lien entre "Compte" et "Infos_stations" parce qu'un utilisateur peut ajouter plusieurs stations à ses favoris, et une même station peut être mise dans les favoris par plusieurs utilisateurs différents. L'élément "Compte" contient les informations de compte, notamment un booléen `admin` qui distingue les comptes administrateurs des comptes utilisateurs. 
 
 
 ### Diagramme de classes
@@ -182,7 +182,7 @@ Les classes concernées sont les suivantes :
     
 * FiabilityController : Correspond à la fonctionnalité F4. Comme un score de fiabilité doit être calculé pour chaque station, lors d’une recherche de station ou d’une recommandation, l’utilisateur doit pouvoir accéder au score de fiabilité. On pourrait aussi imaginer un scénario où le score de fiabilité n’est pas affiché dès le départ lors de la recherche d’une station et l’utilisateur en fait la demande explicite, bien que cela soit moins intuitif. La demande est transmise à FiabilityService.
 
-#### Module Sevice:
+#### Module Service:
 
 ![Diagramme de classes du module Service](../ressources/Diagramme/Diagramme classes Services.pdf)
 
