@@ -212,7 +212,8 @@ Les classes concernées sont les suivantes :
 
 * La classe StationStatusDAO s’occupe de stocker l’historique au cours du temps de la station. Elle est actualisée toutes les 15 min par l’API externe. La méthode create_status enregistre les données d’un nouveau relevé pour une station. La méthode find_current_status s’occupe de restituer le dernier relevé d’état d’une station, contrairement à la méthode find_history qui renvoie tous les relevés d’une station entre deux dates.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; La méthode get_connection permet d'allouer la connexion à un DAO qui la rend via la méthode release_connection pour qu’elle soit de nouveau disponible pour la prochaine requête. La méthode close_all mettant fin à la connexion quand l’application est fermée.
+* La classe DatabaseConnexion à pour but de gérer la connexion avec la base de données. Cette classe ouvre une connexion au service Postrgresql via l’attribut connexion_pool. L’attribut instrance limite cette connexion à une requête à la fois, ceci permettant d'éviter des conflits d’écriture entre les DAO. Procédé ainsi nous permet de gagner en performance car la connexion à la base de données reste toujours ouverte tant que l’application est utilisée, ceci évite les déconnexions et reconnexions lors de l'exécution de chaque requête. La méthode get_connection permet d'allouer la connexion à un DAO qui la rend via la méthode release_connection pour qu’elle soit de nouveau disponible pour la prochaine requête. La méthode close_all mettant fin à la connexion quand l’application est fermée.
+
 
 
 #### Module API Externe:
