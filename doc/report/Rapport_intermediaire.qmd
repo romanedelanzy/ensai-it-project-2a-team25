@@ -293,7 +293,9 @@ Pour la fiabilité, nous utiliserons à la fois le temps passé vide, le temps p
 
 ## Présentation des menus
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Menu 1 : Connexion et inscription
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+
+Menu 1 : Connexion et inscription
 
 Au lancement de l'application, l'utilisateur accède à un écran lui permettant de se connecter avec son compte existant ou de créer un nouveau compte. Une fois connecté, il accède à l'ensemble des fonctionnalités de l'application.
 
