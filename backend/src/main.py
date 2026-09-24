@@ -23,7 +23,11 @@ load_environment_variables()
 display_values()
 
 
-app = FastAPI(title="My Webservice")
+app = FastAPI(
+    title="My Webservice",
+    root_path="/proxy/5000",
+    servers=[{"url": "https://user-elouan-460462-0.user.lab.sspcloud.fr/proxy/5000"}],
+)
 
 app.add_middleware(LogMiddleware)
 
