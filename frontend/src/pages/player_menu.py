@@ -1,7 +1,8 @@
 """
 Streamlit page for the main player menu.
 
-Provides navigation to available actions such as listing players or playing games for logged-in users.
+Provides navigation to available actions s
+such as listing players or playing games for logged-in users.
 """
 
 import streamlit as st
@@ -22,8 +23,15 @@ st.write("Available actions:")
 
 if st.button("List all players"):
     st.switch_page("pages/list_players.py")
-if st.button(label="Play"):
-    st.switch_page("pages/play_game.py")
+
+# Bouton mis à jour vers play_coinflip.py
+if st.button(label="Play Coinflip"):
+    st.switch_page("pages/play_coinflip.py")
+
+# Nouveau bouton pour le jeu de dés
+if st.button(label="Play Dice"):
+    st.switch_page("pages/play_dice.py")
+
 if st.button(label="Log out", type="primary"):
     logger.info("Log out")
     del st.session_state["player"]
