@@ -6,7 +6,7 @@ from psycopg2.extras import RealDictCursor
 from utils.singleton import Singleton
 
 
-class DBConnection(metaclass=Singleton):
+class DataBaseConnection(metaclass=Singleton):
     """Database connection manager implementing the Singleton pattern.
 
     This class ensures that only a single connection to the PostgreSQL
