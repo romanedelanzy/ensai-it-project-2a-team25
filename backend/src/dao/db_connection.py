@@ -23,8 +23,11 @@ class DBConnection(metaclass=Singleton):
             KeyError: If any of the required POSTGRES_* environment variables are missing.
             psycopg2.Error: If the connection to the database fails.
         """
+        self.__connection = self._create_connection()
 
-        self.__connection = psycopg2.connect(
+    def _create_connection(self):
+        """Crée et retourne une nouvelle connexion PostgreSQL."""
+        return psycopg2.connect(
             host=os.environ["POSTGRES_HOST"],
             port=os.environ["POSTGRES_PORT"],
             database=os.environ["POSTGRES_DATABASE"],
@@ -40,4 +43,15 @@ class DBConnection(metaclass=Singleton):
         Returns:
             The established database connection.
         """
+        # Si la connexion a été fermée, recrée en une automatiquement
+        # afin d'éviter que les DAO tentent d'utiliser une connexion invalide.
+        if self.__connection.closed:
+            self.__connection = self._create_connection()
+
         return self.__connection
+
+        def close(self):
+            """Ferme proprement la connexion PostgreSQL."""
+
+        # pour vérifier que la connexion existe et qu'elle n'est pas déjà fermée
+        # avant d'appeler close().
