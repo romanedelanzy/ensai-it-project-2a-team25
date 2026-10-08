@@ -1,4 +1,4 @@
-from models.compte import Compte
+from business_object.compte import Compte
 from dao.db_connection import DBConnection
 from utils.log_utils import get_logger, log
 from utils.singleton import Singleton
@@ -65,8 +65,7 @@ class CompteDAO(metaclass=Singleton):
         return compte
 
     @log
-    def creer(self, compte: Compte) -> bool:
-        """Insère un nouveau compte dans la base de données."""
+    def creer(self, compte: Compte) -> int | None:  # Change le type de retour si tu veux
         res = None
         try:
             with DBConnection().connection as connection:
@@ -87,11 +86,12 @@ class CompteDAO(metaclass=Singleton):
                     res = cursor.fetchone()
                     if res:
                         compte.user_id = res["user_id"]
+                        return res["user_id"]  # <--- On retourne directement le user_id récupéré
         except Exception as e:
             logger.error(e)
             raise
 
-        return res is not None
+        return None
 
     @log
     def update(self, compte: Compte) -> bool:
