@@ -1,10 +1,12 @@
-from dao.CompteDAO import CompteDAO
 import time
+
 from business_object.compte import Compte
+from dao.CompteDAO import CompteDAO
 from utils.env_variables import load_environment_variables
 
 # test des méthodes de CompteDAO
 load_environment_variables()
+
 
 print("--- 1. Test de list_all() initialisation---")
 
@@ -37,11 +39,11 @@ else:
 
 print("\n--- 4. Test de create() ---")
 
-# Génération d'un username unique basé sur le temps actuel pour éviter les erreurs d'unicité du paramètre username
+# Génération d'un username unique basé sur le temps actuel pour éviter les erreurs d'unicité du
+# paramètre username
 unique_username = f"test_creation_{int(time.time())}"
 
 nouveau_compte = Compte(
-    user_id=0,
     username=unique_username,
     is_admin=False,
     password="password_test",
@@ -74,7 +76,10 @@ print("\n--- 6. Test de update() ---")
 compte_a_modifier = CompteDAO().trouver_par_id(2)
 
 if compte_a_modifier:
-    print(f"Avant modification -> Username : {compte_a_modifier.username} | Admin : {compte_a_modifier.is_admin} | Email : {compte_a_modifier.email}")
+    print(
+        f"Avant modification -> Username : {compte_a_modifier.username}"
+        f" | Admin : {compte_a_modifier.is_admin} | Email : {compte_a_modifier.email}"
+        )
 
     # 2. Modification des attributs
     compte_a_modifier.username = "username2_modifie"
@@ -89,7 +94,10 @@ if compte_a_modifier:
 
         # 4. Vérification immédiate en le rechargeant depuis la base
         compte_verif = CompteDAO().trouver_par_id(2)
-        print(f"Après modification -> Username : {compte_verif.username} | Admin : {compte_verif.is_admin} | Email : {compte_verif.email}")
+        print(
+            f"Après modification -> Username : {compte_verif.username}"
+            f" | Admin : {compte_verif.is_admin} | Email : {compte_verif.email}"
+            )
     else:
         print("Échec de la mise à jour.")
 else:

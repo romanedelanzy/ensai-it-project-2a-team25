@@ -12,11 +12,11 @@ class Compte:
 
     def __init__(
         self,
-        user_id: int,
         username: str,
         is_admin: bool,
         password: str,
-        email: str
+        email: str,
+        user_id: int | None = None
     ):
         if not isinstance(username, str):
             raise TypeError("L'attribut username doit être de type str.")

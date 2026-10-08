@@ -2,7 +2,6 @@ from business_object.compte import Compte
 from dao.db_connection import DBConnection
 from utils.log_utils import get_logger, log
 from utils.singleton import Singleton
-import psycopg2
 
 logger = get_logger(__name__)
 
@@ -18,7 +17,8 @@ class CompteDAO(metaclass=Singleton):
             with DBConnection().connection as connection:
                 with connection.cursor() as cursor:
                     cursor.execute(
-                        "SELECT user_id, username, is_admin, password_hash, email FROM compte WHERE user_id = %(user_id)s;",
+                        "SELECT user_id, username, is_admin, password_hash, email FROM compte"
+                        " WHERE user_id = %(user_id)s;",
                         {"user_id": user_id}
                     )
                     res = cursor.fetchone()
@@ -45,7 +45,8 @@ class CompteDAO(metaclass=Singleton):
             with DBConnection().connection as connection:
                 with connection.cursor() as cursor:
                     cursor.execute(
-                        "SELECT user_id, username, is_admin, password_hash, email FROM compte WHERE username = %(username)s;",
+                        "SELECT user_id, username, is_admin, password_hash, email FROM compte"
+                        " WHERE username = %(username)s;",
                         {"username": username}
                     )
                     res = cursor.fetchone()
@@ -102,10 +103,10 @@ class CompteDAO(metaclass=Singleton):
                 with connection.cursor() as cursor:
                     cursor.execute(
                         """
-                        UPDATE compte 
-                        SET username = %(username)s, 
-                            is_admin = %(is_admin)s, 
-                            password_hash = %(password_hash)s, 
+                        UPDATE compte
+                        SET username = %(username)s,
+                            is_admin = %(is_admin)s,
+                            password_hash = %(password_hash)s,
                             email = %(email)s
                         WHERE user_id = %(user_id)s
                         RETURNING user_id;
@@ -150,7 +151,10 @@ class CompteDAO(metaclass=Singleton):
         try:
             with DBConnection().connection as connection:
                 with connection.cursor() as cursor:
-                    cursor.execute("SELECT user_id, username, is_admin, password_hash, email FROM compte ORDER BY username;")
+                    cursor.execute(
+                        "SELECT user_id, username, is_admin, password_hash, email FROM compte",
+                        "ORDER BY username;"
+                    )
                     res = cursor.fetchall()
         except Exception as e:
             logger.error(e)
