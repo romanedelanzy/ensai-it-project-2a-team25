@@ -62,7 +62,7 @@ class StationStatusDao:
 
 @log
 def find_current_status(
-    self, id_station: int
+    self, id_station: str
 ) -> StationStatus | None:
     """Find the last updated status of a station by its id."""
 
@@ -99,7 +99,7 @@ def find_current_status(
 
 @log
 def find_history(
-    self, station_id: int, start_date: datetime, end_date: datetime
+    self, station_id: str, start_date: datetime, end_date: datetime
 ) -> list[StationStatus]:
     """List all station statuses for a station between two dates."""
 

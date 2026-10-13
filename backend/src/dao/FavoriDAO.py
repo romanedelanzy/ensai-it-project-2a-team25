@@ -1,4 +1,5 @@
 from business_object.favori import Favori
+
 from dao.db_connection import DBConnection
 from utils.log_utils import get_logger, log
 from utils.singleton import Singleton
@@ -16,7 +17,7 @@ class FavoriDao(metaclass=Singleton):
         Args:
             user_id : int
                  Identifiant de l'utilisateur.
-            station_id :int
+            station_id :str
                  Identifiant de la station.
 
         Returns:
@@ -50,13 +51,13 @@ class FavoriDao(metaclass=Singleton):
         return res == 1
 
     @log
-    def remove_favorite(self, user_id: int, station_id: int) -> bool:
+    def remove_favorite(self, user_id: int, station_id: str) -> bool:
         """Supprime une station des favoris d'un utilisateur.
 
         Args:
             user_id : int
                 Identifiant de l'utilisateur.
-            station_id :int
+            station_id :str
                  Identifiant de la station.
 
         Returns:

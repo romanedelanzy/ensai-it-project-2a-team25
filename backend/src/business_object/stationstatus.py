@@ -6,7 +6,7 @@ from datetime import datetime
 class StationStatus:
     """Représente l'état ponctuel d'une station"""
 
-    id_station: int
+    id_station: str
     horodatage: datetime
     nb_velos_dispos: int
     nb_velos_elec_dispos: int
