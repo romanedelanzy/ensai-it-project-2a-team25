@@ -55,3 +55,5 @@ class DBConnection(metaclass=Singleton):
 
         # pour vérifier que la connexion existe et qu'elle n'est pas déjà fermée
         # avant d'appeler close().
+        if self.__connection and not self.__connection.closed:
+            self.__connection.close()
