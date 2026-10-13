@@ -72,3 +72,18 @@ Lien vers des flux qui pourraient fonctionner :
 [7 Vallées vélo](https://mobilitydatabase.org/feeds/gbfs/gbfs-7vallees) Mais seulement 4 stations, et que des vélos électriques ou à assistance électrique
 
 [Cité Cycle](https://mobilitydatabase.org/feeds/gbfs/gbfs-citecycle) pareil
+
+### fichier .env
+
+POSTGRES_HOST=postgresql-cnpg-4770-rw.user-jeanpohardy
+POSTGRES_PORT=5432
+POSTGRES_DATABASE=defaultdb
+POSTGRES_USER=user-jeanpohardy
+POSTGRES_PASSWORD=qd3struc45ae8qdz6qob
+POSTGRES_SCHEMA=project
+
+UVICORN_HOST=0.0.0.0
+UVICORN_PORT=5000
+
+BACKEND_URL=http://localhost:5000
+BACKEND_TIMEOUT=5
