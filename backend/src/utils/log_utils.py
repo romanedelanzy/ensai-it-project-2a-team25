@@ -94,7 +94,7 @@ def log(func):
 
         # Retrieve method parameters
         method_name = func.__name__
-        param_names = func.__code__.co_varnames[1 : func.__code__.co_argcount]
+        param_names = func.__code__.co_varnames[1: func.__code__.co_argcount]
         args_list = []
 
         for i, arg in enumerate(args[1:]):
@@ -116,7 +116,11 @@ def log(func):
 
         # Log method entry
         logger.info(f"{indentation}{method_name}{args_tuple} - START")
-        result = func(*args, **kwargs)
+        try:
+            result = func(*args, **kwargs)
+        except Exception as err:
+            logger.error(f"--- ERREUR REELLE DANS {method_name} : {type(err).__name__} - {err}")
+            raise err
         logger.info(f"{indentation}{method_name}{args_tuple} - END")
 
         # Shorten long output for readability

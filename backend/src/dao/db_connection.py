@@ -50,8 +50,10 @@ class DBConnection(metaclass=Singleton):
 
         return self.__connection
 
-        def close(self):
-            """Ferme proprement la connexion PostgreSQL."""
+    def close(self):
+        """Ferme proprement la connexion PostgreSQL."""
 
         # pour vérifier que la connexion existe et qu'elle n'est pas déjà fermée
         # avant d'appeler close().
+        if self.__connection and not self.__connection.closed:
+            self.__connection.close()
