@@ -36,3 +36,26 @@ INSERT INTO compte (username, is_admin, password_hash, email) VALUES
 ('username6', FALSE, 'password_hash6', 'username6@email.fr'),
 ('username7', FALSE, 'password_hash7', 'username7@email.fr'),
 ('username8', FALSE, 'password_hash8', 'username8@email.fr');
+
+------------------------------------------------------------
+-- Réseau
+------------------------------------------------------------
+DROP TABLE IF EXISTS reseau CASCADE;
+CREATE TABLE reseau (
+    reseau_id SERIAL PRIMARY KEY,
+    name      VARCHAR(100) NOT NULL UNIQUE
+);
+
+------------------------------------------------------------
+-- Station
+------------------------------------------------------------
+DROP TABLE IF EXISTS station CASCADE;
+CREATE TABLE station (
+    station_id VARCHAR(50) PRIMARY KEY,
+    reseau_id  INTEGER NOT NULL REFERENCES reseau(reseau_id) ON DELETE CASCADE,
+    name       VARCHAR(150) NOT NULL,
+    adresse    VARCHAR(255),
+    latitude   DOUBLE PRECISION NOT NULL CHECK (latitude BETWEEN -90 AND 90),
+    longitude  DOUBLE PRECISION NOT NULL CHECK (longitude BETWEEN -180 AND 180),
+    capacite   INTEGER NOT NULL CHECK (capacite >= 0)
+);
