@@ -59,3 +59,14 @@ CREATE TABLE station (
     longitude  DOUBLE PRECISION NOT NULL CHECK (longitude BETWEEN -180 AND 180),
     capacite   INTEGER NOT NULL CHECK (capacite >= 0)
 );
+
+------------------------------------------------------------
+-- Favoris
+------------------------------------------------------------
+DROP TABLE IF EXISTS favoris CASCADE;
+CREATE TABLE favoris (
+    user_id    INTEGER     NOT NULL REFERENCES compte(user_id)    ON DELETE CASCADE,
+    station_id VARCHAR(50) NOT NULL REFERENCES station(station_id) ON DELETE CASCADE,
+    create_at  TIMESTAMP   NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (user_id, station_id)
+);
