@@ -1,3 +1,4 @@
+
 class Compte:
     """
     Représente un compte utilisateur dans l'application
@@ -7,7 +8,7 @@ class Compte:
         username (str) : Nom d'utilisateur unique.
         is_admin (bool) : Indique si le compte possède les privilèges administrateur.
         email (str) : Adresse électronique associée au compte.
-
+        access_token (str, optional) : Jeton d'accès pour l'authentification.
     """
 
     def __init__(
@@ -16,7 +17,8 @@ class Compte:
         is_admin: bool,
         password: str,
         email: str,
-        user_id: int | None = None
+        user_id: int | None = None,
+        access_token: str | None = None,
     ):
         if not isinstance(username, str):
             raise TypeError("L'attribut username doit être de type str.")
@@ -26,12 +28,15 @@ class Compte:
             raise TypeError("L'attribut password doit être de type str.")
         if not isinstance(email, str):
             raise TypeError("L'attribut email doit être de type str.")
+        if access_token is not None and not isinstance(access_token, str):
+            raise TypeError("L'attribut access_token doit être de type str.")
 
         self.user_id = user_id
         self.username = username
         self.is_admin = is_admin
         self.__password = password
         self.email = email
+        self.access_token = access_token
 
     @property
     def password_hash(self) -> str:
@@ -47,4 +52,5 @@ class Compte:
         return (f"Compte(user_id={self.user_id}, "
                 f"username={self.username}, "
                 f"is_admin={self.is_admin}, "
-                f"email={self.email})")
+                f"email={self.email}, "
+                f"access_token={self.access_token})")
