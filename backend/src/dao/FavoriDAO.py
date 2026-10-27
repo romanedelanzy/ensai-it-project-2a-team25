@@ -1,5 +1,5 @@
-from business_object.favoris import Favori
 
+from business_object.favoris import Favori
 from dao.db_connection import DBConnection
 from utils.log_utils import get_logger, log
 from utils.singleton import Singleton
