@@ -1,3 +1,4 @@
+
 from datetime import datetime
 
 from business_object.stationstatus import StationStatus
@@ -12,11 +13,13 @@ class StationStatusDao:
 
     @log
     def create_status(self, status: StationStatus) -> bool:
-        """Create a stationstatus in the database.
+        """Create a station status in the database.
+
         Args:
-            StationStatus to create
+            status: StationStatus to create.
+
         Returns:
-            True if creation is successful, False otherwise
+            True if creation is successful, False otherwise.
         """
         res = None
 
@@ -45,98 +48,94 @@ class StationStatusDao:
                             "is_installed": status.est_installee,
                             "is_renting": status.permet_emprunt,
                             "is_returning": status.permet_retour,
-
                         },
                     )
                     res = cursor.fetchone()
+
         except Exception as e:
             logger.error(e)
             raise
 
-        created = False
-        if res:
-            created = True
+        return res is not None
 
-        return created
+    @log
+    def find_current_status(
+        self, id_station: str
+    ) -> StationStatus | None:
+        """Find the last updated status of a station by its id."""
 
+        try:
+            with DBConnection().connection as connection:
+                with connection.cursor() as cursor:
+                    cursor.execute(
+                        "SELECT * "
+                        "FROM station_status "
+                        "WHERE station_id = %(id_station)s "
+                        "ORDER BY last_reported DESC "
+                        "LIMIT 1;",
+                        {"id_station": id_station},
+                    )
+                    res = cursor.fetchone()
 
-@log
-def find_current_status(
-    self, id_station: str
-) -> StationStatus | None:
-    """Find the last updated status of a station by its id."""
+        except Exception as e:
+            logger.error(e)
+            raise
 
-    try:
-        with DBConnection().connection as connection:
-            with connection.cursor() as cursor:
-                cursor.execute(
-                    "SELECT * "
-                    "FROM station_status "
-                    "WHERE station_id = %(id_station)s "
-                    "ORDER BY last_reported DESC "
-                    "LIMIT 1;",
-                    {"id_station": id_station},
-                )
-                res = cursor.fetchone()
-    except Exception as e:
-        logger.error(e)
-        raise
+        if res is None:
+            return None
 
-    if res is None:
-        return None
-
-    return StationStatus(
-        id_station=id_station,
-        horodatage=res["last_reported"],
-        nb_velos_dispos=res["num_bike_available"],
-        nb_velos_elec_dispos=res["num_bike_elec_available"],
-        nb_places_dispos=res["num_docks_available"],
-        est_installee=res["is_installed"],
-        permet_emprunt=res["is_renting"],
-        permet_retour=res["is_returning"],
-    )
-
-
-@log
-def find_history(
-    self, station_id: str, start_date: datetime, end_date: datetime
-) -> list[StationStatus]:
-    """List all station statuses for a station between two dates."""
-
-    try:
-        with DBConnection().connection as connection:
-            with connection.cursor() as cursor:
-                cursor.execute(
-                    "SELECT * "
-                    "FROM station_status "
-                    "WHERE station_id = %(station_id)s "
-                    "AND last_reported BETWEEN %(start_date)s "
-                    "AND %(end_date)s "
-                    "ORDER BY last_reported ASC;",
-                    {
-                        "station_id": station_id,
-                        "start_date": start_date,
-                        "end_date": end_date,
-                    },
-                )
-                res = cursor.fetchall()
-    except Exception as e:
-        logger.error(e)
-        raise
-
-    station_status_list = []
-
-    for row in res:
-        station_status = StationStatus(
-            id_station=station_id,
-            horodatage=row["last_reported"],
-            nb_velos_dispos=row["num_bike_available"],
-            nb_velos_elec_dispos=row["num_bike_elec_available"],
-            nb_places_dispos=row["num_docks_available"],
-            est_installee=row["is_installed"],
-            permet_emprunt=row["is_renting"],
-            permet_retour=row["is_returning"],
+        return StationStatus(
+            id_station=id_station,
+            horodatage=res["last_reported"],
+            nb_velos_dispos=res["num_bike_available"],
+            nb_velos_elec_dispos=res["num_bike_elec_available"],
+            nb_places_dispos=res["num_docks_available"],
+            est_installee=res["is_installed"],
+            permet_emprunt=res["is_renting"],
+            permet_retour=res["is_returning"],
         )
-        station_status_list.append(station_status)
 
-    return station_status_list
+    @log
+    def find_history(
+        self, station_id: str, start_date: datetime, end_date: datetime
+    ) -> list[StationStatus]:
+        """List all station statuses for a station between two dates."""
+
+        try:
+            with DBConnection().connection as connection:
+                with connection.cursor() as cursor:
+                    cursor.execute(
+                        "SELECT * "
+                        "FROM station_status "
+                        "WHERE station_id = %(station_id)s "
+                        "AND last_reported BETWEEN %(start_date)s "
+                        "AND %(end_date)s "
+                        "ORDER BY last_reported ASC;",
+                        {
+                            "station_id": station_id,
+                            "start_date": start_date,
+                            "end_date": end_date,
+                        },
+                    )
+                    res = cursor.fetchall()
+
+        except Exception as e:
+            logger.error(e)
+            raise
+
+        station_status_list = []
+
+        for row in res:
+            station_status = StationStatus(
+                id_station=station_id,
+                horodatage=row["last_reported"],
+                nb_velos_dispos=row["num_bike_available"],
+                nb_velos_elec_dispos=row["num_bike_elec_available"],
+                nb_places_dispos=row["num_docks_available"],
+                est_installee=row["is_installed"],
+                permet_emprunt=row["is_renting"],
+                permet_retour=row["is_returning"],
+            )
+            station_status_list.append(station_status)
+
+        return station_status_list
