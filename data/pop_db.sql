@@ -6,3 +6,6 @@ INSERT INTO player(username, password, elo, email, pokemon_fan) VALUES
 ('miguel',    'abcd',  1300,  'miguel@project.io',    true),
 ('gilbert',   'toto',  1100,  'gilbert@project.io',   false),
 ('junior',    'aaaa',  1200,  'junior@project.io',    true);
+
+INSERT INTO reseau (name)
+VALUES ('Bordeaux');

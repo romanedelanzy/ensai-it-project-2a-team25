@@ -24,7 +24,7 @@ class BordeauxGBFSAdapter:
         for item in names:
             if item["language"] == "fr":
                 name = item["text"]
-            break
+                break
 
         return Station(
             station_id=data["station_id"],

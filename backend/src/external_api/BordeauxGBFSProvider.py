@@ -2,7 +2,7 @@
 
 from external_api.gbfs_client import GBFSClient
 from external_api.gbfs_provider import GBFSProvider
-from external_api.gbfsbordeaux import BordeauxGBFSAdapter
+from external_api.BordeauxGBFSAdapter import BordeauxGBFSAdapter
 
 from business_object.station import Station
 from business_object.stationstatus import StationStatus

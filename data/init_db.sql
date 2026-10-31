@@ -59,3 +59,20 @@ CREATE TABLE favoris (
     create_at  TIMESTAMP   NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (user_id, station_id)
 );
+
+------------------------------------------------------------
+-- StationStatus
+------------------------------------------------------------
+
+DROP TABLE IF EXISTS station_status CASCADE;
+CREATE TABLE station_status (
+    station_id              VARCHAR(50) NOT NULL REFERENCES station(station_id),
+    last_reported           TIMESTAMPTZ NOT NULL,
+    num_bike_available      INTEGER,
+    num_bike_elec_available INTEGER,
+    num_docks_available     INTEGER,
+    is_installed            BOOLEAN,
+    is_renting              BOOLEAN,
+    is_returning            BOOLEAN,
+    PRIMARY KEY (station_id, last_reported)
+);
