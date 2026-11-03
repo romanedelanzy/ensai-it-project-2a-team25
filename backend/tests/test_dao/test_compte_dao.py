@@ -1,13 +1,12 @@
 import os
 from unittest.mock import patch
 
-import psycopg2
 import pytest
 
 from business_object.compte import Compte
 from dao.CompteDAO import CompteDAO
 from utils.reset_database import ResetDatabase
-from utils.security import hash_password
+
 
 
 @pytest.fixture(scope="session", autouse=True)
@@ -172,7 +171,6 @@ def test_login_ok():
 
     # THEN
     assert isinstance(compte, Compte)
-
 
 
 def test_find_by_token():
