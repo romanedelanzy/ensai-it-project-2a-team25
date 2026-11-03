@@ -1,0 +1,68 @@
+13/10/2026 08:45:22 root                      INFO    - --------------------------------------------------
+13/10/2026 08:45:22 root                      INFO    - Starting Webservice                           
+13/10/2026 08:45:22 root                      INFO    - --------------------------------------------------
+13/10/2026 08:45:22 root                      INFO    - Load environment variables: FAIL
+13/10/2026 08:50:00 root                      INFO    - --------------------------------------------------
+13/10/2026 08:50:00 root                      INFO    - Starting Webservice                           
+13/10/2026 08:50:00 root                      INFO    - --------------------------------------------------
+13/10/2026 08:50:00 root                      INFO    - Load environment variables: FAIL
+13/10/2026 08:50:54 root                      INFO    - --------------------------------------------------
+13/10/2026 08:50:54 root                      INFO    - Starting Webservice                           
+13/10/2026 08:50:54 root                      INFO    - --------------------------------------------------
+13/10/2026 08:50:54 root                      INFO    - Load environment variables: FAIL
+13/10/2026 08:50:59 root                      INFO    - GET / - START
+13/10/2026 08:50:59 root                      INFO    - GET / - END [Status: 307]
+13/10/2026 08:50:59 root                      INFO    - GET /docs - START
+13/10/2026 08:50:59 root                      INFO    - GET /docs - END [Status: 200]
+13/10/2026 08:50:59 root                      INFO    - GET /openapi.json - START
+13/10/2026 08:50:59 root                      INFO    - GET /openapi.json - END [Status: 200]
+13/10/2026 08:55:57 root                      INFO    - --------------------------------------------------
+13/10/2026 08:55:57 root                      INFO    - Starting Webservice                           
+13/10/2026 08:55:57 root                      INFO    - --------------------------------------------------
+13/10/2026 08:55:57 root                      INFO    - Load environment variables: SUCCES
+13/10/2026 08:55:57 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-385030-rw.user-fanny
+13/10/2026 08:55:57 root                      INFO    - POSTGRES_PORT=5432
+13/10/2026 08:55:57 root                      INFO    - POSTGRES_DATABASE=defaultdb
+13/10/2026 08:55:57 root                      INFO    - POSTGRES_USER=user-fanny
+13/10/2026 08:55:57 root                      INFO    - POSTGRES_PASSWORD=*******
+13/10/2026 08:55:57 root                      INFO    - POSTGRES_SCHEMA=project
+13/10/2026 08:55:57 root                      INFO    - UVICORN_HOST=0.0.0.0
+13/10/2026 08:55:57 root                      INFO    - UVICORN_PORT=5000
+13/10/2026 08:55:57 root                      INFO    - BACKEND_URL=http://localhost:5000
+13/10/2026 08:55:57 root                      INFO    - BACKEND_TIMEOUT=5
+13/10/2026 08:56:59 root                      INFO    - GET / - START
+13/10/2026 08:56:59 root                      INFO    - GET / - END [Status: 307]
+13/10/2026 08:56:59 root                      INFO    - GET /docs - START
+13/10/2026 08:56:59 root                      INFO    - GET /docs - END [Status: 200]
+13/10/2026 08:57:00 root                      INFO    - GET /proxy/5000/openapi.json - START
+13/10/2026 08:57:00 root                      INFO    - GET /proxy/5000/openapi.json - END [Status: 200]
+13/10/2026 08:58:06 root                      INFO    - GET /proxy/5000/reset_database - START
+13/10/2026 08:58:06 __main__                  INFO    - Database reset
+13/10/2026 08:58:06 utils.reset_database      INFO    -   run() - START
+13/10/2026 08:58:06 dao.player_dao            INFO    -     find_all() - START
+13/10/2026 08:58:06 dao.player_dao            INFO    -     find_all() - END
+13/10/2026 08:58:06 dao.player_dao            INFO    -       └─> Output: ['Player(a, elo: 1200)', 'Player(admin, elo: None)', 'Player(batricia, elo: 1500)'] ... (7 elements)
+13/10/2026 08:58:06 dao.player_dao            INFO    -     update('Player(a, elo: 1200)',) - START
+13/10/2026 08:58:06 dao.player_dao            INFO    -     update('Player(a, elo: 1200)',) - END
+13/10/2026 08:58:06 dao.player_dao            INFO    -       └─> Output: True
+13/10/2026 08:58:06 dao.player_dao            INFO    -     update('Player(admin, elo: None)',) - START
+13/10/2026 08:58:06 dao.player_dao            INFO    -     update('Player(admin, elo: None)',) - END
+13/10/2026 08:58:06 dao.player_dao            INFO    -       └─> Output: True
+13/10/2026 08:58:06 dao.player_dao            INFO    -     update('Player(batricia, elo: 1500)',) - START
+13/10/2026 08:58:06 dao.player_dao            INFO    -     update('Player(batricia, elo: 1500)',) - END
+13/10/2026 08:58:06 dao.player_dao            INFO    -       └─> Output: True
+13/10/2026 08:58:06 dao.player_dao            INFO    -     update('Player(gilbert, elo: 1100)',) - START
+13/10/2026 08:58:06 dao.player_dao            INFO    -     update('Player(gilbert, elo: 1100)',) - END
+13/10/2026 08:58:06 dao.player_dao            INFO    -       └─> Output: True
+13/10/2026 08:58:06 dao.player_dao            INFO    -     update('Player(junior, elo: 1200)',) - START
+13/10/2026 08:58:06 dao.player_dao            INFO    -     update('Player(junior, elo: 1200)',) - END
+13/10/2026 08:58:06 dao.player_dao            INFO    -       └─> Output: True
+13/10/2026 08:58:06 dao.player_dao            INFO    -     update('Player(maurice, elo: 1000)',) - START
+13/10/2026 08:58:06 dao.player_dao            INFO    -     update('Player(maurice, elo: 1000)',) - END
+13/10/2026 08:58:06 dao.player_dao            INFO    -       └─> Output: True
+13/10/2026 08:58:06 dao.player_dao            INFO    -     update('Player(miguel, elo: 1300)',) - START
+13/10/2026 08:58:06 dao.player_dao            INFO    -     update('Player(miguel, elo: 1300)',) - END
+13/10/2026 08:58:06 dao.player_dao            INFO    -       └─> Output: True
+13/10/2026 08:58:06 utils.reset_database      INFO    -   run() - END
+13/10/2026 08:58:06 utils.reset_database      INFO    -     └─> Output: True
+13/10/2026 08:58:06 root                      INFO    - GET /proxy/5000/reset_database - END [Status: 200]

@@ -67,6 +67,30 @@ def test_list_all_vide():
     assert resultat == []
 
 
+def test_delete_ok():
+    dao = MagicMock()
+    dao.delete.return_value = True
+    station = creer_station()
+ 
+    resultat = StationService(station_dao=dao).delete(station)
+ 
+    assert resultat is True
+    dao.delete.assert_called_once_with(station)
+ 
+def test_delete_echec():
+    dao = MagicMock()
+    dao.delete.return_value = False
+    station = creer_station()
+ 
+    resultat = StationService(station_dao=dao).delete(station)
+ 
+    assert resultat is False
+    dao.delete.assert_called_once_with(station)
+
+
+
+
+
 def test_get_current_status_ok():
     dao = MagicMock()
     status = creer_status()

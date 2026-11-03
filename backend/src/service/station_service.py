@@ -39,6 +39,16 @@ class StationService:
         return StationDao().list_all()
 
     @log
+    def delete(self, station) -> bool:
+        """Supprime une station.
+        Args:
+            Objet Station à supprimer.
+        Returns:
+            True si la suppression a réussi, False sinon.
+        """
+        return self.station_dao.delete(station)
+ 
+    @log
     def get_current_status(self, station_id: str):
         """Récupère le dernier status enregistré d'une station.
         Args:
@@ -118,3 +128,13 @@ class StationService:
             raise ValueError(f"period doit valoir {list(PERIODS)} (reçu {period!r})")
         end_date = datetime.now(timezone.utc)
         return self.get_history(station_id, end_date - PERIODS[period], end_date)
+
+    @log
+    def delete(self, station) -> bool:
+        """Supprime une station.
+        Args:
+            Objet Station à supprimer.
+        Returns:
+            True si la suppression a réussi, False sinon.
+        """
+        return self.station_dao.delete(station)

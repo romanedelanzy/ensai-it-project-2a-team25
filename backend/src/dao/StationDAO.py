@@ -155,3 +155,26 @@ class StationDao(metaclass=Singleton):
                 stations_list.append(station)
 
         return stations_list
+
+    @log
+    def delete(self, station) -> bool:
+        """Supprime une station de la base de données.
+        Parameters:
+            Station à supprimer
+        Returns:
+            True si la station a été supprimée, False sinon
+        """
+        try:
+            with DBConnection().connection as connection:
+                with connection.cursor() as cursor:
+                    cursor.execute(
+                        "DELETE FROM station                              "
+                        " WHERE station_id = %(station_id)s               ",
+                        {"station_id": station.station_id},
+                    )
+                    res = cursor.rowcount
+        except Exception as e:
+            logger.error(e)
+            raise
+
+        return res > 0
