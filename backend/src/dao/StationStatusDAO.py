@@ -216,8 +216,7 @@ class StationStatusDao:
                 nb_places_dispos=row["num_docks_available"],
                 est_installee=row["is_installed"],
                 permet_emprunt=row["is_renting"],
-                permet_retour=row["num_docks_available"] is not None
-                and row["is_returning"],
+                permet_retour=row["is_returning"],
             )
             station_status_list.append(station_status)
 
