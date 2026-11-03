@@ -139,3 +139,86 @@ class StationStatusDao:
             station_status_list.append(station_status)
 
         return station_status_list
+
+    @log
+    def find_all_history(
+        self, station_id: str
+    ) -> list[StationStatus]:
+        """List all station statuses for a station."""
+
+        try:
+            with DBConnection().connection as connection:
+                with connection.cursor() as cursor:
+                    cursor.execute(
+                        "SELECT * "
+                        "FROM station_status "
+                        "WHERE station_id = %(station_id)s "
+                        "ORDER BY last_reported ASC;",
+                        {"station_id": station_id},
+                    )
+                    res = cursor.fetchall()
+
+        except Exception as e:
+            logger.error(e)
+            raise
+
+        station_status_list = []
+
+        for row in res:
+            station_status = StationStatus(
+                id_station=station_id,
+                horodatage=row["last_reported"],
+                nb_velos_dispos=row["num_bike_available"],
+                nb_velos_elec_dispos=row["num_bike_elec_available"],
+                nb_places_dispos=row["num_docks_available"],
+                est_installee=row["is_installed"],
+                permet_emprunt=row["is_renting"],
+                permet_retour=row["is_returning"],
+            )
+            station_status_list.append(station_status)
+
+        return station_status_list
+
+    @log
+    def find_history_until(
+        self, station_id: str, end_date: datetime
+    ) -> list[StationStatus]:
+        """List all station statuses for a station until a given date."""
+
+        try:
+            with DBConnection().connection as connection:
+                with connection.cursor() as cursor:
+                    cursor.execute(
+                        "SELECT * "
+                        "FROM station_status "
+                        "WHERE station_id = %(station_id)s "
+                        "AND last_reported <= %(end_date)s "
+                        "ORDER BY last_reported ASC;",
+                        {
+                            "station_id": station_id,
+                            "end_date": end_date,
+                        },
+                    )
+                    res = cursor.fetchall()
+
+        except Exception as e:
+            logger.error(e)
+            raise
+
+        station_status_list = []
+
+        for row in res:
+            station_status = StationStatus(
+                id_station=station_id,
+                horodatage=row["last_reported"],
+                nb_velos_dispos=row["num_bike_available"],
+                nb_velos_elec_dispos=row["num_bike_elec_available"],
+                nb_places_dispos=row["num_docks_available"],
+                est_installee=row["is_installed"],
+                permet_emprunt=row["is_renting"],
+                permet_retour=row["num_docks_available"] is not None
+                and row["is_returning"],
+            )
+            station_status_list.append(station_status)
+
+        return station_status_list

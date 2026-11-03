@@ -20,3 +20,9 @@ class StationStatus:
             raise ValueError("le nombre de vélos ou de places disponibles ne peut être négatif")
         if self.nb_velos_elec_dispos > self.nb_velos_dispos:
             raise ValueError("il ne peut y avoir plus de vélos électriques que de vélos au total")
+
+    def is_empty(self) -> bool:
+        return self.nb_velos_dispos == 0
+
+    def is_saturated(self) -> bool:
+        return self.nb_places_dispos == 0
