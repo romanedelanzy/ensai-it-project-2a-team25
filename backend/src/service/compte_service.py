@@ -61,10 +61,6 @@ class CompteService(metaclass=Singleton):
         Returns:
             Compte | None: L'objet Compte mis à jour, ou None si la mise à jour a échoué.
         """
-        # Si un nouveau mot de passe a été fourni en clair on le hache avant de l'envoyer au DAO
-        if compte.password:
-            compte.password = hash_password(compte.password, compte.username)
-
         return compte if CompteDAO().update(compte) else None
 
     @log
@@ -94,3 +90,14 @@ class CompteService(metaclass=Singleton):
             self.update(compte)
             return compte
         return None
+
+    @log
+    def username_already_used(self, username: str) -> bool:
+        """Vérifie si un nom d'utilisateur est déjà pris.
+        Args:
+            username (str)
+        Returns:
+            bool: True si le nom d'utilisateur existe déjà, False sinon.
+        """
+        comptes = self.list_account()
+        return any(compte.username == username for compte in comptes)
