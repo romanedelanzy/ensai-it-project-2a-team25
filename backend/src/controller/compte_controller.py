@@ -15,7 +15,6 @@ def get_compte_service() -> CompteService:
     """Fournit une instance de CompteService pour l'injection de dépendances."""
     return CompteService()
 
-
 @router.get("/", response_model=list[CompteReadModel])
 def list_accounts(service: CompteService = Depends(get_compte_service)):
     """Récupère la liste de tous les comptes (sans afficher les mots de passe)."""
@@ -118,7 +117,7 @@ def update_account(
 def delete_account(
     user_id: int,
     service: CompteService = Depends(get_compte_service)
-):
+    ):
     """Supprime un compte par son identifiant."""
     logger.info(f"Requête DELETE /compte/{user_id} reçue")
 
@@ -137,4 +136,3 @@ def delete_account(
             detail="Erreur lors de la suppression du compte."
         )
     return None
-
