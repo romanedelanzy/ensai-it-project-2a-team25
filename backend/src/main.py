@@ -9,7 +9,7 @@ from fastapi import FastAPI, Request, status
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse, RedirectResponse
 
-from controller import game_controller, login_controller, player_controller, station_controller, favori_controller
+from controller import game_controller, login_controller, player_controller, station_controller, favori_controller, compte_controller
 from utils.env_variables import display_values, load_environment_variables
 from utils.log_utils import LogMiddleware, get_logger, initialize_logs
 from utils.reset_database import ResetDatabase
@@ -53,7 +53,7 @@ app.include_router(login_controller.router, prefix="/login", tags=["Login"])
 app.include_router(game_controller.router, prefix="/game", tags=["Games"])
 app.include_router(station_controller.router, prefix="/station", tags=["Stations"])
 app.include_router(favori_controller.router, prefix="/favori", tags=["Favoris"])
-
+app.include_router(compte_controller.router)
 @app.get("/", include_in_schema=False)
 async def redirect_to_docs():
     """Redirect to the API documentation"""
