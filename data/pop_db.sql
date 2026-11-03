@@ -10,7 +10,7 @@ INSERT INTO player(username, password, elo, email, pokemon_fan) VALUES
 INSERT INTO reseau (name)
 VALUES ('Bordeaux');
 
-INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
+INSERT INTO station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
 	 ('8',1,'Patinoire','120 Cours Maréchal Juin, Bordeaux',44.83436,-0.58825,20),
 	 ('9',1,'Gavinies','206 Rue d''Ornano, Bordeaux',44.83303,-0.59289,20),
 	 ('10',1,'Stade Chaban Delmas','115 Boulevard Antoine Gautier, Bordeaux',44.83176,-0.59868,18),
@@ -21,7 +21,7 @@ INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longit
 	 ('15',1,'Lycée Camille Julian','43 Rue Capdeville, Bordeaux',44.844195,-0.588766,10),
 	 ('16',1,'Galin','AVENUE THIERS (FACE AU PARC RELAIS) , BORDEAUX',44.84947,-0.54525,29),
 	 ('17',1,'Palais Gallien','1 Rue Emile Fourcand, Bordeaux',44.8469,-0.58219,12);
-INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
+INSERT INTO station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
 	 ('18',1,'Huguerie','78 Rue du Palais Gallien, Bordeaux',44.84423,-0.58164,12),
 	 ('19',1,'Tourny','58 Allée de Tourny, Bordeaux',44.84465,-0.57745,28),
 	 ('20',1,'Grands Hommes','1 Place des Grands Hommes, Bordeaux',44.84314,-0.57724,29),
@@ -32,7 +32,7 @@ INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longit
 	 ('25',1,'Francois de Sourdis','97 Rue François de Sourdis, Bordeaux',44.831,-0.58734,12),
 	 ('26',1,'Xaintrailles','247 Boulevard Maréchal Leclerc, Bordeaux',44.82797,-0.59349,14),
 	 ('27',1,'Bordeaux II','UNIVERSITÉ BORDEAUX II (MATERNITÉ PELLEGRIN), BORDEAUX',44.82654,-0.60184,19);
-INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
+INSERT INTO station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
 	 ('28',1,'Hopital Pellegrin','PLACE AMÉLIE RABA LEON  (AU NIVEAU DE L''EFS), BORDEAUX',44.82986,-0.60351,26),
 	 ('29',1,'St Augustin','PLACE DE L''EGLISE ST AUGUSTIN , BORDEAUX',44.832736,-0.60997,13),
 	 ('30',1,'Place Mondesir','PLACE MONDÉSIR (FACE À LA POSTE) , MERIGNAC',44.83838,-0.61689,17),
@@ -43,7 +43,7 @@ INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longit
 	 ('35',1,'Croix de Seguey','211 Rue Fondaudege, Bordeaux',44.85005,-0.58547,18),
 	 ('36',1,'Longchamps','2 Place de Longchamps, Bordeaux',44.85005,-0.582,18),
 	 ('37',1,'Jardin Public','60 Cours de Verdun, Bordeaux',44.84849,-0.57581,29);
-INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
+INSERT INTO station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
 	 ('38',1,'Fondaudege Museum','16 Place Charles Gruet, Bordeaux',44.84641,-0.5802,14),
 	 ('39',1,'Quinconces','FACE AU 9 COURS DU 30 JUILLET BORDEAUX, BORDEAUX',44.84423,-0.57434,63),
 	 ('40',1,'Grand Theatre','RUE ESPRIT DES LOIS, BORDEAUX',44.84293,-0.5739,19),
@@ -54,7 +54,7 @@ INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longit
 	 ('45',1,'Place Ste Eulalie','2 Place Sainte-Eulalie, Bordeaux',44.83312,-0.57695,18),
 	 ('46',1,'Belcier Tram','ALL. EUGÈNE DELACROIX, BORDEAUX',44.822803,-0.55293,18),
 	 ('47',1,'Magendie','212 Rue Fernand Audeguil, Bordeaux',44.82789,-0.58605,13);
-INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
+INSERT INTO station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
 	 ('48',1,'Barriere de Pessac','50 Boulevard George V, Bordeaux',44.82578,-0.58975,16),
 	 ('49',1,'Emile Zola','43 Rue Emile Zola, Le Bouscat',44.86329,-0.59995,16),
 	 ('50',1,'Mandron Godard','14 BOULEVARD GODARD , BORDEAUX',44.85999,-0.58876,13),
@@ -65,7 +65,7 @@ INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longit
 	 ('56',1,'Place Paul Doumer','PLACE PAUL DOUMER , BORDEAUX',44.85171,-0.57427,18),
 	 ('57',1,'Eglise St Louis','FACE AU 9 RUE SICARD, BORDEAUX',44.85155,-0.57163,16),
 	 ('58',1,'Chartrons','FACE AU 73 QUAI DES CHARTRONS, BORDEAUX',44.85321,-0.56727,18);
-INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
+INSERT INTO station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
 	 ('59',1,'CAPC','17 Quai des Chartrons, Bordeaux',44.84978,-0.57024,15),
 	 ('60',1,'Allees de Chartres','FACE AU 1 ALLEES DE CHARTRES, BORDEAUX',44.84718,-0.57131,16),
 	 ('61',1,'Parc aux Angeliques','QUAI DE QUEYRIES / ALL. JEAN GIONO, BORDEAUX',44.84625,-0.56495,14),
@@ -76,7 +76,7 @@ INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longit
 	 ('66',1,'Gare d''Orleans','QUAI DE QUEYRIES (FACE A LA GARE D''ORLEANS), BORDEAUX',44.84114,-0.56224,19),
 	 ('67',1,'Allee de Serr Abadie','ALLEE DE SERR, BORDEAUX',44.84377,-0.55751,20),
 	 ('68',1,'Jardin Botanique','73 Avenue Thiers, Bordeaux',44.84298,-0.55573,17);
-INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
+INSERT INTO station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
 	 ('69',1,'Cours Le Rouzic','8 Place Calixte Camelle, Bordeaux',44.842624,-0.54983,14),
 	 ('70',1,'Buttiniere','Pôle d''échange Buttinière, LORMONT',44.864138,-0.524462,16),
 	 ('3',1,'Piscine Judaique','PLACE DU CAPITAINE DU TERTRE , BORDEAUX',44.840813,-0.593233,27),
@@ -87,7 +87,7 @@ INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longit
 	 ('78',1,'Bougnard','AVENUE BOUGNARD (FACE AU P+R), PESSAC',44.7939143,-0.6350512,19),
 	 ('79',1,'Niel','87 Quai des Queyries, Bordeaux',44.8507734,-0.5594535,19),
 	 ('80',1,'Gare Pessac Alouette','30 AVENUE DU HAUT LEVEQUE, PESSAC',44.79319,-0.657632,16);
-INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
+INSERT INTO station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
 	 ('81',1,'Archives','Rue de la Rotonde , Bordeaux',44.8468,-0.553741,20),
 	 ('82',1,'La Chataigneraie','62 AVENUE DE CANEJAN, PESSAC',44.792915,-0.646629,19),
 	 ('83',1,'Pessac Centre','25 R. EUGENE ET MARC DULOUT, PESSAC',44.80446,-0.63267,19),
@@ -98,7 +98,7 @@ INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longit
 	 ('88',1,'Capeyron','PLACE JEAN JAURES, MERIGNAC',44.85097,-0.64475,16),
 	 ('89',1,'Merignac Centre','CROISEMENT AV. VERDUN ET M LECLERC, MERIGNAC',44.8416,-0.646465,19),
 	 ('91',1,'Maison Calixte Camelle','35 Quai Deschamps, Bordeaux',44.837453,-0.556814,19);
-INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
+INSERT INTO station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
 	 ('92',1,'Promis','35 Rue de Cénac , Bordeaux',44.838768,-0.551774,14),
 	 ('93',1,'Place Florale','3 Avenue de Picot, Eysines',44.869026,-0.636207,14),
 	 ('94',1,'Carle Vernet','74 Rue Carle Vernet, Bordeaux',44.820244263423824,-0.5500560964240234,1),
@@ -109,7 +109,7 @@ INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longit
 	 ('99',1,'Les Hangars','36 Quai de Bacalan, Bordeaux',44.857867,-0.557801,30),
 	 ('100',1,'Cours du Médoc','119 Quai des Chartrons, Bordeaux',44.8556,-0.56319,38),
 	 ('101',1,'Place Jean Jaures','Quai du Maréchal Lyautey, Bordeaux',44.84295,-0.57037,19);
-INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
+INSERT INTO station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
 	 ('102',1,'Place de la Bourse','6 Quai de la Douane, Bordeaux',44.8403,-0.56914,39),
 	 ('103',1,'Place du Palais','40 Cours d''Alsace Et Lorraine, Bordeaux',44.83779,-0.57034,30),
 	 ('104',1,'Grosse Cloche','12 Place de la Ferme de Richemont, Bordeaux',44.83518,-0.57205,5),
@@ -120,7 +120,7 @@ INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longit
 	 ('109',1,'Barriere St Genes','276 Cours de l''Argonne, Bordeaux',44.82209,-0.58178,36),
 	 ('110',1,'Forum','Angle Allée du 7ème Art / Cours de la Libération, Talence',44.81238,-0.59103,37),
 	 ('111',1,'Peixotto','Avenue Roul (Terminus bus), Talence',44.80681,-0.59245,36);
-INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
+INSERT INTO station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
 	 ('112',1,'Arts et Métiers','Avenue des Facultés (Derrière la station de tram), Talence',44.80591,-0.60232,37),
 	 ('113',1,'Ecole de Management','Cours de la Libération (Devant BEM), Talence',44.79688,-0.60187,20),
 	 ('114',1,'Compostelle',' Rue de Compostelle / Cours du Général de Gaulle, Gradignan',44.79313,-0.60547,27),
@@ -131,7 +131,7 @@ INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longit
 	 ('119',1,'Grand Parc','Avenue Émile Counord / Rue François Lévêque, Bordeaux',44.8626,-0.57576,18),
 	 ('120',1,'Saint-Louis','196 Cours Saint Louis, Bordeaux',44.86261,-0.56718,28),
 	 ('121',1,'Médoc (Place Saint-Martial)','30 Place Saint Martial, Bordeaux',44.85891,-0.56584,14);
-INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
+INSERT INTO station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
 	 ('122',1,'Gaussen','77 Cours Saint Louis, Bordeaux',44.85849,-0.56966,12),
 	 ('123',1,'Porte de Bourgogne','42 Quai Richelieu, Bordeaux',44.83779,-0.56716,36),
 	 ('124',1,'Parc des Sports','8 Quai de la Monnaie, Bordeaux',44.83387,-0.56271,18),
@@ -142,7 +142,7 @@ INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longit
 	 ('130',1,'Barriere de Toulouse','8bis Boulevard Albert 1er, Bordeaux',44.814476,-0.570589,19),
 	 ('131',1,'Nansouty','Place Nansouty, 238 Cours de l''Yser, Bordeaux',44.820258,-0.5722051,16),
 	 ('132',1,'Cours de la Somme','118 Cours de la Somme, Bordeaux',44.82628,-0.57248,14);
-INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
+INSERT INTO station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
 	 ('133',1,'Capucins','30 place des Capucins, Bordeaux',44.82995,-0.56812,18),
 	 ('134',1,'Place du Maucaillou','20 Place du Maucaillou, Bordeaux',44.8324361,-0.5670693,17),
 	 ('135',1,'Saint-Michel','Face au 7 Rue des Faures, Bordeaux',44.834797,-0.564732,19),
@@ -153,7 +153,7 @@ INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longit
 	 ('140',1,'Charles Perrens','120 Rue de la Bechade, Bordeaux',44.8230791,-0.6006622,20),
 	 ('141',1,'Medoquine','254 cours du Maréchal Gallieni, Bordeaux',44.818874,-0.599919,14),
 	 ('73',1,'Terres Neuves','307 BOULEVARD J.J. BOSC, BEGLES',44.815083,-0.550901,19);
-INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
+INSERT INTO station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
 	 ('74',1,'Place du 14 juillet','2 Rue Calixte Camelle, Bègles',44.8077,-0.54821,21),
 	 ('75',1,'Begles Poste','111 Avenue Lucien Lerousseau, Bègles',44.807735,-0.560024,10),
 	 ('76',1,'Pont de la Maye','564 Route de Toulouse, Villenave-d''Ornon',44.781742,-0.566207,20),
@@ -164,7 +164,7 @@ INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longit
 	 ('152',1,'Hopital Robert Picque','349-351 ROUTE DE TOULOUSE, VILLENAVE D''ORNON',44.79967,-0.569953,19),
 	 ('153',1,'Parc Sourreil','FACE AU 325 CHEMIN DE LEYSOTTE, VILLENAVE D''ORNON',44.7923,-0.581696,18),
 	 ('154',1,'Thouars','221 Avenue de Thouars, Talence',44.79209,-0.591518,17);
-INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
+INSERT INTO station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
 	 ('155',1,'Village 6 IUT','FACE 10 RUE DE NAUDET, GRADIGNAN',44.791485,-0.613107,23),
 	 ('156',1,'Hotel de Ville Merignac','FACE AU 39 RUE MAURICE UTRILLO, Mérignac',44.8443045,-0.6589115,20),
 	 ('157',1,'Les Pins','2 Rue Alphonse Daudet, Mérignac',44.85682,-0.659829,18),
@@ -175,7 +175,7 @@ INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longit
 	 ('162',1,'Gare de Begles','14 AVENUE LÉNINE, BEGLES',44.798195,-0.551517,19),
 	 ('163',1,'Lycee Vaclav Havel','3 Avenue Danielle Mitterrand, Bègles',44.785689,-0.565509,17),
 	 ('164',1,'Pont de Caudérès','133 Boulevard du Président Franklin Roosevelt, Talence',44.8172117,-0.5768853,20);
-INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
+INSERT INTO station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
 	 ('165',1,'Barrière d’Arès','Boulevard Antoine Gauthier, Bordeaux',44.83633465,-0.5987418,13),
 	 ('166',1,'Centre commercial du Lac','53 AVENUE DU LAC, BORDEAUX',44.88192,-0.565221,15),
 	 ('167',1,'Barrière Judaïque','66 Boulevard du Président Wilson, Bordeaux',44.83924258046007,-0.5990752083266996,18),
@@ -186,7 +186,7 @@ INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longit
 	 ('172',1,'La Cite du Vin','QUAI DE BACALAN, BORDEAUX',44.86178,-0.551499,23),
 	 ('173',1,'Rue Achard','RUE ACHARD 33000 , BORDEAUX',44.86749,-0.5481,19),
 	 ('174',1,'Darwin','QUAI DE QUEYRIES, BORDEAUX',44.8491803,-0.5624086,35);
-INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
+INSERT INTO station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
 	 ('175',1,'Arena','PLACE MAYENSA , FLOIRAC',44.826054,-0.531631,20),
 	 ('176',1,'Bassins à Flot','4 Quai Hubert Prom, Bordeaux',44.869064,-0.556399,18),
 	 ('177',1,'Cite numerique','RUE MARC SANGNIER , BEGLES',44.813274,-0.55517,23),
@@ -197,7 +197,7 @@ INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longit
 	 ('183',1,'Place Maran','517 Boulevard Alfred Daney , Bordeaux',44.875335,-0.553796,19),
 	 ('184',1,'Lormont bas','Quai Numa Sensine , Lormont',44.877905,-0.534293,20),
 	 ('185',1,'Latule','Boulevard Alfred Daney , Bordeaux',44.869373,-0.56634,19);
-INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
+INSERT INTO station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
 	 ('186',1,'Bagatelle','161 route de Toulouse, Talence',44.809255,-0.574221,19),
 	 ('188',1,'Ecole Normale','215 Boulevard du Président Wilson, Bordeaux',44.8465,-0.598372,20),
 	 ('189',1,'Belvédère','Quai Deschamps, Bordeaux',44.834942,-0.553021,19),
@@ -208,7 +208,7 @@ INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longit
 	 ('197',1,'Roustaing','18 Rue Roustaing, Talence',44.81681,-0.58682,15),
 	 ('199',1,'Saint Amand','162 Avenue du Général Leclerc , Bordeaux',44.855215,-0.614164,22),
 	 ('200',1,'Le Grand Louis','189 Avenue de la Libération, Mérignac',44.861057,-0.642196,14);
-INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
+INSERT INTO station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
 	 ('201',1,'Hôpital Suburbain','84 Avenue Georges Clémenceau, Le Bouscat',44.86736,-0.617703,20),
 	 ('202',1,'Calypso','1 Rue Raymond Poincaré, Le Bouscat',44.860683,-0.599533,17),
 	 ('206',1,'Caillou','489 Avenue du Maréchal de Lattre de Tassigny, Bordeaux',44.860323,-0.634148,16),
@@ -219,7 +219,7 @@ INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longit
 	 ('214',1,'Pierre Mendès France','23 avenue Pierre Mendès-france, Mérignac',44.830656,-0.640176,18),
 	 ('215',1,'Tri Postal','2 Rue du Tri Postal, Bordeaux',44.819668,-0.553292,16),
 	 ('219',1,'Station Test Prod','28 Rue Marcel Delattre, Bègles',44.802917002143,-0.555855967363,11);
-INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
+INSERT INTO station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
 	 ('297',1,'Borne itinérante 1','56 Boulevard Jean-Jacques Bosc, Bègles',44.81999,-0.54253,0),
 	 ('298',1,'Borne itinérante 2','56 Boulevard Jean-Jacques Bosc, Bègles',44.81999,-0.54251,0),
 	 ('299',1,'Station Prod BOSC','28 boulevard Jean Jacques Bosc, Bègles',44.8199799583067,-0.5423448575840326,22),
@@ -230,7 +230,7 @@ INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longit
 	 ('144',1,'Jean Moulin','92 Rue André Messager, Bruges',44.878494,-0.58501,19),
 	 ('145',1,'Berges du Lac','Cours du Québec, Bordeaux',44.87904,-0.57057,13),
 	 ('147',1,'Parc des Expositions','Allée Louis Ratabou, Bordeaux',44.8929695,-0.5662245,30);
-INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
+INSERT INTO station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
 	 ('148',1,'Amédée St-Germain','82bis Rue Amédée Saint-Germain, Bordeaux',44.820936,-0.560983,19),
 	 ('543',1,'Ilot Saint Paul','6 rue Ravez, Bordeaux',44.837550229143005,-0.5727752725007731,5),
 	 ('1',1,'Meriadeck','RUE CLAUDE BONNIER (STATION TRAMWAY) , BORDEAUX',44.83803,-0.58437,40),
@@ -241,7 +241,7 @@ INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longit
 	 ('125',1,'Sainte-Croix','Quai Ste Croix, Devant le Conservatoire, Bordeaux',44.83183,-0.55966,29),
 	 ('142',1,'Bourranville','En face 160 Avenue de Verdun, Mérignac',44.83947,-0.629236,17),
 	 ('146',1,'Palais des Congres','Avenue Jean Gabriel Domergue, Bordeaux',44.8889239,-0.5677813,27);
-INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
+INSERT INTO station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
 	 ('180',1,'Sainte-Germaine','Avenue Georges Clemenceau , Le Bouscat',44.870798,-0.613641,19),
 	 ('251',1,'Belcier Gare','Rue des Terres de Bordes, Angle de la rue Roullet, Bordeaux',44.823285,-0.554574,39),
 	 ('539',1,'Ilots Quinconces','Cours du 30 Juillet, Pavillon des Quinconces, Bordeaux',44.844354,-0.574307,10),
@@ -252,7 +252,7 @@ INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longit
 	 ('598',1,'Ilot Cap Sciences','1 Quai de Bacalan, Bordeaux',44.860149,-0.554283,5),
 	 ('599',1,'Ilot Les Hangars','36 Quai de Bacalan, Bordeaux',44.857934,-0.558128,10),
 	 ('604',1,'Ilot Grosse Cloche','120 Cours Victor Hugo, Bordeaux',44.8347927,-0.5720756,5);
-INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
+INSERT INTO station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
 	 ('605',1,'Ilot Rue du Mirail','60 Rue du Mirail, Bordeaux',44.832614,-0.571034,3),
 	 ('606',1,'Ilot Victoire','23 Place de la Victoire, Bordeaux',44.830814,-0.573234,9),
 	 ('627',1,'Ilot Gare St-Jean','1 Rue Saint Vincent de Paul, Bordeaux',44.826202,-0.557041,19),
@@ -263,11 +263,11 @@ INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longit
 	 ('672',1,'Ilot Cité du Vin','13 Quai de Bacalan, Bordeaux',44.861715,-0.55157,10),
 	 ('900',1,'Maison Ecocitoyenne','Quai richelieu, Bordeaux',44.839295,-0.567696,15),
 	 ('901',1,'Stalingrad Lion Bleu Mobile','2 place de stalingrad, Bordeaux',44.84027,-0.56038,20);
-INSERT INTO project.station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
+INSERT INTO station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
 	 ('902',1,'Stalingrad 2','Place Stalingrad, BORDEAUX',44.840479,-0.560372,20),
 	 ('903',1,'Cathédrale des sports','Quai de Brazza, Bordeaux',44.859553,-0.543617,23);
 
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('1','2026-10-31 19:16:39+00',28,10,12,true,false,false),
 	 ('2','2026-10-31 19:16:39+00',17,6,3,true,false,false),
 	 ('3','2026-10-31 19:16:39+00',0,0,27,true,true,true),
@@ -278,7 +278,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('8','2026-10-31 19:16:39+00',8,1,12,true,false,false),
 	 ('9','2026-10-31 19:16:39+00',3,0,17,true,false,false),
 	 ('10','2026-10-31 19:16:39+00',0,0,18,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('11','2026-10-31 19:16:39+00',2,0,22,true,true,true),
 	 ('12','2026-10-31 19:16:39+00',5,1,9,true,true,true),
 	 ('13','2026-10-31 19:16:39+00',13,2,7,true,true,true),
@@ -289,7 +289,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('18','2026-10-31 19:16:39+00',1,0,11,true,true,true),
 	 ('19','2026-10-31 19:16:39+00',8,1,20,true,false,false),
 	 ('20','2026-10-31 19:16:39+00',0,0,29,true,false,false);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('21','2026-10-31 19:16:39+00',14,6,1,true,false,false),
 	 ('22','2026-10-31 19:16:39+00',0,0,32,true,false,false),
 	 ('23','2026-10-31 19:16:39+00',5,3,32,true,true,true),
@@ -300,7 +300,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('28','2026-10-31 19:16:39+00',0,0,26,true,false,false),
 	 ('29','2026-10-31 19:16:39+00',7,0,7,true,true,true),
 	 ('30','2026-10-31 19:16:39+00',15,4,2,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('31','2026-10-31 19:16:39+00',4,2,10,true,true,true),
 	 ('32','2026-10-31 19:16:39+00',12,1,3,true,true,true),
 	 ('33','2026-10-31 19:16:39+00',2,1,15,true,true,true),
@@ -311,7 +311,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('38','2026-10-31 19:16:39+00',1,0,13,true,true,true),
 	 ('39','2026-10-31 19:16:39+00',2,0,62,true,true,true),
 	 ('40','2026-10-31 19:16:39+00',14,3,5,true,false,false);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('41','2026-10-31 19:16:39+00',0,0,17,true,false,false),
 	 ('42','2026-10-31 19:16:39+00',0,0,20,true,false,false),
 	 ('43','2026-10-31 19:16:39+00',7,5,3,true,true,true),
@@ -322,7 +322,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('48','2026-10-31 19:16:39+00',2,2,14,true,true,true),
 	 ('49','2026-10-31 19:16:39+00',5,2,11,true,true,true),
 	 ('50','2026-10-31 19:16:39+00',11,3,3,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('51','2026-10-31 19:16:39+00',12,4,5,true,true,true),
 	 ('52','2026-10-31 19:16:39+00',6,3,11,true,true,true),
 	 ('53','2026-10-31 19:16:39+00',2,0,10,true,true,true),
@@ -333,7 +333,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('58','2026-10-31 19:16:39+00',2,0,15,true,true,true),
 	 ('59','2026-10-31 19:16:39+00',1,0,14,true,true,true),
 	 ('60','2026-10-31 19:16:39+00',2,1,14,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('61','2026-10-31 19:16:39+00',10,3,4,true,true,true),
 	 ('62','2026-10-31 19:16:39+00',2,1,25,true,true,true),
 	 ('63','2026-10-31 19:16:39+00',16,3,1,true,true,true),
@@ -344,7 +344,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('68','2026-10-31 19:16:39+00',0,0,17,true,true,true),
 	 ('69','2026-10-31 19:16:39+00',0,0,14,false,false,false),
 	 ('70','2026-10-31 19:16:39+00',2,0,14,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('72','2026-10-31 19:16:39+00',8,3,14,true,true,true),
 	 ('73','2026-10-31 19:16:39+00',0,0,19,true,true,true),
 	 ('74','2026-10-31 19:16:39+00',19,4,3,true,true,true),
@@ -355,7 +355,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('79','2026-10-31 19:16:39+00',6,2,13,true,true,true),
 	 ('80','2026-10-31 19:16:39+00',8,3,8,true,true,true),
 	 ('81','2026-10-31 19:16:39+00',1,1,19,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('82','2026-10-31 19:16:39+00',2,2,17,true,true,true),
 	 ('83','2026-10-31 19:16:39+00',14,7,5,true,true,true),
 	 ('84','2026-10-31 19:16:39+00',8,3,7,true,true,true),
@@ -366,7 +366,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('89','2026-10-31 19:16:39+00',3,2,17,true,true,true),
 	 ('90','2026-10-31 19:16:39+00',13,1,2,true,true,true),
 	 ('91','2026-10-31 19:16:39+00',6,1,13,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('92','2026-10-31 19:16:39+00',7,4,8,true,true,true),
 	 ('93','2026-10-31 19:16:39+00',3,1,11,true,true,true),
 	 ('94','2026-10-31 19:16:39+00',0,0,1,true,false,false),
@@ -377,7 +377,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('99','2026-10-31 19:16:39+00',2,1,28,true,true,true),
 	 ('100','2026-10-31 19:16:39+00',1,0,38,true,true,true),
 	 ('101','2026-10-31 19:16:39+00',5,2,14,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('102','2026-10-31 19:16:39+00',0,0,39,true,false,false),
 	 ('103','2026-10-31 19:16:39+00',10,2,22,true,true,true),
 	 ('104','2026-10-31 19:16:39+00',1,0,4,true,false,false),
@@ -388,7 +388,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('109','2026-10-31 19:16:39+00',2,2,34,true,true,true),
 	 ('110','2026-10-31 19:16:39+00',37,12,0,true,true,true),
 	 ('111','2026-10-31 19:16:39+00',6,2,31,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('112','2026-10-31 19:16:39+00',6,2,30,true,true,true),
 	 ('113','2026-10-31 19:16:39+00',3,1,16,true,true,true),
 	 ('114','2026-10-31 19:16:39+00',1,0,26,true,true,true),
@@ -399,7 +399,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('119','2026-10-31 19:16:39+00',3,2,15,true,true,true),
 	 ('120','2026-10-31 19:16:39+00',15,7,13,true,true,true),
 	 ('121','2026-10-31 19:16:39+00',0,0,14,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('122','2026-10-31 19:16:39+00',0,0,12,true,true,true),
 	 ('123','2026-10-31 19:16:39+00',0,0,36,true,false,false),
 	 ('124','2026-10-31 19:16:39+00',10,3,9,true,true,true),
@@ -410,7 +410,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('129','2026-10-31 19:16:39+00',5,1,11,true,true,true),
 	 ('130','2026-10-31 19:16:39+00',8,2,9,true,true,true),
 	 ('131','2026-10-31 19:16:39+00',1,0,15,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('132','2026-10-31 19:16:39+00',3,2,11,true,true,true),
 	 ('133','2026-10-31 19:16:39+00',3,1,16,true,true,true),
 	 ('134','2026-10-31 19:16:39+00',16,6,1,true,false,false),
@@ -421,7 +421,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('139','2026-10-31 19:16:39+00',3,1,10,true,true,true),
 	 ('140','2026-10-31 19:16:39+00',0,0,20,true,false,false),
 	 ('141','2026-10-31 19:16:39+00',10,1,4,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('142','2026-10-31 19:16:39+00',14,5,3,true,true,true),
 	 ('143','2026-10-31 19:16:39+00',2,0,13,true,true,true),
 	 ('144','2026-10-31 19:16:39+00',9,2,10,true,true,true),
@@ -432,7 +432,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('149','2026-10-31 19:16:39+00',6,3,13,true,true,true),
 	 ('150','2026-10-31 19:16:39+00',10,3,5,true,true,true),
 	 ('151','2026-10-31 19:16:39+00',0,0,20,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('152','2026-10-31 19:16:39+00',3,1,16,true,true,true),
 	 ('153','2026-10-31 19:16:39+00',6,3,12,true,true,true),
 	 ('154','2026-10-31 19:16:39+00',12,3,5,true,true,true),
@@ -443,7 +443,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('159','2026-10-31 19:16:39+00',9,4,15,true,true,true),
 	 ('160','2026-10-31 19:16:39+00',5,1,15,true,true,true),
 	 ('161','2026-10-31 19:16:39+00',2,0,17,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('162','2026-10-31 19:16:39+00',1,0,18,true,true,true),
 	 ('163','2026-10-31 19:16:39+00',16,2,1,true,true,true),
 	 ('164','2026-10-31 19:16:39+00',2,1,18,true,false,false),
@@ -454,7 +454,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('169','2026-10-31 19:16:39+00',8,3,10,true,true,true),
 	 ('170','2026-10-31 19:16:39+00',10,1,8,true,true,true),
 	 ('171','2026-10-31 19:16:39+00',2,1,15,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('172','2026-10-31 19:16:39+00',6,1,17,true,true,true),
 	 ('173','2026-10-31 19:16:39+00',5,0,14,true,true,true),
 	 ('174','2026-10-31 19:16:39+00',6,0,30,true,true,true),
@@ -465,7 +465,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('179','2026-10-31 19:16:39+00',4,2,20,true,true,true),
 	 ('180','2026-10-31 19:16:39+00',6,0,13,true,true,true),
 	 ('181','2026-10-31 19:16:39+00',13,1,6,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('182','2026-10-31 19:16:39+00',8,3,11,true,true,true),
 	 ('183','2026-10-31 19:16:39+00',2,1,18,true,true,true),
 	 ('184','2026-10-31 19:16:39+00',7,1,13,true,true,true),
@@ -476,7 +476,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('190','2026-10-31 19:16:39+00',4,2,13,true,true,true),
 	 ('192','2026-10-31 19:16:39+00',10,3,9,true,true,true),
 	 ('194','2026-10-31 19:16:39+00',12,3,8,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('196','2026-10-31 19:16:39+00',12,5,5,true,true,true),
 	 ('197','2026-10-31 19:16:39+00',8,2,7,true,true,true),
 	 ('199','2026-10-31 19:16:39+00',13,4,9,true,true,true),
@@ -487,7 +487,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('207','2026-10-31 19:16:39+00',7,4,11,true,true,true),
 	 ('208','2026-10-31 19:16:39+00',10,1,6,true,true,true),
 	 ('209','2026-10-31 19:16:39+00',4,3,7,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('211','2026-10-31 19:16:39+00',7,2,9,true,true,true),
 	 ('214','2026-10-31 19:16:39+00',9,5,9,true,true,true),
 	 ('215','2026-10-31 19:16:39+00',0,0,16,false,false,false),
@@ -498,7 +498,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('299','2026-10-31 19:16:39+00',3,0,19,false,false,false),
 	 ('505','2026-10-31 19:16:39+00',1,0,2,true,true,true),
 	 ('507','2026-10-31 19:16:39+00',1,0,8,true,false,false);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('522','2026-10-31 19:16:39+00',1,1,2,true,false,false),
 	 ('539','2026-10-31 19:16:39+00',1,0,9,true,true,true),
 	 ('543','2026-10-31 19:16:39+00',2,2,3,true,true,true),
@@ -509,7 +509,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('598','2026-10-31 19:16:39+00',0,0,5,true,true,true),
 	 ('599','2026-10-31 19:16:39+00',0,0,10,true,true,true),
 	 ('604','2026-10-31 19:16:39+00',2,1,3,true,false,false);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('605','2026-10-31 19:16:39+00',1,0,2,true,false,false),
 	 ('606','2026-10-31 19:16:39+00',1,0,8,true,true,true),
 	 ('627','2026-10-31 19:16:39+00',2,0,17,true,true,true),
@@ -520,7 +520,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('672','2026-10-31 19:16:39+00',0,0,10,true,true,true),
 	 ('900','2026-10-31 19:16:39+00',0,0,15,false,false,false),
 	 ('901','2026-10-31 19:16:39+00',0,0,20,true,false,false);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('902','2026-10-31 19:16:39+00',0,0,20,false,false,false),
 	 ('903','2026-10-31 19:16:39+00',4,0,19,true,true,true),
 	 ('1','2026-10-31 19:20:20+00',26,9,14,true,false,false),
@@ -531,7 +531,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('6','2026-10-31 19:20:20+00',3,3,36,true,false,false),
 	 ('7','2026-10-31 19:20:20+00',5,2,12,true,false,false),
 	 ('8','2026-10-31 19:20:20+00',9,2,11,true,false,false);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('9','2026-10-31 19:20:20+00',3,0,17,true,false,false),
 	 ('10','2026-10-31 19:20:20+00',0,0,18,true,true,true),
 	 ('11','2026-10-31 19:20:20+00',2,0,22,true,true,true),
@@ -542,7 +542,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('16','2026-10-31 19:20:20+00',4,1,25,true,true,true),
 	 ('17','2026-10-31 19:20:20+00',1,0,11,true,true,true),
 	 ('18','2026-10-31 19:20:20+00',1,0,11,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('19','2026-10-31 19:20:20+00',8,1,20,true,false,false),
 	 ('20','2026-10-31 19:20:20+00',0,0,29,true,false,false),
 	 ('21','2026-10-31 19:20:20+00',14,6,1,true,false,false),
@@ -553,7 +553,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('26','2026-10-31 19:20:20+00',0,0,14,true,true,true),
 	 ('27','2026-10-31 19:20:20+00',4,0,15,true,true,true),
 	 ('28','2026-10-31 19:20:20+00',0,0,26,true,false,false);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('29','2026-10-31 19:20:20+00',7,0,7,true,true,true),
 	 ('30','2026-10-31 19:20:20+00',15,4,2,true,true,true),
 	 ('31','2026-10-31 19:20:20+00',4,2,10,true,true,true),
@@ -564,7 +564,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('36','2026-10-31 19:20:20+00',1,0,16,true,true,true),
 	 ('37','2026-10-31 19:20:20+00',2,0,27,true,true,true),
 	 ('38','2026-10-31 19:20:20+00',1,0,13,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('39','2026-10-31 19:20:20+00',3,0,61,true,true,true),
 	 ('40','2026-10-31 19:20:20+00',14,3,5,true,false,false),
 	 ('41','2026-10-31 19:20:20+00',0,0,17,true,false,false),
@@ -575,7 +575,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('46','2026-10-31 19:20:20+00',18,3,0,true,true,true),
 	 ('47','2026-10-31 19:20:20+00',10,4,3,true,true,true),
 	 ('48','2026-10-31 19:20:20+00',4,2,12,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('49','2026-10-31 19:20:20+00',5,2,11,true,true,true),
 	 ('50','2026-10-31 19:20:20+00',11,3,3,true,true,true),
 	 ('51','2026-10-31 19:20:20+00',12,4,5,true,true,true),
@@ -586,7 +586,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('56','2026-10-31 19:20:20+00',7,3,12,true,true,true),
 	 ('57','2026-10-31 19:20:20+00',6,2,10,true,true,true),
 	 ('58','2026-10-31 19:20:20+00',2,0,15,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('59','2026-10-31 19:20:20+00',1,0,14,true,true,true),
 	 ('60','2026-10-31 19:20:20+00',2,1,14,true,true,true),
 	 ('61','2026-10-31 19:20:20+00',10,3,4,true,true,true),
@@ -597,7 +597,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('66','2026-10-31 19:20:20+00',1,0,18,true,true,true),
 	 ('67','2026-10-31 19:20:20+00',2,1,18,true,true,true),
 	 ('68','2026-10-31 19:20:20+00',1,0,16,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('69','2026-10-31 19:20:20+00',0,0,14,false,false,false),
 	 ('70','2026-10-31 19:20:20+00',3,0,13,true,true,true),
 	 ('72','2026-10-31 19:20:20+00',8,3,14,true,true,true),
@@ -608,7 +608,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('77','2026-10-31 19:20:20+00',3,3,17,true,true,true),
 	 ('78','2026-10-31 19:20:20+00',7,2,12,true,true,true),
 	 ('79','2026-10-31 19:20:20+00',6,2,13,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('80','2026-10-31 19:20:20+00',8,3,8,true,true,true),
 	 ('81','2026-10-31 19:20:20+00',1,1,19,true,true,true),
 	 ('82','2026-10-31 19:20:20+00',3,3,16,true,true,true),
@@ -619,7 +619,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('87','2026-10-31 19:20:20+00',1,1,19,true,true,true),
 	 ('88','2026-10-31 19:20:20+00',11,0,5,true,true,true),
 	 ('89','2026-10-31 19:20:20+00',3,2,17,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('90','2026-10-31 19:20:20+00',13,1,2,true,true,true),
 	 ('91','2026-10-31 19:20:20+00',6,1,13,true,true,true),
 	 ('92','2026-10-31 19:20:20+00',7,4,8,true,true,true),
@@ -630,7 +630,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('97','2026-10-31 19:20:20+00',4,1,17,true,true,true),
 	 ('98','2026-10-31 19:20:20+00',0,0,13,true,true,true),
 	 ('99','2026-10-31 19:20:20+00',2,1,28,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('100','2026-10-31 19:20:20+00',1,0,38,true,true,true),
 	 ('101','2026-10-31 19:20:20+00',4,2,15,true,true,true),
 	 ('102','2026-10-31 19:20:20+00',0,0,39,true,false,false),
@@ -641,7 +641,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('107','2026-10-31 19:20:20+00',8,2,4,true,true,true),
 	 ('108','2026-10-31 19:20:20+00',0,0,16,true,true,true),
 	 ('109','2026-10-31 19:20:20+00',2,0,34,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('110','2026-10-31 19:20:20+00',36,11,1,true,true,true),
 	 ('111','2026-10-31 19:20:20+00',6,2,31,true,true,true),
 	 ('112','2026-10-31 19:20:20+00',4,1,32,true,true,true),
@@ -652,7 +652,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('117','2026-10-31 19:20:20+00',5,3,12,true,true,true),
 	 ('118','2026-10-31 19:20:20+00',1,0,18,true,true,true),
 	 ('119','2026-10-31 19:20:20+00',2,1,16,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('120','2026-10-31 19:20:20+00',19,9,9,true,true,true),
 	 ('121','2026-10-31 19:20:20+00',0,0,14,true,true,true),
 	 ('122','2026-10-31 19:20:20+00',0,0,12,true,true,true),
@@ -663,7 +663,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('127','2026-10-31 19:20:20+00',1,0,17,true,true,true),
 	 ('128','2026-10-31 19:20:20+00',1,0,14,true,true,true),
 	 ('129','2026-10-31 19:20:20+00',5,1,11,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('130','2026-10-31 19:20:20+00',8,2,9,true,true,true),
 	 ('131','2026-10-31 19:20:20+00',1,0,15,true,true,true),
 	 ('132','2026-10-31 19:20:20+00',3,2,11,true,true,true),
@@ -674,7 +674,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('137','2026-10-31 19:20:20+00',0,0,25,true,true,true),
 	 ('138','2026-10-31 19:20:20+00',3,1,14,true,true,true),
 	 ('139','2026-10-31 19:20:20+00',2,0,11,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('140','2026-10-31 19:20:20+00',0,0,20,true,false,false),
 	 ('141','2026-10-31 19:20:20+00',10,1,4,true,true,true),
 	 ('142','2026-10-31 19:20:20+00',14,5,3,true,true,true),
@@ -685,7 +685,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('147','2026-10-31 19:20:20+00',13,5,17,true,true,true),
 	 ('148','2026-10-31 19:20:20+00',4,1,15,true,true,true),
 	 ('149','2026-10-31 19:20:20+00',5,2,14,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('150','2026-10-31 19:20:20+00',9,2,6,true,true,true),
 	 ('151','2026-10-31 19:20:20+00',0,0,20,true,true,true),
 	 ('152','2026-10-31 19:20:20+00',3,1,16,true,true,true),
@@ -696,7 +696,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('157','2026-10-31 19:20:20+00',4,0,14,true,true,true),
 	 ('158','2026-10-31 19:20:20+00',5,2,15,true,true,true),
 	 ('159','2026-10-31 19:20:20+00',9,4,15,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('160','2026-10-31 19:20:20+00',5,1,15,true,true,true),
 	 ('161','2026-10-31 19:20:20+00',2,0,17,true,true,true),
 	 ('162','2026-10-31 19:20:20+00',1,0,18,true,true,true),
@@ -707,7 +707,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('167','2026-10-31 19:20:20+00',2,1,16,true,true,true),
 	 ('168','2026-10-31 19:20:20+00',7,2,12,true,true,true),
 	 ('169','2026-10-31 19:20:20+00',8,3,10,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('170','2026-10-31 19:20:20+00',7,1,11,true,true,true),
 	 ('171','2026-10-31 19:20:20+00',1,1,16,true,true,true),
 	 ('172','2026-10-31 19:20:20+00',6,1,17,true,true,true),
@@ -718,7 +718,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('177','2026-10-31 19:20:20+00',2,1,21,true,true,true),
 	 ('178','2026-10-31 19:20:20+00',10,2,9,true,false,false),
 	 ('179','2026-10-31 19:20:20+00',4,2,20,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('180','2026-10-31 19:20:20+00',5,0,14,true,true,true),
 	 ('181','2026-10-31 19:20:20+00',13,1,6,true,true,true),
 	 ('182','2026-10-31 19:20:20+00',8,3,11,true,true,true),
@@ -729,7 +729,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('188','2026-10-31 19:20:20+00',1,0,19,true,true,true),
 	 ('189','2026-10-31 19:20:20+00',9,2,10,true,true,true),
 	 ('190','2026-10-31 19:20:20+00',4,2,13,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('192','2026-10-31 19:20:20+00',10,3,9,true,true,true),
 	 ('194','2026-10-31 19:20:20+00',12,3,8,true,true,true),
 	 ('196','2026-10-31 19:20:20+00',12,5,5,true,true,true),
@@ -740,7 +740,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('202','2026-10-31 19:20:20+00',4,2,13,true,true,true),
 	 ('206','2026-10-31 19:20:20+00',7,5,9,true,true,true),
 	 ('207','2026-10-31 19:20:20+00',7,4,11,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('208','2026-10-31 19:20:20+00',10,1,6,true,true,true),
 	 ('209','2026-10-31 19:20:20+00',4,3,7,true,true,true),
 	 ('211','2026-10-31 19:20:20+00',6,2,10,true,true,true),
@@ -751,7 +751,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('297','2026-10-31 19:20:20+00',0,0,0,false,false,false),
 	 ('298','2026-10-31 19:20:20+00',0,0,0,false,false,false),
 	 ('299','2026-10-31 19:20:20+00',3,0,19,false,false,false);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('505','2026-10-31 19:20:20+00',1,0,2,true,true,true),
 	 ('507','2026-10-31 19:20:20+00',2,0,7,true,false,false),
 	 ('522','2026-10-31 19:20:20+00',1,1,2,true,false,false),
@@ -762,7 +762,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('561','2026-10-31 19:20:20+00',0,0,5,true,true,true),
 	 ('567','2026-10-31 19:20:20+00',1,0,4,false,false,false),
 	 ('598','2026-10-31 19:20:20+00',0,0,5,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('599','2026-10-31 19:20:20+00',0,0,10,true,true,true),
 	 ('604','2026-10-31 19:20:20+00',2,1,3,true,false,false),
 	 ('605','2026-10-31 19:20:20+00',1,0,2,true,false,false),
@@ -773,7 +773,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('634','2026-10-31 19:20:20+00',0,0,5,true,false,false),
 	 ('670','2026-10-31 19:20:20+00',0,0,5,false,false,false),
 	 ('672','2026-10-31 19:20:20+00',0,0,10,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('900','2026-10-31 19:20:20+00',0,0,15,false,false,false),
 	 ('901','2026-10-31 19:20:20+00',0,0,20,true,false,false),
 	 ('902','2026-10-31 19:20:20+00',0,0,20,false,false,false),
@@ -784,7 +784,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('4','2026-10-31 19:43:59+00',1,0,18,true,true,true),
 	 ('5','2026-10-31 19:43:59+00',1,1,39,true,false,false),
 	 ('6','2026-10-31 19:43:59+00',1,1,38,true,false,false);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('7','2026-10-31 19:43:59+00',5,2,12,true,false,false),
 	 ('8','2026-10-31 19:43:59+00',9,2,11,true,false,false),
 	 ('9','2026-10-31 19:43:59+00',3,0,17,true,false,false),
@@ -795,7 +795,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('14','2026-10-31 19:43:59+00',5,0,25,true,true,true),
 	 ('15','2026-10-31 19:43:59+00',2,0,8,true,true,true),
 	 ('16','2026-10-31 19:43:59+00',4,1,25,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('17','2026-10-31 19:43:59+00',1,0,11,true,true,true),
 	 ('18','2026-10-31 19:43:59+00',2,0,10,true,true,true),
 	 ('19','2026-10-31 19:43:59+00',11,1,17,true,false,false),
@@ -806,7 +806,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('24','2026-10-31 19:43:59+00',4,3,8,true,true,true),
 	 ('25','2026-10-31 19:43:59+00',5,1,7,true,true,true),
 	 ('26','2026-10-31 19:43:59+00',2,2,12,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('27','2026-10-31 19:43:59+00',5,0,14,true,true,true),
 	 ('28','2026-10-31 19:43:59+00',0,0,26,true,false,false),
 	 ('29','2026-10-31 19:43:59+00',9,1,5,true,true,true),
@@ -817,7 +817,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('34','2026-10-31 19:43:59+00',0,0,13,true,true,true),
 	 ('35','2026-10-31 19:43:59+00',1,1,17,true,true,true),
 	 ('36','2026-10-31 19:43:59+00',1,0,17,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('37','2026-10-31 19:43:59+00',2,0,27,true,true,true),
 	 ('38','2026-10-31 19:43:59+00',1,0,13,true,true,true),
 	 ('39','2026-10-31 19:43:59+00',13,0,50,true,true,true),
@@ -828,7 +828,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('44','2026-10-31 19:43:59+00',0,0,19,true,false,false),
 	 ('45','2026-10-31 19:43:59+00',5,2,13,true,true,true),
 	 ('46','2026-10-31 19:43:59+00',12,1,6,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('47','2026-10-31 19:43:59+00',12,4,1,true,true,true),
 	 ('48','2026-10-31 19:43:59+00',3,1,13,true,true,true),
 	 ('49','2026-10-31 19:43:59+00',5,2,11,true,true,true),
@@ -839,7 +839,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('54','2026-10-31 19:43:59+00',0,0,41,true,true,true),
 	 ('55','2026-10-31 19:43:59+00',11,5,5,true,true,true),
 	 ('56','2026-10-31 19:43:59+00',10,4,8,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('57','2026-10-31 19:43:59+00',3,1,13,true,true,true),
 	 ('58','2026-10-31 19:43:59+00',0,0,17,true,true,true),
 	 ('59','2026-10-31 19:43:59+00',0,0,15,true,true,true),
@@ -850,7 +850,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('64','2026-10-31 19:43:59+00',5,3,12,true,true,true),
 	 ('65','2026-10-31 19:43:59+00',9,2,9,true,false,false),
 	 ('66','2026-10-31 19:43:59+00',2,0,17,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('67','2026-10-31 19:43:59+00',1,1,19,true,true,true),
 	 ('68','2026-10-31 19:43:59+00',2,1,15,true,true,true),
 	 ('69','2026-10-31 19:43:59+00',0,0,14,false,false,false),
@@ -861,7 +861,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('75','2026-10-31 19:43:59+00',8,4,2,true,true,true),
 	 ('76','2026-10-31 19:43:59+00',18,3,2,true,true,true),
 	 ('77','2026-10-31 19:43:59+00',2,2,18,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('78','2026-10-31 19:43:59+00',7,2,12,true,true,true),
 	 ('79','2026-10-31 19:43:59+00',6,2,13,true,true,true),
 	 ('80','2026-10-31 19:43:59+00',8,3,8,true,true,true),
@@ -872,7 +872,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('85','2026-10-31 19:43:59+00',2,0,15,true,true,true),
 	 ('86','2026-10-31 19:43:59+00',7,4,10,true,true,true),
 	 ('87','2026-10-31 19:43:59+00',1,1,19,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('88','2026-10-31 19:43:59+00',11,0,5,true,true,true),
 	 ('89','2026-10-31 19:43:59+00',6,2,14,true,true,true),
 	 ('90','2026-10-31 19:43:59+00',14,1,1,true,true,true),
@@ -883,7 +883,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('95','2026-10-31 19:43:59+00',12,5,1,true,true,true),
 	 ('96','2026-10-31 19:43:59+00',15,3,10,true,true,true),
 	 ('97','2026-10-31 19:43:59+00',5,1,16,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('98','2026-10-31 19:43:59+00',0,0,13,true,true,true),
 	 ('99','2026-10-31 19:43:59+00',4,0,26,true,true,true),
 	 ('100','2026-10-31 19:43:59+00',1,0,38,true,true,true),
@@ -894,7 +894,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('105','2026-10-31 19:43:59+00',3,2,16,true,false,false),
 	 ('106','2026-10-31 19:43:59+00',1,0,38,true,false,false),
 	 ('107','2026-10-31 19:43:59+00',6,1,6,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('108','2026-10-31 19:43:59+00',0,0,16,true,true,true),
 	 ('109','2026-10-31 19:43:59+00',0,0,36,true,true,true),
 	 ('110','2026-10-31 19:43:59+00',35,11,2,true,true,true),
@@ -905,7 +905,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('115','2026-10-31 19:43:59+00',11,1,3,true,true,true),
 	 ('116','2026-10-31 19:43:59+00',6,0,30,true,true,true),
 	 ('117','2026-10-31 19:43:59+00',9,5,8,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('118','2026-10-31 19:43:59+00',1,0,18,true,true,true),
 	 ('119','2026-10-31 19:43:59+00',1,1,17,true,true,true),
 	 ('120','2026-10-31 19:43:59+00',17,8,11,true,true,true),
@@ -916,7 +916,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('125','2026-10-31 19:43:59+00',2,2,27,true,true,true),
 	 ('126','2026-10-31 19:43:59+00',6,1,5,true,true,true),
 	 ('127','2026-10-31 19:43:59+00',0,0,18,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('128','2026-10-31 19:43:59+00',1,0,14,true,true,true),
 	 ('129','2026-10-31 19:43:59+00',4,1,12,true,true,true),
 	 ('130','2026-10-31 19:43:59+00',7,2,11,true,true,true),
@@ -927,7 +927,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('135','2026-10-31 19:43:59+00',9,1,10,true,true,true),
 	 ('136','2026-10-31 19:43:59+00',1,1,14,true,true,true),
 	 ('137','2026-10-31 19:43:59+00',0,0,25,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('138','2026-10-31 19:43:59+00',2,0,15,true,true,true),
 	 ('139','2026-10-31 19:43:59+00',5,1,8,true,true,true),
 	 ('140','2026-10-31 19:43:59+00',0,0,20,true,false,false),
@@ -938,7 +938,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('145','2026-10-31 19:43:59+00',0,0,14,true,true,true),
 	 ('146','2026-10-31 19:43:59+00',0,0,27,true,true,true),
 	 ('147','2026-10-31 19:43:59+00',13,5,17,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('148','2026-10-31 19:43:59+00',5,2,14,true,true,true),
 	 ('149','2026-10-31 19:43:59+00',5,2,14,true,true,true),
 	 ('150','2026-10-31 19:43:59+00',8,2,7,true,true,true),
@@ -949,7 +949,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('155','2026-10-31 19:43:59+00',1,1,21,true,true,true),
 	 ('156','2026-10-31 19:43:59+00',11,6,9,true,true,true),
 	 ('157','2026-10-31 19:43:59+00',4,0,14,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('158','2026-10-31 19:43:59+00',8,4,12,true,true,true),
 	 ('159','2026-10-31 19:43:59+00',9,4,15,true,true,true),
 	 ('160','2026-10-31 19:43:59+00',5,1,15,true,true,true),
@@ -960,7 +960,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('165','2026-10-31 19:43:59+00',1,1,12,true,true,true),
 	 ('166','2026-10-31 19:43:59+00',1,0,14,true,true,true),
 	 ('167','2026-10-31 19:43:59+00',1,1,17,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('168','2026-10-31 19:43:59+00',7,2,12,true,true,true),
 	 ('169','2026-10-31 19:43:59+00',7,3,11,true,true,true),
 	 ('170','2026-10-31 19:43:59+00',6,1,12,true,true,true),
@@ -971,7 +971,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('175','2026-10-31 19:43:59+00',8,4,12,true,true,true),
 	 ('176','2026-10-31 19:43:59+00',7,3,11,true,true,true),
 	 ('177','2026-10-31 19:43:59+00',2,1,21,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('178','2026-10-31 19:43:59+00',10,2,9,true,false,false),
 	 ('179','2026-10-31 19:43:59+00',3,2,21,true,true,true),
 	 ('180','2026-10-31 19:43:59+00',5,0,14,true,true,true),
@@ -982,7 +982,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('185','2026-10-31 19:43:59+00',3,1,16,true,true,true),
 	 ('186','2026-10-31 19:43:59+00',4,0,15,true,true,true),
 	 ('188','2026-10-31 19:43:59+00',2,0,18,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('189','2026-10-31 19:43:59+00',7,1,12,true,true,true),
 	 ('190','2026-10-31 19:43:59+00',4,2,13,true,true,true),
 	 ('192','2026-10-31 19:43:59+00',10,3,9,true,true,true),
@@ -993,7 +993,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('200','2026-10-31 19:43:59+00',8,3,6,true,true,true),
 	 ('201','2026-10-31 19:43:59+00',10,1,10,true,true,true),
 	 ('202','2026-10-31 19:43:59+00',5,3,12,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('206','2026-10-31 19:43:59+00',8,6,8,true,true,true),
 	 ('207','2026-10-31 19:43:59+00',6,3,12,true,true,true),
 	 ('208','2026-10-31 19:43:59+00',10,1,6,true,true,true),
@@ -1004,7 +1004,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('219','2026-10-31 19:43:59+00',5,2,6,false,false,false),
 	 ('251','2026-10-31 19:43:59+00',18,1,21,true,true,true),
 	 ('297','2026-10-31 19:43:59+00',0,0,0,false,false,false);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('298','2026-10-31 19:43:59+00',0,0,0,false,false,false),
 	 ('299','2026-10-31 19:43:59+00',3,0,19,false,false,false),
 	 ('505','2026-10-31 19:43:59+00',1,0,2,true,true,true),
@@ -1015,7 +1015,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('557','2026-10-31 19:43:59+00',1,1,4,true,true,true),
 	 ('559','2026-10-31 19:43:59+00',0,0,5,true,true,true),
 	 ('561','2026-10-31 19:43:59+00',0,0,5,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('567','2026-10-31 19:43:59+00',1,0,4,false,false,false),
 	 ('598','2026-10-31 19:43:59+00',0,0,5,true,true,true),
 	 ('599','2026-10-31 19:43:59+00',0,0,10,true,true,true),
@@ -1026,7 +1026,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('629','2026-10-31 19:43:59+00',1,0,4,true,true,true),
 	 ('633','2026-10-31 19:43:59+00',3,0,1,true,true,true),
 	 ('634','2026-10-31 19:43:59+00',0,0,5,true,false,false);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('670','2026-10-31 19:43:59+00',0,0,5,false,false,false),
 	 ('672','2026-10-31 19:43:59+00',0,0,10,true,true,true),
 	 ('900','2026-10-31 19:43:59+00',0,0,15,false,false,false),
@@ -1037,7 +1037,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('2','2026-10-31 19:45:59+00',16,6,4,true,false,false),
 	 ('3','2026-10-31 19:45:59+00',0,0,27,true,true,true),
 	 ('4','2026-10-31 19:45:59+00',1,0,18,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('5','2026-10-31 19:45:59+00',1,1,39,true,false,false),
 	 ('6','2026-10-31 19:45:59+00',1,1,38,true,false,false),
 	 ('7','2026-10-31 19:45:59+00',4,2,13,true,false,false),
@@ -1048,7 +1048,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('12','2026-10-31 19:45:59+00',5,1,9,true,true,true),
 	 ('13','2026-10-31 19:45:59+00',13,2,7,true,true,true),
 	 ('14','2026-10-31 19:45:59+00',5,0,25,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('15','2026-10-31 19:45:59+00',2,0,8,true,true,true),
 	 ('16','2026-10-31 19:45:59+00',3,1,26,true,true,true),
 	 ('17','2026-10-31 19:45:59+00',1,0,11,true,true,true),
@@ -1059,7 +1059,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('22','2026-10-31 19:45:59+00',0,0,32,true,false,false),
 	 ('23','2026-10-31 19:45:59+00',4,1,33,true,true,true),
 	 ('24','2026-10-31 19:45:59+00',4,3,8,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('25','2026-10-31 19:45:59+00',5,1,7,true,true,true),
 	 ('26','2026-10-31 19:45:59+00',2,2,12,true,true,true),
 	 ('27','2026-10-31 19:45:59+00',5,0,14,true,true,true),
@@ -1070,7 +1070,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('32','2026-10-31 19:45:59+00',10,0,5,true,true,true),
 	 ('33','2026-10-31 19:45:59+00',5,2,12,true,true,true),
 	 ('34','2026-10-31 19:45:59+00',0,0,13,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('35','2026-10-31 19:45:59+00',1,1,17,true,true,true),
 	 ('36','2026-10-31 19:45:59+00',0,0,18,true,true,true),
 	 ('37','2026-10-31 19:45:59+00',2,0,27,true,true,true),
@@ -1081,7 +1081,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('42','2026-10-31 19:45:59+00',0,0,20,true,false,false),
 	 ('43','2026-10-31 19:45:59+00',9,6,1,true,true,true),
 	 ('44','2026-10-31 19:45:59+00',0,0,19,true,false,false);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('45','2026-10-31 19:45:59+00',8,3,10,true,true,true),
 	 ('46','2026-10-31 19:45:59+00',12,1,6,true,true,true),
 	 ('47','2026-10-31 19:45:59+00',12,4,1,true,true,true),
@@ -1092,7 +1092,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('52','2026-10-31 19:45:59+00',7,3,10,true,true,true),
 	 ('53','2026-10-31 19:45:59+00',2,0,10,true,true,true),
 	 ('54','2026-10-31 19:45:59+00',0,0,41,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('55','2026-10-31 19:45:59+00',12,5,4,true,true,true),
 	 ('56','2026-10-31 19:45:59+00',10,4,8,true,true,true),
 	 ('57','2026-10-31 19:45:59+00',3,1,13,true,true,true),
@@ -1103,7 +1103,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('62','2026-10-31 19:45:59+00',1,1,26,true,true,true),
 	 ('63','2026-10-31 19:45:59+00',15,2,2,true,true,true),
 	 ('64','2026-10-31 19:45:59+00',5,3,12,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('65','2026-10-31 19:45:59+00',9,2,9,true,false,false),
 	 ('66','2026-10-31 19:45:59+00',2,0,17,true,true,true),
 	 ('67','2026-10-31 19:45:59+00',1,1,19,true,true,true),
@@ -1114,7 +1114,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('73','2026-10-31 19:45:59+00',1,0,18,true,true,true),
 	 ('74','2026-10-31 19:45:59+00',19,3,3,true,true,true),
 	 ('75','2026-10-31 19:45:59+00',8,4,2,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('76','2026-10-31 19:45:59+00',18,3,2,true,true,true),
 	 ('77','2026-10-31 19:45:59+00',2,2,18,true,true,true),
 	 ('78','2026-10-31 19:45:59+00',7,2,12,true,true,true),
@@ -1125,7 +1125,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('83','2026-10-31 19:45:59+00',15,8,4,true,true,true),
 	 ('84','2026-10-31 19:45:59+00',9,3,6,true,true,true),
 	 ('85','2026-10-31 19:45:59+00',2,0,15,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('86','2026-10-31 19:45:59+00',7,4,10,true,true,true),
 	 ('87','2026-10-31 19:45:59+00',1,1,19,true,true,true),
 	 ('88','2026-10-31 19:45:59+00',10,0,6,true,true,true),
@@ -1136,7 +1136,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('93','2026-10-31 19:45:59+00',3,1,11,true,true,true),
 	 ('94','2026-10-31 19:45:59+00',0,0,1,true,false,false),
 	 ('95','2026-10-31 19:45:59+00',12,5,1,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('96','2026-10-31 19:45:59+00',15,3,10,true,true,true),
 	 ('97','2026-10-31 19:45:59+00',5,1,16,true,true,true),
 	 ('98','2026-10-31 19:45:59+00',1,1,12,true,true,true),
@@ -1147,7 +1147,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('103','2026-10-31 19:45:59+00',8,2,24,true,true,true),
 	 ('104','2026-10-31 19:45:59+00',1,1,4,true,false,false),
 	 ('105','2026-10-31 19:45:59+00',3,2,16,true,false,false);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('106','2026-10-31 19:45:59+00',1,0,38,true,false,false),
 	 ('107','2026-10-31 19:45:59+00',6,1,6,true,true,true),
 	 ('108','2026-10-31 19:45:59+00',0,0,16,true,true,true),
@@ -1158,7 +1158,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('113','2026-10-31 19:45:59+00',1,0,19,true,true,true),
 	 ('114','2026-10-31 19:45:59+00',0,0,27,true,true,true),
 	 ('115','2026-10-31 19:45:59+00',11,1,3,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('116','2026-10-31 19:45:59+00',6,0,30,true,true,true),
 	 ('117','2026-10-31 19:45:59+00',9,5,8,true,true,true),
 	 ('118','2026-10-31 19:45:59+00',1,0,18,true,true,true),
@@ -1169,7 +1169,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('123','2026-10-31 19:45:59+00',0,0,36,true,false,false),
 	 ('124','2026-10-31 19:45:59+00',9,4,9,true,true,true),
 	 ('125','2026-10-31 19:45:59+00',2,2,27,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('126','2026-10-31 19:45:59+00',4,1,7,true,true,true),
 	 ('127','2026-10-31 19:45:59+00',0,0,18,true,true,true),
 	 ('128','2026-10-31 19:45:59+00',1,0,14,true,true,true),
@@ -1180,7 +1180,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('133','2026-10-31 19:45:59+00',5,3,14,true,true,true),
 	 ('134','2026-10-31 19:45:59+00',17,6,0,true,false,false),
 	 ('135','2026-10-31 19:45:59+00',8,1,11,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('136','2026-10-31 19:45:59+00',1,1,14,true,true,true),
 	 ('137','2026-10-31 19:45:59+00',0,0,25,true,true,true),
 	 ('138','2026-10-31 19:45:59+00',2,0,15,true,true,true),
@@ -1191,7 +1191,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('143','2026-10-31 19:45:59+00',2,0,13,true,true,true),
 	 ('144','2026-10-31 19:45:59+00',11,2,8,true,true,true),
 	 ('145','2026-10-31 19:45:59+00',0,0,14,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('146','2026-10-31 19:45:59+00',0,0,27,true,true,true),
 	 ('147','2026-10-31 19:45:59+00',13,5,17,true,true,true),
 	 ('148','2026-10-31 19:45:59+00',5,2,13,true,true,true),
@@ -1202,7 +1202,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('153','2026-10-31 19:45:59+00',7,3,11,true,true,true),
 	 ('154','2026-10-31 19:45:59+00',5,2,12,true,true,true),
 	 ('155','2026-10-31 19:45:59+00',1,1,21,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('156','2026-10-31 19:45:59+00',11,6,9,true,true,true),
 	 ('157','2026-10-31 19:45:59+00',4,0,14,true,true,true),
 	 ('158','2026-10-31 19:45:59+00',7,4,13,true,true,true),
@@ -1213,7 +1213,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('163','2026-10-31 19:45:59+00',16,1,1,true,true,true),
 	 ('164','2026-10-31 19:45:59+00',2,1,18,true,false,false),
 	 ('165','2026-10-31 19:45:59+00',2,1,11,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('166','2026-10-31 19:45:59+00',1,0,14,true,true,true),
 	 ('167','2026-10-31 19:45:59+00',1,1,17,true,true,true),
 	 ('168','2026-10-31 19:45:59+00',7,2,12,true,true,true),
@@ -1224,7 +1224,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('173','2026-10-31 19:45:59+00',4,0,15,true,true,true),
 	 ('174','2026-10-31 19:45:59+00',9,3,26,true,true,true),
 	 ('175','2026-10-31 19:45:59+00',8,4,12,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('176','2026-10-31 19:45:59+00',7,3,11,true,true,true),
 	 ('177','2026-10-31 19:45:59+00',2,1,21,true,true,true),
 	 ('178','2026-10-31 19:45:59+00',10,2,9,true,false,false),
@@ -1235,7 +1235,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('183','2026-10-31 19:45:59+00',2,1,18,true,true,true),
 	 ('184','2026-10-31 19:45:59+00',7,1,13,true,true,true),
 	 ('185','2026-10-31 19:45:59+00',3,1,16,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('186','2026-10-31 19:45:59+00',4,0,15,true,true,true),
 	 ('188','2026-10-31 19:45:59+00',2,0,18,true,true,true),
 	 ('189','2026-10-31 19:45:59+00',8,1,11,true,true,true),
@@ -1246,7 +1246,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('197','2026-10-31 19:45:59+00',8,1,7,true,true,true),
 	 ('199','2026-10-31 19:45:59+00',12,4,10,true,true,true),
 	 ('200','2026-10-31 19:45:59+00',8,3,6,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('201','2026-10-31 19:45:59+00',10,1,10,true,true,true),
 	 ('202','2026-10-31 19:45:59+00',5,3,12,true,true,true),
 	 ('206','2026-10-31 19:45:59+00',8,6,8,true,true,true),
@@ -1257,7 +1257,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('214','2026-10-31 19:45:59+00',13,6,5,true,true,true),
 	 ('215','2026-10-31 19:45:59+00',0,0,16,false,false,false),
 	 ('219','2026-10-31 19:45:59+00',5,2,6,false,false,false);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('251','2026-10-31 19:45:59+00',18,1,21,true,true,true),
 	 ('297','2026-10-31 19:45:59+00',0,0,0,false,false,false),
 	 ('298','2026-10-31 19:45:59+00',0,0,0,false,false,false),
@@ -1268,7 +1268,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('539','2026-10-31 19:45:59+00',1,0,9,true,true,true),
 	 ('543','2026-10-31 19:45:59+00',2,2,3,true,true,true),
 	 ('557','2026-10-31 19:45:59+00',1,1,4,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('559','2026-10-31 19:45:59+00',0,0,5,true,true,true),
 	 ('561','2026-10-31 19:45:59+00',0,0,5,true,true,true),
 	 ('567','2026-10-31 19:45:59+00',1,0,4,false,false,false),
@@ -1279,7 +1279,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('606','2026-10-31 19:45:59+00',1,0,8,true,true,true),
 	 ('627','2026-10-31 19:45:59+00',2,0,17,true,true,true),
 	 ('629','2026-10-31 19:45:59+00',1,0,4,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('633','2026-10-31 19:45:59+00',3,0,1,true,true,true),
 	 ('634','2026-10-31 19:45:59+00',0,0,5,true,false,false),
 	 ('670','2026-10-31 19:45:59+00',0,0,5,false,false,false),
@@ -1290,7 +1290,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('903','2026-10-31 19:45:59+00',7,2,16,true,true,true),
 	 ('1','2026-10-31 19:48:39+00',23,7,17,true,false,false),
 	 ('2','2026-10-31 19:48:39+00',16,6,4,true,false,false);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('3','2026-10-31 19:48:39+00',0,0,27,true,true,true),
 	 ('4','2026-10-31 19:48:39+00',1,0,18,true,true,true),
 	 ('5','2026-10-31 19:48:39+00',1,1,39,true,false,false),
@@ -1301,7 +1301,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('10','2026-10-31 19:48:39+00',1,1,17,true,true,true),
 	 ('11','2026-10-31 19:48:39+00',1,0,23,true,true,true),
 	 ('12','2026-10-31 19:48:39+00',6,2,8,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('13','2026-10-31 19:48:39+00',13,2,7,true,true,true),
 	 ('14','2026-10-31 19:48:39+00',5,0,25,true,true,true),
 	 ('15','2026-10-31 19:48:39+00',2,0,8,true,true,true),
@@ -1312,7 +1312,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('20','2026-10-31 19:48:39+00',0,0,29,true,false,false),
 	 ('21','2026-10-31 19:48:39+00',14,6,1,true,false,false),
 	 ('22','2026-10-31 19:48:39+00',0,0,32,true,false,false);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('23','2026-10-31 19:48:39+00',4,1,33,true,true,true),
 	 ('24','2026-10-31 19:48:39+00',7,3,5,true,true,true),
 	 ('25','2026-10-31 19:48:39+00',5,1,7,true,true,true),
@@ -1323,7 +1323,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('30','2026-10-31 19:48:39+00',15,4,2,true,true,true),
 	 ('31','2026-10-31 19:48:39+00',4,2,10,true,true,true),
 	 ('32','2026-10-31 19:48:39+00',10,0,5,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('33','2026-10-31 19:48:39+00',5,2,12,true,true,true),
 	 ('34','2026-10-31 19:48:39+00',0,0,13,true,true,true),
 	 ('35','2026-10-31 19:48:39+00',0,0,18,true,true,true),
@@ -1334,7 +1334,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('40','2026-10-31 19:48:39+00',11,2,8,true,false,false),
 	 ('41','2026-10-31 19:48:39+00',0,0,17,true,false,false),
 	 ('42','2026-10-31 19:48:39+00',0,0,20,true,false,false);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('43','2026-10-31 19:48:39+00',9,6,1,true,true,true),
 	 ('44','2026-10-31 19:48:39+00',0,0,19,true,false,false),
 	 ('45','2026-10-31 19:48:39+00',8,3,10,true,true,true),
@@ -1345,7 +1345,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('50','2026-10-31 19:48:39+00',9,3,5,true,true,true),
 	 ('51','2026-10-31 19:48:39+00',10,4,7,true,true,true),
 	 ('52','2026-10-31 19:48:39+00',7,3,10,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('53','2026-10-31 19:48:39+00',2,0,10,true,true,true),
 	 ('54','2026-10-31 19:48:39+00',0,0,41,true,true,true),
 	 ('55','2026-10-31 19:48:39+00',11,5,5,true,true,true),
@@ -1356,7 +1356,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('60','2026-10-31 19:48:39+00',0,0,16,true,true,true),
 	 ('61','2026-10-31 19:48:39+00',9,2,5,true,true,true),
 	 ('62','2026-10-31 19:48:39+00',1,1,26,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('63','2026-10-31 19:48:39+00',15,2,2,true,true,true),
 	 ('64','2026-10-31 19:48:39+00',5,3,12,true,true,true),
 	 ('65','2026-10-31 19:48:39+00',9,2,9,true,false,false),
@@ -1367,7 +1367,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('70','2026-10-31 19:48:39+00',1,0,15,true,true,true),
 	 ('72','2026-10-31 19:48:39+00',9,4,13,true,true,true),
 	 ('73','2026-10-31 19:48:39+00',1,0,18,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('74','2026-10-31 19:48:39+00',19,3,3,true,true,true),
 	 ('75','2026-10-31 19:48:39+00',8,4,2,true,true,true),
 	 ('76','2026-10-31 19:48:39+00',18,3,2,true,true,true),
@@ -1378,7 +1378,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('81','2026-10-31 19:48:39+00',1,1,19,true,true,true),
 	 ('82','2026-10-31 19:48:39+00',4,3,15,true,true,true),
 	 ('83','2026-10-31 19:48:39+00',15,8,4,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('84','2026-10-31 19:48:39+00',9,3,6,true,true,true),
 	 ('85','2026-10-31 19:48:39+00',2,0,15,true,true,true),
 	 ('86','2026-10-31 19:48:39+00',7,4,10,true,true,true),
@@ -1389,7 +1389,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('91','2026-10-31 19:48:39+00',5,1,14,true,true,true),
 	 ('92','2026-10-31 19:48:39+00',8,5,7,true,true,true),
 	 ('93','2026-10-31 19:48:39+00',3,1,11,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('94','2026-10-31 19:48:39+00',0,0,1,true,false,false),
 	 ('95','2026-10-31 19:48:39+00',12,5,1,true,true,true),
 	 ('96','2026-10-31 19:48:39+00',15,3,10,true,true,true),
@@ -1400,7 +1400,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('101','2026-10-31 19:48:39+00',3,0,16,true,true,true),
 	 ('102','2026-10-31 19:48:39+00',0,0,39,true,false,false),
 	 ('103','2026-10-31 19:48:39+00',8,3,23,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('104','2026-10-31 19:48:39+00',1,1,4,true,false,false),
 	 ('105','2026-10-31 19:48:39+00',3,2,16,true,false,false),
 	 ('106','2026-10-31 19:48:39+00',1,0,38,true,false,false),
@@ -1411,7 +1411,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('111','2026-10-31 19:48:39+00',11,4,26,true,true,true),
 	 ('112','2026-10-31 19:48:39+00',3,1,33,true,true,true),
 	 ('113','2026-10-31 19:48:39+00',1,0,19,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('114','2026-10-31 19:48:39+00',0,0,27,true,true,true),
 	 ('115','2026-10-31 19:48:39+00',11,1,3,true,true,true),
 	 ('116','2026-10-31 19:48:39+00',7,0,29,true,true,true),
@@ -1422,7 +1422,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('121','2026-10-31 19:48:39+00',4,0,10,true,true,true),
 	 ('122','2026-10-31 19:48:39+00',2,1,10,true,true,true),
 	 ('123','2026-10-31 19:48:39+00',0,0,36,true,false,false);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('124','2026-10-31 19:48:39+00',8,4,10,true,true,true),
 	 ('125','2026-10-31 19:48:39+00',3,2,26,true,true,true),
 	 ('126','2026-10-31 19:48:39+00',5,1,6,true,true,true),
@@ -1433,7 +1433,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('131','2026-10-31 19:48:39+00',3,0,13,true,true,true),
 	 ('132','2026-10-31 19:48:39+00',1,1,13,true,true,true),
 	 ('133','2026-10-31 19:48:39+00',6,4,13,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('134','2026-10-31 19:48:39+00',17,6,0,true,false,false),
 	 ('135','2026-10-31 19:48:39+00',8,1,11,true,true,true),
 	 ('136','2026-10-31 19:48:39+00',1,1,14,true,true,true),
@@ -1444,7 +1444,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('141','2026-10-31 19:48:39+00',7,1,7,true,true,true),
 	 ('142','2026-10-31 19:48:39+00',14,5,3,true,true,true),
 	 ('143','2026-10-31 19:48:39+00',3,1,12,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('144','2026-10-31 19:48:39+00',11,2,8,true,true,true),
 	 ('145','2026-10-31 19:48:39+00',0,0,14,true,true,true),
 	 ('146','2026-10-31 19:48:39+00',0,0,27,true,true,true),
@@ -1455,7 +1455,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('151','2026-10-31 19:48:39+00',0,0,20,true,true,true),
 	 ('152','2026-10-31 19:48:39+00',3,1,16,true,true,true),
 	 ('153','2026-10-31 19:48:39+00',7,3,11,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('154','2026-10-31 19:48:39+00',6,2,11,true,true,true),
 	 ('155','2026-10-31 19:48:39+00',1,1,21,true,true,true),
 	 ('156','2026-10-31 19:48:39+00',11,6,9,true,true,true),
@@ -1466,7 +1466,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('161','2026-10-31 19:48:39+00',3,0,16,true,true,true),
 	 ('162','2026-10-31 19:48:39+00',2,1,17,true,true,true),
 	 ('163','2026-10-31 19:48:39+00',16,1,1,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('164','2026-10-31 19:48:39+00',2,1,18,true,false,false),
 	 ('165','2026-10-31 19:48:39+00',2,1,11,true,true,true),
 	 ('166','2026-10-31 19:48:39+00',1,0,14,true,true,true),
@@ -1477,7 +1477,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('171','2026-10-31 19:48:39+00',2,1,15,true,true,true),
 	 ('172','2026-10-31 19:48:39+00',6,2,17,true,true,true),
 	 ('173','2026-10-31 19:48:39+00',5,0,14,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('174','2026-10-31 19:48:39+00',9,3,26,true,true,true),
 	 ('175','2026-10-31 19:48:39+00',8,4,12,true,true,true),
 	 ('176','2026-10-31 19:48:39+00',7,3,11,true,true,true),
@@ -1488,7 +1488,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('181','2026-10-31 19:48:39+00',12,0,7,true,true,true),
 	 ('182','2026-10-31 19:48:39+00',6,1,13,true,true,true),
 	 ('183','2026-10-31 19:48:39+00',2,1,18,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('184','2026-10-31 19:48:39+00',7,1,13,true,true,true),
 	 ('185','2026-10-31 19:48:39+00',3,1,16,true,true,true),
 	 ('186','2026-10-31 19:48:39+00',4,1,15,true,true,true),
@@ -1499,7 +1499,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('194','2026-10-31 19:48:39+00',12,3,8,true,true,true),
 	 ('196','2026-10-31 19:48:39+00',12,6,5,true,true,true),
 	 ('197','2026-10-31 19:48:39+00',8,1,7,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('199','2026-10-31 19:48:39+00',12,4,10,true,true,true),
 	 ('200','2026-10-31 19:48:39+00',8,3,6,true,true,true),
 	 ('201','2026-10-31 19:48:39+00',10,1,10,true,true,true),
@@ -1510,7 +1510,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('209','2026-10-31 19:48:39+00',3,2,8,true,true,true),
 	 ('211','2026-10-31 19:48:39+00',12,3,5,true,true,true),
 	 ('214','2026-10-31 19:48:39+00',13,6,5,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('215','2026-10-31 19:48:39+00',0,0,16,false,false,false),
 	 ('219','2026-10-31 19:48:39+00',5,2,6,false,false,false),
 	 ('251','2026-10-31 19:48:39+00',20,2,19,true,true,true),
@@ -1521,7 +1521,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('507','2026-10-31 19:48:39+00',2,0,7,true,false,false),
 	 ('522','2026-10-31 19:48:39+00',1,1,2,true,false,false),
 	 ('539','2026-10-31 19:48:39+00',1,0,9,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('543','2026-10-31 19:48:39+00',2,2,3,true,true,true),
 	 ('557','2026-10-31 19:48:39+00',1,1,4,true,true,true),
 	 ('559','2026-10-31 19:48:39+00',0,0,5,true,true,true),
@@ -1532,7 +1532,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('604','2026-10-31 19:48:39+00',2,1,3,true,false,false),
 	 ('605','2026-10-31 19:48:39+00',1,0,2,true,false,false),
 	 ('606','2026-10-31 19:48:39+00',1,0,8,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('627','2026-10-31 19:48:39+00',2,0,17,true,true,true),
 	 ('629','2026-10-31 19:48:39+00',1,0,4,true,true,true),
 	 ('633','2026-10-31 19:48:39+00',3,0,1,true,true,true),
@@ -1543,7 +1543,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('901','2026-10-31 19:48:39+00',0,0,20,true,false,false),
 	 ('902','2026-10-31 19:48:39+00',0,0,20,false,false,false),
 	 ('903','2026-10-31 19:48:39+00',7,2,16,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('1','2026-10-31 20:19:19+00',21,6,19,true,false,false),
 	 ('2','2026-10-31 20:19:19+00',16,6,4,true,false,false),
 	 ('3','2026-10-31 20:19:19+00',1,1,26,true,true,true),
@@ -1554,7 +1554,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('8','2026-10-31 20:19:19+00',7,2,13,true,false,false),
 	 ('9','2026-10-31 20:19:19+00',2,0,18,true,false,false),
 	 ('10','2026-10-31 20:19:19+00',1,0,17,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('11','2026-10-31 20:19:19+00',1,0,23,true,true,true),
 	 ('12','2026-10-31 20:19:19+00',6,2,8,true,true,true),
 	 ('13','2026-10-31 20:19:19+00',14,3,6,true,true,true),
@@ -1565,7 +1565,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('18','2026-10-31 20:19:19+00',1,0,11,true,true,true),
 	 ('19','2026-10-31 20:19:19+00',11,1,17,true,false,false),
 	 ('20','2026-10-31 20:19:19+00',0,0,29,true,false,false);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('21','2026-10-31 20:19:19+00',14,6,1,true,false,false),
 	 ('22','2026-10-31 20:19:19+00',0,0,32,true,false,false),
 	 ('23','2026-10-31 20:19:19+00',6,3,31,true,true,true),
@@ -1576,7 +1576,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('28','2026-10-31 20:19:19+00',0,0,26,true,false,false),
 	 ('29','2026-10-31 20:19:19+00',4,0,10,true,true,true),
 	 ('30','2026-10-31 20:19:19+00',15,4,2,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('31','2026-10-31 20:19:19+00',7,5,7,true,true,true),
 	 ('32','2026-10-31 20:19:19+00',10,0,5,true,true,true),
 	 ('33','2026-10-31 20:19:19+00',4,1,13,true,true,true),
@@ -1587,7 +1587,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('38','2026-10-31 20:19:19+00',4,1,10,true,true,true),
 	 ('39','2026-10-31 20:19:19+00',14,5,49,true,true,true),
 	 ('40','2026-10-31 20:19:19+00',15,3,4,true,false,false);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('41','2026-10-31 20:19:19+00',0,0,17,true,false,false),
 	 ('42','2026-10-31 20:19:19+00',0,0,20,true,false,false),
 	 ('43','2026-10-31 20:19:19+00',8,4,2,true,true,true),
@@ -1598,7 +1598,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('48','2026-10-31 20:19:19+00',3,1,13,true,true,true),
 	 ('49','2026-10-31 20:19:19+00',5,2,11,true,true,true),
 	 ('50','2026-10-31 20:19:19+00',11,4,3,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('51','2026-10-31 20:19:19+00',9,3,8,true,true,true),
 	 ('52','2026-10-31 20:19:19+00',8,4,9,true,true,true),
 	 ('53','2026-10-31 20:19:19+00',3,0,9,true,true,true),
@@ -1609,7 +1609,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('58','2026-10-31 20:19:19+00',1,1,17,true,true,true),
 	 ('59','2026-10-31 20:19:19+00',4,2,11,true,true,true),
 	 ('60','2026-10-31 20:19:19+00',1,0,15,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('61','2026-10-31 20:19:19+00',8,1,6,true,true,true),
 	 ('62','2026-10-31 20:19:19+00',2,1,25,true,true,true),
 	 ('63','2026-10-31 20:19:19+00',15,2,2,true,true,true),
@@ -1620,7 +1620,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('68','2026-10-31 20:19:19+00',0,0,17,true,true,true),
 	 ('69','2026-10-31 20:19:19+00',0,0,14,false,false,false),
 	 ('70','2026-10-31 20:19:19+00',2,1,14,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('72','2026-10-31 20:19:19+00',9,4,13,true,true,true),
 	 ('73','2026-10-31 20:19:19+00',1,0,18,true,true,true),
 	 ('74','2026-10-31 20:19:19+00',19,3,2,true,true,true),
@@ -1631,7 +1631,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('79','2026-10-31 20:19:19+00',5,1,14,true,true,true),
 	 ('80','2026-10-31 20:19:19+00',8,3,8,true,true,true),
 	 ('81','2026-10-31 20:19:19+00',3,2,17,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('82','2026-10-31 20:19:19+00',4,3,15,true,true,true),
 	 ('83','2026-10-31 20:19:19+00',16,8,3,true,true,true),
 	 ('84','2026-10-31 20:19:19+00',10,3,5,true,true,true),
@@ -1642,7 +1642,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('89','2026-10-31 20:19:19+00',7,3,13,true,true,true),
 	 ('90','2026-10-31 20:19:19+00',15,1,0,true,true,true),
 	 ('91','2026-10-31 20:19:19+00',5,1,14,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('92','2026-10-31 20:19:19+00',6,4,9,true,true,true),
 	 ('93','2026-10-31 20:19:19+00',3,1,11,true,true,true),
 	 ('94','2026-10-31 20:19:19+00',0,0,1,true,false,false),
@@ -1653,7 +1653,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('99','2026-10-31 20:19:19+00',1,0,29,true,true,true),
 	 ('100','2026-10-31 20:19:19+00',6,0,32,true,true,true),
 	 ('101','2026-10-31 20:19:19+00',4,1,15,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('102','2026-10-31 20:19:19+00',0,0,39,true,false,false),
 	 ('103','2026-10-31 20:19:19+00',17,5,13,true,true,true),
 	 ('104','2026-10-31 20:19:19+00',1,1,4,true,false,false),
@@ -1664,7 +1664,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('109','2026-10-31 20:19:19+00',1,1,35,true,true,true),
 	 ('110','2026-10-31 20:19:19+00',34,11,4,true,true,true),
 	 ('111','2026-10-31 20:19:19+00',9,2,27,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('112','2026-10-31 20:19:19+00',5,2,32,true,true,true),
 	 ('113','2026-10-31 20:19:19+00',0,0,20,true,true,true),
 	 ('114','2026-10-31 20:19:19+00',0,0,27,true,true,true),
@@ -1675,7 +1675,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('119','2026-10-31 20:19:19+00',1,1,17,true,true,true),
 	 ('120','2026-10-31 20:19:19+00',15,7,13,true,true,true),
 	 ('121','2026-10-31 20:19:19+00',5,2,9,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('122','2026-10-31 20:19:19+00',2,1,10,true,true,true),
 	 ('123','2026-10-31 20:19:19+00',0,0,36,true,false,false),
 	 ('124','2026-10-31 20:19:19+00',5,3,13,true,true,true),
@@ -1686,7 +1686,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('129','2026-10-31 20:19:19+00',4,1,12,true,true,true),
 	 ('130','2026-10-31 20:19:19+00',3,0,16,true,true,true),
 	 ('131','2026-10-31 20:19:19+00',3,0,13,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('132','2026-10-31 20:19:19+00',1,1,13,true,true,true),
 	 ('133','2026-10-31 20:19:19+00',3,2,15,true,true,true),
 	 ('134','2026-10-31 20:19:19+00',17,6,0,true,false,false),
@@ -1697,7 +1697,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('139','2026-10-31 20:19:19+00',3,0,10,true,true,true),
 	 ('140','2026-10-31 20:19:19+00',0,0,20,true,false,false),
 	 ('141','2026-10-31 20:19:19+00',5,1,9,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('142','2026-10-31 20:19:19+00',14,5,3,true,true,true),
 	 ('143','2026-10-31 20:19:19+00',5,3,10,true,true,true),
 	 ('144','2026-10-31 20:19:19+00',11,2,8,true,true,true),
@@ -1708,7 +1708,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('149','2026-10-31 20:19:19+00',4,1,15,true,true,true),
 	 ('150','2026-10-31 20:19:19+00',8,2,7,true,true,true),
 	 ('151','2026-10-31 20:19:19+00',0,0,20,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('152','2026-10-31 20:19:19+00',7,2,12,true,true,true),
 	 ('153','2026-10-31 20:19:19+00',7,3,11,true,true,true),
 	 ('154','2026-10-31 20:19:19+00',4,1,13,true,true,true),
@@ -1719,7 +1719,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('159','2026-10-31 20:19:19+00',9,4,15,true,true,true),
 	 ('160','2026-10-31 20:19:19+00',5,1,15,true,true,true),
 	 ('161','2026-10-31 20:19:19+00',3,1,16,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('162','2026-10-31 20:19:19+00',1,0,18,true,true,true),
 	 ('163','2026-10-31 20:19:19+00',16,1,1,true,true,true),
 	 ('164','2026-10-31 20:19:19+00',2,1,18,true,false,false),
@@ -1730,7 +1730,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('169','2026-10-31 20:19:19+00',6,2,12,true,true,true),
 	 ('170','2026-10-31 20:19:19+00',5,1,13,true,true,true),
 	 ('171','2026-10-31 20:19:19+00',1,0,16,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('172','2026-10-31 20:19:19+00',4,1,19,true,true,true),
 	 ('173','2026-10-31 20:19:19+00',5,0,14,true,true,true),
 	 ('174','2026-10-31 20:19:19+00',10,3,25,true,true,true),
@@ -1741,7 +1741,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('179','2026-10-31 20:19:19+00',3,2,21,true,true,true),
 	 ('180','2026-10-31 20:19:19+00',4,0,15,true,true,true),
 	 ('181','2026-10-31 20:19:19+00',13,0,6,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('182','2026-10-31 20:19:19+00',7,2,12,true,true,true),
 	 ('183','2026-10-31 20:19:19+00',2,1,17,true,true,true),
 	 ('184','2026-10-31 20:19:19+00',7,1,13,true,true,true),
@@ -1752,7 +1752,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('190','2026-10-31 20:19:19+00',4,2,13,true,true,true),
 	 ('192','2026-10-31 20:19:19+00',12,3,7,true,true,true),
 	 ('194','2026-10-31 20:19:19+00',12,2,8,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('196','2026-10-31 20:19:19+00',11,5,6,true,true,true),
 	 ('197','2026-10-31 20:19:19+00',8,2,7,true,true,true),
 	 ('199','2026-10-31 20:19:19+00',16,6,6,true,true,true),
@@ -1763,7 +1763,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('207','2026-10-31 20:19:19+00',6,3,12,true,true,true),
 	 ('208','2026-10-31 20:19:19+00',9,1,7,true,true,true),
 	 ('209','2026-10-31 20:19:19+00',3,2,8,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('211','2026-10-31 20:19:19+00',14,6,3,true,true,true),
 	 ('214','2026-10-31 20:19:19+00',15,6,3,true,true,true),
 	 ('215','2026-10-31 20:19:19+00',0,0,16,false,false,false),
@@ -1774,7 +1774,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('299','2026-10-31 20:19:19+00',3,0,19,false,false,false),
 	 ('505','2026-10-31 20:19:19+00',1,0,2,true,true,true),
 	 ('507','2026-10-31 20:19:19+00',1,0,8,true,false,false);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('522','2026-10-31 20:19:19+00',1,1,2,true,false,false),
 	 ('539','2026-10-31 20:19:19+00',1,0,9,true,true,true),
 	 ('543','2026-10-31 20:19:19+00',3,2,2,true,true,true),
@@ -1785,7 +1785,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('598','2026-10-31 20:19:19+00',0,0,5,true,true,true),
 	 ('599','2026-10-31 20:19:19+00',0,0,10,true,true,true),
 	 ('604','2026-10-31 20:19:19+00',2,1,3,true,false,false);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('605','2026-10-31 20:19:19+00',1,0,2,true,false,false),
 	 ('606','2026-10-31 20:19:19+00',1,0,8,true,true,true),
 	 ('627','2026-10-31 20:19:19+00',2,0,17,true,true,true),
@@ -1796,7 +1796,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('672','2026-10-31 20:19:19+00',0,0,10,true,true,true),
 	 ('900','2026-10-31 20:19:19+00',0,0,15,false,false,false),
 	 ('901','2026-10-31 20:19:19+00',0,0,20,true,false,false);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('902','2026-10-31 20:19:19+00',0,0,20,false,false,false),
 	 ('903','2026-10-31 20:19:19+00',7,2,16,true,true,true),
 	 ('1','2026-10-31 20:34:20+00',22,7,18,true,false,false),
@@ -1807,7 +1807,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('6','2026-10-31 20:34:20+00',1,1,34,true,false,false),
 	 ('7','2026-10-31 20:34:20+00',1,0,16,true,false,false),
 	 ('8','2026-10-31 20:34:20+00',6,1,14,true,false,false);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('9','2026-10-31 20:34:20+00',0,0,20,true,false,false),
 	 ('10','2026-10-31 20:34:20+00',0,0,18,true,true,true),
 	 ('11','2026-10-31 20:34:20+00',2,0,22,true,true,true),
@@ -1818,7 +1818,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('16','2026-10-31 20:34:20+00',8,3,21,true,true,true),
 	 ('17','2026-10-31 20:34:20+00',1,1,11,true,true,true),
 	 ('18','2026-10-31 20:34:20+00',1,0,11,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('19','2026-10-31 20:34:20+00',8,0,20,true,false,false),
 	 ('20','2026-10-31 20:34:20+00',0,0,29,true,false,false),
 	 ('21','2026-10-31 20:34:20+00',14,6,1,true,false,false),
@@ -1829,7 +1829,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('26','2026-10-31 20:34:20+00',0,0,14,true,true,true),
 	 ('27','2026-10-31 20:34:20+00',3,0,16,true,true,true),
 	 ('28','2026-10-31 20:34:20+00',0,0,26,true,false,false);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('29','2026-10-31 20:34:20+00',3,0,10,true,true,true),
 	 ('30','2026-10-31 20:34:20+00',15,4,2,true,true,true),
 	 ('31','2026-10-31 20:34:20+00',7,5,7,true,true,true),
@@ -1840,7 +1840,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('36','2026-10-31 20:34:20+00',1,0,17,true,true,true),
 	 ('37','2026-10-31 20:34:20+00',1,0,28,true,true,true),
 	 ('38','2026-10-31 20:34:20+00',2,0,12,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('39','2026-10-31 20:34:20+00',5,3,58,true,true,true),
 	 ('40','2026-10-31 20:34:20+00',15,3,4,true,false,false),
 	 ('41','2026-10-31 20:34:20+00',0,0,17,true,false,false),
@@ -1851,7 +1851,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('46','2026-10-31 20:34:20+00',8,1,10,true,true,true),
 	 ('47','2026-10-31 20:34:20+00',12,4,1,true,true,true),
 	 ('48','2026-10-31 20:34:20+00',4,1,12,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('49','2026-10-31 20:34:20+00',5,2,11,true,true,true),
 	 ('50','2026-10-31 20:34:20+00',9,3,4,true,true,true),
 	 ('51','2026-10-31 20:34:20+00',9,3,8,true,true,true),
@@ -1862,7 +1862,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('56','2026-10-31 20:34:20+00',6,2,12,true,true,true),
 	 ('57','2026-10-31 20:34:20+00',1,1,15,true,true,true),
 	 ('58','2026-10-31 20:34:20+00',1,1,17,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('59','2026-10-31 20:34:20+00',2,1,13,true,true,true),
 	 ('60','2026-10-31 20:34:20+00',1,0,15,true,true,true),
 	 ('61','2026-10-31 20:34:20+00',8,1,6,true,true,true),
@@ -1873,7 +1873,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('66','2026-10-31 20:34:20+00',3,0,16,true,true,true),
 	 ('67','2026-10-31 20:34:20+00',1,1,19,true,true,true),
 	 ('68','2026-10-31 20:34:20+00',3,2,14,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('69','2026-10-31 20:34:20+00',0,0,14,false,false,false),
 	 ('70','2026-10-31 20:34:20+00',2,1,14,true,true,true),
 	 ('72','2026-10-31 20:34:20+00',9,4,13,true,true,true),
@@ -1884,7 +1884,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('77','2026-10-31 20:34:20+00',2,2,18,true,true,true),
 	 ('78','2026-10-31 20:34:20+00',7,2,12,true,true,true),
 	 ('79','2026-10-31 20:34:20+00',5,1,14,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('80','2026-10-31 20:34:20+00',8,3,8,true,true,true),
 	 ('81','2026-10-31 20:34:20+00',3,2,17,true,true,true),
 	 ('82','2026-10-31 20:34:20+00',4,3,15,true,true,true),
@@ -1895,7 +1895,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('87','2026-10-31 20:34:20+00',2,0,18,true,true,true),
 	 ('88','2026-10-31 20:34:20+00',8,0,8,true,true,true),
 	 ('89','2026-10-31 20:34:20+00',7,3,12,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('90','2026-10-31 20:34:20+00',15,1,0,true,true,true),
 	 ('91','2026-10-31 20:34:20+00',5,1,14,true,true,true),
 	 ('92','2026-10-31 20:34:20+00',6,4,8,true,true,true),
@@ -1906,7 +1906,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('97','2026-10-31 20:34:20+00',4,1,17,true,true,true),
 	 ('98','2026-10-31 20:34:20+00',3,0,10,true,true,true),
 	 ('99','2026-10-31 20:34:20+00',1,0,29,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('100','2026-10-31 20:34:20+00',7,1,31,true,true,true),
 	 ('101','2026-10-31 20:34:20+00',5,1,14,true,true,true),
 	 ('102','2026-10-31 20:34:20+00',0,0,39,true,false,false),
@@ -1917,7 +1917,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('107','2026-10-31 20:34:20+00',3,1,9,true,true,true),
 	 ('108','2026-10-31 20:34:20+00',1,0,15,true,true,true),
 	 ('109','2026-10-31 20:34:20+00',3,3,33,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('110','2026-10-31 20:34:20+00',32,9,5,true,true,true),
 	 ('111','2026-10-31 20:34:20+00',10,2,26,true,true,true),
 	 ('112','2026-10-31 20:34:20+00',5,2,32,true,true,true),
@@ -1928,7 +1928,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('117','2026-10-31 20:34:20+00',7,4,10,true,true,true),
 	 ('118','2026-10-31 20:34:20+00',2,0,18,true,true,true),
 	 ('119','2026-10-31 20:34:20+00',2,2,16,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('120','2026-10-31 20:34:20+00',15,7,13,true,true,true),
 	 ('121','2026-10-31 20:34:20+00',6,3,8,true,true,true),
 	 ('122','2026-10-31 20:34:20+00',4,2,8,true,true,true),
@@ -1939,7 +1939,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('127','2026-10-31 20:34:20+00',0,0,18,true,true,true),
 	 ('128','2026-10-31 20:34:20+00',2,0,13,true,true,true),
 	 ('129','2026-10-31 20:34:20+00',4,1,12,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('130','2026-10-31 20:34:20+00',1,0,18,true,true,true),
 	 ('131','2026-10-31 20:34:20+00',2,0,14,true,true,true),
 	 ('132','2026-10-31 20:34:20+00',3,1,11,true,true,true),
@@ -1950,7 +1950,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('137','2026-10-31 20:34:20+00',0,0,25,true,true,true),
 	 ('138','2026-10-31 20:34:20+00',2,1,15,true,true,true),
 	 ('139','2026-10-31 20:34:20+00',5,1,8,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('140','2026-10-31 20:34:20+00',0,0,20,true,false,false),
 	 ('141','2026-10-31 20:34:20+00',4,1,10,true,true,true),
 	 ('142','2026-10-31 20:34:20+00',14,5,3,true,true,true),
@@ -1961,7 +1961,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('147','2026-10-31 20:34:20+00',12,4,18,true,true,true),
 	 ('148','2026-10-31 20:34:20+00',4,2,15,true,true,true),
 	 ('149','2026-10-31 20:34:20+00',4,1,15,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('150','2026-10-31 20:34:20+00',7,2,8,true,true,true),
 	 ('151','2026-10-31 20:34:20+00',0,0,20,true,true,true),
 	 ('152','2026-10-31 20:34:20+00',7,2,12,true,true,true),
@@ -1972,7 +1972,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('157','2026-10-31 20:34:20+00',4,0,14,true,true,true),
 	 ('158','2026-10-31 20:34:20+00',6,3,14,true,true,true),
 	 ('159','2026-10-31 20:34:20+00',9,4,15,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('160','2026-10-31 20:34:20+00',6,1,14,true,true,true),
 	 ('161','2026-10-31 20:34:20+00',2,1,17,true,true,true),
 	 ('162','2026-10-31 20:34:20+00',3,1,16,true,true,true),
@@ -1983,7 +1983,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('167','2026-10-31 20:34:20+00',0,0,18,true,true,true),
 	 ('168','2026-10-31 20:34:20+00',7,2,12,true,true,true),
 	 ('169','2026-10-31 20:34:20+00',6,2,12,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('170','2026-10-31 20:34:20+00',3,0,15,true,true,true),
 	 ('171','2026-10-31 20:34:20+00',1,0,16,true,true,true),
 	 ('172','2026-10-31 20:34:20+00',6,0,17,true,true,true),
@@ -1994,7 +1994,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('177','2026-10-31 20:34:20+00',2,1,21,true,true,true),
 	 ('178','2026-10-31 20:34:20+00',10,2,9,true,false,false),
 	 ('179','2026-10-31 20:34:20+00',3,2,21,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('180','2026-10-31 20:34:20+00',4,0,15,true,true,true),
 	 ('181','2026-10-31 20:34:20+00',12,0,7,true,true,true),
 	 ('182','2026-10-31 20:34:20+00',7,2,12,true,true,true),
@@ -2005,7 +2005,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('188','2026-10-31 20:34:20+00',1,0,19,true,true,true),
 	 ('189','2026-10-31 20:34:20+00',11,3,8,true,true,true),
 	 ('190','2026-10-31 20:34:20+00',5,3,12,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('192','2026-10-31 20:34:20+00',12,3,7,true,true,true),
 	 ('194','2026-10-31 20:34:20+00',12,2,8,true,true,true),
 	 ('196','2026-10-31 20:34:20+00',11,5,6,true,true,true),
@@ -2016,7 +2016,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('202','2026-10-31 20:34:20+00',6,3,11,true,true,true),
 	 ('206','2026-10-31 20:34:20+00',11,6,5,true,true,true),
 	 ('207','2026-10-31 20:34:20+00',6,3,12,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('208','2026-10-31 20:34:20+00',11,1,5,true,true,true),
 	 ('209','2026-10-31 20:34:20+00',3,2,8,true,true,true),
 	 ('211','2026-10-31 20:34:20+00',13,5,4,true,true,true),
@@ -2027,7 +2027,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('297','2026-10-31 20:34:20+00',0,0,0,false,false,false),
 	 ('298','2026-10-31 20:34:20+00',0,0,0,false,false,false),
 	 ('299','2026-10-31 20:34:20+00',3,0,19,false,false,false);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('505','2026-10-31 20:34:20+00',1,0,2,true,true,true),
 	 ('507','2026-10-31 20:34:20+00',1,0,8,true,false,false),
 	 ('522','2026-10-31 20:34:20+00',1,1,2,true,false,false),
@@ -2038,7 +2038,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('561','2026-10-31 20:34:20+00',0,0,5,true,true,true),
 	 ('567','2026-10-31 20:34:20+00',1,0,4,false,false,false),
 	 ('598','2026-10-31 20:34:20+00',0,0,5,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('599','2026-10-31 20:34:20+00',0,0,10,true,true,true),
 	 ('604','2026-10-31 20:34:20+00',2,1,3,true,false,false),
 	 ('605','2026-10-31 20:34:20+00',1,0,2,true,false,false),
@@ -2049,7 +2049,7 @@ INSERT INTO project.station_status (station_id,last_reported,num_bike_available,
 	 ('634','2026-10-31 20:34:20+00',1,0,4,true,false,false),
 	 ('670','2026-10-31 20:34:20+00',0,0,5,false,false,false),
 	 ('672','2026-10-31 20:34:20+00',0,0,10,true,true,true);
-INSERT INTO project.station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
+INSERT INTO station_status (station_id,last_reported,num_bike_available,num_bike_elec_available,num_docks_available,is_installed,is_renting,is_returning) VALUES
 	 ('900','2026-10-31 20:34:20+00',0,0,15,false,false,false),
 	 ('901','2026-10-31 20:34:20+00',0,0,20,true,false,false),
 	 ('902','2026-10-31 20:34:20+00',0,0,20,false,false,false),

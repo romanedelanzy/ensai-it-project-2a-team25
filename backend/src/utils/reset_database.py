@@ -54,6 +54,7 @@ class ResetDatabase(metaclass=Singleton):
             with DBConnection().connection as connection:
                 with connection.cursor() as cursor:
                     cursor.execute(create_schema)
+                    cursor.execute(f"SET search_path TO {schema}, public;")
                     cursor.execute(init_db_as_string)
                     cursor.execute(pop_db_as_string)
         except Exception as e:

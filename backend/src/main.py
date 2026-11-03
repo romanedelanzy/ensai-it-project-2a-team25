@@ -51,8 +51,8 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
 app.include_router(player_controller.router, prefix="/player", tags=["Players"])
 app.include_router(login_controller.router, prefix="/login", tags=["Login"])
 app.include_router(game_controller.router, prefix="/game", tags=["Games"])
-app.include_router(station_controller.router, prefix="/station", tags=["Station"])
-app.include_router(favori_controller.router, prefix="/favori", tags=["Favori"])
+app.include_router(station_controller.router, prefix="/station", tags=["Stations"])
+app.include_router(favori_controller.router, prefix="/favori", tags=["Favoris"])
 
 @app.get("/", include_in_schema=False)
 async def redirect_to_docs():
