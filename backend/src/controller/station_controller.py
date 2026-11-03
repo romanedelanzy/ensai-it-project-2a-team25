@@ -6,6 +6,7 @@ from schema.station_model import StationReadModel, StationStatusReadModel
 from service.station_service import StationService
 from utils.log_utils import get_logger
 from utils.security import verify_token
+from business_object.station import Station
  
 router = APIRouter()
  
@@ -94,8 +95,48 @@ async def station_history(
     if not station:
         raise HTTPException(status_code=404, detail=f"Station (id={station_id}) not found.")
     return station_service.get_history_by_period(station_id, period)
- 
- 
+
+
+@router.post("/", response_model=StationReadModel, tags=["Stations"], dependencies=[Depends(verify_token)])
+async def create_station(s: StationReadModel, station_service=Depends(get_station_service)):
+    """Crée une nouvelle station (authentification requise)."""
+    logger.info("Create a station")
+    
+    new_station = Station(
+        station_id=s.station_id,
+        reseau_id=s.reseau_id,
+        name=s.name,
+        adresse=s.adresse,
+        latitude=s.latitude,
+        longitude=s.longitude,
+        capacite=s.capacite,
+    )
+    
+    if not station_service.create(new_station):
+        raise HTTPException(status_code=500, detail="Error while creating station.")
+    return new_station
+
+
+@router.put("/{station_id}", response_model=StationReadModel, tags=["Stations"], dependencies=[Depends(verify_token)])
+async def update_station(station_id: str, s: StationReadModel, station_service=Depends(get_station_service)):
+    """Met à jour une station existante (authentification requise)."""
+    logger.info(f"Update station {station_id}")
+    
+    station = station_service.get_station(station_id)
+    if not station:
+        raise HTTPException(status_code=404, detail=f"Station (id={station_id}) not found.")
+
+    station.reseau_id = s.reseau_id
+    station.name = s.name
+    station.adresse = s.adresse
+    station.latitude = s.latitude
+    station.longitude = s.longitude
+    station.capacite = s.capacite
+
+    if not station_service.create_or_update(station):
+        raise HTTPException(status_code=500, detail="Error while updating station.")
+    return station
+
 @router.delete("/{station_id}", tags=["Stations"], dependencies=[Depends(verify_token)])
 async def delete_station(station_id: str, station_service=Depends(get_station_service)):
     """Supprime une station du système (authentification requise).

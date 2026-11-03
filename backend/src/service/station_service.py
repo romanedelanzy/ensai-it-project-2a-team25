@@ -40,6 +40,26 @@ class StationService:
         return self.station_dao.list_all()
 
     @log
+    def create(self, station: Station) -> bool:
+        """Crée une nouvelle station dans le système.
+        Args:
+            station (Station)
+        Returns:
+            bool: True si la création a réussi, False sinon.
+        """
+        return self.station_dao.create(station)
+
+    @log
+    def create_or_update(self, station: Station) -> bool:
+        """Crée ou met à jour une station.
+        Args:
+            station (Station)
+        Returns:
+            bool: True si l'opération a réussi, False sinon.
+        """
+        return self.station_dao.create_or_update(station)
+
+    @log
     def delete(self, station) -> bool:
         """Supprime une station.
         Args:

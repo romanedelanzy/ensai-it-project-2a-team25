@@ -67,6 +67,51 @@ def test_list_all_vide():
     assert resultat == []
 
 
+def test_create_station_ok():
+    dao = MagicMock()
+    dao.create.return_value = True
+    station = creer_station()
+
+    resultat = StationService(station_dao=dao).create(station)
+
+    assert resultat is True
+    dao.create.assert_called_once_with(station)
+
+
+def test_create_station_echec():
+    dao = MagicMock()
+    dao.create.return_value = False
+    station = creer_station()
+
+    resultat = StationService(station_dao=dao).create(station)
+
+    assert resultat is False
+    dao.create.assert_called_once_with(station)
+
+
+def test_create_or_update_station_ok():
+    dao = MagicMock()
+    dao.create_or_update.return_value = True
+    station = creer_station()
+
+    resultat = StationService(station_dao=dao).create_or_update(station)
+
+    assert resultat is True
+    dao.create_or_update.assert_called_once_with(station)
+
+
+def test_create_or_update_station_echec():
+    dao = MagicMock()
+    dao.create_or_update.return_value = False
+    station = creer_station()
+
+    resultat = StationService(station_dao=dao).create_or_update(station)
+
+    assert resultat is False
+    dao.create_or_update.assert_called_once_with(station)
+
+
+
 def test_delete_ok():
     dao = MagicMock()
     dao.delete.return_value = True

@@ -6,7 +6,7 @@ from fastapi import HTTPException
 from psycopg2 import errors
 
 from business_object.favoris import Favori
-from controller.FavoriController import (
+from controller.favori_controller import (
     add_favorite,
     get_user_favorite,
     remove_favorite,

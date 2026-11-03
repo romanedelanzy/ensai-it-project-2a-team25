@@ -49,8 +49,6 @@ def client(app):
     return TestClient(app)
 
 
-
-
 def test_find_all_stations_ok(client, station_service):
     """List all stations"""
 
@@ -115,7 +113,6 @@ def test_station_by_id_inexistante(client, station_service):
     assert res.status_code == 404
 
 
-
 def test_station_current_status_ok(client, station_service):
     """Get the latest status of a station"""
 
@@ -143,7 +140,6 @@ def test_station_current_status_absent(client, station_service):
 
     # THEN
     assert res.status_code == 404
-
 
 
 def test_station_history_par_defaut_24h(client, station_service):
@@ -201,7 +197,6 @@ def test_station_history_station_inexistante(client, station_service):
     # THEN
     assert res.status_code == 404
     station_service.get_history_by_period.assert_not_called()
-
 
 
 def test_delete_station_ok(client, station_service):
@@ -264,6 +259,181 @@ def test_delete_station_non_authentifie(app, client, station_service):
     # THEN
     assert res.status_code == 401
     station_service.delete.assert_not_called()
+
+
+# --- TESTS POUR CREATE (POST) ET UPDATE (PUT) ---
+
+
+def test_create_station_ok(client, station_service):
+    """Successfully create a station"""
+
+    # GIVEN
+    station_service.create.return_value = True
+    payload = {
+        "station_id": "ST001",
+        "reseau_id": 1,
+        "name": "Place Pey Berland",
+        "adresse": "Place Pey-Berland",
+        "latitude": 44.8378,
+        "longitude": -0.5792,
+        "capacite": 20,
+    }
+
+    # WHEN
+    res = client.post("/stations/", json=payload)
+
+    # THEN
+    assert res.status_code == 200
+    assert res.json()["name"] == "Place Pey Berland"
+    station_service.create.assert_called_once()
+
+
+def test_create_station_echec(client, station_service):
+    """A failed station creation returns 500"""
+
+    # GIVEN
+    station_service.create.return_value = False
+    payload = {
+        "station_id": "ST001",
+        "reseau_id": 1,
+        "name": "Place Pey Berland",
+        "adresse": "Place Pey-Berland",
+        "latitude": 44.8378,
+        "longitude": -0.5792,
+        "capacite": 20,
+    }
+
+    # WHEN
+    res = client.post("/stations/", json=payload)
+
+    # THEN
+    assert res.status_code == 500
+
+
+def test_create_station_non_authentifie(app, client, station_service):
+    """Creating a station without being authenticated returns 401"""
+
+    # GIVEN
+    def refuser():
+        raise HTTPException(status_code=401, detail="Not authenticated")
+
+    app.dependency_overrides[verify_token] = refuser
+    payload = {
+        "station_id": "ST001",
+        "reseau_id": 1,
+        "name": "Place Pey Berland",
+        "adresse": "Place Pey-Berland",
+        "latitude": 44.8378,
+        "longitude": -0.5792,
+        "capacite": 20,
+    }
+
+    # WHEN
+    res = client.post("/stations/", json=payload)
+
+    # THEN
+    assert res.status_code == 401
+    station_service.create.assert_not_called()
+
+
+def test_update_station_ok(client, station_service):
+    """Successfully update an existing station"""
+
+    # GIVEN
+    station = creer_station()
+    station_service.get_station.return_value = station
+    station_service.create_or_update.return_value = True
+    payload = {
+        "station_id": "ST001",
+        "reseau_id": 1,
+        "name": "Nom Modifié",
+        "adresse": "Place Pey-Berland",
+        "latitude": 44.8378,
+        "longitude": -0.5792,
+        "capacite": 25,
+    }
+
+    # WHEN
+    res = client.put("/stations/ST001", json=payload)
+
+    # THEN
+    assert res.status_code == 200
+    assert res.json()["name"] == "Nom Modifié"
+    assert res.json()["capacite"] == 25
+    station_service.create_or_update.assert_called_once()
+
+
+def test_update_station_inexistante(client, station_service):
+    """Updating an unknown station returns 404"""
+
+    # GIVEN
+    station_service.get_station.return_value = None
+    payload = {
+        "station_id": "N_EXISTE_PAS",
+        "reseau_id": 1,
+        "name": "Nom Modifié",
+        "adresse": "Place Pey-Berland",
+        "latitude": 44.8378,
+        "longitude": -0.5792,
+        "capacite": 25,
+    }
+
+    # WHEN
+    res = client.put("/stations/N_EXISTE_PAS", json=payload)
+
+    # THEN
+    assert res.status_code == 404
+    station_service.create_or_update.assert_not_called()
+
+
+def test_update_station_echec(client, station_service):
+    """A failed station update returns 500"""
+
+    # GIVEN
+    station = creer_station()
+    station_service.get_station.return_value = station
+    station_service.create_or_update.return_value = False
+    payload = {
+        "station_id": "ST001",
+        "reseau_id": 1,
+        "name": "Nom Modifié",
+        "adresse": "Place Pey-Berland",
+        "latitude": 44.8378,
+        "longitude": -0.5792,
+        "capacite": 25,
+    }
+
+    # WHEN
+    res = client.put("/stations/ST001", json=payload)
+
+    # THEN
+    assert res.status_code == 500
+
+
+def test_update_station_non_authentifie(app, client, station_service):
+    """Updating a station without being authenticated returns 401"""
+
+    # GIVEN
+    def refuser():
+        raise HTTPException(status_code=401, detail="Not authenticated")
+
+    app.dependency_overrides[verify_token] = refuser
+    payload = {
+        "station_id": "ST001",
+        "reseau_id": 1,
+        "name": "Nom Modifié",
+        "adresse": "Place Pey-Berland",
+        "latitude": 44.8378,
+        "longitude": -0.5792,
+        "capacite": 25,
+    }
+
+    # WHEN
+    res = client.put("/stations/ST001", json=payload)
+
+    # THEN
+    assert res.status_code == 401
+    station_service.create_or_update.assert_not_called()
 
 
 if __name__ == "__main__":
