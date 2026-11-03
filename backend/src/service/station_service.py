@@ -15,6 +15,7 @@ class StationService:
     """Service qui gère la logique métier liée aux stations (recherche, status, historique, etc.)."""
 
     def __init__(self, station_dao=None, station_status_dao=None):
+        """Initialise le service avec ses DAO."""
         self.station_dao = station_dao if station_dao is not None else StationDao()
         self.station_status_dao = (
             station_status_dao if station_status_dao is not None else StationStatusDao()
@@ -28,7 +29,7 @@ class StationService:
         Returns:
             Objet station s'il est trouvé, sinon None.
         """
-        return StationDao().find_by_id(station_id)
+        return self.station_dao.find_by_id(station_id)
 
     @log
     def list_all(self) -> list[Station]:
@@ -36,7 +37,7 @@ class StationService:
         Returns:
             list[Station]
         """
-        return StationDao().list_all()
+        return self.station_dao.list_all()
 
     @log
     def delete(self, station) -> bool:
@@ -56,7 +57,7 @@ class StationService:
         Returns:
             Objet StationStatus si trouvé, sinon None.
         """
-        return StationStatusDao().find_current_status(station_id)
+        return self.station_status_dao.find_current_status(station_id)
 
     @log
     def get_history(self, station_id: str, start_date: datetime, end_date: datetime) -> list:
@@ -68,7 +69,7 @@ class StationService:
         Returns:
             list[StationStatus]
         """
-        return StationStatusDao().find_history(station_id, start_date, end_date)
+        return self.station_status_dao.find_history(station_id, start_date, end_date)
     
     @log
     def search_by_name(self, name: str) -> list[Station]:
@@ -81,7 +82,7 @@ class StationService:
         """
         if len(name) < 3:
             return []
-        return [s for s in StationDao().list_all() if name.lower() in s.name.lower()]
+        return [s for s in self.station_dao.list_all() if name.lower() in s.name.lower()]
 
     @log
     def is_operational(self, station_id: str) -> bool:
@@ -92,7 +93,7 @@ class StationService:
         Returns:
             True si la station est opérationnelle, False sinon.
         """
-        status = StationStatusDao().find_current_status(station_id)
+        status = self.station_status_dao.find_current_status(station_id)
         return bool(
             status and status.est_installee and status.permet_emprunt and status.permet_retour
         )
@@ -107,8 +108,8 @@ class StationService:
             float entre 0 et 1, ou None si la station ou son status est inconnu,
             ou si la capacité est 0.
         """
-        station = StationDao().find_by_id(station_id)
-        status = StationStatusDao().find_current_status(station_id)
+        station = self.station_dao.find_by_id(station_id)
+        status = self.station_status_dao.find_current_status(station_id)
         if not station or not status or station.capacite == 0:
             return None
         return status.nb_velos_dispos / station.capacite
@@ -128,13 +129,3 @@ class StationService:
             raise ValueError(f"period doit valoir {list(PERIODS)} (reçu {period!r})")
         end_date = datetime.now(timezone.utc)
         return self.get_history(station_id, end_date - PERIODS[period], end_date)
-
-    @log
-    def delete(self, station) -> bool:
-        """Supprime une station.
-        Args:
-            Objet Station à supprimer.
-        Returns:
-            True si la suppression a réussi, False sinon.
-        """
-        return self.station_dao.delete(station)
