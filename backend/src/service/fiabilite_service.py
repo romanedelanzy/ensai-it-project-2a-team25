@@ -149,7 +149,7 @@ class ReliabilityService:
 
     def average_empty_duration_all(self, station_id: str) -> float | None:
         """ Pour l'historique entier, calcule la duree moyenne des episodes de
-        saturation pour une station.
+        vide pour une station.
         """
 
         history = StationStatusDao().find_all_history(station_id)
@@ -255,7 +255,7 @@ class ReliabilityService:
         return sum(empty_durations) / len(empty_durations)
 
     def average_saturated_duration_until(self, station_id: str, end_date: datetime) -> float | None:
-        """Donne en heure la duree moyenne des episodes de saturations d'une
+        """Donne en heure la duree moyenne des episodes de saturation d'une
         station jusqu'a une certaine date
         """
 
