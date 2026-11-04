@@ -4,9 +4,10 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from schema.compte_model import CompteReadModel, CompteCreateModel
 from service.compte_service import CompteService
 from utils.log_utils import get_logger
+from utils.security import get_current_user
 
 # On définit un préfixe "/compte" et un tag pour regrouper joliment sur Swagger
-router = APIRouter(prefix="/compte", tags=["Compte"])
+router = APIRouter(tags=["Compte"])
 
 logger = get_logger(__name__)
 
@@ -27,20 +28,20 @@ def create_account(
     service: CompteService = Depends(get_compte_service)
     ):
     """Crée un nouveau compte utilisateur."""
-    logger.info(f"Requête POST /compte/ reçue pour l'utilisateur : {compte_data.username}")
+    logger.info(f"Requête POST /compte/ pour : {compte_data.username}")
 
-    # 1. On vérifie si le username est déjà pris
+    # Vérifie si le username est déjà pris
     if service.username_already_used(compte_data.username):
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Ce nom d'utilisateur est déjà utilisé."
         )
 
-    # 2. On appelle le service pour créer le compte
+    # Appel au service de création
     compte = service.create_account(
         username=compte_data.username,
         password=compte_data.password,
-        is_admin=compte_data.is_admin,
+        is_admin=False,
         email=compte_data.email
     )
 
@@ -70,69 +71,36 @@ def get_account_by_id(
 
     return compte
 
-@router.put("/{user_id}", response_model=CompteReadModel)
+@router.put("/{username}", response_model=CompteReadModel)
 def update_account(
-    user_id: int,
+    username: str,  # Le nom du compte à modifier passé directement dans l'URL
     compte_data: CompteCreateModel,
-    service: CompteService = Depends(get_compte_service)
+    service: CompteService = Depends(get_compte_service),
+    current_user = Depends(get_current_user)  # Exige un token valide X-Auth-Token
     ):
-    """Met à jour les informations d'un compte existant.
-    Args:
-        user_id (int): L'identifiant du compte à modifier.
-        compte_data (CompteCreateModel): Les nouvelles données du compte.
-        service (CompteService): Le service gérant la logique métier.
-    Returns:
-        CompteReadModel: Le compte mis à jour (sans le mot de passe).
-    Raises:
-        HTTPException: 404 si le compte n'est pas trouvé.
-        HTTPException: 500 si la mise à jour échoue.
-    """
-    logger.info(f"Requête PUT /compte/{user_id} reçue")
+    """Met à jour un compte existant ciblé par son username."""
+    logger.info(f"Requête PUT /compte/{username} reçue")
 
-    # 1. Vérifier si le compte existe
-    compte = service.find_by_id(user_id)
+    # 1. Vérifier si le compte existe grâce à ton service find_by_username
+    compte = service.find_by_username(username)
     if not compte:
         raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND, 
-            detail=f"Compte (id={user_id}) non trouvé."
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Compte '{username}' non trouvé."
         )
 
-    # 2. Mettre à jour les attributs de l'objet Compte
+    # 2. Mettre à jour les champs
     compte.username = compte_data.username
     compte.email = compte_data.email
-    compte.is_admin = compte_data.is_admin
-    compte.password_hash = compte_data.password  # Utilisation du setter sécurisé de ton objet
+    # Si tu veux aussi mettre à jour le mot de passe en le hachant proprement :
+    # compte.password = hash_password(compte_data.password, compte_data.username)
 
     # 3. Sauvegarder via le service
     updated_compte = service.update(compte)
     if not updated_compte:
         raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, 
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="Erreur lors de la mise à jour du compte."
         )
 
     return updated_compte
-
-@router.delete("/{user_id}", status_code=status.HTTP_204_NO_CONTENT)
-def delete_account(
-    user_id: int,
-    service: CompteService = Depends(get_compte_service)
-    ):
-    """Supprime un compte par son identifiant."""
-    logger.info(f"Requête DELETE /compte/{user_id} reçue")
-
-    compte = service.find_by_id(user_id)
-    if not compte:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND, 
-            detail=f"Compte (id={user_id}) non trouvé."
-        )
-
-    # Vérifie si ton service possède une méthode delete (ou supprime selon ta logique DAO)
-    success = service.delete(user_id) if hasattr(service, 'delete') else False
-    if not success:
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Erreur lors de la suppression du compte."
-        )
-    return None

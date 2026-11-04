@@ -92,6 +92,32 @@ def test_find_by_id_ok():
     assert res.user_id == 1
     assert res.username == "username1"
 
+def test_find_by_token_ok():
+    """Trouve un compte avec succès par son access_token"""
+    # GIVEN
+    token = "secret_token"
+    compte_test = Compte(user_id=1, username="username1", email="mail@mail.fr", password="123", is_admin=False, access_token=token)
+    CompteDAO().find_by_token = MagicMock(return_value=compte_test)
+
+    # WHEN
+    res = CompteService().find_by_token(token)
+
+    # THEN
+    assert res is not None
+    assert res.access_token == token
+    assert res.username == "username1"
+
+def test_find_by_token_fail():
+    """Échec de la recherche par token (token invalide ou inexistant)"""
+    # GIVEN
+    CompteDAO().find_by_token = MagicMock(return_value=None)
+
+    # WHEN
+    res = CompteService().find_by_token("token_inconnu")
+
+    # THEN
+    assert res is None
+
 def test_login_ok():
     """Connexion réussie avec des identifiants valides"""
     # GIVEN
@@ -145,6 +171,7 @@ def test_delete_account():
 
     # THEN
     assert res is True
+
 if __name__ == "__main__":
     import pytest
 

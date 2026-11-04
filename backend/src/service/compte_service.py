@@ -28,7 +28,7 @@ class CompteService(metaclass=Singleton):
         nouveau_compte = Compte(
             username=username,
             password=hash_password(password, username),
-            is_admin=is_admin,
+            is_admin=False,
             email=email
         )
 
@@ -52,6 +52,16 @@ class CompteService(metaclass=Singleton):
             Objet Compte si correspondance avec id_compte et None sinon.
         """
         return CompteDAO().find_by_id(id_compte)
+
+    @log
+    def find_by_username(self, username: str) -> Compte:
+        """Recherche un compte via son nom
+        Args:
+            username (str)
+        Returns:
+            Objet Compte si correspondance avec username et None sinon.
+        """
+        return CompteDAO().find_by_username(username)
 
     @log
     def update(self, compte: Compte) -> Compte | None:
@@ -101,3 +111,13 @@ class CompteService(metaclass=Singleton):
         """
         comptes = self.list_account()
         return any(compte.username == username for compte in comptes)
+
+    @log
+    def find_by_token(self, access_token: str) -> Compte | None:
+        """Trouve un compte à partir de son access_token.
+        Args:
+            access_token (str)
+        Returns:
+            Compte | None: L'objet Compte correspondant ou None.
+        """
+        return CompteDAO().find_by_token(access_token)

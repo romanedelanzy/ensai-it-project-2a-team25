@@ -1,0 +1,462 @@
+03/11/2026 07:20:46 root                      INFO    - GET / - START
+03/11/2026 07:20:46 root                      INFO    - GET / - END [Status: 307]
+03/11/2026 07:20:47 root                      INFO    - GET /docs - START
+03/11/2026 07:20:47 root                      INFO    - GET /docs - END [Status: 200]
+03/11/2026 07:20:47 root                      INFO    - GET /proxy/5000/openapi.json - START
+03/11/2026 07:20:47 root                      INFO    - GET /proxy/5000/openapi.json - END [Status: 200]
+03/11/2026 13:21:59 __main__                  INFO    - Webservice stopped
+03/11/2026 13:22:03 root                      INFO    - --------------------------------------------------
+03/11/2026 13:22:03 root                      INFO    - Starting Webservice                           
+03/11/2026 13:22:03 root                      INFO    - --------------------------------------------------
+03/11/2026 13:22:03 root                      INFO    - Load environment variables: SUCCES
+03/11/2026 13:22:03 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-354848-rw.user-jeanpohardy
+03/11/2026 13:22:03 root                      INFO    - POSTGRES_PORT=5432
+03/11/2026 13:22:03 root                      INFO    - POSTGRES_DATABASE=defaultdb
+03/11/2026 13:22:03 root                      INFO    - POSTGRES_USER=user-jeanpohardy
+03/11/2026 13:22:03 root                      INFO    - POSTGRES_PASSWORD=*******
+03/11/2026 13:22:03 root                      INFO    - POSTGRES_SCHEMA=project
+03/11/2026 13:22:03 root                      INFO    - UVICORN_HOST=0.0.0.0
+03/11/2026 13:22:03 root                      INFO    - UVICORN_PORT=5000
+03/11/2026 13:22:03 root                      INFO    - BACKEND_URL=http://localhost:5000
+03/11/2026 13:22:03 root                      INFO    - BACKEND_TIMEOUT=5
+03/11/2026 13:23:36 __main__                  INFO    - Webservice stopped
+03/11/2026 13:23:41 root                      INFO    - --------------------------------------------------
+03/11/2026 13:23:41 root                      INFO    - Starting Webservice                           
+03/11/2026 13:23:41 root                      INFO    - --------------------------------------------------
+03/11/2026 13:23:41 root                      INFO    - Load environment variables: SUCCES
+03/11/2026 13:23:41 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-354848-rw.user-jeanpohardy
+03/11/2026 13:23:41 root                      INFO    - POSTGRES_PORT=5432
+03/11/2026 13:23:41 root                      INFO    - POSTGRES_DATABASE=defaultdb
+03/11/2026 13:23:41 root                      INFO    - POSTGRES_USER=user-jeanpohardy
+03/11/2026 13:23:41 root                      INFO    - POSTGRES_PASSWORD=*******
+03/11/2026 13:23:41 root                      INFO    - POSTGRES_SCHEMA=project
+03/11/2026 13:23:41 root                      INFO    - UVICORN_HOST=0.0.0.0
+03/11/2026 13:23:41 root                      INFO    - UVICORN_PORT=5000
+03/11/2026 13:23:41 root                      INFO    - BACKEND_URL=http://localhost:5000
+03/11/2026 13:23:41 root                      INFO    - BACKEND_TIMEOUT=5
+03/11/2026 13:23:52 root                      INFO    - GET / - START
+03/11/2026 13:23:52 root                      INFO    - GET / - END [Status: 307]
+03/11/2026 13:23:52 root                      INFO    - GET /docs - START
+03/11/2026 13:23:52 root                      INFO    - GET /docs - END [Status: 200]
+03/11/2026 13:23:52 root                      INFO    - GET /proxy/5000/openapi.json - START
+03/11/2026 13:23:52 root                      INFO    - GET /proxy/5000/openapi.json - END [Status: 200]
+03/11/2026 13:24:00 root                      INFO    - GET /proxy/5000/compte/ - START
+03/11/2026 13:24:00 c.compte_controller       INFO    - Requête GET /compte/ reçue
+03/11/2026 13:24:00 service.compte_service    INFO    -   list_account() - START
+03/11/2026 13:24:00 dao.CompteDAO             INFO    -     list_all() - START
+03/11/2026 13:24:00 dao.CompteDAO             INFO    -     list_all() - END
+03/11/2026 13:24:00 dao.CompteDAO             INFO    -       └─> Output: [] ... (0 elements)
+03/11/2026 13:24:00 service.compte_service    INFO    -   list_account() - END
+03/11/2026 13:24:00 service.compte_service    INFO    -     └─> Output: [] ... (0 elements)
+03/11/2026 13:24:00 root                      INFO    - GET /proxy/5000/compte/ - END [Status: 200]
+03/11/2026 13:29:45 root                      INFO    - GET /docs - START
+03/11/2026 13:29:45 root                      INFO    - GET /docs - END [Status: 200]
+03/11/2026 13:29:46 root                      INFO    - GET /proxy/5000/openapi.json - START
+03/11/2026 13:29:46 root                      INFO    - GET /proxy/5000/openapi.json - END [Status: 200]
+03/11/2026 13:29:59 __main__                  INFO    - Webservice stopped
+03/11/2026 13:30:03 root                      INFO    - --------------------------------------------------
+03/11/2026 13:30:03 root                      INFO    - Starting Webservice                           
+03/11/2026 13:30:03 root                      INFO    - --------------------------------------------------
+03/11/2026 13:30:03 root                      INFO    - Load environment variables: SUCCES
+03/11/2026 13:30:03 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-354848-rw.user-jeanpohardy
+03/11/2026 13:30:03 root                      INFO    - POSTGRES_PORT=5432
+03/11/2026 13:30:03 root                      INFO    - POSTGRES_DATABASE=defaultdb
+03/11/2026 13:30:03 root                      INFO    - POSTGRES_USER=user-jeanpohardy
+03/11/2026 13:30:03 root                      INFO    - POSTGRES_PASSWORD=*******
+03/11/2026 13:30:03 root                      INFO    - POSTGRES_SCHEMA=project
+03/11/2026 13:30:03 root                      INFO    - UVICORN_HOST=0.0.0.0
+03/11/2026 13:30:03 root                      INFO    - UVICORN_PORT=5000
+03/11/2026 13:30:03 root                      INFO    - BACKEND_URL=http://localhost:5000
+03/11/2026 13:30:03 root                      INFO    - BACKEND_TIMEOUT=5
+03/11/2026 13:30:10 root                      INFO    - GET / - START
+03/11/2026 13:30:10 root                      INFO    - GET / - END [Status: 307]
+03/11/2026 13:30:10 root                      INFO    - GET /docs - START
+03/11/2026 13:30:10 root                      INFO    - GET /docs - END [Status: 200]
+03/11/2026 13:30:10 root                      INFO    - GET /proxy/5000/openapi.json - START
+03/11/2026 13:30:10 root                      INFO    - GET /proxy/5000/openapi.json - END [Status: 200]
+03/11/2026 13:30:53 root                      INFO    - POST /proxy/5000/compte/ - START
+03/11/2026 13:30:53 c.compte_controller       INFO    - Requête POST /compte/ reçue pour l'utilisateur : 1ercompte
+03/11/2026 13:30:53 service.compte_service    INFO    -   username_already_used('1ercompte',) - START
+03/11/2026 13:30:53 service.compte_service    INFO    -     list_account() - START
+03/11/2026 13:30:53 dao.CompteDAO             INFO    -       list_all() - START
+03/11/2026 13:30:53 dao.CompteDAO             INFO    -       list_all() - END
+03/11/2026 13:30:53 dao.CompteDAO             INFO    -         └─> Output: [] ... (0 elements)
+03/11/2026 13:30:53 service.compte_service    INFO    -     list_account() - END
+03/11/2026 13:30:53 service.compte_service    INFO    -       └─> Output: [] ... (0 elements)
+03/11/2026 13:30:53 service.compte_service    INFO    -   username_already_used('1ercompte',) - END
+03/11/2026 13:30:53 service.compte_service    INFO    -     └─> Output: False
+03/11/2026 13:30:53 service.compte_service    INFO    -   create_account('1ercompte', '*****', False, '1ercompte@1ercompte.com') - START
+03/11/2026 13:30:53 dao.CompteDAO             INFO    -     create('Compte(user_id=None, username=1ercompte, is_admin=False, email=1ercompte@1ercompte.com, access_token=None)',) - START
+03/11/2026 13:30:53 dao.CompteDAO             INFO    -     create('Compte(user_id=None, username=1ercompte, is_admin=False, email=1ercompte@1ercompte.com, access_token=None)',) - END
+03/11/2026 13:30:53 dao.CompteDAO             INFO    -       └─> Output: 1
+03/11/2026 13:30:53 service.compte_service    INFO    -   create_account('1ercompte', '*****', False, '1ercompte@1ercompte.com') - END
+03/11/2026 13:30:53 service.compte_service    INFO    -     └─> Output: Compte(user_id=1, username=1ercompte, is_admin=False, email=1ercompte@1ercompte.com, access_token=None)
+03/11/2026 13:30:53 root                      INFO    - POST /proxy/5000/compte/ - END [Status: 201]
+03/11/2026 13:31:18 root                      INFO    - GET /proxy/5000/compte/ - START
+03/11/2026 13:31:18 c.compte_controller       INFO    - Requête GET /compte/ reçue
+03/11/2026 13:31:18 service.compte_service    INFO    -   list_account() - START
+03/11/2026 13:31:18 dao.CompteDAO             INFO    -     list_all() - START
+03/11/2026 13:31:18 dao.CompteDAO             INFO    -     list_all() - END
+03/11/2026 13:31:18 dao.CompteDAO             INFO    -       └─> Output: ['Compte(user_id=1, username=1ercompte, is_admin=False, email=1ercompte@1ercompte.com, access_token=None)'] ... (1 elements)
+03/11/2026 13:31:18 service.compte_service    INFO    -   list_account() - END
+03/11/2026 13:31:18 service.compte_service    INFO    -     └─> Output: ['Compte(user_id=1, username=1ercompte, is_admin=False, email=1ercompte@1ercompte.com, access_token=None)'] ... (1 elements)
+03/11/2026 13:31:18 root                      INFO    - GET /proxy/5000/compte/ - END [Status: 200]
+03/11/2026 13:31:29 root                      INFO    - POST /proxy/5000/compte/ - START
+03/11/2026 13:31:29 c.compte_controller       INFO    - Requête POST /compte/ reçue pour l'utilisateur : 1ercompte
+03/11/2026 13:31:29 service.compte_service    INFO    -   username_already_used('1ercompte',) - START
+03/11/2026 13:31:29 service.compte_service    INFO    -     list_account() - START
+03/11/2026 13:31:29 dao.CompteDAO             INFO    -       list_all() - START
+03/11/2026 13:31:29 dao.CompteDAO             INFO    -       list_all() - END
+03/11/2026 13:31:29 dao.CompteDAO             INFO    -         └─> Output: ['Compte(user_id=1, username=1ercompte, is_admin=False, email=1ercompte@1ercompte.com, access_token=None)'] ... (1 elements)
+03/11/2026 13:31:29 service.compte_service    INFO    -     list_account() - END
+03/11/2026 13:31:29 service.compte_service    INFO    -       └─> Output: ['Compte(user_id=1, username=1ercompte, is_admin=False, email=1ercompte@1ercompte.com, access_token=None)'] ... (1 elements)
+03/11/2026 13:31:29 service.compte_service    INFO    -   username_already_used('1ercompte',) - END
+03/11/2026 13:31:29 service.compte_service    INFO    -     └─> Output: True
+03/11/2026 13:31:29 root                      INFO    - POST /proxy/5000/compte/ - END [Status: 400]
+03/11/2026 13:31:59 root                      INFO    - POST /proxy/5000/compte/ - START
+03/11/2026 13:31:59 c.compte_controller       INFO    - Requête POST /compte/ reçue pour l'utilisateur : 2emecompte
+03/11/2026 13:31:59 service.compte_service    INFO    -   username_already_used('2emecompte',) - START
+03/11/2026 13:31:59 service.compte_service    INFO    -     list_account() - START
+03/11/2026 13:31:59 dao.CompteDAO             INFO    -       list_all() - START
+03/11/2026 13:31:59 dao.CompteDAO             INFO    -       list_all() - END
+03/11/2026 13:31:59 dao.CompteDAO             INFO    -         └─> Output: ['Compte(user_id=1, username=1ercompte, is_admin=False, email=1ercompte@1ercompte.com, access_token=None)'] ... (1 elements)
+03/11/2026 13:31:59 service.compte_service    INFO    -     list_account() - END
+03/11/2026 13:31:59 service.compte_service    INFO    -       └─> Output: ['Compte(user_id=1, username=1ercompte, is_admin=False, email=1ercompte@1ercompte.com, access_token=None)'] ... (1 elements)
+03/11/2026 13:31:59 service.compte_service    INFO    -   username_already_used('2emecompte',) - END
+03/11/2026 13:31:59 service.compte_service    INFO    -     └─> Output: False
+03/11/2026 13:31:59 service.compte_service    INFO    -   create_account('2emecompte', '*****', False, '2emecompte@2emecompte.com') - START
+03/11/2026 13:31:59 dao.CompteDAO             INFO    -     create('Compte(user_id=None, username=2emecompte, is_admin=False, email=2emecompte@2emecompte.com, access_token=None)',) - START
+03/11/2026 13:31:59 dao.CompteDAO             INFO    -     create('Compte(user_id=None, username=2emecompte, is_admin=False, email=2emecompte@2emecompte.com, access_token=None)',) - END
+03/11/2026 13:31:59 dao.CompteDAO             INFO    -       └─> Output: 2
+03/11/2026 13:31:59 service.compte_service    INFO    -   create_account('2emecompte', '*****', False, '2emecompte@2emecompte.com') - END
+03/11/2026 13:31:59 service.compte_service    INFO    -     └─> Output: Compte(user_id=2, username=2emecompte, is_admin=False, email=2emecompte@2emecompte.com, access_token=None)
+03/11/2026 13:31:59 root                      INFO    - POST /proxy/5000/compte/ - END [Status: 201]
+03/11/2026 13:32:08 root                      INFO    - GET /proxy/5000/compte/ - START
+03/11/2026 13:32:08 c.compte_controller       INFO    - Requête GET /compte/ reçue
+03/11/2026 13:32:08 service.compte_service    INFO    -   list_account() - START
+03/11/2026 13:32:08 dao.CompteDAO             INFO    -     list_all() - START
+03/11/2026 13:32:08 dao.CompteDAO             INFO    -     list_all() - END
+03/11/2026 13:32:08 dao.CompteDAO             INFO    -       └─> Output: ['Compte(user_id=1, username=1ercompte, is_admin=False, email=1ercompte@1ercompte.com, access_token=None)', 'Compte(user_id=2, username=2emecompte, is_admin=False, email=2emecompte@2emecompte.com, access_token=None)'] ... (2 elements)
+03/11/2026 13:32:08 service.compte_service    INFO    -   list_account() - END
+03/11/2026 13:32:08 service.compte_service    INFO    -     └─> Output: ['Compte(user_id=1, username=1ercompte, is_admin=False, email=1ercompte@1ercompte.com, access_token=None)', 'Compte(user_id=2, username=2emecompte, is_admin=False, email=2emecompte@2emecompte.com, access_token=None)'] ... (2 elements)
+03/11/2026 13:32:08 root                      INFO    - GET /proxy/5000/compte/ - END [Status: 200]
+03/11/2026 13:40:52 __main__                  INFO    - Webservice stopped
+03/11/2026 13:40:57 root                      INFO    - --------------------------------------------------
+03/11/2026 13:40:57 root                      INFO    - Starting Webservice                           
+03/11/2026 13:40:57 root                      INFO    - --------------------------------------------------
+03/11/2026 13:40:57 root                      INFO    - Load environment variables: SUCCES
+03/11/2026 13:40:57 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-354848-rw.user-jeanpohardy
+03/11/2026 13:40:57 root                      INFO    - POSTGRES_PORT=5432
+03/11/2026 13:40:57 root                      INFO    - POSTGRES_DATABASE=defaultdb
+03/11/2026 13:40:57 root                      INFO    - POSTGRES_USER=user-jeanpohardy
+03/11/2026 13:40:57 root                      INFO    - POSTGRES_PASSWORD=*******
+03/11/2026 13:40:57 root                      INFO    - POSTGRES_SCHEMA=project
+03/11/2026 13:40:57 root                      INFO    - UVICORN_HOST=0.0.0.0
+03/11/2026 13:40:57 root                      INFO    - UVICORN_PORT=5000
+03/11/2026 13:40:57 root                      INFO    - BACKEND_URL=http://localhost:5000
+03/11/2026 13:40:57 root                      INFO    - BACKEND_TIMEOUT=5
+03/11/2026 13:41:00 root                      INFO    - GET / - START
+03/11/2026 13:41:00 root                      INFO    - GET / - END [Status: 307]
+03/11/2026 13:41:00 root                      INFO    - GET /docs - START
+03/11/2026 13:41:00 root                      INFO    - GET /docs - END [Status: 200]
+03/11/2026 13:41:01 root                      INFO    - GET /proxy/5000/openapi.json - START
+03/11/2026 13:41:01 root                      INFO    - GET /proxy/5000/openapi.json - END [Status: 200]
+03/11/2026 13:41:18 root                      INFO    - GET /proxy/5000/compte/0 - START
+03/11/2026 13:41:18 c.compte_controller       INFO    - Requête GET /compte/0 reçue
+03/11/2026 13:41:18 service.compte_service    INFO    -   find_by_id(0,) - START
+03/11/2026 13:41:18 dao.CompteDAO             INFO    -     find_by_id(0,) - START
+03/11/2026 13:41:18 dao.CompteDAO             INFO    -     find_by_id(0,) - END
+03/11/2026 13:41:18 dao.CompteDAO             INFO    -       └─> Output: None
+03/11/2026 13:41:18 service.compte_service    INFO    -   find_by_id(0,) - END
+03/11/2026 13:41:18 service.compte_service    INFO    -     └─> Output: None
+03/11/2026 13:41:18 root                      INFO    - GET /proxy/5000/compte/0 - END [Status: 404]
+03/11/2026 13:41:32 root                      INFO    - GET /proxy/5000/compte/ - START
+03/11/2026 13:41:32 c.compte_controller       INFO    - Requête GET /compte/ reçue
+03/11/2026 13:41:32 service.compte_service    INFO    -   list_account() - START
+03/11/2026 13:41:32 dao.CompteDAO             INFO    -     list_all() - START
+03/11/2026 13:41:32 dao.CompteDAO             INFO    -     list_all() - END
+03/11/2026 13:41:32 dao.CompteDAO             INFO    -       └─> Output: ['Compte(user_id=1, username=1ercompte, is_admin=False, email=1ercompte@1ercompte.com, access_token=None)', 'Compte(user_id=2, username=2emecompte, is_admin=False, email=2emecompte@2emecompte.com, access_token=None)'] ... (2 elements)
+03/11/2026 13:41:32 service.compte_service    INFO    -   list_account() - END
+03/11/2026 13:41:32 service.compte_service    INFO    -     └─> Output: ['Compte(user_id=1, username=1ercompte, is_admin=False, email=1ercompte@1ercompte.com, access_token=None)', 'Compte(user_id=2, username=2emecompte, is_admin=False, email=2emecompte@2emecompte.com, access_token=None)'] ... (2 elements)
+03/11/2026 13:41:32 root                      INFO    - GET /proxy/5000/compte/ - END [Status: 200]
+03/11/2026 13:41:49 root                      INFO    - GET /proxy/5000/compte/1 - START
+03/11/2026 13:41:49 c.compte_controller       INFO    - Requête GET /compte/1 reçue
+03/11/2026 13:41:49 service.compte_service    INFO    -   find_by_id(1,) - START
+03/11/2026 13:41:49 dao.CompteDAO             INFO    -     find_by_id(1,) - START
+03/11/2026 13:41:49 dao.CompteDAO             INFO    -     find_by_id(1,) - END
+03/11/2026 13:41:49 dao.CompteDAO             INFO    -       └─> Output: Compte(user_id=1, username=1ercompte, is_admin=False, email=1ercompte@1ercompte.com, access_token=None)
+03/11/2026 13:41:49 service.compte_service    INFO    -   find_by_id(1,) - END
+03/11/2026 13:41:49 service.compte_service    INFO    -     └─> Output: Compte(user_id=1, username=1ercompte, is_admin=False, email=1ercompte@1ercompte.com, access_token=None)
+03/11/2026 13:41:49 root                      INFO    - GET /proxy/5000/compte/1 - END [Status: 200]
+03/11/2026 13:42:35 root                      INFO    - POST /proxy/5000/compte/ - START
+03/11/2026 13:42:35 c.compte_controller       INFO    - Requête POST /compte/ reçue pour l'utilisateur : testerreurid
+03/11/2026 13:42:35 service.compte_service    INFO    -   username_already_used('testerreurid',) - START
+03/11/2026 13:42:35 service.compte_service    INFO    -     list_account() - START
+03/11/2026 13:42:35 dao.CompteDAO             INFO    -       list_all() - START
+03/11/2026 13:42:35 dao.CompteDAO             INFO    -       list_all() - END
+03/11/2026 13:42:35 dao.CompteDAO             INFO    -         └─> Output: ['Compte(user_id=1, username=1ercompte, is_admin=False, email=1ercompte@1ercompte.com, access_token=None)', 'Compte(user_id=2, username=2emecompte, is_admin=False, email=2emecompte@2emecompte.com, access_token=None)'] ... (2 elements)
+03/11/2026 13:42:35 service.compte_service    INFO    -     list_account() - END
+03/11/2026 13:42:35 service.compte_service    INFO    -       └─> Output: ['Compte(user_id=1, username=1ercompte, is_admin=False, email=1ercompte@1ercompte.com, access_token=None)', 'Compte(user_id=2, username=2emecompte, is_admin=False, email=2emecompte@2emecompte.com, access_token=None)'] ... (2 elements)
+03/11/2026 13:42:35 service.compte_service    INFO    -   username_already_used('testerreurid',) - END
+03/11/2026 13:42:35 service.compte_service    INFO    -     └─> Output: False
+03/11/2026 13:42:35 service.compte_service    INFO    -   create_account('testerreurid', '*****', True, 'testerreurid@testerreurid.com') - START
+03/11/2026 13:42:35 dao.CompteDAO             INFO    -     create('Compte(user_id=None, username=testerreurid, is_admin=True, email=testerreurid@testerreurid.com, access_token=None)',) - START
+03/11/2026 13:42:35 dao.CompteDAO             INFO    -     create('Compte(user_id=None, username=testerreurid, is_admin=True, email=testerreurid@testerreurid.com, access_token=None)',) - END
+03/11/2026 13:42:35 dao.CompteDAO             INFO    -       └─> Output: 3
+03/11/2026 13:42:35 service.compte_service    INFO    -   create_account('testerreurid', '*****', True, 'testerreurid@testerreurid.com') - END
+03/11/2026 13:42:35 service.compte_service    INFO    -     └─> Output: Compte(user_id=3, username=testerreurid, is_admin=True, email=testerreurid@testerreurid.com, access_token=None)
+03/11/2026 13:42:35 root                      INFO    - POST /proxy/5000/compte/ - END [Status: 201]
+03/11/2026 13:42:59 root                      INFO    - GET /proxy/5000/compte/3 - START
+03/11/2026 13:42:59 c.compte_controller       INFO    - Requête GET /compte/3 reçue
+03/11/2026 13:42:59 service.compte_service    INFO    -   find_by_id(3,) - START
+03/11/2026 13:42:59 dao.CompteDAO             INFO    -     find_by_id(3,) - START
+03/11/2026 13:42:59 dao.CompteDAO             INFO    -     find_by_id(3,) - END
+03/11/2026 13:42:59 dao.CompteDAO             INFO    -       └─> Output: Compte(user_id=3, username=testerreurid, is_admin=True, email=testerreurid@testerreurid.com, access_token=None)
+03/11/2026 13:42:59 service.compte_service    INFO    -   find_by_id(3,) - END
+03/11/2026 13:42:59 service.compte_service    INFO    -     └─> Output: Compte(user_id=3, username=testerreurid, is_admin=True, email=testerreurid@testerreurid.com, access_token=None)
+03/11/2026 13:42:59 root                      INFO    - GET /proxy/5000/compte/3 - END [Status: 200]
+03/11/2026 13:51:52 __main__                  INFO    - Webservice stopped
+03/11/2026 13:51:59 root                      INFO    - --------------------------------------------------
+03/11/2026 13:51:59 root                      INFO    - Starting Webservice                           
+03/11/2026 13:51:59 root                      INFO    - --------------------------------------------------
+03/11/2026 13:51:59 root                      INFO    - Load environment variables: SUCCES
+03/11/2026 13:51:59 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-354848-rw.user-jeanpohardy
+03/11/2026 13:51:59 root                      INFO    - POSTGRES_PORT=5432
+03/11/2026 13:51:59 root                      INFO    - POSTGRES_DATABASE=defaultdb
+03/11/2026 13:51:59 root                      INFO    - POSTGRES_USER=user-jeanpohardy
+03/11/2026 13:51:59 root                      INFO    - POSTGRES_PASSWORD=*******
+03/11/2026 13:51:59 root                      INFO    - POSTGRES_SCHEMA=project
+03/11/2026 13:51:59 root                      INFO    - UVICORN_HOST=0.0.0.0
+03/11/2026 13:51:59 root                      INFO    - UVICORN_PORT=5000
+03/11/2026 13:51:59 root                      INFO    - BACKEND_URL=http://localhost:5000
+03/11/2026 13:51:59 root                      INFO    - BACKEND_TIMEOUT=5
+03/11/2026 13:52:03 root                      INFO    - GET /docs - START
+03/11/2026 13:52:03 root                      INFO    - GET /docs - END [Status: 200]
+03/11/2026 13:52:03 root                      INFO    - GET /proxy/5000/openapi.json - START
+03/11/2026 13:52:03 root                      INFO    - GET /proxy/5000/openapi.json - END [Status: 200]
+03/11/2026 13:52:09 root                      INFO    - GET /proxy/5000/compte/ - START
+03/11/2026 13:52:09 c.compte_controller       INFO    - Requête GET /compte/ reçue
+03/11/2026 13:52:09 service.compte_service    INFO    -   list_account() - START
+03/11/2026 13:52:09 dao.CompteDAO             INFO    -     list_all() - START
+03/11/2026 13:52:09 dao.CompteDAO             INFO    -     list_all() - END
+03/11/2026 13:52:09 dao.CompteDAO             INFO    -       └─> Output: ['Compte(user_id=1, username=1ercompte, is_admin=False, email=1ercompte@1ercompte.com, access_token=None)', 'Compte(user_id=2, username=2emecompte, is_admin=False, email=2emecompte@2emecompte.com, access_token=None)', 'Compte(user_id=3, username=testerreurid, is_admin=True, email=testerreurid@testerreurid.com, access_token=None)'] ... (3 elements)
+03/11/2026 13:52:09 service.compte_service    INFO    -   list_account() - END
+03/11/2026 13:52:09 service.compte_service    INFO    -     └─> Output: ['Compte(user_id=1, username=1ercompte, is_admin=False, email=1ercompte@1ercompte.com, access_token=None)', 'Compte(user_id=2, username=2emecompte, is_admin=False, email=2emecompte@2emecompte.com, access_token=None)', 'Compte(user_id=3, username=testerreurid, is_admin=True, email=testerreurid@testerreurid.com, access_token=None)'] ... (3 elements)
+03/11/2026 13:52:10 root                      INFO    - GET /proxy/5000/compte/ - END [Status: 200]
+03/11/2026 13:54:11 root                      INFO    - PUT /proxy/5000/compte/1 - START
+03/11/2026 13:54:11 c.compte_controller       INFO    - Requête PUT /compte/1 reçue
+03/11/2026 13:54:11 service.compte_service    INFO    -   find_by_id(1,) - START
+03/11/2026 13:54:11 dao.CompteDAO             INFO    -     find_by_id(1,) - START
+03/11/2026 13:54:11 dao.CompteDAO             INFO    -     find_by_id(1,) - END
+03/11/2026 13:54:11 dao.CompteDAO             INFO    -       └─> Output: Compte(user_id=1, username=1ercompte, is_admin=False, email=1ercompte@1ercompte.com, access_token=None)
+03/11/2026 13:54:11 service.compte_service    INFO    -   find_by_id(1,) - END
+03/11/2026 13:54:11 service.compte_service    INFO    -     └─> Output: Compte(user_id=1, username=1ercompte, is_admin=False, email=1ercompte@1ercompte.com, access_token=None)
+03/11/2026 13:54:11 service.compte_service    INFO    -   update('Compte(user_id=1, username=1ercomptemodif, is_admin=True, email=1ercompytemodif@1ercomptemodif.com, access_token=None)',) - START
+03/11/2026 13:54:11 dao.CompteDAO             INFO    -     update('Compte(user_id=1, username=1ercomptemodif, is_admin=True, email=1ercompytemodif@1ercomptemodif.com, access_token=None)',) - START
+03/11/2026 13:54:11 dao.CompteDAO             INFO    -     update('Compte(user_id=1, username=1ercomptemodif, is_admin=True, email=1ercompytemodif@1ercomptemodif.com, access_token=None)',) - END
+03/11/2026 13:54:11 dao.CompteDAO             INFO    -       └─> Output: True
+03/11/2026 13:54:11 service.compte_service    INFO    -   update('Compte(user_id=1, username=1ercomptemodif, is_admin=True, email=1ercompytemodif@1ercomptemodif.com, access_token=None)',) - END
+03/11/2026 13:54:11 service.compte_service    INFO    -     └─> Output: Compte(user_id=1, username=1ercomptemodif, is_admin=True, email=1ercompytemodif@1ercomptemodif.com, access_token=None)
+03/11/2026 13:54:11 root                      INFO    - PUT /proxy/5000/compte/1 - END [Status: 200]
+03/11/2026 13:55:46 root                      INFO    - PUT /proxy/5000/compte/1 - START
+03/11/2026 13:55:46 __main__                  ERROR   - Validation Error
+Errors: [{'type': 'json_invalid', 'loc': ('body', 15), 'msg': 'JSON decode error', 'input': {}, 'ctx': {'error': 'Expecting value'}}]
+Body: {
+  "user_id": test,
+  "username": "1ercomptemodif",
+  "password": "1ercomptemodif",
+  "email": "1ercompytemodif@1ercomptemodif.com",
+  "is_admin": true
+}
+03/11/2026 13:55:46 root                      INFO    - PUT /proxy/5000/compte/1 - END [Status: 422]
+03/11/2026 13:56:18 root                      INFO    - PUT /proxy/5000/compte/1 - START
+03/11/2026 13:56:18 __main__                  ERROR   - Validation Error
+Errors: [{'type': 'json_invalid', 'loc': ('body', 147), 'msg': 'JSON decode error', 'input': {}, 'ctx': {'error': 'Expecting value'}}]
+Body: {
+  "user_id": 191,
+  "username": "1ercomptemodif",
+  "password": "1ercomptemodif",
+  "email": "1ercompytemodif@1ercomptemodif.com",
+  "is_admin": test
+}
+03/11/2026 13:56:18 root                      INFO    - PUT /proxy/5000/compte/1 - END [Status: 422]
+03/11/2026 13:56:28 root                      INFO    - PUT /proxy/5000/compte/1 - START
+03/11/2026 13:56:28 __main__                  ERROR   - Validation Error
+Errors: [{'type': 'json_invalid', 'loc': ('body', 147), 'msg': 'JSON decode error', 'input': {}, 'ctx': {'error': 'Expecting value'}}]
+Body: {
+  "user_id": 191,
+  "username": "1ercomptemodif",
+  "password": "1ercomptemodif",
+  "email": "1ercompytemodif@1ercomptemodif.com",
+  "is_admin": False
+}
+03/11/2026 13:56:28 root                      INFO    - PUT /proxy/5000/compte/1 - END [Status: 422]
+03/11/2026 13:56:50 root                      INFO    - GET /proxy/5000/compte/ - START
+03/11/2026 13:56:50 c.compte_controller       INFO    - Requête GET /compte/ reçue
+03/11/2026 13:56:50 service.compte_service    INFO    -   list_account() - START
+03/11/2026 13:56:50 dao.CompteDAO             INFO    -     list_all() - START
+03/11/2026 13:56:50 dao.CompteDAO             INFO    -     list_all() - END
+03/11/2026 13:56:50 dao.CompteDAO             INFO    -       └─> Output: ['Compte(user_id=1, username=1ercomptemodif, is_admin=True, email=1ercompytemodif@1ercomptemodif.com, access_token=None)', 'Compte(user_id=2, username=2emecompte, is_admin=False, email=2emecompte@2emecompte.com, access_token=None)', 'Compte(user_id=3, username=testerreurid, is_admin=True, email=testerreurid@testerreurid.com, access_token=None)'] ... (3 elements)
+03/11/2026 13:56:50 service.compte_service    INFO    -   list_account() - END
+03/11/2026 13:56:50 service.compte_service    INFO    -     └─> Output: ['Compte(user_id=1, username=1ercomptemodif, is_admin=True, email=1ercompytemodif@1ercomptemodif.com, access_token=None)', 'Compte(user_id=2, username=2emecompte, is_admin=False, email=2emecompte@2emecompte.com, access_token=None)', 'Compte(user_id=3, username=testerreurid, is_admin=True, email=testerreurid@testerreurid.com, access_token=None)'] ... (3 elements)
+03/11/2026 13:56:50 root                      INFO    - GET /proxy/5000/compte/ - END [Status: 200]
+03/11/2026 13:57:28 root                      INFO    - PUT /proxy/5000/compte/1 - START
+03/11/2026 13:57:28 __main__                  ERROR   - Validation Error
+Errors: [{'type': 'json_invalid', 'loc': ('body', 147), 'msg': 'JSON decode error', 'input': {}, 'ctx': {'error': 'Expecting value'}}]
+Body: {
+  "user_id": 191,
+  "username": "1ercomptemodif",
+  "password": "1ercomptemodif",
+  "email": "1ercompytemodif@1ercomptemodif.com",
+  "is_admin": False
+}
+03/11/2026 13:57:28 root                      INFO    - PUT /proxy/5000/compte/1 - END [Status: 422]
+03/11/2026 13:57:43 root                      INFO    - GET /proxy/5000/compte/ - START
+03/11/2026 13:57:43 c.compte_controller       INFO    - Requête GET /compte/ reçue
+03/11/2026 13:57:43 service.compte_service    INFO    -   list_account() - START
+03/11/2026 13:57:43 dao.CompteDAO             INFO    -     list_all() - START
+03/11/2026 13:57:43 dao.CompteDAO             INFO    -     list_all() - END
+03/11/2026 13:57:43 dao.CompteDAO             INFO    -       └─> Output: ['Compte(user_id=1, username=1ercomptemodif, is_admin=True, email=1ercompytemodif@1ercomptemodif.com, access_token=None)', 'Compte(user_id=2, username=2emecompte, is_admin=False, email=2emecompte@2emecompte.com, access_token=None)', 'Compte(user_id=3, username=testerreurid, is_admin=True, email=testerreurid@testerreurid.com, access_token=None)'] ... (3 elements)
+03/11/2026 13:57:43 service.compte_service    INFO    -   list_account() - END
+03/11/2026 13:57:43 service.compte_service    INFO    -     └─> Output: ['Compte(user_id=1, username=1ercomptemodif, is_admin=True, email=1ercompytemodif@1ercomptemodif.com, access_token=None)', 'Compte(user_id=2, username=2emecompte, is_admin=False, email=2emecompte@2emecompte.com, access_token=None)', 'Compte(user_id=3, username=testerreurid, is_admin=True, email=testerreurid@testerreurid.com, access_token=None)'] ... (3 elements)
+03/11/2026 13:57:43 root                      INFO    - GET /proxy/5000/compte/ - END [Status: 200]
+03/11/2026 13:57:44 root                      INFO    - GET /proxy/5000/compte/ - START
+03/11/2026 13:57:44 c.compte_controller       INFO    - Requête GET /compte/ reçue
+03/11/2026 13:57:44 service.compte_service    INFO    -   list_account() - START
+03/11/2026 13:57:44 dao.CompteDAO             INFO    -     list_all() - START
+03/11/2026 13:57:44 dao.CompteDAO             INFO    -     list_all() - END
+03/11/2026 13:57:44 dao.CompteDAO             INFO    -       └─> Output: ['Compte(user_id=1, username=1ercomptemodif, is_admin=True, email=1ercompytemodif@1ercomptemodif.com, access_token=None)', 'Compte(user_id=2, username=2emecompte, is_admin=False, email=2emecompte@2emecompte.com, access_token=None)', 'Compte(user_id=3, username=testerreurid, is_admin=True, email=testerreurid@testerreurid.com, access_token=None)'] ... (3 elements)
+03/11/2026 13:57:44 service.compte_service    INFO    -   list_account() - END
+03/11/2026 13:57:44 service.compte_service    INFO    -     └─> Output: ['Compte(user_id=1, username=1ercomptemodif, is_admin=True, email=1ercompytemodif@1ercomptemodif.com, access_token=None)', 'Compte(user_id=2, username=2emecompte, is_admin=False, email=2emecompte@2emecompte.com, access_token=None)', 'Compte(user_id=3, username=testerreurid, is_admin=True, email=testerreurid@testerreurid.com, access_token=None)'] ... (3 elements)
+03/11/2026 13:57:44 root                      INFO    - GET /proxy/5000/compte/ - END [Status: 200]
+03/11/2026 13:57:45 root                      INFO    - GET /proxy/5000/compte/ - START
+03/11/2026 13:57:45 c.compte_controller       INFO    - Requête GET /compte/ reçue
+03/11/2026 13:57:45 service.compte_service    INFO    -   list_account() - START
+03/11/2026 13:57:45 dao.CompteDAO             INFO    -     list_all() - START
+03/11/2026 13:57:45 dao.CompteDAO             INFO    -     list_all() - END
+03/11/2026 13:57:45 dao.CompteDAO             INFO    -       └─> Output: ['Compte(user_id=1, username=1ercomptemodif, is_admin=True, email=1ercompytemodif@1ercomptemodif.com, access_token=None)', 'Compte(user_id=2, username=2emecompte, is_admin=False, email=2emecompte@2emecompte.com, access_token=None)', 'Compte(user_id=3, username=testerreurid, is_admin=True, email=testerreurid@testerreurid.com, access_token=None)'] ... (3 elements)
+03/11/2026 13:57:45 service.compte_service    INFO    -   list_account() - END
+03/11/2026 13:57:45 service.compte_service    INFO    -     └─> Output: ['Compte(user_id=1, username=1ercomptemodif, is_admin=True, email=1ercompytemodif@1ercomptemodif.com, access_token=None)', 'Compte(user_id=2, username=2emecompte, is_admin=False, email=2emecompte@2emecompte.com, access_token=None)', 'Compte(user_id=3, username=testerreurid, is_admin=True, email=testerreurid@testerreurid.com, access_token=None)'] ... (3 elements)
+03/11/2026 13:57:45 root                      INFO    - GET /proxy/5000/compte/ - END [Status: 200]
+03/11/2026 13:57:55 root                      INFO    - PUT /proxy/5000/compte/1 - START
+03/11/2026 13:57:55 c.compte_controller       INFO    - Requête PUT /compte/1 reçue
+03/11/2026 13:57:55 service.compte_service    INFO    -   find_by_id(1,) - START
+03/11/2026 13:57:55 dao.CompteDAO             INFO    -     find_by_id(1,) - START
+03/11/2026 13:57:55 dao.CompteDAO             INFO    -     find_by_id(1,) - END
+03/11/2026 13:57:55 dao.CompteDAO             INFO    -       └─> Output: Compte(user_id=1, username=1ercomptemodif, is_admin=True, email=1ercompytemodif@1ercomptemodif.com, access_token=None)
+03/11/2026 13:57:55 service.compte_service    INFO    -   find_by_id(1,) - END
+03/11/2026 13:57:55 service.compte_service    INFO    -     └─> Output: Compte(user_id=1, username=1ercomptemodif, is_admin=True, email=1ercompytemodif@1ercomptemodif.com, access_token=None)
+03/11/2026 13:57:55 service.compte_service    INFO    -   update('Compte(user_id=1, username=1ercomptemodif, is_admin=False, email=1ercompytemodif@1ercomptemodif.com, access_token=None)',) - START
+03/11/2026 13:57:55 dao.CompteDAO             INFO    -     update('Compte(user_id=1, username=1ercomptemodif, is_admin=False, email=1ercompytemodif@1ercomptemodif.com, access_token=None)',) - START
+03/11/2026 13:57:55 dao.CompteDAO             INFO    -     update('Compte(user_id=1, username=1ercomptemodif, is_admin=False, email=1ercompytemodif@1ercomptemodif.com, access_token=None)',) - END
+03/11/2026 13:57:55 dao.CompteDAO             INFO    -       └─> Output: True
+03/11/2026 13:57:55 service.compte_service    INFO    -   update('Compte(user_id=1, username=1ercomptemodif, is_admin=False, email=1ercompytemodif@1ercomptemodif.com, access_token=None)',) - END
+03/11/2026 13:57:55 service.compte_service    INFO    -     └─> Output: Compte(user_id=1, username=1ercomptemodif, is_admin=False, email=1ercompytemodif@1ercomptemodif.com, access_token=None)
+03/11/2026 13:57:55 root                      INFO    - PUT /proxy/5000/compte/1 - END [Status: 200]
+03/11/2026 13:59:48 __main__                  INFO    - Webservice stopped
+03/11/2026 14:05:05 root                      INFO    - --------------------------------------------------
+03/11/2026 14:05:05 root                      INFO    - Starting Webservice                           
+03/11/2026 14:05:05 root                      INFO    - --------------------------------------------------
+03/11/2026 14:05:05 root                      INFO    - Load environment variables: SUCCES
+03/11/2026 14:05:05 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-354848-rw.user-jeanpohardy
+03/11/2026 14:05:05 root                      INFO    - POSTGRES_PORT=5432
+03/11/2026 14:05:05 root                      INFO    - POSTGRES_DATABASE=defaultdb
+03/11/2026 14:05:05 root                      INFO    - POSTGRES_USER=user-jeanpohardy
+03/11/2026 14:05:05 root                      INFO    - POSTGRES_PASSWORD=*******
+03/11/2026 14:05:05 root                      INFO    - POSTGRES_SCHEMA=project
+03/11/2026 14:05:05 root                      INFO    - UVICORN_HOST=0.0.0.0
+03/11/2026 14:05:05 root                      INFO    - UVICORN_PORT=5000
+03/11/2026 14:05:05 root                      INFO    - BACKEND_URL=http://localhost:5000
+03/11/2026 14:05:05 root                      INFO    - BACKEND_TIMEOUT=5
+03/11/2026 14:05:11 root                      INFO    - GET /docs - START
+03/11/2026 14:05:11 root                      INFO    - GET /docs - END [Status: 200]
+03/11/2026 14:05:11 root                      INFO    - GET /proxy/5000/openapi.json - START
+03/11/2026 14:05:11 root                      INFO    - GET /proxy/5000/openapi.json - END [Status: 200]
+03/11/2026 14:05:23 root                      INFO    - GET /proxy/5000/compte/ - START
+03/11/2026 14:05:23 c.compte_controller       INFO    - Requête GET /compte/ reçue
+03/11/2026 14:05:23 service.compte_service    INFO    -   list_account() - START
+03/11/2026 14:05:23 dao.CompteDAO             INFO    -     list_all() - START
+03/11/2026 14:05:23 dao.CompteDAO             INFO    -     list_all() - END
+03/11/2026 14:05:23 dao.CompteDAO             INFO    -       └─> Output: ['Compte(user_id=1, username=1ercomptemodif, is_admin=False, email=1ercompytemodif@1ercomptemodif.com, access_token=None)', 'Compte(user_id=2, username=2emecompte, is_admin=False, email=2emecompte@2emecompte.com, access_token=None)', 'Compte(user_id=3, username=testerreurid, is_admin=True, email=testerreurid@testerreurid.com, access_token=None)'] ... (3 elements)
+03/11/2026 14:05:23 service.compte_service    INFO    -   list_account() - END
+03/11/2026 14:05:23 service.compte_service    INFO    -     └─> Output: ['Compte(user_id=1, username=1ercomptemodif, is_admin=False, email=1ercompytemodif@1ercomptemodif.com, access_token=None)', 'Compte(user_id=2, username=2emecompte, is_admin=False, email=2emecompte@2emecompte.com, access_token=None)', 'Compte(user_id=3, username=testerreurid, is_admin=True, email=testerreurid@testerreurid.com, access_token=None)'] ... (3 elements)
+03/11/2026 14:05:23 root                      INFO    - GET /proxy/5000/compte/ - END [Status: 200]
+03/11/2026 14:06:16 root                      INFO    - DELETE /proxy/5000/compte/2 - START
+03/11/2026 14:06:16 c.compte_controller       INFO    - Requête DELETE /compte/2 reçue
+03/11/2026 14:06:16 service.compte_service    INFO    -   find_by_id(2,) - START
+03/11/2026 14:06:16 dao.CompteDAO             INFO    -     find_by_id(2,) - START
+03/11/2026 14:06:16 dao.CompteDAO             INFO    -     find_by_id(2,) - END
+03/11/2026 14:06:16 dao.CompteDAO             INFO    -       └─> Output: Compte(user_id=2, username=2emecompte, is_admin=False, email=2emecompte@2emecompte.com, access_token=None)
+03/11/2026 14:06:16 service.compte_service    INFO    -   find_by_id(2,) - END
+03/11/2026 14:06:16 service.compte_service    INFO    -     └─> Output: Compte(user_id=2, username=2emecompte, is_admin=False, email=2emecompte@2emecompte.com, access_token=None)
+03/11/2026 14:06:16 service.compte_service    INFO    -   delete(2,) - START
+03/11/2026 14:06:16 dao.CompteDAO             INFO    -     delete(2,) - START
+03/11/2026 14:06:16 dao.CompteDAO             INFO    -     delete(2,) - END
+03/11/2026 14:06:16 dao.CompteDAO             INFO    -       └─> Output: True
+03/11/2026 14:06:16 service.compte_service    INFO    -   delete(2,) - END
+03/11/2026 14:06:16 service.compte_service    INFO    -     └─> Output: True
+03/11/2026 14:06:16 root                      INFO    - DELETE /proxy/5000/compte/2 - END [Status: 204]
+03/11/2026 14:06:31 root                      INFO    - GET /proxy/5000/compte/ - START
+03/11/2026 14:06:31 c.compte_controller       INFO    - Requête GET /compte/ reçue
+03/11/2026 14:06:31 service.compte_service    INFO    -   list_account() - START
+03/11/2026 14:06:31 dao.CompteDAO             INFO    -     list_all() - START
+03/11/2026 14:06:31 dao.CompteDAO             INFO    -     list_all() - END
+03/11/2026 14:06:31 dao.CompteDAO             INFO    -       └─> Output: ['Compte(user_id=1, username=1ercomptemodif, is_admin=False, email=1ercompytemodif@1ercomptemodif.com, access_token=None)', 'Compte(user_id=3, username=testerreurid, is_admin=True, email=testerreurid@testerreurid.com, access_token=None)'] ... (2 elements)
+03/11/2026 14:06:31 service.compte_service    INFO    -   list_account() - END
+03/11/2026 14:06:31 service.compte_service    INFO    -     └─> Output: ['Compte(user_id=1, username=1ercomptemodif, is_admin=False, email=1ercompytemodif@1ercomptemodif.com, access_token=None)', 'Compte(user_id=3, username=testerreurid, is_admin=True, email=testerreurid@testerreurid.com, access_token=None)'] ... (2 elements)
+03/11/2026 14:06:31 root                      INFO    - GET /proxy/5000/compte/ - END [Status: 200]
+03/11/2026 14:07:27 root                      INFO    - POST /proxy/5000/compte/ - START
+03/11/2026 14:07:27 c.compte_controller       INFO    - Requête POST /compte/ reçue pour l'utilisateur : test3
+03/11/2026 14:07:27 service.compte_service    INFO    -   username_already_used('test3',) - START
+03/11/2026 14:07:27 service.compte_service    INFO    -     list_account() - START
+03/11/2026 14:07:27 dao.CompteDAO             INFO    -       list_all() - START
+03/11/2026 14:07:27 dao.CompteDAO             INFO    -       list_all() - END
+03/11/2026 14:07:27 dao.CompteDAO             INFO    -         └─> Output: ['Compte(user_id=1, username=1ercomptemodif, is_admin=False, email=1ercompytemodif@1ercomptemodif.com, access_token=None)', 'Compte(user_id=3, username=testerreurid, is_admin=True, email=testerreurid@testerreurid.com, access_token=None)'] ... (2 elements)
+03/11/2026 14:07:27 service.compte_service    INFO    -     list_account() - END
+03/11/2026 14:07:27 service.compte_service    INFO    -       └─> Output: ['Compte(user_id=1, username=1ercomptemodif, is_admin=False, email=1ercompytemodif@1ercomptemodif.com, access_token=None)', 'Compte(user_id=3, username=testerreurid, is_admin=True, email=testerreurid@testerreurid.com, access_token=None)'] ... (2 elements)
+03/11/2026 14:07:27 service.compte_service    INFO    -   username_already_used('test3',) - END
+03/11/2026 14:07:27 service.compte_service    INFO    -     └─> Output: False
+03/11/2026 14:07:27 service.compte_service    INFO    -   create_account('test3', '*****', True, 'test3@test3.com') - START
+03/11/2026 14:07:27 dao.CompteDAO             INFO    -     create('Compte(user_id=None, username=test3, is_admin=True, email=test3@test3.com, access_token=None)',) - START
+03/11/2026 14:07:27 dao.CompteDAO             INFO    -     create('Compte(user_id=None, username=test3, is_admin=True, email=test3@test3.com, access_token=None)',) - END
+03/11/2026 14:07:27 dao.CompteDAO             INFO    -       └─> Output: 4
+03/11/2026 14:07:27 service.compte_service    INFO    -   create_account('test3', '*****', True, 'test3@test3.com') - END
+03/11/2026 14:07:27 service.compte_service    INFO    -     └─> Output: Compte(user_id=4, username=test3, is_admin=True, email=test3@test3.com, access_token=None)
+03/11/2026 14:07:27 root                      INFO    - POST /proxy/5000/compte/ - END [Status: 201]
+03/11/2026 14:07:36 root                      INFO    - GET /proxy/5000/compte/ - START
+03/11/2026 14:07:36 c.compte_controller       INFO    - Requête GET /compte/ reçue
+03/11/2026 14:07:36 service.compte_service    INFO    -   list_account() - START
+03/11/2026 14:07:36 dao.CompteDAO             INFO    -     list_all() - START
+03/11/2026 14:07:36 dao.CompteDAO             INFO    -     list_all() - END
+03/11/2026 14:07:36 dao.CompteDAO             INFO    -       └─> Output: ['Compte(user_id=1, username=1ercomptemodif, is_admin=False, email=1ercompytemodif@1ercomptemodif.com, access_token=None)', 'Compte(user_id=4, username=test3, is_admin=True, email=test3@test3.com, access_token=None)', 'Compte(user_id=3, username=testerreurid, is_admin=True, email=testerreurid@testerreurid.com, access_token=None)'] ... (3 elements)
+03/11/2026 14:07:36 service.compte_service    INFO    -   list_account() - END
+03/11/2026 14:07:36 service.compte_service    INFO    -     └─> Output: ['Compte(user_id=1, username=1ercomptemodif, is_admin=False, email=1ercompytemodif@1ercomptemodif.com, access_token=None)', 'Compte(user_id=4, username=test3, is_admin=True, email=test3@test3.com, access_token=None)', 'Compte(user_id=3, username=testerreurid, is_admin=True, email=testerreurid@testerreurid.com, access_token=None)'] ... (3 elements)
+03/11/2026 14:07:36 root                      INFO    - GET /proxy/5000/compte/ - END [Status: 200]
+03/11/2026 14:33:41 __main__                  INFO    - Webservice stopped
+03/11/2026 14:33:46 root                      INFO    - --------------------------------------------------
+03/11/2026 14:33:46 root                      INFO    - Starting Webservice                           
+03/11/2026 14:33:46 root                      INFO    - --------------------------------------------------
+03/11/2026 14:33:46 root                      INFO    - Load environment variables: SUCCES
+03/11/2026 14:33:46 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-354848-rw.user-jeanpohardy
+03/11/2026 14:33:46 root                      INFO    - POSTGRES_PORT=5432
+03/11/2026 14:33:46 root                      INFO    - POSTGRES_DATABASE=defaultdb
+03/11/2026 14:33:46 root                      INFO    - POSTGRES_USER=user-jeanpohardy
+03/11/2026 14:33:46 root                      INFO    - POSTGRES_PASSWORD=*******
+03/11/2026 14:33:46 root                      INFO    - POSTGRES_SCHEMA=project
+03/11/2026 14:33:46 root                      INFO    - UVICORN_HOST=0.0.0.0
+03/11/2026 14:33:46 root                      INFO    - UVICORN_PORT=5000
+03/11/2026 14:33:46 root                      INFO    - BACKEND_URL=http://localhost:5000
+03/11/2026 14:33:46 root                      INFO    - BACKEND_TIMEOUT=5
+03/11/2026 14:33:50 root                      INFO    - GET /docs - START
+03/11/2026 14:33:50 root                      INFO    - GET /docs - END [Status: 200]
+03/11/2026 14:33:50 root                      INFO    - GET /proxy/5000/openapi.json - START
+03/11/2026 14:33:50 root                      INFO    - GET /proxy/5000/openapi.json - END [Status: 200]
+03/11/2026 14:33:58 root                      INFO    - GET /proxy/5000/compte/ - START
+03/11/2026 14:33:58 c.compte_controller       INFO    - Requête GET /compte/ reçue
+03/11/2026 14:33:58 service.compte_service    INFO    -   list_account() - START
+03/11/2026 14:33:58 dao.CompteDAO             INFO    -     list_all() - START
+03/11/2026 14:33:58 dao.CompteDAO             INFO    -     list_all() - END
+03/11/2026 14:33:58 dao.CompteDAO             INFO    -       └─> Output: ['Compte(user_id=1, username=1ercomptemodif, is_admin=False, email=1ercompytemodif@1ercomptemodif.com, access_token=None)', 'Compte(user_id=4, username=test3, is_admin=True, email=test3@test3.com, access_token=None)', 'Compte(user_id=3, username=testerreurid, is_admin=True, email=testerreurid@testerreurid.com, access_token=None)'] ... (3 elements)
+03/11/2026 14:33:58 service.compte_service    INFO    -   list_account() - END
+03/11/2026 14:33:58 service.compte_service    INFO    -     └─> Output: ['Compte(user_id=1, username=1ercomptemodif, is_admin=False, email=1ercompytemodif@1ercomptemodif.com, access_token=None)', 'Compte(user_id=4, username=test3, is_admin=True, email=test3@test3.com, access_token=None)', 'Compte(user_id=3, username=testerreurid, is_admin=True, email=testerreurid@testerreurid.com, access_token=None)'] ... (3 elements)
+03/11/2026 14:33:58 root                      INFO    - GET /proxy/5000/compte/ - END [Status: 200]

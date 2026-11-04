@@ -1,8 +1,10 @@
 import hashlib
 
-from fastapi import Header, HTTPException
-
+from fastapi import Header, HTTPException,  Security
+from fastapi.security import APIKeyHeader
 from dao.player_dao import PlayerDao
+from dao.CompteDAO import CompteDAO
+from business_object.compte import Compte
 
 
 def hash_password(password: str, salt: str = "") -> str:
@@ -41,3 +43,18 @@ def verify_token(x_auth_token=Header(None)) -> PlayerDao:
         raise HTTPException(status_code=401, detail="Invalid token.")
 
     return player
+
+# On définit le schéma de sécurité basé sur l'en-tête "X-Auth-Token"
+api_key_header = APIKeyHeader(name="X-Auth-Token", auto_error=True)
+
+def get_current_user(x_auth_token: str = Security(api_key_header)) -> Compte:
+    """Vérifie l'authenticité d'un utilisateur via le header X-Auth-Token."""
+
+    compte = CompteDAO().find_by_token(x_auth_token)
+    if not compte:
+        raise HTTPException(
+            status_code=401,
+            detail="Token d'authentification invalide, expiré ou manquant."
+        )
+
+    return compte

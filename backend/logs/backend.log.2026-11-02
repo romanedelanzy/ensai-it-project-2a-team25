@@ -1,0 +1,89 @@
+02/11/2026 19:58:17 root                      INFO    - --------------------------------------------------
+02/11/2026 19:58:17 root                      INFO    - Starting Webservice                           
+02/11/2026 19:58:17 root                      INFO    - --------------------------------------------------
+02/11/2026 19:58:17 root                      INFO    - Load environment variables: SUCCES
+02/11/2026 19:58:17 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-4770-rw.user-jeanpohardy
+02/11/2026 19:58:17 root                      INFO    - POSTGRES_PORT=5432
+02/11/2026 19:58:17 root                      INFO    - POSTGRES_DATABASE=defaultdb
+02/11/2026 19:58:17 root                      INFO    - POSTGRES_USER=user-jeanpohardy
+02/11/2026 19:58:17 root                      INFO    - POSTGRES_PASSWORD=*******
+02/11/2026 19:58:17 root                      INFO    - POSTGRES_SCHEMA=project
+02/11/2026 19:58:17 root                      INFO    - UVICORN_HOST=0.0.0.0
+02/11/2026 19:58:17 root                      INFO    - UVICORN_PORT=5000
+02/11/2026 19:58:17 root                      INFO    - BACKEND_URL=http://localhost:5000
+02/11/2026 19:58:17 root                      INFO    - BACKEND_TIMEOUT=5
+02/11/2026 19:58:24 root                      INFO    - GET / - START
+02/11/2026 19:58:24 root                      INFO    - GET / - END [Status: 307]
+02/11/2026 19:58:24 root                      INFO    - GET /docs - START
+02/11/2026 19:58:24 root                      INFO    - GET /docs - END [Status: 200]
+02/11/2026 19:58:25 root                      INFO    - GET /proxy/5000/openapi.json - START
+02/11/2026 19:58:25 root                      INFO    - GET /proxy/5000/openapi.json - END [Status: 200]
+02/11/2026 19:58:46 root                      INFO    - GET /proxy/5000/reset_database - START
+02/11/2026 19:58:46 __main__                  INFO    - Database reset
+02/11/2026 19:58:46 utils.reset_database      INFO    -   run() - START
+02/11/2026 19:58:46 utils.reset_database      INFO    - could not translate host name "postgresql-cnpg-4770-rw.user-jeanpohardy" to address: Name or service not known
+
+02/11/2026 19:58:46 utils.reset_database      ERROR   - --- ERREUR REELLE DANS run : OperationalError - could not translate host name "postgresql-cnpg-4770-rw.user-jeanpohardy" to address: Name or service not known
+
+02/11/2026 19:58:46 root                      ERROR   - GET /proxy/5000/reset_database - FAILED [Status: 500] Error: could not translate host name "postgresql-cnpg-4770-rw.user-jeanpohardy" to address: Name or service not known
+
+02/11/2026 19:58:49 root                      INFO    - GET /proxy/5000/reset_database - START
+02/11/2026 19:58:49 __main__                  INFO    - Database reset
+02/11/2026 19:58:49 utils.reset_database      INFO    -     run() - START
+02/11/2026 19:58:49 utils.reset_database      INFO    - could not translate host name "postgresql-cnpg-4770-rw.user-jeanpohardy" to address: Name or service not known
+
+02/11/2026 19:58:49 utils.reset_database      ERROR   - --- ERREUR REELLE DANS run : OperationalError - could not translate host name "postgresql-cnpg-4770-rw.user-jeanpohardy" to address: Name or service not known
+
+02/11/2026 19:58:49 root                      ERROR   - GET /proxy/5000/reset_database - FAILED [Status: 500] Error: could not translate host name "postgresql-cnpg-4770-rw.user-jeanpohardy" to address: Name or service not known
+
+02/11/2026 20:02:00 __main__                  INFO    - Webservice stopped
+02/11/2026 20:02:05 root                      INFO    - --------------------------------------------------
+02/11/2026 20:02:05 root                      INFO    - Starting Webservice                           
+02/11/2026 20:02:05 root                      INFO    - --------------------------------------------------
+02/11/2026 20:02:05 root                      INFO    - Load environment variables: SUCCES
+02/11/2026 20:02:05 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-354848-rw.user-jeanpohardy
+02/11/2026 20:02:05 root                      INFO    - POSTGRES_PORT=5432
+02/11/2026 20:02:05 root                      INFO    - POSTGRES_DATABASE=defaultdb
+02/11/2026 20:02:05 root                      INFO    - POSTGRES_USER=user-jeanpohardy
+02/11/2026 20:02:05 root                      INFO    - POSTGRES_PASSWORD=*******
+02/11/2026 20:02:05 root                      INFO    - POSTGRES_SCHEMA=project
+02/11/2026 20:02:05 root                      INFO    - UVICORN_HOST=0.0.0.0
+02/11/2026 20:02:05 root                      INFO    - UVICORN_PORT=5000
+02/11/2026 20:02:05 root                      INFO    - BACKEND_URL=http://localhost:5000
+02/11/2026 20:02:05 root                      INFO    - BACKEND_TIMEOUT=5
+02/11/2026 20:02:24 root                      INFO    - GET / - START
+02/11/2026 20:02:24 root                      INFO    - GET / - END [Status: 307]
+02/11/2026 20:02:24 root                      INFO    - GET /docs - START
+02/11/2026 20:02:24 root                      INFO    - GET /docs - END [Status: 200]
+02/11/2026 20:02:25 root                      INFO    - GET /proxy/5000/openapi.json - START
+02/11/2026 20:02:25 root                      INFO    - GET /proxy/5000/openapi.json - END [Status: 200]
+02/11/2026 20:02:36 root                      INFO    - GET /proxy/5000/reset_database - START
+02/11/2026 20:02:36 __main__                  INFO    - Database reset
+02/11/2026 20:02:36 utils.reset_database      INFO    -   run() - START
+02/11/2026 20:02:36 dao.player_dao            INFO    -     find_all() - START
+02/11/2026 20:02:36 dao.player_dao            INFO    -     find_all() - END
+02/11/2026 20:02:36 dao.player_dao            INFO    -       └─> Output: ['Player(a, elo: 1200)', 'Player(admin, elo: None)', 'Player(batricia, elo: 1500)'] ... (7 elements)
+02/11/2026 20:02:36 dao.player_dao            INFO    -     update('Player(a, elo: 1200)',) - START
+02/11/2026 20:02:36 dao.player_dao            INFO    -     update('Player(a, elo: 1200)',) - END
+02/11/2026 20:02:36 dao.player_dao            INFO    -       └─> Output: True
+02/11/2026 20:02:36 dao.player_dao            INFO    -     update('Player(admin, elo: None)',) - START
+02/11/2026 20:02:36 dao.player_dao            INFO    -     update('Player(admin, elo: None)',) - END
+02/11/2026 20:02:36 dao.player_dao            INFO    -       └─> Output: True
+02/11/2026 20:02:36 dao.player_dao            INFO    -     update('Player(batricia, elo: 1500)',) - START
+02/11/2026 20:02:36 dao.player_dao            INFO    -     update('Player(batricia, elo: 1500)',) - END
+02/11/2026 20:02:36 dao.player_dao            INFO    -       └─> Output: True
+02/11/2026 20:02:36 dao.player_dao            INFO    -     update('Player(gilbert, elo: 1100)',) - START
+02/11/2026 20:02:36 dao.player_dao            INFO    -     update('Player(gilbert, elo: 1100)',) - END
+02/11/2026 20:02:36 dao.player_dao            INFO    -       └─> Output: True
+02/11/2026 20:02:36 dao.player_dao            INFO    -     update('Player(junior, elo: 1200)',) - START
+02/11/2026 20:02:36 dao.player_dao            INFO    -     update('Player(junior, elo: 1200)',) - END
+02/11/2026 20:02:36 dao.player_dao            INFO    -       └─> Output: True
+02/11/2026 20:02:36 dao.player_dao            INFO    -     update('Player(maurice, elo: 1000)',) - START
+02/11/2026 20:02:36 dao.player_dao            INFO    -     update('Player(maurice, elo: 1000)',) - END
+02/11/2026 20:02:36 dao.player_dao            INFO    -       └─> Output: True
+02/11/2026 20:02:36 dao.player_dao            INFO    -     update('Player(miguel, elo: 1300)',) - START
+02/11/2026 20:02:36 dao.player_dao            INFO    -     update('Player(miguel, elo: 1300)',) - END
+02/11/2026 20:02:36 dao.player_dao            INFO    -       └─> Output: True
+02/11/2026 20:02:36 utils.reset_database      INFO    -   run() - END
+02/11/2026 20:02:36 utils.reset_database      INFO    -     └─> Output: True
+02/11/2026 20:02:36 root                      INFO    - GET /proxy/5000/reset_database - END [Status: 200]
