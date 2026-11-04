@@ -1,27 +1,22 @@
+
 """
-Fonctions utilitaires d'affichage des stations pour les pages Streamlit :
-état d'une station, couleurs, taux de remplissage et chargement des stations
-avec leur dernier relevé.
+Affichage des stations du réseau avec pagination
+et accès au dernier relevé de chaque station.
 """
 
 import pandas as pd
+import streamlit as st
 
 from utils.api_client import api_client
+
 
 STATE_EMPTY = "Vide"
 STATE_FULL = "Saturée"
 STATE_OK = "Fonctionnelle"
 STATE_UNKNOWN = "Inconnue"
 
-# Couleurs des points sur la carte (st.map)
-STATE_COLORS = {
-    STATE_EMPTY: "#e74c3c",
-    STATE_FULL: "#e67e22",
-    STATE_OK: "#2ecc71",
-    STATE_UNKNOWN: "#95a5a6",
-}
+STATIONS_PER_PAGE = 10
 
-# Couleurs des badges (st.badge)
 STATE_BADGE_COLORS = {
     STATE_EMPTY: "red",
     STATE_FULL: "orange",
@@ -31,32 +26,26 @@ STATE_BADGE_COLORS = {
 
 
 def station_state(status) -> str:
-    """Donne l'état d'une station à partir de son dernier relevé.
-    Vide s'il n'y a aucun vélo disponible, saturée s'il n'y a plus de place libre,
-    fonctionnelle dans les autres cas.
-    Args:
-        status: dernier relevé de la station (dict) ou None s'il n'y en a pas.
-    Returns:
-        str: 'Vide', 'Saturée', 'Fonctionnelle' ou 'Inconnue'.
-    """
     if status is None:
         return STATE_UNKNOWN
+
     if status["nb_velos_dispos"] == 0:
         return STATE_EMPTY
+
     if status["nb_places_dispos"] == 0:
         return STATE_FULL
+
     return STATE_OK
 
 
 def fill_rate(capacite: int, status) -> float | None:
-    """Taux de remplissage : vélos disponibles divisé par la capacité (None si inconnu)."""
     if status is None or capacite == 0:
         return None
+
     return status["nb_velos_dispos"] / capacite
 
 
 def is_operational(status) -> bool:
-    """Une station est opérationnelle si elle est installée, loue et accepte les retours."""
     return (
         status is not None
         and bool(status["est_installee"])
@@ -66,34 +55,149 @@ def is_operational(status) -> bool:
 
 
 def load_stations_with_status() -> tuple[pd.DataFrame | None, bool]:
-    """Charge les stations et leur dernier relevé, fusionnés dans un DataFrame.
-    Returns:
-        tuple: (DataFrame, True si les relevés sont disponibles).
-            Le DataFrame vaut None si les stations n'ont pas pu être chargées.
-            Il contient une colonne 'etat' (Vide, Saturée, Fonctionnelle ou Inconnue).
-    """
-    response = api_client.get("/stations/")
+    """Charge les stations et leur dernier relevé."""
+
+    response = api_client.get("/station/")
+
     if not response or response["status_code"] != 200:
         return None, False
 
     stations = pd.DataFrame(response["data"])
+
     if stations.empty:
         return stations, False
 
-    status_response = api_client.get("/stations/status")
-    has_status = bool(
-        status_response and status_response["status_code"] == 200 and status_response["data"]
-    )
+    statuses = []
 
-    if has_status:
-        statuses = pd.DataFrame(status_response["data"]).rename(
+    for station_id in stations["station_id"]:
+        status_response = api_client.get(
+            f"/station/{station_id}/status"
+        )
+
+        if status_response and status_response["status_code"] == 200:
+            statuses.append(status_response["data"])
+
+        elif status_response and status_response["status_code"] == 404:
+            continue
+
+        else:
+            return stations.assign(etat=STATE_UNKNOWN), False
+
+    if statuses:
+        status_df = pd.DataFrame(statuses).rename(
             columns={"id_station": "station_id"}
         )
-        stations = stations.merge(statuses, on="station_id", how="left")
-        stations["etat"] = stations.apply(
-            lambda row: station_state(None if pd.isna(row["nb_velos_dispos"]) else row), axis=1
+
+        stations = stations.merge(
+            status_df,
+            on="station_id",
+            how="left"
         )
+
+        stations["etat"] = stations.apply(
+            lambda row: station_state(
+                None if pd.isna(row["nb_velos_dispos"]) else row
+            ),
+            axis=1,
+        )
+
+        has_status = True
+
     else:
         stations["etat"] = STATE_UNKNOWN
+        has_status = False
 
     return stations, has_status
+
+
+def display_stations():
+    """Affiche les stations avec une pagination."""
+
+    st.title("Stations du réseau")
+
+    stations, has_status = load_stations_with_status()
+
+    if stations is None:
+        st.error("Impossible de récupérer les stations.")
+        return
+
+    if stations.empty:
+        st.info("Aucune station disponible.")
+        return
+
+    if not has_status:
+        st.warning(
+            "Les derniers relevés ne sont pas disponibles."
+        )
+
+    st.write(f"Nombre total de stations : {len(stations)}")
+
+    # Pagination
+    total_pages = (
+        len(stations) + STATIONS_PER_PAGE - 1
+    ) // STATIONS_PER_PAGE
+
+    page = st.selectbox(
+        "Page",
+        options=list(range(1, total_pages + 1)),
+        key="stations_page",
+    )
+
+    start = (page - 1) * STATIONS_PER_PAGE
+    end = start + STATIONS_PER_PAGE
+
+    page_stations = stations.iloc[start:end]
+
+    # Affichage des stations
+    for _, station in page_stations.iterrows():
+
+        with st.container(border=True):
+
+            st.subheader(station["name"])
+
+            state = station["etat"]
+
+            st.badge(
+                state,
+                color=STATE_BADGE_COLORS[state]
+            )
+
+            st.write(f"**Identifiant :** {station['station_id']}")
+            st.write(f"**Réseau :** {station['reseau_id']}")
+            st.write(f"**Adresse :** {station['adresse'] or 'Non renseignée'}")
+            st.write(f"**Capacité :** {station['capacite']} vélos")
+
+            st.write(
+                f"**Coordonnées :** "
+                f"{station['latitude']}, {station['longitude']}"
+            )
+
+            if "nb_velos_dispos" in station.index and pd.notna(
+                station.get("nb_velos_dispos")
+            ):
+                st.write(
+                    f"**Vélos disponibles :** "
+                    f"{int(station['nb_velos_dispos'])}"
+                )
+
+                st.write(
+                    f"**Places disponibles :** "
+                    f"{int(station['nb_places_dispos'])}"
+                )
+
+            if st.button(
+                "Voir le dernier relevé",
+                key=f"status_{station['station_id']}",
+                disabled=(
+                    "nb_velos_dispos" not in station.index
+                    or pd.isna(station.get("nb_velos_dispos"))
+                ),
+            ):
+                st.session_state["selected_station_id"] = (
+                    station["station_id"]
+                )
+
+                st.switch_page("pages/station_status.py")
+
+
+display_stations()
