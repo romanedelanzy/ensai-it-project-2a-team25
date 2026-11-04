@@ -4,7 +4,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from schema.compte_model import CompteReadModel, CompteCreateModel
 from service.compte_service import CompteService
 from utils.log_utils import get_logger
-from utils.security import get_current_user
+from utils.security import get_current_user, hash_password
 
 # On définit un préfixe "/compte" et un tag pour regrouper joliment sur Swagger
 router = APIRouter(tags=["Compte"])
@@ -76,11 +76,16 @@ def update_account(
     username: str,  # Le nom du compte à modifier passé directement dans l'URL
     compte_data: CompteCreateModel,
     service: CompteService = Depends(get_compte_service),
-    current_user = Depends(get_current_user)  # Exige un token valide X-Auth-Token
+    current_user=Depends(get_current_user)  # Exige un token valide X-Auth-Token
     ):
     """Met à jour un compte existant ciblé par son username."""
     logger.info(f"Requête PUT /compte/{username} reçue")
 
+    if current_user.username != username and not getattr(current_user, "is_admin", False):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Action interdite : vous ne pouvez modifier que vos propres informations."
+        )
     # 1. Vérifier si le compte existe grâce à ton service find_by_username
     compte = service.find_by_username(username)
     if not compte:
@@ -92,8 +97,10 @@ def update_account(
     # 2. Mettre à jour les champs
     compte.username = compte_data.username
     compte.email = compte_data.email
-    # Si tu veux aussi mettre à jour le mot de passe en le hachant proprement :
-    # compte.password = hash_password(compte_data.password, compte_data.username)
+    compte.password_hash = hash_password(compte_data.password, compte_data.username)
+
+    if current_user.is_admin:
+        compte.is_admin = compte_data.is_admin
 
     # 3. Sauvegarder via le service
     updated_compte = service.update(compte)
