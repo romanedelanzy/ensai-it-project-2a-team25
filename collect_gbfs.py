@@ -16,11 +16,11 @@ from utils.log_utils import get_logger
 
 logger = get_logger(__name__)
 
-INTERVAL_SECONDS = 60 * 60
+INTERVAL_SECONDS = 20 * 60
 
 
 def main():
-    """Exécute une collecte toutes les 1h."""
+    """Exécute une collecte toutes les 20min."""
 
     provider = create_bordeaux_provider()
     collection_service = CollectionService(
