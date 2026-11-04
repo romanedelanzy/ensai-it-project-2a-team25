@@ -36,8 +36,7 @@ with st.container(horizontal_alignment="center"):
         logger.info(f"Attempting login for user: {username}")
 
         try:
-            response = api_client.post("/login", json={"username": username, "password": password})
-
+            response = api_client.post("/login-compte/", json={"username": username, "password": password})
             if response:
                 status_code = response.get("status_code")
                 data = response.get("data")

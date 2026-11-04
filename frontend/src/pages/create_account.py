@@ -28,10 +28,10 @@ with st.container(horizontal_alignment="center"):
         logger.info("Create an account")
         account = {"username": username, "password": password, "email": email}
 
-        response = api_client.post("/comptes/", json=account)
+        response = api_client.post("/compte/", json=account)
 
         if response:
-            if response["status_code"] == 200:
+            if response["status_code"] == 201:
                 st.success(f"Compte {username} créé avec succès ! 🎉 Vous pouvez vous connecter.")
                 logger.info("Account created successfully")
             else:

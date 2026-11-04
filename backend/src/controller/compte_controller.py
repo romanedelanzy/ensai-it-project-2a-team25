@@ -11,7 +11,6 @@ router = APIRouter(tags=["Compte"])
 
 logger = get_logger(__name__)
 
-
 def get_compte_service() -> CompteService:
     """Fournit une instance de CompteService pour l'injection de dépendances."""
     return CompteService()
