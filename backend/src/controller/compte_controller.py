@@ -110,3 +110,38 @@ def update_account(
         )
 
     return updated_compte
+
+@router.delete("/{username}", status_code=status.HTTP_204_NO_CONTENT)
+def delete_account(
+    username: str,  # Le nom du compte à supprimer passé dans l'URL
+    service: CompteService = Depends(get_compte_service),
+    current_user=Depends(get_current_user)  # Exige un token valide X-Auth-Token
+    ):
+    """Supprime un compte ciblé par son username (propriétaire du compte ou admin uniquement)."""
+    logger.info(f"Requête DELETE /compte/{username} reçue par l'utilisateur : {current_user.username}")
+
+    # 1. Vérification des droits d'accès (même règle que pour le PUT)
+    if current_user.username != username and not getattr(current_user, "is_admin", False):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Action interdite : vous ne pouvez supprimer que votre propre compte."
+        )
+
+    # 2. Vérifier si le compte à supprimer existe bien en base
+    compte = service.find_by_username(username)
+    if not compte:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Compte '{username}' non trouvé."
+        )
+
+    # 3. Supprimer via le service
+    success = service.delete(compte.user_id)
+    if not success:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Erreur lors de la suppression du compte."
+        )
+
+    # Status 204 No Content renvoie une réponse vide par convention
+    return None
