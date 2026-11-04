@@ -11,6 +11,10 @@ router = APIRouter(tags=["Compte"])
 
 logger = get_logger(__name__)
 
+print("MODELE COMPTE :", CompteCreateModel.__module__)
+
+for name, field in CompteCreateModel.model_fields.items():
+    print(name, "required =", field.is_required(), "default =", field.default)
 
 def get_compte_service() -> CompteService:
     """Fournit une instance de CompteService pour l'injection de dépendances."""

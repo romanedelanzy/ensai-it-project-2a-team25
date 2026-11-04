@@ -11,7 +11,7 @@ class CompteCreateModel(BaseModel):
     username: str
     password: str
     email: EmailStr
-    is_admin: bool
+    is_admin: bool = False
 
     @field_validator("password")
     @classmethod
