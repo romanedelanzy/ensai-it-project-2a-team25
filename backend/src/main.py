@@ -55,14 +55,10 @@ app.include_router(login_controller.router, prefix="/login", tags=["Login"])
 app.include_router(game_controller.router, prefix="/game", tags=["Games"])
 app.include_router(station_controller.router, prefix="/station", tags=["Stations"])
 app.include_router(favori_controller.router, prefix="/favori", tags=["Favoris"])
-<<<<<<< Updated upstream
-app.include_router(compte_controller.router)
 app.include_router(fiabilite_controller.router, prefix="/reliability", tags=["Fiabilite"])
-=======
 app.include_router(compte_controller.router, prefix="/compte", tags=["Compte"])
 app.include_router(login_compte_controller.router, prefix="/login-compte", tags=["Login Compte"])
 
->>>>>>> Stashed changes
 @app.get("/", include_in_schema=False)
 async def redirect_to_docs():
     """Redirect to the API documentation"""
