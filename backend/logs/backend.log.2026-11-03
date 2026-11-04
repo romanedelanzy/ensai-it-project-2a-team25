@@ -1,0 +1,332 @@
+03/11/2026 08:51:33 root                      INFO    - --------------------------------------------------
+03/11/2026 08:51:33 root                      INFO    - Starting Webservice                           
+03/11/2026 08:51:33 root                      INFO    - --------------------------------------------------
+03/11/2026 08:51:33 root                      INFO    - Load environment variables: SUCCES
+03/11/2026 08:51:33 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-385030-rw.user-fanny
+03/11/2026 08:51:33 root                      INFO    - POSTGRES_PORT=5432
+03/11/2026 08:51:33 root                      INFO    - POSTGRES_DATABASE=defaultdb
+03/11/2026 08:51:33 root                      INFO    - POSTGRES_USER=user-fanny
+03/11/2026 08:51:33 root                      INFO    - POSTGRES_PASSWORD=*******
+03/11/2026 08:51:33 root                      INFO    - POSTGRES_SCHEMA=project
+03/11/2026 08:51:33 root                      INFO    - UVICORN_HOST=0.0.0.0
+03/11/2026 08:51:33 root                      INFO    - UVICORN_PORT=5000
+03/11/2026 08:51:33 root                      INFO    - BACKEND_URL=http://localhost:5000
+03/11/2026 08:51:33 root                      INFO    - BACKEND_TIMEOUT=5
+03/11/2026 08:51:38 root                      INFO    - GET / - START
+03/11/2026 08:51:38 root                      INFO    - GET / - END [Status: 307]
+03/11/2026 08:51:38 root                      INFO    - GET /docs - START
+03/11/2026 08:51:38 root                      INFO    - GET /docs - END [Status: 200]
+03/11/2026 08:51:39 root                      INFO    - GET /openapi.json - START
+03/11/2026 08:51:39 root                      INFO    - GET /openapi.json - END [Status: 200]
+03/11/2026 09:19:07 __main__                  INFO    - Webservice stopped
+03/11/2026 09:59:59 root                      INFO    - --------------------------------------------------
+03/11/2026 09:59:59 root                      INFO    - Starting Webservice                           
+03/11/2026 09:59:59 root                      INFO    - --------------------------------------------------
+03/11/2026 09:59:59 root                      INFO    - Load environment variables: SUCCES
+03/11/2026 09:59:59 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-385030-rw.user-fanny
+03/11/2026 09:59:59 root                      INFO    - POSTGRES_PORT=5432
+03/11/2026 09:59:59 root                      INFO    - POSTGRES_DATABASE=defaultdb
+03/11/2026 09:59:59 root                      INFO    - POSTGRES_USER=user-fanny
+03/11/2026 09:59:59 root                      INFO    - POSTGRES_PASSWORD=*******
+03/11/2026 09:59:59 root                      INFO    - POSTGRES_SCHEMA=project
+03/11/2026 09:59:59 root                      INFO    - UVICORN_HOST=0.0.0.0
+03/11/2026 09:59:59 root                      INFO    - UVICORN_PORT=5000
+03/11/2026 09:59:59 root                      INFO    - BACKEND_URL=http://localhost:5000
+03/11/2026 09:59:59 root                      INFO    - BACKEND_TIMEOUT=5
+03/11/2026 10:00:03 root                      INFO    - GET / - START
+03/11/2026 10:00:03 root                      INFO    - GET / - END [Status: 307]
+03/11/2026 10:00:03 root                      INFO    - GET /docs - START
+03/11/2026 10:00:03 root                      INFO    - GET /docs - END [Status: 200]
+03/11/2026 10:00:04 root                      INFO    - GET /openapi.json - START
+03/11/2026 10:00:04 root                      INFO    - GET /openapi.json - END [Status: 200]
+03/11/2026 10:00:22 __main__                  INFO    - Webservice stopped
+03/11/2026 10:00:29 root                      INFO    - --------------------------------------------------
+03/11/2026 10:00:29 root                      INFO    - Starting Webservice                           
+03/11/2026 10:00:29 root                      INFO    - --------------------------------------------------
+03/11/2026 10:00:29 root                      INFO    - Load environment variables: SUCCES
+03/11/2026 10:00:29 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-385030-rw.user-fanny
+03/11/2026 10:00:29 root                      INFO    - POSTGRES_PORT=5432
+03/11/2026 10:00:29 root                      INFO    - POSTGRES_DATABASE=defaultdb
+03/11/2026 10:00:29 root                      INFO    - POSTGRES_USER=user-fanny
+03/11/2026 10:00:29 root                      INFO    - POSTGRES_PASSWORD=*******
+03/11/2026 10:00:29 root                      INFO    - POSTGRES_SCHEMA=project
+03/11/2026 10:00:29 root                      INFO    - UVICORN_HOST=0.0.0.0
+03/11/2026 10:00:29 root                      INFO    - UVICORN_PORT=5000
+03/11/2026 10:00:29 root                      INFO    - BACKEND_URL=http://localhost:5000
+03/11/2026 10:00:29 root                      INFO    - BACKEND_TIMEOUT=5
+03/11/2026 10:00:33 root                      INFO    - GET / - START
+03/11/2026 10:00:33 root                      INFO    - GET / - END [Status: 307]
+03/11/2026 10:00:33 root                      INFO    - GET /docs - START
+03/11/2026 10:00:33 root                      INFO    - GET /docs - END [Status: 200]
+03/11/2026 10:00:34 root                      INFO    - GET /openapi.json - START
+03/11/2026 10:00:34 root                      INFO    - GET /openapi.json - END [Status: 200]
+03/11/2026 10:00:45 __main__                  INFO    - Webservice stopped
+03/11/2026 10:01:34 root                      INFO    - --------------------------------------------------
+03/11/2026 10:01:34 root                      INFO    - Starting Webservice                           
+03/11/2026 10:01:34 root                      INFO    - --------------------------------------------------
+03/11/2026 10:01:34 root                      INFO    - Load environment variables: SUCCES
+03/11/2026 10:01:34 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-385030-rw.user-fanny
+03/11/2026 10:01:34 root                      INFO    - POSTGRES_PORT=5432
+03/11/2026 10:01:34 root                      INFO    - POSTGRES_DATABASE=defaultdb
+03/11/2026 10:01:34 root                      INFO    - POSTGRES_USER=user-fanny
+03/11/2026 10:01:34 root                      INFO    - POSTGRES_PASSWORD=*******
+03/11/2026 10:01:34 root                      INFO    - POSTGRES_SCHEMA=project
+03/11/2026 10:01:34 root                      INFO    - UVICORN_HOST=0.0.0.0
+03/11/2026 10:01:34 root                      INFO    - UVICORN_PORT=5000
+03/11/2026 10:01:34 root                      INFO    - BACKEND_URL=http://localhost:5000
+03/11/2026 10:01:34 root                      INFO    - BACKEND_TIMEOUT=5
+03/11/2026 10:01:38 root                      INFO    - GET / - START
+03/11/2026 10:01:38 root                      INFO    - GET / - END [Status: 307]
+03/11/2026 10:01:38 root                      INFO    - GET /docs - START
+03/11/2026 10:01:38 root                      INFO    - GET /docs - END [Status: 200]
+03/11/2026 10:01:39 root                      INFO    - GET /openapi.json - START
+03/11/2026 10:01:39 root                      INFO    - GET /openapi.json - END [Status: 200]
+03/11/2026 10:01:56 __main__                  INFO    - Webservice stopped
+03/11/2026 10:05:27 root                      INFO    - --------------------------------------------------
+03/11/2026 10:05:27 root                      INFO    - Starting Webservice                           
+03/11/2026 10:05:27 root                      INFO    - --------------------------------------------------
+03/11/2026 10:05:27 root                      INFO    - Load environment variables: SUCCES
+03/11/2026 10:05:27 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-385030-rw.user-fanny
+03/11/2026 10:05:27 root                      INFO    - POSTGRES_PORT=5432
+03/11/2026 10:05:27 root                      INFO    - POSTGRES_DATABASE=defaultdb
+03/11/2026 10:05:27 root                      INFO    - POSTGRES_USER=user-fanny
+03/11/2026 10:05:27 root                      INFO    - POSTGRES_PASSWORD=*******
+03/11/2026 10:05:27 root                      INFO    - POSTGRES_SCHEMA=project
+03/11/2026 10:05:27 root                      INFO    - UVICORN_HOST=0.0.0.0
+03/11/2026 10:05:27 root                      INFO    - UVICORN_PORT=5000
+03/11/2026 10:05:27 root                      INFO    - BACKEND_URL=http://localhost:5000
+03/11/2026 10:05:27 root                      INFO    - BACKEND_TIMEOUT=5
+03/11/2026 10:06:03 root                      INFO    - --------------------------------------------------
+03/11/2026 10:06:03 root                      INFO    - Starting Webservice                           
+03/11/2026 10:06:03 root                      INFO    - --------------------------------------------------
+03/11/2026 10:06:03 root                      INFO    - Load environment variables: SUCCES
+03/11/2026 10:06:03 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-385030-rw.user-fanny
+03/11/2026 10:06:03 root                      INFO    - POSTGRES_PORT=5432
+03/11/2026 10:06:03 root                      INFO    - POSTGRES_DATABASE=defaultdb
+03/11/2026 10:06:03 root                      INFO    - POSTGRES_USER=user-fanny
+03/11/2026 10:06:03 root                      INFO    - POSTGRES_PASSWORD=*******
+03/11/2026 10:06:03 root                      INFO    - POSTGRES_SCHEMA=project
+03/11/2026 10:06:03 root                      INFO    - UVICORN_HOST=0.0.0.0
+03/11/2026 10:06:03 root                      INFO    - UVICORN_PORT=5000
+03/11/2026 10:06:03 root                      INFO    - BACKEND_URL=http://localhost:5000
+03/11/2026 10:06:03 root                      INFO    - BACKEND_TIMEOUT=5
+03/11/2026 10:06:06 root                      INFO    - GET / - START
+03/11/2026 10:06:06 root                      INFO    - GET / - END [Status: 307]
+03/11/2026 10:06:07 root                      INFO    - GET /docs - START
+03/11/2026 10:06:07 root                      INFO    - GET /docs - END [Status: 200]
+03/11/2026 10:06:07 root                      INFO    - GET /openapi.json - START
+03/11/2026 10:06:07 root                      INFO    - GET /openapi.json - END [Status: 200]
+03/11/2026 10:07:10 root                      INFO    - GET /station/28 - START
+03/11/2026 10:07:10 c.station_controller      INFO    - Find a station by id
+03/11/2026 10:07:10 service.station_service   INFO    -   get_station('28',) - START
+03/11/2026 10:07:10 dao.StationDAO            INFO    -     find_by_id('28',) - START
+03/11/2026 10:07:10 dao.StationDAO            ERROR   - relation "station" does not exist
+LINE 1: SELECT *                               FROM station         ...
+                                                    ^
+
+03/11/2026 10:07:10 dao.StationDAO            ERROR   - --- ERREUR REELLE DANS find_by_id : UndefinedTable - relation "station" does not exist
+LINE 1: SELECT *                               FROM station         ...
+                                                    ^
+
+03/11/2026 10:07:10 service.station_service   ERROR   - --- ERREUR REELLE DANS get_station : UndefinedTable - relation "station" does not exist
+LINE 1: SELECT *                               FROM station         ...
+                                                    ^
+
+03/11/2026 10:07:10 root                      ERROR   - GET /station/28 - FAILED [Status: 500] Error: relation "station" does not exist
+LINE 1: SELECT *                               FROM station         ...
+                                                    ^
+
+03/11/2026 10:07:38 root                      INFO    - GET /station/28 - START
+03/11/2026 10:07:38 c.station_controller      INFO    - Find a station by id
+03/11/2026 10:07:38 service.station_service   INFO    -       get_station('28',) - START
+03/11/2026 10:07:38 dao.StationDAO            INFO    -         find_by_id('28',) - START
+03/11/2026 10:07:38 dao.StationDAO            ERROR   - relation "station" does not exist
+LINE 1: SELECT *                               FROM station         ...
+                                                    ^
+
+03/11/2026 10:07:38 dao.StationDAO            ERROR   - --- ERREUR REELLE DANS find_by_id : UndefinedTable - relation "station" does not exist
+LINE 1: SELECT *                               FROM station         ...
+                                                    ^
+
+03/11/2026 10:07:38 service.station_service   ERROR   - --- ERREUR REELLE DANS get_station : UndefinedTable - relation "station" does not exist
+LINE 1: SELECT *                               FROM station         ...
+                                                    ^
+
+03/11/2026 10:07:38 root                      ERROR   - GET /station/28 - FAILED [Status: 500] Error: relation "station" does not exist
+LINE 1: SELECT *                               FROM station         ...
+                                                    ^
+
+03/11/2026 10:12:35 __main__                  INFO    - Webservice stopped
+03/11/2026 10:27:56 root                      INFO    - --------------------------------------------------
+03/11/2026 10:27:56 root                      INFO    - Starting Webservice                           
+03/11/2026 10:27:56 root                      INFO    - --------------------------------------------------
+03/11/2026 10:27:56 root                      INFO    - Load environment variables: SUCCES
+03/11/2026 10:27:56 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-385030-rw.user-fanny
+03/11/2026 10:27:56 root                      INFO    - POSTGRES_PORT=5432
+03/11/2026 10:27:56 root                      INFO    - POSTGRES_DATABASE=defaultdb
+03/11/2026 10:27:56 root                      INFO    - POSTGRES_USER=user-fanny
+03/11/2026 10:27:56 root                      INFO    - POSTGRES_PASSWORD=*******
+03/11/2026 10:27:56 root                      INFO    - POSTGRES_SCHEMA=project
+03/11/2026 10:27:56 root                      INFO    - UVICORN_HOST=0.0.0.0
+03/11/2026 10:27:56 root                      INFO    - UVICORN_PORT=5000
+03/11/2026 10:27:56 root                      INFO    - BACKEND_URL=http://localhost:5000
+03/11/2026 10:27:56 root                      INFO    - BACKEND_TIMEOUT=5
+03/11/2026 10:27:59 root                      INFO    - GET / - START
+03/11/2026 10:27:59 root                      INFO    - GET / - END [Status: 307]
+03/11/2026 10:27:59 root                      INFO    - GET /docs - START
+03/11/2026 10:27:59 root                      INFO    - GET /docs - END [Status: 200]
+03/11/2026 10:28:00 root                      INFO    - GET /openapi.json - START
+03/11/2026 10:28:00 root                      INFO    - GET /openapi.json - END [Status: 200]
+03/11/2026 10:29:06 __main__                  INFO    - Webservice stopped
+03/11/2026 11:24:39 root                      INFO    - --------------------------------------------------
+03/11/2026 11:24:39 root                      INFO    - Starting Webservice                           
+03/11/2026 11:24:39 root                      INFO    - --------------------------------------------------
+03/11/2026 11:24:39 root                      INFO    - Load environment variables: SUCCES
+03/11/2026 11:24:39 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-385030-rw.user-fanny
+03/11/2026 11:24:39 root                      INFO    - POSTGRES_PORT=5432
+03/11/2026 11:24:39 root                      INFO    - POSTGRES_DATABASE=defaultdb
+03/11/2026 11:24:39 root                      INFO    - POSTGRES_USER=user-fanny
+03/11/2026 11:24:39 root                      INFO    - POSTGRES_PASSWORD=*******
+03/11/2026 11:24:39 root                      INFO    - POSTGRES_SCHEMA=project
+03/11/2026 11:24:39 root                      INFO    - UVICORN_HOST=0.0.0.0
+03/11/2026 11:24:39 root                      INFO    - UVICORN_PORT=5000
+03/11/2026 11:24:39 root                      INFO    - BACKEND_URL=http://localhost:5000
+03/11/2026 11:24:39 root                      INFO    - BACKEND_TIMEOUT=5
+03/11/2026 11:24:42 root                      INFO    - GET / - START
+03/11/2026 11:24:42 root                      INFO    - GET / - END [Status: 307]
+03/11/2026 11:24:42 root                      INFO    - GET /docs - START
+03/11/2026 11:24:42 root                      INFO    - GET /docs - END [Status: 200]
+03/11/2026 11:24:42 root                      INFO    - GET /openapi.json - START
+03/11/2026 11:24:42 root                      INFO    - GET /openapi.json - END [Status: 200]
+03/11/2026 11:24:59 root                      INFO    - GET /station/18 - START
+03/11/2026 11:24:59 c.station_controller      INFO    - Find a station by id
+03/11/2026 11:24:59 service.station_service   INFO    -   get_station('18',) - START
+03/11/2026 11:24:59 dao.StationDAO            INFO    -     find_by_id('18',) - START
+03/11/2026 11:24:59 dao.StationDAO            INFO    -     find_by_id('18',) - END
+03/11/2026 11:24:59 dao.StationDAO            INFO    -       └─> Output: Station(id=18, name='Huguerie', capacite=12)
+03/11/2026 11:24:59 service.station_service   INFO    -   get_station('18',) - END
+03/11/2026 11:24:59 service.station_service   INFO    -     └─> Output: Station(id=18, name='Huguerie', capacite=12)
+03/11/2026 11:24:59 root                      INFO    - GET /station/18 - END [Status: 200]
+03/11/2026 11:26:47 __main__                  INFO    - Webservice stopped
+03/11/2026 11:26:50 root                      INFO    - --------------------------------------------------
+03/11/2026 11:26:50 root                      INFO    - Starting Webservice                           
+03/11/2026 11:26:50 root                      INFO    - --------------------------------------------------
+03/11/2026 11:26:50 root                      INFO    - Load environment variables: SUCCES
+03/11/2026 11:26:50 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-385030-rw.user-fanny
+03/11/2026 11:26:50 root                      INFO    - POSTGRES_PORT=5432
+03/11/2026 11:26:50 root                      INFO    - POSTGRES_DATABASE=defaultdb
+03/11/2026 11:26:50 root                      INFO    - POSTGRES_USER=user-fanny
+03/11/2026 11:26:50 root                      INFO    - POSTGRES_PASSWORD=*******
+03/11/2026 11:26:50 root                      INFO    - POSTGRES_SCHEMA=project
+03/11/2026 11:26:50 root                      INFO    - UVICORN_HOST=0.0.0.0
+03/11/2026 11:26:50 root                      INFO    - UVICORN_PORT=5000
+03/11/2026 11:26:50 root                      INFO    - BACKEND_URL=http://localhost:5000
+03/11/2026 11:26:50 root                      INFO    - BACKEND_TIMEOUT=5
+03/11/2026 11:26:55 root                      INFO    - GET / - START
+03/11/2026 11:26:55 root                      INFO    - GET / - END [Status: 307]
+03/11/2026 11:26:55 root                      INFO    - GET /docs - START
+03/11/2026 11:26:55 root                      INFO    - GET /docs - END [Status: 200]
+03/11/2026 11:26:56 root                      INFO    - GET /openapi.json - START
+03/11/2026 11:26:56 root                      INFO    - GET /openapi.json - END [Status: 200]
+03/11/2026 11:34:57 __main__                  INFO    - Webservice stopped
+03/11/2026 14:47:03 root                      INFO    - --------------------------------------------------
+03/11/2026 14:47:03 root                      INFO    - Starting Webservice                           
+03/11/2026 14:47:03 root                      INFO    - --------------------------------------------------
+03/11/2026 14:47:03 root                      INFO    - Load environment variables: SUCCES
+03/11/2026 14:47:03 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-385030-rw.user-fanny
+03/11/2026 14:47:03 root                      INFO    - POSTGRES_PORT=5432
+03/11/2026 14:47:03 root                      INFO    - POSTGRES_DATABASE=defaultdb
+03/11/2026 14:47:03 root                      INFO    - POSTGRES_USER=user-fanny
+03/11/2026 14:47:03 root                      INFO    - POSTGRES_PASSWORD=*******
+03/11/2026 14:47:03 root                      INFO    - POSTGRES_SCHEMA=project
+03/11/2026 14:47:03 root                      INFO    - UVICORN_HOST=0.0.0.0
+03/11/2026 14:47:03 root                      INFO    - UVICORN_PORT=5000
+03/11/2026 14:47:03 root                      INFO    - BACKEND_URL=http://localhost:5000
+03/11/2026 14:47:03 root                      INFO    - BACKEND_TIMEOUT=5
+03/11/2026 14:47:06 root                      INFO    - GET / - START
+03/11/2026 14:47:06 root                      INFO    - GET / - END [Status: 307]
+03/11/2026 14:47:06 root                      INFO    - GET /docs - START
+03/11/2026 14:47:06 root                      INFO    - GET /docs - END [Status: 200]
+03/11/2026 14:47:06 root                      INFO    - GET /openapi.json - START
+03/11/2026 14:47:06 root                      INFO    - GET /openapi.json - END [Status: 200]
+03/11/2026 14:47:53 root                      INFO    - GET /station/ - START
+03/11/2026 14:47:53 c.station_controller      INFO    - List all stations
+03/11/2026 14:47:53 service.station_service   INFO    -   search_by_name('120 Cours Maréchal Juin',) - START
+03/11/2026 14:47:53 dao.StationDAO            INFO    -     list_all() - START
+03/11/2026 14:47:53 dao.StationDAO            INFO    -     list_all() - END
+03/11/2026 14:47:53 dao.StationDAO            INFO    -       └─> Output: ["Station(id=67, name='Allee de Serr Abadie', capacite=20)", "Station(id=60, name='Allees de Chartres', capacite=16)", "Station(id=51, name='Ampère-Grand Parc', capacite=17)"] ... (232 elements)
+03/11/2026 14:47:53 service.station_service   INFO    -   search_by_name('120 Cours Maréchal Juin',) - END
+03/11/2026 14:47:53 service.station_service   INFO    -     └─> Output: [] ... (0 elements)
+03/11/2026 14:47:53 root                      INFO    - GET /station/ - END [Status: 200]
+03/11/2026 14:48:10 root                      INFO    - GET /station/ - START
+03/11/2026 14:48:10 c.station_controller      INFO    - List all stations
+03/11/2026 14:48:10 service.station_service   INFO    -   search_by_name('120 Cours Maréchal Juin',) - START
+03/11/2026 14:48:10 dao.StationDAO            INFO    -     list_all() - START
+03/11/2026 14:48:10 dao.StationDAO            INFO    -     list_all() - END
+03/11/2026 14:48:10 dao.StationDAO            INFO    -       └─> Output: ["Station(id=67, name='Allee de Serr Abadie', capacite=20)", "Station(id=60, name='Allees de Chartres', capacite=16)", "Station(id=51, name='Ampère-Grand Parc', capacite=17)"] ... (232 elements)
+03/11/2026 14:48:10 service.station_service   INFO    -   search_by_name('120 Cours Maréchal Juin',) - END
+03/11/2026 14:48:10 service.station_service   INFO    -     └─> Output: [] ... (0 elements)
+03/11/2026 14:48:10 root                      INFO    - GET /station/ - END [Status: 200]
+03/11/2026 14:48:23 root                      INFO    - GET /station/18 - START
+03/11/2026 14:48:23 c.station_controller      INFO    - Find a station by id
+03/11/2026 14:48:23 service.station_service   INFO    -   get_station('18',) - START
+03/11/2026 14:48:23 dao.StationDAO            INFO    -     find_by_id('18',) - START
+03/11/2026 14:48:23 dao.StationDAO            INFO    -     find_by_id('18',) - END
+03/11/2026 14:48:23 dao.StationDAO            INFO    -       └─> Output: Station(id=18, name='Huguerie', capacite=12)
+03/11/2026 14:48:23 service.station_service   INFO    -   get_station('18',) - END
+03/11/2026 14:48:23 service.station_service   INFO    -     └─> Output: Station(id=18, name='Huguerie', capacite=12)
+03/11/2026 14:48:23 root                      INFO    - GET /station/18 - END [Status: 200]
+03/11/2026 14:48:41 root                      INFO    - GET /station/ - START
+03/11/2026 14:48:41 c.station_controller      INFO    - List all stations
+03/11/2026 14:48:41 service.station_service   INFO    -   search_by_name('Patinoire',) - START
+03/11/2026 14:48:41 dao.StationDAO            INFO    -     list_all() - START
+03/11/2026 14:48:41 dao.StationDAO            INFO    -     list_all() - END
+03/11/2026 14:48:41 dao.StationDAO            INFO    -       └─> Output: ["Station(id=67, name='Allee de Serr Abadie', capacite=20)", "Station(id=60, name='Allees de Chartres', capacite=16)", "Station(id=51, name='Ampère-Grand Parc', capacite=17)"] ... (232 elements)
+03/11/2026 14:48:41 service.station_service   INFO    -   search_by_name('Patinoire',) - END
+03/11/2026 14:48:41 service.station_service   INFO    -     └─> Output: ["Station(id=8, name='Patinoire', capacite=20)"] ... (1 elements)
+03/11/2026 14:48:41 root                      INFO    - GET /station/ - END [Status: 200]
+03/11/2026 14:49:00 root                      INFO    - GET /station/18/status - START
+03/11/2026 14:49:00 c.station_controller      INFO    - Get the current status of a station
+03/11/2026 14:49:00 service.station_service   INFO    -   get_current_status('18',) - START
+03/11/2026 14:49:00 dao.StationStatusDAO      INFO    -     find_current_status('18',) - START
+03/11/2026 14:49:00 dao.StationStatusDAO      INFO    -     find_current_status('18',) - END
+03/11/2026 14:49:00 dao.StationStatusDAO      INFO    -       └─> Output: StationStatus(id_station='18', horodatage=datetime.datetime(2026, 10, 31, 20, 34, 20, tzinfo=datetime.timezone.utc), nb_velos_dispos=1, nb_velos_elec_dispos=0, nb_places_dispos=11, est_installee=True, permet_retour=True, permet_emprunt=True)
+03/11/2026 14:49:00 service.station_service   INFO    -   get_current_status('18',) - END
+03/11/2026 14:49:00 service.station_service   INFO    -     └─> Output: StationStatus(id_station='18', horodatage=datetime.datetime(2026, 10, 31, 20, 34, 20, tzinfo=datetime.timezone.utc), nb_velos_dispos=1, nb_velos_elec_dispos=0, nb_places_dispos=11, est_installee=True, permet_retour=True, permet_emprunt=True)
+03/11/2026 14:49:00 root                      INFO    - GET /station/18/status - END [Status: 200]
+03/11/2026 14:49:19 root                      INFO    - GET /station/18/history - START
+03/11/2026 14:49:19 c.station_controller      INFO    - Get the history of a station
+03/11/2026 14:49:19 service.station_service   INFO    -   get_station('18',) - START
+03/11/2026 14:49:19 dao.StationDAO            INFO    -     find_by_id('18',) - START
+03/11/2026 14:49:19 dao.StationDAO            INFO    -     find_by_id('18',) - END
+03/11/2026 14:49:19 dao.StationDAO            INFO    -       └─> Output: Station(id=18, name='Huguerie', capacite=12)
+03/11/2026 14:49:19 service.station_service   INFO    -   get_station('18',) - END
+03/11/2026 14:49:19 service.station_service   INFO    -     └─> Output: Station(id=18, name='Huguerie', capacite=12)
+03/11/2026 14:49:19 service.station_service   INFO    -   get_history_by_period('18', '24h') - START
+03/11/2026 14:49:19 service.station_service   INFO    -     get_history('18', '2026-11-02 14:49:19.961557+00:00', '2026-11-03 14:49:19.961557+00:00') - START
+03/11/2026 14:49:19 dao.StationStatusDAO      INFO    -       find_history('18', '2026-11-02 14:49:19.961557+00:00', '2026-11-03 14:49:19.961557+00:00') - START
+03/11/2026 14:49:19 dao.StationStatusDAO      INFO    -       find_history('18', '2026-11-02 14:49:19.961557+00:00', '2026-11-03 14:49:19.961557+00:00') - END
+03/11/2026 14:49:19 dao.StationStatusDAO      INFO    -         └─> Output: [] ... (0 elements)
+03/11/2026 14:49:19 service.station_service   INFO    -     get_history('18', '2026-11-02 14:49:19.961557+00:00', '2026-11-03 14:49:19.961557+00:00') - END
+03/11/2026 14:49:19 service.station_service   INFO    -       └─> Output: [] ... (0 elements)
+03/11/2026 14:49:19 service.station_service   INFO    -   get_history_by_period('18', '24h') - END
+03/11/2026 14:49:19 service.station_service   INFO    -     └─> Output: [] ... (0 elements)
+03/11/2026 14:49:19 root                      INFO    - GET /station/18/history - END [Status: 200]
+03/11/2026 14:49:46 root                      INFO    - GET /station/18/history - START
+03/11/2026 14:49:46 c.station_controller      INFO    - Get the history of a station
+03/11/2026 14:49:46 service.station_service   INFO    -   get_station('18',) - START
+03/11/2026 14:49:46 dao.StationDAO            INFO    -     find_by_id('18',) - START
+03/11/2026 14:49:46 dao.StationDAO            INFO    -     find_by_id('18',) - END
+03/11/2026 14:49:46 dao.StationDAO            INFO    -       └─> Output: Station(id=18, name='Huguerie', capacite=12)
+03/11/2026 14:49:46 service.station_service   INFO    -   get_station('18',) - END
+03/11/2026 14:49:46 service.station_service   INFO    -     └─> Output: Station(id=18, name='Huguerie', capacite=12)
+03/11/2026 14:49:46 service.station_service   INFO    -   get_history_by_period('18', '7j') - START
+03/11/2026 14:49:46 service.station_service   INFO    -     get_history('18', '2026-10-27 14:49:46.263468+00:00', '2026-11-03 14:49:46.263468+00:00') - START
+03/11/2026 14:49:46 dao.StationStatusDAO      INFO    -       find_history('18', '2026-10-27 14:49:46.263468+00:00', '2026-11-03 14:49:46.263468+00:00') - START
+03/11/2026 14:49:46 dao.StationStatusDAO      INFO    -       find_history('18', '2026-10-27 14:49:46.263468+00:00', '2026-11-03 14:49:46.263468+00:00') - END
+03/11/2026 14:49:46 dao.StationStatusDAO      INFO    -         └─> Output: ["StationStatus(id_station='18', horodatage=datetime.datetime(2026, 10, 31, 19, 16, 39, tzinfo=datetime.timezone.utc), nb_velos_dispos=1, nb_velos_elec_dispos=0, nb_places_dispos=11, est_installee=True, permet_retour=True, permet_emprunt=True)", "StationStatus(id_station='18', horodatage=datetime.datetime(2026, 10, 31, 19, 20, 20, tzinfo=datetime.timezone.utc), nb_velos_dispos=1, nb_velos_elec_dispos=0, nb_places_dispos=11, est_installee=True, permet_retour=True, permet_emprunt=True)", "StationStatus(id_station='18', horodatage=datetime.datetime(2026, 10, 31, 19, 43, 59, tzinfo=datetime.timezone.utc), nb_velos_dispos=2, nb_velos_elec_dispos=0, nb_places_dispos=10, est_installee=True, permet_retour=True, permet_emprunt=True)"] ... (7 elements)
+03/11/2026 14:49:46 service.station_service   INFO    -     get_history('18', '2026-10-27 14:49:46.263468+00:00', '2026-11-03 14:49:46.263468+00:00') - END
+03/11/2026 14:49:46 service.station_service   INFO    -       └─> Output: ["StationStatus(id_station='18', horodatage=datetime.datetime(2026, 10, 31, 19, 16, 39, tzinfo=datetime.timezone.utc), nb_velos_dispos=1, nb_velos_elec_dispos=0, nb_places_dispos=11, est_installee=True, permet_retour=True, permet_emprunt=True)", "StationStatus(id_station='18', horodatage=datetime.datetime(2026, 10, 31, 19, 20, 20, tzinfo=datetime.timezone.utc), nb_velos_dispos=1, nb_velos_elec_dispos=0, nb_places_dispos=11, est_installee=True, permet_retour=True, permet_emprunt=True)", "StationStatus(id_station='18', horodatage=datetime.datetime(2026, 10, 31, 19, 43, 59, tzinfo=datetime.timezone.utc), nb_velos_dispos=2, nb_velos_elec_dispos=0, nb_places_dispos=10, est_installee=True, permet_retour=True, permet_emprunt=True)"] ... (7 elements)
+03/11/2026 14:49:46 service.station_service   INFO    -   get_history_by_period('18', '7j') - END
+03/11/2026 14:49:46 service.station_service   INFO    -     └─> Output: ["StationStatus(id_station='18', horodatage=datetime.datetime(2026, 10, 31, 19, 16, 39, tzinfo=datetime.timezone.utc), nb_velos_dispos=1, nb_velos_elec_dispos=0, nb_places_dispos=11, est_installee=True, permet_retour=True, permet_emprunt=True)", "StationStatus(id_station='18', horodatage=datetime.datetime(2026, 10, 31, 19, 20, 20, tzinfo=datetime.timezone.utc), nb_velos_dispos=1, nb_velos_elec_dispos=0, nb_places_dispos=11, est_installee=True, permet_retour=True, permet_emprunt=True)", "StationStatus(id_station='18', horodatage=datetime.datetime(2026, 10, 31, 19, 43, 59, tzinfo=datetime.timezone.utc), nb_velos_dispos=2, nb_velos_elec_dispos=0, nb_places_dispos=10, est_installee=True, permet_retour=True, permet_emprunt=True)"] ... (7 elements)
+03/11/2026 14:49:46 root                      INFO    - GET /station/18/history - END [Status: 200]

@@ -10,10 +10,12 @@ def initialize_logs(name: str):
     """Initialize logging from a configuration file"""
     logs_dir = Path(__file__).resolve().parents[2] / "logs"
     logs_dir.mkdir(exist_ok=True)
+    log_file_path = logs_dir / "frontend.log"
     config_file = Path(__file__).resolve().parents[2] / "logging_config.yml"
 
     with open(config_file, encoding="utf-8") as stream:
         config = yaml.safe_load(stream)
+        config["handlers"]["file"]["filename"] = str(log_file_path)
         logging.config.dictConfig(config)
 
     logging.info("-" * 50)
