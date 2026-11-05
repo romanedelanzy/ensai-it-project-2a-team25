@@ -11,7 +11,7 @@ class StationDao(metaclass=Singleton):
 
     @log
     def create(self, station) -> bool:
-        """Crée une station dans la base de données.
+        """Crée une station dans la base de données avec un ID automatique (MAX + 1).
         Parameters:
             Station à créer
         Returns:
@@ -23,11 +23,15 @@ class StationDao(metaclass=Singleton):
             with DBConnection().connection as connection:
                 with connection.cursor() as cursor:
                     cursor.execute(
-                        "INSERT INTO station(station_id, reseau_id, name, adresse, latitude, longitude, capacite) VALUES "
-                        "(%(station_id)s, %(reseau_id)s, %(name)s, %(adresse)s, %(latitude)s, %(longitude)s, %(capacite)s) "
-                        "RETURNING station_id;",
+                        """
+                        INSERT INTO station(station_id, reseau_id, name, adresse, latitude, longitude, capacite) 
+                        VALUES (
+                            (SELECT COALESCE(MAX(CAST(station_id AS INTEGER)), 0) + 1 FROM station),
+                            %(reseau_id)s, %(name)s, %(adresse)s, %(latitude)s, %(longitude)s, %(capacite)s
+                        ) 
+                        RETURNING station_id;
+                        """,
                         {
-                            "station_id": station.station_id,
                             "reseau_id": station.reseau_id,
                             "name": station.name,
                             "adresse": station.adresse,
@@ -37,6 +41,8 @@ class StationDao(metaclass=Singleton):
                         },
                     )
                     res = cursor.fetchone()
+                    if res:
+                        station.station_id = str(res["station_id"])
         except Exception as e:
             logger.error(e)
             raise

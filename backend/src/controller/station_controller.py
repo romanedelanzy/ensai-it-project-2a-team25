@@ -44,26 +44,25 @@ def _construire_station(station_id: str, s: StationReadModel) -> Station:
         raise HTTPException(status_code=422, detail=str(e))
 
 
-@router.get("/", response_model=list[StationReadModel], tags=["Stations"])
+@router.get("/list_stations/", response_model=list[StationReadModel], tags=["Stations"])
 async def find_all_stations(
-    name: str | None = None,
     station_service=Depends(get_station_service),
-    current_user=Depends(get_current_user),  # Exige un token valide X-Auth-Token
+    current_user=Depends(get_current_user),
 ):
-    """Liste toutes les stations ou les recherche par leur nom.
-    Args:
-        name (str, optional): Partie du nom d'une station (au moins 3 caractères).
-        station_service (StationService): Le service utilisé pour interagir avec les données des stations.
-        current_user (Compte): L'utilisateur connecté.
-    Returns:
-        list[StationReadModel]: Toutes les stations, ou celles correspondant au nom.
-    Raises:
-        HTTPException: Erreur 401 si l'utilisateur n'est pas authentifié.
-    """
+    """Liste toutes les stations de la base de données."""
     logger.info(f"List all stations (user: {current_user.username})")
-    if name:
-        return station_service.search_by_name(name)
     return station_service.list_all()
+
+
+@router.get("/search_by_name/", response_model=list[StationReadModel], tags=["Stations"])
+async def search_stations_by_name(
+    name: str,
+    station_service=Depends(get_station_service),
+    current_user=Depends(get_current_user),
+):
+    """Recherche des stations par leur nom (au moins 3 caractères)."""
+    logger.info(f"Search stations by name '{name}' (user: {current_user.username})")
+    return station_service.search_by_name(name)
 
 
 @router.get("/{station_id}", response_model=StationReadModel, tags=["Stations"])
