@@ -15,13 +15,13 @@ def get_compte_service() -> CompteService:
     """Fournit une instance de CompteService pour l'injection de dépendances."""
     return CompteService()
 
-@router.get("/", response_model=list[CompteReadModel])
+@router.get("/list_accounts/", response_model=list[CompteReadModel])
 def list_accounts(service: CompteService = Depends(get_compte_service)):
     """Récupère la liste de tous les comptes (sans afficher les mots de passe)."""
     logger.info("Requête GET /compte/ reçue")
     return service.list_account()
 
-@router.post("/", response_model=CompteReadModel, status_code=status.HTTP_201_CREATED)
+@router.post("/create_account/", response_model=CompteReadModel, status_code=status.HTTP_201_CREATED)
 def create_account(
     compte_data: CompteCreateModel,
     service: CompteService = Depends(get_compte_service)
@@ -52,7 +52,7 @@ def create_account(
 
     return compte
 
-@router.get("/{user_id}", response_model=CompteReadModel)
+@router.get("/id/{user_id}", response_model=CompteReadModel)
 def get_account_by_id(
     user_id: int,
     service: CompteService = Depends(get_compte_service)
@@ -70,7 +70,25 @@ def get_account_by_id(
 
     return compte
 
-@router.put("/{username}", response_model=CompteReadModel)
+@router.get("/username/{username}", response_model=CompteReadModel)
+def get_account_by_username(
+    username: str,
+    service: CompteService = Depends(get_compte_service)
+    ):
+    """Récupère un compte spécifique grâce à son nom (username)."""
+    logger.info(f"Requête GET /compte/{username} reçue")
+
+    compte = service.find_by_username(username)
+
+    if not compte:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Compte non trouvé."
+        )
+
+    return compte
+
+@router.put("/update_username/{username}", response_model=CompteReadModel)
 def update_account(
     username: str,  # Le nom du compte à modifier passé directement dans l'URL
     compte_data: CompteCreateModel,
@@ -111,7 +129,7 @@ def update_account(
 
     return updated_compte
 
-@router.delete("/{username}", status_code=status.HTTP_204_NO_CONTENT)
+@router.delete("/delete_username/{username}", status_code=status.HTTP_204_NO_CONTENT)
 def delete_account(
     username: str,  # Le nom du compte à supprimer passé dans l'URL
     service: CompteService = Depends(get_compte_service),

@@ -28,7 +28,7 @@ with st.container(horizontal_alignment="center"):
         logger.info("Create an account")
         account = {"username": username, "password": password, "email": email}
 
-        response = api_client.post("/compte/", json=account)
+        response = api_client.post("/compte/create_account/", json=account)
 
         if response:
             if response["status_code"] == 201:

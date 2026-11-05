@@ -9,7 +9,9 @@ from psycopg2 import errors
 from business_object.favoris import Favori
 from controller.favori_controller import (
     add_favorite,
+    add_favorite_by_name,
     get_favori_service,
+    get_station_service,
     get_user_favorite,
     remove_favorite,
     router,
@@ -42,6 +44,7 @@ def test_routes_declarees():
     assert ("/", "GET") in routes
     assert ("/{station_id}", "POST") in routes
     assert ("/{station_id}", "DELETE") in routes
+    assert ("/nom/{station_name}", "POST") in routes
 
 
 # ---------- get_user_favorite ----------
@@ -145,6 +148,151 @@ def test_add_favorite_fail():
     assert exc.value.status_code == 500
 
 
+# ---------- add_favorite_by_name ----------
+
+
+def fake_station(station_id: str, name: str):
+    """Fausse station renvoyée par StationService.search_by_name."""
+    station = MagicMock()
+    station.station_id = station_id
+    station.name = name
+    return station
+
+
+def test_add_favorite_by_name_ok():
+    """Add a favorite from the exact name of the station"""
+
+    # GIVEN
+    favori_service = MagicMock()
+    favori_service.ajouter_favori.return_value = True
+    station_service = MagicMock()
+    station_service.search_by_name.return_value = [fake_station("8", "Patinoire")]
+
+    # WHEN
+    res = add_favorite_by_name(
+        "Patinoire",
+        favori_service=favori_service,
+        station_service=station_service,
+        current_user=fake_user(3),
+    )
+
+    # THEN
+    favori_service.ajouter_favori.assert_called_once_with(3, "8")
+    assert "8" in res["message"]
+
+
+def test_add_favorite_by_name_ignore_casse_et_espaces():
+    """Case and surrounding spaces are ignored (the real data has 'Grand Lebrun ')"""
+
+    # GIVEN
+    favori_service = MagicMock()
+    favori_service.ajouter_favori.return_value = True
+    station_service = MagicMock()
+    station_service.search_by_name.return_value = [
+        fake_station("12", "Grand Lebrun "),
+        fake_station("13", "Grand Lebrun Nord"),
+    ]
+
+    # WHEN
+    add_favorite_by_name(
+        "  grand lebrun",
+        favori_service=favori_service,
+        station_service=station_service,
+        current_user=fake_user(3),
+    )
+
+    # THEN : la correspondance exacte l'emporte sur la correspondance partielle
+    favori_service.ajouter_favori.assert_called_once_with(3, "12")
+
+
+def test_add_favorite_by_name_partiel_unique():
+    """A partial name is accepted when it identifies a single station"""
+
+    # GIVEN
+    favori_service = MagicMock()
+    favori_service.ajouter_favori.return_value = True
+    station_service = MagicMock()
+    station_service.search_by_name.return_value = [fake_station("8", "Patinoire")]
+
+    # WHEN
+    add_favorite_by_name(
+        "Patin",
+        favori_service=favori_service,
+        station_service=station_service,
+        current_user=fake_user(3),
+    )
+
+    # THEN
+    favori_service.ajouter_favori.assert_called_once_with(3, "8")
+
+
+def test_add_favorite_by_name_introuvable():
+    """404 when no station matches the name"""
+
+    # GIVEN
+    favori_service = MagicMock()
+    station_service = MagicMock()
+    station_service.search_by_name.return_value = []
+
+    # WHEN / THEN
+    with pytest.raises(HTTPException) as exc:
+        add_favorite_by_name(
+            "Inconnue",
+            favori_service=favori_service,
+            station_service=station_service,
+            current_user=fake_user(3),
+        )
+
+    assert exc.value.status_code == 404
+    favori_service.ajouter_favori.assert_not_called()
+
+
+def test_add_favorite_by_name_ambigu():
+    """400 when several stations match and none is an exact match"""
+
+    # GIVEN
+    favori_service = MagicMock()
+    station_service = MagicMock()
+    station_service.search_by_name.return_value = [
+        fake_station("1", "Gare Nord"),
+        fake_station("2", "Gare Sud"),
+    ]
+
+    # WHEN / THEN
+    with pytest.raises(HTTPException) as exc:
+        add_favorite_by_name(
+            "Gare",
+            favori_service=favori_service,
+            station_service=station_service,
+            current_user=fake_user(3),
+        )
+
+    assert exc.value.status_code == 400
+    assert "Gare Nord" in exc.value.detail and "Gare Sud" in exc.value.detail
+    favori_service.ajouter_favori.assert_not_called()
+
+
+def test_add_favorite_by_name_doublon():
+    """409 when the station is already one of the user's favorites"""
+
+    # GIVEN
+    favori_service = MagicMock()
+    favori_service.ajouter_favori.side_effect = errors.UniqueViolation("doublon")
+    station_service = MagicMock()
+    station_service.search_by_name.return_value = [fake_station("8", "Patinoire")]
+
+    # WHEN / THEN
+    with pytest.raises(HTTPException) as exc:
+        add_favorite_by_name(
+            "Patinoire",
+            favori_service=favori_service,
+            station_service=station_service,
+            current_user=fake_user(3),
+        )
+
+    assert exc.value.status_code == 409
+
+
 # ---------- remove_favorite ----------
 
 
@@ -192,7 +340,12 @@ def client_and_service():
 
 @pytest.mark.parametrize(
     "method, url",
-    [("get", "/favoris/"), ("post", "/favoris/TEST_001"), ("delete", "/favoris/TEST_001")],
+    [
+        ("get", "/favoris/"),
+        ("post", "/favoris/TEST_001"),
+        ("post", "/favoris/nom/Patinoire"),
+        ("delete", "/favoris/TEST_001"),
+    ],
 )
 def test_routes_exigent_un_token(client_and_service, method, url):
     """Without X-Auth-Token header, every route is refused"""
@@ -226,6 +379,25 @@ def test_chacun_agit_uniquement_sur_ses_propres_favoris(client_and_service):
     # THEN : toujours l'id 7
     service.ajouter_favori.assert_called_once_with(7, "TEST_001")
     service.supprimer_favori.assert_called_once_with(7, "TEST_001")
+
+
+def test_ajout_par_nom_utilise_le_user_du_token(client_and_service):
+    """Adding by name goes through the full route and uses the user id of the token"""
+
+    # GIVEN : l'utilisateur 7 est connecté
+    client, app, service = client_and_service
+    app.dependency_overrides[get_current_user] = lambda: fake_user(7)
+    station_service = MagicMock()
+    station_service.search_by_name.return_value = [fake_station("8", "Patinoire")]
+    app.dependency_overrides[get_station_service] = lambda: station_service
+    service.ajouter_favori.return_value = True
+
+    # WHEN
+    res = client.post("/favoris/nom/Patinoire")
+
+    # THEN
+    assert res.status_code == 201
+    service.ajouter_favori.assert_called_once_with(7, "8")
 
 
 def test_ancienne_route_avec_user_id_n_existe_plus(client_and_service):
