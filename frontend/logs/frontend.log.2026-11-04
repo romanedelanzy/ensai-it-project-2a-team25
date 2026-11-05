@@ -1,0 +1,56 @@
+04/11/2026 10:08:47 root                 INFO   - --------------------------------------------------
+04/11/2026 10:08:47 root                 INFO   - Launch FRONTEND : Streamlit App
+04/11/2026 10:08:47 root                 INFO   - --------------------------------------------------
+04/11/2026 10:08:47 root                 INFO   - Load environment variables: SUCCES
+04/11/2026 10:08:47 root                 INFO   - BACKEND_URL=http://localhost:5000
+04/11/2026 10:08:47 root                 INFO   - BACKEND_TIMEOUT=5
+04/11/2026 10:08:47 home                 INFO   - None -> home
+04/11/2026 10:08:56 create_account       INFO   - home -> create_account
+04/11/2026 10:09:54 create_account       INFO   - Create an account
+04/11/2026 10:09:54 create_account       INFO   -   POST http://localhost:5000/comptes/
+04/11/2026 10:09:54 create_account       INFO   - Error while creating account
+04/11/2026 10:09:59 create_account       INFO   - Create an account
+04/11/2026 10:09:59 create_account       INFO   -   POST http://localhost:5000/comptes/
+04/11/2026 10:09:59 create_account       INFO   - Error while creating account
+04/11/2026 10:09:59 create_account       INFO   - Create an account
+04/11/2026 10:09:59 create_account       INFO   -   POST http://localhost:5000/comptes/
+04/11/2026 10:09:59 create_account       INFO   - Error while creating account
+04/11/2026 10:10:00 create_account       INFO   - Create an account
+04/11/2026 10:10:00 create_account       INFO   -   POST http://localhost:5000/comptes/
+04/11/2026 10:10:00 create_account       INFO   - Error while creating account
+04/11/2026 10:10:00 create_account       INFO   - Create an account
+04/11/2026 10:10:00 create_account       INFO   -   POST http://localhost:5000/comptes/
+04/11/2026 10:10:00 create_account       INFO   - Error while creating account
+04/11/2026 10:10:00 create_account       INFO   - Create an account
+04/11/2026 10:10:00 create_account       INFO   -   POST http://localhost:5000/comptes/
+04/11/2026 10:10:00 create_account       INFO   - Error while creating account
+04/11/2026 10:10:34 home                 INFO   - create_account -> home
+04/11/2026 10:10:37 main_menu            INFO   - home -> main_menu
+04/11/2026 10:10:37 root                 INFO   - Not logged in, return to the home page
+04/11/2026 10:10:38 home                 INFO   - main_menu -> home
+04/11/2026 10:10:42 create_account       INFO   - home -> create_account
+04/11/2026 11:07:18 root                 INFO   - --------------------------------------------------
+04/11/2026 11:07:18 root                 INFO   - Launch FRONTEND : Streamlit App
+04/11/2026 11:07:18 root                 INFO   - --------------------------------------------------
+04/11/2026 11:07:18 root                 INFO   - Load environment variables: SUCCES
+04/11/2026 11:07:18 root                 INFO   - BACKEND_URL=http://localhost:5000
+04/11/2026 11:07:18 root                 INFO   - BACKEND_TIMEOUT=5
+04/11/2026 11:07:18 home                 INFO   - None -> home
+04/11/2026 11:07:21 create_account       INFO   - home -> create_account
+04/11/2026 11:07:38 create_account       INFO   - Create an account
+04/11/2026 11:07:38 create_account       INFO   -   POST http://localhost:5000/comptes/
+04/11/2026 11:07:38 create_account       INFO   - Error while creating account
+04/11/2026 13:24:48 root                 INFO   - --------------------------------------------------
+04/11/2026 13:24:48 root                 INFO   - Launch FRONTEND : Streamlit App
+04/11/2026 13:24:48 root                 INFO   - --------------------------------------------------
+04/11/2026 13:24:48 root                 INFO   - Load environment variables: SUCCES
+04/11/2026 13:24:48 root                 INFO   - BACKEND_URL=http://localhost:5000
+04/11/2026 13:24:48 root                 INFO   - BACKEND_TIMEOUT=5
+04/11/2026 13:24:48 home                 INFO   - None -> home
+04/11/2026 13:25:00 home                 INFO   - Attempting login for user: fanny
+04/11/2026 13:25:00 home                 INFO   -   POST http://localhost:5000/login
+04/11/2026 13:25:00 home                 ERROR  - Login failed: Status 0, Data: Connection error
+04/11/2026 13:25:02 create_account       INFO   - home -> create_account
+04/11/2026 13:25:24 create_account       INFO   - Create an account
+04/11/2026 13:25:24 create_account       INFO   -   POST http://localhost:5000/comptes/
+04/11/2026 13:25:24 create_account       INFO   - Error while creating account

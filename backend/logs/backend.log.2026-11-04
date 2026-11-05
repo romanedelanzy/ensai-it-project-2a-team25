@@ -1,0 +1,73 @@
+04/11/2026 08:57:15 __main__                  INFO    - Webservice stopped
+04/11/2026 08:57:18 root                      INFO    - --------------------------------------------------
+04/11/2026 08:57:18 root                      INFO    - Starting Webservice                           
+04/11/2026 08:57:18 root                      INFO    - --------------------------------------------------
+04/11/2026 08:57:18 root                      INFO    - Load environment variables: SUCCES
+04/11/2026 08:57:18 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-385030-rw.user-fanny
+04/11/2026 08:57:18 root                      INFO    - POSTGRES_PORT=5432
+04/11/2026 08:57:18 root                      INFO    - POSTGRES_DATABASE=defaultdb
+04/11/2026 08:57:18 root                      INFO    - POSTGRES_USER=user-fanny
+04/11/2026 08:57:18 root                      INFO    - POSTGRES_PASSWORD=*******
+04/11/2026 08:57:18 root                      INFO    - POSTGRES_SCHEMA=project
+04/11/2026 08:57:18 root                      INFO    - UVICORN_HOST=0.0.0.0
+04/11/2026 08:57:18 root                      INFO    - UVICORN_PORT=5000
+04/11/2026 08:57:18 root                      INFO    - BACKEND_URL=http://localhost:5000
+04/11/2026 08:57:18 root                      INFO    - BACKEND_TIMEOUT=5
+04/11/2026 08:57:21 root                      INFO    - GET / - START
+04/11/2026 08:57:21 root                      INFO    - GET / - END [Status: 307]
+04/11/2026 08:57:21 root                      INFO    - GET /docs - START
+04/11/2026 08:57:21 root                      INFO    - GET /docs - END [Status: 200]
+04/11/2026 08:57:22 root                      INFO    - GET /openapi.json - START
+04/11/2026 08:57:22 root                      INFO    - GET /openapi.json - END [Status: 200]
+04/11/2026 08:57:50 __main__                  INFO    - Webservice stopped
+04/11/2026 13:23:18 root                      INFO    - --------------------------------------------------
+04/11/2026 13:23:18 root                      INFO    - Starting Webservice                           
+04/11/2026 13:23:18 root                      INFO    - --------------------------------------------------
+04/11/2026 13:23:18 root                      INFO    - Load environment variables: SUCCES
+04/11/2026 13:23:18 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-385030-rw.user-fanny
+04/11/2026 13:23:18 root                      INFO    - POSTGRES_PORT=5432
+04/11/2026 13:23:18 root                      INFO    - POSTGRES_DATABASE=defaultdb
+04/11/2026 13:23:18 root                      INFO    - POSTGRES_USER=user-fanny
+04/11/2026 13:23:18 root                      INFO    - POSTGRES_PASSWORD=*******
+04/11/2026 13:23:18 root                      INFO    - POSTGRES_SCHEMA=project
+04/11/2026 13:23:18 root                      INFO    - UVICORN_HOST=0.0.0.0
+04/11/2026 13:23:18 root                      INFO    - UVICORN_PORT=5000
+04/11/2026 13:23:18 root                      INFO    - BACKEND_URL=http://localhost:5000
+04/11/2026 13:23:18 root                      INFO    - BACKEND_TIMEOUT=5
+04/11/2026 13:23:21 root                      INFO    - GET / - START
+04/11/2026 13:23:21 root                      INFO    - GET / - END [Status: 307]
+04/11/2026 13:23:22 root                      INFO    - GET /docs - START
+04/11/2026 13:23:22 root                      INFO    - GET /docs - END [Status: 200]
+04/11/2026 13:23:22 root                      INFO    - GET /openapi.json - START
+04/11/2026 13:23:22 root                      INFO    - GET /openapi.json - END [Status: 200]
+04/11/2026 13:23:49 root                      INFO    - POST /compte/ - START
+04/11/2026 13:23:49 c.compte_controller       INFO    - Requête POST /compte/ pour : fanny
+04/11/2026 13:23:49 service.compte_service    INFO    -   username_already_used('fanny',) - START
+04/11/2026 13:23:49 service.compte_service    INFO    -     list_account() - START
+04/11/2026 13:23:49 dao.CompteDAO             INFO    -       list_all() - START
+04/11/2026 13:23:49 dao.CompteDAO             INFO    -       list_all() - END
+04/11/2026 13:23:49 dao.CompteDAO             INFO    -         └─> Output: [] ... (0 elements)
+04/11/2026 13:23:49 service.compte_service    INFO    -     list_account() - END
+04/11/2026 13:23:49 service.compte_service    INFO    -       └─> Output: [] ... (0 elements)
+04/11/2026 13:23:49 service.compte_service    INFO    -   username_already_used('fanny',) - END
+04/11/2026 13:23:49 service.compte_service    INFO    -     └─> Output: False
+04/11/2026 13:23:49 service.compte_service    INFO    -   create_account('fanny', '*****', False, 'user@example.com') - START
+04/11/2026 13:23:49 dao.CompteDAO             INFO    -     create('Compte(user_id=None, username=fanny, is_admin=False, email=user@example.com, access_token=None)',) - START
+04/11/2026 13:23:49 dao.CompteDAO             INFO    -     create('Compte(user_id=None, username=fanny, is_admin=False, email=user@example.com, access_token=None)',) - END
+04/11/2026 13:23:49 dao.CompteDAO             INFO    -       └─> Output: 1
+04/11/2026 13:23:49 service.compte_service    INFO    -   create_account('fanny', '*****', False, 'user@example.com') - END
+04/11/2026 13:23:49 service.compte_service    INFO    -     └─> Output: Compte(user_id=1, username=fanny, is_admin=False, email=user@example.com, access_token=None)
+04/11/2026 13:23:49 root                      INFO    - POST /compte/ - END [Status: 201]
+04/11/2026 13:24:08 root                      INFO    - POST /compte/ - START
+04/11/2026 13:24:08 c.compte_controller       INFO    - Requête POST /compte/ pour : fanny
+04/11/2026 13:24:08 service.compte_service    INFO    -   username_already_used('fanny',) - START
+04/11/2026 13:24:08 service.compte_service    INFO    -     list_account() - START
+04/11/2026 13:24:08 dao.CompteDAO             INFO    -       list_all() - START
+04/11/2026 13:24:08 dao.CompteDAO             INFO    -       list_all() - END
+04/11/2026 13:24:08 dao.CompteDAO             INFO    -         └─> Output: ['Compte(user_id=1, username=fanny, is_admin=False, email=user@example.com, access_token=None)'] ... (1 elements)
+04/11/2026 13:24:08 service.compte_service    INFO    -     list_account() - END
+04/11/2026 13:24:08 service.compte_service    INFO    -       └─> Output: ['Compte(user_id=1, username=fanny, is_admin=False, email=user@example.com, access_token=None)'] ... (1 elements)
+04/11/2026 13:24:08 service.compte_service    INFO    -   username_already_used('fanny',) - END
+04/11/2026 13:24:08 service.compte_service    INFO    -     └─> Output: True
+04/11/2026 13:24:08 root                      INFO    - POST /compte/ - END [Status: 400]
+04/11/2026 13:24:35 __main__                  INFO    - Webservice stopped
