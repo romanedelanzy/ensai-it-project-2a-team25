@@ -149,3 +149,22 @@ class StationService:
             raise ValueError(f"period doit valoir {list(PERIODS)} (reçu {period!r})")
         end_date = datetime.now(timezone.utc)
         return self.get_history(station_id, end_date - PERIODS[period], end_date)
+
+        def get_availability_rate(self, station_id: str, period: str = "24h") -> float | None:
+        """Calcule la proportion du temps où la station est ni vide ni saturée."""
+
+        history = self.get_history_by_period(station_id, period)
+
+        if not history:
+            return None
+
+        available = sum(
+            1 for status in history
+            if status.est_installee
+            and status.permet_emprunt
+            and status.permet_retour
+            and status.nb_velos_dispos > 0
+            and status.nb_places_dispos > 0
+        )
+
+        return available / len(history)
