@@ -1,6 +1,7 @@
+
 """
-Affichage des stations du réseau avec pagination
-et accès au dernier relevé de chaque station.
+Affichage des stations du réseau avec pagination,
+accès au dernier relevé, favoris et fiabilité.
 """
 
 import pandas as pd
@@ -36,22 +37,6 @@ def station_state(status) -> str:
         return STATE_FULL
 
     return STATE_OK
-
-
-def fill_rate(capacite: int, status) -> float | None:
-    if status is None or capacite == 0:
-        return None
-
-    return status["nb_velos_dispos"] / capacite
-
-
-def is_operational(status) -> bool:
-    return (
-        status is not None
-        and bool(status["est_installee"])
-        and bool(status["permet_emprunt"])
-        and bool(status["permet_retour"])
-    )
 
 
 def load_stations_with_status() -> tuple[pd.DataFrame | None, bool]:
@@ -110,6 +95,94 @@ def load_stations_with_status() -> tuple[pd.DataFrame | None, bool]:
     return stations, has_status
 
 
+def get_reliability(station_id: str):
+    """Récupère les indicateurs de fiabilité d'une station."""
+
+    response = api_client.get(f"/reliability/{station_id}")
+
+    if response and response["status_code"] == 200:
+        return response["data"]
+
+    return None
+
+
+def display_reliability(station_id: str):
+    """Affiche le score et l'historique de fiabilité."""
+
+    reliability = get_reliability(station_id)
+
+    if reliability is None:
+        st.error("Impossible de récupérer les indicateurs de fiabilité.")
+        return
+
+    score = reliability["current_score"]
+
+    st.subheader("Score de fiabilité")
+
+    st.metric(
+        "Fiabilité actuelle",
+        f"{score:.1%}",
+    )
+
+    col1, col2 = st.columns(2)
+
+    col1.metric(
+        "Temps passé vide",
+        f"{reliability['empty_percentage']:.1%}",
+    )
+
+    col2.metric(
+        "Temps passé saturé",
+        f"{reliability['saturation_percentage']:.1%}",
+    )
+
+    col3, col4 = st.columns(2)
+
+    empty_duration = reliability["average_empty_duration"]
+    saturated_duration = reliability["average_saturated_duration"]
+
+    col3.metric(
+        "Durée moyenne des épisodes vides",
+        f"{empty_duration:.2f} h"
+        if empty_duration is not None else "Non disponible",
+    )
+
+    col4.metric(
+        "Durée moyenne des épisodes saturés",
+        f"{saturated_duration:.2f} h"
+        if saturated_duration is not None else "Non disponible",
+    )
+
+    st.subheader("Historique du score")
+
+    evolution = reliability["score_evolution"]
+
+    if not evolution:
+        st.info("Aucun historique de fiabilité disponible.")
+        return
+
+    df = pd.DataFrame(evolution)
+
+    df["date"] = pd.to_datetime(df["date"])
+    df["score"] = df["score"] * 100
+
+    df = df.rename(
+        columns={
+            "date": "Date",
+            "score": "Score de fiabilité (%)",
+        }
+    )
+
+    df = df.set_index("Date")
+
+    st.line_chart(
+        df,
+        y="Score de fiabilité (%)",
+        use_container_width=True,
+        height=250,
+    )
+
+
 def display_stations():
     """Affiche les stations avec une pagination."""
 
@@ -126,23 +199,16 @@ def display_stations():
         return
 
     if not has_status:
-        st.warning(
-            "Les derniers relevés ne sont pas disponibles."
-        )
+        st.warning("Les derniers relevés ne sont pas disponibles.")
 
-    # Récupération des favoris de l'utilisateur connecté
     favorite_ids = get_favorite_station_ids()
 
     if favorite_ids is None:
-        st.warning(
-            "Impossible de récupérer vos favoris. "
-            "L'ajout aux favoris est temporairement indisponible."
-        )
+        st.warning("Impossible de récupérer vos favoris.")
         favorite_ids = set()
 
     st.write(f"Nombre total de stations : {len(stations)}")
 
-    # Pagination
     total_pages = (
         len(stations) + STATIONS_PER_PAGE - 1
     ) // STATIONS_PER_PAGE
@@ -158,7 +224,6 @@ def display_stations():
 
     page_stations = stations.iloc[start:end]
 
-    # Affichage des stations
     for _, station in page_stations.iterrows():
 
         station_id = station["station_id"]
@@ -200,7 +265,7 @@ def display_stations():
                     f"{int(station['nb_places_dispos'])}"
                 )
 
-            # Bouton d'ajout aux favoris
+            # Favoris
             if station_id in favorite_ids:
                 st.caption("⭐ Déjà dans vos favoris")
 
@@ -214,7 +279,7 @@ def display_stations():
                 else:
                     st.error("Impossible d'ajouter cette station aux favoris.")
 
-            # Accès au dernier relevé
+            # Dernier relevé
             if st.button(
                 "Voir le dernier relevé",
                 key=f"status_{station_id}",
@@ -225,6 +290,23 @@ def display_stations():
             ):
                 st.session_state["selected_station_id"] = station_id
                 st.switch_page("pages/station_status.py")
+
+            # Fiabilité
+            reliability_key = f"reliability_{station_id}"
+
+            if st.button(
+                "Masquer la fiabilité"
+                if st.session_state.get("reliability_station_id") == station_id
+                else "Afficher la fiabilité",
+                key=f"show_reliability_{station_id}",
+            ):
+                if st.session_state.get("reliability_station_id") == station_id:
+                    st.session_state["reliability_station_id"] = None
+                else:
+                    st.session_state["reliability_station_id"] = station_id
+
+            if st.session_state.get("reliability_station_id") == station_id:
+                display_reliability(station_id)
 
 
 display_stations()

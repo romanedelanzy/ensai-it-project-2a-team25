@@ -44,6 +44,7 @@ def _construire_station(station_id: str, s: StationReadModel) -> Station:
         raise HTTPException(status_code=422, detail=str(e))
 
 
+@router.get("/", response_model=list[StationReadModel], tags=["Stations"])
 @router.get("/list_stations/", response_model=list[StationReadModel], tags=["Stations"])
 async def find_all_stations(
     station_service=Depends(get_station_service),

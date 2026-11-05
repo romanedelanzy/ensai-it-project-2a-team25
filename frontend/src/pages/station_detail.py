@@ -1,8 +1,9 @@
-"""
-Page Streamlit du détail d'une station.
 
-Affiche l'état actuel d'une station, sa capacité, son taux de remplissage,
-l'évolution de sa disponibilité et permet de l'ajouter aux favoris.
+"""
+Page Streamlit de consultation détaillée d'une station.
+
+Affiche les informations générales, le dernier statut,
+l'évolution de la disponibilité, les favoris et la fiabilité.
 """
 
 import streamlit as st
@@ -84,9 +85,6 @@ def get_current_status(station_id: str):
     if response and response["status_code"] == 200:
         return response["data"]
 
-    if response and response["status_code"] == 404:
-        return None
-
     return None
 
 
@@ -104,7 +102,7 @@ def get_availability_history(station_id: str, period: str):
 
 
 def display_favorite_button(station_id: str):
-    """Affiche le bouton d'ajout aux favoris si nécessaire."""
+    """Affiche le bouton d'ajout aux favoris."""
 
     favorite_ids = get_favorite_station_ids()
 
@@ -127,6 +125,92 @@ def display_favorite_button(station_id: str):
             st.error("Impossible d'ajouter cette station aux favoris.")
 
 
+def get_reliability(station_id: str):
+    """Récupère les indicateurs de fiabilité d'une station."""
+
+    response = api_client.get(f"/reliability/{station_id}")
+
+    if response and response["status_code"] == 200:
+        return response["data"]
+
+    return None
+
+
+def display_reliability(station_id: str):
+    """Affiche le score et l'historique de fiabilité."""
+
+    reliability = get_reliability(station_id)
+
+    if reliability is None:
+        st.error("Impossible de récupérer les indicateurs de fiabilité.")
+        return
+
+    st.subheader("Score de fiabilité")
+
+    st.metric(
+        "Fiabilité actuelle",
+        f"{reliability['current_score']:.1%}",
+    )
+
+    col1, col2 = st.columns(2)
+
+    col1.metric(
+        "Temps passé vide",
+        f"{reliability['empty_percentage']:.1%}",
+    )
+
+    col2.metric(
+        "Temps passé saturé",
+        f"{reliability['saturation_percentage']:.1%}",
+    )
+
+    col3, col4 = st.columns(2)
+
+    empty_duration = reliability["average_empty_duration"]
+    saturated_duration = reliability["average_saturated_duration"]
+
+    col3.metric(
+        "Durée moyenne des épisodes vides",
+        f"{empty_duration:.2f} h"
+        if empty_duration is not None else "Non disponible",
+    )
+
+    col4.metric(
+        "Durée moyenne des épisodes saturés",
+        f"{saturated_duration:.2f} h"
+        if saturated_duration is not None else "Non disponible",
+    )
+
+    st.subheader("Historique du score")
+
+    evolution = reliability["score_evolution"]
+
+    if not evolution:
+        st.info("Aucun historique de fiabilité disponible.")
+        return
+
+    df = pd.DataFrame(evolution)
+
+    df["date"] = pd.to_datetime(df["date"])
+    df["score"] = df["score"] * 100
+
+    df = df.rename(
+        columns={
+            "date": "Date",
+            "score": "Score de fiabilité (%)",
+        }
+    )
+
+    df = df.set_index("Date")
+
+    st.line_chart(
+        df,
+        y="Score de fiabilité (%)",
+        use_container_width=True,
+        height=250,
+    )
+
+
 def display_station_information(station: dict):
     """Affiche les informations générales de la station."""
 
@@ -141,6 +225,22 @@ def display_station_information(station: dict):
     )
 
     display_favorite_button(station["station_id"])
+
+    # Affichage de la fiabilité à la demande
+    reliability_key = f"detail_reliability_{station['station_id']}"
+
+    if st.button(
+        "Masquer la fiabilité"
+        if st.session_state.get(reliability_key, False)
+        else "Afficher la fiabilité",
+        key=f"toggle_{reliability_key}",
+    ):
+        st.session_state[reliability_key] = not st.session_state.get(
+            reliability_key, False
+        )
+
+    if st.session_state.get(reliability_key, False):
+        display_reliability(station["station_id"])
 
 
 def display_current_status(station: dict, status: dict | None):
