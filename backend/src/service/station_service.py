@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta, timezone
  
 from business_object.station import Station
+from business_object.stationstatus import StationStatus
 from dao.StationDAO import StationDao
 from dao.StationStatusDAO import StationStatusDao
 from utils.log_utils import log
@@ -151,36 +152,33 @@ class StationService:
         return self.get_history(station_id, end_date - PERIODS[period], end_date)
 
     @log
-    def get_availability_rate(self, station_id: str, period: str = "24h") -> float | None:
-        """Calcule la proportion du temps où la station est disponible.
-
-        Une station est considérée comme disponible si :
-        - elle est installée ;
-        - elle autorise les emprunts ;
-        - elle autorise les retours ;
-        - elle possède au moins un vélo disponible ;
-        - elle possède au moins une place libre.
+    def get_availability_history(
+        self, station_id: str, period: str = "24h"
+    ) -> list[tuple[datetime, int]]:
+        """Renvoie l'évolution de la disponibilité d'une station.
 
         Args:
             station_id (str): Identifiant de la station.
             period (str): Période étudiée (24h, 7j ou 30j).
 
         Returns:
-            float | None: Taux de disponibilité entre 0 et 1,
-            ou None si aucun historique n'est disponible.
+            list[tuple[datetime, int]]: Liste des couples
+            (horodatage, disponibilité).
         """
         history = self.get_history_by_period(station_id, period)
 
-        if not history:
-            return None
+        return [
+            (status.horodatage, self.is_available(status))
+            for status in history
+        ]
 
-        available = sum(
-            1 for status in history
-            if status.est_installee
+    @log
+    def is_available(self, status: StationStatus) -> int:
+        """Indique si une station est disponible à un instant donné."""
+        return int(
+            status.est_installee
             and status.permet_emprunt
             and status.permet_retour
             and status.nb_velos_dispos > 0
             and status.nb_places_dispos > 0
         )
-
-        return available 
