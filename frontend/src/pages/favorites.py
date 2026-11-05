@@ -10,61 +10,120 @@ Endpoints utilisés :
     GET /stations/status
 """
 
+"""
+Page Streamlit des stations favorites de l'utilisateur.
+Permet de consulter les stations favorites et de les retirer de la liste.
+"""
+
 import streamlit as st
 
 from utils.api_client import api_client
-from utils.auth_guard import check_authentification
-from utils.log_init import get_page_logger
-from utils.station_display import load_stations_with_status
+from utils.favoris import get_favorite_station_ids, remove_favorite
 
-st.title("Mes stations favorites")
-logger = get_page_logger("favorites")
 
-check_authentification()
+def get_station(station_id: str):
+    """Récupère les informations d'une station."""
 
-response = api_client.get("/favoris/")
+    response = api_client.get(f"/station/{station_id}")
 
-if not response or response["status_code"] != 200:
-    st.error("Erreur lors du chargement des favoris")
-    st.stop()
+    if response and response["status_code"] == 200:
+        return response["data"]
 
-favorite_ids = [f["station_id"] for f in response["data"]]
+    return None
 
-if not favorite_ids:
-    st.info("Vous n'avez pas encore de station favorite.")
-    if st.button("Retour au menu", type="primary"):
-        st.switch_page("pages/main_menu.py")
-    st.stop()
 
-stations, has_status = load_stations_with_status()
+def get_current_status(station_id: str):
+    """Récupère le dernier statut d'une station."""
 
-if stations is None:
-    st.error("Erreur lors du chargement des stations")
-    st.stop()
+    response = api_client.get(
+        f"/station/{station_id}/status"
+    )
 
-favorites = stations[stations["station_id"].isin(favorite_ids)]
+    if response and response["status_code"] == 200:
+        return response["data"]
 
-if has_status:
-    colonnes = {
-        "name": "Station",
-        "etat": "État",
-        "nb_velos_dispos": "Vélos disponibles",
-        "nb_velos_elec_dispos": "dont électriques",
-        "nb_places_dispos": "Places libres",
-    }
-else:
-    st.info("Les disponibilités en temps réel ne sont pas encore disponibles.")
-    colonnes = {"name": "Station", "adresse": "Adresse"}
+    return None
 
-st.dataframe(favorites[list(colonnes)].rename(columns=colonnes), hide_index=True)
 
-noms = dict(zip(favorites["station_id"], favorites["name"]))
-station_id = st.selectbox("Choisir une station", list(noms), format_func=lambda sid: noms[sid])
+def display_favorites():
+    """Affiche les stations favorites de l'utilisateur."""
 
-if st.button("Voir le détail"):
-    logger.info("Open the detail of a favorite")
-    st.session_state["selected_station_id"] = station_id
-    st.switch_page("pages/station_detail.py")
+    st.title("⭐ Mes stations favorites")
 
-if st.button("Retour au menu", type="primary"):
-    st.switch_page("pages/main_menu.py")
+    favorite_ids = get_favorite_station_ids()
+
+    if favorite_ids is None:
+        st.error("Impossible de récupérer vos favoris.")
+        return
+
+    if not favorite_ids:
+        st.info(
+            "Vous n'avez pas encore de station favorite. "
+            "Rendez-vous dans la liste des stations pour en ajouter !"
+        )
+        return
+
+    st.write(f"Vous avez {len(favorite_ids)} station(s) favorite(s).")
+
+    for station_id in sorted(favorite_ids):
+
+        station = get_station(station_id)
+
+        if station is None:
+            st.warning(
+                f"Impossible de récupérer la station {station_id}."
+            )
+            continue
+
+        with st.container(border=True):
+
+            st.subheader(station["name"])
+
+            st.write(f"**Identifiant :** {station['station_id']}")
+            st.write(f"**Réseau :** {station['reseau_id']}")
+            st.write(
+                f"**Adresse :** "
+                f"{station['adresse'] or 'Non renseignée'}"
+            )
+            st.write(f"**Capacité :** {station['capacite']} vélos")
+
+            status = get_current_status(station_id)
+
+            if status is not None:
+                st.write(
+                    f"**Vélos disponibles :** "
+                    f"{status['nb_velos_dispos']}"
+                )
+                st.write(
+                    f"**Places disponibles :** "
+                    f"{status['nb_places_dispos']}"
+                )
+            else:
+                st.caption("Aucun relevé disponible.")
+
+            col1, col2 = st.columns(2)
+
+            with col1:
+                if st.button(
+                    "Voir la station",
+                    key=f"view_favorite_{station_id}",
+                ):
+                    st.session_state["selected_station_id"] = station_id
+                    st.switch_page("pages/station_status.py")
+
+            with col2:
+                if st.button(
+                    "Retirer des favoris",
+                    key=f"remove_favorite_{station_id}",
+                    type="secondary",
+                ):
+                    if remove_favorite(station_id):
+                        st.success("Station retirée de vos favoris.")
+                        st.rerun()
+                    else:
+                        st.error(
+                            "Impossible de retirer cette station des favoris."
+                        )
+
+
+display_favorites()

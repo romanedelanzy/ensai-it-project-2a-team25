@@ -1,4 +1,3 @@
-
 """
 Affichage des stations du réseau avec pagination
 et accès au dernier relevé de chaque station.
@@ -8,6 +7,7 @@ import pandas as pd
 import streamlit as st
 
 from utils.api_client import api_client
+from utils.favoris import get_favorite_station_ids, add_favorite
 
 
 STATE_EMPTY = "Vide"
@@ -130,6 +130,16 @@ def display_stations():
             "Les derniers relevés ne sont pas disponibles."
         )
 
+    # Récupération des favoris de l'utilisateur connecté
+    favorite_ids = get_favorite_station_ids()
+
+    if favorite_ids is None:
+        st.warning(
+            "Impossible de récupérer vos favoris. "
+            "L'ajout aux favoris est temporairement indisponible."
+        )
+        favorite_ids = set()
+
     st.write(f"Nombre total de stations : {len(stations)}")
 
     # Pagination
@@ -151,6 +161,8 @@ def display_stations():
     # Affichage des stations
     for _, station in page_stations.iterrows():
 
+        station_id = station["station_id"]
+
         with st.container(border=True):
 
             st.subheader(station["name"])
@@ -162,9 +174,12 @@ def display_stations():
                 color=STATE_BADGE_COLORS[state]
             )
 
-            st.write(f"**Identifiant :** {station['station_id']}")
+            st.write(f"**Identifiant :** {station_id}")
             st.write(f"**Réseau :** {station['reseau_id']}")
-            st.write(f"**Adresse :** {station['adresse'] or 'Non renseignée'}")
+            st.write(
+                f"**Adresse :** "
+                f"{station['adresse'] or 'Non renseignée'}"
+            )
             st.write(f"**Capacité :** {station['capacite']} vélos")
 
             st.write(
@@ -185,18 +200,30 @@ def display_stations():
                     f"{int(station['nb_places_dispos'])}"
                 )
 
+            # Bouton d'ajout aux favoris
+            if station_id in favorite_ids:
+                st.caption("⭐ Déjà dans vos favoris")
+
+            elif st.button(
+                "☆ Ajouter aux favoris",
+                key=f"add_favorite_{station_id}",
+            ):
+                if add_favorite(station_id):
+                    st.success("Station ajoutée à vos favoris !")
+                    st.rerun()
+                else:
+                    st.error("Impossible d'ajouter cette station aux favoris.")
+
+            # Accès au dernier relevé
             if st.button(
                 "Voir le dernier relevé",
-                key=f"status_{station['station_id']}",
+                key=f"status_{station_id}",
                 disabled=(
                     "nb_velos_dispos" not in station.index
                     or pd.isna(station.get("nb_velos_dispos"))
                 ),
             ):
-                st.session_state["selected_station_id"] = (
-                    station["station_id"]
-                )
-
+                st.session_state["selected_station_id"] = station_id
                 st.switch_page("pages/station_status.py")
 
 

@@ -1,21 +1,16 @@
-
 """
-Page Streamlit du détail d'une station (Menu 3).
+Page Streamlit du détail d'une station.
 
 Affiche l'état actuel d'une station, sa capacité, son taux de remplissage,
-l'évolution de sa disponibilité sur 24h, 7 jours ou 30 jours,
-son score de fiabilité, et permet de l'ajouter ou de la retirer des favoris.
-
-Endpoints utilisés :
-    GET /station/?name=
-    GET /station/{station_id}/status
-    GET /station/{station_id}/availability-history?period=
+l'évolution de sa disponibilité et permet de l'ajouter aux favoris.
 """
 
 import streamlit as st
 import pandas as pd
 from urllib.parse import quote
+
 from utils.api_client import api_client
+from utils.favoris import get_favorite_station_ids, add_favorite
 
 
 STATE_UNKNOWN = "Inconnue"
@@ -60,9 +55,7 @@ def get_fill_rate(capacite: int, status) -> float | None:
     if status is None or capacite <= 0:
         return None
 
-    return (
-        capacite - status["nb_places_dispos"]
-    ) / capacite
+    return (capacite - status["nb_places_dispos"]) / capacite
 
 
 def search_stations(name: str):
@@ -110,6 +103,30 @@ def get_availability_history(station_id: str, period: str):
     return None
 
 
+def display_favorite_button(station_id: str):
+    """Affiche le bouton d'ajout aux favoris si nécessaire."""
+
+    favorite_ids = get_favorite_station_ids()
+
+    if favorite_ids is None:
+        st.warning("Impossible de récupérer vos favoris.")
+        return
+
+    if station_id in favorite_ids:
+        st.caption("⭐ Cette station est déjà dans vos favoris.")
+        return
+
+    if st.button(
+        "☆ Ajouter aux favoris",
+        key=f"detail_add_favorite_{station_id}",
+    ):
+        if add_favorite(station_id):
+            st.success("Station ajoutée à vos favoris !")
+            st.rerun()
+        else:
+            st.error("Impossible d'ajouter cette station aux favoris.")
+
+
 def display_station_information(station: dict):
     """Affiche les informations générales de la station."""
 
@@ -118,7 +135,12 @@ def display_station_information(station: dict):
     st.write(f"**Identifiant :** {station['station_id']}")
     st.write(f"**Réseau :** {station['reseau_id']}")
     st.write(f"**Adresse :** {station['adresse'] or 'Non renseignée'}")
-    st.write(f"**Coordonnées :** {station['latitude']}, {station['longitude']}")
+    st.write(
+        f"**Coordonnées :** "
+        f"{station['latitude']}, {station['longitude']}"
+    )
+
+    display_favorite_button(station["station_id"])
 
 
 def display_current_status(station: dict, status: dict | None):
@@ -141,25 +163,10 @@ def display_current_status(station: dict, status: dict | None):
 
     col1, col2, col3, col4 = st.columns(4)
 
-    col1.metric(
-        "Vélos disponibles",
-        status["nb_velos_dispos"]
-    )
-
-    col2.metric(
-        "Vélos électriques",
-        status["nb_velos_elec_dispos"]
-    )
-
-    col3.metric(
-        "Places disponibles",
-        status["nb_places_dispos"]
-    )
-
-    col4.metric(
-        "Capacité",
-        capacite
-    )
+    col1.metric("Vélos disponibles", status["nb_velos_dispos"])
+    col2.metric("Vélos électriques", status["nb_velos_elec_dispos"])
+    col3.metric("Places disponibles", status["nb_places_dispos"])
+    col4.metric("Capacité", capacite)
 
     fill = get_fill_rate(capacite, status)
 
@@ -168,22 +175,17 @@ def display_current_status(station: dict, status: dict | None):
         st.progress(fill)
         st.write(f"{fill:.1%}")
 
-    st.caption(
-        f"Dernier relevé : {status['horodatage']}"
-    )
+    st.caption(f"Dernier relevé : {status['horodatage']}")
 
     with st.expander("Détails du statut"):
-
         st.write(
             f"**Station installée :** "
             f"{'Oui' if status['est_installee'] else 'Non'}"
         )
-
         st.write(
             f"**Emprunts autorisés :** "
             f"{'Oui' if status['permet_emprunt'] else 'Non'}"
         )
-
         st.write(
             f"**Retours autorisés :** "
             f"{'Oui' if status['permet_retour'] else 'Non'}"
@@ -209,9 +211,7 @@ def display_availability_history(station_id: str):
     history = get_availability_history(station_id, period)
 
     if history is None:
-        st.error(
-            "Impossible de récupérer l'historique de disponibilité."
-        )
+        st.error("Impossible de récupérer l'historique de disponibilité.")
         return
 
     if not history:
@@ -224,7 +224,6 @@ def display_availability_history(station_id: str):
     )
 
     df["Date"] = pd.to_datetime(df["Date"])
-
     df = df.set_index("Date")
 
     st.line_chart(
@@ -234,9 +233,7 @@ def display_availability_history(station_id: str):
         height=300,
     )
 
-    st.caption(
-        "1 = station disponible | 0 = station indisponible"
-    )
+    st.caption("1 = station disponible | 0 = station indisponible")
 
 
 def display_station_consultation():
@@ -249,7 +246,6 @@ def display_station_consultation():
         "pour consulter ses informations."
     )
 
-    # Recherche
     search = st.text_input(
         "Nom de la station",
         placeholder="Saisissez au moins 3 caractères...",
@@ -270,13 +266,10 @@ def display_station_consultation():
         st.warning("Aucune station trouvée.")
         return
 
-    # Sélection d'une station
     selected_station = st.selectbox(
         "Stations trouvées",
         options=stations,
-        format_func=lambda s: (
-            f"{s['name']} ({s['station_id']})"
-        ),
+        format_func=lambda s: f"{s['name']} ({s['station_id']})",
         key="consulted_station",
     )
 
@@ -285,27 +278,16 @@ def display_station_consultation():
 
     st.divider()
 
-    # Informations générales
     display_station_information(selected_station)
 
     st.divider()
 
-    # Dernier statut
-    status = get_current_status(
-        selected_station["station_id"]
-    )
-
-    display_current_status(
-        selected_station,
-        status
-    )
+    status = get_current_status(selected_station["station_id"])
+    display_current_status(selected_station, status)
 
     st.divider()
 
-    # Évolution de la disponibilité
-    display_availability_history(
-        selected_station["station_id"]
-    )
+    display_availability_history(selected_station["station_id"])
 
 
 display_station_consultation()
