@@ -10,6 +10,12 @@ INSERT INTO player(username, password, elo, email, pokemon_fan) VALUES
 INSERT INTO reseau (name)
 VALUES ('Bordeaux');
 
+INSERT INTO project.compte (username,is_admin,"password",email,access_token) VALUES
+	 ('jean',true,'8463862d75c4c9915d65ed14626b8648329f841ad7d7dfbcf2c59d70b147780f','jean@jean.com','5uiDduCRc4ea8ff5SZz0lZ2AwtQZv0vBZiuSZwCWJ54'),
+	 ('username1',true,'ff70d872abd28d80ede26aa4d8e637ba323db8b2634b71418f8678cf22697d51','username1@example.com','access_token1'),
+	 ('username2',false,'546b61503ab87450d2613d303d869a6179dd69ed7f8a383eb662eb9478effb58','username2@example.com','access_token2'),
+	 ('username3',false,'d35617239366f091c955825738de8f5533ab21612145eafb0a9ba561f0f02718','username3@example.com','access_token3');
+
 INSERT INTO station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
 	 ('8',1,'Patinoire','120 Cours Maréchal Juin, Bordeaux',44.83436,-0.58825,20),
 	 ('9',1,'Gavinies','206 Rue d''Ornano, Bordeaux',44.83303,-0.59289,20),
