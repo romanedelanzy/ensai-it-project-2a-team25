@@ -7,6 +7,7 @@ from service.station_service import StationService
 from utils.log_utils import get_logger
 from utils.security import get_current_user
 from business_object.station import Station
+from datetime import datetime
 
 router = APIRouter()
 
@@ -143,6 +144,29 @@ async def station_history(
         raise HTTPException(status_code=404, detail=f"Station (id={station_id}) not found.")
     return station_service.get_history_by_period(station_id, period)
 
+@router.get("/{station_id}/availability-history",response_model=list[tuple[datetime, int]],tags=["Stations"],)
+async def station_availability_history(
+    station_id: str,
+    period: Literal["24h", "7j", "30j"] = "24h",
+    station_service=Depends(get_station_service),
+    current_user=Depends(get_current_user),
+):
+    """Récupère l'évolution de la disponibilité d'une station."""
+
+    logger.info(
+        f"Get availability history of station {station_id} "
+        f"(user: {current_user.username})"
+    )
+
+    station = station_service.get_station(station_id)
+
+    if not station:
+        raise HTTPException(
+            status_code=404,
+            detail=f"Station (id={station_id}) not found.",
+        )
+
+    return station_service.get_availability_history(station_id, period)
 
 @router.post("/", response_model=StationReadModel, tags=["Stations"])
 async def create_station(

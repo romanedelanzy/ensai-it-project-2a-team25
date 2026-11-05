@@ -1,23 +1,22 @@
+
 """
 Page Streamlit du détail d'une station (Menu 3).
 
-Affiche l'état actuel d'une station, sa capacité, son taux de remplissage, l'évolution
-de sa disponibilité sur 24h, 7 jours ou 30 jours, son score de fiabilité, et permet
-de l'ajouter ou de la retirer des favoris.
+Affiche l'état actuel d'une station, sa capacité, son taux de remplissage,
+l'évolution de sa disponibilité sur 24h, 7 jours ou 30 jours,
+son score de fiabilité, et permet de l'ajouter ou de la retirer des favoris.
 
 Endpoints utilisés :
-    GET /stations
-    GET /stations/{station_id}/status
-    GET /stations/{station_id}/history?period=
-    GET /reliability/{station_id}
-    GET /favoris
-    POST /favoris/{station_id}
-    DELETE /favoris/{station_id}
+    GET /station/?name=
+    GET /station/{station_id}/status
+    GET /station/{station_id}/availability-history?period=
 """
 
 import streamlit as st
+import pandas as pd
 from urllib.parse import quote
 from utils.api_client import api_client
+
 
 STATE_UNKNOWN = "Inconnue"
 STATE_EMPTY = "Vide"
@@ -94,6 +93,19 @@ def get_current_status(station_id: str):
 
     if response and response["status_code"] == 404:
         return None
+
+    return None
+
+
+def get_availability_history(station_id: str, period: str):
+    """Récupère l'évolution de la disponibilité d'une station."""
+
+    response = api_client.get(
+        f"/station/{station_id}/availability-history?period={period}"
+    )
+
+    if response and response["status_code"] == 200:
+        return response["data"]
 
     return None
 
@@ -178,6 +190,55 @@ def display_current_status(station: dict, status: dict | None):
         )
 
 
+def display_availability_history(station_id: str):
+    """Affiche l'évolution de la disponibilité sur une période."""
+
+    st.subheader("Évolution de la disponibilité")
+
+    period = st.selectbox(
+        "Période étudiée",
+        options=["24h", "7j", "30j"],
+        format_func=lambda p: {
+            "24h": "Dernières 24 heures",
+            "7j": "7 derniers jours",
+            "30j": "30 derniers jours",
+        }[p],
+        key="availability_period",
+    )
+
+    history = get_availability_history(station_id, period)
+
+    if history is None:
+        st.error(
+            "Impossible de récupérer l'historique de disponibilité."
+        )
+        return
+
+    if not history:
+        st.info("Aucun relevé disponible sur cette période.")
+        return
+
+    df = pd.DataFrame(
+        history,
+        columns=["Date", "Disponibilité"]
+    )
+
+    df["Date"] = pd.to_datetime(df["Date"])
+
+    df = df.set_index("Date")
+
+    st.line_chart(
+        df,
+        y="Disponibilité",
+        use_container_width=True,
+        height=300,
+    )
+
+    st.caption(
+        "1 = station disponible | 0 = station indisponible"
+    )
+
+
 def display_station_consultation():
     """Page de consultation détaillée d'une station."""
 
@@ -237,6 +298,13 @@ def display_station_consultation():
     display_current_status(
         selected_station,
         status
+    )
+
+    st.divider()
+
+    # Évolution de la disponibilité
+    display_availability_history(
+        selected_station["station_id"]
     )
 
 
