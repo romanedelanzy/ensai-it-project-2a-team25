@@ -23,7 +23,7 @@ class StationService:
         )
 
     @log
-    def get_station(self, station_id: str) -> Station:
+    def search_by_id(self, station_id: str) -> Station:
         """Trouve une station spécifique par son identifiant unique.
         Args:
             station_id (str)

@@ -39,7 +39,6 @@ def ligne_station(**champs):
     return ligne
 
 
-
 def test_find_by_id_ok(mock_cursor):
     """Find a station by its id"""
 
@@ -96,8 +95,6 @@ def test_find_by_id_exception(mock_cursor):
         StationDao().find_by_id("TEST_001")
 
 
-
-
 def test_list_all_ok(mock_cursor):
     """List all stations"""
 
@@ -130,13 +127,12 @@ def test_list_all_vide(mock_cursor):
     assert stations == []
 
 
-
 def test_create_ok(mock_cursor):
     """Successfully create a station"""
 
     # GIVEN
     station = Station("NEW_001", 999, "Nouvelle", 48.85, 2.35, 25, "3 rue Neuve")
-    mock_cursor.fetchone.return_value = {"station_id": "NEW_001"}
+    mock_cursor.fetchone.return_value = {"station_id": 1}
 
     # WHEN
     res = StationDao().create(station)
@@ -145,7 +141,12 @@ def test_create_ok(mock_cursor):
     assert res is True
     mock_cursor.execute.assert_called_once()
     assert "INSERT INTO station" in mock_cursor.execute.call_args[0][0]
-    assert mock_cursor.execute.call_args[0][1] == station.to_dict()
+    
+    # On vérifie les paramètres passés à la requête (sans station_id car généré par le MAX + 1)
+    params = mock_cursor.execute.call_args[0][1]
+    assert params["reseau_id"] == station.reseau_id
+    assert params["name"] == station.name
+    assert params["capacite"] == station.capacite
 
 
 def test_create_fail(mock_cursor):
@@ -186,8 +187,6 @@ def test_create_reseau_inexistant(mock_cursor):
         StationDao().create(station)
 
 
-
-
 def test_create_or_update_modification(mock_cursor):
     """Update an existing station"""
 
@@ -217,7 +216,6 @@ def test_create_or_update_insertion(mock_cursor):
     # THEN
     assert res is True
     assert mock_cursor.execute.call_args[0][1]["station_id"] == "NEW_003"
-
 
 
 def test_delete_ok(mock_cursor):

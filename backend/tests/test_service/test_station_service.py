@@ -32,7 +32,7 @@ def test_get_station_ok():
     station = creer_station()
     dao.find_by_id.return_value = station
 
-    resultat = StationService(station_dao=dao).get_station("ST001")
+    resultat = StationService(station_dao=dao).search_by_id("ST001")
 
     assert resultat == station
     dao.find_by_id.assert_called_once_with("ST001")
@@ -41,7 +41,7 @@ def test_get_station_inconnue():
     dao = MagicMock()
     dao.find_by_id.return_value = None
 
-    resultat = StationService(station_dao=dao).get_station("INCONNUE")
+    resultat = StationService(station_dao=dao).search_by_id("INCONNUE")
 
     assert resultat is None
     dao.find_by_id.assert_called_once_with("INCONNUE")

@@ -127,6 +127,40 @@ class StationDao(metaclass=Singleton):
         return station
 
     @log
+    def find_by_name(self, name: str) -> list[Station]:
+        """Trouve les stations dont le nom contient la chaîne passée en paramètre."""
+        try:
+            with DBConnection().connection as connection:
+                with connection.cursor() as cursor:
+                    cursor.execute(
+                        "SELECT * "
+                        "  FROM station "
+                        " WHERE name ILIKE %(name)s "
+                        " ORDER BY name;",
+                        {"name": f"%{name}%"},
+                    )
+                    res = cursor.fetchall()
+        except Exception as e:
+            logger.error(e)
+            raise
+
+        stations_list = []
+        if res:
+            for row in res:
+                station = Station(
+                    station_id=row["station_id"],
+                    reseau_id=row["reseau_id"],
+                    name=row["name"],
+                    adresse=row["adresse"],
+                    latitude=float(row["latitude"]),
+                    longitude=float(row["longitude"]),
+                    capacite=row["capacite"],
+                )
+                stations_list.append(station)
+
+        return stations_list
+
+    @log
     def list_all(self) -> list[Station]:
         """Donne la liste des stations de la base de données.
         Returns:

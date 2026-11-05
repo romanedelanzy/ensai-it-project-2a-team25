@@ -83,7 +83,7 @@ async def station_by_id(
         HTTPException: Erreur 404 si la station n'est pas trouvée.
     """
     logger.info(f"Find a station by id (user: {current_user.username})")
-    station = station_service.get_station(station_id)
+    station = station_service.search_by_id(station_id)
     if not station:
         raise HTTPException(status_code=404, detail=f"Station (id={station_id}) not found.")
     return station
@@ -138,7 +138,7 @@ async def station_history(
         HTTPException: Erreur 422 si la période n'est pas '24h', '7j' ou '30j'.
     """
     logger.info(f"Get the history of a station (user: {current_user.username})")
-    station = station_service.get_station(station_id)
+    station = station_service.search_by_id(station_id)
     if not station:
         raise HTTPException(status_code=404, detail=f"Station (id={station_id}) not found.")
     return station_service.get_history_by_period(station_id, period)
@@ -157,7 +157,7 @@ async def station_availability_history(
         f"(user: {current_user.username})"
     )
 
-    station = station_service.get_station(station_id)
+    station = station_service.search_by_id(station_id)
 
     if not station:
         raise HTTPException(
@@ -171,29 +171,27 @@ async def station_availability_history(
 async def create_station(
     s: StationReadModel,
     station_service=Depends(get_station_service),
-    current_user=Depends(get_current_user),  # Exige un token valide X-Auth-Token
+    current_user=Depends(get_current_user),
 ):
     """Crée une nouvelle station (administrateur uniquement).
-    Args:
-        s (StationReadModel): Les données de la station à créer.
-        station_service (StationService): Le service utilisé pour interagir avec les données des stations.
-        current_user (Compte): L'utilisateur connecté.
-    Returns:
-        StationReadModel: Les données de la station créée.
-    Raises:
-        HTTPException: Erreur 401 si l'utilisateur n'est pas authentifié.
-        HTTPException: Erreur 403 si l'utilisateur n'est pas administrateur.
-        HTTPException: Erreur 400 si l'identifiant de la station existe déjà.
-        HTTPException: Erreur 422 si une valeur de la station est invalide.
-        HTTPException: Erreur 500 si la création échoue.
-    """
+        Args:
+            s (StationReadModel): Les données de la station à créer.
+            station_service (StationService): Le service utilisé pour interagir avec les données des stations.
+            current_user (Compte): L'utilisateur connecté.
+        Returns:
+            StationReadModel: Les données de la station créée.
+        Raises:
+            HTTPException: Erreur 401 si l'utilisateur n'est pas authentifié.
+            HTTPException: Erreur 403 si l'utilisateur n'est pas administrateur.
+            HTTPException: Erreur 400 si l'identifiant de la station existe déjà.
+            HTTPException: Erreur 422 si une valeur de la station est invalide.
+            HTTPException: Erreur 500 si la création échoue.
+        """
     logger.info(f"Create a station (user: {current_user.username})")
     _verifier_admin(current_user)
 
-    if station_service.get_station(s.station_id):
-        raise HTTPException(status_code=400, detail="Station id already used.")
-
-    new_station = _construire_station(s.station_id, s)
+    station_id = s.station_id if getattr(s, "station_id", None) else "0" 
+    new_station = _construire_station(station_id, s)
 
     if not station_service.create(new_station):
         raise HTTPException(status_code=500, detail="Error while creating station.")
@@ -226,7 +224,7 @@ async def update_station(
     logger.info(f"Update station {station_id} (user: {current_user.username})")
     _verifier_admin(current_user)
 
-    if not station_service.get_station(station_id):
+    if not station_service.search_by_id(station_id):
         raise HTTPException(status_code=404, detail=f"Station (id={station_id}) not found.")
 
     updated_station = _construire_station(station_id, s)
