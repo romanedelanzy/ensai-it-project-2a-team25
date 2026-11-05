@@ -15,123 +15,229 @@ Endpoints utilisés :
     DELETE /favoris/{station_id}
 """
 
-import pandas as pd
 import streamlit as st
-
+from urllib.parse import quote
 from utils.api_client import api_client
-from utils.auth_guard import check_authentification
-from utils.log_init import get_page_logger
-from utils.station_display import STATE_BADGE_COLORS, fill_rate, is_operational, station_state
 
-st.title("Détail d'une station")
-logger = get_page_logger("station_detail")
+STATE_UNKNOWN = "Inconnue"
+STATE_EMPTY = "Vide"
+STATE_FULL = "Saturée"
+STATE_UNAVAILABLE = "Non opérationnelle"
+STATE_OK = "Disponible"
 
-check_authentification()
+STATE_BADGE_COLORS = {
+    STATE_UNKNOWN: "gray",
+    STATE_EMPTY: "red",
+    STATE_FULL: "orange",
+    STATE_UNAVAILABLE: "orange",
+    STATE_OK: "green",
+}
 
-response = api_client.get("/stations/")
 
-if not response or response["status_code"] != 200:
-    st.error("Erreur lors du chargement des stations")
-    st.stop()
+def get_station_state(status) -> str:
+    """Détermine l'état actuel d'une station."""
 
-stations = {s["station_id"]: s for s in response["data"]}
+    if status is None:
+        return STATE_UNKNOWN
 
-if not stations:
-    st.warning("Aucune station disponible")
-    st.stop()
+    if not status["est_installee"]:
+        return STATE_UNAVAILABLE
 
-ids = list(stations)
-selected = st.session_state.get("selected_station_id")
-station_id = st.selectbox(
-    "Station",
-    ids,
-    index=ids.index(selected) if selected in ids else 0,
-    format_func=lambda sid: stations[sid]["name"],
-)
-st.session_state["selected_station_id"] = station_id
-station = stations[station_id]
+    if not status["permet_emprunt"] or not status["permet_retour"]:
+        return STATE_UNAVAILABLE
 
-st.subheader(station["name"])
-if station.get("adresse"):
-    st.caption(station["adresse"])
+    if status["nb_velos_dispos"] == 0:
+        return STATE_EMPTY
 
-# --- État actuel ---
-status_response = api_client.get(f"/stations/{station_id}/status")
-status = (
-    status_response["data"]
-    if status_response and status_response["status_code"] == 200
-    else None
-)
+    if status["nb_places_dispos"] == 0:
+        return STATE_FULL
 
-etat = station_state(status)
-st.badge(etat, color=STATE_BADGE_COLORS[etat])
+    return STATE_OK
 
-if status:
+
+def get_fill_rate(capacite: int, status) -> float | None:
+    """Calcule le taux de remplissage d'une station."""
+
+    if status is None or capacite <= 0:
+        return None
+
+    return (
+        capacite - status["nb_places_dispos"]
+    ) / capacite
+
+
+def search_stations(name: str):
+    """Recherche les stations par leur nom."""
+
+    if len(name.strip()) < 3:
+        return []
+
+    response = api_client.get(
+        f"/station/?name={quote(name.strip())}"
+    )
+
+    if not response or response["status_code"] != 200:
+        return None
+
+    return response["data"]
+
+
+def get_current_status(station_id: str):
+    """Récupère le dernier statut d'une station."""
+
+    response = api_client.get(
+        f"/station/{station_id}/status"
+    )
+
+    if response and response["status_code"] == 200:
+        return response["data"]
+
+    if response and response["status_code"] == 404:
+        return None
+
+    return None
+
+
+def display_station_information(station: dict):
+    """Affiche les informations générales de la station."""
+
+    st.subheader(station["name"])
+
+    st.write(f"**Identifiant :** {station['station_id']}")
+    st.write(f"**Réseau :** {station['reseau_id']}")
+    st.write(f"**Adresse :** {station['adresse'] or 'Non renseignée'}")
+    st.write(f"**Coordonnées :** {station['latitude']}, {station['longitude']}")
+
+
+def display_current_status(station: dict, status: dict | None):
+    """Affiche les indicateurs du dernier statut."""
+
+    st.subheader("État actuel")
+
+    if status is None:
+        st.warning("Aucun relevé disponible pour cette station.")
+        return
+
+    state = get_station_state(status)
+
+    st.badge(
+        state,
+        color=STATE_BADGE_COLORS[state]
+    )
+
+    capacite = station["capacite"]
+
     col1, col2, col3, col4 = st.columns(4)
-    col1.metric("Vélos disponibles", status["nb_velos_dispos"])
-    col2.metric("dont électriques", status["nb_velos_elec_dispos"])
-    col3.metric("Places libres", status["nb_places_dispos"])
-    col4.metric("Capacité", station["capacite"])
 
-    taux = fill_rate(station["capacite"], status)
-    if taux is not None:
-        st.progress(min(taux, 1.0), text=f"Taux de remplissage : {taux:.0%}")
+    col1.metric(
+        "Vélos disponibles",
+        status["nb_velos_dispos"]
+    )
 
-    st.write("✅ Station opérationnelle" if is_operational(status) else "⚠️ Station non opérationnelle")
-else:
-    st.warning("Aucun relevé disponible pour cette station")
+    col2.metric(
+        "Vélos électriques",
+        status["nb_velos_elec_dispos"]
+    )
 
-# --- Historique ---
-st.subheader("Évolution de la disponibilité")
-period = st.radio("Période", ["24h", "7j", "30j"], horizontal=True)
+    col3.metric(
+        "Places disponibles",
+        status["nb_places_dispos"]
+    )
 
-history_response = api_client.get(f"/stations/{station_id}/history?period={period}")
+    col4.metric(
+        "Capacité",
+        capacite
+    )
 
-if history_response and history_response["status_code"] == 200 and history_response["data"]:
-    history = pd.DataFrame(history_response["data"])
-    history["horodatage"] = pd.to_datetime(history["horodatage"])
-    st.line_chart(history, x="horodatage", y=["nb_velos_dispos", "nb_places_dispos"])
-else:
-    st.info("Pas d'historique disponible sur cette période")
+    fill = get_fill_rate(capacite, status)
 
-# --- Fiabilité ---
-st.subheader("Fiabilité")
-reliability_response = api_client.get(f"/reliability/{station_id}")
+    if fill is not None:
+        st.write("**Taux de remplissage**")
+        st.progress(fill)
+        st.write(f"{fill:.1%}")
 
-if reliability_response and reliability_response["status_code"] == 200:
-    reliability = reliability_response["data"]
-    col1, col2, col3 = st.columns(3)
-    col1.metric("Score de fiabilité", f"{reliability['score_fiabilite']:.1f}")
-    col2.metric("Temps passé vide", f"{reliability['pct_temps_vide']:.0f} %")
-    col3.metric("Temps passé saturée", f"{reliability['pct_temps_sature']:.0f} %")
-else:
-    st.info("Le score de fiabilité n'est pas encore disponible.")
+    st.caption(
+        f"Dernier relevé : {status['horodatage']}"
+    )
 
-# --- Favoris ---
-st.subheader("Favoris")
-favorites_response = api_client.get("/favoris/")
+    with st.expander("Détails du statut"):
 
-if favorites_response and favorites_response["status_code"] == 200:
-    is_favorite = any(f["station_id"] == station_id for f in favorites_response["data"])
+        st.write(
+            f"**Station installée :** "
+            f"{'Oui' if status['est_installee'] else 'Non'}"
+        )
 
-    if is_favorite:
-        if st.button("Retirer des favoris"):
-            logger.info("Remove a favorite")
-            res = api_client.delete(f"/favoris/{station_id}")
-            if res and res["status_code"] in (200, 204):
-                st.rerun()
-            else:
-                st.error("Erreur lors du retrait des favoris")
-    else:
-        if st.button("Ajouter aux favoris"):
-            logger.info("Add a favorite")
-            res = api_client.post(f"/favoris/{station_id}", json={})
-            if res and res["status_code"] in (200, 201):
-                st.rerun()
-            else:
-                st.error("Erreur lors de l'ajout aux favoris")
-else:
-    st.info("Les favoris ne sont pas encore disponibles.")
+        st.write(
+            f"**Emprunts autorisés :** "
+            f"{'Oui' if status['permet_emprunt'] else 'Non'}"
+        )
 
-if st.button("Retour à la carte", type="primary"):
-    st.switch_page("pages/network_map.py")
+        st.write(
+            f"**Retours autorisés :** "
+            f"{'Oui' if status['permet_retour'] else 'Non'}"
+        )
+
+
+def display_station_consultation():
+    """Page de consultation détaillée d'une station."""
+
+    st.title("Consultation d'une station")
+
+    st.write(
+        "Recherchez une station par son nom "
+        "pour consulter ses informations."
+    )
+
+    # Recherche
+    search = st.text_input(
+        "Nom de la station",
+        placeholder="Saisissez au moins 3 caractères...",
+        key="station_search"
+    )
+
+    if len(search.strip()) < 3:
+        st.info("Saisissez au moins 3 caractères pour rechercher.")
+        return
+
+    stations = search_stations(search)
+
+    if stations is None:
+        st.error("Impossible de récupérer les stations.")
+        return
+
+    if not stations:
+        st.warning("Aucune station trouvée.")
+        return
+
+    # Sélection d'une station
+    selected_station = st.selectbox(
+        "Stations trouvées",
+        options=stations,
+        format_func=lambda s: (
+            f"{s['name']} ({s['station_id']})"
+        ),
+        key="consulted_station",
+    )
+
+    if selected_station is None:
+        return
+
+    st.divider()
+
+    # Informations générales
+    display_station_information(selected_station)
+
+    st.divider()
+
+    # Dernier statut
+    status = get_current_status(
+        selected_station["station_id"]
+    )
+
+    display_current_status(
+        selected_station,
+        status
+    )
+
+
+display_station_consultation()
