@@ -24,7 +24,7 @@ class CompteCreateModel(BaseModel):
         return v
 
 class CompteReadModel(BaseModel):
-    """Contrat de données pour la lecture / affichage d'un compte.
+    """Contrat de données pour la lecture / affichage d'un compte avec le token pour la connexion.
     Sécurité : NE CONTIENT PAS LE MOT DE PASSE.
     """
 
@@ -40,3 +40,12 @@ class CompteLoginModel(BaseModel):
 
     username: str
     password: str
+
+
+class ComptePublicModel(BaseModel):
+    """Contrat de données pour la lecture et l'affichage d'un compte,
+    ce modèle ne contient pas d'information sensible comme le token ou le mot de passe"""
+    user_id: int
+    username: str
+    email: str
+    is_admin: bool = False

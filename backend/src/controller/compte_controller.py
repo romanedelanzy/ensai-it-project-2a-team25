@@ -1,7 +1,7 @@
 # src/controller/compte_controller.py
 
 from fastapi import APIRouter, Depends, HTTPException, status
-from schema.compte_model import CompteReadModel, CompteCreateModel
+from schema.compte_model import CompteReadModel, CompteCreateModel, ComptePublicModel
 from service.compte_service import CompteService
 from utils.log_utils import get_logger
 from utils.security import get_current_user, hash_password
@@ -15,7 +15,7 @@ def get_compte_service() -> CompteService:
     """Fournit une instance de CompteService pour l'injection de dépendances."""
     return CompteService()
 
-@router.get("/list_accounts/", response_model=list[CompteReadModel])
+@router.get("/list_accounts/", response_model=list[ComptePublicModel])
 def list_accounts(service: CompteService = Depends(get_compte_service)):
     """Récupère la liste de tous les comptes (sans afficher les mots de passe)."""
     logger.info("Requête GET /compte/ reçue")

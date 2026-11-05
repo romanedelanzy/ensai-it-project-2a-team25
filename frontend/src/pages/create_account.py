@@ -4,7 +4,7 @@ Page Streamlit de création de compte (Menu 1 : connexion et inscription).
 Permet à un nouvel utilisateur de créer son compte (nom d'utilisateur, email, mot de passe).
 
 Endpoint utilisé :
-    POST /comptes
+    POST /comptes/create_account/
 """
 
 import streamlit as st
