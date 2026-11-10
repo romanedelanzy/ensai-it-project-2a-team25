@@ -1,59 +1,98 @@
-"""
-Page Streamlit de la carte du réseau (Menu 2).
-
-Affiche toutes les stations sur une carte, avec le nombre de vélos disponibles et
-de places libres, et permet de sélectionner une station pour en voir le détail.
-
-Endpoints utilisés :
-    GET /stations
-    GET /stations/status
-"""
 
 import streamlit as st
+import folium
+from streamlit_folium import st_folium
 
-from utils.auth_guard import check_authentification
-from utils.log_init import get_page_logger
-from utils.station_display import STATE_COLORS, load_stations_with_status
+from utils.api_client import api_client
 
-st.title("Carte du réseau")
-logger = get_page_logger("network_map")
 
-check_authentification()
+# --------------------------------------------------
+# Configuration
+# --------------------------------------------------
 
-stations, has_status = load_stations_with_status()
+st.title("Carte des stations")
+st.write("Visualisation géographique des stations du réseau Le Vélo de Bordeaux.")
+
+
+# --------------------------------------------------
+# Récupération des données
+# --------------------------------------------------
+
+def get_stations():
+    """Récupère toutes les stations depuis l'API."""
+
+    response = api_client.get("/station/")
+
+    if response and response.get("status_code") == 200:
+        return response.get("data", [])
+
+    return None
+
+
+# --------------------------------------------------
+# Construction de la carte
+# --------------------------------------------------
+
+def create_station_map(stations):
+    """Construit une carte Folium contenant toutes les stations."""
+
+    carte = folium.Map(
+        location=[44.8378, -0.5792],
+        zoom_start=13,
+        tiles="OpenStreetMap"
+    )
+
+    for station in stations:
+
+        latitude = station.get("latitude")
+        longitude = station.get("longitude")
+
+        # On ignore les stations sans coordonnées
+        if latitude is None or longitude is None:
+            continue
+
+        folium.Marker(
+            location=[latitude, longitude],
+            tooltip=station.get("name", "Station inconnue"),
+            popup=folium.Popup(
+                f"""
+                <b>{station.get('name', 'Station inconnue')}</b><br>
+                Adresse : {station.get('adresse', 'Non renseignée')}<br>
+                Capacité : {station.get('capacite', 'Inconnue')}
+                """,
+                max_width=300
+            ),
+            icon=folium.Icon(
+                color="blue",
+                icon="bicycle",
+                prefix="fa"
+            )
+        ).add_to(carte)
+
+    return carte
+
+
+# --------------------------------------------------
+# Affichage
+# --------------------------------------------------
+
+stations = get_stations()
 
 if stations is None:
-    st.error("Erreur lors du chargement des stations")
-    st.stop()
+    st.error("Impossible de récupérer les stations.")
 
-if stations.empty:
-    st.warning("Aucune station disponible")
-    st.stop()
+elif not stations:
+    st.warning("Aucune station disponible.")
 
-stations["color"] = stations["etat"].map(STATE_COLORS)
-st.map(stations, latitude="latitude", longitude="longitude", color="color", size=30)
-
-if has_status:
-    st.caption("🟢 Fonctionnelle · 🔴 Vide · 🟠 Saturée")
-    colonnes = {
-        "name": "Station",
-        "etat": "État",
-        "nb_velos_dispos": "Vélos disponibles",
-        "nb_places_dispos": "Places libres",
-    }
 else:
-    st.info("Les disponibilités en temps réel ne sont pas encore disponibles.")
-    colonnes = {"name": "Station", "adresse": "Adresse"}
+    st.success(f"{len(stations)} stations récupérées.")
 
-st.dataframe(stations[list(colonnes)].rename(columns=colonnes), hide_index=True)
+    carte = create_station_map(stations)
 
-noms = dict(zip(stations["station_id"], stations["name"]))
-station_id = st.selectbox("Choisir une station", list(noms), format_func=lambda sid: noms[sid])
-
-if st.button("Voir le détail"):
-    logger.info("Open the detail of a station")
-    st.session_state["selected_station_id"] = station_id
-    st.switch_page("pages/station_detail.py")
-
-if st.button("Retour au menu", type="primary"):
-    st.switch_page("pages/main_menu.py")
+    st_folium(
+        carte,
+        width=None,
+        height=650,
+        use_container_width=True,
+        key="network_map"
+    )
