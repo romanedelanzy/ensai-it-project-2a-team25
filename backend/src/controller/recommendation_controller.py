@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, Query
-from schema.recommendation_model import RecommendationReadModel
 
+from schema.recommendation_model import RecommendationReadModel
 from service.recommandation_service import RecommandationService
 from utils.log_utils import get_logger
 
