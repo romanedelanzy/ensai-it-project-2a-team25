@@ -1,0 +1,38 @@
+05/11/2026 14:40:14 root                      INFO    - --------------------------------------------------
+05/11/2026 14:40:14 root                      INFO    - Starting Webservice                           
+05/11/2026 14:40:14 root                      INFO    - --------------------------------------------------
+05/11/2026 14:40:14 root                      INFO    - Load environment variables: FAIL
+05/11/2026 14:40:19 root                      INFO    - GET / - START
+05/11/2026 14:40:19 root                      INFO    - GET / - END [Status: 307]
+05/11/2026 14:40:19 root                      INFO    - GET /docs - START
+05/11/2026 14:40:19 root                      INFO    - GET /docs - END [Status: 200]
+05/11/2026 14:40:20 root                      INFO    - GET /openapi.json - START
+05/11/2026 14:40:20 root                      INFO    - GET /openapi.json - END [Status: 200]
+05/11/2026 14:40:51 root                      INFO    - GET /reliability/1 - START
+05/11/2026 14:40:51 c.fiabilite_controller    INFO    - Get reliability indicators for station 1
+05/11/2026 14:40:51 dao.StationStatusDAO      INFO    -   find_all_history('1',) - START
+05/11/2026 14:40:51 dao.StationStatusDAO      ERROR   - 'POSTGRES_HOST'
+05/11/2026 14:40:51 dao.StationStatusDAO      ERROR   - --- ERREUR REELLE DANS find_all_history : KeyError - 'POSTGRES_HOST'
+05/11/2026 14:40:51 root                      ERROR   - GET /reliability/1 - FAILED [Status: 500] Error: 'POSTGRES_HOST'
+05/11/2026 14:41:29 root                      INFO    - GET /reset_database - START
+05/11/2026 14:41:29 __main__                  INFO    - Database reset
+05/11/2026 14:41:29 utils.reset_database      INFO    -     run() - START
+05/11/2026 14:41:29 utils.reset_database      ERROR   - --- ERREUR REELLE DANS run : KeyError - 'POSTGRES_SCHEMA'
+05/11/2026 14:41:29 root                      ERROR   - GET /reset_database - FAILED [Status: 500] Error: 'POSTGRES_SCHEMA'
+05/11/2026 14:41:32 root                      INFO    - GET /reset_database - START
+05/11/2026 14:41:32 __main__                  INFO    - Database reset
+05/11/2026 14:41:32 utils.reset_database      INFO    -       run() - START
+05/11/2026 14:41:32 utils.reset_database      ERROR   - --- ERREUR REELLE DANS run : KeyError - 'POSTGRES_SCHEMA'
+05/11/2026 14:41:32 root                      ERROR   - GET /reset_database - FAILED [Status: 500] Error: 'POSTGRES_SCHEMA'
+05/11/2026 14:41:37 root                      INFO    - GET /reliability/1 - START
+05/11/2026 14:41:37 c.fiabilite_controller    INFO    - Get reliability indicators for station 1
+05/11/2026 14:41:37 dao.StationStatusDAO      INFO    -         find_all_history('1',) - START
+05/11/2026 14:41:37 dao.StationStatusDAO      ERROR   - 'POSTGRES_HOST'
+05/11/2026 14:41:37 dao.StationStatusDAO      ERROR   - --- ERREUR REELLE DANS find_all_history : KeyError - 'POSTGRES_HOST'
+05/11/2026 14:41:37 root                      ERROR   - GET /reliability/1 - FAILED [Status: 500] Error: 'POSTGRES_HOST'
+05/11/2026 14:41:46 root                      INFO    - GET /reliability/1 - START
+05/11/2026 14:41:46 c.fiabilite_controller    INFO    - Get reliability indicators for station 1
+05/11/2026 14:41:46 dao.StationStatusDAO      INFO    -           find_all_history('1',) - START
+05/11/2026 14:41:46 dao.StationStatusDAO      ERROR   - 'POSTGRES_HOST'
+05/11/2026 14:41:46 dao.StationStatusDAO      ERROR   - --- ERREUR REELLE DANS find_all_history : KeyError - 'POSTGRES_HOST'
+05/11/2026 14:41:46 root                      ERROR   - GET /reliability/1 - FAILED [Status: 500] Error: 'POSTGRES_HOST'
