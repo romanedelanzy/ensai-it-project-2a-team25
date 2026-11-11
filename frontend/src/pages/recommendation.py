@@ -3,9 +3,11 @@
 import streamlit as st
 
 from utils.api_client import api_client
+from utils.auth_guard import check_authentification
 from utils.log_init import get_page_logger
 
 logger = get_page_logger("recommendation")
+check_authentification()
 
 st.title("Stations recommandées")
 
