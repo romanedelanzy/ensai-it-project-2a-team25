@@ -1,0 +1,568 @@
+03/11/2026 10:59:36 root                      INFO    - --------------------------------------------------
+03/11/2026 10:59:36 root                      INFO    - Starting Webservice                           
+03/11/2026 10:59:36 root                      INFO    - --------------------------------------------------
+03/11/2026 10:59:36 root                      INFO    - Load environment variables: SUCCES
+03/11/2026 10:59:36 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-378144-rw.user-romane
+03/11/2026 10:59:36 root                      INFO    - POSTGRES_PORT=5432
+03/11/2026 10:59:36 root                      INFO    - POSTGRES_DATABASE=defaultdb
+03/11/2026 10:59:36 root                      INFO    - POSTGRES_USER=user-romane
+03/11/2026 10:59:36 root                      INFO    - POSTGRES_PASSWORD=*******
+03/11/2026 10:59:36 root                      INFO    - POSTGRES_SCHEMA=project
+03/11/2026 10:59:36 root                      INFO    - UVICORN_HOST=0.0.0.0
+03/11/2026 10:59:36 root                      INFO    - UVICORN_PORT=5000
+03/11/2026 10:59:36 root                      INFO    - BACKEND_URL=http://localhost:5000
+03/11/2026 10:59:36 root                      INFO    - BACKEND_TIMEOUT=5
+03/11/2026 10:59:41 root                      INFO    - GET / - START
+03/11/2026 10:59:41 root                      INFO    - GET / - END [Status: 307]
+03/11/2026 10:59:41 root                      INFO    - GET /docs - START
+03/11/2026 10:59:41 root                      INFO    - GET /docs - END [Status: 200]
+03/11/2026 10:59:42 root                      INFO    - GET /openapi.json - START
+03/11/2026 10:59:42 root                      INFO    - GET /openapi.json - END [Status: 200]
+03/11/2026 11:00:09 __main__                  INFO    - Webservice stopped
+03/11/2026 11:00:13 root                      INFO    - --------------------------------------------------
+03/11/2026 11:00:13 root                      INFO    - Starting Webservice                           
+03/11/2026 11:00:13 root                      INFO    - --------------------------------------------------
+03/11/2026 11:00:13 root                      INFO    - Load environment variables: SUCCES
+03/11/2026 11:00:13 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-378144-rw.user-romane
+03/11/2026 11:00:13 root                      INFO    - POSTGRES_PORT=5432
+03/11/2026 11:00:13 root                      INFO    - POSTGRES_DATABASE=defaultdb
+03/11/2026 11:00:13 root                      INFO    - POSTGRES_USER=user-romane
+03/11/2026 11:00:13 root                      INFO    - POSTGRES_PASSWORD=*******
+03/11/2026 11:00:13 root                      INFO    - POSTGRES_SCHEMA=project
+03/11/2026 11:00:13 root                      INFO    - UVICORN_HOST=0.0.0.0
+03/11/2026 11:00:13 root                      INFO    - UVICORN_PORT=5000
+03/11/2026 11:00:13 root                      INFO    - BACKEND_URL=http://localhost:5000
+03/11/2026 11:00:13 root                      INFO    - BACKEND_TIMEOUT=5
+03/11/2026 11:00:17 root                      INFO    - GET / - START
+03/11/2026 11:00:17 root                      INFO    - GET / - END [Status: 307]
+03/11/2026 11:00:17 root                      INFO    - GET /docs - START
+03/11/2026 11:00:17 root                      INFO    - GET /docs - END [Status: 200]
+03/11/2026 11:00:17 root                      INFO    - GET /openapi.json - START
+03/11/2026 11:00:17 root                      INFO    - GET /openapi.json - END [Status: 200]
+03/11/2026 11:01:34 __main__                  INFO    - Webservice stopped
+03/11/2026 11:03:46 root                      INFO    - --------------------------------------------------
+03/11/2026 11:03:46 root                      INFO    - Starting Webservice                           
+03/11/2026 11:03:46 root                      INFO    - --------------------------------------------------
+03/11/2026 11:03:46 root                      INFO    - Load environment variables: SUCCES
+03/11/2026 11:03:46 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-378144-rw.user-romane
+03/11/2026 11:03:46 root                      INFO    - POSTGRES_PORT=5432
+03/11/2026 11:03:46 root                      INFO    - POSTGRES_DATABASE=defaultdb
+03/11/2026 11:03:46 root                      INFO    - POSTGRES_USER=user-romane
+03/11/2026 11:03:46 root                      INFO    - POSTGRES_PASSWORD=*******
+03/11/2026 11:03:46 root                      INFO    - POSTGRES_SCHEMA=project
+03/11/2026 11:03:46 root                      INFO    - UVICORN_HOST=0.0.0.0
+03/11/2026 11:03:46 root                      INFO    - UVICORN_PORT=5000
+03/11/2026 11:03:46 root                      INFO    - BACKEND_URL=http://localhost:5000
+03/11/2026 11:03:46 root                      INFO    - BACKEND_TIMEOUT=5
+03/11/2026 11:03:50 root                      INFO    - GET / - START
+03/11/2026 11:03:50 root                      INFO    - GET / - END [Status: 307]
+03/11/2026 11:03:50 root                      INFO    - GET /docs - START
+03/11/2026 11:03:50 root                      INFO    - GET /docs - END [Status: 200]
+03/11/2026 11:03:51 root                      INFO    - GET /openapi.json - START
+03/11/2026 11:03:51 root                      INFO    - GET /openapi.json - END [Status: 200]
+05/11/2026 09:40:11 root                      INFO    - --------------------------------------------------
+05/11/2026 09:40:11 root                      INFO    - Starting Webservice                           
+05/11/2026 09:40:11 root                      INFO    - --------------------------------------------------
+05/11/2026 09:40:11 root                      INFO    - Load environment variables: SUCCES
+05/11/2026 09:40:11 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-378144-rw.user-romane
+05/11/2026 09:40:11 root                      INFO    - POSTGRES_PORT=5432
+05/11/2026 09:40:11 root                      INFO    - POSTGRES_DATABASE=defaultdb
+05/11/2026 09:40:11 root                      INFO    - POSTGRES_USER=user-romane
+05/11/2026 09:40:11 root                      INFO    - POSTGRES_PASSWORD=*******
+05/11/2026 09:40:11 root                      INFO    - POSTGRES_SCHEMA=project
+05/11/2026 09:40:11 root                      INFO    - UVICORN_HOST=0.0.0.0
+05/11/2026 09:40:11 root                      INFO    - UVICORN_PORT=5000
+05/11/2026 09:40:11 root                      INFO    - BACKEND_URL=http://localhost:5000
+05/11/2026 09:40:11 root                      INFO    - BACKEND_TIMEOUT=5
+05/11/2026 09:41:11 root                      INFO    - --------------------------------------------------
+05/11/2026 09:41:11 root                      INFO    - Starting Webservice                           
+05/11/2026 09:41:11 root                      INFO    - --------------------------------------------------
+05/11/2026 09:41:11 root                      INFO    - Load environment variables: SUCCES
+05/11/2026 09:41:11 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-378144-rw.user-romane
+05/11/2026 09:41:11 root                      INFO    - POSTGRES_PORT=5432
+05/11/2026 09:41:11 root                      INFO    - POSTGRES_DATABASE=defaultdb
+05/11/2026 09:41:11 root                      INFO    - POSTGRES_USER=user-romane
+05/11/2026 09:41:11 root                      INFO    - POSTGRES_PASSWORD=*******
+05/11/2026 09:41:11 root                      INFO    - POSTGRES_SCHEMA=project
+05/11/2026 09:41:11 root                      INFO    - UVICORN_HOST=0.0.0.0
+05/11/2026 09:41:11 root                      INFO    - UVICORN_PORT=5000
+05/11/2026 09:41:11 root                      INFO    - BACKEND_URL=http://localhost:5000
+05/11/2026 09:41:11 root                      INFO    - BACKEND_TIMEOUT=5
+05/11/2026 09:42:46 root                      INFO    - GET / - START
+05/11/2026 09:42:46 root                      INFO    - GET / - END [Status: 307]
+05/11/2026 09:42:46 root                      INFO    - GET /docs - START
+05/11/2026 09:42:46 root                      INFO    - GET /docs - END [Status: 200]
+05/11/2026 09:42:46 root                      INFO    - GET /openapi.json - START
+05/11/2026 09:42:46 root                      INFO    - GET /openapi.json - END [Status: 200]
+05/11/2026 09:53:19 root                      INFO    - POST /favoris/8 - START
+05/11/2026 09:53:19 root                      INFO    - POST /favoris/8 - END [Status: 401]
+05/11/2026 09:56:21 root                      INFO    - POST /compte/ - START
+05/11/2026 09:56:21 __main__                  ERROR   - Validation Error
+Errors: [{'type': 'json_invalid', 'loc': ('body', 120), 'msg': 'JSON decode error', 'input': {}, 'ctx': {'error': 'Extra data'}}]
+Body: {
+  "user_id": 0,
+  "username": "string",
+  "password": "string",
+  "email": "user@example.com",
+  "is_admin": false
+}
+
+{
+  "username": "alice",
+  "password": "alice123",
+  "email": "alice@test.fr",
+  "is_admin": false
+}
+
+{
+  "username": "bob",
+  "password": "bob12345",
+  "email": "bob@test.fr",
+  "is_admin": false
+}
+05/11/2026 09:56:21 root                      INFO    - POST /compte/ - END [Status: 422]
+05/11/2026 09:58:37 root                      INFO    - POST /compte/ - START
+05/11/2026 09:58:37 c.compte_controller       INFO    - Requête POST /compte/ pour : alice
+05/11/2026 09:58:37 service.compte_service    INFO    -   username_already_used('alice',) - START
+05/11/2026 09:58:37 service.compte_service    INFO    -     list_account() - START
+05/11/2026 09:58:37 dao.CompteDAO             INFO    -       list_all() - START
+05/11/2026 09:58:37 dao.CompteDAO             ERROR   - connection to server at "postgresql-cnpg-378144-rw.user-romane" (10.233.14.157), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+05/11/2026 09:58:37 dao.CompteDAO             ERROR   - --- ERREUR REELLE DANS list_all : OperationalError - connection to server at "postgresql-cnpg-378144-rw.user-romane" (10.233.14.157), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+05/11/2026 09:58:37 service.compte_service    ERROR   - --- ERREUR REELLE DANS list_account : OperationalError - connection to server at "postgresql-cnpg-378144-rw.user-romane" (10.233.14.157), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+05/11/2026 09:58:37 service.compte_service    ERROR   - --- ERREUR REELLE DANS username_already_used : OperationalError - connection to server at "postgresql-cnpg-378144-rw.user-romane" (10.233.14.157), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+05/11/2026 09:58:37 root                      ERROR   - POST /compte/ - FAILED [Status: 500] Error: connection to server at "postgresql-cnpg-378144-rw.user-romane" (10.233.14.157), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+05/11/2026 10:03:49 root                      INFO    - POST /compte/ - START
+05/11/2026 10:03:49 c.compte_controller       INFO    - Requête POST /compte/ pour : alice
+05/11/2026 10:03:49 service.compte_service    INFO    -         username_already_used('alice',) - START
+05/11/2026 10:03:49 service.compte_service    INFO    -           list_account() - START
+05/11/2026 10:03:49 dao.CompteDAO             INFO    -             list_all() - START
+05/11/2026 10:03:49 dao.CompteDAO             ERROR   - column "password" does not exist
+LINE 1: SELECT user_id, username, is_admin, password,
+                                            ^
+
+05/11/2026 10:03:49 dao.CompteDAO             ERROR   - --- ERREUR REELLE DANS list_all : UndefinedColumn - column "password" does not exist
+LINE 1: SELECT user_id, username, is_admin, password,
+                                            ^
+
+05/11/2026 10:03:49 service.compte_service    ERROR   - --- ERREUR REELLE DANS list_account : UndefinedColumn - column "password" does not exist
+LINE 1: SELECT user_id, username, is_admin, password,
+                                            ^
+
+05/11/2026 10:03:49 service.compte_service    ERROR   - --- ERREUR REELLE DANS username_already_used : UndefinedColumn - column "password" does not exist
+LINE 1: SELECT user_id, username, is_admin, password,
+                                            ^
+
+05/11/2026 10:03:49 root                      ERROR   - POST /compte/ - FAILED [Status: 500] Error: column "password" does not exist
+LINE 1: SELECT user_id, username, is_admin, password,
+                                            ^
+
+05/11/2026 10:09:01 root                      INFO    - --------------------------------------------------
+05/11/2026 10:09:01 root                      INFO    - Starting Webservice                           
+05/11/2026 10:09:01 root                      INFO    - --------------------------------------------------
+05/11/2026 10:09:01 root                      INFO    - Load environment variables: SUCCES
+05/11/2026 10:09:01 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-378144-rw.user-romane
+05/11/2026 10:09:01 root                      INFO    - POSTGRES_PORT=5432
+05/11/2026 10:09:01 root                      INFO    - POSTGRES_DATABASE=defaultdb
+05/11/2026 10:09:01 root                      INFO    - POSTGRES_USER=user-romane
+05/11/2026 10:09:01 root                      INFO    - POSTGRES_PASSWORD=*******
+05/11/2026 10:09:01 root                      INFO    - POSTGRES_SCHEMA=project
+05/11/2026 10:09:01 root                      INFO    - UVICORN_HOST=0.0.0.0
+05/11/2026 10:09:01 root                      INFO    - UVICORN_PORT=5000
+05/11/2026 10:09:01 root                      INFO    - BACKEND_URL=http://localhost:5000
+05/11/2026 10:09:01 root                      INFO    - BACKEND_TIMEOUT=5
+05/11/2026 10:10:14 root                      INFO    - --------------------------------------------------
+05/11/2026 10:10:14 root                      INFO    - Starting Webservice                           
+05/11/2026 10:10:14 root                      INFO    - --------------------------------------------------
+05/11/2026 10:10:14 root                      INFO    - Load environment variables: SUCCES
+05/11/2026 10:10:14 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-378144-rw.user-romane
+05/11/2026 10:10:14 root                      INFO    - POSTGRES_PORT=5432
+05/11/2026 10:10:14 root                      INFO    - POSTGRES_DATABASE=defaultdb
+05/11/2026 10:10:14 root                      INFO    - POSTGRES_USER=user-romane
+05/11/2026 10:10:14 root                      INFO    - POSTGRES_PASSWORD=*******
+05/11/2026 10:10:14 root                      INFO    - POSTGRES_SCHEMA=project
+05/11/2026 10:10:14 root                      INFO    - UVICORN_HOST=0.0.0.0
+05/11/2026 10:10:14 root                      INFO    - UVICORN_PORT=5000
+05/11/2026 10:10:14 root                      INFO    - BACKEND_URL=http://localhost:5000
+05/11/2026 10:10:14 root                      INFO    - BACKEND_TIMEOUT=5
+05/11/2026 10:10:20 root                      INFO    - GET / - START
+05/11/2026 10:10:20 root                      INFO    - GET / - END [Status: 307]
+05/11/2026 10:10:20 root                      INFO    - GET /docs - START
+05/11/2026 10:10:20 root                      INFO    - GET /docs - END [Status: 200]
+05/11/2026 10:10:20 root                      INFO    - GET /openapi.json - START
+05/11/2026 10:10:20 root                      INFO    - GET /openapi.json - END [Status: 200]
+05/11/2026 10:11:25 root                      INFO    - POST /compte/ - START
+05/11/2026 10:11:25 c.compte_controller       INFO    - Requête POST /compte/ pour : alice
+05/11/2026 10:11:25 service.compte_service    INFO    -   username_already_used('alice',) - START
+05/11/2026 10:11:25 service.compte_service    INFO    -     list_account() - START
+05/11/2026 10:11:25 dao.CompteDAO             INFO    -       list_all() - START
+05/11/2026 10:11:25 dao.CompteDAO             ERROR   - column "password" does not exist
+LINE 1: SELECT user_id, username, is_admin, password,
+                                            ^
+
+05/11/2026 10:11:25 dao.CompteDAO             ERROR   - --- ERREUR REELLE DANS list_all : UndefinedColumn - column "password" does not exist
+LINE 1: SELECT user_id, username, is_admin, password,
+                                            ^
+
+05/11/2026 10:11:25 service.compte_service    ERROR   - --- ERREUR REELLE DANS list_account : UndefinedColumn - column "password" does not exist
+LINE 1: SELECT user_id, username, is_admin, password,
+                                            ^
+
+05/11/2026 10:11:25 service.compte_service    ERROR   - --- ERREUR REELLE DANS username_already_used : UndefinedColumn - column "password" does not exist
+LINE 1: SELECT user_id, username, is_admin, password,
+                                            ^
+
+05/11/2026 10:11:25 root                      ERROR   - POST /compte/ - FAILED [Status: 500] Error: column "password" does not exist
+LINE 1: SELECT user_id, username, is_admin, password,
+                                            ^
+
+05/11/2026 10:13:30 root                      INFO    - POST /compte/ - START
+05/11/2026 10:13:30 c.compte_controller       INFO    - Requête POST /compte/ pour : alice
+05/11/2026 10:13:30 service.compte_service    INFO    -         username_already_used('alice',) - START
+05/11/2026 10:13:30 service.compte_service    INFO    -           list_account() - START
+05/11/2026 10:13:30 dao.CompteDAO             INFO    -             list_all() - START
+05/11/2026 10:13:30 dao.CompteDAO             ERROR   - column "password" does not exist
+LINE 1: SELECT user_id, username, is_admin, password,
+                                            ^
+
+05/11/2026 10:13:30 dao.CompteDAO             ERROR   - --- ERREUR REELLE DANS list_all : UndefinedColumn - column "password" does not exist
+LINE 1: SELECT user_id, username, is_admin, password,
+                                            ^
+
+05/11/2026 10:13:30 service.compte_service    ERROR   - --- ERREUR REELLE DANS list_account : UndefinedColumn - column "password" does not exist
+LINE 1: SELECT user_id, username, is_admin, password,
+                                            ^
+
+05/11/2026 10:13:30 service.compte_service    ERROR   - --- ERREUR REELLE DANS username_already_used : UndefinedColumn - column "password" does not exist
+LINE 1: SELECT user_id, username, is_admin, password,
+                                            ^
+
+05/11/2026 10:13:30 root                      ERROR   - POST /compte/ - FAILED [Status: 500] Error: column "password" does not exist
+LINE 1: SELECT user_id, username, is_admin, password,
+                                            ^
+
+05/11/2026 10:13:36 root                      INFO    - POST /compte/ - START
+05/11/2026 10:13:36 c.compte_controller       INFO    - Requête POST /compte/ pour : alice
+05/11/2026 10:13:36 service.compte_service    INFO    -               username_already_used('alice',) - START
+05/11/2026 10:13:36 service.compte_service    INFO    -                 list_account() - START
+05/11/2026 10:13:36 dao.CompteDAO             INFO    -                   list_all() - START
+05/11/2026 10:13:36 dao.CompteDAO             ERROR   - column "password" does not exist
+LINE 1: SELECT user_id, username, is_admin, password,
+                                            ^
+
+05/11/2026 10:13:36 dao.CompteDAO             ERROR   - --- ERREUR REELLE DANS list_all : UndefinedColumn - column "password" does not exist
+LINE 1: SELECT user_id, username, is_admin, password,
+                                            ^
+
+05/11/2026 10:13:36 service.compte_service    ERROR   - --- ERREUR REELLE DANS list_account : UndefinedColumn - column "password" does not exist
+LINE 1: SELECT user_id, username, is_admin, password,
+                                            ^
+
+05/11/2026 10:13:36 service.compte_service    ERROR   - --- ERREUR REELLE DANS username_already_used : UndefinedColumn - column "password" does not exist
+LINE 1: SELECT user_id, username, is_admin, password,
+                                            ^
+
+05/11/2026 10:13:36 root                      ERROR   - POST /compte/ - FAILED [Status: 500] Error: column "password" does not exist
+LINE 1: SELECT user_id, username, is_admin, password,
+                                            ^
+
+05/11/2026 10:14:10 root                      INFO    - POST /compte/ - START
+05/11/2026 10:14:10 __main__                  ERROR   - Validation Error
+Errors: [{'type': 'json_invalid', 'loc': ('body', 1), 'msg': 'JSON decode error', 'input': {}, 'ctx': {'error': 'Expecting property name enclosed in double quotes'}}]
+Body: {{
+  "username": "bob",
+  "password": "bob12345",
+  "email": "bob@test.fr",
+  "is_admin": false
+}
+05/11/2026 10:14:10 root                      INFO    - POST /compte/ - END [Status: 422]
+05/11/2026 10:14:26 root                      INFO    - POST /compte/ - START
+05/11/2026 10:14:26 c.compte_controller       INFO    - Requête POST /compte/ pour : bob
+05/11/2026 10:14:26 service.compte_service    INFO    -                     username_already_used('bob',) - START
+05/11/2026 10:14:26 service.compte_service    INFO    -                       list_account() - START
+05/11/2026 10:14:26 dao.CompteDAO             INFO    -                         list_all() - START
+05/11/2026 10:14:26 dao.CompteDAO             ERROR   - column "password" does not exist
+LINE 1: SELECT user_id, username, is_admin, password,
+                                            ^
+
+05/11/2026 10:14:26 dao.CompteDAO             ERROR   - --- ERREUR REELLE DANS list_all : UndefinedColumn - column "password" does not exist
+LINE 1: SELECT user_id, username, is_admin, password,
+                                            ^
+
+05/11/2026 10:14:26 service.compte_service    ERROR   - --- ERREUR REELLE DANS list_account : UndefinedColumn - column "password" does not exist
+LINE 1: SELECT user_id, username, is_admin, password,
+                                            ^
+
+05/11/2026 10:14:26 service.compte_service    ERROR   - --- ERREUR REELLE DANS username_already_used : UndefinedColumn - column "password" does not exist
+LINE 1: SELECT user_id, username, is_admin, password,
+                                            ^
+
+05/11/2026 10:14:26 root                      ERROR   - POST /compte/ - FAILED [Status: 500] Error: column "password" does not exist
+LINE 1: SELECT user_id, username, is_admin, password,
+                                            ^
+
+05/11/2026 10:16:36 root                      INFO    - GET /reset_database - START
+05/11/2026 10:16:36 __main__                  INFO    - Database reset
+05/11/2026 10:16:36 utils.reset_database      INFO    -                           run() - START
+05/11/2026 10:16:36 dao.player_dao            INFO    -                             find_all() - START
+05/11/2026 10:16:36 dao.player_dao            INFO    -                             find_all() - END
+05/11/2026 10:16:36 dao.player_dao            INFO    -                               └─> Output: ['Player(a, elo: 1200)', 'Player(admin, elo: None)', 'Player(batricia, elo: 1500)'] ... (7 elements)
+05/11/2026 10:16:36 dao.player_dao            INFO    -                             update('Player(a, elo: 1200)',) - START
+05/11/2026 10:16:36 dao.player_dao            INFO    -                             update('Player(a, elo: 1200)',) - END
+05/11/2026 10:16:36 dao.player_dao            INFO    -                               └─> Output: True
+05/11/2026 10:16:36 dao.player_dao            INFO    -                             update('Player(admin, elo: None)',) - START
+05/11/2026 10:16:36 dao.player_dao            INFO    -                             update('Player(admin, elo: None)',) - END
+05/11/2026 10:16:36 dao.player_dao            INFO    -                               └─> Output: True
+05/11/2026 10:16:36 dao.player_dao            INFO    -                             update('Player(batricia, elo: 1500)',) - START
+05/11/2026 10:16:36 dao.player_dao            INFO    -                             update('Player(batricia, elo: 1500)',) - END
+05/11/2026 10:16:36 dao.player_dao            INFO    -                               └─> Output: True
+05/11/2026 10:16:36 dao.player_dao            INFO    -                             update('Player(gilbert, elo: 1100)',) - START
+05/11/2026 10:16:36 dao.player_dao            INFO    -                             update('Player(gilbert, elo: 1100)',) - END
+05/11/2026 10:16:36 dao.player_dao            INFO    -                               └─> Output: True
+05/11/2026 10:16:36 dao.player_dao            INFO    -                             update('Player(junior, elo: 1200)',) - START
+05/11/2026 10:16:36 dao.player_dao            INFO    -                             update('Player(junior, elo: 1200)',) - END
+05/11/2026 10:16:36 dao.player_dao            INFO    -                               └─> Output: True
+05/11/2026 10:16:36 dao.player_dao            INFO    -                             update('Player(maurice, elo: 1000)',) - START
+05/11/2026 10:16:36 dao.player_dao            INFO    -                             update('Player(maurice, elo: 1000)',) - END
+05/11/2026 10:16:36 dao.player_dao            INFO    -                               └─> Output: True
+05/11/2026 10:16:36 dao.player_dao            INFO    -                             update('Player(miguel, elo: 1300)',) - START
+05/11/2026 10:16:36 dao.player_dao            INFO    -                             update('Player(miguel, elo: 1300)',) - END
+05/11/2026 10:16:36 dao.player_dao            INFO    -                               └─> Output: True
+05/11/2026 10:16:36 utils.reset_database      INFO    -                           run() - END
+05/11/2026 10:16:36 utils.reset_database      INFO    -                             └─> Output: True
+05/11/2026 10:16:36 root                      INFO    - GET /reset_database - END [Status: 200]
+05/11/2026 10:16:54 root                      INFO    - GET /compte/ - START
+05/11/2026 10:16:54 c.compte_controller       INFO    - Requête GET /compte/ reçue
+05/11/2026 10:16:54 service.compte_service    INFO    -                           list_account() - START
+05/11/2026 10:16:54 dao.CompteDAO             INFO    -                             list_all() - START
+05/11/2026 10:16:54 dao.CompteDAO             INFO    -                             list_all() - END
+05/11/2026 10:16:54 dao.CompteDAO             INFO    -                               └─> Output: ['Compte(user_id=1, username=jean, is_admin=True, email=jean@jean.com, access_token=5uiDduCRc4ea8ff5SZz0lZ2AwtQZv0vBZiuSZwCWJ54)', 'Compte(user_id=2, username=username1, is_admin=True, email=username1@example.com, access_token=access_token1)', 'Compte(user_id=3, username=username2, is_admin=False, email=username2@example.com, access_token=access_token2)'] ... (4 elements)
+05/11/2026 10:16:54 service.compte_service    INFO    -                           list_account() - END
+05/11/2026 10:16:54 service.compte_service    INFO    -                             └─> Output: ['Compte(user_id=1, username=jean, is_admin=True, email=jean@jean.com, access_token=5uiDduCRc4ea8ff5SZz0lZ2AwtQZv0vBZiuSZwCWJ54)', 'Compte(user_id=2, username=username1, is_admin=True, email=username1@example.com, access_token=access_token1)', 'Compte(user_id=3, username=username2, is_admin=False, email=username2@example.com, access_token=access_token2)'] ... (4 elements)
+05/11/2026 10:16:54 root                      INFO    - GET /compte/ - END [Status: 200]
+05/11/2026 10:18:59 root                      INFO    - DELETE /favoris/8 - START
+05/11/2026 10:18:59 root                      INFO    - DELETE /favoris/8 - END [Status: 401]
+05/11/2026 10:21:09 root                      INFO    - POST /favoris/8 - START
+05/11/2026 10:21:09 root                      INFO    - POST /favoris/8 - END [Status: 401]
+05/11/2026 10:21:29 root                      INFO    - GET /favoris/ - START
+05/11/2026 10:21:29 root                      INFO    - GET /favoris/ - END [Status: 401]
+05/11/2026 10:21:42 root                      INFO    - GET /favoris/ - START
+05/11/2026 10:21:42 root                      INFO    - GET /favoris/ - END [Status: 401]
+05/11/2026 10:21:43 root                      INFO    - GET /favoris/ - START
+05/11/2026 10:21:43 root                      INFO    - GET /favoris/ - END [Status: 401]
+05/11/2026 10:24:23 root                      INFO    - POST /favoris/8 - START
+05/11/2026 10:24:23 dao.CompteDAO             INFO    -                           find_by_token('*****',) - START
+05/11/2026 10:24:23 dao.CompteDAO             INFO    -                           find_by_token('*****',) - END
+05/11/2026 10:24:23 dao.CompteDAO             INFO    -                             └─> Output: Compte(user_id=3, username=username2, is_admin=False, email=username2@example.com, access_token=access_token2)
+05/11/2026 10:24:23 c.favori_controller       INFO    - Add a favorite
+05/11/2026 10:24:23 service.favori_service    INFO    -                           ajouter_favori(3, '8') - START
+05/11/2026 10:24:23 dao.FavoriDAO             INFO    -                             add_favorite(3, '8') - START
+05/11/2026 10:24:23 dao.FavoriDAO             INFO    -                             add_favorite(3, '8') - END
+05/11/2026 10:24:23 dao.FavoriDAO             INFO    -                               └─> Output: True
+05/11/2026 10:24:23 service.favori_service    INFO    -                           ajouter_favori(3, '8') - END
+05/11/2026 10:24:23 service.favori_service    INFO    -                             └─> Output: True
+05/11/2026 10:24:23 root                      INFO    - POST /favoris/8 - END [Status: 201]
+05/11/2026 10:24:41 root                      INFO    - GET /favoris/ - START
+05/11/2026 10:24:41 dao.CompteDAO             INFO    -                           find_by_token('*****',) - START
+05/11/2026 10:24:41 dao.CompteDAO             INFO    -                           find_by_token('*****',) - END
+05/11/2026 10:24:41 dao.CompteDAO             INFO    -                             └─> Output: Compte(user_id=3, username=username2, is_admin=False, email=username2@example.com, access_token=access_token2)
+05/11/2026 10:24:41 c.favori_controller       INFO    - List the favorites of the current user
+05/11/2026 10:24:41 service.favori_service    INFO    -                           recuperer_favoris_par_joueur(3,) - START
+05/11/2026 10:24:41 dao.FavoriDAO             INFO    -                             user_favorite(3,) - START
+05/11/2026 10:24:41 dao.FavoriDAO             INFO    -                             user_favorite(3,) - END
+05/11/2026 10:24:41 dao.FavoriDAO             INFO    -                               └─> Output: ['<business_object.favoris.Favori object at 0x7f19121d7a10>'] ... (1 elements)
+05/11/2026 10:24:41 service.favori_service    INFO    -                           recuperer_favoris_par_joueur(3,) - END
+05/11/2026 10:24:41 service.favori_service    INFO    -                             └─> Output: ['<business_object.favoris.Favori object at 0x7f19121d7a10>'] ... (1 elements)
+05/11/2026 10:24:41 root                      INFO    - GET /favoris/ - END [Status: 200]
+05/11/2026 10:25:17 root                      INFO    - GET /favoris/ - START
+05/11/2026 10:25:17 dao.CompteDAO             INFO    -                           find_by_token('*****',) - START
+05/11/2026 10:25:17 dao.CompteDAO             INFO    -                           find_by_token('*****',) - END
+05/11/2026 10:25:17 dao.CompteDAO             INFO    -                             └─> Output: Compte(user_id=4, username=username3, is_admin=False, email=username3@example.com, access_token=access_token3)
+05/11/2026 10:25:17 c.favori_controller       INFO    - List the favorites of the current user
+05/11/2026 10:25:17 service.favori_service    INFO    -                           recuperer_favoris_par_joueur(4,) - START
+05/11/2026 10:25:17 dao.FavoriDAO             INFO    -                             user_favorite(4,) - START
+05/11/2026 10:25:17 dao.FavoriDAO             INFO    -                             user_favorite(4,) - END
+05/11/2026 10:25:17 dao.FavoriDAO             INFO    -                               └─> Output: [] ... (0 elements)
+05/11/2026 10:25:17 service.favori_service    INFO    -                           recuperer_favoris_par_joueur(4,) - END
+05/11/2026 10:25:17 service.favori_service    INFO    -                             └─> Output: [] ... (0 elements)
+05/11/2026 10:25:17 root                      INFO    - GET /favoris/ - END [Status: 200]
+05/11/2026 10:25:33 root                      INFO    - DELETE /favoris/8 - START
+05/11/2026 10:25:33 dao.CompteDAO             INFO    -                           find_by_token('*****',) - START
+05/11/2026 10:25:33 dao.CompteDAO             INFO    -                           find_by_token('*****',) - END
+05/11/2026 10:25:33 dao.CompteDAO             INFO    -                             └─> Output: Compte(user_id=4, username=username3, is_admin=False, email=username3@example.com, access_token=access_token3)
+05/11/2026 10:25:33 c.favori_controller       INFO    - Remove a favorite
+05/11/2026 10:25:33 service.favori_service    INFO    -                           supprimer_favori(4, '8') - START
+05/11/2026 10:25:33 dao.FavoriDAO             INFO    -                             remove_favorite(4, '8') - START
+05/11/2026 10:25:33 dao.FavoriDAO             INFO    -                             remove_favorite(4, '8') - END
+05/11/2026 10:25:33 dao.FavoriDAO             INFO    -                               └─> Output: False
+05/11/2026 10:25:33 service.favori_service    INFO    -                           supprimer_favori(4, '8') - END
+05/11/2026 10:25:33 service.favori_service    INFO    -                             └─> Output: False
+05/11/2026 10:25:33 root                      INFO    - DELETE /favoris/8 - END [Status: 404]
+05/11/2026 10:25:59 root                      INFO    - GET /favoris/ - START
+05/11/2026 10:25:59 dao.CompteDAO             INFO    -                           find_by_token('*****',) - START
+05/11/2026 10:25:59 dao.CompteDAO             INFO    -                           find_by_token('*****',) - END
+05/11/2026 10:25:59 dao.CompteDAO             INFO    -                             └─> Output: Compte(user_id=3, username=username2, is_admin=False, email=username2@example.com, access_token=access_token2)
+05/11/2026 10:25:59 c.favori_controller       INFO    - List the favorites of the current user
+05/11/2026 10:25:59 service.favori_service    INFO    -                           recuperer_favoris_par_joueur(3,) - START
+05/11/2026 10:25:59 dao.FavoriDAO             INFO    -                             user_favorite(3,) - START
+05/11/2026 10:25:59 dao.FavoriDAO             INFO    -                             user_favorite(3,) - END
+05/11/2026 10:25:59 dao.FavoriDAO             INFO    -                               └─> Output: ['<business_object.favoris.Favori object at 0x7f19121f7890>'] ... (1 elements)
+05/11/2026 10:25:59 service.favori_service    INFO    -                           recuperer_favoris_par_joueur(3,) - END
+05/11/2026 10:25:59 service.favori_service    INFO    -                             └─> Output: ['<business_object.favoris.Favori object at 0x7f19121f7890>'] ... (1 elements)
+05/11/2026 10:25:59 root                      INFO    - GET /favoris/ - END [Status: 200]
+05/11/2026 10:57:13 root                      INFO    - GET /docs - START
+05/11/2026 10:57:13 root                      INFO    - GET /docs - END [Status: 200]
+05/11/2026 10:57:14 root                      INFO    - GET /openapi.json - START
+05/11/2026 10:57:14 root                      INFO    - GET /openapi.json - END [Status: 200]
+05/11/2026 10:57:29 root                      INFO    - GET /compte/ - START
+05/11/2026 10:57:29 c.compte_controller       INFO    - Requête GET /compte/ reçue
+05/11/2026 10:57:29 service.compte_service    INFO    -                           list_account() - START
+05/11/2026 10:57:29 dao.CompteDAO             INFO    -                             list_all() - START
+05/11/2026 10:57:29 dao.CompteDAO             ERROR   - connection already closed
+05/11/2026 10:57:29 dao.CompteDAO             ERROR   - --- ERREUR REELLE DANS list_all : InterfaceError - connection already closed
+05/11/2026 10:57:29 service.compte_service    ERROR   - --- ERREUR REELLE DANS list_account : InterfaceError - connection already closed
+05/11/2026 10:57:29 root                      ERROR   - GET /compte/ - FAILED [Status: 500] Error: connection already closed
+05/11/2026 10:57:44 root                      INFO    - GET /reset_database - START
+05/11/2026 10:57:44 __main__                  INFO    - Database reset
+05/11/2026 10:57:44 utils.reset_database      INFO    -                               run() - START
+05/11/2026 10:57:44 dao.player_dao            INFO    -                                 find_all() - START
+05/11/2026 10:57:44 dao.player_dao            INFO    -                                 find_all() - END
+05/11/2026 10:57:44 dao.player_dao            INFO    -                                   └─> Output: ['Player(a, elo: 1200)', 'Player(admin, elo: None)', 'Player(batricia, elo: 1500)'] ... (7 elements)
+05/11/2026 10:57:44 dao.player_dao            INFO    -                                 update('Player(a, elo: 1200)',) - START
+05/11/2026 10:57:44 dao.player_dao            INFO    -                                 update('Player(a, elo: 1200)',) - END
+05/11/2026 10:57:44 dao.player_dao            INFO    -                                   └─> Output: True
+05/11/2026 10:57:44 dao.player_dao            INFO    -                                 update('Player(admin, elo: None)',) - START
+05/11/2026 10:57:44 dao.player_dao            INFO    -                                 update('Player(admin, elo: None)',) - END
+05/11/2026 10:57:44 dao.player_dao            INFO    -                                   └─> Output: True
+05/11/2026 10:57:44 dao.player_dao            INFO    -                                 update('Player(batricia, elo: 1500)',) - START
+05/11/2026 10:57:44 dao.player_dao            INFO    -                                 update('Player(batricia, elo: 1500)',) - END
+05/11/2026 10:57:44 dao.player_dao            INFO    -                                   └─> Output: True
+05/11/2026 10:57:44 dao.player_dao            INFO    -                                 update('Player(gilbert, elo: 1100)',) - START
+05/11/2026 10:57:44 dao.player_dao            INFO    -                                 update('Player(gilbert, elo: 1100)',) - END
+05/11/2026 10:57:44 dao.player_dao            INFO    -                                   └─> Output: True
+05/11/2026 10:57:44 dao.player_dao            INFO    -                                 update('Player(junior, elo: 1200)',) - START
+05/11/2026 10:57:44 dao.player_dao            INFO    -                                 update('Player(junior, elo: 1200)',) - END
+05/11/2026 10:57:44 dao.player_dao            INFO    -                                   └─> Output: True
+05/11/2026 10:57:44 dao.player_dao            INFO    -                                 update('Player(maurice, elo: 1000)',) - START
+05/11/2026 10:57:44 dao.player_dao            INFO    -                                 update('Player(maurice, elo: 1000)',) - END
+05/11/2026 10:57:44 dao.player_dao            INFO    -                                   └─> Output: True
+05/11/2026 10:57:44 dao.player_dao            INFO    -                                 update('Player(miguel, elo: 1300)',) - START
+05/11/2026 10:57:44 dao.player_dao            INFO    -                                 update('Player(miguel, elo: 1300)',) - END
+05/11/2026 10:57:44 dao.player_dao            INFO    -                                   └─> Output: True
+05/11/2026 10:57:44 utils.reset_database      INFO    -                               run() - END
+05/11/2026 10:57:44 utils.reset_database      INFO    -                                 └─> Output: True
+05/11/2026 10:57:44 root                      INFO    - GET /reset_database - END [Status: 200]
+05/11/2026 10:57:52 root                      INFO    - GET /compte/ - START
+05/11/2026 10:57:52 c.compte_controller       INFO    - Requête GET /compte/ reçue
+05/11/2026 10:57:52 service.compte_service    INFO    -                               list_account() - START
+05/11/2026 10:57:52 dao.CompteDAO             INFO    -                                 list_all() - START
+05/11/2026 10:57:52 dao.CompteDAO             INFO    -                                 list_all() - END
+05/11/2026 10:57:52 dao.CompteDAO             INFO    -                                   └─> Output: ['Compte(user_id=1, username=jean, is_admin=True, email=jean@jean.com, access_token=5uiDduCRc4ea8ff5SZz0lZ2AwtQZv0vBZiuSZwCWJ54)', 'Compte(user_id=2, username=username1, is_admin=True, email=username1@example.com, access_token=access_token1)', 'Compte(user_id=3, username=username2, is_admin=False, email=username2@example.com, access_token=access_token2)'] ... (4 elements)
+05/11/2026 10:57:52 service.compte_service    INFO    -                               list_account() - END
+05/11/2026 10:57:52 service.compte_service    INFO    -                                 └─> Output: ['Compte(user_id=1, username=jean, is_admin=True, email=jean@jean.com, access_token=5uiDduCRc4ea8ff5SZz0lZ2AwtQZv0vBZiuSZwCWJ54)', 'Compte(user_id=2, username=username1, is_admin=True, email=username1@example.com, access_token=access_token1)', 'Compte(user_id=3, username=username2, is_admin=False, email=username2@example.com, access_token=access_token2)'] ... (4 elements)
+05/11/2026 10:57:52 root                      INFO    - GET /compte/ - END [Status: 200]
+05/11/2026 10:58:54 root                      INFO    - POST /login-compte/ - START
+05/11/2026 10:58:54 c.login_compte_controller INFO    - Tentative de connexion pour l'utilisateur : jean
+05/11/2026 10:58:54 service.compte_service    INFO    -                               login('jean', '*****') - START
+05/11/2026 10:58:54 dao.CompteDAO             INFO    -                                 login('jean', '*****') - START
+05/11/2026 10:58:54 dao.CompteDAO             INFO    -                                 login('jean', '*****') - END
+05/11/2026 10:58:54 dao.CompteDAO             INFO    -                                   └─> Output: Compte(user_id=1, username=jean, is_admin=True, email=jean@jean.com, access_token=5uiDduCRc4ea8ff5SZz0lZ2AwtQZv0vBZiuSZwCWJ54)
+05/11/2026 10:58:54 service.compte_service    INFO    -                                 update('Compte(user_id=1, username=jean, is_admin=True, email=jean@jean.com, access_token=LHmaQzcpX0-ukWy3jq9IYwZIktvkTMPZXwJzeIHKZKk)',) - START
+05/11/2026 10:58:54 dao.CompteDAO             INFO    -                                   update('Compte(user_id=1, username=jean, is_admin=True, email=jean@jean.com, access_token=LHmaQzcpX0-ukWy3jq9IYwZIktvkTMPZXwJzeIHKZKk)',) - START
+05/11/2026 10:58:54 dao.CompteDAO             INFO    -                                   update('Compte(user_id=1, username=jean, is_admin=True, email=jean@jean.com, access_token=LHmaQzcpX0-ukWy3jq9IYwZIktvkTMPZXwJzeIHKZKk)',) - END
+05/11/2026 10:58:54 dao.CompteDAO             INFO    -                                     └─> Output: True
+05/11/2026 10:58:54 service.compte_service    INFO    -                                 update('Compte(user_id=1, username=jean, is_admin=True, email=jean@jean.com, access_token=LHmaQzcpX0-ukWy3jq9IYwZIktvkTMPZXwJzeIHKZKk)',) - END
+05/11/2026 10:58:54 service.compte_service    INFO    -                                   └─> Output: Compte(user_id=1, username=jean, is_admin=True, email=jean@jean.com, access_token=LHmaQzcpX0-ukWy3jq9IYwZIktvkTMPZXwJzeIHKZKk)
+05/11/2026 10:58:54 service.compte_service    INFO    -                               login('jean', '*****') - END
+05/11/2026 10:58:54 service.compte_service    INFO    -                                 └─> Output: Compte(user_id=1, username=jean, is_admin=True, email=jean@jean.com, access_token=LHmaQzcpX0-ukWy3jq9IYwZIktvkTMPZXwJzeIHKZKk)
+05/11/2026 10:58:54 root                      INFO    - POST /login-compte/ - END [Status: 200]
+05/11/2026 10:58:56 root                      INFO    - POST /login-compte/ - START
+05/11/2026 10:58:56 c.login_compte_controller INFO    - Tentative de connexion pour l'utilisateur : jean
+05/11/2026 10:58:56 service.compte_service    INFO    -                               login('jean', '*****') - START
+05/11/2026 10:58:56 dao.CompteDAO             INFO    -                                 login('jean', '*****') - START
+05/11/2026 10:58:56 dao.CompteDAO             INFO    -                                 login('jean', '*****') - END
+05/11/2026 10:58:56 dao.CompteDAO             INFO    -                                   └─> Output: Compte(user_id=1, username=jean, is_admin=True, email=jean@jean.com, access_token=LHmaQzcpX0-ukWy3jq9IYwZIktvkTMPZXwJzeIHKZKk)
+05/11/2026 10:58:56 service.compte_service    INFO    -                                 update('Compte(user_id=1, username=jean, is_admin=True, email=jean@jean.com, access_token=3uP_qhmHRinvPJiGs2SqWrrHbdDUd-IpR8vj9AmUL8U)',) - START
+05/11/2026 10:58:56 dao.CompteDAO             INFO    -                                   update('Compte(user_id=1, username=jean, is_admin=True, email=jean@jean.com, access_token=3uP_qhmHRinvPJiGs2SqWrrHbdDUd-IpR8vj9AmUL8U)',) - START
+05/11/2026 10:58:56 dao.CompteDAO             INFO    -                                   update('Compte(user_id=1, username=jean, is_admin=True, email=jean@jean.com, access_token=3uP_qhmHRinvPJiGs2SqWrrHbdDUd-IpR8vj9AmUL8U)',) - END
+05/11/2026 10:58:56 dao.CompteDAO             INFO    -                                     └─> Output: True
+05/11/2026 10:58:56 service.compte_service    INFO    -                                 update('Compte(user_id=1, username=jean, is_admin=True, email=jean@jean.com, access_token=3uP_qhmHRinvPJiGs2SqWrrHbdDUd-IpR8vj9AmUL8U)',) - END
+05/11/2026 10:58:56 service.compte_service    INFO    -                                   └─> Output: Compte(user_id=1, username=jean, is_admin=True, email=jean@jean.com, access_token=3uP_qhmHRinvPJiGs2SqWrrHbdDUd-IpR8vj9AmUL8U)
+05/11/2026 10:58:56 service.compte_service    INFO    -                               login('jean', '*****') - END
+05/11/2026 10:58:56 service.compte_service    INFO    -                                 └─> Output: Compte(user_id=1, username=jean, is_admin=True, email=jean@jean.com, access_token=3uP_qhmHRinvPJiGs2SqWrrHbdDUd-IpR8vj9AmUL8U)
+05/11/2026 10:58:56 root                      INFO    - POST /login-compte/ - END [Status: 200]
+05/11/2026 10:59:33 root                      INFO    - POST /favoris/8 - START
+05/11/2026 10:59:33 dao.CompteDAO             INFO    -                               find_by_token('*****',) - START
+05/11/2026 10:59:33 dao.CompteDAO             INFO    -                               find_by_token('*****',) - END
+05/11/2026 10:59:33 dao.CompteDAO             INFO    -                                 └─> Output: Compte(user_id=1, username=jean, is_admin=True, email=jean@jean.com, access_token=3uP_qhmHRinvPJiGs2SqWrrHbdDUd-IpR8vj9AmUL8U)
+05/11/2026 10:59:33 c.favori_controller       INFO    - Add a favorite
+05/11/2026 10:59:33 service.favori_service    INFO    -                               ajouter_favori(1, '8') - START
+05/11/2026 10:59:33 dao.FavoriDAO             INFO    -                                 add_favorite(1, '8') - START
+05/11/2026 10:59:33 dao.FavoriDAO             INFO    -                                 add_favorite(1, '8') - END
+05/11/2026 10:59:33 dao.FavoriDAO             INFO    -                                   └─> Output: True
+05/11/2026 10:59:33 service.favori_service    INFO    -                               ajouter_favori(1, '8') - END
+05/11/2026 10:59:33 service.favori_service    INFO    -                                 └─> Output: True
+05/11/2026 10:59:33 root                      INFO    - POST /favoris/8 - END [Status: 201]
+05/11/2026 10:59:39 root                      INFO    - GET /favoris/ - START
+05/11/2026 10:59:39 dao.CompteDAO             INFO    -                               find_by_token('*****',) - START
+05/11/2026 10:59:39 dao.CompteDAO             INFO    -                               find_by_token('*****',) - END
+05/11/2026 10:59:39 dao.CompteDAO             INFO    -                                 └─> Output: Compte(user_id=1, username=jean, is_admin=True, email=jean@jean.com, access_token=3uP_qhmHRinvPJiGs2SqWrrHbdDUd-IpR8vj9AmUL8U)
+05/11/2026 10:59:39 c.favori_controller       INFO    - List the favorites of the current user
+05/11/2026 10:59:39 service.favori_service    INFO    -                               recuperer_favoris_par_joueur(1,) - START
+05/11/2026 10:59:39 dao.FavoriDAO             INFO    -                                 user_favorite(1,) - START
+05/11/2026 10:59:39 dao.FavoriDAO             INFO    -                                 user_favorite(1,) - END
+05/11/2026 10:59:39 dao.FavoriDAO             INFO    -                                   └─> Output: ['<business_object.favoris.Favori object at 0x7f19121f74d0>'] ... (1 elements)
+05/11/2026 10:59:39 service.favori_service    INFO    -                               recuperer_favoris_par_joueur(1,) - END
+05/11/2026 10:59:39 service.favori_service    INFO    -                                 └─> Output: ['<business_object.favoris.Favori object at 0x7f19121f74d0>'] ... (1 elements)
+05/11/2026 10:59:39 root                      INFO    - GET /favoris/ - END [Status: 200]
+05/11/2026 11:00:15 root                      INFO    - DELETE /favoris/8 - START
+05/11/2026 11:00:15 dao.CompteDAO             INFO    -                               find_by_token('*****',) - START
+05/11/2026 11:00:15 dao.CompteDAO             INFO    -                               find_by_token('*****',) - END
+05/11/2026 11:00:15 dao.CompteDAO             INFO    -                                 └─> Output: Compte(user_id=4, username=username3, is_admin=False, email=username3@example.com, access_token=access_token3)
+05/11/2026 11:00:15 c.favori_controller       INFO    - Remove a favorite
+05/11/2026 11:00:15 service.favori_service    INFO    -                               supprimer_favori(4, '8') - START
+05/11/2026 11:00:15 dao.FavoriDAO             INFO    -                                 remove_favorite(4, '8') - START
+05/11/2026 11:00:15 dao.FavoriDAO             INFO    -                                 remove_favorite(4, '8') - END
+05/11/2026 11:00:15 dao.FavoriDAO             INFO    -                                   └─> Output: False
+05/11/2026 11:00:15 service.favori_service    INFO    -                               supprimer_favori(4, '8') - END
+05/11/2026 11:00:15 service.favori_service    INFO    -                                 └─> Output: False
+05/11/2026 11:00:15 root                      INFO    - DELETE /favoris/8 - END [Status: 404]
+05/11/2026 11:00:35 root                      INFO    - GET /favoris/ - START
+05/11/2026 11:00:35 dao.CompteDAO             INFO    -                               find_by_token('*****',) - START
+05/11/2026 11:00:35 dao.CompteDAO             INFO    -                               find_by_token('*****',) - END
+05/11/2026 11:00:35 dao.CompteDAO             INFO    -                                 └─> Output: Compte(user_id=1, username=jean, is_admin=True, email=jean@jean.com, access_token=3uP_qhmHRinvPJiGs2SqWrrHbdDUd-IpR8vj9AmUL8U)
+05/11/2026 11:00:35 c.favori_controller       INFO    - List the favorites of the current user
+05/11/2026 11:00:35 service.favori_service    INFO    -                               recuperer_favoris_par_joueur(1,) - START
+05/11/2026 11:00:35 dao.FavoriDAO             INFO    -                                 user_favorite(1,) - START
+05/11/2026 11:00:35 dao.FavoriDAO             INFO    -                                 user_favorite(1,) - END
+05/11/2026 11:00:35 dao.FavoriDAO             INFO    -                                   └─> Output: ['<business_object.favoris.Favori object at 0x7f1911d0f100>'] ... (1 elements)
+05/11/2026 11:00:35 service.favori_service    INFO    -                               recuperer_favoris_par_joueur(1,) - END
+05/11/2026 11:00:35 service.favori_service    INFO    -                                 └─> Output: ['<business_object.favoris.Favori object at 0x7f1911d0f100>'] ... (1 elements)
+05/11/2026 11:00:35 root                      INFO    - GET /favoris/ - END [Status: 200]
+05/11/2026 11:12:58 root                      INFO    - --------------------------------------------------
+05/11/2026 11:12:58 root                      INFO    - Starting Webservice                           
+05/11/2026 11:12:58 root                      INFO    - --------------------------------------------------
+05/11/2026 11:12:58 root                      INFO    - Load environment variables: SUCCES
+05/11/2026 11:12:58 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-378144-rw.user-romane
+05/11/2026 11:12:58 root                      INFO    - POSTGRES_PORT=5432
+05/11/2026 11:12:58 root                      INFO    - POSTGRES_DATABASE=defaultdb
+05/11/2026 11:12:58 root                      INFO    - POSTGRES_USER=user-romane
+05/11/2026 11:12:58 root                      INFO    - POSTGRES_PASSWORD=*******
+05/11/2026 11:12:58 root                      INFO    - POSTGRES_SCHEMA=project
+05/11/2026 11:12:58 root                      INFO    - UVICORN_HOST=0.0.0.0
+05/11/2026 11:12:58 root                      INFO    - UVICORN_PORT=5000
+05/11/2026 11:12:58 root                      INFO    - BACKEND_URL=http://localhost:5000
+05/11/2026 11:12:58 root                      INFO    - BACKEND_TIMEOUT=5
+05/11/2026 11:13:17 root                      INFO    - GET /docs - START
+05/11/2026 11:13:17 root                      INFO    - GET /docs - END [Status: 200]
+05/11/2026 11:13:18 root                      INFO    - GET /openapi.json - START
+05/11/2026 11:13:19 root                      INFO    - GET /openapi.json - END [Status: 200]
