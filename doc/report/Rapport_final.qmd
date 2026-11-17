@@ -1,5 +1,182 @@
 ---
-title: "Rapport_final"
-format: html
+title: ""
+format:
+  pdf:
+    documentclass: article
+    mainfont: "TeX Gyre Termes"
+    header-includes: |
+      \usepackage{enumitem}
+      \setlist[itemize]{label=$\bullet$}  % Puce ronde classique
+      \usepackage{amsmath, amssymb}
+    text: |
+      \usepackage[dvipsnames]{xcolor}
+      \usepackage{booktabs}
+    number-sections: true
+    number_depth: 3
+lang: fr
+fontsize: 11pt
+papersize: a4
+geometry: top=1.5cm, bottom=1.5cm, left=2.5cm, right=2.5cm
+link-citations: true 
+nocite: "@*"
 ---
 
+\begin{titlepage}
+\raggedright
+
+\includegraphics{../ressources/ensai_logo_2.png}\\
+
+\centering
+\vspace{0.5cm}
+{\LARGE\textsc{Rapport de projet VeloScope}}\\
+\vspace{0.5cm}
+
+\vspace{1.5cm}
+
+\rule{\textwidth}{0.5mm}\\
+\vspace{0.8cm}
+{\huge\bfseries VeloScope}\\
+\vspace{0.8cm}
+\rule{\textwidth}{0.5mm}\\
+
+\vspace{1.5cm}
+
+\begin{flushleft}
+\emph{Étudiant·e·s :}\\
+Fanny BOUBY\\
+Audrey DANJOIE\\
+Romane DELANZY\\
+Jean POHARDY\\
+Elouan REGUIGNE GRANCHER\\
+\end{flushleft}
+
+\begin{flushright}
+\emph{Responsable :}\\
+Ludovic DENEUVILLE\\
+\vspace{0.5cm}
+\emph{Tuteur :}\\
+André RIVIERE\\
+\end{flushright}
+
+
+\vfill 
+\begin{center}
+École nationale de la statistique et de l’analyse de l’information\\
+2026--2027
+\end{center}
+\end{titlepage}
+
+\tableofcontents
+
+\pagebreak
+
+# Introduction
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+
+
+Le vélo en libre-service s’est installé dans de nombreuses villes comme une alternative aux transports en commun et à la voiture pour les trajets courts. Son usage reste pourtant soumis à certaines incertitudes. Par exemple, on ne sait pas si l'on trouvera un vélo ou une place libre pour rendre un vélo lorsqu'on arrivera à une station. Les réseaux publient la disponibilité à l’instant présent, mais cette information ne dit rien de la régularité d’une station : certaines sont fréquemment vides aux heures de pointe ou saturées le soir, d’autres sont presque toujours utilisables.
+
+Le projet VeloScope répond à ce besoin. L’application relève régulièrement l’état des stations d’un réseau de vélos en libre-service, en conserve l’historique et l’exploite de deux façons : 
+* Elle permet de consulter l’état d’une station et son évolution sur les dernières 24 heures, 7 jours ou 30 jours
+* Elle attribue à chaque station un score de fiabilité, calculé à partir de cet historique, et s’en sert pour recommander les stations les plus pertinentes autour d’une adresse en tenant compte de la distance et de la fiabilité passée de la station. 
+Les utilisateurs peuvent aussi enregistrer des stations favorites, et les administrateurs gèrent les comptes.
+
+Les données proviennent de l’API publique du réseau de Bordeaux (« Le Vélo TBM »), au format ouvert GBFS, qui décrit les stations et leur état. Ce flux ne donne que la situation présente. L’historique, qui fait toute la valeur de l’application, n’existe pas à la source mais nous le construisons en interrogeant l’API à intervalle régulier et en enregistrant chaque relevé dans une base PostgreSQL.
+
+L’application est composée d’une interface web (Streamlit) et d’une API (FastAPI) organisée en couches. 
+
+# Besoins et fonctionnalités attendues
+
+Le sujet imposait de construire une API qui collecte, historise et analyse les données d’un réseau de vélos en libre-service. Nous l’avons complétée par un site web (Streamlit), qui est le point d’accès des utilisateurs : ils y créent un compte, se connectent, consultent les stations et demandent des recommandations, sans appeler l’API directement.
+
+## Fonctionnalités retenues
+
+Le sujet définit cinq fonctionnalités obligatoires, que nous avons implémentées.
+
+* **F1 : Gestion des utilisateurs.** Un utilisateur peut créer un compte, se connecter et gérer ses stations favorites (ajout par identifiant ou par nom, suppression, consultation). Un compte administrateur peut en plus gérer les comptes des autres utilisateurs et administrer les stations (création, modification, suppression). Chaque requête protégée est identifiée par un jeton transmis dans l’en-tête X-Auth-Token, et un champ is_admin porté par le compte distingue les deux profils.
+
+
+* **F2 : Collecte des données.** L’API GBFS du réseau de Bordeaux n’expose que l’état présent des stations. Un script de collecte, lancé séparément de l’API, l’interroge toutes les 20 minutes. À chaque passage, il met à jour la description des stations (nom, adresse, coordonnées, capacité), puis enregistre un nouveau relevé par station : vélos disponibles (dont électriques), places libres, station installée, emprunt et retour autorisés. Chaque relevé est ajouté sans écraser les précédents, ce qui permet de reconstruire l’état du réseau à n’importe quel instant passé.
+
+
+* **F3 : Consultation d'une station.** L’utilisateur recherche une station par son nom (3 caractères minimum) et consulte son état (disponible, vide, saturée ou non opérationnelle), son nombre de vélos et de places disponibles, sa capacité et son taux de remplissage, c’est-à-dire la part des places occupées. Il visualise l’évolution de sa disponibilité sur les dernières 24 heures, les 7 derniers jours ou les 30 derniers jours.
+
+
+* **F4 : Score de fiabilité.** Pour chaque station, l’application calcule à partir de l’historique le pourcentage de temps passé vide et saturée, la durée moyenne des périodes de vide et de saturation, et un score global compris entre 0 et 1. 
+
+
+Pour une station donnée, on note :
+\begin{itemize}
+  \item $T$ la durée totale de l'historique (en heures) ;
+  \item $p_v$ la part du temps passée vide, c'est-à-dire
+        la somme des durées des périodes de vide divisée par $T$ ;
+  \item $p_s$ la part du temps passée saturée, c'est-à-dire
+        la somme des durées des périodes de saturation divisée par $T$ ;
+  \item $\bar{d}_v$ la durée moyenne, en heures, des épisodes de vide;
+  \item $\bar{d}_s$ la durée moyenne, en heures, des épisodes de saturation;
+  \item $c \in \{0, 1\}$ l'état actuel : $c = 1$ si la station n'est ni vide ni saturée,
+        $c = 0$ sinon.
+\end{itemize}
+
+Le score de fiabilité $S \in [0, 1]$ est la moyenne de cinq composantes :
+\begin{equation}
+  S = \frac{1}{5}\left[\, c + (1 - p_v) + (1 - p_s)
+      + \left(1 - \frac{\bar{d}_v}{T}\right)
+      + \left(1 - \frac{\bar{d}_s}{T}\right) \right]
+\end{equation}
+
+L’évolution du score dans le temps est également disponible.
+
+* **F5 : Recommandation de station.** L’utilisateur saisit une adresse à Bordeaux, le nombre de stations souhaité et un rayon de recherche. L’application convertit l’adresse en coordonnées, écarte les stations qui ne sont pas utilisables (non installée, emprunt impossible, aucun vélo disponible), puis classe les autres selon un score de recommandation égal à 
+
+\begin{equation}
+  S = 0,5 \times \textrm{proximité} + 0,5 \times \textrm{fiabilité}
+\end{equation}
+
+La proximité décroît avec la distance, et la fiabilité est le score de F4. Deux stations à distance équivalente ne sont donc pas classées de la même façon si leur historique diffère. Les vélos électriques et la tendance récente, cités dans le sujet comme critères possibles, ne sont pas pris en compte dans le classement.
+
+#### Fonctionnalités optionnelles
+F4 seulement mais pas aboutit d'après ce que j'ai compris ?
+
+## Différents cas d'utilisation
+
+L'application peut être consultée par trois acteurs : 
+
+* Le visiteur peut créer un compte et se connecter. 
+
+Toute utilisation de l'application passe par un compte. À son arrivée sur le site, le visiteur voit un formulaire de connexion où il doit renseigner un nom d'utilisateur (30 caractères max.), une adresse mail et un mot de passe qu'il doit confirmer, et aussi un bouton de création de compte qui reste inactif tant que le mot de passe n'a pas été confirmé. Si le nom d'utilisateur est déjà pris, l'API répond par une erreur 400 l'indiquant. Le compte créé est toujours un compte utilisateur : le statut administrateur est forcé à false. Seul un administrateur peut accorder les droits d'administrateur (et donc forcer le statut à vrai) à un compte. Un compte administrateur est donc un compte utilisateur auxquels des droits supplémentaires sont accordés. Par sécurité, le mot de passe n'est jamais stocké en clair. Il est transformé en une empreinte numérique illisible via l'algorithme SHA-256, combinée à l'identifiant de l'utilisateur.
+
+Si la création de compte réussi, l'application invite le visiteur à se connecter. Lors de la connexion, le service hache le mot de passe saisi et le compare à celui de la base. Si les identifiants sont corrects, il génère un jeton aléatoire, l'enregistre sur le compte et renvoie les informations du compte avec ce jeton. Chaque connexion remplace le jeton précédent. Si les identifiants sont invalides, l'API répond par une erreur 401. Les routes protégées (routes des stations, des favoris, de la modification et de la suppression d'un compte) répondent aussi par une erreur 401 si le jeton est absent ou inconnu. Les pages de recommandation, de recherche d'itinéraire et de gestion des utilisateirs vérifient la présence d'un jeton en session et affichent un message d'erreur s'il est absent.
+
+* L'utilisateur a 4 possibilités une fois connecté : 
+
+Il peut d'abord trouver un vélo près de lui grâce à la page "recommandation" sur laquelle il saisit une adresse, le nombre de stations souhaitées (de 1 à 10) et un rayon de recherche (entre 0.1 et 10km avec 1km comme valeur par défaut). Le backend ajoute "Bordeaux, France" à l'adresse, et répond par une arreur 400 à toute audresse située hors de l'agglomération. Les stations utilisables classées par score de recommandation sont renvoyées en listant leurs noms, adresses, distances,scores de fiabilité et de recommandation, capacités et coordonnées. Le cas où aucune station n'ets disponible dans le rayon saisi est signalé.
+
+L'utilisateur peut aussi utiliser la page "Consultation d'une station" pour se renseigner sur une station précise.
+
+
+
+
+L'utilisateur peut aussi retrouver ses stations habituelles dans la page "Mes stations favorites".
+
+
+
+Enfin, l'utilisateur peut parcourir le réseau.
+
+
+# Données utilisées
+
+# Architecture
+
+# Fonctionnalités finales et utilisation de l'application
+
+# Modèle de données et stockage
+
+# Organisation du travail et outil
+
+# Tests mis en place, pistes d'amélioration
+
+# Conclusion et bilan
+
+# Annexes
