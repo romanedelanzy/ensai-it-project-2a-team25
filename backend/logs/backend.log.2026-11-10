@@ -1,0 +1,85 @@
+10/11/2026 19:24:38 root                      INFO    - --------------------------------------------------
+10/11/2026 19:24:38 root                      INFO    - Starting Webservice                           
+10/11/2026 19:24:38 root                      INFO    - --------------------------------------------------
+10/11/2026 19:24:38 root                      INFO    - Load environment variables: FAIL
+10/11/2026 19:24:43 root                      INFO    - GET / - START
+10/11/2026 19:24:43 root                      INFO    - GET / - END [Status: 307]
+10/11/2026 19:24:43 root                      INFO    - GET /docs - START
+10/11/2026 19:24:43 root                      INFO    - GET /docs - END [Status: 200]
+10/11/2026 19:24:43 root                      INFO    - GET /openapi.json - START
+10/11/2026 19:24:43 root                      INFO    - GET /openapi.json - END [Status: 200]
+10/11/2026 19:24:56 root                      INFO    - GET /reset_database - START
+10/11/2026 19:24:56 root                      ERROR   - GET /reset_database - FAILED [Status: 500] Error: 'POSTGRES_SCHEMA'
+10/11/2026 19:24:58 root                      INFO    - GET /reset_database - START
+10/11/2026 19:24:58 root                      ERROR   - GET /reset_database - FAILED [Status: 500] Error: 'POSTGRES_SCHEMA'
+10/11/2026 19:25:16 root                      INFO    - GET /recommendation/ - START
+10/11/2026 19:25:16 s.recommandation_service  INFO    -       recommander_stations(45.0, 46.0, 5, 1.0) - START
+10/11/2026 19:25:16 s.recommandation_service  ERROR   - --- ERREUR REELLE DANS recommander_stations : KeyError - 'POSTGRES_HOST'
+10/11/2026 19:25:16 root                      ERROR   - GET /recommendation/ - FAILED [Status: 500] Error: 'POSTGRES_HOST'
+10/11/2026 19:30:32 root                      INFO    - --------------------------------------------------
+10/11/2026 19:30:32 root                      INFO    - Starting Webservice                           
+10/11/2026 19:30:32 root                      INFO    - --------------------------------------------------
+10/11/2026 19:30:32 root                      INFO    - Load environment variables: SUCCES
+10/11/2026 19:30:32 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-5856-rw.user-elouan
+10/11/2026 19:30:32 root                      INFO    - POSTGRES_PORT=5432
+10/11/2026 19:30:32 root                      INFO    - POSTGRES_DATABASE=defaultdb
+10/11/2026 19:30:32 root                      INFO    - POSTGRES_USER=user-elouan
+10/11/2026 19:30:32 root                      INFO    - POSTGRES_PASSWORD=*******
+10/11/2026 19:30:32 root                      INFO    - POSTGRES_SCHEMA=project
+10/11/2026 19:30:32 root                      INFO    - UVICORN_HOST=0.0.0.0 UVICORN_PORT=5000
+10/11/2026 19:30:32 root                      INFO    - BACKEND_URL=http://localhost:5000
+10/11/2026 19:30:32 root                      INFO    - BACKEND_TIMEOUT=5
+10/11/2026 19:30:37 root                      INFO    - GET / - START
+10/11/2026 19:30:37 root                      INFO    - GET / - END [Status: 307]
+10/11/2026 19:30:37 root                      INFO    - GET /docs - START
+10/11/2026 19:30:37 root                      INFO    - GET /docs - END [Status: 200]
+10/11/2026 19:30:37 root                      INFO    - GET /openapi.json - START
+10/11/2026 19:30:37 root                      INFO    - GET /openapi.json - END [Status: 200]
+10/11/2026 19:30:45 root                      INFO    - GET /reset_database - START
+10/11/2026 19:30:46 root                      INFO    - GET /reset_database - END [Status: 200]
+10/11/2026 19:31:06 root                      INFO    - GET /reliability/2 - START
+10/11/2026 19:31:06 root                      INFO    - GET /reliability/2 - END [Status: 200]
+10/11/2026 19:33:33 root                      INFO    - GET /recommendation/ - START
+10/11/2026 19:33:33 s.recommandation_service  INFO    -   recommander_stations(44.84423, -0.57434, 5, 'None') - START
+10/11/2026 19:33:35 s.recommandation_service  INFO    -   recommander_stations(44.84423, -0.57434, 5, 'None') - END
+10/11/2026 19:33:35 s.recommandation_service  INFO    -     └─> Output: ["{'station': Station(id=39, name='Quinconces', capacite=63), 'distance_km': 0.0, 'score_fiabilite': 1.0, 'score_recommandation': 1.0}", "{'station': Station(id=539, name='Ilots Quinconces', capacite=10), 'distance_km': 0.014, 'score_fiabilite': 1.0, 'score_recommandation': 1.0}", "{'station': Station(id=40, name='Grand Theatre', capacite=19), 'distance_km': 0.149, 'score_fiabilite': 1.0, 'score_recommandation': 0.9945}"] ... (5 elements)
+10/11/2026 19:33:35 root                      INFO    - GET /recommendation/ - END [Status: 200]
+10/11/2026 19:34:13 root                      INFO    - --------------------------------------------------
+10/11/2026 19:34:13 root                      INFO    - Starting Webservice                           
+10/11/2026 19:34:13 root                      INFO    - --------------------------------------------------
+10/11/2026 19:34:13 root                      INFO    - Load environment variables: SUCCES
+10/11/2026 19:34:13 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-5856-rw.user-elouan
+10/11/2026 19:34:13 root                      INFO    - POSTGRES_PORT=5432
+10/11/2026 19:34:13 root                      INFO    - POSTGRES_DATABASE=defaultdb
+10/11/2026 19:34:13 root                      INFO    - POSTGRES_USER=user-elouan
+10/11/2026 19:34:13 root                      INFO    - POSTGRES_PASSWORD=*******
+10/11/2026 19:34:13 root                      INFO    - POSTGRES_SCHEMA=project
+10/11/2026 19:34:13 root                      INFO    - UVICORN_HOST=0.0.0.0 UVICORN_PORT=5000
+10/11/2026 19:34:13 root                      INFO    - BACKEND_URL=http://localhost:5000
+10/11/2026 19:34:13 root                      INFO    - BACKEND_TIMEOUT=5
+10/11/2026 19:34:21 root                      INFO    - --------------------------------------------------
+10/11/2026 19:34:21 root                      INFO    - Starting Webservice                           
+10/11/2026 19:34:21 root                      INFO    - --------------------------------------------------
+10/11/2026 19:34:21 root                      INFO    - Load environment variables: SUCCES
+10/11/2026 19:34:21 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-5856-rw.user-elouan
+10/11/2026 19:34:21 root                      INFO    - POSTGRES_PORT=5432
+10/11/2026 19:34:21 root                      INFO    - POSTGRES_DATABASE=defaultdb
+10/11/2026 19:34:21 root                      INFO    - POSTGRES_USER=user-elouan
+10/11/2026 19:34:21 root                      INFO    - POSTGRES_PASSWORD=*******
+10/11/2026 19:34:21 root                      INFO    - POSTGRES_SCHEMA=project
+10/11/2026 19:34:21 root                      INFO    - UVICORN_HOST=0.0.0.0 UVICORN_PORT=5000
+10/11/2026 19:34:21 root                      INFO    - BACKEND_URL=http://localhost:5000
+10/11/2026 19:34:21 root                      INFO    - BACKEND_TIMEOUT=5
+10/11/2026 19:34:25 root                      INFO    - --------------------------------------------------
+10/11/2026 19:34:25 root                      INFO    - Starting Webservice                           
+10/11/2026 19:34:25 root                      INFO    - --------------------------------------------------
+10/11/2026 19:34:25 root                      INFO    - Load environment variables: SUCCES
+10/11/2026 19:34:25 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-5856-rw.user-elouan
+10/11/2026 19:34:25 root                      INFO    - POSTGRES_PORT=5432
+10/11/2026 19:34:25 root                      INFO    - POSTGRES_DATABASE=defaultdb
+10/11/2026 19:34:25 root                      INFO    - POSTGRES_USER=user-elouan
+10/11/2026 19:34:25 root                      INFO    - POSTGRES_PASSWORD=*******
+10/11/2026 19:34:25 root                      INFO    - POSTGRES_SCHEMA=project
+10/11/2026 19:34:25 root                      INFO    - UVICORN_HOST=0.0.0.0 UVICORN_PORT=5000
+10/11/2026 19:34:25 root                      INFO    - BACKEND_URL=http://localhost:5000
+10/11/2026 19:34:25 root                      INFO    - BACKEND_TIMEOUT=5
