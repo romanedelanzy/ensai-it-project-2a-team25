@@ -16,18 +16,16 @@ class CompteCreateModel(BaseModel):
     @field_validator("password")
     @classmethod
     def check_password_length(cls, v: str) -> str:
-        # On fixe une longueur minimale raisonnable (ex: 4 caractères pour correspondre à tes tests, 
-        # contrairement au prof qui mettait 35 pour un hachage spécifique)
+        # On fixe une longueur minimale raisonnable
         min_len = 4
         if len(v) < min_len:
             raise ValueError(f"Le mot de passe doit contenir au moins {min_len} caractères")
         return v
 
 class CompteReadModel(BaseModel):
-    """Contrat de données pour la lecture / affichage d'un compte avec le token pour la connexion.
+    """Contrat de données pour la lecture d'un compte avec le token pour la connexion.
     Sécurité : NE CONTIENT PAS LE MOT DE PASSE.
     """
-
     user_id: int
     username: str
     email: EmailStr

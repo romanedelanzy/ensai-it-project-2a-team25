@@ -52,7 +52,7 @@ def create_account(
 
     return compte
 
-@router.get("/id/{user_id}", response_model=CompteReadModel)
+@router.get("/id/{user_id}", response_model=ComptePublicModel)
 def get_account_by_id(
     user_id: int,
     service: CompteService = Depends(get_compte_service)
@@ -70,7 +70,7 @@ def get_account_by_id(
 
     return compte
 
-@router.get("/username/{username}", response_model=CompteReadModel)
+@router.get("/username/{username}", response_model=ComptePublicModel)
 def get_account_by_username(
     username: str,
     service: CompteService = Depends(get_compte_service)
