@@ -165,15 +165,62 @@ L'utilisateur peut aussi retrouver ses stations habituelles dans la page "Mes st
 Enfin, l'utilisateur peut parcourir le réseau.
 
 
-# Données utilisées
+# Quelles sont les données manipulées et d'où viennent-elles ?
 
-# Architecture
+L'application VéloScope s'appuie sur des données ouvertes pour fonctionner. Nous avons choisis d'utiliser celles fournies par la métropole de Bordeaux concernant son réseau de vélos en libre-service (TBM). C'était pour nous la base de donnée la plus complète compte-tenu des fonctionnalités que nous avions à développer. 
+
+Les données externes sont récupérées via Internet au format JSON. C'est un format texte léger et structuré très répandu pour l'échange de données entre serveurs. Les données sur les systèmes de vélo en libre service sont stockées selon le standard international GBFS (General Bikeshare Feed Specification). 
+
+Ce standard sépare les informations en deux flux bien distincts :
+Les données statiques (station_information) : Elles décrivent l'infrastructure fixe du réseau, qui change très rarement. On y trouve l'identifiant unique de chaque station, son nom, son adresse postale, sa capacité totale et ses coordonnées géographiques (latitude et longitude au format décimal WGS84).
+
+Les données dynamiques (station_status) : Elles reflètent l'activité du réseau en temps réel. Ce fichier contient, pour chaque identifiant de station, l'horodatage de la dernière mise à jour, le nombre de vélos mécaniques disponibles, le nombre de vélos à assistance électrique disponibles, le nombre de bornes libres, ainsi que des indicateurs booléens précisant si la station est ouverte, si l'on peut y louer un vélo et si l'on peut y en déposer un.
+
+
+Nous avons rencontrés certaines difficultés en confrontant notre application aux données réelles de Bordeaux sur plusieurs semaines.
+Nous avons identifié plusieurs particularités nécessitant un nettoyage préalable :
+Stations en maintenance ou hors service : Certains relevés indiquent une station comme ouverte (is_renting = true), alors que la somme des vélos disponibles et des places libres est strictement inférieure à la capacité officielle de la station (bornes défectueuses ou vélos bloqués).
+Données figées ou absences de réponse : Il arrive ponctuellement que l'API de la ville renvoie des données obsolètes (horodatage last_reported inchangé pendant plusieurs heures) ou subisse une micro-coupure réseau. Notre module de collecte a été conçu pour filtrer les doublons temporels et ignorer les relevés incohérents afin de ne pas fausser nos calculs statistiques.
+
+Le rôle de Véloscope de s'arrête pas à la simple extraction de ces données. À partir de ces relevés bruts archivés toutes les 15 minutes, VeloScope produit ses propres indicateurs à forte valeur ajoutée. L'application apporte à l'utilisateur des informations quant à l'état d'une station à chaque instant, calcule es pourcentages de temps passé en pénurie ou en saturation, la durée moyenne de ces épisodes d'indisponibilité, un score global de fiabilité sur 100, ainsi qu'un score de recommandation personnalisé.
+
+
+# Comment fonctionne notre application ?: architecture générales et outils 
+
+Notre objectif principal était de créer une application fiable et facile à faire évoluer. Ainsi, nous avons fait le choix d'utiliser les outils suivants et de la découper en plusieurs briques. 
+
+Pour ce faire, nous avons utilisé les outils technologiques suivants. Notre projet utilise entièrement le langage de programmation Python connu pour sa clarté et sa puissance quant à l'analyse de données. Nous avons choisi FastAPI pour gérer la partie invisible de l'application. Elle réalise les calculs, gère la sécurité et communique avec la base de données. ELle est connue pour être rapide et génère automatiquement une documentation claire de toutes ses commandes. Notre base de données est stockée grace au logiciel spécialisé PostgreSQL. Il est sécurisé et permet le stockage d'une grande quantité d'informations. Ainsi, il conserve l'historique des relevés des stations vélo de Bordeaux. 
+Enfin, l'utilisateur intéragit avec notre application dans son navigateyr via une interface visuelle grâce à l'outil Streamlit. 
+
+Comme évoqué précédemment notre code est organisé en cinq couches qui communiquent entre elles de manière ordonnée. Cette structure est schématisée par la diagramme d'architecture. L’application est articulée autour du Backend qui contient la logique de gestion des données, et du Frontend qui permet à l’utilisateur d’intéragir
+avec l’application. L’application communique également avec une source de données externe afin de récupérer les informations sur des stations de vélo.
+
+La première couche, la seule visible par l'utilisateur est l'Interface (Streamlit). On l'appelle le Frontend. C'est la vitrine de notre application. Elle affiche les différentes pages et permet à l'utilisateur d'intéragir avec l'application. Elle ne fait aucun calcul complexe elle même. Elle transmet seulement les instructions au Backend. 
+
+Les quatre autres couches forment le Backend. 
+
+La deuxième couche est celle des controleurs ( API FastAPI). C'est cette couche qui reçoit les demandes de l'interface, verifient qu'elles soient bien formulées et les transmets aux services. 
+
+Les services sont la troisième couche du code. C'est ici que de trouve toute la logique métier de l'application. Cette partie rassemble l'ensemble des méthodes qui permettent à notre application de fonctionner (calcul du score de fiabilité, tri des recommandations, vérification des mots de passe, etc). C'est également un Service qui va chercher les données sur Internet auprès de l'API de la ville de Bordeaux.
+
+La quatrième couche du projet est les modèles. Ils permettent de structurer les données utilisées par l'application. Ils définissent à quoi ressemble une station ou un utilisateur dans notre code.
+
+Enfin, la derniere couche est constituée des DAO. Les DAO (Data Access Objects) assurent la communication avec la base de données. Ils peuvent lire et écrire dans la base de données PostgreSQL.
+
+
+
+
 
 # Fonctionnalités finales et utilisation de l'application
 
 # Modèle de données et stockage
 
 # Organisation du travail et outil
+
+- diagramme de gant. 
+
+Pour mener ce projet de groupe à bien sur une période de trois mois, l'organisation était primordiale. Nous devions à la fois répartir les différentes tâches dans le temps et entre les membres du groupe. Nous avons mis en place un diagramme de Gantt organisant notre travail autour de 2 phases. Une première phase de conception en septembre dont les objectifs principaux étaient: la compréhension du sujet, la recherche de bases de données, la réflexion sur la structure de l'application et les réalisations des différents graphiques. La deuxième phase a débuté après le rendu du rapport intermédiaire. Elle était centrée sur la construction progressive de l'application via l'écriture du code. Nous avons essayé de faire un des réunions de groupes assez régulièrement au cours desquelles nous nous répartissions les différentes tâches et faisions le point sur ce qui avait été fait. Chaque membre à participer aux développements de chaque couche et à coder au moins un modèle, un DAO controller et un service.Nous avons essayé de tenir compte au mieux des atouts et des préferences de chacun dans la répartition des tâches. 
+
 
 # Tests mis en place, pistes d'amélioration
 
