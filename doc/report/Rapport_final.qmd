@@ -71,26 +71,47 @@ André RIVIERE\\
 \pagebreak
 
 # Introduction
+## remise en contexte et problématique
+
+Dans un contexte de transition écologique et de décongestion des centres urbains, l'encouragement à l'usage du vélo au quotidien est devenu une priorité majeure pour les collectivités. Les réseaux de vélos en libre-service jouent un rôle clé dans cette dynamique de mobilité douce. Aujourd'hui, la plupart des métropoles mettent à disposition des applications mobiles affichant une carte des stations en temps réel.
+Son usage reste pourtant soumis à certaines incertitudes. Par exemple, on ne sait pas si l'on trouvera un vélo ou une place libre pour rendre un vélo lorsqu'on arrivera à une station. Les réseaux publient la disponibilité à l’instant présent, mais cette information ne dit rien de la régularité d’une station : certaines sont fréquemment vides aux heures de pointe ou saturées le soir, d’autres sont presque toujours utilisables.
+
+Comment dépasser la simple visualisation instantanée de l'état d'un réseau de vélos en libre-service pour fournir aux usagers des indicateurs historiques de fiabilité et des recommandations personnalisées fiables ?
+Notre réponse avec VeloScope : Contrairement aux applications classiques qui affichent l'état du réseau à un instant t puis oublient cette information, VeloScope construit sa propre mémoire. Notre application interroge périodiquement les serveurs de données publiques de la ville de Bordeaux (Le Vélo TBM) et historise chaque relevé dans une base de données. En analysant cet historique, VeloScope calcule des indicateurs de performance (taux de pénurie, taux de saturation, score de fiabilité) et propose un moteur de recommandation multicritère aidant l'usager à choisir la station la plus pertinente.
+
+
+
+## a qui s'adresse l'application
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 
 
-Le vélo en libre-service s’est installé dans de nombreuses villes comme une alternative aux transports en commun et à la voiture pour les trajets courts. Son usage reste pourtant soumis à certaines incertitudes. Par exemple, on ne sait pas si l'on trouvera un vélo ou une place libre pour rendre un vélo lorsqu'on arrivera à une station. Les réseaux publient la disponibilité à l’instant présent, mais cette information ne dit rien de la régularité d’une station : certaines sont fréquemment vides aux heures de pointe ou saturées le soir, d’autres sont presque toujours utilisables.
+VeloScope s'adresse à deux profils d'utilisateurs distincts, structurés selon un principe d'héritage des droits afin de simplifier l'usage quotidien :
+L'Usager du réseau (Utilisateur standard) : Il représente tout citoyen, étudiant ou travailleur souhaitant optimiser ses déplacements à vélo en ville. Après avoir créé son compte personnel et s'être connecté, il peut rechercher une station, visualiser l'évolution de sa disponibilité sur différentes périodes (24h, 7 jours, 30 jours), consulter son score de fiabilité, enregistrer ses stations habituelles en favoris, explorer la carte interactive du réseau ou demander une recommandation de station et d'itinéraire.
+L'Administrateur : C'est le gestionnaire technique de la plateforme. Il dispose exactement des mêmes fonctionnalités qu'un usager standard (il n'a donc pas besoin de jongler entre deux comptes distincts pour utiliser l'application), mais bénéficie en plus d'un espace d'administration lui permettant de superviser les comptes inscrits (consulter la liste des utilisateurs, modifier leurs informations ou rôles, supprimer un compte).
 
-Le projet VeloScope répond à ce besoin. L’application relève régulièrement l’état des stations d’un réseau de vélos en libre-service, en conserve l’historique et l’exploite de deux façons : 
-* Elle permet de consulter l’état d’une station et son évolution sur les dernières 24 heures, 7 jours ou 30 jours
-* Elle attribue à chaque station un score de fiabilité, calculé à partir de cet historique, et s’en sert pour recommander les stations les plus pertinentes autour d’une adresse en tenant compte de la distance et de la fiabilité passée de la station. 
-Les utilisateurs peuvent aussi enregistrer des stations favorites, et les administrateurs gèrent les comptes.
 
-Les données proviennent de l’API publique du réseau de Bordeaux (« Le Vélo TBM »), au format ouvert GBFS, qui décrit les stations et leur état. Ce flux ne donne que la situation présente. L’historique, qui fait toute la valeur de l’application, n’existe pas à la source mais nous le construisons en interrogeant l’API à intervalle régulier et en enregistrant chaque relevé dans une base PostgreSQL.
 
-L’application est composée d’une interface web (Streamlit) et d’une API (FastAPI) organisée en couches. 
 
-# Besoins et fonctionnalités attendues
+#Présentation générale
 
+##Organisation du groupe et gestion du projet
+
+
+- diagramme de gant. 
+
+Pour mener à bien ce projet sur une durée de trois mois (de septembre à novembre 2026), notre équipe de cinq étudiants a adopté l'organisation suivante. Nous devions à la fois répartir les différentes tâches dans le temps et entre les membres du groupe. 
+
+Pour ce faire, nous avons, dès le début du projet organisé les grandes phases de notre travail dans le temps grâce à un diagramme de Gantt. Il nous a permit de découper le projet en 2 temps.  Une première phase de conception en septembre dont les objectifs principaux étaient: la compréhension du sujet, la recherche de bases de données, la réflexion sur la structure de l'application et les réalisations des différents graphiques. La deuxième phase a débuté après le rendu du rapport intermédiaire. Elle était centrée sur la construction progressive et incrémentable de l'application via l'écriture du code.
+
+D'autre part, nous avons essayé de nous réunir assez régulièrement pour nous répartir les différentes tâches et faire le point sur ce qui avait été fait. Chaque membre à participer aux développements de chaque couche et à coder au moins un modèle, un DAO controller et un service. Nous avons essayé de tenir compte au mieux des atouts et des préferences de chacun dans la répartition des tâches. Ainsi, les élèves ayant davantage de facilités en informatique ce sont concentrés sur le code des classes les plus complexes. 
+
+L'ensemble du code a été versionné sur un dépôt GitHub commun garantissant ainsi la cohérence et la qualité du code produit. 
+
+
+
+##Fonctionnalités de l'API et besoins couverts
 Le sujet imposait de construire une API qui collecte, historise et analyse les données d’un réseau de vélos en libre-service. Nous l’avons complétée par un site web (Streamlit), qui est le point d’accès des utilisateurs : ils y créent un compte, se connectent, consultent les stations et demandent des recommandations, sans appeler l’API directement.
-
-## Fonctionnalités retenues
 
 Le sujet définit cinq fonctionnalités obligatoires, que nous avons implémentées.
 
@@ -135,12 +156,65 @@ L’évolution du score dans le temps est également disponible.
 \end{equation}
 
 La proximité décroît avec la distance, et la fiabilité est le score de F4. Deux stations à distance équivalente ne sont donc pas classées de la même façon si leur historique diffère. Les vélos électriques et la tendance récente, cités dans le sujet comme critères possibles, ne sont pas pris en compte dans le classement.
-
-#### Fonctionnalités optionnelles
+Fonctionnalités optionnelles
 F4 seulement mais pas aboutit d'après ce que j'ai compris ?
 
-## Différents cas d'utilisation
 
+##Les données de l'application
+- modèle de donnée 
+
+L'application VéloScope s'appuie sur des données ouvertes pour fonctionner. Nous avons choisis d'utiliser celles fournies par la métropole de Bordeaux concernant son réseau de vélos en libre-service (TBM). C'était pour nous la base de donnée la plus complète compte-tenu des fonctionnalités que nous avions à développer. 
+
+Les données externes sont récupérées via Internet au format JSON. C'est un format texte léger et structuré très répandu pour l'échange de données entre serveurs. Les données sur les systèmes de vélo en libre service sont stockées selon le standard international GBFS (General Bikeshare Feed Specification). 
+
+Ce standard sépare les informations en deux flux bien distincts :
+Les données statiques (station_information) : Elles décrivent l'infrastructure fixe du réseau, qui change très rarement. On y trouve l'identifiant unique de chaque station, son nom, son adresse postale, sa capacité totale et ses coordonnées géographiques (latitude et longitude au format décimal WGS84).
+
+Les données dynamiques (station_status) : Elles reflètent l'activité du réseau en temps réel. Ce fichier contient, pour chaque identifiant de station, l'horodatage de la dernière mise à jour, le nombre de vélos mécaniques disponibles, le nombre de vélos à assistance électrique disponibles, le nombre de bornes libres, ainsi que des indicateurs booléens précisant si la station est ouverte, si l'on peut y louer un vélo et si l'on peut y en déposer un.
+
+
+Nous avons rencontrés certaines difficultés en confrontant notre application aux données réelles de Bordeaux sur plusieurs semaines.
+Nous avons identifié plusieurs particularités nécessitant un nettoyage préalable :
+Stations en maintenance ou hors service : Certains relevés indiquent une station comme ouverte (is_renting = true), alors que la somme des vélos disponibles et des places libres est strictement inférieure à la capacité officielle de la station (bornes défectueuses ou vélos bloqués).
+Données figées ou absences de réponse : Il arrive ponctuellement que l'API de la ville renvoie des données obsolètes (horodatage last_reported inchangé pendant plusieurs heures) ou subisse une micro-coupure réseau. Notre module de collecte a été conçu pour filtrer les doublons temporels et ignorer les relevés incohérents afin de ne pas fausser nos calculs statistiques.
+
+Le rôle de Véloscope de s'arrête pas à la simple extraction de ces données. À partir de ces relevés bruts archivés toutes les 15 minutes, VeloScope produit ses propres indicateurs à forte valeur ajoutée. L'application apporte à l'utilisateur des informations quant à l'état d'une station à chaque instant, calcule es pourcentages de temps passé en pénurie ou en saturation, la durée moyenne de ces épisodes d'indisponibilité, un score global de fiabilité sur 100, ainsi qu'un score de recommandation personnalisé.
+
+
+#architecture et système de stockage
+## nature de l'application et choix technologiques
+Notre objectif principal était de créer une application fiable et facile à faire évoluer. Ainsi, nous avons fait le choix d'utiliser les outils suivants et de la découper en plusieurs briques. 
+
+Pour ce faire, nous avons utilisé les outils technologiques suivants. Notre projet utilise entièrement le langage de programmation Python connu pour sa clarté et sa puissance quant à l'analyse de données. Nous avons choisi FastAPI pour gérer la partie invisible de l'application. Elle réalise les calculs, gère la sécurité et communique avec la base de données. ELle est connue pour être rapide et génère automatiquement une documentation claire de toutes ses commandes. Notre base de données est stockée grace au logiciel spécialisé PostgreSQL. Il est sécurisé et permet le stockage d'une grande quantité d'informations. Ainsi, il conserve l'historique des relevés des stations vélo de Bordeaux. 
+Enfin, l'utilisateur intéragit avec notre application dans son navigateyr via une interface visuelle grâce à l'outil Streamlit. 
+
+## schéma d'architecture et décomposition en couche 
+- diagramme architecture 
+Comme évoqué précédemment notre code est organisé en cinq couches qui communiquent entre elles de manière ordonnée. Cette structure est schématisée par la diagramme d'architecture. L’application est articulée autour du Backend qui contient la logique de gestion des données, et du Frontend qui permet à l’utilisateur d’intéragir
+avec l’application. L’application communique également avec une source de données externe afin de récupérer les informations sur des stations de vélo.
+
+La première couche, la seule visible par l'utilisateur est l'Interface (Streamlit). On l'appelle le Frontend. C'est la vitrine de notre application. Elle affiche les différentes pages et permet à l'utilisateur d'intéragir avec l'application. Elle ne fait aucun calcul complexe elle même. Elle transmet seulement les instructions au Backend. 
+
+Les quatre autres couches forment le Backend. 
+
+La deuxième couche est celle des controleurs ( API FastAPI). C'est cette couche qui reçoit les demandes de l'interface, verifient qu'elles soient bien formulées et les transmets aux services. 
+
+Les services sont la troisième couche du code. C'est ici que de trouve toute la logique métier de l'application. Cette partie rassemble l'ensemble des méthodes qui permettent à notre application de fonctionner (calcul du score de fiabilité, tri des recommandations, vérification des mots de passe, etc). C'est également un Service qui va chercher les données sur Internet auprès de l'API de la ville de Bordeaux.
+
+La quatrième couche du projet est les modèles. Ils permettent de structurer les données utilisées par l'application. Ils définissent à quoi ressemble une station ou un utilisateur dans notre code.
+
+Enfin, la derniere couche est constituée des DAO. Les DAO (Data Access Objects) assurent la communication avec la base de données. Ils peuvent lire et écrire dans la base de données PostgreSQL.
+## système de stockage et justification des choix 
+
+
+# Réponse aux besoins : fonctionnement détaillé 
+##utilisation concrète de l'application 
+- peut être mettre un screnn de l'interface ? 
+
+
+## Evaluation de la fiabilité et recommandation de station
+## synthèse des autres fonctionnalités 
+- diagramme des cas d'utilisation
 L'application peut être consultée par trois acteurs : 
 
 * Le visiteur peut créer un compte et se connecter. 
@@ -164,72 +238,38 @@ L'utilisateur peut aussi retrouver ses stations habituelles dans la page "Mes st
 
 Enfin, l'utilisateur peut parcourir le réseau.
 
+#Test et qualité
 
-# Quelles sont les données manipulées et d'où viennent-elles ?
+#améliorations et perspectives 
+Dans le cadre des trois mois impartis pour ce projet, nous avons concentré nos efforts sur la robustesse des fonctionnalités principales (F1 à F5) ainsi que sur l'ajout d'une carte interactive. Certaines fonctionnalités optionnelles ont été mises de côté et pourraient être intégrées ultérieurement: 
 
-L'application VéloScope s'appuie sur des données ouvertes pour fonctionner. Nous avons choisis d'utiliser celles fournies par la métropole de Bordeaux concernant son réseau de vélos en libre-service (TBM). C'était pour nous la base de donnée la plus complète compte-tenu des fonctionnalités que nous avions à développer. 
+Prévision de disponibilité par apprentissage statistique (FO1) : Actuellement, notre score de fiabilité reflète le comportement passé d'une station. Avec plusieurs mois d'historique accumulés en base, il serait pertinent d'implémenter un modèle de prévision (régression ou séries temporelles intégrant l'heure de la journée, le jour de la semaine et la météo) dans un nouveau service dédié afin d'estimer la probabilité qu'une station soit vide dans l'heure suivante.
+Détection automatique d'anomalies (FO3) : Bien que notre adaptateur filtre déjà certains relevés aberrants lors de la collecte, nous pourrions ajouter un module d'alerte analysant l'historique pour signaler automatiquement aux administrateurs les stations bloquées dans un état figé pendant plus de 24 heures (panne de capteur) ou présentant des variations impossibles du nombre de vélos
 
-Les données externes sont récupérées via Internet au format JSON. C'est un format texte léger et structuré très répandu pour l'échange de données entre serveurs. Les données sur les systèmes de vélo en libre service sont stockées selon le standard international GBFS (General Bikeshare Feed Specification). 
+Au delà des fonctionnalités optionnelles, l'architecture de Véloscope a été conçue de manière à faciliter son extension à de nouvelles métropoles. Grâce à l'utilisation du standard GBFS, qui harmonise la structure des données des systèmes de vélos en libre-service, l'application pourrait être adaptée à de nouveaux réseaux de vélos sans nécessiter une modification importante du code.L'ajout d'une nouvelle ville nécessiterait principalement de configurer la source de données correspondante. À plus long terme, il serait également possible de développer une fonctionnalité permettant aux utilisateurs de sélectionner leur ville et de consulter les stations et informations correspondantes.
 
-Ce standard sépare les informations en deux flux bien distincts :
-Les données statiques (station_information) : Elles décrivent l'infrastructure fixe du réseau, qui change très rarement. On y trouve l'identifiant unique de chaque station, son nom, son adresse postale, sa capacité totale et ses coordonnées géographiques (latitude et longitude au format décimal WGS84).
+# conclusion et bilan
 
-Les données dynamiques (station_status) : Elles reflètent l'activité du réseau en temps réel. Ce fichier contient, pour chaque identifiant de station, l'horodatage de la dernière mise à jour, le nombre de vélos mécaniques disponibles, le nombre de vélos à assistance électrique disponibles, le nombre de bornes libres, ainsi que des indicateurs booléens précisant si la station est ouverte, si l'on peut y louer un vélo et si l'on peut y en déposer un.
-
-
-Nous avons rencontrés certaines difficultés en confrontant notre application aux données réelles de Bordeaux sur plusieurs semaines.
-Nous avons identifié plusieurs particularités nécessitant un nettoyage préalable :
-Stations en maintenance ou hors service : Certains relevés indiquent une station comme ouverte (is_renting = true), alors que la somme des vélos disponibles et des places libres est strictement inférieure à la capacité officielle de la station (bornes défectueuses ou vélos bloqués).
-Données figées ou absences de réponse : Il arrive ponctuellement que l'API de la ville renvoie des données obsolètes (horodatage last_reported inchangé pendant plusieurs heures) ou subisse une micro-coupure réseau. Notre module de collecte a été conçu pour filtrer les doublons temporels et ignorer les relevés incohérents afin de ne pas fausser nos calculs statistiques.
-
-Le rôle de Véloscope de s'arrête pas à la simple extraction de ces données. À partir de ces relevés bruts archivés toutes les 15 minutes, VeloScope produit ses propres indicateurs à forte valeur ajoutée. L'application apporte à l'utilisateur des informations quant à l'état d'une station à chaque instant, calcule es pourcentages de temps passé en pénurie ou en saturation, la durée moyenne de ces épisodes d'indisponibilité, un score global de fiabilité sur 100, ainsi qu'un score de recommandation personnalisé.
-
-
-# Comment fonctionne notre application ?: architecture générales et outils 
-
-Notre objectif principal était de créer une application fiable et facile à faire évoluer. Ainsi, nous avons fait le choix d'utiliser les outils suivants et de la découper en plusieurs briques. 
-
-Pour ce faire, nous avons utilisé les outils technologiques suivants. Notre projet utilise entièrement le langage de programmation Python connu pour sa clarté et sa puissance quant à l'analyse de données. Nous avons choisi FastAPI pour gérer la partie invisible de l'application. Elle réalise les calculs, gère la sécurité et communique avec la base de données. ELle est connue pour être rapide et génère automatiquement une documentation claire de toutes ses commandes. Notre base de données est stockée grace au logiciel spécialisé PostgreSQL. Il est sécurisé et permet le stockage d'une grande quantité d'informations. Ainsi, il conserve l'historique des relevés des stations vélo de Bordeaux. 
-Enfin, l'utilisateur intéragit avec notre application dans son navigateyr via une interface visuelle grâce à l'outil Streamlit. 
-
-Comme évoqué précédemment notre code est organisé en cinq couches qui communiquent entre elles de manière ordonnée. Cette structure est schématisée par la diagramme d'architecture. L’application est articulée autour du Backend qui contient la logique de gestion des données, et du Frontend qui permet à l’utilisateur d’intéragir
-avec l’application. L’application communique également avec une source de données externe afin de récupérer les informations sur des stations de vélo.
-
-La première couche, la seule visible par l'utilisateur est l'Interface (Streamlit). On l'appelle le Frontend. C'est la vitrine de notre application. Elle affiche les différentes pages et permet à l'utilisateur d'intéragir avec l'application. Elle ne fait aucun calcul complexe elle même. Elle transmet seulement les instructions au Backend. 
-
-Les quatre autres couches forment le Backend. 
-
-La deuxième couche est celle des controleurs ( API FastAPI). C'est cette couche qui reçoit les demandes de l'interface, verifient qu'elles soient bien formulées et les transmets aux services. 
-
-Les services sont la troisième couche du code. C'est ici que de trouve toute la logique métier de l'application. Cette partie rassemble l'ensemble des méthodes qui permettent à notre application de fonctionner (calcul du score de fiabilité, tri des recommandations, vérification des mots de passe, etc). C'est également un Service qui va chercher les données sur Internet auprès de l'API de la ville de Bordeaux.
-
-La quatrième couche du projet est les modèles. Ils permettent de structurer les données utilisées par l'application. Ils définissent à quoi ressemble une station ou un utilisateur dans notre code.
-
-Enfin, la derniere couche est constituée des DAO. Les DAO (Data Access Objects) assurent la communication avec la base de données. Ils peuvent lire et écrire dans la base de données PostgreSQL.
-
-
-- diagramme architecture 
-
-
-# Fonctionnalités finales et utilisation de l'application
-
-# Modèle de données et stockage
-
-# Organisation du travail et outil
-
-- diagramme de gant. 
-
-Pour mener ce projet de groupe à bien sur une période de trois mois, l'organisation était primordiale. Nous devions à la fois répartir les différentes tâches dans le temps et entre les membres du groupe. Nous avons mis en place un diagramme de Gantt organisant notre travail autour de 2 phases. Une première phase de conception en septembre dont les objectifs principaux étaient: la compréhension du sujet, la recherche de bases de données, la réflexion sur la structure de l'application et les réalisations des différents graphiques. La deuxième phase a débuté après le rendu du rapport intermédiaire. Elle était centrée sur la construction progressive de l'application via l'écriture du code. Nous avons essayé de faire un des réunions de groupes assez régulièrement au cours desquelles nous nous répartissions les différentes tâches et faisions le point sur ce qui avait été fait. Chaque membre à participer aux développements de chaque couche et à coder au moins un modèle, un DAO controller et un service.Nous avons essayé de tenir compte au mieux des atouts et des préferences de chacun dans la répartition des tâches. 
-
-
-# Tests mis en place, pistes d'amélioration
-
-
-
-# Conclusion et bilan
 Au terme de ces trois mois de développement, le projet VeloScope répond pleinement à l'objectif initial : dépasser la simple consultation instantanée des vélos en libre-service pour offrir aux usagers une véritable aide à la décision fondée sur l'analyse historique des données.
 
 Sur le plan technique, ce projet nous a permis de mettre en pratique l'ensemble du cycle de vie d'une application logicielle moderne : de la modélisation UML et relationnelle jusqu'au déploiement d'une architecture client-serveur, en passant par l'intégration d'une API externe réelle. Sur le plan humain, cette expérience nous a appris à structurer notre travail en équipe, à écouter les retours critiques pour faire évoluer nos choix d'architecture, et à maintenir un haut niveau d'exigence sur la qualité du code produit.
 
 
-# Annexes
+#Annexes
+
+##Notes individuelles 
+
+##autres
+
+
+
+
+
+
+
+
+
+
+
+
+
