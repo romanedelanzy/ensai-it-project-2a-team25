@@ -91,11 +91,11 @@ L'Usager du réseau (Utilisateur standard) : Il représente tout citoyen, étudi
 L'Administrateur : C'est le gestionnaire technique de la plateforme. Il dispose exactement des mêmes fonctionnalités qu'un usager standard (il n'a donc pas besoin de jongler entre deux comptes distincts pour utiliser l'application), mais bénéficie en plus d'un espace d'administration lui permettant de superviser les comptes inscrits (consulter la liste des utilisateurs, modifier leurs informations ou rôles, supprimer un compte).
 
 
+\pagebreak
 
+# Présentation générale
 
-#Présentation générale
-
-##Organisation du groupe et gestion du projet
+## Organisation du groupe et gestion du projet
 
 
 - diagramme de gant. 
@@ -110,7 +110,7 @@ L'ensemble du code a été versionné sur un dépôt GitHub commun garantissant 
 
 
 
-##Fonctionnalités de l'API et besoins couverts
+## Fonctionnalités de l'API et besoins couverts
 Le sujet imposait de construire une API qui collecte, historise et analyse les données d’un réseau de vélos en libre-service. Nous l’avons complétée par un site web (Streamlit), qui est le point d’accès des utilisateurs : ils y créent un compte, se connectent, consultent les stations et demandent des recommandations, sans appeler l’API directement.
 
 Le sujet définit cinq fonctionnalités obligatoires, que nous avons implémentées.
@@ -160,7 +160,7 @@ Fonctionnalités optionnelles
 F4 seulement mais pas aboutit d'après ce que j'ai compris ?
 
 
-##Les données de l'application
+## Les données de l'application
 - modèle de donnée 
 
 L'application VéloScope s'appuie sur des données ouvertes pour fonctionner. Nous avons choisis d'utiliser celles fournies par la métropole de Bordeaux concernant son réseau de vélos en libre-service (TBM). C'était pour nous la base de donnée la plus complète compte-tenu des fonctionnalités que nous avions à développer. 
@@ -180,8 +180,8 @@ Données figées ou absences de réponse : Il arrive ponctuellement que l'API de
 
 Le rôle de Véloscope de s'arrête pas à la simple extraction de ces données. À partir de ces relevés bruts archivés toutes les 15 minutes, VeloScope produit ses propres indicateurs à forte valeur ajoutée. L'application apporte à l'utilisateur des informations quant à l'état d'une station à chaque instant, calcule es pourcentages de temps passé en pénurie ou en saturation, la durée moyenne de ces épisodes d'indisponibilité, un score global de fiabilité sur 100, ainsi qu'un score de recommandation personnalisé.
 
-
-#architecture et système de stockage
+\pagebreak
+# architecture et système de stockage
 ## nature de l'application et choix technologiques
 Notre objectif principal était de créer une application fiable et facile à faire évoluer. Ainsi, nous avons fait le choix d'utiliser les outils suivants et de la découper en plusieurs briques. 
 
@@ -206,9 +206,9 @@ La quatrième couche du projet est les modèles. Ils permettent de structurer le
 Enfin, la derniere couche est constituée des DAO. Les DAO (Data Access Objects) assurent la communication avec la base de données. Ils peuvent lire et écrire dans la base de données PostgreSQL.
 ## système de stockage et justification des choix 
 
-
+\pagebreak
 # Réponse aux besoins : fonctionnement détaillé 
-##utilisation concrète de l'application 
+
 - peut être mettre un screnn de l'interface ? 
 
 
@@ -237,10 +237,14 @@ L'utilisateur peut aussi retrouver ses stations habituelles dans la page "Mes st
 
 
 Enfin, l'utilisateur peut parcourir le réseau.
+\pagebreak
 
-#Test et qualité
+# Test et qualité
 
-#améliorations et perspectives 
+\pagebreak
+
+
+# améliorations et perspectives 
 Dans le cadre des trois mois impartis pour ce projet, nous avons concentré nos efforts sur la robustesse des fonctionnalités principales (F1 à F5) ainsi que sur l'ajout d'une carte interactive. Certaines fonctionnalités optionnelles ont été mises de côté et pourraient être intégrées ultérieurement: 
 
 Prévision de disponibilité par apprentissage statistique (FO1) : Actuellement, notre score de fiabilité reflète le comportement passé d'une station. Avec plusieurs mois d'historique accumulés en base, il serait pertinent d'implémenter un modèle de prévision (régression ou séries temporelles intégrant l'heure de la journée, le jour de la semaine et la météo) dans un nouveau service dédié afin d'estimer la probabilité qu'une station soit vide dans l'heure suivante.
@@ -248,18 +252,22 @@ Détection automatique d'anomalies (FO3) : Bien que notre adaptateur filtre déj
 
 Au delà des fonctionnalités optionnelles, l'architecture de Véloscope a été conçue de manière à faciliter son extension à de nouvelles métropoles. Grâce à l'utilisation du standard GBFS, qui harmonise la structure des données des systèmes de vélos en libre-service, l'application pourrait être adaptée à de nouveaux réseaux de vélos sans nécessiter une modification importante du code.L'ajout d'une nouvelle ville nécessiterait principalement de configurer la source de données correspondante. À plus long terme, il serait également possible de développer une fonctionnalité permettant aux utilisateurs de sélectionner leur ville et de consulter les stations et informations correspondantes.
 
+
+\pagebreak
+
+
 # conclusion et bilan
 
 Au terme de ces trois mois de développement, le projet VeloScope répond pleinement à l'objectif initial : dépasser la simple consultation instantanée des vélos en libre-service pour offrir aux usagers une véritable aide à la décision fondée sur l'analyse historique des données.
 
 Sur le plan technique, ce projet nous a permis de mettre en pratique l'ensemble du cycle de vie d'une application logicielle moderne : de la modélisation UML et relationnelle jusqu'au déploiement d'une architecture client-serveur, en passant par l'intégration d'une API externe réelle. Sur le plan humain, cette expérience nous a appris à structurer notre travail en équipe, à écouter les retours critiques pour faire évoluer nos choix d'architecture, et à maintenir un haut niveau d'exigence sur la qualité du code produit.
 
+\pagebreak
+# Annexes
 
-#Annexes
+## Notes individuelles 
 
-##Notes individuelles 
-
-##autres
+## autres
 
 
 
