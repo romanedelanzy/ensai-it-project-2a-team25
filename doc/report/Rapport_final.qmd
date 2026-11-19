@@ -208,7 +208,7 @@ La quatrième couche du projet est les modèles. Ils permettent de structurer le
 Enfin, la derniere couche est constituée des DAO. Les DAO (Data Access Objects) assurent la communication avec la base de données. Ils peuvent lire et écrire dans la base de données PostgreSQL.
 
 
-
+- diagramme architecture 
 
 
 # Fonctionnalités finales et utilisation de l'application
@@ -224,6 +224,12 @@ Pour mener ce projet de groupe à bien sur une période de trois mois, l'organis
 
 # Tests mis en place, pistes d'amélioration
 
+
+
 # Conclusion et bilan
+Au terme de ces trois mois de développement, le projet VeloScope répond pleinement à l'objectif initial : dépasser la simple consultation instantanée des vélos en libre-service pour offrir aux usagers une véritable aide à la décision fondée sur l'analyse historique des données.
+
+Sur le plan technique, ce projet nous a permis de mettre en pratique l'ensemble du cycle de vie d'une application logicielle moderne : de la modélisation UML et relationnelle jusqu'au déploiement d'une architecture client-serveur, en passant par l'intégration d'une API externe réelle. Sur le plan humain, cette expérience nous a appris à structurer notre travail en équipe, à écouter les retours critiques pour faire évoluer nos choix d'architecture, et à maintenir un haut niveau d'exigence sur la qualité du code produit.
+
 
 # Annexes
