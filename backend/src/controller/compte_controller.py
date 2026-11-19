@@ -5,9 +5,10 @@ from schema.compte_model import CompteReadModel, CompteCreateModel, ComptePublic
 from service.compte_service import CompteService
 from utils.log_utils import get_logger
 from utils.security import get_current_user, hash_password
-from pydantic import EmailStr
+from pydantic import EmailStr, TypeAdapter, ValidationError
 
-# On définit un préfixe "/compte" et un tag pour regrouper joliment sur Swagger
+_email_adapter = TypeAdapter(EmailStr)
+
 router = APIRouter(tags=["Compte"])
 
 logger = get_logger(__name__)
@@ -35,6 +36,17 @@ def create_account(
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Ce nom d'utilisateur est déjà utilisé."
+        )
+
+    if len(compte_data.username) == 0:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Nom d'utilisateur trop court"
+        )
+    if len(compte_data.password) == 0:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Mot de passe trop court"
         )
 
     # Appel au service de création
@@ -89,6 +101,7 @@ def get_account_by_username(
 
     return compte
 
+
 @router.put("/update_username/{username}", response_model=CompteReadModel)
 def update_account(
     username: str,  # Le nom du compte à modifier passé directement dans l'URL
@@ -117,12 +130,31 @@ def update_account(
 
     # 2. Mettre à jour les champs SEULEMENT s'ils ne sont pas None (on garde l'ancien sinon)
     if compte_data.username is not None:
-        compte_actuel.username = compte_data.username
 
+            if len(compte_data.username) == 0:
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail="Nouveau nom d'utilisateur trop court"
+                )
+            compte_actuel.username = compte_data.username
+
+    # on teste la conformité du nouvel email
     if compte_data.email is not None:
-        compte_actuel.email = compte_data.email
+        try:
+            compte_actuel.email = _email_adapter.validate_python(compte_data.email)
+        except ValidationError:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Format d'adresse email invalide."
+            )
 
     if compte_data.password is not None:
+
+        if len(compte_data.password) == 0:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Nouveau mot de passe trop court"
+            )
         compte_actuel.password_hash = hash_password(compte_data.password, compte_actuel.username)
 
     # Seul un admin peut modifier le statut is_admin (si la valeur est fournie)
