@@ -71,7 +71,7 @@ André RIVIERE\\
 \pagebreak
 
 # Introduction
-## remise en contexte et problématique
+## Remise en contexte et problématique
 
 Dans un contexte de transition écologique et de décongestion des centres urbains, l'encouragement à l'usage du vélo au quotidien est devenu une priorité majeure pour les collectivités. Les réseaux de vélos en libre-service jouent un rôle clé dans cette dynamique de mobilité douce. Aujourd'hui, la plupart des métropoles mettent à disposition des applications mobiles affichant une carte des stations en temps réel.
 Son usage reste pourtant soumis à certaines incertitudes. Par exemple, on ne sait pas si l'on trouvera un vélo ou une place libre pour rendre un vélo lorsqu'on arrivera à une station. Les réseaux publient la disponibilité à l’instant présent, mais cette information ne dit rien de la régularité d’une station : certaines sont fréquemment vides aux heures de pointe ou saturées le soir, d’autres sont presque toujours utilisables.
@@ -81,7 +81,7 @@ Notre réponse avec VeloScope : Contrairement aux applications classiques qui af
 
 
 
-## a qui s'adresse l'application
+## A qui s'adresse l'application?
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 
@@ -181,14 +181,14 @@ Données figées ou absences de réponse : Il arrive ponctuellement que l'API de
 Le rôle de Véloscope de s'arrête pas à la simple extraction de ces données. À partir de ces relevés bruts archivés toutes les 15 minutes, VeloScope produit ses propres indicateurs à forte valeur ajoutée. L'application apporte à l'utilisateur des informations quant à l'état d'une station à chaque instant, calcule es pourcentages de temps passé en pénurie ou en saturation, la durée moyenne de ces épisodes d'indisponibilité, un score global de fiabilité sur 100, ainsi qu'un score de recommandation personnalisé.
 
 \pagebreak
-# architecture et système de stockage
-## nature de l'application et choix technologiques
+# Architecture et système de stockage
+## Nature de l'application et choix technologiques
 Notre objectif principal était de créer une application fiable et facile à faire évoluer. Ainsi, nous avons fait le choix d'utiliser les outils suivants et de la découper en plusieurs briques. 
 
 Pour ce faire, nous avons utilisé les outils technologiques suivants. Notre projet utilise entièrement le langage de programmation Python connu pour sa clarté et sa puissance quant à l'analyse de données. Nous avons choisi FastAPI pour gérer la partie invisible de l'application. Elle réalise les calculs, gère la sécurité et communique avec la base de données. ELle est connue pour être rapide et génère automatiquement une documentation claire de toutes ses commandes. Notre base de données est stockée grace au logiciel spécialisé PostgreSQL. Il est sécurisé et permet le stockage d'une grande quantité d'informations. Ainsi, il conserve l'historique des relevés des stations vélo de Bordeaux. 
 Enfin, l'utilisateur intéragit avec notre application dans son navigateyr via une interface visuelle grâce à l'outil Streamlit. 
 
-## schéma d'architecture et décomposition en couche 
+## Schéma d'architecture et décomposition en couche 
 - diagramme architecture 
 Comme évoqué précédemment notre code est organisé en cinq couches qui communiquent entre elles de manière ordonnée. Cette structure est schématisée par la diagramme d'architecture. L’application est articulée autour du Backend qui contient la logique de gestion des données, et du Frontend qui permet à l’utilisateur d’intéragir
 avec l’application. L’application communique également avec une source de données externe afin de récupérer les informations sur des stations de vélo.
@@ -204,7 +204,7 @@ Les services sont la troisième couche du code. C'est ici que de trouve toute la
 La quatrième couche du projet est les modèles. Ils permettent de structurer les données utilisées par l'application. Ils définissent à quoi ressemble une station ou un utilisateur dans notre code.
 
 Enfin, la derniere couche est constituée des DAO. Les DAO (Data Access Objects) assurent la communication avec la base de données. Ils peuvent lire et écrire dans la base de données PostgreSQL.
-## système de stockage et justification des choix 
+## Système de stockage et justification des choix 
 
 \pagebreak
 # Réponse aux besoins : fonctionnement détaillé 
@@ -266,6 +266,14 @@ Sur le plan technique, ce projet nous a permis de mettre en pratique l'ensemble 
 # Annexes
 
 ## Notes individuelles 
+### Romane Delanzy
+Pendant ces trois mois sur le projet Véloscope, j'ai participé à l'organisation du travail lors de nos réunions, à la réflexion sur les fonctionnalités, à l'élaboration des graphiques, à l'écriture du code ainsi qu'à la rédaction des rapports. Ayant des difficultés en informatique, je me suis concentrée, avec l'accord du groupe sur l'une des classes étant à mes yeux l'une des moins complexes: la classe favori ainsi que le frontend. 
+
+Travailler en groupe est toujours une expérience enrichissante. Nous avons essayé d'échanger au maximun afin de se répartir les tâches, de s'entraider et de respecter des dates butoires. Naturellement il y a eu des périodes ou le projet avançait moins vites que d'autres dû aux échéanges d'autres matières et des emplois du temps de chacun. Globalement, j'ai vraiment eu l'impression que l'équipe a été à l'écoute de chacun. 
+
+Dans ce projet, le plus difficile pour moi a été de comprendre la structure générale de l'application. Au départ, l'utilité de chaque couche et la manière dont elles intéragissaient entre elles était très abstraite. Quand on ne maîtrise pas encore bien ces mécanismes, on a vite l'impression que tout est lié et qu'un changement à un endroit peut tout casser ailleurs. C'est en avançant pas à pas, en regardant des schémas et en discutant avec les autres que le rôle de chaque partie est devenu plus clair. L'un des enjeux principaux de notre sujet était la collecte toute les 15 minutes des données de la base de Bordeaux. Au début du projet nous avons beaucoup de mal à imaginer la mise en place d'une collecte automatique.
+
+Ce projet m'a appris à ne pas me décourager face à la complexité technique d'un projet. Si c'était à refaire, je prendrais encore plus de temps à comprendre et identifier les focntionnalités de chaque couche. 
 
 ## autres
 
