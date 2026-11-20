@@ -11,10 +11,20 @@ INSERT INTO reseau (name)
 VALUES ('Bordeaux');
 
 INSERT INTO project.compte (username,is_admin,"password",email,access_token) VALUES
-	 ('jean',true,'8463862d75c4c9915d65ed14626b8648329f841ad7d7dfbcf2c59d70b147780f','jean@jean.com','5uiDduCRc4ea8ff5SZz0lZ2AwtQZv0vBZiuSZwCWJ54'),
 	 ('username1',true,'ff70d872abd28d80ede26aa4d8e637ba323db8b2634b71418f8678cf22697d51','username1@example.com','access_token1'),
 	 ('username2',false,'546b61503ab87450d2613d303d869a6179dd69ed7f8a383eb662eb9478effb58','username2@example.com','access_token2'),
-	 ('username3',false,'d35617239366f091c955825738de8f5533ab21612145eafb0a9ba561f0f02718','username3@example.com','access_token3');
+	 ('username3',false,'d35617239366f091c955825738de8f5533ab21612145eafb0a9ba561f0f02718','username3@example.com','access_token3'),
+	 ('jean2',false,'2f7f8e6de9633c50d10f94c771a3ff90357a773cd6d7c63442bf5ffeb80d8d9f','jean2@jean2.com',NULL),
+	 ('audrey2',false,'4613a7485e58a03c27c2af612d53e7186e87aa63d51380992c54dea573efc1a7','audrey2@audrey2.com',NULL),
+	 ('elouan2',false,'7c8caef68f73d68b5fb50286265f848d6a278fa9dac21363fb4f2284d54d762a','elouan2@elouan2.com',NULL),
+	 ('romane2',false,'1bab266615bffbbb91326e92fd66dd649eb82350bd41929f8f9d39b70a79eca2','romane2@romane2.com',NULL),
+	 ('fanny2',false,'9c2f0a6b67627c060b2d9b191162c768890ac2639572e4ca4633fc27a64e932e','fanny2@fanny2.com',NULL),
+	 ('jean',true,'8463862d75c4c9915d65ed14626b8648329f841ad7d7dfbcf2c59d70b147780f','jean@jean.com','bj3QutLGWgcgmBWMgMeaDlQk58JvK6yG-dXCeuaVMW4'),
+	 ('audrey',true,'135cba94997c2273fb2d912484c36e859a19487ef0b390c5501c6e3de057f835','audrey@audrey.com',NULL);
+INSERT INTO project.compte (username,is_admin,"password",email,access_token) VALUES
+	 ('elouan',true,'01d3e26be3990f8e270a4bfa0e993048b2347eaff8ab46a7d17f4d6cf895de5e','elouan@elouan.com',NULL),
+	 ('romane',true,'c848989e6bab7c6be56d748be4d34443f2d168ad3e6052067caa38ff74845505','romane@romane.com',NULL),
+	 ('fanny',true,'f27bf260c88cd5402028d59adc8b9bacb6eb5271fd1dcec8f9e155adc6d7f71f','fanny@fanny.com','pZO1v_95kFi13F0p9wWXUY-XaCYKatSwUZGsNCpRZAA');
 
 INSERT INTO station (station_id,reseau_id,"name",adresse,latitude,longitude,capacite) VALUES
 	 ('8',1,'Patinoire','120 Cours Maréchal Juin, Bordeaux',44.83436,-0.58825,20),
