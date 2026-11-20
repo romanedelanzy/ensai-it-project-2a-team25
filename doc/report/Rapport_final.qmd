@@ -213,7 +213,7 @@ Enfin, la derniere couche est constituée des DAO. Les DAO (Data Access Objects)
 
 
 ## Evaluation de la fiabilité et recommandation de station
-## synthèse des autres fonctionnalités 
+## Synthèse des autres fonctionnalités 
 - diagramme des cas d'utilisation
 L'application peut être consultée par trois acteurs : 
 
@@ -244,7 +244,7 @@ Enfin, l'utilisateur peut parcourir le réseau.
 \pagebreak
 
 
-# améliorations et perspectives 
+# Améliorations et perspectives 
 Dans le cadre des trois mois impartis pour ce projet, nous avons concentré nos efforts sur la robustesse des fonctionnalités principales (F1 à F5) ainsi que sur l'ajout d'une carte interactive. Certaines fonctionnalités optionnelles ont été mises de côté et pourraient être intégrées ultérieurement: 
 
 Prévision de disponibilité par apprentissage statistique (FO1) : Actuellement, notre score de fiabilité reflète le comportement passé d'une station. Avec plusieurs mois d'historique accumulés en base, il serait pertinent d'implémenter un modèle de prévision (régression ou séries temporelles intégrant l'heure de la journée, le jour de la semaine et la météo) dans un nouveau service dédié afin d'estimer la probabilité qu'une station soit vide dans l'heure suivante.
@@ -256,7 +256,7 @@ Au delà des fonctionnalités optionnelles, l'architecture de Véloscope a été
 \pagebreak
 
 
-# conclusion et bilan
+# Conclusion et bilan
 
 Au terme de ces trois mois de développement, le projet VeloScope répond pleinement à l'objectif initial : dépasser la simple consultation instantanée des vélos en libre-service pour offrir aux usagers une véritable aide à la décision fondée sur l'analyse historique des données.
 
@@ -267,14 +267,13 @@ Sur le plan technique, ce projet nous a permis de mettre en pratique l'ensemble 
 
 ## Notes individuelles 
 ### Romane Delanzy
-Pendant ces trois mois sur le projet Véloscope, j'ai participé à l'organisation du travail lors de nos réunions, à la réflexion sur les fonctionnalités, à l'élaboration des graphiques, à l'écriture du code ainsi qu'à la rédaction des rapports. Ayant des difficultés en informatique, je me suis concentrée, avec l'accord du groupe sur l'une des classes étant à mes yeux l'une des moins complexes: la classe favori ainsi que le frontend. 
+Pendant ces trois mois consacrés au projet VeloScope, j'ai pris part à l'organisation collective lors de nos réunions, à la réflexion sur les fonctionnalités, à la conception des graphiques, au développement ainsi qu'à la rédaction des rapports. Ayant davantage de difficultés en informatique, je me suis concentrée, en accord avec le reste du groupe, sur la classe Favori — qui me semblait l'une des moins complexes à appréhender — ainsi que sur le développement du frontend.
 
-Travailler en groupe est toujours une expérience enrichissante. Nous avons essayé d'échanger au maximun afin de se répartir les tâches, de s'entraider et de respecter des dates butoires. Naturellement il y a eu des périodes ou le projet avançait moins vites que d'autres dû aux échéanges d'autres matières et des emplois du temps de chacun. Globalement, j'ai vraiment eu l'impression que l'équipe a été à l'écoute de chacun. 
+Le travail en groupe s'est révélé très formateur et enrichissant. Nous avons cherché à communiquer au maximum pour répartir les tâches, nous entraider et tenir nos échéances. Naturellement, le rythme a pu varier selon les périodes en raison des autres cours et des contraintes d'emploi du temps de chacun, mais j'ai ressenti une réelle écoute au sein de l'équipe. Chacun a pu trouver sa place, les tâches les plus complexes étant confiées aux personnes les plus à l'aise techniquement, et inversement.
 
-Dans ce projet, le plus difficile pour moi a été de comprendre la structure générale de l'application. Au départ, l'utilité de chaque couche et la manière dont elles intéragissaient entre elles était très abstraite. Quand on ne maîtrise pas encore bien ces mécanismes, on a vite l'impression que tout est lié et qu'un changement à un endroit peut tout casser ailleurs. C'est en avançant pas à pas, en regardant des schémas et en discutant avec les autres que le rôle de chaque partie est devenu plus clair. L'un des enjeux principaux de notre sujet était la collecte toute les 15 minutes des données de la base de Bordeaux. Au début du projet nous avons beaucoup de mal à imaginer la mise en place d'une collecte automatique.
+L'aspect le plus difficile pour moi a été de saisir la structure globale de l'application. Au début, le rôle de chaque couche et la façon dont elles communiquaient entre elles me paraissaient très abstraits. Sans recul sur ces mécanismes, on a vite l'impression que tout est imbriqué et qu'une modification à un endroit risque de tout déstabiliser, ou bien on peine à identifier quelles couches sont directement connectées. C'est en progressant étape par étape, en m'appuyant sur des schémas et en échangeant avec mes camarades que le fonctionnement de l'ensemble s'est clarifié. Ce qui m'a particulièrement frustrée, c'est que parfois une toute petite erreur suffit à faire en sorte que plus rien ne fonctionne, et j'ai perdu beaucoup de temps à cause de cela. Par ailleurs, l'automatisation de la collecte des données de Bordeaux représentait un enjeu clé : au démarrage, il nous était difficile d'imaginer concrètement comment la mettre en place. Plus largement, l'ampleur de ce projet dépassait celle de l'année précédente, où j'avais déjà eu du mal à me projeter et à savoir par où débuter. Spontanément, on a envie de se lancer tout de suite dans le code pour produire du concret, alors qu'une phase de conception préalable est indispensable pour écrire un code cohérent et fonctionnel.
 
-Ce projet m'a appris à ne pas me décourager face à la complexité technique d'un projet. Si c'était à refaire, je prendrais encore plus de temps à comprendre et identifier les focntionnalités de chaque couche. 
-
+Ce projet m'a surtout appris à persévérer face à la complexité technique. Si c'était à refaire, je consacrerais encore davantage de temps en amont à bien cerner l'architecture et le périmètre de chaque couche, car cette vision d'ensemble est essentielle pour que chaque brique s'articule naturellement avec les autres. Au final, je suis fière du chemin parcouru et du travail accompli collectivement.
 ## autres
 
 
