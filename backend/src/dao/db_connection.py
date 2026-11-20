@@ -7,27 +7,14 @@ from utils.singleton import Singleton
 
 
 class DBConnection(metaclass=Singleton):
-    """Database connection manager implementing the Singleton pattern.
-
-    This class ensures that only a single connection to the PostgreSQL
-    database is opened and shared throughout the application lifecycle.
-
-    Attributes:
-        connection (psycopg2.extensions.connection): The active database
-            connection instance.
-    """
 
     def __init__(self):
-        """Initializes the database connection using environment variables.
-        Raises:
-            KeyError: If any of the required POSTGRES_* environment variables are missing.
-            psycopg2.Error: If the connection to the database fails.
-        """
-        self.__connection = self._create_connection()
+        self.__connection = None
+        self.__connect()
 
-    def _create_connection(self):
-        """Crée et retourne une nouvelle connexion PostgreSQL."""
-        return psycopg2.connect(
+    def __connect(self):
+        """Établit une nouvelle connexion PostgreSQL."""
+        self.__connection = psycopg2.connect(
             host=os.environ["POSTGRES_HOST"],
             port=os.environ["POSTGRES_PORT"],
             database=os.environ["POSTGRES_DATABASE"],
@@ -39,21 +26,23 @@ class DBConnection(metaclass=Singleton):
 
     @property
     def connection(self):
-        """Provides access to the underlying database connection.
-        Returns:
-            The established database connection.
         """
-        # Si la connexion a été fermée, recrée en une automatiquement
-        # afin d'éviter que les DAO tentent d'utiliser une connexion invalide.
-        if self.__connection.closed:
-            self.__connection = self._create_connection()
+        Retourne une connexion valide.
+        Si la connexion est fermée ou inutilisable, en crée une nouvelle.
+        """
+        if self.__connection is None or self.__connection.closed != 0:
+            self.__connect()
+        else:
+            try:
+                with self.__connection.cursor() as cur:
+                    cur.execute("SELECT 1")
+
+            except psycopg2.Error:
+                self.__connect()
 
         return self.__connection
 
     def close(self):
         """Ferme proprement la connexion PostgreSQL."""
-
-        # pour vérifier que la connexion existe et qu'elle n'est pas déjà fermée
-        # avant d'appeler close().
-        if self.__connection and not self.__connection.closed:
+        if self.__connection and self.__connection.closed == 0:
             self.__connection.close()

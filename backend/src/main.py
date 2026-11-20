@@ -5,9 +5,16 @@ Initializes logging, loads environment variables, and sets up API routers
 for players, login, and games.
 """
 
+import asyncio
+import os
+from contextlib import asynccontextmanager
+
+import uvicorn
 from fastapi import FastAPI, Request, status
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse, RedirectResponse
+
+from background_collection import collection_loop
 
 from controller import (
     compte_controller,
@@ -33,10 +40,37 @@ load_environment_variables()
 display_values()
 
 
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Gère le démarrage et l'arrêt du service."""
+
+    logger.info("Démarrage du collecteur GBFS.")
+
+    task = asyncio.create_task(collection_loop())
+
+    try:
+        yield
+
+    finally:
+        logger.info("Arrêt du collecteur GBFS.")
+
+        task.cancel()
+
+        try:
+            await task
+        except asyncio.CancelledError:
+            logger.info("Collecteur GBFS arrêté.")
+
+
 app = FastAPI(
     title="My Webservice",
     root_path="/proxy/5000",
-    servers=[{"url": "https://user-elouan-460462-0.user.lab.sspcloud.fr/proxy/5000"}],
+    servers=[
+        {
+            "url": "https://user-elouan-460462-0.user.lab.sspcloud.fr/proxy/5000"
+        }
+    ],
+    lifespan=lifespan,
 )
 
 app.add_middleware(LogMiddleware)
@@ -71,32 +105,33 @@ app.include_router(login_compte_controller.router, prefix="/login-compte", tags=
 
 @app.get("/", include_in_schema=False)
 async def redirect_to_docs():
-    """Redirect to the API documentation"""
+    """Redirect to the API documentation."""
     return RedirectResponse(url="/docs")
 
 
 @app.get("/hello/{name}", tags=["Misc"])
 async def hello_name(name: str):
-    """Display Hello"""
+    """Display Hello."""
     logger.info("Display Hello")
     return {"message": f"Hello {name}"}
 
 
 @app.get("/reset_database", tags=["Misc"])
 async def reset_database():
-    """Reset the database"""
+    """Reset the database."""
     logger.info("Database reset")
     success = ResetDatabase().run()
 
-    return {"message": f"Database re-initialization - {'SUCCESS' if success else 'FAILURE'}"}
+    return {
+        "message": (
+            f"Database re-initialization - "
+            f"{'SUCCESS' if success else 'FAILURE'}"
+        )
+    }
 
 
 # Run the FastAPI application
 if __name__ == "__main__":
-    import os
-
-    import uvicorn
-
     uvicorn.run(
         app,
         host=os.getenv("UVICORN_HOST", "127.0.0.1"),
