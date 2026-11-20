@@ -1,13 +1,12 @@
-"""Creation du fournisseur GBFS pour le reseau de Bordeaux. 
+"""Creation du fournisseur GBFS pour le reseau de Bordeaux.
    Fournit les url de l'API de Bordeaux et créer le client, provider et adapter correspondants.
 """
 
 import os
 
-from external_api.gbfs_client import GBFSClient
 from external_api.BordeauxGBFSAdapter import BordeauxGBFSAdapter
 from external_api.BordeauxGBFSProvider import BordeauxGBFSProvider
-
+from external_api.gbfs_client import GBFSClient
 
 API_KEY = os.getenv(
     "BORDEAUX_GBFS_API_KEY",

@@ -1,10 +1,9 @@
 
-import streamlit as st
 import folium
+import streamlit as st
 from streamlit_folium import st_folium
 
 from utils.api_client import api_client
-
 
 # --------------------------------------------------
 # Configuration

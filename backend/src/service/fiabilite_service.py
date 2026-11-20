@@ -172,7 +172,7 @@ class ReliabilityService:
                     empty_durations.append(duration.total_seconds() / 3600)
                     empty_start = None
 
-        # Si la station est toujours vide 
+        # Si la station est toujours vide
         if empty_start is not None:
             # On prend la derniere date
             duration = history[-1].horodatage - empty_start
@@ -208,7 +208,7 @@ class ReliabilityService:
                     sat_durations.append(duration.total_seconds() / 3600)
                     sat_start = None
 
-        # Si la station est toujours saturée 
+        # Si la station est toujours saturée
         if sat_start is not None:
             # On prend la derniere date
             duration = history[-1].horodatage - sat_start

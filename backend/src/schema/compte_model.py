@@ -1,6 +1,5 @@
-from typing import Optional
 
-from pydantic import BaseModel, EmailStr, field_validator
+from pydantic import BaseModel, EmailStr
 
 
 class CompteCreateModel(BaseModel):
@@ -43,7 +42,7 @@ class ComptePublicModel(BaseModel):
 
 class CompteUpdateModel(BaseModel):
     """Contrat de données pour la saisie d'informations modifiées du compte"""
-    username: Optional[str] | None = None
-    password: Optional[str]| None  = None
-    email: Optional[str]| None  = None
-    is_admin: Optional[bool]| None  = None
+    username: str | None | None = None
+    password: str | None| None  = None
+    email: str | None| None  = None
+    is_admin: bool | None| None  = None

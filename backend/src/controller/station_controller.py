@@ -1,13 +1,13 @@
+from datetime import datetime
 from typing import Literal
 
 from fastapi import APIRouter, Depends, HTTPException
 
+from business_object.station import Station
 from schema.station_model import StationReadModel, StationStatusReadModel
 from service.station_service import StationService
 from utils.log_utils import get_logger
 from utils.security import get_current_user
-from business_object.station import Station
-from datetime import datetime
 
 router = APIRouter()
 
@@ -191,7 +191,7 @@ async def create_station(
     logger.info(f"Create a station (user: {current_user.username})")
     _verifier_admin(current_user)
 
-    station_id = s.station_id if getattr(s, "station_id", None) else "0" 
+    station_id = s.station_id if getattr(s, "station_id", None) else "0"
     new_station = _construire_station(station_id, s)
 
     if not station_service.create(new_station):

@@ -1,8 +1,8 @@
 """Service de collecte des donnees GBFS et d'enregistrement en base."""
 
-from external_api.gbfs_provider import GBFSProvider
 from dao.StationDAO import StationDao
 from dao.StationStatusDAO import StationStatusDao
+from external_api.gbfs_provider import GBFSProvider
 from utils.log_utils import get_logger, log
 
 logger = get_logger(__name__)
