@@ -2,11 +2,10 @@ from utils.env_variables import load_environment_variables
 
 load_environment_variables()
 
-from external_api.gbfs_factory import create_bordeaux_provider
 from dao.StationDAO import StationDao
 from dao.StationStatusDAO import StationStatusDao
+from external_api.gbfs_factory import create_bordeaux_provider
 from service.collection_service import CollectionService
-
 
 provider = create_bordeaux_provider()
 

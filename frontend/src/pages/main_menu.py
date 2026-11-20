@@ -30,6 +30,9 @@ if st.button("⭐ Mes stations favorites ⭐"):
 if st.button("Recherche d'itinéraire"):
     st.switch_page("pages/route_search.py")
 
+if st.button("🚲 Stations recommandées"):
+    st.switch_page("pages/recommendation.py")
+
 if user.get("is_admin"):
     if st.button("Gestion des utilisateurs"):
         st.switch_page("pages/admin_users.py")

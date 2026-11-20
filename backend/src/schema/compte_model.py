@@ -1,10 +1,10 @@
+from typing import Optional
 
 from pydantic import BaseModel, EmailStr, field_validator
 
 
 class CompteCreateModel(BaseModel):
     """Contrat de données pour la création d'un compte utilisateur.
-    Définit la structure JSON et assure la validation des données entrantes.
     """
 
     user_id: int | None = None
@@ -13,21 +13,11 @@ class CompteCreateModel(BaseModel):
     email: EmailStr
     is_admin: bool = False
 
-    @field_validator("password")
-    @classmethod
-    def check_password_length(cls, v: str) -> str:
-        # On fixe une longueur minimale raisonnable (ex: 4 caractères pour correspondre à tes tests, 
-        # contrairement au prof qui mettait 35 pour un hachage spécifique)
-        min_len = 4
-        if len(v) < min_len:
-            raise ValueError(f"Le mot de passe doit contenir au moins {min_len} caractères")
-        return v
 
 class CompteReadModel(BaseModel):
-    """Contrat de données pour la lecture / affichage d'un compte avec le token pour la connexion.
+    """Contrat de données pour la lecture d'un compte avec le token pour la connexion.
     Sécurité : NE CONTIENT PAS LE MOT DE PASSE.
     """
-
     user_id: int
     username: str
     email: EmailStr
@@ -49,3 +39,11 @@ class ComptePublicModel(BaseModel):
     username: str
     email: str
     is_admin: bool = False
+
+
+class CompteUpdateModel(BaseModel):
+    """Contrat de données pour la saisie d'informations modifiées du compte"""
+    username: Optional[str] | None = None
+    password: Optional[str]| None  = None
+    email: Optional[str]| None  = None
+    is_admin: Optional[bool]| None  = None

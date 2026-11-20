@@ -2,10 +2,9 @@
 
 from math import atan2, cos, exp, radians, sin, sqrt
 
-from service.reliability_service import ReliabilityService
-
 from dao.StationDAO import StationDao
 from dao.StationStatusDAO import StationStatusDao
+from service.fiabilite_service import ReliabilityService
 from utils.log_utils import log
 
 
@@ -62,7 +61,7 @@ class RecommandationService:
 
     def _get_reliability_score(self, station_id: str) -> float:
         """Récupère le score de fiabilité calculé pour une station."""
-        result = self.reliability_service.get_reliability_score(station_id)
+        result = self.reliability_service.reliability_current_score(station_id)
         score = getattr(result, "score_fiabilite", result)
         if not isinstance(score, (int, float)) or isinstance(score, bool):
             raise TypeError("Le score de fiabilité doit être numérique")
@@ -90,9 +89,7 @@ class RecommandationService:
         if not isinstance(limite, int) or isinstance(limite, bool) or limite < 1:
             raise ValueError("limite doit être un entier positif")
         if rayon_km is not None and (
-            not isinstance(rayon_km, (int, float))
-            or isinstance(rayon_km, bool)
-            or rayon_km <= 0
+            not isinstance(rayon_km, (int, float)) or isinstance(rayon_km, bool) or rayon_km <= 0
         ):
             raise ValueError("rayon_km doit être un nombre positif")
 
@@ -115,22 +112,17 @@ class RecommandationService:
 
             reliability = self._get_reliability_score(station.station_id)
             # Décroissance gaussienne : à sigma, le score vaut environ 0,607.
-            proximity_score = exp(
-                -(distance**2) / (2 * self.SIGMA_DISTANCE_KM**2)
-            )
+            proximity_score = exp(-(distance**2) / (2 * self.SIGMA_DISTANCE_KM**2))
             recommendation_score = (
-                self.POIDS_DISTANCE * proximity_score
-                + self.POIDS_FIABILITE * reliability
+                self.POIDS_DISTANCE * proximity_score + self.POIDS_FIABILITE * reliability
             )
 
-            resultats.append(
-                {
-                    "station": station,
-                    "distance_km": round(distance, 3),
-                    "score_fiabilite": reliability,
-                    "score_recommandation": round(recommendation_score, 4),
-                }
-            )
+            resultats.append({
+                "station": station,
+                "distance_km": round(distance, 3),
+                "score_fiabilite": reliability,
+                "score_recommandation": round(recommendation_score, 4),
+            })
 
         resultats.sort(
             key=lambda resultat: (

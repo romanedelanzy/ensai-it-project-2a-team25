@@ -139,10 +139,10 @@ class CompteDAO(metaclass=Singleton):
                     cursor.execute(
                         """
                         UPDATE compte
-                        SET username = %(username)s,
-                            is_admin = %(is_admin)s,
+                        SET username = COALESCE(%(username)s, username),
+                            is_admin = COALESCE(%(is_admin)s, is_admin),
                             password = COALESCE(%(password)s, password),
-                            email = %(email)s,
+                            email = COALESCE(%(email)s, email),
                             access_token = COALESCE(%(access_token)s, access_token)
                         WHERE user_id = %(user_id)s;
                         """,
