@@ -9,16 +9,15 @@ Endpoints utilisés :
     GET /stations
     GET /stations/status
 """
+import streamlit as st
+
+from utils.api_client import api_client
+from utils.favoris import get_favorite_station_ids, remove_favorite
 
 """
 Page Streamlit des stations favorites de l'utilisateur.
 Permet de consulter les stations favorites et de les retirer de la liste.
 """
-
-import streamlit as st
-
-from utils.api_client import api_client
-from utils.favoris import get_favorite_station_ids, remove_favorite
 
 
 def get_station(station_id: str):

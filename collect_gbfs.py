@@ -4,15 +4,15 @@
 
 import time
 
+from dao.StationDAO import StationDao
+from dao.StationStatusDAO import StationStatusDao
+from external_api.gbfs_factory import create_bordeaux_provider
+from service.collection_service import CollectionService
 from utils.env_variables import load_environment_variables
+from utils.log_utils import get_logger
 
 load_environment_variables()
 
-from external_api.gbfs_factory import create_bordeaux_provider
-from dao.StationDAO import StationDao
-from dao.StationStatusDAO import StationStatusDao
-from service.collection_service import CollectionService
-from utils.log_utils import get_logger
 
 logger = get_logger(__name__)
 
@@ -37,9 +37,8 @@ def main():
         try:
             resultat = collection_service.collect()
             print(f"Résultat de la collecte : {resultat}")
-        except Exception:
-            print("Échec de la collecte GBFS.")
-
+        except (ConnectionError, TimeoutError) as error:
+            logger.error("Échec de la collecte GBFS : %s", error)
         duree = time.monotonic() - debut
         attente = max(0, INTERVAL_SECONDS - duree)
 

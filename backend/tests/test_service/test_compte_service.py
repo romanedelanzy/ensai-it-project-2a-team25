@@ -1,4 +1,5 @@
 from unittest.mock import MagicMock
+
 from business_object.compte import Compte
 from dao.CompteDAO import CompteDAO
 from service.compte_service import CompteService

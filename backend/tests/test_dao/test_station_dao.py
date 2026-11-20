@@ -16,7 +16,7 @@ def mock_cursor():
     cursor = MagicMock()
 
     connection = MagicMock()
-    connection.__enter__.return_value = connection 
+    connection.__enter__.return_value = connection
     connection.cursor.return_value.__enter__.return_value = cursor
 
     with patch("dao.StationDAO.DBConnection") as db_connection:
@@ -141,7 +141,7 @@ def test_create_ok(mock_cursor):
     assert res is True
     mock_cursor.execute.assert_called_once()
     assert "INSERT INTO station" in mock_cursor.execute.call_args[0][0]
-    
+
     # On vérifie les paramètres passés à la requête (sans station_id car généré par le MAX + 1)
     params = mock_cursor.execute.call_args[0][1]
     assert params["reseau_id"] == station.reseau_id

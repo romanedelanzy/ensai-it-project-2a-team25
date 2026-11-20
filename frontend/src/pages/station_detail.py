@@ -6,13 +6,13 @@ Affiche les informations générales, le dernier statut,
 l'évolution de la disponibilité, les favoris et la fiabilité.
 """
 
-import streamlit as st
-import pandas as pd
 from urllib.parse import quote
 
-from utils.api_client import api_client
-from utils.favoris import get_favorite_station_ids, add_favorite
+import pandas as pd
+import streamlit as st
 
+from utils.api_client import api_client
+from utils.favoris import add_favorite, get_favorite_station_ids
 
 STATE_UNKNOWN = "Inconnue"
 STATE_EMPTY = "Vide"

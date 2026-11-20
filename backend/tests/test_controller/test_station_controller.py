@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from unittest.mock import MagicMock
 
 import pytest
@@ -9,7 +9,6 @@ from business_object.station import Station
 from business_object.stationstatus import StationStatus
 from controller.station_controller import get_station_service, router
 from utils.security import get_current_user
-
 
 ADMIN = MagicMock(is_admin=True, username="admin")
 UTILISATEUR = MagicMock(is_admin=False, username="bob")
@@ -22,7 +21,7 @@ def creer_station(station_id="ST001", name="Place Pey Berland"):
 def creer_status(nb_velos_dispos=5):
     return StationStatus(
         id_station="ST001",
-        horodatage=datetime(2026, 10, 1, 12, 0, tzinfo=timezone.utc),
+        horodatage=datetime(2026, 10, 1, 12, 0, tzinfo=UTC),
         nb_velos_dispos=nb_velos_dispos,
         nb_velos_elec_dispos=1,
         nb_places_dispos=15,

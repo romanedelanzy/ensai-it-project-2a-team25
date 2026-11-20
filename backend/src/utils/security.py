@@ -1,10 +1,11 @@
 import hashlib
 
-from fastapi import Header, HTTPException,  Security
+from fastapi import Header, HTTPException, Security
 from fastapi.security import APIKeyHeader
-from dao.player_dao import PlayerDao
-from dao.CompteDAO import CompteDAO
+
 from business_object.compte import Compte
+from dao.CompteDAO import CompteDAO
+from dao.player_dao import PlayerDao
 
 
 def hash_password(password: str, salt: str = "") -> str:

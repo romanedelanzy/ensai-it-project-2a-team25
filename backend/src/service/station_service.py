@@ -1,5 +1,5 @@
-from datetime import datetime, timedelta, timezone
- 
+from datetime import UTC, datetime, timedelta
+
 from business_object.station import Station
 from business_object.stationstatus import StationStatus
 from dao.StationDAO import StationDao
@@ -69,7 +69,7 @@ class StationService:
             True si la suppression a réussi, False sinon.
         """
         return self.station_dao.delete(station)
- 
+
     @log
     def get_current_status(self, station_id: str):
         """Récupère le dernier status enregistré d'une station.
@@ -91,7 +91,7 @@ class StationService:
             list[StationStatus]
         """
         return self.station_status_dao.find_history(station_id, start_date, end_date)
-    
+
     @log
     def search_by_name(self, name: str) -> list[Station]:
         """Cherche les stations dont le nom contient le string donné.
@@ -148,7 +148,7 @@ class StationService:
         """
         if period not in PERIODS:
             raise ValueError(f"period doit valoir {list(PERIODS)} (reçu {period!r})")
-        end_date = datetime.now(timezone.utc)
+        end_date = datetime.now(UTC)
         return self.get_history(station_id, end_date - PERIODS[period], end_date)
 
     @log
