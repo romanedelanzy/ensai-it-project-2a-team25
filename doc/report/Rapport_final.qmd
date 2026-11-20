@@ -98,11 +98,14 @@ L'Administrateur : C'est le gestionnaire technique de la plateforme. Il dispose 
 ## Organisation du groupe et gestion du projet
 
 
-- diagramme de gant. 
 
 Pour mener à bien ce projet sur une durée de trois mois (de septembre à novembre 2026), notre équipe de cinq étudiants a adopté l'organisation suivante. Nous devions à la fois répartir les différentes tâches dans le temps et entre les membres du groupe. 
 
 Pour ce faire, nous avons, dès le début du projet organisé les grandes phases de notre travail dans le temps grâce à un diagramme de Gantt. Il nous a permit de découper le projet en 2 temps.  Une première phase de conception en septembre dont les objectifs principaux étaient: la compréhension du sujet, la recherche de bases de données, la réflexion sur la structure de l'application et les réalisations des différents graphiques. La deuxième phase a débuté après le rendu du rapport intermédiaire. Elle était centrée sur la construction progressive et incrémentable de l'application via l'écriture du code.
+
+
+![Diagramme de Gantt du Rapport d'Analyse](../ressources/Diagramme/Diagramme_gantt1.png)
+![Diagramme de Gantt du Code et du Rapport Final](../ressources/Diagramme/Diagramme_gantt2.png)
 
 D'autre part, nous avons essayé de nous réunir assez régulièrement pour nous répartir les différentes tâches et faire le point sur ce qui avait été fait. Chaque membre à participer aux développements de chaque couche et à coder au moins un modèle, un DAO controller et un service. Nous avons essayé de tenir compte au mieux des atouts et des préferences de chacun dans la répartition des tâches. Ainsi, les élèves ayant davantage de facilités en informatique ce sont concentrés sur le code des classes les plus complexes. 
 
@@ -189,9 +192,11 @@ Pour ce faire, nous avons utilisé les outils technologiques suivants. Notre pro
 Enfin, l'utilisateur intéragit avec notre application dans son navigateyr via une interface visuelle grâce à l'outil Streamlit. 
 
 ## Schéma d'architecture et décomposition en couche 
-- diagramme architecture 
+
 Comme évoqué précédemment notre code est organisé en cinq couches qui communiquent entre elles de manière ordonnée. Cette structure est schématisée par la diagramme d'architecture. L’application est articulée autour du Backend qui contient la logique de gestion des données, et du Frontend qui permet à l’utilisateur d’intéragir
 avec l’application. L’application communique également avec une source de données externe afin de récupérer les informations sur des stations de vélo.
+
+![Diagramme d'architecture](../ressources/Diagramme/diagramme_architecture_final.png)
 
 La première couche, la seule visible par l'utilisateur est l'Interface (Streamlit). On l'appelle le Frontend. C'est la vitrine de notre application. Elle affiche les différentes pages et permet à l'utilisateur d'intéragir avec l'application. Elle ne fait aucun calcul complexe elle même. Elle transmet seulement les instructions au Backend. 
 
