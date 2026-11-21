@@ -15,7 +15,7 @@ from utils.log_utils import get_logger
 
 logger = get_logger(__name__)
 
-INTERVAL_SECONDS = 60 * 60
+INTERVAL_SECONDS = 8 * 60 * 60
 
 
 def collect_and_export():
@@ -37,9 +37,9 @@ def collect_and_export():
 
 
 async def collection_loop():
-    """Réalise une collecte toutes les heures."""
+    """Réalise une collecte toutes les 8 heures."""
 
-    logger.info("Première collecte GBFS dans une heure.")
+    logger.info("Première collecte GBFS dans 8 heures.")
 
     while True:
 
