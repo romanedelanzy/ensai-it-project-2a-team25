@@ -39,26 +39,43 @@ class ResetDatabase(metaclass=Singleton):
         schema = os.environ["POSTGRES_SCHEMA"]
         create_schema = f"DROP SCHEMA IF EXISTS {schema} CASCADE; CREATE SCHEMA {schema};"
 
-        # Utilisation de l'objet Path pour lire les fichiers
+        # Lecture des fichiers SQL
         try:
             with open(init_db_path, encoding="utf-8") as init_db_file:
                 init_db_as_string = init_db_file.read()
 
             with open(pop_data_path, encoding="utf-8") as pop_db_file:
                 pop_db_as_string = pop_db_file.read()
+
+            # Logs de diagnostic
+            logger.info("Taille init_db.sql : %s caractères", len(init_db_as_string))
+            logger.info("Taille pop_db.sql : %s caractères", len(pop_db_as_string))
+
         except FileNotFoundError as e:
             logger.error(f"Erreur de chemin : impossible de trouver le fichier {e.filename}")
             raise
 
+        # Exécution des scripts SQL
         try:
             with DBConnection().connection as connection:
                 with connection.cursor() as cursor:
+
+                    logger.info("Étape 1 : suppression et création du schéma")
                     cursor.execute(create_schema)
+
+                    logger.info("Étape 2 : définition du search_path")
                     cursor.execute(f"SET search_path TO {schema}, public;")
+
+                    logger.info("Étape 3 : exécution de init_db.sql")
                     cursor.execute(init_db_as_string)
+
+                    logger.info("Étape 4 : exécution de pop_db.sql")
                     cursor.execute(pop_db_as_string)
-        except Exception as e:
-            logger.info(e)
+
+                    logger.info("Toutes les étapes SQL ont été exécutées.")
+
+        except Exception:
+            logger.exception("Échec du reset de la base de données.")
             raise
 
         # Apply password hashing to all players

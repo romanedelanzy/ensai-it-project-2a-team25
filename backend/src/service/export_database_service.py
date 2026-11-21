@@ -19,11 +19,14 @@ class ExportDatabaseService:
         schema = os.environ["POSTGRES_SCHEMA"]
 
         tables = [
+            "compte",
+            "reseau",
             "station",
             "station_status",
-            "compte",
             "favoris",
         ]
+
+        batch_size = 10
 
         connection = DBConnection().connection
 
@@ -31,7 +34,7 @@ class ExportDatabaseService:
             with open(self.output_path, "w", encoding="utf-8") as file:
 
                 file.write(
-                    f"-- Export automatique de la base VeloScope\n"
+                    "-- Export automatique de la base VeloScope\n"
                     f"-- Schema : {schema}\n"
                 )
 
@@ -52,27 +55,40 @@ class ExportDatabaseService:
 
                     file.write(f"\n-- Data for {table}\n")
 
-                    for row in rows:
+                    for i in range(0, len(rows), batch_size):
 
-                        values = []
+                        batch = rows[i:i + batch_size]
 
-                        for column in columns:
-                            value = row[column]
+                        values_list = []
 
-                            if value is None:
-                                values.append("NULL")
+                        for row in batch:
 
-                            elif isinstance(value, str):
-                                value = value.replace("'", "''")
-                                values.append(f"'{value}'")
+                            values = [
+                                sql.Literal(row[column]).as_string(connection)
+                                for column in columns
+                            ]
 
-                            else:
-                                values.append(str(value))
+                            values_tuple = (
+                                "(" + ", ".join(values) + ")"
+                            )
 
-                        file.write(
-                            f"INSERT INTO {table} "
-                            f"({', '.join(columns)}) "
-                            f"VALUES ({', '.join(values)});\n"
+                            values_list.append(values_tuple)
+
+                        insert_query = sql.SQL(
+                            "INSERT INTO {}.{} ({}) VALUES\n{}\n;\n"
+                        ).format(
+                            sql.Identifier(schema),
+                            sql.Identifier(table),
+                            sql.SQL(", ").join(
+                                sql.Identifier(column)
+                                for column in columns
+                            ),
+                            sql.SQL(",\n").join(
+                                sql.SQL(value)
+                                for value in values_list
+                            ),
                         )
+
+                        file.write(insert_query.as_string(connection))
 
         logger.info("Export SQL terminé : %s", self.output_path)

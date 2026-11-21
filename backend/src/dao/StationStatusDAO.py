@@ -1,4 +1,3 @@
-
 from datetime import datetime
 
 from business_object.stationstatus import StationStatus
@@ -36,6 +35,8 @@ class StationStatusDao:
                         "%(num_bike_elec_available)s, "
                         "%(num_docks_available)s, %(is_installed)s, "
                         "%(is_renting)s, %(is_returning)s) "
+                        "ON CONFLICT (station_id, last_reported) "
+                        "DO NOTHING "
                         "RETURNING station_id;",
                         {
                             "station_id": status.id_station,
