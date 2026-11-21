@@ -8,7 +8,6 @@ from dao.CompteDAO import CompteDAO
 from utils.reset_database import ResetDatabase
 
 
-
 @pytest.fixture(scope="session", autouse=True)
 def setup_test_environment():
     """Initialise la base de données de test une seule fois pour la session."""

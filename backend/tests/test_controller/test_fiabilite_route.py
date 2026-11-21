@@ -4,10 +4,7 @@ from unittest.mock import MagicMock
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
-from controller.fiabilite_controller import (
-    router,
-    get_reliability_service
-)
+from controller.fiabilite_controller import get_reliability_service, router
 
 
 def test_get_station_reliability_http():

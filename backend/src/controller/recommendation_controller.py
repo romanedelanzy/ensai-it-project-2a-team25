@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException, Query
-from utils.geocoding import geocode_bordeaux_address
 
 from schema.recommendation_model import RecommendationReadModel
 from service.recommandation_service import RecommandationService
+from utils.geocoding import geocode_bordeaux_address
 from utils.log_utils import get_logger
 
 router = APIRouter()

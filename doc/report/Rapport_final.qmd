@@ -98,11 +98,14 @@ L'Administrateur : C'est le gestionnaire technique de la plateforme. Il dispose 
 ## Organisation du groupe et gestion du projet
 
 
-- diagramme de gant. 
 
 Pour mener à bien ce projet sur une durée de trois mois (de septembre à novembre 2026), notre équipe de cinq étudiants a adopté l'organisation suivante. Nous devions à la fois répartir les différentes tâches dans le temps et entre les membres du groupe. 
 
 Pour ce faire, nous avons, dès le début du projet organisé les grandes phases de notre travail dans le temps grâce à un diagramme de Gantt. Il nous a permit de découper le projet en 2 temps.  Une première phase de conception en septembre dont les objectifs principaux étaient: la compréhension du sujet, la recherche de bases de données, la réflexion sur la structure de l'application et les réalisations des différents graphiques. La deuxième phase a débuté après le rendu du rapport intermédiaire. Elle était centrée sur la construction progressive et incrémentable de l'application via l'écriture du code.
+
+
+![Diagramme de Gantt du Rapport d'Analyse](../ressources/Diagramme/Diagramme_gantt1.png)
+![Diagramme de Gantt du Code et du Rapport Final](../ressources/Diagramme/Diagramme_gantt2.png)
 
 D'autre part, nous avons essayé de nous réunir assez régulièrement pour nous répartir les différentes tâches et faire le point sur ce qui avait été fait. Chaque membre à participer aux développements de chaque couche et à coder au moins un modèle, un DAO controller et un service. Nous avons essayé de tenir compte au mieux des atouts et des préferences de chacun dans la répartition des tâches. Ainsi, les élèves ayant davantage de facilités en informatique ce sont concentrés sur le code des classes les plus complexes. 
 
@@ -189,9 +192,11 @@ Pour ce faire, nous avons utilisé les outils technologiques suivants. Notre pro
 Enfin, l'utilisateur intéragit avec notre application dans son navigateyr via une interface visuelle grâce à l'outil Streamlit. 
 
 ## Schéma d'architecture et décomposition en couche 
-- diagramme architecture 
+
 Comme évoqué précédemment notre code est organisé en cinq couches qui communiquent entre elles de manière ordonnée. Cette structure est schématisée par la diagramme d'architecture. L’application est articulée autour du Backend qui contient la logique de gestion des données, et du Frontend qui permet à l’utilisateur d’intéragir
 avec l’application. L’application communique également avec une source de données externe afin de récupérer les informations sur des stations de vélo.
+
+![Diagramme d'architecture](../ressources/Diagramme/diagramme_architecture_final.png)
 
 La première couche, la seule visible par l'utilisateur est l'Interface (Streamlit). On l'appelle le Frontend. C'est la vitrine de notre application. Elle affiche les différentes pages et permet à l'utilisateur d'intéragir avec l'application. Elle ne fait aucun calcul complexe elle même. Elle transmet seulement les instructions au Backend. 
 
@@ -214,33 +219,57 @@ Enfin, la derniere couche est constituée des DAO. Les DAO (Data Access Objects)
 
 ## Evaluation de la fiabilité et recommandation de station
 ## Synthèse des autres fonctionnalités 
-- diagramme des cas d'utilisation
-L'application peut être consultée par trois acteurs : 
-
-* Le visiteur peut créer un compte et se connecter. 
-
+diagramme des cas d'utilisation
+L'application peut être consultée par trois acteurs :
+Le visiteur peut créer un compte et se connecter.
 Toute utilisation de l'application passe par un compte. À son arrivée sur le site, le visiteur voit un formulaire de connexion où il doit renseigner un nom d'utilisateur (30 caractères max.), une adresse mail et un mot de passe qu'il doit confirmer, et aussi un bouton de création de compte qui reste inactif tant que le mot de passe n'a pas été confirmé. Si le nom d'utilisateur est déjà pris, l'API répond par une erreur 400 l'indiquant. Le compte créé est toujours un compte utilisateur : le statut administrateur est forcé à false. Seul un administrateur peut accorder les droits d'administrateur (et donc forcer le statut à vrai) à un compte. Un compte administrateur est donc un compte utilisateur auxquels des droits supplémentaires sont accordés. Par sécurité, le mot de passe n'est jamais stocké en clair. Il est transformé en une empreinte numérique illisible via l'algorithme SHA-256, combinée à l'identifiant de l'utilisateur.
-
 Si la création de compte réussi, l'application invite le visiteur à se connecter. Lors de la connexion, le service hache le mot de passe saisi et le compare à celui de la base. Si les identifiants sont corrects, il génère un jeton aléatoire, l'enregistre sur le compte et renvoie les informations du compte avec ce jeton. Chaque connexion remplace le jeton précédent. Si les identifiants sont invalides, l'API répond par une erreur 401. Les routes protégées (routes des stations, des favoris, de la modification et de la suppression d'un compte) répondent aussi par une erreur 401 si le jeton est absent ou inconnu. Les pages de recommandation, de recherche d'itinéraire et de gestion des utilisateirs vérifient la présence d'un jeton en session et affichent un message d'erreur s'il est absent.
+L'utilisateur a 4 possibilités une fois connecté :
+Il peut d'abord trouver un vélo près de lui grâce à la page "recommandation" sur laquelle il saisit une adresse, le nombre de stations souhaitées (de 1 à 10) et un rayon de recherche (entre 0.1 et 10km avec 1km comme valeur par défaut). Le backend ajoute "Bordeaux, France" à l'adresse, et répond par une arreur 400 à toute audresse située hors de l'agglomération. Les stations utilisables classées par score de recommandation sont renvoyées en listant leurs noms, adresses, distances,scores de fiabilité et de recommandation, capacités et coordonnées. Le cas où aucune station n'est disponible dans le rayon saisi est signalé.
+L'utilisateur peut aussi utiliser la page "Consultation d'une station" pour se renseigner sur une station précise. Il doit saisir au moins 3 caractères pour le nom de la station, puis la sélectionne parmi la liste qui s'affiche. Il obtient alors :
+ses informations générales (identifiant, adresse, coordonnées)
+des informations sur son état actcuel (si la station est disponible, vide, saturée, non opérationnelle ou inconnue, le nombre de vélos qui y sont disponibles dont les vélos électriques, le nombre de places disponibles, sa capacité, son taux de remplissage et la date de son dernier relevé)
+l'évolution de sa disponibilité sur 24h, 7 jours ou 31 jours.
+sa fiabilité sur demande (son score actuel, la part du temps passée vide et saturée, la durée moyenne des épisodes de vide et de saturation, et l'évolution du score).
+L'utilisateur peut aussi retrouver ses stations habituelles dans la page "Mes stations favorites". Il définit des stations comme favorites depuis la fiche de la station, et peut la supprimer ou afficher la liste de ses stations favorites depuis la page "Mes stations favorites". Une station déjà présente dans les favoris renvoie une erreur 409
+Enfin, l'utilisateur peut afficher la carte des stations du réseau. En survolant les marqueurs des stations avec sa souris, l'utilisateur peut en afficher le nom, l’adresse et la capacité.
 
-* L'utilisateur a 4 possibilités une fois connecté : 
-
-Il peut d'abord trouver un vélo près de lui grâce à la page "recommandation" sur laquelle il saisit une adresse, le nombre de stations souhaitées (de 1 à 10) et un rayon de recherche (entre 0.1 et 10km avec 1km comme valeur par défaut). Le backend ajoute "Bordeaux, France" à l'adresse, et répond par une arreur 400 à toute audresse située hors de l'agglomération. Les stations utilisables classées par score de recommandation sont renvoyées en listant leurs noms, adresses, distances,scores de fiabilité et de recommandation, capacités et coordonnées. Le cas où aucune station n'ets disponible dans le rayon saisi est signalé.
-
-L'utilisateur peut aussi utiliser la page "Consultation d'une station" pour se renseigner sur une station précise.
-
-
-
-
-L'utilisateur peut aussi retrouver ses stations habituelles dans la page "Mes stations favorites".
-
-
-
-Enfin, l'utilisateur peut parcourir le réseau.
 \pagebreak
 
-# Test et qualité
+# Tests et qualité logicielle
 
+Pour garantir que VeloScope produise des résultats fiables et résiste aux erreurs d'utilisation comme aux aléas des données réelles de Bordeaux, nous avons mené des vérifications structurées sur l'ensemble des couches de l'application (interface Streamlit, API FastAPI, logique métier, accès aux données et collecte). L'objectif était double : vérifier que chaque fonctionnalité répond bien au cahier des charges dans son fonctionnement normal, et s'assurer que l'application gère proprement les situations dégradées, les saisies inattendues et les imperfections des flux de données.Ces vérifications reposent à la fois sur des tests automatisés, exécutés à chaque push par une chaîne d'intégration continue, et sur des contrôles manuels.
+
+## Vérification des fonctionnalités et des cas limites
+
+Nous avons testé le comportement de l'application aussi bien dans les cas nominaux que dans des situations dégradées ou aux limites, afin d'éviter les blocages, les calculs faussés ou les erreurs non maîtrisées :
+
+**Authentification, droits et gestion des favoris (F1) :** Nous avons vérifié qu'un compte ne peut être créé que lorsqu'il respecte les modalités suivantes. L'utilisateur doit impérativement confirmer son mot de passe, la longueur de son nom d'utilisateur est contrôlé, et si ce nom est déjà pris, le compte est rejeté. Nous avons également testé le hachage des mots de passe, la génération puis le remplacement du token à chaque nouvelle connexion, ainsi que le contrôle d'accès via token. L'accès est effectivement refusé lorsqu'un token est absent ou invalide. Le blocage des routes d'administration pour un compte standard a également été vérifié. Nous avons également contrôlé l'ajout, la consultation et la suppression des stations favorites, y compris lorsque l'utilisateur tente d'ajouter une station déjà enregistrée ou inexistante.
+
+* **Collecte et nettoyage des données (F2) :** Nous avons contrôlé la récupération périodique des flux GBFS de Bordeaux Métropole et l'archivage des relevés dans PostgreSQL sans écraser l'historique existant. Cela permet de pouvoir reconstituer l'état passé du réseau. Nous avons prêté une attention particulière aux anomalies observées sur les données réelles : doublons temporels, horodatages figés sur plusieurs relevés consécutifs ou incohérences entre la capacité déclarée et les vélos ou places libres disponibles, afin que ces cas ne faussent pas les analyses ultérieures.
+
+* **Consultation, fiabilité et recommandation (F3, F4, F5) :** Nous avons testé la recherche de stations (à partir de 3 caractères saisis), l'affichage des états et des disponibilités ainsi que les courbes d'évolution sur les différentes fenêtres temporelles (24 heures, 7 jours, 30 jours). Nous avons également vérifié le calcul des indicateurs de vide et de saturation ainsi que le score de fiabilité sur des jeux de données variés (station régulière, station souvent vide ou saturée, historique court ou incomplet), et testé le moteur de recommandation dans plusieurs configurations : adresse hors de l'agglomération bordelaise ou introuvable, rayon de recherche étroit ou sans station utilisable, et classement selon le score combinant proximité et fiabilité.
+
+* **Parcours utilisateur sur l'interface Streamlit :** Nous avons contrôlé la cohérence des informations affichées entre les différentes pages, la lisibilité des graphiques et de la carte, ainsi que la présence de messages d'erreur clairs et compréhensibles lorsqu'aucune donnée ne correspond à la demande ou qu'un accès nécessite une authentification.
+
+## Tests automatisés
+
+Parallèlement à l'écriture du code, nous avons développé des tests avec pytest, qui suivent l'architecture en couches décrite en section 3 : les services, les contrôleurs et les DAO disposent chacun de leurs tests (dossiers tests/test_service, tests/test_controller et tests/test_dao), soit plus de 150 cas de test. Chaque scénario est structuré selon la convention GIVEN / WHEN / THEN : état initial, action testée, résultat attendu.
+
+Le principe est de tester chaque couche isolément, en remplaçant les couches voisines par des objets simulés (unittest.mock). Les tests sont ainsi rapides (quelques secondes pour l'ensemble des tests unitaires), déterministes et indépendants du réseau comme de l'API de la métropole.
+
+Dans la couche Service nous testons principalement: la création de compte et la connexion, la recherche de station, le taux de remplissage, l'historique sur 24 h / 7 j / 30 j, le calcul du score de fiabilité (durées et pourcentages de vide et de saturation, évolution, cas sans historique), les favoris. Pour ce faire, nous remplaçons les DAO par des MagicMock. 
+
+Dans la couche contrôleurs nous testons principalement: les routes FastAPI : codes HTTP (200, 400, 401, 403, 404, 422, 500), la validation des paramètres, les droits administrateur, les tokens , le cloisonnement des favoris par utilisateur.  
+
+Dans la couche DAO nous testons principalement les requêtes SQL (lecture, création, mise à jour, suppressions, cas échec). Nous isolons cette partie via des faux curseur pour StationDAO et FavoriDAO. 
+
+
+-> A relire et compléter 
+-> rajouter uen partie sur les score de fiabilité !!
+
+
+Nous avons également cherché à garantir la qualité du code via une analyse statique avec Ruff. 
 \pagebreak
 
 
@@ -266,14 +295,29 @@ Sur le plan technique, ce projet nous a permis de mettre en pratique l'ensemble 
 # Annexes
 
 ## Notes individuelles 
-### Romane Delanzy
-Pendant ces trois mois consacrés au projet VeloScope, j'ai pris part à l'organisation collective lors de nos réunions, à la réflexion sur les fonctionnalités, à la conception des graphiques, au développement ainsi qu'à la rédaction des rapports. Ayant davantage de difficultés en informatique, je me suis concentrée, en accord avec le reste du groupe, sur la classe Favori — qui me semblait l'une des moins complexes à appréhender — ainsi que sur le développement du frontend.
 
-Le travail en groupe s'est révélé très formateur et enrichissant. Nous avons cherché à communiquer au maximum pour répartir les tâches, nous entraider et tenir nos échéances. Naturellement, le rythme a pu varier selon les périodes en raison des autres cours et des contraintes d'emploi du temps de chacun, mais j'ai ressenti une réelle écoute au sein de l'équipe. Chacun a pu trouver sa place, les tâches les plus complexes étant confiées aux personnes les plus à l'aise techniquement, et inversement.
+### Fanny Bouby
+J'ai principalement travaillé sur les stations, sur toutes les couches du code. J'ai écrit la classe Station qui contrôle la validité des données (types, bornes de latitudes et de longitude, capacité positive), le StationDAO qui lit et écrit les stations dans la base de données et garantit le CRUD, ainsi que les tables reseau et station. J'ai aussi écrit le StationService et le StationController qui reçoit les requêtes de l'API (lister les stations, en chercher une, voir son état et son historique, et créer, modifier ou supprimer pour un administrateur). Il renvoie une erreur claire quand quelque chose ne va pas (403 si l’utilisateur n’est pas administrateur, 404 si la station n’existe pas, 422 si une valeur est invalide. J'ai écrit les tests pour Station pour chaque couche du code. J'ai participé au début du codage des pages du frontend, et j'ai grandement participé à la rédaction du rapport intermédiaire et du rapport final.
+J'ai trouvé que l'organisation du groupe fonctionnait bien. Nous n'avons pas désigné de chef de projet ou de leader technique parce qu'aucun de nous ne se sentait particulièrement adapté à l'un de ces rôles. Nous avons réussi à discuter à plusieurs des difficultés rencontrées, comme par exemple comment enregistrer la base de données ou comment gérer l'affichage de la carte des stations. Les décisions ont toujours été prises à plusieurs et avec l'accord de tous. Il était aussi très pratique que le code soit séparé en couche pour le travail à plusieurs. Je pouvais tester mon DAO sans attendre les autres. Avoir fait toutes les couches des stations m’a aidé à bien comprendre le chemin d’une requête, de l’API jusqu’à la base.
+Au début, j'ai eu du mal à comprendre comment toutes les parties du projet s'assemblaient. Mes plus grosses difficultés ont donc porté sur l'alignement des différentes couche de l'architecture. En parallèle, je ne savais pas comment gérer la création automatique d'un identifiant lors de l'ajout d'une station. J'ai décidé de le calculer en SQL (le maximum des identifiants existants + 1), ce qui a créé un décalage entre les couches. J'ai aussi eu quelques difficultés d'environnement ou d'utilisation de git avec le groupe. À chaque fois, la cause était simple, mais le diagnostic a pris du temps.
+Je pense que ce projet m'a beaucoup aidé à comprendre comment peut s'organiser une application en python. Avant, j'avais du mal à imaginer comment structurer un tel projet. J'ai aussi appris à régler certains conflits Git. Si le projet était à refaire, j’essaierais d’inciter mon groupe à harmoniser plus tôt l’écriture du code et les noms des méthodes et des attributs. J’essaierais aussi de communiquer davantage pendant que chacun écrivait les couches métier de sa partie, car cela a posé problème au moment de les assembler. Par exemple, même si nous en avions parlé dès le début, nos DAO n’avaient pas tous les mêmes conventions (creer et create, trouver_par_id et find_by_id). Aussi, il aurait peut-être été plus pratique d'écrire le rapport en même temps que le code, pour mieux documenter nos questionnements.
+
+
+### Romane Delanzy
+Pendant ces trois mois consacrés au projet VeloScope, j'ai pris part à l'organisation collective lors de nos réunions, à la réflexion sur les fonctionnalités, à la conception des graphiques, au développement ainsi qu'à la rédaction des rapports. Ayant davantage de difficultés en informatique, je me suis concentrée, en accord avec le reste du groupe, sur la classe Favori qui me semblait l'une des moins complexes à appréhender ainsi que sur le développement du frontend.
+
+Le travail en groupe s'est révélé très formateur et enrichissant. Nous avons cherché à communiquer au maximum pour répartir les tâches, nous entraider et tenir nos échéances. Naturellement, le rythme a pu varier selon les périodes en raison des autres cours et des contraintes d'emploi du temps de chacun, mais cela ne nous a pas empéché de mener le projet à terme. Chacun a pu trouver sa place, les tâches les plus complexes étant confiées aux personnes les plus à l'aise techniquement, et inversement.
 
 L'aspect le plus difficile pour moi a été de saisir la structure globale de l'application. Au début, le rôle de chaque couche et la façon dont elles communiquaient entre elles me paraissaient très abstraits. Sans recul sur ces mécanismes, on a vite l'impression que tout est imbriqué et qu'une modification à un endroit risque de tout déstabiliser, ou bien on peine à identifier quelles couches sont directement connectées. C'est en progressant étape par étape, en m'appuyant sur des schémas et en échangeant avec mes camarades que le fonctionnement de l'ensemble s'est clarifié. Ce qui m'a particulièrement frustrée, c'est que parfois une toute petite erreur suffit à faire en sorte que plus rien ne fonctionne, et j'ai perdu beaucoup de temps à cause de cela. Par ailleurs, l'automatisation de la collecte des données de Bordeaux représentait un enjeu clé : au démarrage, il nous était difficile d'imaginer concrètement comment la mettre en place. Plus largement, l'ampleur de ce projet dépassait celle de l'année précédente, où j'avais déjà eu du mal à me projeter et à savoir par où débuter. Spontanément, on a envie de se lancer tout de suite dans le code pour produire du concret, alors qu'une phase de conception préalable est indispensable pour écrire un code cohérent et fonctionnel.
 
 Ce projet m'a surtout appris à persévérer face à la complexité technique. Si c'était à refaire, je consacrerais encore davantage de temps en amont à bien cerner l'architecture et le périmètre de chaque couche, car cette vision d'ensemble est essentielle pour que chaque brique s'articule naturellement avec les autres. Au final, je suis fière du chemin parcouru et du travail accompli collectivement.
+
+
+
+
+
+
+
 ## autres
 
 

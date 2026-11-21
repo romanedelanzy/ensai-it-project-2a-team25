@@ -1,11 +1,17 @@
 # src/controller/compte_controller.py
 
 from fastapi import APIRouter, Depends, HTTPException, status
-from schema.compte_model import CompteReadModel, CompteCreateModel, ComptePublicModel, CompteUpdateModel
+from pydantic import EmailStr, TypeAdapter, ValidationError
+
+from schema.compte_model import (
+    CompteCreateModel,
+    ComptePublicModel,
+    CompteReadModel,
+    CompteUpdateModel,
+)
 from service.compte_service import CompteService
 from utils.log_utils import get_logger
 from utils.security import get_current_user, hash_password
-from pydantic import EmailStr, TypeAdapter, ValidationError
 
 _email_adapter = TypeAdapter(EmailStr)
 

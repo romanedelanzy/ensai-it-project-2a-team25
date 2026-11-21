@@ -1,13 +1,13 @@
+from datetime import datetime
 from typing import Literal
 
 from fastapi import APIRouter, Depends, HTTPException
 
+from business_object.station import Station
 from schema.station_model import StationReadModel, StationStatusReadModel
 from service.station_service import StationService
 from utils.log_utils import get_logger
 from utils.security import get_current_user
-from business_object.station import Station
-from datetime import datetime
 
 router = APIRouter()
 
@@ -116,9 +116,7 @@ async def station_current_status(
     return status
 
 
-@router.get(
-    "/{station_id}/history", response_model=list[StationStatusReadModel], tags=["Stations"]
-)
+@router.get("/{station_id}/history", response_model=list[StationStatusReadModel], tags=["Stations"])
 async def station_history(
     station_id: str,
     period: Literal["24h", "7j", "30j"] = "24h",
@@ -144,7 +142,12 @@ async def station_history(
         raise HTTPException(status_code=404, detail=f"Station (id={station_id}) not found.")
     return station_service.get_history_by_period(station_id, period)
 
-@router.get("/{station_id}/availability-history",response_model=list[tuple[datetime, int]],tags=["Stations"],)
+
+@router.get(
+    "/{station_id}/availability-history",
+    response_model=list[tuple[datetime, int]],
+    tags=["Stations"],
+)
 async def station_availability_history(
     station_id: str,
     period: Literal["24h", "7j", "30j"] = "24h",
@@ -153,10 +156,7 @@ async def station_availability_history(
 ):
     """Récupère l'évolution de la disponibilité d'une station."""
 
-    logger.info(
-        f"Get availability history of station {station_id} "
-        f"(user: {current_user.username})"
-    )
+    logger.info(f"Get availability history of station {station_id} (user: {current_user.username})")
 
     station = station_service.search_by_id(station_id)
 
@@ -168,6 +168,7 @@ async def station_availability_history(
 
     return station_service.get_availability_history(station_id, period)
 
+
 @router.post("/", response_model=StationReadModel, tags=["Stations"])
 async def create_station(
     s: StationReadModel,
@@ -175,23 +176,28 @@ async def create_station(
     current_user=Depends(get_current_user),
 ):
     """Crée une nouvelle station (administrateur uniquement).
-        Args:
-            s (StationReadModel): Les données de la station à créer.
-            station_service (StationService): Le service utilisé pour interagir avec les données des stations.
-            current_user (Compte): L'utilisateur connecté.
-        Returns:
-            StationReadModel: Les données de la station créée.
-        Raises:
-            HTTPException: Erreur 401 si l'utilisateur n'est pas authentifié.
-            HTTPException: Erreur 403 si l'utilisateur n'est pas administrateur.
-            HTTPException: Erreur 400 si l'identifiant de la station existe déjà.
-            HTTPException: Erreur 422 si une valeur de la station est invalide.
-            HTTPException: Erreur 500 si la création échoue.
-        """
+    Args:
+        s (StationReadModel): Les données de la station à créer.
+        station_service (StationService): Le service utilisé pour interagir avec les données des stations.
+        current_user (Compte): L'utilisateur connecté.
+    Returns:
+        StationReadModel: Les données de la station créée.
+    Raises:
+        HTTPException: Erreur 401 si l'utilisateur n'est pas authentifié.
+        HTTPException: Erreur 403 si l'utilisateur n'est pas administrateur.
+        HTTPException: Erreur 400 si l'identifiant de la station existe déjà.
+        HTTPException: Erreur 422 si une valeur de la station est invalide.
+        HTTPException: Erreur 500 si la création échoue.
+    """
     logger.info(f"Create a station (user: {current_user.username})")
     _verifier_admin(current_user)
 
-    station_id = s.station_id if getattr(s, "station_id", None) else "0" 
+    station_id = s.station_id if getattr(s, "station_id", None) else "0"
+    if station_service.search_by_id(station_id):
+        raise HTTPException(
+            status_code=400,
+            detail=f"Station (id={station_id}) already exists.",
+        )
     new_station = _construire_station(station_id, s)
 
     if not station_service.create(new_station):

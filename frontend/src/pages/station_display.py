@@ -8,8 +8,7 @@ import pandas as pd
 import streamlit as st
 
 from utils.api_client import api_client
-from utils.favoris import get_favorite_station_ids, add_favorite
-
+from utils.favoris import add_favorite, get_favorite_station_ids
 
 STATE_EMPTY = "Vide"
 STATE_FULL = "Saturée"
@@ -292,7 +291,6 @@ def display_stations():
                 st.switch_page("pages/station_status.py")
 
             # Fiabilité
-            reliability_key = f"reliability_{station_id}"
 
             if st.button(
                 "Masquer la fiabilité"

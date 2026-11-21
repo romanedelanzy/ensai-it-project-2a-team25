@@ -1,5 +1,5 @@
 from dataclasses import replace
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from unittest.mock import MagicMock
 
 import pytest
@@ -16,7 +16,7 @@ def creer_station(station_id="ST001", name="Place Pey Berland", capacite=20):
 def creer_status(**champs):
     status = StationStatus(
         id_station="ST001",
-        horodatage=datetime(2026, 10, 1, 12, 0, tzinfo=timezone.utc),
+        horodatage=datetime(2026, 10, 1, 12, 0, tzinfo=UTC),
         nb_velos_dispos=5,
         nb_velos_elec_dispos=1,
         nb_places_dispos=15,
@@ -116,19 +116,19 @@ def test_delete_ok():
     dao = MagicMock()
     dao.delete.return_value = True
     station = creer_station()
- 
+
     resultat = StationService(station_dao=dao).delete(station)
- 
+
     assert resultat is True
     dao.delete.assert_called_once_with(station)
- 
+
 def test_delete_echec():
     dao = MagicMock()
     dao.delete.return_value = False
     station = creer_station()
- 
+
     resultat = StationService(station_dao=dao).delete(station)
- 
+
     assert resultat is False
     dao.delete.assert_called_once_with(station)
 
@@ -159,8 +159,8 @@ def test_get_history():
     dao = MagicMock()
     statuts = [creer_status(), creer_status(nb_velos_dispos=6)]
     dao.find_history.return_value = statuts
-    debut = datetime(2026, 10, 1, tzinfo=timezone.utc)
-    fin = datetime(2026, 10, 2, tzinfo=timezone.utc)
+    debut = datetime(2026, 10, 1, tzinfo=UTC)
+    fin = datetime(2026, 10, 2, tzinfo=UTC)
 
     resultat = StationService(station_status_dao=dao).get_history("ST001", debut, fin)
 
@@ -170,8 +170,8 @@ def test_get_history():
 def test_get_history_liste_vide():
     dao = MagicMock()
     dao.find_history.return_value = []
-    debut = datetime(2026, 10, 1, tzinfo=timezone.utc)
-    fin = datetime(2026, 10, 2, tzinfo=timezone.utc)
+    debut = datetime(2026, 10, 1, tzinfo=UTC)
+    fin = datetime(2026, 10, 2, tzinfo=UTC)
 
     resultat = StationService(station_status_dao=dao).get_history("ST001", debut, fin)
 
@@ -278,11 +278,11 @@ def test_get_history_by_period(period):
     dao = MagicMock()
     statuts = [creer_status()]
     dao.find_history.return_value = statuts
-    avant = datetime.now(timezone.utc)
+    avant = datetime.now(UTC)
 
     resultat = StationService(station_status_dao=dao).get_history_by_period("ST001", period)
 
-    apres = datetime.now(timezone.utc)
+    apres = datetime.now(UTC)
     station_id, debut, fin = dao.find_history.call_args.args
     assert resultat == statuts
     assert station_id == "ST001"
