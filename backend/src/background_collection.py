@@ -39,7 +39,11 @@ def collect_and_export():
 async def collection_loop():
     """Réalise une collecte toutes les heures."""
 
+    logger.info("Première collecte GBFS dans une heure.")
+
     while True:
+
+        await asyncio.sleep(INTERVAL_SECONDS)
 
         try:
             await asyncio.to_thread(collect_and_export)
@@ -47,4 +51,3 @@ async def collection_loop():
         except Exception:
             logger.exception("Échec de la collecte ou de l'export GBFS.")
 
-        await asyncio.sleep(INTERVAL_SECONDS)

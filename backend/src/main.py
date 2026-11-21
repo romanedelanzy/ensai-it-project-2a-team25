@@ -39,27 +39,48 @@ initialize_logs("Webservice")
 load_environment_variables()
 display_values()
 
+ENABLE_GBFS_COLLECTION = False
+
+
+def choose_collection():
+    """Demande si la collecte GBFS doit être activée."""
+
+    while True:
+        choix = input(
+            "Voulez-vous activer la collecte automatique GBFS ? (o/n) : "
+        ).strip().lower()
+
+        if choix in ("o", "n"):
+            return choix == "o"
+
+        print("Réponse invalide. Veuillez saisir o ou n.")
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Gère le démarrage et l'arrêt du service."""
 
-    logger.info("Démarrage du collecteur GBFS.")
-
-    task = asyncio.create_task(collection_loop())
+    if ENABLE_GBFS_COLLECTION:
+        logger.info("Démarrage du collecteur GBFS.")
+        task = asyncio.create_task(collection_loop())
+    else:
+        logger.info("Collecte GBFS désactivée au démarrage.")
+        task = None
 
     try:
         yield
 
     finally:
-        logger.info("Arrêt du collecteur GBFS.")
 
-        task.cancel()
+        if task is not None:
+            logger.info("Arrêt du collecteur GBFS.")
 
-        try:
-            await task
-        except asyncio.CancelledError:
-            logger.info("Collecteur GBFS arrêté.")
+            task.cancel()
+
+            try:
+                await task
+            except asyncio.CancelledError:
+                logger.info("Collecteur GBFS arrêté.")
 
 
 app = FastAPI(
@@ -132,6 +153,9 @@ async def reset_database():
 
 # Run the FastAPI application
 if __name__ == "__main__":
+
+    ENABLE_GBFS_COLLECTION = choose_collection()
+
     uvicorn.run(
         app,
         host=os.getenv("UVICORN_HOST", "127.0.0.1"),
