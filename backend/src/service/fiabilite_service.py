@@ -7,145 +7,134 @@ from dao.StationStatusDAO import StationStatusDao
 class ReliabilityService:
     """ Service qui calcule la fiabilite d'une station a partir de l'historique."""
 
-    def percent_time_empty_all(self, id_station: str) -> float:
-        """Pourcentage de temps ou une station est vide sur tout l'historique"""
-
-        history = StationStatusDao().find_all_history(id_station)
+    def _percent_time_in_state(
+        self,
+        history,
+        state_type: str,
+        end_date: datetime | None = None,
+    ) -> float:
+        """Calcule la proportion de temps passée dans un état donné."""
 
         if not history:
             return 0.0
 
+        if end_date is None:
+            end_date = history[-1].horodatage
+
         total_duration = (
-            history[-1].horodatage - history[0].horodatage
+            end_date - history[0].horodatage
         ).total_seconds()
 
         if total_duration <= 0:
             return 0.0
 
-        empty_start = None
-        empty_duration = 0
+        state_start = None
+        state_duration = 0
 
         for status in history:
-            if status.is_empty():
-                if empty_start is None:
-                    empty_start = status.horodatage
+
+            if state_type == "empty":
+                is_in_state = status.is_empty()
+
+            elif state_type == "saturated":
+                is_in_state = status.is_saturated()
 
             else:
-                if empty_start is not None:
-                    duration = status.horodatage - empty_start
-                    empty_duration += duration.total_seconds()
-                    empty_start = None
+                raise ValueError("Etat inconnu")
 
-        if empty_start is not None:
-            duration = history[-1].horodatage - empty_start
-            empty_duration += duration.total_seconds()
+            if is_in_state:
+                if state_start is None:
+                    state_start = status.horodatage
 
-        return empty_duration / total_duration
+            else:
+                if state_start is not None:
+                    duration = (
+                        status.horodatage - state_start
+                    ).total_seconds()
+                    state_duration += duration
+                    state_start = None
+
+        if state_start is not None:
+            duration = (end_date - state_start).total_seconds()
+            state_duration += duration
+
+        return state_duration / total_duration
+
+    def percent_time_empty_all(self, id_station: str) -> float:
+        """Pourcentage de temps ou une station est vide sur tout l'historique"""
+
+        history = StationStatusDao().find_all_history(id_station)
+
+        return self._percent_time_in_state(history, "empty")
 
     def percent_time_empty_until(self, id_station: str, end: datetime) -> float:
         """Poucentage de temps ou une station est vide jusqu'a une certaine date"""
 
         history = StationStatusDao().find_history_until(id_station, end)
 
-        if not history:
-            return 0.0
-
-        total_duration = (
-            end - history[0].horodatage
-        ).total_seconds()
-
-        if total_duration <= 0:
-            return 0.0
-
-        empty_start = None
-        empty_duration = 0
-
-        for status in history:
-            if status.is_empty():
-                if empty_start is None:
-                    empty_start = status.horodatage
-
-            else:
-                if empty_start is not None:
-                    duration = status.horodatage - empty_start
-                    empty_duration += duration.total_seconds()
-                    empty_start = None
-
-        if empty_start is not None:
-            duration = end - empty_start
-            empty_duration += duration.total_seconds()
-
-        return empty_duration / total_duration
+        return self._percent_time_in_state(history, "empty", end)
 
     def percent_saturation_all(self, id_station: str) -> float:
         """Pourcentage de temps ou une station est saturee sur tout l'historique"""
 
         history = StationStatusDao().find_all_history(id_station)
 
-        if not history:
-            return 0.0
-
-        total_duration = (
-            history[-1].horodatage - history[0].horodatage
-        ).total_seconds()
-
-        if total_duration <= 0:
-            return 0.0
-
-        sat_start = None
-        sat_duration = 0
-
-        for status in history:
-            if status.is_saturated():
-                if sat_start is None:
-                    sat_start = status.horodatage
-
-            else:
-                if sat_start is not None:
-                    duration = status.horodatage - sat_start
-                    sat_duration += duration.total_seconds()
-                    sat_start = None
-
-        if sat_start is not None:
-            duration = history[-1].horodatage - sat_start
-            sat_duration += duration.total_seconds()
-
-        return sat_duration / total_duration
+        return self._percent_time_in_state(history, "saturated")
 
     def percent_saturation_until(self, id_station: str, end: datetime) -> float:
-        """Pourcentage de temps ou une station est saturee jusqu'à une certaine date"""
+        """Pourcentage de temps ou une station est saturee jusqu'à une date"""
 
         history = StationStatusDao().find_history_until(id_station, end)
 
+        return self._percent_time_in_state(history, "saturated", end)
+
+    def _average_duration_in_state(
+        self,
+        history,
+        state_type: str,
+        end_date: datetime | None = None,
+    ) -> float | None:
+        """Calcule la durée moyenne des épisodes d'un état en heures."""
+
         if not history:
-            return 0.0
+            return None
 
-        total_duration = (
-            end - history[0].horodatage
-        ).total_seconds()
+        if end_date is None:
+            end_date = history[-1].horodatage
 
-        if total_duration <= 0:
-            return 0.0
-
-        sat_start = None
-        sat_duration = 0
+        state_start = None
+        state_durations = []
 
         for status in history:
-            if status.is_saturated():
-                if sat_start is None:
-                    sat_start = status.horodatage
+
+            if state_type == "empty":
+                is_in_state = status.is_empty()
+
+            elif state_type == "saturated":
+                is_in_state = status.is_saturated()
 
             else:
-                if sat_start is not None:
-                    duration = status.horodatage - sat_start
-                    sat_duration += duration.total_seconds()
-                    sat_start = None
+                raise ValueError("Etat inconnu")
 
-        if sat_start is not None:
-            duration = end - sat_start
-            sat_duration += duration.total_seconds()
+            if is_in_state:
+                if state_start is None:
+                    state_start = status.horodatage
 
-        return sat_duration / total_duration
+            else:
+                if state_start is not None:
+                    duration = status.horodatage - state_start
+                    state_durations.append(duration.total_seconds() / 3600)
+                    state_start = None
+
+        # Si l'episode est toujours en cours à la date de fin
+        if state_start is not None:
+            duration = end_date - state_start
+            state_durations.append(duration.total_seconds() / 3600)
+
+        if not state_durations:
+            return 0
+
+        return sum(state_durations) / len(state_durations)
 
     def average_empty_duration_all(self, station_id: str) -> float | None:
         """ Pour l'historique entier, calcule la duree moyenne des episodes de
@@ -154,34 +143,7 @@ class ReliabilityService:
 
         history = StationStatusDao().find_all_history(station_id)
 
-        if not history:
-            return None
-
-        empty_start = None
-        empty_durations = []
-
-        for status in history:
-
-            if status.is_empty():
-                if empty_start is None:
-                    empty_start = status.horodatage
-
-            else:
-                if empty_start is not None:
-                    duration = status.horodatage - empty_start
-                    empty_durations.append(duration.total_seconds() / 3600)
-                    empty_start = None
-
-        # Si la station est toujours vide
-        if empty_start is not None:
-            # On prend la derniere date
-            duration = history[-1].horodatage - empty_start
-            empty_durations.append(duration.total_seconds() / 3600)
-
-        if not empty_durations:
-            return 0
-
-        return sum(empty_durations) / len(empty_durations)
+        return self._average_duration_in_state(history, "empty")
 
     def average_saturated_duration_all(self, station_id: str) -> float | None:
         """ Pour l'historique entier, calcule la duree moyenne des episodes de
@@ -190,132 +152,46 @@ class ReliabilityService:
 
         history = StationStatusDao().find_all_history(station_id)
 
-        if not history:
-            return None
+        return self._average_duration_in_state(history, "saturated")
 
-        sat_start = None
-        sat_durations = []
-
-        for status in history:
-
-            if status.is_saturated():
-                if sat_start is None:
-                    sat_start = status.horodatage
-
-            else:
-                if sat_start is not None:
-                    duration = status.horodatage - sat_start
-                    sat_durations.append(duration.total_seconds() / 3600)
-                    sat_start = None
-
-        # Si la station est toujours saturée
-        if sat_start is not None:
-            # On prend la derniere date
-            duration = history[-1].horodatage - sat_start
-            sat_durations.append(duration.total_seconds() / 3600)
-
-        if not sat_durations:
-            return 0
-
-        return sum(sat_durations) / len(sat_durations)
-
-    def average_empty_duration_until(self, station_id: str, end_date: datetime) -> float | None:
+    def average_empty_duration_until(
+        self,
+        station_id: str,
+        end_date: datetime,
+    ) -> float | None:
         """En heures, donne la duree moyenne où une station est vide jusqu'a une
         certaine date
         """
 
         history = StationStatusDao().find_history_until(station_id, end_date)
 
-        if not history:
-            return None
+        return self._average_duration_in_state(history, "empty", end_date)
 
-        empty_start = None
-        empty_durations = []
-
-        for status in history:
-
-            if status.is_empty():
-                if empty_start is None:
-                    empty_start = status.horodatage
-
-            else:
-                if empty_start is not None:
-                    duration = status.horodatage - empty_start
-                    empty_durations.append(duration.total_seconds() / 3600)
-                    empty_start = None
-
-        # Si la station est toujours vide à la date de fin
-        if empty_start is not None:
-            duration = end_date - empty_start
-            empty_durations.append(duration.total_seconds() / 3600)
-
-        if not empty_durations:
-            return 0
-
-        return sum(empty_durations) / len(empty_durations)
-
-    def average_saturated_duration_until(self, station_id: str, end_date: datetime) -> float | None:
+    def average_saturated_duration_until(
+        self,
+        station_id: str,
+        end_date: datetime,
+    ) -> float | None:
         """Donne en heure la duree moyenne des episodes de saturation d'une
         station jusqu'a une certaine date
         """
 
         history = StationStatusDao().find_history_until(station_id, end_date)
 
-        if not history:
-            return None
+        return self._average_duration_in_state(
+            history, "saturated", end_date
+        )
 
-        sat_start = None
-        sat_durations = []
-
-        for status in history:
-
-            if status.is_saturated():
-                if sat_start is None:
-                    sat_start = status.horodatage
-
-            else:
-                if sat_start is not None:
-                    duration = status.horodatage - sat_start
-                    sat_durations.append(duration.total_seconds() / 3600)
-                    sat_start = None
-
-        # Si la station est toujours saturée à la date de fin
-        if sat_start is not None:
-            duration = end_date - sat_start
-            sat_durations.append(duration.total_seconds() / 3600)
-
-        if not sat_durations:
-            return 0
-
-        return sum(sat_durations) / len(sat_durations)
-
-    def reliability_current_score(self, id_station: str) -> float:
-
-        history = StationStatusDao().find_all_history(id_station)
-
-        if not history:
-            return 0.0
-
-        total_duration = history[-1].horodatage - history[0].horodatage
-        total_duration_hours = total_duration.total_seconds() / 3600
-
-        if total_duration_hours <= 0:
-            return 0.0
-
-        current_status = StationStatusDao().find_current_status(id_station)
-
-        if current_status is None:
-            current_score = 0.5
-        elif not current_status.is_empty() and not current_status.is_saturated():
-            current_score = 1
-        else:
-            current_score = 0
-
-        percent_empty = self.percent_time_empty_all(id_station)
-        percent_saturated = self.percent_saturation_all(id_station)
-
-        mean_time_empty = self.average_empty_duration_all(id_station)
-        mean_time_saturated = self.average_saturated_duration_all(id_station)
+    def _calculate_score(
+        self,
+        current_score: float,
+        percent_empty: float,
+        percent_saturated: float,
+        mean_time_empty: float | None,
+        mean_time_saturated: float | None,
+        total_duration_hours: float,
+    ) -> float:
+        """Calcule le score à partir des indicateurs déjà calculés."""
 
         if mean_time_empty is None:
             score_empty_duration = 0.5
@@ -325,7 +201,9 @@ class ReliabilityService:
         if mean_time_saturated is None:
             score_saturated_duration = 0.5
         else:
-            score_saturated_duration = 1 - mean_time_saturated / total_duration_hours
+            score_saturated_duration = (
+                1 - mean_time_saturated / total_duration_hours
+            )
 
         score = (
             current_score
@@ -336,6 +214,46 @@ class ReliabilityService:
         ) / 5
 
         return score
+
+    def reliability_current_score(self, id_station: str) -> float:
+
+        dao = StationStatusDao()
+        history = dao.find_all_history(id_station)
+
+        if not history:
+            return 0.0
+
+        total_duration = history[-1].horodatage - history[0].horodatage
+        total_duration_hours = total_duration.total_seconds() / 3600
+
+        if total_duration_hours <= 0:
+            return 0.0
+
+        current_status = dao.find_current_status(id_station)
+
+        if current_status is None:
+            current_score = 0.5
+        elif not current_status.is_empty() and not current_status.is_saturated():
+            current_score = 1
+        else:
+            current_score = 0
+
+        percent_empty = self._percent_time_in_state(history, "empty")
+        percent_saturated = self._percent_time_in_state(history, "saturated")
+
+        mean_time_empty = self._average_duration_in_state(history, "empty")
+        mean_time_saturated = self._average_duration_in_state(
+            history, "saturated"
+        )
+
+        return self._calculate_score(
+            current_score,
+            percent_empty,
+            percent_saturated,
+            mean_time_empty,
+            mean_time_saturated,
+            total_duration_hours,
+        )
 
     def reliability_score_evolution(self, id_station: str) -> dict[datetime, float]:
         """Calcule l'evolution du score de fiabilite d'une station au cours du temps."""
@@ -349,7 +267,26 @@ class ReliabilityService:
 
         first_date = history[0].horodatage
 
-        for current_status in history:
+        # Compteurs cumulés
+        empty_duration = 0
+        saturated_duration = 0
+
+        empty_episode_durations = []
+        saturated_episode_durations = []
+
+        empty_start = None
+        saturated_start = None
+
+        previous_status = history[0]
+
+        # Initialisation des épisodes éventuels
+        if previous_status.is_empty():
+            empty_start = first_date
+
+        if previous_status.is_saturated():
+            saturated_start = first_date
+
+        for i, current_status in enumerate(history):
 
             current_date = current_status.horodatage
 
@@ -360,38 +297,105 @@ class ReliabilityService:
                 scores[current_date] = 0.0
                 continue
 
+            # Mise à jour des durées cumulées entre deux dates
+            if i > 0:
+
+                interval_duration = (
+                    current_date - previous_status.horodatage
+                ).total_seconds()
+
+                # L'intervalle est attribué à l'état précédent
+                if previous_status.is_empty():
+                    empty_duration += interval_duration
+
+                if previous_status.is_saturated():
+                    saturated_duration += interval_duration
+
+            # Gestion des épisodes de vide
+            if current_status.is_empty():
+
+                if empty_start is None:
+                    empty_start = current_date
+
+            else:
+
+                if empty_start is not None:
+                    episode_duration = (
+                        current_date - empty_start
+                    ).total_seconds() / 3600
+
+                    empty_episode_durations.append(episode_duration)
+                    empty_start = None
+
+            # Gestion des épisodes de saturation
+            if current_status.is_saturated():
+
+                if saturated_start is None:
+                    saturated_start = current_date
+
+            else:
+
+                if saturated_start is not None:
+                    episode_duration = (
+                        current_date - saturated_start
+                    ).total_seconds() / 3600
+
+                    saturated_episode_durations.append(episode_duration)
+                    saturated_start = None
+
+            # Pourcentages de temps vide et sature jusqu'a la date courante
+            total_duration_seconds = total_duration.total_seconds()
+
+            percent_empty = empty_duration / total_duration_seconds
+            percent_saturated = saturated_duration / total_duration_seconds
+
+            # Durees moyennes des episodes vides et satures jusqu'a la date courante
+            current_empty_durations = empty_episode_durations.copy()
+
+            if empty_start is not None:
+                current_empty_durations.append(
+                    (current_date - empty_start).total_seconds() / 3600
+                )
+
+            current_saturated_durations = saturated_episode_durations.copy()
+
+            if saturated_start is not None:
+                current_saturated_durations.append(
+                    (current_date - saturated_start).total_seconds() / 3600
+                )
+
+            if current_empty_durations:
+                mean_time_empty = (
+                    sum(current_empty_durations) / len(current_empty_durations)
+                )
+            else:
+                mean_time_empty = 0
+
+            if current_saturated_durations:
+                mean_time_saturated = (
+                    sum(current_saturated_durations)
+                    / len(current_saturated_durations)
+                )
+            else:
+                mean_time_saturated = 0
+
             # Score de l'etat actuel
             if not current_status.is_empty() and not current_status.is_saturated():
                 current_score = 1
             else:
                 current_score = 0
 
-            # Pourcentages de temps vide et sature jusqu'a la date courante
-            percent_empty = self.percent_time_empty_until(id_station, current_date)
-            percent_saturated = self.percent_saturation_until(id_station, current_date)
-
-            # Durees moyennes des episodes vides et satures jusqu'a la date courante
-            mean_time_empty = self.average_empty_duration_until(id_station, current_date)
-            mean_time_saturated = self.average_saturated_duration_until(id_station, current_date)
-
-            if mean_time_empty is None:
-                score_empty_duration = 0.5
-            else:
-                score_empty_duration = 1 - mean_time_empty / total_duration_hours
-
-            if mean_time_saturated is None:
-                score_saturated_duration = 0.5
-            else:
-                score_saturated_duration = 1 - mean_time_saturated / total_duration_hours
-
-            score = (
-                current_score
-                + (1 - percent_empty)
-                + (1 - percent_saturated)
-                + score_empty_duration
-                + score_saturated_duration
-            ) / 5
+            score = self._calculate_score(
+                current_score,
+                percent_empty,
+                percent_saturated,
+                mean_time_empty,
+                mean_time_saturated,
+                total_duration_hours,
+            )
 
             scores[current_date] = score
+
+            previous_status = current_status
 
         return scores

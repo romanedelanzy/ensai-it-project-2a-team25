@@ -12,6 +12,7 @@ logger = get_logger(__name__)
 class ExportDatabaseService:
 
     def __init__(self):
+        # Pour avoir le chemin d'accès de pop_db.sql
         self.base_path = Path(__file__).resolve().parent.parent.parent.parent
         self.output_path = self.base_path / "data" / "pop_db.sql"
 
@@ -25,7 +26,7 @@ class ExportDatabaseService:
             "station_status",
             "favoris",
         ]
-
+        # 10 lignes par INSERT INTO
         batch_size = 10
 
         connection = DBConnection().connection
