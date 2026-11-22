@@ -77,9 +77,10 @@ Dans un contexte de transition écologique et de décongestion des centres urbai
 Son usage reste pourtant soumis à certaines incertitudes. Par exemple, on ne sait pas si l'on trouvera un vélo ou une place libre pour rendre un vélo lorsqu'on arrivera à une station. Les réseaux publient la disponibilité à l’instant présent, mais cette information ne dit rien de la régularité d’une station : certaines sont fréquemment vides aux heures de pointe ou saturées le soir, d’autres sont presque toujours utilisables.
 
 Comment dépasser la simple visualisation instantanée de l'état d'un réseau de vélos en libre-service pour fournir aux usagers des indicateurs historiques de fiabilité et des recommandations personnalisées fiables ?
-Notre réponse avec VeloScope : Contrairement aux applications classiques qui affichent l'état du réseau à un instant t puis oublient cette information, VeloScope construit sa propre mémoire. Notre application interroge périodiquement les serveurs de données publiques de la ville de Bordeaux (Le Vélo TBM) et historise chaque relevé dans une base de données. En analysant cet historique, VeloScope calcule des indicateurs de performance (taux de pénurie, taux de saturation, score de fiabilité) et propose un moteur de recommandation multicritère aidant l'usager à choisir la station la plus pertinente.
 
+Notre réponse avec VeloScope : Contrairement aux applications classiques qui affichent l'état du réseau à la dernière date de relevé seulement, VeloScope construit sa propre mémoire. Notre application interroge périodiquement les serveurs de données publiques de la ville de Bordeaux (VLS Le Vélo TBM Bordeaux Métropole) et historise chaque relevé dans une base de données. En analysant cet historique, VeloScope calcule des indicateurs de performance (taux de pénurie, taux de saturation, score de fiabilité) et propose un moteur de recommandation multicritère aidant l'usager à choisir la station la plus pertinente.
 
+Sera décrit dans ce rapport le nécessaire pour connaître le fonctionnement de l'application : fonctionnalités, données utilisées, architecture de l'application, rapport de tests qualité. Nous détaillons en particulier la fonctionnalité principale de recommandation de stations dans la partie "Réponse aux besoins". 
 
 ## A qui s'adresse l'application?
 
@@ -87,8 +88,10 @@ Notre réponse avec VeloScope : Contrairement aux applications classiques qui af
 
 
 VeloScope s'adresse à deux profils d'utilisateurs distincts, structurés selon un principe d'héritage des droits afin de simplifier l'usage quotidien :
-L'Usager du réseau (Utilisateur standard) : Il représente tout citoyen, étudiant ou travailleur souhaitant optimiser ses déplacements à vélo en ville. Après avoir créé son compte personnel et s'être connecté, il peut rechercher une station, visualiser l'évolution de sa disponibilité sur différentes périodes (24h, 7 jours, 30 jours), consulter son score de fiabilité, enregistrer ses stations habituelles en favoris, explorer la carte interactive du réseau ou demander une recommandation de station et d'itinéraire.
-L'Administrateur : C'est le gestionnaire technique de la plateforme. Il dispose exactement des mêmes fonctionnalités qu'un usager standard (il n'a donc pas besoin de jongler entre deux comptes distincts pour utiliser l'application), mais bénéficie en plus d'un espace d'administration lui permettant de superviser les comptes inscrits (consulter la liste des utilisateurs, modifier leurs informations ou rôles, supprimer un compte).
+
+* L'Usager du réseau (Utilisateur standard) : Il représente tout citoyen, étudiant ou travailleur souhaitant optimiser ses déplacements à vélo en ville. Après avoir créé son compte personnel et s'être connecté, il peut rechercher une station, visualiser l'évolution de sa disponibilité sur différentes périodes (24h, 7 jours, 30 jours), consulter son score de fiabilité, enregistrer ses stations habituelles en favoris, explorer la carte interactive du réseau ou demander une recommandation de station et d'itinéraire. Une liste de toutes les stations de vélo de la ville de Bordeaux lui est également disponible.
+
+* L'Administrateur : Il s'agit du gestionnaire technique de la plateforme. Il dispose exactement des mêmes fonctionnalités qu'un usager standard (il n'a donc pas besoin de jongler entre deux comptes distincts pour utiliser l'application), mais bénéficie en plus d'un espace d'administration lui permettant de superviser les comptes inscrits. Il peut ainsi accéder à la liste de tous les utilisateurs, modifier les informations d'un compte si nécessaire (nom d'utiliateur, email, mot de passe, droits administrateur), ou supprimer un compte. Ce profil s'adresse principalement aux techniciens de maintenance et développeurs, dans le cas par exemple où un utilisateur aurait oublié son mot de passe. Notons que nous n'avons volontairement pas donné de droits sur la base de données à l'administrateur afin de préserver son intégrité. La gestion de cette base est faite automatiquement grâce au système de collecte présent en arrière plan de manière permanente dans notre application.
 
 
 \pagebreak
@@ -96,7 +99,6 @@ L'Administrateur : C'est le gestionnaire technique de la plateforme. Il dispose 
 # Présentation générale
 
 ## Organisation du groupe et gestion du projet
-
 
 
 Pour mener à bien ce projet sur une durée de trois mois (de septembre à novembre 2026), notre équipe de cinq étudiants a adopté l'organisation suivante. Nous devions à la fois répartir les différentes tâches dans le temps et entre les membres du groupe. 
@@ -107,27 +109,31 @@ Pour ce faire, nous avons, dès le début du projet organisé les grandes phases
 ![Diagramme de Gantt du Rapport d'Analyse](../ressources/Diagramme/Diagramme_gantt1.png)
 ![Diagramme de Gantt du Code et du Rapport Final](../ressources/Diagramme/Diagramme_gantt2.png)
 
-D'autre part, nous avons essayé de nous réunir assez régulièrement pour nous répartir les différentes tâches et faire le point sur ce qui avait été fait. Chaque membre à participer aux développements de chaque couche et à coder au moins un modèle, un DAO controller et un service. Nous avons essayé de tenir compte au mieux des atouts et des préferences de chacun dans la répartition des tâches. Ainsi, les élèves ayant davantage de facilités en informatique ce sont concentrés sur le code des classes les plus complexes. 
+D'autre part, nous avons essayé de nous réunir assez régulièrement pour nous répartir les différentes tâches et faire le point sur ce qui avait été fait. La répartition des tâches s'est faite de manière à ce que chaque membre puisse toucher à un élément de chaque couche de l'application. Ainsi, chaque membre a participé a codé au moins un business object, un DAO, un controller et un service. Nous avons essayé de tenir compte au mieux des atouts et des préferences de chacun dans la répartition des tâches. 
+
+Ainsi, les élèves ayant davantage de facilités en informatique se sont concentrés sur le code des classes les plus complexes (authentification/gestion des comptes, collecte depuis l'API externe, recommandation de station et calcul de fiabilité). 
+
+Chaque semaine jusqu'aux 3 jours de code intensif était consacrée au code d'une couche de l'application, dans l'ordre suivant : business object, DAO, services, controller. Nous testions l'intégralité des classes de chaque couche avant de passer à la suivante afin de ne pas rencontrer de problème lors du raccordement final. 
 
 L'ensemble du code a été versionné sur un dépôt GitHub commun garantissant ainsi la cohérence et la qualité du code produit. 
 
 
-
 ## Fonctionnalités de l'API et besoins couverts
-Le sujet imposait de construire une API qui collecte, historise et analyse les données d’un réseau de vélos en libre-service. Nous l’avons complétée par un site web (Streamlit), qui est le point d’accès des utilisateurs : ils y créent un compte, se connectent, consultent les stations et demandent des recommandations, sans appeler l’API directement.
 
-Le sujet définit cinq fonctionnalités obligatoires, que nous avons implémentées.
+Le sujet imposait de construire une API qui collecte, historise et analyse les données d’un réseau de vélos en libre-service. Nous l’avons complétée par un site web interactif pour l'utilisateur avec Streamlit, qui est le point d’accès des utilisateurs : ils y créent un compte, se connectent, consultent les stations et demandent des recommandations, sans appeler l’API directement.
 
-* **F1 : Gestion des utilisateurs.** Un utilisateur peut créer un compte, se connecter et gérer ses stations favorites (ajout par identifiant ou par nom, suppression, consultation). Un compte administrateur peut en plus gérer les comptes des autres utilisateurs et administrer les stations (création, modification, suppression). Chaque requête protégée est identifiée par un jeton transmis dans l’en-tête X-Auth-Token, et un champ is_admin porté par le compte distingue les deux profils.
+Cinq fonctionnalités obligatoires ont été implémentées. Elles sont détaillées ci-dessous.
 
-
-* **F2 : Collecte des données.** L’API GBFS du réseau de Bordeaux n’expose que l’état présent des stations. Un script de collecte, lancé séparément de l’API, l’interroge toutes les 20 minutes. À chaque passage, il met à jour la description des stations (nom, adresse, coordonnées, capacité), puis enregistre un nouveau relevé par station : vélos disponibles (dont électriques), places libres, station installée, emprunt et retour autorisés. Chaque relevé est ajouté sans écraser les précédents, ce qui permet de reconstruire l’état du réseau à n’importe quel instant passé.
+* **F1 : Gestion des utilisateurs.** Un utilisateur peut créer un compte, se connecter et gérer ses stations favorites (ajout depuis la page de liste de stations ou de recherche d'une station, suppression ou consultation de favoris). Un compte administrateur peut en plus gérer les comptes des autres utilisateurs. Chaque requête protégée est identifiée par un jeton transmis dans l’en-tête X-Auth-Token, et un champ is_admin porté par le compte distingue les deux profils.
 
 
-* **F3 : Consultation d'une station.** L’utilisateur recherche une station par son nom (3 caractères minimum) et consulte son état (disponible, vide, saturée ou non opérationnelle), son nombre de vélos et de places disponibles, sa capacité et son taux de remplissage, c’est-à-dire la part des places occupées. Il visualise l’évolution de sa disponibilité sur les dernières 24 heures, les 7 derniers jours ou les 30 derniers jours.
+* **F2 : Collecte des données.** L’API GBFS du réseau de Bordeaux n’expose que l’état présent des stations. Un script de collecte, pouvant être déclenché ou non (sur choix de l'utilisateur) lors du lancement de notre application, l’interroge toutes les 1h. À chaque passage, il met à jour la liste des stations (nom, adresse, coordonnées, capacité), puis enregistre un nouveau relevé de statut par station s'il n'a pas déjà été enregistré lors d'une précédente collecte : vélos disponibles (dont électriques), places libres, station installée, emprunt et retour autorisés. Chaque relevé est ajouté sans écraser les précédents, ce qui permet de reconstruire l’état du réseau à n’importe quel instant passé.
 
 
-* **F4 : Score de fiabilité.** Pour chaque station, l’application calcule à partir de l’historique le pourcentage de temps passé vide et saturée, la durée moyenne des périodes de vide et de saturation, et un score global compris entre 0 et 1. 
+* **F3 : Consultation d'une station.** L’utilisateur recherche une station par son nom et consulte son état (disponible, vide, saturée ou non opérationnelle), son nombre de vélos et de places disponibles, sa capacité et son taux de remplissage (part des places occupées). Il peut visualiser l’évolution de sa disponibilité sur les dernières 24 heures, les 7 derniers jours ou les 30 derniers jours.
+
+
+* **F4 : Score de fiabilité.** Pour chaque station, l’application calcule à partir de l’historique de ses statuts le pourcentage de temps passé vide et saturée, la durée moyenne des périodes de vide et de saturation, et un score global de fiabilité tenant compte de ces critères compris entre 0 et 1. 
 
 
 Pour une station donnée, on note :
@@ -150,30 +156,29 @@ Le score de fiabilité $S \in [0, 1]$ est la moyenne de cinq composantes :
       + \left(1 - \frac{\bar{d}_s}{T}\right) \right]
 \end{equation}
 
-L’évolution du score dans le temps est également disponible.
+L’évolution du score dans le temps est également disponible. Il est calculé pour chaque date disponible dans l'historique de la base de donnée depuis la date la plus ancienne de l'historique. 
 
-* **F5 : Recommandation de station.** L’utilisateur saisit une adresse à Bordeaux, le nombre de stations souhaité et un rayon de recherche. L’application convertit l’adresse en coordonnées, écarte les stations qui ne sont pas utilisables (non installée, emprunt impossible, aucun vélo disponible), puis classe les autres selon un score de recommandation égal à 
+* **F5 : Recommandation de station.** L’utilisateur saisit une adresse à Bordeaux, le nombre maximum de stations souhaité à recommander ainsi qu'un rayon de recherche. L’application convertit l’adresse en coordonnées, écarte les stations qui ne sont pas utilisables à la date du relevé le plus récent (non installée, emprunt impossible, aucun vélo disponible), puis classe les autres selon un score de recommandation égal à 
 
 \begin{equation}
   S = 0,5 \times \textrm{proximité} + 0,5 \times \textrm{fiabilité}
 \end{equation}
 
-La proximité décroît avec la distance, et la fiabilité est le score de F4. Deux stations à distance équivalente ne sont donc pas classées de la même façon si leur historique diffère. Les vélos électriques et la tendance récente, cités dans le sujet comme critères possibles, ne sont pas pris en compte dans le classement.
-Fonctionnalités optionnelles
-F4 seulement mais pas aboutit d'après ce que j'ai compris ?
+Le score de proximité décroît avec la distance, et la fiabilité est le score décrit dans F4. Deux stations à distance équivalente ne sont donc pas classées de la même façon si leur score de fiabilité diffère. Le nombre de vélos électriques disponibles et la tendance récente (fiabilité que jusqu'à une certaine date par ex.), cités dans le sujet comme critères possibles, ne sont pas pris en compte dans le classement. Leur prise en compte pourrait être une source d'amélioration de ce score. 
 
 
 ## Les données de l'application
-- modèle de donnée 
 
 L'application VéloScope s'appuie sur des données ouvertes pour fonctionner. Nous avons choisis d'utiliser celles fournies par la métropole de Bordeaux concernant son réseau de vélos en libre-service (TBM). C'était pour nous la base de donnée la plus complète compte-tenu des fonctionnalités que nous avions à développer. 
 
 Les données externes sont récupérées via Internet au format JSON. C'est un format texte léger et structuré très répandu pour l'échange de données entre serveurs. Les données sur les systèmes de vélo en libre service sont stockées selon le standard international GBFS (General Bikeshare Feed Specification). 
 
 Ce standard sépare les informations en deux flux bien distincts :
+
 Les données statiques (station_information) : Elles décrivent l'infrastructure fixe du réseau, qui change très rarement. On y trouve l'identifiant unique de chaque station, son nom, son adresse postale, sa capacité totale et ses coordonnées géographiques (latitude et longitude au format décimal WGS84).
 
 Les données dynamiques (station_status) : Elles reflètent l'activité du réseau en temps réel. Ce fichier contient, pour chaque identifiant de station, l'horodatage de la dernière mise à jour, le nombre de vélos mécaniques disponibles, le nombre de vélos à assistance électrique disponibles, le nombre de bornes libres, ainsi que des indicateurs booléens précisant si la station est ouverte, si l'on peut y louer un vélo et si l'on peut y en déposer un.
+
 
 
 Nous avons rencontrés certaines difficultés en confrontant notre application aux données réelles de Bordeaux sur plusieurs semaines.
