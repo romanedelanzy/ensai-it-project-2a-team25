@@ -179,7 +179,7 @@ Les données statiques (station_information) : Elles décrivent l'infrastructure
 
 Les données dynamiques (station_status) : Elles reflètent l'activité du réseau en temps réel. Ce fichier contient, pour chaque identifiant de station, l'horodatage de la dernière mise à jour, le nombre de vélos mécaniques disponibles, le nombre de vélos à assistance électrique disponibles, le nombre de bornes libres, ainsi que des indicateurs booléens précisant si la station est ouverte, si l'on peut y louer un vélo et si l'on peut y en déposer un.
 
-
+test
 
 Nous avons rencontrés certaines difficultés en confrontant notre application aux données réelles de Bordeaux sur plusieurs semaines.
 Nous avons identifié plusieurs particularités nécessitant un nettoyage préalable :
