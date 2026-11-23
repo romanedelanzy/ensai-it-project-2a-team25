@@ -260,7 +260,9 @@ S_{\mathrm{proximité}} = e^{-\frac{d^2}{2\sigma^2}},
 \qquad \sigma = 1\ \mathrm{km}
 \]
 
-où d désigne la distance entre l’adresse recherchée et la station. Le score de fiabilité est calculé à partir de l’état actuel de la station et de son historique : les proportions de temps passé vide ou saturée ainsi que la durée moyenne des épisodes correspondants. Il est renvoyé sous la forme d’une valeur comprise entre 0 et 1. Par exemple, un score de 0,82 correspond à 82 % si on choisit de l’exprimer en pourcentage.
+où d désigne la distance entre l’adresse recherchée et la station. Le score de fiabilité est calculé à partir de l’état actuel de la station et de son historique : les proportions de temps passé vide ou saturée ainsi que la durée moyenne des épisodes correspondants. Il est renvoyé sous la forme d’une valeur comprise entre 0 et 1.
+
+La décroissance gaussienne favorise nettement les stations proches, tout en évitant une coupure brutale au-delà d’une distance fixée. Avec (\sigma = 1) km, une station située à 1 km conserve un score de proximité d’environ 0,61, mais celui-ci baisse rapidement plus loin. C’est pratique pour l’usager : la distance compte, sans être le seul critère, car la fiabilité peut départager des stations proches.
 
 Une fois le classement établi, l’API renvoie au plus le nombre de stations demandé. Pour chacune, la réponse contient les informations de la station, la distance arrondie au millième de kilomètre, le score de fiabilité et le score de recommandation arrondi à quatre décimales. En cas d’égalité du score de recommandation, les stations les plus proches sont classées en premier.
 
