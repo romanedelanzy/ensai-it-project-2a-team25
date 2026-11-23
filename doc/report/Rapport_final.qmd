@@ -225,8 +225,6 @@ Nous détaillons dans cette partie la fonctionnalité F5 : Recommandation d'une 
 
 ## Evaluation de la fiabilité et recommandation de station
 
-## Évaluation de la fiabilité et recommandation de stations
-
 La fonctionnalité de recommandation vise à aider l’usager à trouver des stations proches où un vélo est disponible, tout en tenant compte de leur fiabilité. Elle ne se limite donc pas à sélectionner la station la plus proche : plusieurs critères interviennent dans le classement.
 
 ### Recherche à partir d’une adresse
