@@ -1,18 +1,16 @@
-
 """
 Page Streamlit de consultation détaillée d'une station.
 
-Affiche les informations générales, le dernier statut,
-l'évolution de la disponibilité, les favoris et la fiabilité.
+Charge directement la liste des stations et affiche le sélecteur
+sans passer par le champ de recherche textuelle préalable.
 """
 
-from urllib.parse import quote
-
-import pandas as pd
 import streamlit as st
+import pandas as pd
 
 from utils.api_client import api_client
-from utils.favoris import add_favorite, get_favorite_station_ids
+from utils.favoris import get_favorite_station_ids, add_favorite
+
 
 STATE_UNKNOWN = "Inconnue"
 STATE_EMPTY = "Vide"
@@ -31,7 +29,6 @@ STATE_BADGE_COLORS = {
 
 def get_station_state(status) -> str:
     """Détermine l'état actuel d'une station."""
-
     if status is None:
         return STATE_UNKNOWN
 
@@ -52,58 +49,46 @@ def get_station_state(status) -> str:
 
 def get_fill_rate(capacite: int, status) -> float | None:
     """Calcule le taux de remplissage d'une station."""
-
     if status is None or capacite <= 0:
         return None
 
     return (capacite - status["nb_places_dispos"]) / capacite
 
 
-def search_stations(name: str):
-    """Recherche les stations par leur nom."""
+def get_all_stations():
+    """Récupère toutes les stations depuis l'API."""
+    response = api_client.get("/station/list_stations/")
 
-    if len(name.strip()) < 3:
-        return []
-
-    response = api_client.get(
-        f"/station/?name={quote(name.strip())}"
-    )
-
-    if not response or response["status_code"] != 200:
+    if not response or response.get("status_code") != 200:
         return None
 
-    return response["data"]
+    return response.get("data") or []
 
 
 def get_current_status(station_id: str):
     """Récupère le dernier statut d'une station."""
+    response = api_client.get(f"/station/{station_id}/status")
 
-    response = api_client.get(
-        f"/station/{station_id}/status"
-    )
-
-    if response and response["status_code"] == 200:
-        return response["data"]
+    if response and response.get("status_code") == 200:
+        return response.get("data")
 
     return None
 
 
 def get_availability_history(station_id: str, period: str):
     """Récupère l'évolution de la disponibilité d'une station."""
-
     response = api_client.get(
         f"/station/{station_id}/availability-history?period={period}"
     )
 
-    if response and response["status_code"] == 200:
-        return response["data"]
+    if response and response.get("status_code") == 200:
+        return response.get("data")
 
     return None
 
 
 def display_favorite_button(station_id: str):
     """Affiche le bouton d'ajout aux favoris."""
-
     favorite_ids = get_favorite_station_ids()
 
     if favorite_ids is None:
@@ -116,7 +101,7 @@ def display_favorite_button(station_id: str):
 
     if st.button(
         "☆ Ajouter aux favoris",
-        key=f"detail_add_favorite_{station_id}",
+        key=f"detail2_add_favorite_{station_id}",
     ):
         if add_favorite(station_id):
             st.success("Station ajoutée à vos favoris !")
@@ -127,18 +112,16 @@ def display_favorite_button(station_id: str):
 
 def get_reliability(station_id: str):
     """Récupère les indicateurs de fiabilité d'une station."""
-
     response = api_client.get(f"/reliability/{station_id}")
 
-    if response and response["status_code"] == 200:
-        return response["data"]
+    if response and response.get("status_code") == 200:
+        return response.get("data")
 
     return None
 
 
 def display_reliability(station_id: str):
     """Affiche le score et l'historique de fiabilité."""
-
     reliability = get_reliability(station_id)
 
     if reliability is None:
@@ -213,7 +196,6 @@ def display_reliability(station_id: str):
 
 def display_station_information(station: dict):
     """Affiche les informations générales de la station."""
-
     st.subheader(station["name"])
 
     st.write(f"**Identifiant :** {station['station_id']}")
@@ -226,8 +208,7 @@ def display_station_information(station: dict):
 
     display_favorite_button(station["station_id"])
 
-    # Affichage de la fiabilité à la demande
-    reliability_key = f"detail_reliability_{station['station_id']}"
+    reliability_key = f"detail2_reliability_{station['station_id']}"
 
     if st.button(
         "Masquer la fiabilité"
@@ -245,7 +226,6 @@ def display_station_information(station: dict):
 
 def display_current_status(station: dict, status: dict | None):
     """Affiche les indicateurs du dernier statut."""
-
     st.subheader("État actuel")
 
     if status is None:
@@ -294,7 +274,6 @@ def display_current_status(station: dict, status: dict | None):
 
 def display_availability_history(station_id: str):
     """Affiche l'évolution de la disponibilité sur une période."""
-
     st.subheader("Évolution de la disponibilité")
 
     period = st.selectbox(
@@ -305,7 +284,7 @@ def display_availability_history(station_id: str):
             "7j": "7 derniers jours",
             "30j": "30 derniers jours",
         }[p],
-        key="availability_period",
+        key="detail2_availability_period",
     )
 
     history = get_availability_history(station_id, period)
@@ -338,39 +317,26 @@ def display_availability_history(station_id: str):
 
 def display_station_consultation():
     """Page de consultation détaillée d'une station."""
-
     st.title("Consultation d'une station")
 
-    st.write(
-        "Recherchez une station par son nom "
-        "pour consulter ses informations."
-    )
-
-    search = st.text_input(
-        "Nom de la station",
-        placeholder="Saisissez au moins 3 caractères...",
-        key="station_search"
-    )
-
-    if len(search.strip()) < 3:
-        st.info("Saisissez au moins 3 caractères pour rechercher.")
-        return
-
-    stations = search_stations(search)
+    stations = get_all_stations()
 
     if stations is None:
-        st.error("Impossible de récupérer les stations.")
+        st.error("Impossible de récupérer la liste des stations.")
         return
 
     if not stations:
-        st.warning("Aucune station trouvée.")
+        st.warning("Aucune station disponible.")
         return
 
+    # Tri alphabétique par nom pour faciliter la sélection
+    stations = sorted(stations, key=lambda s: s.get("name", "").lower())
+
     selected_station = st.selectbox(
-        "Stations trouvées",
+        "Choisir une station",
         options=stations,
         format_func=lambda s: f"{s['name']} ({s['station_id']})",
-        key="consulted_station",
+        key="detail2_consulted_station",
     )
 
     if selected_station is None:

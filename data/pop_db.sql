@@ -14,11 +14,18 @@ INSERT INTO "project"."compte" ("user_id", "username", "is_admin", "password", "
 (10, 'audrey', true, '135cba94997c2273fb2d912484c36e859a19487ef0b390c5501c6e3de057f835', 'audrey@audrey.com', NULL),
 (11, 'elouan', true, '01d3e26be3990f8e270a4bfa0e993048b2347eaff8ab46a7d17f4d6cf895de5e', 'elouan@elouan.com', NULL)
 ;
+
 INSERT INTO "project"."compte" ("user_id", "username", "is_admin", "password", "email", "access_token") VALUES
 (12, 'romane', true, 'c848989e6bab7c6be56d748be4d34443f2d168ad3e6052067caa38ff74845505', 'romane@romane.com', NULL),
 (13, 'fanny', true, 'f27bf260c88cd5402028d59adc8b9bacb6eb5271fd1dcec8f9e155adc6d7f71f', 'fanny@fanny.com', 'pZO1v_95kFi13F0p9wWXUY-XaCYKatSwUZGsNCpRZAA'),
 (5, 'audrey2', false, '4613a7485e58a03c27c2af612d53e7186e87aa63d51380992c54dea573efc1a7', 'audrey2@audrey2.com', 'vB6NnY95B_sYKkMKqn-6rPvpA6jrrPl-v3ojF43bxSU')
 ;
+
+SELECT setval(
+    pg_get_serial_sequence('project.compte', 'user_id'),
+    COALESCE((SELECT MAX(user_id) FROM project.compte), 1),
+    true
+);
 
 -- Data for reseau
 INSERT INTO "project"."reseau" ("reseau_id", "name") VALUES
