@@ -179,8 +179,6 @@ Les données statiques (station_information) : Elles décrivent l'infrastructure
 
 Les données dynamiques (station_status) : Elles reflètent l'activité du réseau en temps réel. Ce fichier contient, pour chaque identifiant de station, l'horodatage de la dernière mise à jour, le nombre de vélos mécaniques disponibles, le nombre de vélos à assistance électrique disponibles, le nombre de bornes libres, ainsi que des indicateurs booléens précisant si la station est ouverte, si l'on peut y louer un vélo et si l'on peut y en déposer un.
 
-test
-
 Nous avons rencontrés certaines difficultés en confrontant notre application aux données réelles de Bordeaux sur plusieurs semaines.
 Nous avons identifié plusieurs particularités nécessitant un nettoyage préalable :
 Stations en maintenance ou hors service : Certains relevés indiquent une station comme ouverte (is_renting = true), alors que la somme des vélos disponibles et des places libres est strictement inférieure à la capacité officielle de la station (bornes défectueuses ou vélos bloqués).
@@ -214,15 +212,19 @@ Les services sont la troisième couche du code. C'est ici que de trouve toute la
 La quatrième couche du projet est les modèles. Ils permettent de structurer les données utilisées par l'application. Ils définissent à quoi ressemble une station ou un utilisateur dans notre code.
 
 Enfin, la derniere couche est constituée des DAO. Les DAO (Data Access Objects) assurent la communication avec la base de données. Ils peuvent lire et écrire dans la base de données PostgreSQL.
+
 ## Système de stockage et justification des choix 
 
 \pagebreak
 # Réponse aux besoins : fonctionnement détaillé 
 
-- peut être mettre un screnn de l'interface ? 
+Nous détaillons dans cette partie la fonctionnalité F5 : Recommandation d'une station. Il s'agit de la fonctionnalité principale de notre application. Un utilisateur peut ainsi fournir une adresse de Bordeaux, par exemple "Place Pey Berland", choisir le nombre maximal de stations qu'il veut avoir en recommandation et le périmètre de recherche (rayon en km ayant pour centre l'adresse indiquée). L'application lui renvoit les stations recommandées tenant compte de la distance et de la fiabilité. Le diagramme de séquence de cette fonctionnalité est détaillé ci-contre.
+
+![Diagramme de séquence F5](../ressources/Diagramme/diagramme_sequence_F5.png)
 
 
 ## Evaluation de la fiabilité et recommandation de station
+
 ## Synthèse des autres fonctionnalités 
 diagramme des cas d'utilisation
 L'application peut être consultée par trois acteurs :
