@@ -124,7 +124,7 @@ Le sujet imposait de construire une API qui collecte, historise et analyse les d
 
 Cinq fonctionnalités obligatoires ont été implémentées. Elles sont détaillées ci-dessous.
 
-* **F1 : Gestion des utilisateurs.** Un utilisateur peut créer un compte, se connecter et gérer ses stations favorites (ajout depuis la page de liste de stations ou de recherche d'une station, suppression ou consultation de favoris). Un compte administrateur peut en plus gérer les comptes des autres utilisateurs. Chaque requête protégée est identifiée par un jeton transmis dans l’en-tête X-Auth-Token, et un champ is_admin porté par le compte distingue les deux profils.
+* **F1 : Gestion des utilisateurs.** Un utilisateur peut créer un compte, se connecter et gérer ses stations favorites (ajout, suppression ou consultation de favoris). Un compte administrateur peut en plus gérer les comptes des autres utilisateurs. Chaque requête protégée est identifiée par un jeton transmis dans l’en-tête X-Auth-Token, et un champ is_admin porté par le compte distingue les deux profils.
 
 
 * **F2 : Collecte des données.** L’API GBFS du réseau de Bordeaux n’expose que l’état présent des stations. Un script de collecte, pouvant être déclenché ou non (sur choix de l'utilisateur) lors du lancement de notre application, l’interroge toutes les 1h. À chaque passage, il met à jour la liste des stations (nom, adresse, coordonnées, capacité), puis enregistre un nouveau relevé de statut par station s'il n'a pas déjà été enregistré lors d'une précédente collecte : vélos disponibles (dont électriques), places libres, station installée, emprunt et retour autorisés. Chaque relevé est ajouté sans écraser les précédents, ce qui permet de reconstruire l’état du réseau à n’importe quel instant passé.
@@ -296,7 +296,7 @@ où d désigne la distance entre l’adresse recherchée et la station. Le score
 
 La décroissance gaussienne favorise nettement les stations proches, tout en évitant une coupure brutale au-delà d’une distance fixée. Avec (\sigma = 1) km, une station située à 1 km conserve un score de proximité d’environ 0,61, mais celui-ci baisse rapidement plus loin. Cela est pratique pour l’usager : la distance compte, sans être le seul critère, car la fiabilité peut départager des stations proches.
 
-Une fois le calcul de chaque score effectué et le classement établi (avec `sort()`), l’API renvoie au frontend au plus le nombre de stations demandé. Si deux scores de recommandations sont égaux, on classe par distance, puis par ordre alphabétique. Pour chaque station, la réponse contient ses informations, la distance arrondie au millième de kilomètre, le score de fiabilité et le score de recommandation arrondi à quatre décimales.
+Une fois le calcul de chaque score effectué et le classement établit, l’API renvoie au frontend au plus le nombre de stations demandé. Si deux scores de recommandations sont égaux, on classe par distance, puis par ordre alphabétique. Pour chaque station, la réponse contient ses informations, la distance arrondie au millième de kilomètre, le score de fiabilité et le score de recommandation arrondi à quatre décimales.
 
 4) Résultats affichés et vérification de l’API
 
@@ -314,19 +314,42 @@ Les tests existants vérifient notamment l’appel de l’API avec des coordonn�
 
 ## Synthèse des autres fonctionnalités 
 
-L'application peut être consultée par trois acteurs :
-Le visiteur peut créer un compte et se connecter.
-Toute utilisation de l'application passe par un compte. À son arrivée sur le site, le visiteur voit un formulaire de connexion où il doit renseigner un nom d'utilisateur (30 caractères max.), une adresse mail et un mot de passe qu'il doit confirmer, et aussi un bouton de création de compte qui reste inactif tant que le mot de passe n'a pas été confirmé. Si le nom d'utilisateur est déjà pris, l'API répond par une erreur 400 l'indiquant. Le compte créé est toujours un compte utilisateur : le statut administrateur est forcé à false. Seul un administrateur peut accorder les droits d'administrateur (et donc forcer le statut à vrai) à un compte. Un compte administrateur est donc un compte utilisateur auxquels des droits supplémentaires sont accordés. Par sécurité, le mot de passe n'est jamais stocké en clair. Il est transformé en une empreinte numérique illisible via l'algorithme SHA-256, combinée à l'identifiant de l'utilisateur.
-Si la création de compte réussi, l'application invite le visiteur à se connecter. Lors de la connexion, le service hache le mot de passe saisi et le compare à celui de la base. Si les identifiants sont corrects, il génère un jeton aléatoire, l'enregistre sur le compte et renvoie les informations du compte avec ce jeton. Chaque connexion remplace le jeton précédent. Si les identifiants sont invalides, l'API répond par une erreur 401. Les routes protégées (routes des stations, des favoris, de la modification et de la suppression d'un compte) répondent aussi par une erreur 401 si le jeton est absent ou inconnu. Les pages de recommandation, de recherche d'itinéraire et de gestion des utilisateirs vérifient la présence d'un jeton en session et affichent un message d'erreur s'il est absent.
-L'utilisateur a 4 possibilités une fois connecté :
-Il peut d'abord trouver un vélo près de lui grâce à la page "recommandation" sur laquelle il saisit une adresse, le nombre de stations souhaitées (de 1 à 10) et un rayon de recherche (entre 0.1 et 10km avec 1km comme valeur par défaut). Le backend ajoute "Bordeaux, France" à l'adresse, et répond par une arreur 400 à toute audresse située hors de l'agglomération. Les stations utilisables classées par score de recommandation sont renvoyées en listant leurs noms, adresses, distances,scores de fiabilité et de recommandation, capacités et coordonnées. Le cas où aucune station n'est disponible dans le rayon saisi est signalé.
-L'utilisateur peut aussi utiliser la page "Consultation d'une station" pour se renseigner sur une station précise. Il doit saisir au moins 3 caractères pour le nom de la station, puis la sélectionne parmi la liste qui s'affiche. Il obtient alors :
-ses informations générales (identifiant, adresse, coordonnées)
-des informations sur son état actcuel (si la station est disponible, vide, saturée, non opérationnelle ou inconnue, le nombre de vélos qui y sont disponibles dont les vélos électriques, le nombre de places disponibles, sa capacité, son taux de remplissage et la date de son dernier relevé)
-l'évolution de sa disponibilité sur 24h, 7 jours ou 31 jours.
-sa fiabilité sur demande (son score actuel, la part du temps passée vide et saturée, la durée moyenne des épisodes de vide et de saturation, et l'évolution du score).
-L'utilisateur peut aussi retrouver ses stations habituelles dans la page "Mes stations favorites". Il définit des stations comme favorites depuis la fiche de la station, et peut la supprimer ou afficher la liste de ses stations favorites depuis la page "Mes stations favorites". Une station déjà présente dans les favoris renvoie une erreur 409
-Enfin, l'utilisateur peut afficher la carte des stations du réseau. En survolant les marqueurs des stations avec sa souris, l'utilisateur peut en afficher le nom, l’adresse et la capacité.
+### Compte et authentification (F1)
+
+Toute utilisation de l'application nécessite un compte. Le visiteur peut en créer un via un formulaire renseignant un nom d'utilisateur (30 caractères maximum), une adresse mail et un mot de passe à confirmer. Si le nom est déjà utilisé, l'API renvoie une erreur 400. Les comptes créés sont non-administrateurs par défaut, seuls les administrateurs pouvant attribuer ces droits.
+
+Pour sécuriser les mots de passe, ceux-ci ne sont jamais stockés en clair, mais hachés via SHA-256, en combinaison avec l'identifiant de l'utilisateur. Une fois le compte créé, le visiteur est invité à se connecter. Le service compare alors l'empreinte du mot de passe saisi à celle stockée en base. En cas de succès, un jeton aléatoire est généré, enregistré sur le compte et renvoyé avec les informations de l'utilisateur ; chaque connexion remplace le jeton précédent. En cas d'identifiants invalides, l'API renvoie une erreur 401. Les routes protégées (stations, favoris, modification et suppression de compte) nécessitent également un jeton valide. De même, les pages de recommandation, de recherche d'itinéraire et de gestion des utilisateurs vérifient sa présence en session et affichent un message d'erreur en son absence.
+
+### Favoris (F1)
+
+Un utilisateur peut consulter ses stations favorites depuis l'onglet **favoris**. Il peut choisir de supprimer un favoris depuis cette page par une requête HTTP. Une station peut être ajoutée en favoris depuis la page de liste déroulante contenant toutes les stations du réseau, ou depuis la page de recherche d'une station à partir de son nom. Une station déjà présente dans les favoris renvoie une erreur 409.
+
+### Collecte des données depuis l'API externe (F2)
+
+L'insertion des données externes, récupérées auprès de l'API Le Vélo, dans notre base de données repose sur une séparation entre la collecte des données brutes et leur adaptation au format attendu, afin de faciliter l'évolution du système en cas de modification du format des données sources. Le fichier `background_collection` organise la collecte périodique et son lancement en arrière-plan. Lors du démarrage du backend, il est possible d'activer ou non ce dispositif.
+
+Si la collecte est activée, elle est réalisée de manière périodique et en arrière-plan, afin de ne pas bloquer le fonctionnement principal de l'API. Le service `Collection` est alors sollicité. Il s'appuie sur un *provider*, qui coordonne la collecte et l'adaptation des données. Celui-ci repose sur deux composants : un `GBFSClient`, chargé de récupérer les données brutes depuis l'API externe via des requêtes HTTP (`requests`), et un adaptateur (*Adapter*), chargé de convertir le JSON reçu en objets métier. Le service de collecte transmet ensuite ces objets au DAO, qui se charge de leur insertion en base de données.
+
+### Consultation de station (F3)
+
+L'utilisateur peut aussi utiliser la page "Consultation d'une station" pour se renseigner sur une station précise. Il doit saisir le nom de la station, puis la sélectionne parmi la liste qui s'affiche. Il obtient alors :
+
+* Son identifiant, adresse, coordonnées ainsi que
+des informations sur son état actuel (si la station est disponible, vide, saturée, non opérationnelle ou inconnue, le nombre de vélos qui y sont disponibles dont les vélos électriques, le nombre de places disponibles, sa capacité, son taux de remplissage ainsi que la date et le détail de son dernier relevé), 
+
+* L'évolution de sa disponibilité sur 24h, 7 jours ou 31 jours; ainsi que les détails de sa fiabilité (son score actuel, la part du temps passée vide et saturée, la durée moyenne des épisodes de vide et de saturation, et l'évolution du score).
+
+Une station est considérée comme disponible si elle est installée, permet les emprunts et retours et possède au moins une place libre et un vélo. Elle est renvoyé sous forme d'un booléen (1 si pisponible, 0 sinon). Le calcul de disponibilité est gérée par le service station.
+
+### Fiabilité des stations (F4)
+
+Comme indiqué plus haut, le score de fiabilité d'une station est calculé à partir de l’historique de ses statuts selon la moyenne de 5 composantes : le pourcentage de temps passé vide et saturée, la durée moyenne des périodes de vide et de saturation, et l'état actuelle de la station (si elle est à la fois ni vide ni saturée). Il est à prendre avec parcimonie : une station qui est toujours vide mais jamais saturée possède un score non nul. Pour cette raison, on affiche de détail de chaque composante qui a permis le calcul de la fiabilité afin de donner davantage d'informations à l'utilisateur. 
+
+Le calcul du score se fait à partir du service fiabilité. Il est calculé depuis la date la plus ancienne d'historique présent sur la base de données. Le calcul de l'historique demandant de parcourir chaque date de relevé présent sur la base de données en tenant compte des précédents, il a été optimisé pour réutiliser les indicateurs ayant été déjà calculés par le passé afin de ne pas les recalculer et éviter une surcharge. La sélection des statuts qui ne concernent qu'une station selon une date limite de début de relevé se fait grâce à une fonction de la dao des status.
+
+### Fonctionnalité supplémentaire
+
+L'utilisateur peut afficher la carte des stations du réseau. En survolant les marqueurs des stations avec sa souris, l'utilisateur peut en afficher le nom, l’adresse et la capacité.
 
 \pagebreak
 
