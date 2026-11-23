@@ -246,33 +246,34 @@ La quatrième couche du projet est les modèles. Ils permettent de structurer le
 
 Enfin, la derniere couche est constituée des DAO. Les DAO (Data Access Objects) assurent la communication avec la base de données. Ils peuvent lire et écrire dans la base de données PostgreSQL.
 
-## Système de stockage et justification des choix 
-
 \pagebreak
-# Réponse aux besoins : fonctionnement détaillé 
 
-Nous détaillons dans cette partie la fonctionnalité F5 : Recommandation d'une station. Il s'agit de la fonctionnalité principale de notre application. Un utilisateur peut ainsi fournir une adresse de Bordeaux, par exemple "Place Pey Berland", choisir le nombre maximal de stations qu'il veut avoir en recommandation et le périmètre de recherche (rayon en km ayant pour centre l'adresse indiquée). L'application lui renvoit les stations recommandées tenant compte de la distance et de la fiabilité. Le diagramme de séquence de cette fonctionnalité est détaillé ci-contre.
+# Réponse aux besoins 
+
+## Détails de la fonctionnalité F5 : Recommandation de station 
+
+Nous détaillons dans cette partie la fonctionnalité F5 : Recommandation d'une station. Il s'agit de la fonctionnalité principale de notre application. Un utilisateur peut ainsi fournir une adresse de Bordeaux, par exemple "Place Pey Berland", choisir le nombre maximal de stations qu'il veut avoir en recommandation et le périmètre de recherche (rayon en km ayant pour centre l'adresse indiquée). L'application lui renvoit les stations recommandées selon le meilleur compromis compte tenu de la distance et de la fiabilité. Le diagramme de séquence de cette fonctionnalité est proposé ci-contre.
 
 ![Diagramme de séquence F5](../ressources/Diagramme/diagramme_sequence_F5.png)
+Zoomons sur ce processus de manière plus précise. 
 
+1) Recherche à partir d’une adresse
 
-## Evaluation de la fiabilité et recommandation de station
-
-La fonctionnalité de recommandation vise à aider l’usager à trouver des stations proches où un vélo est disponible, tout en tenant compte de leur fiabilité. Elle ne se limite donc pas à sélectionner la station la plus proche : plusieurs critères interviennent dans le classement.
-
-### Recherche à partir d’une adresse
-
-Dans l’interface, l’usager saisit une adresse à Bordeaux et choisit le nombre maximal de résultats ainsi qu’un rayon de recherche. Le frontend transmet ces paramètres à l’API ; la conversion de l’adresse en coordonnées est effectuée par le backend.
+Partons de la page `recommendation`du frontend. Dans l’interface, une zone de saisie est crée afin que l’usager saisisse une adresse à Bordeaux et choisisse le nombre maximal de résultats ainsi qu’un rayon de recherche. L'utilisateur clique sur le bouton "Rechercher des stations". À ce moment, la requête HTTP est envoyée au backend sous forme de dictionnaire.
 
 ![Saisie de l’adresse et des critères de recherche dans l’interface.](../ressources/Screenshots/reco_interface_requete.png){#fig-reco-form}
 
-Pour géocoder l’adresse, le backend interroge **Nominatim**, le service de géocodage d’OpenStreetMap. Il ajoute « Bordeaux, France » à l’adresse saisie, demande un résultat au format JSON et fixe un délai maximal de réponse de dix secondes. Les coordonnées retournées sont ensuite vérifiées : elles doivent se situer dans une zone géographique approximative autour de Bordeaux. Ce contrôle permet de rejeter les résultats manifestement éloignés, sans correspondre exactement aux limites administratives de la métropole.
+2) Traitement de la requête : conversion de l'adresse 
 
-L’API peut également recevoir directement une latitude et une longitude, sans passer par le géocodage. Dans les deux cas, le service de recommandation travaille finalement à partir de coordonnées.
+Le routeur FastAPI dans le controller `recommendation` reçoit cette requête. Cette fonction se charge de vérifier que l'on dispose d'une position, puis délègue le travail au service de recommandation. Pour vérifier que l'utilisateur a transmis une position avec son adresse et la convertir en coordonnées, on utilise le géocodage.
 
-### Sélection des stations et calcul du score
+Pour ce faire, le controller appelle la fonction *geocode_bordeaux_address* dans utils. Cette fonction interroge **Nominatim**, le service de géocodage d’OpenStreetMap, grâce au package python `requests`. Il ajoute « Bordeaux, France » à l’adresse saisie, demande un résultat au format JSON et fixe un délai maximal de réponse de dix secondes. Les coordonnées retournées sont ensuite vérifiées : elles doivent se situer dans une zone géographique approximative autour de Bordeaux. Ce contrôle permet de rejeter les résultats manifestement éloignés, sans correspondre exactement aux limites administratives de la métropole. Une exception HTTP est levée en cas d'erreur.
 
-Le backend calcule la distance à vol d’oiseau entre la position recherchée et chaque station. Il utilise ensuite le dernier statut enregistré pour écarter les stations qui ne sont pas installées, qui ne permettent pas l’emprunt ou qui ne disposent d’aucun vélo.
+L’API peut également recevoir directement une latitude et une longitude, sans passer par le géocodage (mais cela n'est pas disponible sur l'interface Streamlit). Dans les deux cas, le service de recommandation travaille finalement à partir de coordonnées.
+
+3) Sélection des stations et calcul du score
+
+Le service récupère la liste de toutes les stations par appel au DAO et calcule la distance à vol d’oiseau entre la position recherchée et chaque station. Il utilise ensuite le dernier statut enregistré pour écarter les stations qui ne sont pas installées, qui ne permettent pas l’emprunt ou qui ne disposent d’aucun vélo, comme elles ne constituent pas une bonne recommandation. Pour les stations qui ne sont pas écartées, on calcule le score de fiabilité global par appel au service `fiabilite`. 
 
 Le paramètre `rayon_km` permet de limiter la recherche aux stations situées dans un rayon donné. Il est facultatif dans l’API : sans ce paramètre, aucune distance maximale n’est appliquée. Le paramètre `limite`, égal à 5 par défaut, détermine le nombre maximal de résultats renvoyés. Dans l’interface, l’usager peut choisir de 1 à 10 stations et un rayon de 0,1 à 10 km ; le rayon proposé par défaut est de 1 km.
 
@@ -293,11 +294,11 @@ S_{\mathrm{proximité}} = e^{-\frac{d^2}{2\sigma^2}},
 
 où d désigne la distance entre l’adresse recherchée et la station. Le score de fiabilité est calculé à partir de l’état actuel de la station et de son historique : les proportions de temps passé vide ou saturée ainsi que la durée moyenne des épisodes correspondants. Il est renvoyé sous la forme d’une valeur comprise entre 0 et 1.
 
-La décroissance gaussienne favorise nettement les stations proches, tout en évitant une coupure brutale au-delà d’une distance fixée. Avec (\sigma = 1) km, une station située à 1 km conserve un score de proximité d’environ 0,61, mais celui-ci baisse rapidement plus loin. C’est pratique pour l’usager : la distance compte, sans être le seul critère, car la fiabilité peut départager des stations proches.
+La décroissance gaussienne favorise nettement les stations proches, tout en évitant une coupure brutale au-delà d’une distance fixée. Avec (\sigma = 1) km, une station située à 1 km conserve un score de proximité d’environ 0,61, mais celui-ci baisse rapidement plus loin. Cela est pratique pour l’usager : la distance compte, sans être le seul critère, car la fiabilité peut départager des stations proches.
 
-Une fois le classement établi, l’API renvoie au plus le nombre de stations demandé. Pour chacune, la réponse contient les informations de la station, la distance arrondie au millième de kilomètre, le score de fiabilité et le score de recommandation arrondi à quatre décimales. En cas d’égalité du score de recommandation, les stations les plus proches sont classées en premier.
+Une fois le calcul de chaque score effectué et le classement établi (avec `sort()`), l’API renvoie au frontend au plus le nombre de stations demandé. Si deux scores de recommandations sont égaux, on classe par distance, puis par ordre alphabétique. Pour chaque station, la réponse contient ses informations, la distance arrondie au millième de kilomètre, le score de fiabilité et le score de recommandation arrondi à quatre décimales.
 
-### Résultats affichés et vérification de l’API
+4) Résultats affichés et vérification de l’API
 
 L’interface présente les stations recommandées avec leur nom, leur adresse, leur distance et leurs scores. La distance est une distance à vol d’oiseau : elle ne représente pas un trajet réel à vélo par le réseau de rues.
 
@@ -311,9 +312,8 @@ L’endpoint `GET /recommendation/` est également documenté dans Swagger. Sa d
 
 Les tests existants vérifient notamment l’appel de l’API avec des coordonnées, la prise en charge d’une adresse à l’aide d’un géocodeur simulé et le rejet de coordonnées hors limites. Le fonctionnement complet du classement — filtres, calcul des scores et tri — pourrait être davantage couvert par des tests. La recherche par adresse dépend aussi de la disponibilité de Nominatim et de la qualité de l’adresse saisie.
 
-
 ## Synthèse des autres fonctionnalités 
-diagramme des cas d'utilisation
+
 L'application peut être consultée par trois acteurs :
 Le visiteur peut créer un compte et se connecter.
 Toute utilisation de l'application passe par un compte. À son arrivée sur le site, le visiteur voit un formulaire de connexion où il doit renseigner un nom d'utilisateur (30 caractères max.), une adresse mail et un mot de passe qu'il doit confirmer, et aussi un bouton de création de compte qui reste inactif tant que le mot de passe n'a pas été confirmé. Si le nom d'utilisateur est déjà pris, l'API répond par une erreur 400 l'indiquant. Le compte créé est toujours un compte utilisateur : le statut administrateur est forcé à false. Seul un administrateur peut accorder les droits d'administrateur (et donc forcer le statut à vrai) à un compte. Un compte administrateur est donc un compte utilisateur auxquels des droits supplémentaires sont accordés. Par sécurité, le mot de passe n'est jamais stocké en clair. Il est transformé en une empreinte numérique illisible via l'algorithme SHA-256, combinée à l'identifiant de l'utilisateur.
