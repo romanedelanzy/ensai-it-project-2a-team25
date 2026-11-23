@@ -169,26 +169,59 @@ Le score de proximité décroît avec la distance, et la fiabilité est le score
 
 ## Les données de l'application
 
-L'application VéloScope s'appuie sur des données ouvertes pour fonctionner. Nous avons choisis d'utiliser celles fournies par la métropole de Bordeaux concernant son réseau de vélos en libre-service (TBM). C'était pour nous la base de donnée la plus complète compte-tenu des fonctionnalités que nous avions à développer. 
+L'application VéloScope s'appuie sur des données ouvertes pour fonctionner. Nous avons choisis d'utiliser celles fournies par la métropole de Bordeaux concernant son réseau de vélos en libre-service (TBM). C'était pour nous la base de donnée la plus complète compte-tenu des fonctionnalités que nous avions à développer, ayant un nombre raisonnable de stations (232). Son détail est disponible à l'adresse : https://bdx.mecatran.com/utw/ws/gbfs/bordeaux/v3/gbfs.json?apiKey=opendata-bordeaux-metropole-flux-gtfs-rt 
 
 Les données externes sont récupérées via Internet au format JSON. C'est un format texte léger et structuré très répandu pour l'échange de données entre serveurs. Les données sur les systèmes de vélo en libre service sont stockées selon le standard international GBFS (General Bikeshare Feed Specification). 
 
+![Exemple de station au format JSON](../ressources/Diagramme/json_bordeaux.PNG)
+
 Ce standard sépare les informations en deux flux bien distincts :
 
-Les données statiques (station_information) : Elles décrivent l'infrastructure fixe du réseau, qui change très rarement. On y trouve l'identifiant unique de chaque station, son nom, son adresse postale, sa capacité totale et ses coordonnées géographiques (latitude et longitude au format décimal WGS84).
+- Les données statiques (station_information) : Elles décrivent l'infrastructure fixe du réseau, qui change très rarement. On y trouve l'identifiant unique de chaque station, son nom, son adresse postale, sa capacité totale et ses coordonnées géographiques (latitude et longitude au format décimal WGS84).
 
-Les données dynamiques (station_status) : Elles reflètent l'activité du réseau en temps réel. Ce fichier contient, pour chaque identifiant de station, l'horodatage de la dernière mise à jour, le nombre de vélos mécaniques disponibles, le nombre de vélos à assistance électrique disponibles, le nombre de bornes libres, ainsi que des indicateurs booléens précisant si la station est ouverte, si l'on peut y louer un vélo et si l'on peut y en déposer un.
+- Les données dynamiques (station_status) : Elles reflètent l'activité du réseau en temps réel. Ce fichier contient, pour chaque identifiant de station, l'horodatage de la dernière mise à jour, le nombre de vélos mécaniques disponibles, le nombre de vélos à assistance électrique disponibles, le nombre de bornes libres, ainsi que des indicateurs booléens précisant si la station est ouverte, si l'on peut y louer un vélo et si l'on peut y en déposer un.
 
-Nous avons rencontrés certaines difficultés en confrontant notre application aux données réelles de Bordeaux sur plusieurs semaines.
-Nous avons identifié plusieurs particularités nécessitant un nettoyage préalable :
-Stations en maintenance ou hors service : Certains relevés indiquent une station comme ouverte (is_renting = true), alors que la somme des vélos disponibles et des places libres est strictement inférieure à la capacité officielle de la station (bornes défectueuses ou vélos bloqués).
-Données figées ou absences de réponse : Il arrive ponctuellement que l'API de la ville renvoie des données obsolètes (horodatage last_reported inchangé pendant plusieurs heures) ou subisse une micro-coupure réseau. Notre module de collecte a été conçu pour filtrer les doublons temporels et ignorer les relevés incohérents afin de ne pas fausser nos calculs statistiques.
+Certaines des données présentes dans l'API externe n'ont pas été collectées, comme la méthode de rente pour chaque station, car elles n'ont pas été jugées utiles à la réponse aux besoins.
 
-Le rôle de Véloscope de s'arrête pas à la simple extraction de ces données. À partir de ces relevés bruts archivés toutes les 15 minutes, VeloScope produit ses propres indicateurs à forte valeur ajoutée. L'application apporte à l'utilisateur des informations quant à l'état d'une station à chaque instant, calcule es pourcentages de temps passé en pénurie ou en saturation, la durée moyenne de ces épisodes d'indisponibilité, un score global de fiabilité sur 100, ainsi qu'un score de recommandation personnalisé.
+| Nom de la variable | Type | Description |
+|:------------------|:------------------|:------------------|
+| `station_id` | VARCHAR(50) | Identifiant unique de la station. |
+| `reseau_id` | INTEGER | Identifiant du réseau auquel appartient la station. |
+| `name` | VARCHAR(150) | Nom de la station. |
+| `adresse` | VARCHAR(255) | Adresse géographique de la station. |
+| `latitude` | DOUBLE PRECISION | Latitude de la station sur la Terre. |
+| `longitude` | DOUBLE PRECISION | Longitude de la station sur la Terre. |
+| `capacite` | INTEGER | Nombre maximal de vélos que la station peut accueillir. |
+| `last_reported` | TIMESTAMPTZ | Date et heure du relevé de disponibilité. |
+| `num_bike_available` | INTEGER | Nombre total de vélos disponibles à la station au moment du relevé. |
+| `num_bike_elec_available` | INTEGER | Nombre de vélos électriques disponibles à la station au moment du relevé. |
+| `num_docks_available` | INTEGER | Nombre de places disponibles pour déposer un vélo au moment du relevé. |
+| `is_installed` | BOOLEAN | Indique si la station est installée. |
+| `is_renting` | BOOLEAN | Indique si la station permet actuellement d'emprunter des vélos. |
+| `is_returning` | BOOLEAN | Indique si la station permet actuellement de rendre des vélos. |
+
+Ces données sont par la suite stockées et mises à jour à l'aide d'une collecte automatique toute les heures sur notre service PostGreSQL. Par sécurité supplémentaire, les services PostGreSQL Onyxia pouvant être fermés, nous mettons à jour à chaque collecte le fichier `pop_db.sql` dans le dossier data contenant notre base SQL sous forme de requêtes. Il peut aussi servir pour le reset de la base de données (qu'il faut utiliser avec parcimonie).
+
+Le détail de la base finale de travail sous forme de schéma est proposé ci-dessous. 
+
+![Modèle de données](../ressources/Diagramme/modele_BDD.png)
+Pour l'instant, notre réseau n'est composé que de celui de Bordeaux (id 1), mais il est possible d'ajouter d'autres villes.
+
+Il est à noter que certaines difficultés ont été rencontrées en confrontant notre application aux données réelles de Bordeaux sur plusieurs semaines.
+Parmi ces dernières, nous avons identifié plusieurs particularités nécessitant un nettoyage préalable :
+
+- Stations en maintenance ou hors service : Certains relevés indiquent une station comme ouverte (is_renting = true), alors que la somme des vélos disponibles et des places libres est strictement inférieure à la capacité officielle de la station (bornes défectueuses ou vélos bloqués).
+
+- Données figées ou absences de réponse : Il arrive ponctuellement que l'API de la ville renvoie des données obsolètes (horodatage last_reported inchangé pendant plusieurs heures) ou subisse une micro-coupure réseau. 
+
+Notre module de collecte a été conçu pour filtrer les doublons temporels et ignorer les relevés incohérents afin de ne pas fausser nos calculs statistiques. Ce pré-traitement est notamment effectué au sein du DAO des stations.
+
+Le rôle de Véloscope de s'arrête pas à la simple extraction de ces données. À partir de ces relevés bruts archivés toutes les 1h, VeloScope produit ses propres indicateurs à forte valeur ajoutée. L'application apporte à l'utilisateur des informations quant à l'état d'une station à chaque instant, calcule des pourcentages de temps passé en pénurie ou en saturation, la durée moyenne de ces épisodes d'indisponibilité, un score global de fiabilité sur 100, ainsi qu'un score de recommandation personnalisé. Ces calculs ne sont pas stockés dans notre base de données mais effectués à la volée.
 
 \pagebreak
 # Architecture et système de stockage
 ## Nature de l'application et choix technologiques
+
 Notre objectif principal était de créer une application fiable et facile à faire évoluer. Ainsi, nous avons fait le choix d'utiliser les outils suivants et de la découper en plusieurs briques. 
 
 Pour ce faire, nous avons utilisé les outils technologiques suivants. Notre projet utilise entièrement le langage de programmation Python connu pour sa clarté et sa puissance quant à l'analyse de données. Nous avons choisi FastAPI pour gérer la partie invisible de l'application. Elle réalise les calculs, gère la sécurité et communique avec la base de données. ELle est connue pour être rapide et génère automatiquement une documentation claire de toutes ses commandes. Notre base de données est stockée grace au logiciel spécialisé PostgreSQL. Il est sécurisé et permet le stockage d'une grande quantité d'informations. Ainsi, il conserve l'historique des relevés des stations vélo de Bordeaux. 
