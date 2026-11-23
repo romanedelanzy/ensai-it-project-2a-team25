@@ -27,9 +27,6 @@ if st.button("Carte du réseau"):
 if st.button("⭐ Mes stations favorites ⭐"):
     st.switch_page("pages/favorites.py")
 
-if st.button("Recherche d'itinéraire"):
-    st.switch_page("pages/route_search.py")
-
 if st.button("🚲 Stations recommandées"):
     st.switch_page("pages/recommendation.py")
 
