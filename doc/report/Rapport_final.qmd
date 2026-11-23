@@ -225,6 +225,60 @@ Nous détaillons dans cette partie la fonctionnalité F5 : Recommandation d'une 
 
 ## Evaluation de la fiabilité et recommandation de station
 
+## Évaluation de la fiabilité et recommandation de stations
+
+La fonctionnalité de recommandation vise à aider l’usager à trouver des stations proches où un vélo est disponible, tout en tenant compte de leur fiabilité. Elle ne se limite donc pas à sélectionner la station la plus proche : plusieurs critères interviennent dans le classement.
+
+### Recherche à partir d’une adresse
+
+Dans l’interface, l’usager saisit une adresse à Bordeaux et choisit le nombre maximal de résultats ainsi qu’un rayon de recherche. Le frontend transmet ces paramètres à l’API ; la conversion de l’adresse en coordonnées est effectuée par le backend.
+
+![Saisie de l’adresse et des critères de recherche dans l’interface.](../ressources/Screenshots/reco_interface_requete.png){#fig-reco-form}
+
+Pour géocoder l’adresse, le backend interroge **Nominatim**, le service de géocodage d’OpenStreetMap. Il ajoute « Bordeaux, France » à l’adresse saisie, demande un résultat au format JSON et fixe un délai maximal de réponse de dix secondes. Les coordonnées retournées sont ensuite vérifiées : elles doivent se situer dans une zone géographique approximative autour de Bordeaux. Ce contrôle permet de rejeter les résultats manifestement éloignés, sans correspondre exactement aux limites administratives de la métropole.
+
+L’API peut également recevoir directement une latitude et une longitude, sans passer par le géocodage. Dans les deux cas, le service de recommandation travaille finalement à partir de coordonnées.
+
+### Sélection des stations et calcul du score
+
+Le backend calcule la distance à vol d’oiseau entre la position recherchée et chaque station. Il utilise ensuite le dernier statut enregistré pour écarter les stations qui ne sont pas installées, qui ne permettent pas l’emprunt ou qui ne disposent d’aucun vélo.
+
+Le paramètre `rayon_km` permet de limiter la recherche aux stations situées dans un rayon donné. Il est facultatif dans l’API : sans ce paramètre, aucune distance maximale n’est appliquée. Le paramètre `limite`, égal à 5 par défaut, détermine le nombre maximal de résultats renvoyés. Dans l’interface, l’usager peut choisir de 1 à 10 stations et un rayon de 0,1 à 10 km ; le rayon proposé par défaut est de 1 km.
+
+Les stations qui satisfont ces critères sont classées selon un score combinant à parts égales la proximité et la fiabilité :
+
+\[
+S_{\mathrm{recommandation}}
+= 0{,}5 \times S_{\mathrm{proximité}}
++ 0{,}5 \times S_{\mathrm{fiabilité}}
+\]
+
+Le score de proximité décroît avec la distance selon une fonction gaussienne :
+
+\[
+S_{\mathrm{proximité}} = e^{-\frac{d^2}{2\sigma^2}},
+\qquad \sigma = 1\ \mathrm{km}
+\]
+
+où d désigne la distance entre l’adresse recherchée et la station. Le score de fiabilité est calculé à partir de l’état actuel de la station et de son historique : les proportions de temps passé vide ou saturée ainsi que la durée moyenne des épisodes correspondants. Il est renvoyé sous la forme d’une valeur comprise entre 0 et 1. Par exemple, un score de 0,82 correspond à 82 % si on choisit de l’exprimer en pourcentage.
+
+Une fois le classement établi, l’API renvoie au plus le nombre de stations demandé. Pour chacune, la réponse contient les informations de la station, la distance arrondie au millième de kilomètre, le score de fiabilité et le score de recommandation arrondi à quatre décimales. En cas d’égalité du score de recommandation, les stations les plus proches sont classées en premier.
+
+### Résultats affichés et vérification de l’API
+
+L’interface présente les stations recommandées avec leur nom, leur adresse, leur distance et leurs scores. La distance est une distance à vol d’oiseau : elle ne représente pas un trajet réel à vélo par le réseau de rues.
+
+![Stations recommandées affichées dans l’interface.](../ressources/Screenshots/reco_interface_resultats.png){#fig-reco-resultats}
+
+L’endpoint `GET /recommendation/` est également documenté dans Swagger. Sa documentation permet de vérifier les paramètres acceptés — adresse ou coordonnées, limite et rayon — et la structure de la réponse renvoyée.
+
+![Requête de recommandation et paramètres dans Swagger.](../ressources/Screenshots/reco_swagger_requete.png){#fig-reco-swagger-requete}
+
+![Exemple de réponse renvoyée par l’API dans Swagger.](../ressources/Screenshots/reco_swagger_reponse.png){#fig-reco-swagger-reponse}
+
+Les tests existants vérifient notamment l’appel de l’API avec des coordonnées, la prise en charge d’une adresse à l’aide d’un géocodeur simulé et le rejet de coordonnées hors limites. Le fonctionnement complet du classement — filtres, calcul des scores et tri — pourrait être davantage couvert par des tests. La recherche par adresse dépend aussi de la disponibilité de Nominatim et de la qualité de l’adresse saisie.
+
+
 ## Synthèse des autres fonctionnalités 
 diagramme des cas d'utilisation
 L'application peut être consultée par trois acteurs :
