@@ -5,7 +5,7 @@ from dao.StationStatusDAO import StationStatusDao
 
 
 class ReliabilityService:
-    """ Service qui calcule la fiabilite d'une station a partir de l'historique."""
+    """ Service qui calcule la fiabilite d'une station a partir de l'historique de celle-ci."""
 
     def _percent_time_in_state(
         self,

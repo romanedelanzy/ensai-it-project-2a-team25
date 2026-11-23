@@ -11,14 +11,14 @@ INSERT INTO "project"."compte" ("user_id", "username", "is_admin", "password", "
 (7, 'romane2', false, '1bab266615bffbbb91326e92fd66dd649eb82350bd41929f8f9d39b70a79eca2', 'romane2@romane2.com', NULL),
 (8, 'fanny2', false, '9c2f0a6b67627c060b2d9b191162c768890ac2639572e4ca4633fc27a64e932e', 'fanny2@fanny2.com', NULL),
 (9, 'jean', true, '8463862d75c4c9915d65ed14626b8648329f841ad7d7dfbcf2c59d70b147780f', 'jean@jean.com', 'bj3QutLGWgcgmBWMgMeaDlQk58JvK6yG-dXCeuaVMW4'),
-(10, 'audrey', true, '135cba94997c2273fb2d912484c36e859a19487ef0b390c5501c6e3de057f835', 'audrey@audrey.com', NULL),
-(11, 'elouan', true, '01d3e26be3990f8e270a4bfa0e993048b2347eaff8ab46a7d17f4d6cf895de5e', 'elouan@elouan.com', NULL)
+(11, 'elouan', true, '01d3e26be3990f8e270a4bfa0e993048b2347eaff8ab46a7d17f4d6cf895de5e', 'elouan@elouan.com', NULL),
+(12, 'romane', true, 'c848989e6bab7c6be56d748be4d34443f2d168ad3e6052067caa38ff74845505', 'romane@romane.com', NULL)
 ;
 
 INSERT INTO "project"."compte" ("user_id", "username", "is_admin", "password", "email", "access_token") VALUES
-(12, 'romane', true, 'c848989e6bab7c6be56d748be4d34443f2d168ad3e6052067caa38ff74845505', 'romane@romane.com', NULL),
 (13, 'fanny', true, 'f27bf260c88cd5402028d59adc8b9bacb6eb5271fd1dcec8f9e155adc6d7f71f', 'fanny@fanny.com', 'pZO1v_95kFi13F0p9wWXUY-XaCYKatSwUZGsNCpRZAA'),
-(5, 'audrey2', false, '4613a7485e58a03c27c2af612d53e7186e87aa63d51380992c54dea573efc1a7', 'audrey2@audrey2.com', 'vB6NnY95B_sYKkMKqn-6rPvpA6jrrPl-v3ojF43bxSU')
+(5, 'audrey2', false, '0236a3c80e1e8381d3fc1f2ca678cdacab8ceebfb9a451f2ada54bb80e0a4775', 'audrey2@audrey2.com', 'VMQmuXorvmbU-VCBAgAu4ZXtQj-iI1RTV5JH3EepEy0'),
+(10, 'audrey', true, '135cba94997c2273fb2d912484c36e859a19487ef0b390c5501c6e3de057f835', 'audrey@audrey.com', 'l0Ai-FXqV9LMtfMZWh3bJbIpWLKZFjfQDoun8ATKaJY')
 ;
 
 SELECT setval(
@@ -34,67 +34,44 @@ INSERT INTO "project"."reseau" ("reseau_id", "name") VALUES
 
 -- Data for station
 INSERT INTO "project"."station" ("station_id", "reseau_id", "name", "adresse", "latitude", "longitude", "capacite") VALUES
-('10', 1, 'Stade Chaban Delmas', '115 Boulevard Antoine Gautier, Bordeaux', 44.83176,  -0.59868, 17),
-('11', 1, 'Cite Administrative', '108 Boulevard du Président Wilson, Bordeaux', 44.84166,  -0.5997, 28),
-('12', 1, 'Grand Lebrun ', '24 Avenue Louis Barthou, Bordeaux', 44.85115,  -0.60861, 14),
-('13', 1, 'Barrière Saint-Médard', '278 Boulevard du Président Wilson, Bordeaux', 44.84837,  -0.5981, 20),
-('14', 1, 'Dubreuil Turenne', '75 Rue de Lyon, Bordeaux', 44.84819,  -0.59197, 27),
-('15', 1, 'Lycée Camille Julian', '43 Rue Capdeville, Bordeaux', 44.844195,  -0.588766, 9),
-('16', 1, 'Galin', 'AVENUE THIERS (FACE AU PARC RELAIS) , BORDEAUX', 44.84947,  -0.54525, 28),
-('17', 1, 'Palais Gallien', '1 Rue Emile Fourcand, Bordeaux', 44.8469,  -0.58219, 12),
-('18', 1, 'Huguerie', '78 Rue du Palais Gallien, Bordeaux', 44.84423,  -0.58164, 14),
-('19', 1, 'Tourny', '58 Allée de Tourny, Bordeaux', 44.84465,  -0.57745, 30)
-;
-INSERT INTO "project"."station" ("station_id", "reseau_id", "name", "adresse", "latitude", "longitude", "capacite") VALUES
-('20', 1, 'Grands Hommes', '1 Place des Grands Hommes, Bordeaux', 44.84314,  -0.57724, 30),
-('21', 1, 'Puy Paulin', '1 Place Puy Paulin, Bordeaux', 44.84122,  -0.5756, 14),
-('22', 1, 'Hotel de Ville', 'PL. PEY BERLAND  (TRÉMIE DE SORTIE DU PARKING), BORDEAUX', 44.83826,  -0.57648, 32),
-('23', 1, 'Republique', 'PLACE DE LA RÉPUBLIQUE , BORDEAUX', 44.83483,  -0.58019, 40),
-('24', 1, 'Liberation', '9 Rue Léo Drouyn, Bordeaux', 44.83325,  -0.58308, 15),
-('25', 1, 'Francois de Sourdis', '97 Rue François de Sourdis, Bordeaux', 44.831,  -0.58734, 14),
-('26', 1, 'Xaintrailles', '247 Boulevard Maréchal Leclerc, Bordeaux', 44.82797,  -0.59349, 13),
-('27', 1, 'Bordeaux II', 'UNIVERSITÉ BORDEAUX II (MATERNITÉ PELLEGRIN), BORDEAUX', 44.82654,  -0.60184, 18),
-('28', 1, 'Hopital Pellegrin', 'PLACE AMÉLIE RABA LEON  (AU NIVEAU DE L''EFS), BORDEAUX', 44.82986,  -0.60351, 26),
-('29', 1, 'St Augustin', 'PLACE DE L''EGLISE ST AUGUSTIN , BORDEAUX', 44.832736,  -0.60997, 18)
-;
-INSERT INTO "project"."station" ("station_id", "reseau_id", "name", "adresse", "latitude", "longitude", "capacite") VALUES
+('29', 1, 'St Augustin', 'PLACE DE L''EGLISE ST AUGUSTIN , BORDEAUX', 44.832736,  -0.60997, 20),
 ('30', 1, 'Place Mondesir', 'PLACE MONDÉSIR (FACE À LA POSTE) , MERIGNAC', 44.83838,  -0.61689, 17),
-('31', 1, 'Mairie de Caudéran', 'FACE AU 7 RUE DE L''ÉGLISE , BORDEAUX', 44.85175,  -0.61438, 15),
+('31', 1, 'Mairie de Caudéran', 'FACE AU 7 RUE DE L''ÉGLISE , BORDEAUX', 44.85175,  -0.61438, 16),
 ('32', 1, 'Parc Bordelais', '67 Avenue Carnot, Bordeaux', 44.85261,  -0.59923, 15),
 ('33', 1, 'Barriere du Medoc', '6 Boulevard Pierre 1er, Bordeaux', 44.854092,  -0.593128, 19),
 ('34', 1, 'Arsenal', '17 Rue de Rivière, Bordeaux', 44.85379,  -0.58864, 15),
-('35', 1, 'Croix de Seguey', '211 Rue Fondaudege, Bordeaux', 44.85005,  -0.58547, 19),
-('36', 1, 'Longchamps', '2 Place de Longchamps, Bordeaux', 44.85005,  -0.582, 18),
-('37', 1, 'Jardin Public', '60 Cours de Verdun, Bordeaux', 44.84849,  -0.57581, 27),
-('39', 1, 'Quinconces', 'FACE AU 9 COURS DU 30 JUILLET BORDEAUX, BORDEAUX', 44.84423,  -0.57434, 62),
-('40', 1, 'Grand Theatre', 'RUE ESPRIT DES LOIS, BORDEAUX', 44.84293,  -0.5739, 20)
+('35', 1, 'Croix de Seguey', '211 Rue Fondaudege, Bordeaux', 44.85005,  -0.58547, 16),
+('36', 1, 'Longchamps', '2 Place de Longchamps, Bordeaux', 44.85005,  -0.582, 17),
+('37', 1, 'Jardin Public', '60 Cours de Verdun, Bordeaux', 44.84849,  -0.57581, 29),
+('39', 1, 'Quinconces', 'FACE AU 9 COURS DU 30 JUILLET BORDEAUX, BORDEAUX', 44.84423,  -0.57434, 65)
 ;
 INSERT INTO "project"."station" ("station_id", "reseau_id", "name", "adresse", "latitude", "longitude", "capacite") VALUES
-('41', 1, 'Place St Projet', '9 Rue des Trois Conils, Bordeaux', 44.83889,  -0.57466, 16),
-('42', 1, 'Camille Jullian', '31 Rue du Pas Saint-Georges, Bordeaux', 44.83924,  -0.57203, 18),
-('43', 1, 'St Paul', '7 Rue Ravez, Bordeaux', 44.83707,  -0.57279, 16),
-('44', 1, 'Musee d''Aquitaine', '16 Cours Pasteur, Bordeaux', 44.83606,  -0.57544, 18),
+('40', 1, 'Grand Theatre', 'RUE ESPRIT DES LOIS, BORDEAUX', 44.84293,  -0.5739, 19),
+('41', 1, 'Place St Projet', '9 Rue des Trois Conils, Bordeaux', 44.83889,  -0.57466, 17),
+('42', 1, 'Camille Jullian', '31 Rue du Pas Saint-Georges, Bordeaux', 44.83924,  -0.57203, 19),
+('43', 1, 'St Paul', '7 Rue Ravez, Bordeaux', 44.83707,  -0.57279, 17),
+('44', 1, 'Musee d''Aquitaine', '16 Cours Pasteur, Bordeaux', 44.83606,  -0.57544, 19),
 ('45', 1, 'Place Ste Eulalie', '2 Place Sainte-Eulalie, Bordeaux', 44.83312,  -0.57695, 17),
 ('46', 1, 'Belcier Tram', 'ALL. EUGÈNE DELACROIX, BORDEAUX', 44.822803,  -0.55293, 20),
 ('47', 1, 'Magendie', '212 Rue Fernand Audeguil, Bordeaux', 44.82789,  -0.58605, 15),
 ('48', 1, 'Barriere de Pessac', '50 Boulevard George V, Bordeaux', 44.82578,  -0.58975, 16),
-('49', 1, 'Emile Zola', '43 Rue Emile Zola, Le Bouscat', 44.86329,  -0.59995, 17),
-('50', 1, 'Mandron Godard', '14 BOULEVARD GODARD , BORDEAUX', 44.85999,  -0.58876, 13)
+('49', 1, 'Emile Zola', '43 Rue Emile Zola, Le Bouscat', 44.86329,  -0.59995, 18)
 ;
 INSERT INTO "project"."station" ("station_id", "reseau_id", "name", "adresse", "latitude", "longitude", "capacite") VALUES
+('50', 1, 'Mandron Godard', '14 BOULEVARD GODARD , BORDEAUX', 44.85999,  -0.58876, 13),
 ('51', 1, 'Ampère-Grand Parc', '159 BLVD GODARD , BORDEAUX', 44.8625594,  -0.5832471, 19),
-('53', 1, 'Parc Riviere', 'FACE AU 230 RUE CAMILLE GODARD , BORDEAUX', 44.85417,  -0.58659, 11),
+('53', 1, 'Parc Riviere', 'FACE AU 230 RUE CAMILLE GODARD , BORDEAUX', 44.85417,  -0.58659, 14),
 ('54', 1, 'Rue St Vincent de Paul', '28 Rue Saint Vincent de Paul, Bordeaux', 44.82642,  -0.55732, 43),
-('55', 1, 'Camille Godard', '35 Cours Evrard de Fayolle, Bordeaux', 44.85462,  -0.57435, 15),
-('56', 1, 'Place Paul Doumer', 'PLACE PAUL DOUMER , BORDEAUX', 44.85171,  -0.57427, 7),
-('57', 1, 'Eglise St Louis', 'FACE AU 9 RUE SICARD, BORDEAUX', 44.85155,  -0.57163, 19),
-('58', 1, 'Chartrons', 'FACE AU 73 QUAI DES CHARTRONS, BORDEAUX', 44.85321,  -0.56727, 18),
-('59', 1, 'CAPC', '17 Quai des Chartrons, Bordeaux', 44.84978,  -0.57024, 17),
-('60', 1, 'Allees de Chartres', 'FACE AU 1 ALLEES DE CHARTRES, BORDEAUX', 44.84718,  -0.57131, 18),
-('61', 1, 'Parc aux Angeliques', 'QUAI DE QUEYRIES / ALL. JEAN GIONO, BORDEAUX', 44.84625,  -0.56495, 15)
+('55', 1, 'Camille Godard', '35 Cours Evrard de Fayolle, Bordeaux', 44.85462,  -0.57435, 16),
+('56', 1, 'Place Paul Doumer', 'PLACE PAUL DOUMER , BORDEAUX', 44.85171,  -0.57427, 9),
+('57', 1, 'Eglise St Louis', 'FACE AU 9 RUE SICARD, BORDEAUX', 44.85155,  -0.57163, 16),
+('58', 1, 'Chartrons', 'FACE AU 73 QUAI DES CHARTRONS, BORDEAUX', 44.85321,  -0.56727, 16),
+('59', 1, 'CAPC', '17 Quai des Chartrons, Bordeaux', 44.84978,  -0.57024, 14),
+('60', 1, 'Allees de Chartres', 'FACE AU 1 ALLEES DE CHARTRES, BORDEAUX', 44.84718,  -0.57131, 18)
 ;
 INSERT INTO "project"."station" ("station_id", "reseau_id", "name", "adresse", "latitude", "longitude", "capacite") VALUES
-('62', 1, 'Cenon Gare', 'AU BOUT DE LA RUE EDOUARD VAILLANT, CENON', 44.856476,  -0.533983, 28),
+('61', 1, 'Parc aux Angeliques', 'QUAI DE QUEYRIES / ALL. JEAN GIONO, BORDEAUX', 44.84625,  -0.56495, 14),
+('62', 1, 'Cenon Gare', 'AU BOUT DE LA RUE EDOUARD VAILLANT, CENON', 44.856476,  -0.533983, 29),
 ('64', 1, 'La Benauge', 'RUE HENRI DUNANT (SQUARE M-L. SUE), BORDEAUX', 44.8396,  -0.55645, 15),
 ('65', 1, 'Stalingrad', 'PLACE STALINGRAD, BORDEAUX', 44.84014,  -0.55956, 18),
 ('66', 1, 'Gare d''Orleans', 'QUAI DE QUEYRIES (FACE A LA GARE D''ORLEANS), BORDEAUX', 44.84114,  -0.56224, 20),
@@ -102,58 +79,58 @@ INSERT INTO "project"."station" ("station_id", "reseau_id", "name", "adresse", "
 ('70', 1, 'Buttiniere', 'Pôle d''échange Buttinière, LORMONT', 44.864138,  -0.524462, 20),
 ('72', 1, 'Jean Zay', 'AVENUE JEAN ZAY (STATION TRAMWAY), CENON', 44.85418,  -0.51282, 23),
 ('74', 1, 'Place du 14 juillet', '2 Rue Calixte Camelle, Bègles', 44.8077,  -0.54821, 22),
-('78', 1, 'Bougnard', 'AVENUE BOUGNARD (FACE AU P+R), PESSAC', 44.7939143,  -0.6350512, 20),
-('79', 1, 'Niel', '87 Quai des Queyries, Bordeaux', 44.8507734,  -0.5594535, 19)
+('78', 1, 'Bougnard', 'AVENUE BOUGNARD (FACE AU P+R), PESSAC', 44.7939143,  -0.6350512, 20)
 ;
 INSERT INTO "project"."station" ("station_id", "reseau_id", "name", "adresse", "latitude", "longitude", "capacite") VALUES
+('79', 1, 'Niel', '87 Quai des Queyries, Bordeaux', 44.8507734,  -0.5594535, 19),
 ('86', 1, 'Merignac Soleil', 'Mérignac soleil,33700,Mérignac, Avenue de la somme, MERIGNAC', 44.8310417,  -0.6564076, 19),
 ('125', 1, 'Sainte-Croix', 'Quai Ste Croix, Devant le Conservatoire, Bordeaux', 44.83183,  -0.55966, 30),
-('5', 1, 'Gambetta', 'FACE AU 12-2 PLACE GAMBETTA , BORDEAUX', 44.840712,  -0.581124, 40),
-('6', 1, 'Square Andre Lhote', 'COURS D''ALBRET (SQUARE ANDRÉ LHOTE), BORDEAUX', 44.83779,  -0.58166, 39),
-('7', 1, 'Palais de Justice', '18 Cours Maréchal Juin, Bordeaux', 44.83594,  -0.58211, 15),
+('5', 1, 'Gambetta', 'FACE AU 12-2 PLACE GAMBETTA , BORDEAUX', 44.840712,  -0.581124, 39),
+('6', 1, 'Square Andre Lhote', 'COURS D''ALBRET (SQUARE ANDRÉ LHOTE), BORDEAUX', 44.83779,  -0.58166, 38),
+('7', 1, 'Palais de Justice', '18 Cours Maréchal Juin, Bordeaux', 44.83594,  -0.58211, 14),
 ('8', 1, 'Patinoire', '120 Cours Maréchal Juin, Bordeaux', 44.83436,  -0.58825, 20),
 ('9', 1, 'Gavinies', '206 Rue d''Ornano, Bordeaux', 44.83303,  -0.59289, 20),
-('83', 1, 'Pessac Centre', '25 R. EUGENE ET MARC DULOUT, PESSAC', 44.80446,  -0.63267, 19),
-('84', 1, 'Le Burck', '110 Avenue Pierre Mendès-France, Mérignac', 44.81535,  -0.63444, 18),
-('85', 1, 'Merignac Quatre Chemins', 'AVENUE DE LA MARNE (DEVANT LE P+R), Mérignac', 44.83242,  -0.64594, 18)
+('10', 1, 'Stade Chaban Delmas', '115 Boulevard Antoine Gautier, Bordeaux', 44.83176,  -0.59868, 21),
+('11', 1, 'Cite Administrative', '108 Boulevard du Président Wilson, Bordeaux', 44.84166,  -0.5997, 28)
 ;
 INSERT INTO "project"."station" ("station_id", "reseau_id", "name", "adresse", "latitude", "longitude", "capacite") VALUES
-('87', 1, 'Thiers Benauge', '178 Avenue Thiers , Bordeaux', 44.846581,  -0.549923, 20),
-('88', 1, 'Capeyron', 'PLACE JEAN JAURES, MERIGNAC', 44.85097,  -0.64475, 17),
-('89', 1, 'Merignac Centre', 'CROISEMENT AV. VERDUN ET M LECLERC, MERIGNAC', 44.8416,  -0.646465, 20),
-('90', 1, 'Fontaine d''Arlac', 'Av. François Mitterrand (devant le P+R), Mérignac', 44.8265,  -0.62577, 18),
-('91', 1, 'Maison Calixte Camelle', '35 Quai Deschamps, Bordeaux', 44.837453,  -0.556814, 20),
-('92', 1, 'Promis', '35 Rue de Cénac , Bordeaux', 44.838768,  -0.551774, 15),
-('93', 1, 'Place Florale', '3 Avenue de Picot, Eysines', 44.869026,  -0.636207, 16),
-('94', 1, 'Carle Vernet', '74 Rue Carle Vernet, Bordeaux', 44.820244263423824,  -0.5500560964240234, 1),
-('95', 1, 'Bruges Centre', '87 Avenue Charles de Gaulle, Bruges', 44.88145,  -0.61337, 16),
-('96', 1, 'Les Aubiers', 'Avenue de Laroque (derrière la station tram), Bordeaux', 44.87389,  -0.57401, 26)
+('12', 1, 'Grand Lebrun ', '24 Avenue Louis Barthou, Bordeaux', 44.85115,  -0.60861, 14),
+('13', 1, 'Barrière Saint-Médard', '278 Boulevard du Président Wilson, Bordeaux', 44.84837,  -0.5981, 20),
+('14', 1, 'Dubreuil Turenne', '75 Rue de Lyon, Bordeaux', 44.84819,  -0.59197, 29),
+('15', 1, 'Lycée Camille Julian', '43 Rue Capdeville, Bordeaux', 44.844195,  -0.588766, 11),
+('16', 1, 'Galin', 'AVENUE THIERS (FACE AU PARC RELAIS) , BORDEAUX', 44.84947,  -0.54525, 26),
+('17', 1, 'Palais Gallien', '1 Rue Emile Fourcand, Bordeaux', 44.8469,  -0.58219, 11),
+('18', 1, 'Huguerie', '78 Rue du Palais Gallien, Bordeaux', 44.84423,  -0.58164, 13),
+('19', 1, 'Tourny', '58 Allée de Tourny, Bordeaux', 44.84465,  -0.57745, 30),
+('20', 1, 'Grands Hommes', '1 Place des Grands Hommes, Bordeaux', 44.84314,  -0.57724, 28),
+('21', 1, 'Puy Paulin', '1 Place Puy Paulin, Bordeaux', 44.84122,  -0.5756, 13)
 ;
 INSERT INTO "project"."station" ("station_id", "reseau_id", "name", "adresse", "latitude", "longitude", "capacite") VALUES
-('97', 1, 'Pont du Guit', 'Rue Charles Domercq, Bordeaux', 44.824007,  -0.557663, 20),
-('98', 1, 'Cap Sciences', '83 Quai de Bacalan, Bordeaux', 44.86007,  -0.55447, 17),
-('99', 1, 'Les Hangars', '36 Quai de Bacalan, Bordeaux', 44.857867,  -0.557801, 28),
-('100', 1, 'Cours du Médoc', '119 Quai des Chartrons, Bordeaux', 44.8556,  -0.56319, 56),
-('101', 1, 'Place Jean Jaures', 'Quai du Maréchal Lyautey, Bordeaux', 44.84295,  -0.57037, 19),
-('102', 1, 'Place de la Bourse', '6 Quai de la Douane, Bordeaux', 44.8403,  -0.56914, 39),
-('103', 1, 'Place du Palais', '40 Cours d''Alsace Et Lorraine, Bordeaux', 44.83779,  -0.57034, 31),
-('105', 1, 'Rue du Mirail', '63 Rue du Mirail, Bordeaux', 44.83262,  -0.57097, 19),
-('106', 1, 'Victoire', '23 Place de la Victoire, Bordeaux', 44.83064,  -0.57321, 39),
-('107', 1, 'St Nicolas', 'Face au 20 Rue Brian, Bordeaux', 44.82751,  -0.57589, 13)
+('22', 1, 'Hotel de Ville', 'PL. PEY BERLAND  (TRÉMIE DE SORTIE DU PARKING), BORDEAUX', 44.83826,  -0.57648, 31),
+('23', 1, 'Republique', 'PLACE DE LA RÉPUBLIQUE , BORDEAUX', 44.83483,  -0.58019, 40),
+('24', 1, 'Liberation', '9 Rue Léo Drouyn, Bordeaux', 44.83325,  -0.58308, 16),
+('25', 1, 'Francois de Sourdis', '97 Rue François de Sourdis, Bordeaux', 44.831,  -0.58734, 15),
+('26', 1, 'Xaintrailles', '247 Boulevard Maréchal Leclerc, Bordeaux', 44.82797,  -0.59349, 15),
+('27', 1, 'Bordeaux II', 'UNIVERSITÉ BORDEAUX II (MATERNITÉ PELLEGRIN), BORDEAUX', 44.82654,  -0.60184, 19),
+('28', 1, 'Hopital Pellegrin', 'PLACE AMÉLIE RABA LEON  (AU NIVEAU DE L''EFS), BORDEAUX', 44.82986,  -0.60351, 26),
+('103', 1, 'Place du Palais', '40 Cours d''Alsace Et Lorraine, Bordeaux', 44.83779,  -0.57034, 32),
+('105', 1, 'Rue du Mirail', '63 Rue du Mirail, Bordeaux', 44.83262,  -0.57097, 20),
+('106', 1, 'Victoire', '23 Place de la Victoire, Bordeaux', 44.83064,  -0.57321, 39)
 ;
 INSERT INTO "project"."station" ("station_id", "reseau_id", "name", "adresse", "latitude", "longitude", "capacite") VALUES
+('107', 1, 'St Nicolas', 'Face au 20 Rue Brian, Bordeaux', 44.82751,  -0.57589, 14),
 ('108', 1, 'Bergonié', 'Rue Grateloup, Bordeaux', 44.82471,  -0.57815, 16),
-('109', 1, 'Barriere St Genes', '276 Cours de l''Argonne, Bordeaux', 44.82209,  -0.58178, 35),
-('111', 1, 'Peixotto', 'Avenue Roul (Terminus bus), Talence', 44.80681,  -0.59245, 38),
-('112', 1, 'Arts et Métiers', 'Avenue des Facultés (Derrière la station de tram), Talence', 44.80591,  -0.60232, 40),
+('109', 1, 'Barriere St Genes', '276 Cours de l''Argonne, Bordeaux', 44.82209,  -0.58178, 36),
+('111', 1, 'Peixotto', 'Avenue Roul (Terminus bus), Talence', 44.80681,  -0.59245, 37),
+('112', 1, 'Arts et Métiers', 'Avenue des Facultés (Derrière la station de tram), Talence', 44.80591,  -0.60232, 38),
 ('113', 1, 'Ecole de Management', 'Cours de la Libération (Devant BEM), Talence', 44.79688,  -0.60187, 18),
 ('114', 1, 'Compostelle', ' Rue de Compostelle / Cours du Général de Gaulle, Gradignan', 44.79313,  -0.60547, 26),
 ('115', 1, 'CREPS', 'Avenue de l''Université, Talence', 44.801376,  -0.5971532, 1),
-('116', 1, 'Montaigne Montesquieu', 'Station tramway, Pessac', 44.79667,  -0.61704, 40),
-('117', 1, 'Doyen Brus', 'Rond-Point Avenue des Facultés, Pessac', 44.80038,  -0.60986, 16),
-('118', 1, 'Place Ravezies', 'Allée de Boutaut (Au niveau du P+R), Le Bouscat', 44.86694,  -0.57608, 18)
+('116', 1, 'Montaigne Montesquieu', 'Station tramway, Pessac', 44.79667,  -0.61704, 37),
+('117', 1, 'Doyen Brus', 'Rond-Point Avenue des Facultés, Pessac', 44.80038,  -0.60986, 19)
 ;
 INSERT INTO "project"."station" ("station_id", "reseau_id", "name", "adresse", "latitude", "longitude", "capacite") VALUES
+('118', 1, 'Place Ravezies', 'Allée de Boutaut (Au niveau du P+R), Le Bouscat', 44.86694,  -0.57608, 20),
 ('119', 1, 'Grand Parc', 'Avenue Émile Counord / Rue François Lévêque, Bordeaux', 44.8626,  -0.57576, 20),
 ('120', 1, 'Saint-Louis', '196 Cours Saint Louis, Bordeaux', 44.86261,  -0.56718, 18),
 ('121', 1, 'Médoc (Place Saint-Martial)', '30 Place Saint Martial, Bordeaux', 44.85891,  -0.56584, 14),
@@ -161,144 +138,154 @@ INSERT INTO "project"."station" ("station_id", "reseau_id", "name", "adresse", "
 ('123', 1, 'Porte de Bourgogne', '42 Quai Richelieu, Bordeaux', 44.83779,  -0.56716, 36),
 ('124', 1, 'Parc des Sports', '8 Quai de la Monnaie, Bordeaux', 44.83387,  -0.56271, 20),
 ('126', 1, 'Quai de Paludate', '82 Quai de Paludate, Bordeaux', 44.8267,  -0.54983, 11),
-('127', 1, 'Gare Saint-Jean', 'Rue St Vincent de Paul, Terminus bus, Bordeaux', 44.8263,  -0.55707, 19),
-('128', 1, 'Sacre Coeur', 'Place du Cardinal Donnet, Face au 112 rue Pelleport, Bordeaux', 44.82218,  -0.56308, 14),
-('129', 1, 'Barriere de Bègles', 'Parking du cinéma, Bègles', 44.81308,  -0.5642, 14)
+('127', 1, 'Gare Saint-Jean', 'Rue St Vincent de Paul, Terminus bus, Bordeaux', 44.8263,  -0.55707, 22),
+('128', 1, 'Sacre Coeur', 'Place du Cardinal Donnet, Face au 112 rue Pelleport, Bordeaux', 44.82218,  -0.56308, 16)
 ;
 INSERT INTO "project"."station" ("station_id", "reseau_id", "name", "adresse", "latitude", "longitude", "capacite") VALUES
-('130', 1, 'Barriere de Toulouse', '8bis Boulevard Albert 1er, Bordeaux', 44.814476,  -0.570589, 18),
-('131', 1, 'Nansouty', 'Place Nansouty, 238 Cours de l''Yser, Bordeaux', 44.820258,  -0.5722051, 16),
+('129', 1, 'Barriere de Bègles', 'Parking du cinéma, Bègles', 44.81308,  -0.5642, 15),
+('130', 1, 'Barriere de Toulouse', '8bis Boulevard Albert 1er, Bordeaux', 44.814476,  -0.570589, 19),
+('131', 1, 'Nansouty', 'Place Nansouty, 238 Cours de l''Yser, Bordeaux', 44.820258,  -0.5722051, 18),
 ('132', 1, 'Cours de la Somme', '118 Cours de la Somme, Bordeaux', 44.82628,  -0.57248, 13),
 ('133', 1, 'Capucins', '30 place des Capucins, Bordeaux', 44.82995,  -0.56812, 18),
-('134', 1, 'Place du Maucaillou', '20 Place du Maucaillou, Bordeaux', 44.8324361,  -0.5670693, 20),
-('135', 1, 'Saint-Michel', 'Face au 7 Rue des Faures, Bordeaux', 44.834797,  -0.564732, 18),
+('134', 1, 'Place du Maucaillou', '20 Place du Maucaillou, Bordeaux', 44.8324361,  -0.5670693, 18),
+('135', 1, 'Saint-Michel', 'Face au 7 Rue des Faures, Bordeaux', 44.834797,  -0.564732, 20),
 ('136', 1, 'Eglise Ste Croix', 'Place Pierre Renaudel, Bordeaux', 44.83131,  -0.56139, 18),
-('138', 1, 'Barbey', '9-10 Place Pierre Jacques Dormoy, Bordeaux', 44.82656,  -0.56455, 20),
-('139', 1, 'Lycee Bremontier', '149 Cours de l''Yser, Bordeaux', 44.824307,  -0.570524, 16),
-('140', 1, 'Charles Perrens', '120 Rue de la Bechade, Bordeaux', 44.8230791,  -0.6006622, 20)
+('138', 1, 'Barbey', '9-10 Place Pierre Jacques Dormoy, Bordeaux', 44.82656,  -0.56455, 19),
+('139', 1, 'Lycee Bremontier', '149 Cours de l''Yser, Bordeaux', 44.824307,  -0.570524, 17)
 ;
 INSERT INTO "project"."station" ("station_id", "reseau_id", "name", "adresse", "latitude", "longitude", "capacite") VALUES
+('140', 1, 'Charles Perrens', '120 Rue de la Bechade, Bordeaux', 44.8230791,  -0.6006622, 20),
 ('141', 1, 'Medoquine', '254 cours du Maréchal Gallieni, Bordeaux', 44.818874,  -0.599919, 19),
 ('142', 1, 'Bourranville', 'En face 160 Avenue de Verdun, Mérignac', 44.83947,  -0.629236, 20),
-('143', 1, 'Stade Stéhélin', 'En face du 46 rue Domion, Bordeaux', 44.85808,  -0.623341, 16),
+('143', 1, 'Stade Stéhélin', 'En face du 46 rue Domion, Bordeaux', 44.85808,  -0.623341, 18),
 ('144', 1, 'Jean Moulin', '92 Rue André Messager, Bruges', 44.878494,  -0.58501, 19),
-('145', 1, 'Berges du Lac', 'Cours du Québec, Bordeaux', 44.87904,  -0.57057, 15),
+('145', 1, 'Berges du Lac', 'Cours du Québec, Bordeaux', 44.87904,  -0.57057, 17),
 ('147', 1, 'Parc des Expositions', 'Allée Louis Ratabou, Bordeaux', 44.8929695,  -0.5662245, 29),
-('148', 1, 'Amédée St-Germain', '82bis Rue Amédée Saint-Germain, Bordeaux', 44.820936,  -0.560983, 20),
-('149', 1, 'Lauriers', '5-13 Avenue de la Résistance, Lormont', 44.87889,  -0.51783, 20),
-('150', 1, 'Mandron', '19 Rue Ferdinand de Lesseps, Bordeaux', 44.854864,  -0.58329, 15),
-('75', 1, 'Begles Poste', '111 Avenue Lucien Lerousseau, Bègles', 44.807735,  -0.560024, 15)
+('148', 1, 'Amédée St-Germain', '82bis Rue Amédée Saint-Germain, Bordeaux', 44.820936,  -0.560983, 19),
+('149', 1, 'Lauriers', '5-13 Avenue de la Résistance, Lormont', 44.87889,  -0.51783, 18),
+('150', 1, 'Mandron', '19 Rue Ferdinand de Lesseps, Bordeaux', 44.854864,  -0.58329, 15)
 ;
 INSERT INTO "project"."station" ("station_id", "reseau_id", "name", "adresse", "latitude", "longitude", "capacite") VALUES
-('77', 1, 'Brazza', 'Rue René Char , Bordeaux', 44.855067,  -0.550684, 20),
-('80', 1, 'Gare Pessac Alouette', '30 AVENUE DU HAUT LEVEQUE, PESSAC', 44.79319,  -0.657632, 16),
+('75', 1, 'Begles Poste', '111 Avenue Lucien Lerousseau, Bègles', 44.807735,  -0.560024, 16),
+('77', 1, 'Brazza', 'Rue René Char , Bordeaux', 44.855067,  -0.550684, 19),
+('80', 1, 'Gare Pessac Alouette', '30 AVENUE DU HAUT LEVEQUE, PESSAC', 44.79319,  -0.657632, 17),
 ('81', 1, 'Archives', 'Rue de la Rotonde , Bordeaux', 44.8468,  -0.553741, 20),
 ('82', 1, 'La Chataigneraie', '62 AVENUE DE CANEJAN, PESSAC', 44.792915,  -0.646629, 20),
-('137', 1, 'Lycée Gustave Eiffel', 'Angle du cours de la Marne, et du cours Barbey, Bordeaux', 44.828327,  -0.562299, 25),
-('151', 1, 'Dravemont', 'Rue Salvador Allende, Floirac', 44.84563,  -0.510532, 20),
-('152', 1, 'Hopital Robert Picque', '349-351 ROUTE DE TOULOUSE, VILLENAVE D''ORNON', 44.79967,  -0.569953, 19),
-('153', 1, 'Parc Sourreil', 'FACE AU 325 CHEMIN DE LEYSOTTE, VILLENAVE D''ORNON', 44.7923,  -0.581696, 19),
-('154', 1, 'Thouars', '221 Avenue de Thouars, Talence', 44.79209,  -0.591518, 17),
-('155', 1, 'Village 6 IUT', 'FACE 10 RUE DE NAUDET, GRADIGNAN', 44.791485,  -0.613107, 21)
+('83', 1, 'Pessac Centre', '25 R. EUGENE ET MARC DULOUT, PESSAC', 44.80446,  -0.63267, 19),
+('84', 1, 'Le Burck', '110 Avenue Pierre Mendès-France, Mérignac', 44.81535,  -0.63444, 17),
+('85', 1, 'Merignac Quatre Chemins', 'AVENUE DE LA MARNE (DEVANT LE P+R), Mérignac', 44.83242,  -0.64594, 18),
+('87', 1, 'Thiers Benauge', '178 Avenue Thiers , Bordeaux', 44.846581,  -0.549923, 19),
+('88', 1, 'Capeyron', 'PLACE JEAN JAURES, MERIGNAC', 44.85097,  -0.64475, 17)
 ;
 INSERT INTO "project"."station" ("station_id", "reseau_id", "name", "adresse", "latitude", "longitude", "capacite") VALUES
-('156', 1, 'Hotel de Ville Merignac', 'FACE AU 39 RUE MAURICE UTRILLO, Mérignac', 44.8443045,  -0.6589115, 20),
-('157', 1, 'Les Pins', '2 Rue Alphonse Daudet, Mérignac', 44.85682,  -0.659829, 20),
-('158', 1, 'Lewis Brown', '120 Cours Edouard Vaillant, Bordeaux', 44.863208,  -0.561179, 19),
-('159', 1, 'Camping International', 'BOULEVARD JACQUES CHABAN-DELMAS , BRUGES', 44.897846,  -0.582511, 24),
-('160', 1, 'Brandenburg', '223 Rue Achard, Bordeaux', 44.873741,  -0.545879, 20),
-('161', 1, 'Place Buscaillet', '33 rue de new york, Bordeaux', 44.870014,  -0.551179, 20),
-('162', 1, 'Gare de Begles', '14 AVENUE LÉNINE, BEGLES', 44.798195,  -0.551517, 19),
-('163', 1, 'Lycee Vaclav Havel', '3 Avenue Danielle Mitterrand, Bègles', 44.785689,  -0.565509, 19),
-('164', 1, 'Pont de Caudérès', '133 Boulevard du Président Franklin Roosevelt, Talence', 44.8172117,  -0.5768853, 19),
-('165', 1, 'Barrière d’Arès', 'Boulevard Antoine Gauthier, Bordeaux', 44.83633465,  -0.5987418, 7)
+('89', 1, 'Merignac Centre', 'CROISEMENT AV. VERDUN ET M LECLERC, MERIGNAC', 44.8416,  -0.646465, 20),
+('90', 1, 'Fontaine d''Arlac', 'Av. François Mitterrand (devant le P+R), Mérignac', 44.8265,  -0.62577, 17),
+('91', 1, 'Maison Calixte Camelle', '35 Quai Deschamps, Bordeaux', 44.837453,  -0.556814, 19),
+('92', 1, 'Promis', '35 Rue de Cénac , Bordeaux', 44.838768,  -0.551774, 14),
+('93', 1, 'Place Florale', '3 Avenue de Picot, Eysines', 44.869026,  -0.636207, 16),
+('94', 1, 'Carle Vernet', '74 Rue Carle Vernet, Bordeaux', 44.820244263423824,  -0.5500560964240234, 1),
+('95', 1, 'Bruges Centre', '87 Avenue Charles de Gaulle, Bruges', 44.88145,  -0.61337, 16),
+('96', 1, 'Les Aubiers', 'Avenue de Laroque (derrière la station tram), Bordeaux', 44.87389,  -0.57401, 26),
+('97', 1, 'Pont du Guit', 'Rue Charles Domercq, Bordeaux', 44.824007,  -0.557663, 20),
+('98', 1, 'Cap Sciences', '83 Quai de Bacalan, Bordeaux', 44.86007,  -0.55447, 15)
 ;
 INSERT INTO "project"."station" ("station_id", "reseau_id", "name", "adresse", "latitude", "longitude", "capacite") VALUES
-('166', 1, 'Centre commercial du Lac', '53 AVENUE DU LAC, BORDEAUX', 44.88192,  -0.565221, 19),
-('167', 1, 'Barrière Judaïque', '66 Boulevard du Président Wilson, Bordeaux', 44.83924258046007,  -0.5990752083266996, 19),
-('168', 1, 'Polyclinique Bordeaux Nord', '244 Boulevard Godard , Bordeaux', 44.864663,  -0.578664, 20),
-('169', 1, 'La Vache', '2 RUE LÉOPOLD LAPLANTE, BRUGES', 44.8723969,  -0.5908097, 20),
-('170', 1, 'Faure-Brunet', '107 COURS DU RACCORDEMENT, BORDEAUX', 44.866152,  -0.560843, 18),
-('171', 1, 'Place Amedee Larrieu', 'Place Amédée Larrieu, Bordeaux', 44.82993,  -0.581409, 19),
+('99', 1, 'Les Hangars', '36 Quai de Bacalan, Bordeaux', 44.857867,  -0.557801, 31),
+('100', 1, 'Cours du Médoc', '119 Quai des Chartrons, Bordeaux', 44.8556,  -0.56319, 56),
+('101', 1, 'Place Jean Jaures', 'Quai du Maréchal Lyautey, Bordeaux', 44.84295,  -0.57037, 18),
+('102', 1, 'Place de la Bourse', '6 Quai de la Douane, Bordeaux', 44.8403,  -0.56914, 39),
+('169', 1, 'La Vache', '2 RUE LÉOPOLD LAPLANTE, BRUGES', 44.8723969,  -0.5908097, 19),
+('170', 1, 'Faure-Brunet', '107 COURS DU RACCORDEMENT, BORDEAUX', 44.866152,  -0.560843, 20),
+('171', 1, 'Place Amedee Larrieu', 'Place Amédée Larrieu, Bordeaux', 44.82993,  -0.581409, 18),
 ('172', 1, 'La Cite du Vin', 'QUAI DE BACALAN, BORDEAUX', 44.86178,  -0.551499, 28),
-('173', 1, 'Rue Achard', 'RUE ACHARD 33000 , BORDEAUX', 44.86749,  -0.5481, 18),
-('174', 1, 'Darwin', 'QUAI DE QUEYRIES, BORDEAUX', 44.8491803,  -0.5624086, 42),
-('175', 1, 'Arena', 'PLACE MAYENSA , FLOIRAC', 44.826054,  -0.531631, 19)
+('173', 1, 'Rue Achard', 'RUE ACHARD 33000 , BORDEAUX', 44.86749,  -0.5481, 20),
+('174', 1, 'Darwin', 'QUAI DE QUEYRIES, BORDEAUX', 44.8491803,  -0.5624086, 41)
 ;
 INSERT INTO "project"."station" ("station_id", "reseau_id", "name", "adresse", "latitude", "longitude", "capacite") VALUES
+('175', 1, 'Arena', 'PLACE MAYENSA , FLOIRAC', 44.826054,  -0.531631, 19),
 ('176', 1, 'Bassins à Flot', '4 Quai Hubert Prom, Bordeaux', 44.869064,  -0.556399, 19),
-('177', 1, 'Cite numerique', 'RUE MARC SANGNIER , BEGLES', 44.813274,  -0.55517, 21),
+('177', 1, 'Cite numerique', 'RUE MARC SANGNIER , BEGLES', 44.813274,  -0.55517, 24),
 ('178', 1, 'Jean Jaures', '12 Avenue Jean Jaurès, Cenon', 44.854004,  -0.537826, 18),
-('179', 1, 'Naujac', '36 Rue Paulin, Bordeaux', 44.8474,  -0.587664, 24),
+('179', 1, 'Naujac', '36 Rue Paulin, Bordeaux', 44.8474,  -0.587664, 25),
 ('180', 1, 'Sainte-Germaine', 'Avenue Georges Clemenceau , Le Bouscat', 44.870798,  -0.613641, 15),
-('181', 1, 'Mairie du Bouscat', '15-23 Avenue du 8 mai 1945 , LE BOUSCAT', 44.866214,  -0.60529, 17),
-('182', 1, 'Hippodrome', '8 avenue de l''Hippodrome, LE BOUSCAT', 44.873805,  -0.629383, 17),
+('181', 1, 'Mairie du Bouscat', '15-23 Avenue du 8 mai 1945 , LE BOUSCAT', 44.866214,  -0.60529, 20),
+('182', 1, 'Hippodrome', '8 avenue de l''Hippodrome, LE BOUSCAT', 44.873805,  -0.629383, 20),
 ('183', 1, 'Place Maran', '517 Boulevard Alfred Daney , Bordeaux', 44.875335,  -0.553796, 20),
-('184', 1, 'Lormont bas', 'Quai Numa Sensine , Lormont', 44.877905,  -0.534293, 19),
-('185', 1, 'Latule', 'Boulevard Alfred Daney , Bordeaux', 44.869373,  -0.56634, 20)
+('184', 1, 'Lormont bas', 'Quai Numa Sensine , Lormont', 44.877905,  -0.534293, 19)
 ;
 INSERT INTO "project"."station" ("station_id", "reseau_id", "name", "adresse", "latitude", "longitude", "capacite") VALUES
-('186', 1, 'Bagatelle', '161 route de Toulouse, Talence', 44.809255,  -0.574221, 17),
+('185', 1, 'Latule', 'Boulevard Alfred Daney , Bordeaux', 44.869373,  -0.56634, 20),
+('186', 1, 'Bagatelle', '161 route de Toulouse, Talence', 44.809255,  -0.574221, 19),
 ('188', 1, 'Ecole Normale', '215 Boulevard du Président Wilson, Bordeaux', 44.8465,  -0.598372, 19),
-('189', 1, 'Belvédère', 'Quai Deschamps, Bordeaux', 44.834942,  -0.553021, 20),
+('189', 1, 'Belvédère', 'Quai Deschamps, Bordeaux', 44.834942,  -0.553021, 19),
 ('190', 1, 'Gare Routière Paludate', '32 Quai de Paludate, Bordeaux', 44.82909,  -0.554573, 19),
 ('192', 1, 'Gare de Caudéran', '55 Avenue de la Gare, Bordeaux', 44.842422,  -0.627727, 18),
-('194', 1, 'Arena Pont', 'quai de la souys, Floirac', 44.823917,  -0.532758, 18),
-('197', 1, 'Roustaing', '18 Rue Roustaing, Talence', 44.81681,  -0.58682, 15),
+('194', 1, 'Arena Pont', 'quai de la souys, Floirac', 44.823917,  -0.532758, 19),
+('197', 1, 'Roustaing', '18 Rue Roustaing, Talence', 44.81681,  -0.58682, 16),
 ('199', 1, 'Saint Amand', '162 Avenue du Général Leclerc , Bordeaux', 44.855215,  -0.614164, 24),
-('200', 1, 'Le Grand Louis', '189 Avenue de la Libération, Mérignac', 44.861057,  -0.642196, 16),
-('201', 1, 'Hôpital Suburbain', '84 Avenue Georges Clémenceau, Le Bouscat', 44.86736,  -0.617703, 18)
+('200', 1, 'Le Grand Louis', '189 Avenue de la Libération, Mérignac', 44.861057,  -0.642196, 16)
 ;
 INSERT INTO "project"."station" ("station_id", "reseau_id", "name", "adresse", "latitude", "longitude", "capacite") VALUES
+('201', 1, 'Hôpital Suburbain', '84 Avenue Georges Clémenceau, Le Bouscat', 44.86736,  -0.617703, 20),
 ('202', 1, 'Calypso', '1 Rue Raymond Poincaré, Le Bouscat', 44.860683,  -0.599533, 18),
 ('206', 1, 'Caillou', '489 Avenue du Maréchal de Lattre de Tassigny, Bordeaux', 44.860323,  -0.634148, 20),
 ('207', 1, 'Gare de Talence Médoquine', '2008 Avenue de la Mission Haut Brion, Talence', 44.816089,  -0.602903, 20),
 ('208', 1, 'Clinique Mutualiste', '46 avenue du Dr Albert Schweitzer, Pessac', 44.805303,  -0.609875, 17),
 ('209', 1, 'Unitec', '160 Avenue du Docteur Albert Schweitzer, Pessac', 44.79790884220275,  -0.6199639398210749, 14),
-('211', 1, 'Stalingrad Lion Bleu', '2 place de stalingrad, Bordeaux', 44.84031157642838,  -0.5602724218106014, 20),
-('214', 1, 'Pierre Mendès France', '23 avenue Pierre Mendès-france, Mérignac', 44.830656,  -0.640176, 20),
+('211', 1, 'Stalingrad Lion Bleu', '2 place de stalingrad, Bordeaux', 44.84031157642838,  -0.5602724218106014, 19),
+('214', 1, 'Pierre Mendès France', '23 avenue Pierre Mendès-france, Mérignac', 44.830656,  -0.640176, 19),
 ('215', 1, 'Tri Postal', '2 Rue du Tri Postal, Bordeaux', 44.819668,  -0.553292, 16),
-('219', 1, 'Station Test Prod', '28 Rue Marcel Delattre, Bègles', 44.802917002143,  -0.555855967363, 10),
-('251', 1, 'Belcier Gare', 'Rue des Terres de Bordes, Angle de la rue Roullet, Bordeaux', 44.823285,  -0.554574, 36)
+('219', 1, 'Station Test Prod', '28 Rue Marcel Delattre, Bègles', 44.802917002143,  -0.555855967363, 10)
 ;
 INSERT INTO "project"."station" ("station_id", "reseau_id", "name", "adresse", "latitude", "longitude", "capacite") VALUES
+('251', 1, 'Belcier Gare', 'Rue des Terres de Bordes, Angle de la rue Roullet, Bordeaux', 44.823285,  -0.554574, 38),
 ('297', 1, 'Borne itinérante 1', '56 Boulevard Jean-Jacques Bosc, Bègles', 44.81999,  -0.54253, 0),
 ('298', 1, 'Borne itinérante 2', '56 Boulevard Jean-Jacques Bosc, Bègles', 44.81999,  -0.54251, 0),
 ('299', 1, 'Station Prod BOSC', '28 boulevard Jean Jacques Bosc, Bègles', 44.8199799583067,  -0.5423448575840326, 22),
-('505', 1, 'Ilot Gambetta', '1 Place Gambetta, Bordeaux', 44.840874,  -0.581078, 5),
-('507', 1, 'Ilot Palais de justice', '3-27 Rue de Belfort, Bordeaux', 44.835862,  -0.582249, 8),
-('522', 1, 'Ilot Hôtel de Ville', '16 Place Pey Berland, Bordeaux', 44.838084,  -0.576326, 5),
-('3', 1, 'Piscine Judaique', 'PLACE DU CAPITAINE DU TERTRE , BORDEAUX', 44.840813,  -0.593233, 26),
+('505', 1, 'Ilot Gambetta', '1 Place Gambetta, Bordeaux', 44.840874,  -0.581078, 1),
+('507', 1, 'Ilot Palais de justice', '3-27 Rue de Belfort, Bordeaux', 44.835862,  -0.582249, 4),
+('522', 1, 'Ilot Hôtel de Ville', '16 Place Pey Berland, Bordeaux', 44.838084,  -0.576326, 4),
+('3', 1, 'Piscine Judaique', 'PLACE DU CAPITAINE DU TERTRE , BORDEAUX', 44.840813,  -0.593233, 25),
 ('52', 1, 'Place de l''Europe', 'COURS DE LUZE (FACE À LA MAIRIE ANNEXE) , BORDEAUX', 44.858902,  -0.581327, 17),
-('68', 1, 'Jardin Botanique', '73 Avenue Thiers, Bordeaux', 44.84298,  -0.55573, 17),
-('69', 1, 'Cours Le Rouzic', '8 Place Calixte Camelle, Bordeaux', 44.842624,  -0.54983, 14)
+('68', 1, 'Jardin Botanique', '73 Avenue Thiers, Bordeaux', 44.84298,  -0.55573, 15)
 ;
 INSERT INTO "project"."station" ("station_id", "reseau_id", "name", "adresse", "latitude", "longitude", "capacite") VALUES
-('104', 1, 'Grosse Cloche', '12 Place de la Ferme de Richemont, Bordeaux', 44.83518,  -0.57205, 5),
-('543', 1, 'Ilot Saint Paul', '6 rue Ravez, Bordeaux', 44.837550229143005,  -0.5727752725007731, 5),
-('1', 1, 'Meriadeck', 'RUE CLAUDE BONNIER (STATION TRAMWAY) , BORDEAUX', 44.83803,  -0.58437, 43),
-('2', 1, 'Saint-Bruno - Hôtel de Région', 'RUE FRANÇOIS DE SOURDIS (CIMETIÈRE DE LA CHARTREUSE) , BORDEAUX', 44.83784,  -0.59028, 18),
-('4', 1, 'Saint-Seurin', 'PLACE VERCINGÉTORIX, (37 PLACE DES MARTYRS DE LA RÉSISTANCE), BORDEAUX', 44.84221,  -0.58482, 18),
-('38', 1, 'Fondaudege Museum', '16 Place Charles Gruet, Bordeaux', 44.84641,  -0.5802, 15),
-('63', 1, 'Parc Municipal', '10 Avenue du Président François Mitterrand, Floirac', 44.83028,  -0.52697, 17),
-('73', 1, 'Terres Neuves', '307 BOULEVARD J.J. BOSC, BEGLES', 44.815083,  -0.550901, 20),
-('76', 1, 'Pont de la Maye', '564 Route de Toulouse, Villenave-d''Ornon', 44.781742,  -0.566207, 18),
-('110', 1, 'Forum', 'Angle Allée du 7ème Art / Cours de la Libération, Talence', 44.81238,  -0.59103, 37)
+('69', 1, 'Cours Le Rouzic', '8 Place Calixte Camelle, Bordeaux', 44.842624,  -0.54983, 14),
+('104', 1, 'Grosse Cloche', '12 Place de la Ferme de Richemont, Bordeaux', 44.83518,  -0.57205, 4),
+('137', 1, 'Lycée Gustave Eiffel', 'Angle du cours de la Marne, et du cours Barbey, Bordeaux', 44.828327,  -0.562299, 23),
+('151', 1, 'Dravemont', 'Rue Salvador Allende, Floirac', 44.84563,  -0.510532, 20),
+('152', 1, 'Hopital Robert Picque', '349-351 ROUTE DE TOULOUSE, VILLENAVE D''ORNON', 44.79967,  -0.569953, 20),
+('153', 1, 'Parc Sourreil', 'FACE AU 325 CHEMIN DE LEYSOTTE, VILLENAVE D''ORNON', 44.7923,  -0.581696, 20),
+('154', 1, 'Thouars', '221 Avenue de Thouars, Talence', 44.79209,  -0.591518, 19),
+('155', 1, 'Village 6 IUT', 'FACE 10 RUE DE NAUDET, GRADIGNAN', 44.791485,  -0.613107, 23),
+('156', 1, 'Hotel de Ville Merignac', 'FACE AU 39 RUE MAURICE UTRILLO, Mérignac', 44.8443045,  -0.6589115, 20),
+('157', 1, 'Les Pins', '2 Rue Alphonse Daudet, Mérignac', 44.85682,  -0.659829, 20)
 ;
 INSERT INTO "project"."station" ("station_id", "reseau_id", "name", "adresse", "latitude", "longitude", "capacite") VALUES
-('146', 1, 'Palais des Congres', 'Avenue Jean Gabriel Domergue, Bordeaux', 44.8889239,  -0.5677813, 29),
-('196', 1, 'Simone Veil rive gauche', '46 Boulevard jean-jacques bosc, Bègles', 44.82014,  -0.54255, 20),
-('539', 1, 'Ilots Quinconces', 'Cours du 30 Juillet, Pavillon des Quinconces, Bordeaux', 44.844354,  -0.574307, 10),
-('557', 1, 'Ilot Eglise St Louis', 'FACE AU 9 RUE SICARD, BORDEAUX', 44.851519,  -0.571724, 5),
+('158', 1, 'Lewis Brown', '120 Cours Edouard Vaillant, Bordeaux', 44.863208,  -0.561179, 20),
+('159', 1, 'Camping International', 'BOULEVARD JACQUES CHABAN-DELMAS , BRUGES', 44.897846,  -0.582511, 24),
+('160', 1, 'Brandenburg', '223 Rue Achard, Bordeaux', 44.873741,  -0.545879, 19),
+('161', 1, 'Place Buscaillet', '33 rue de new york, Bordeaux', 44.870014,  -0.551179, 18),
+('162', 1, 'Gare de Begles', '14 AVENUE LÉNINE, BEGLES', 44.798195,  -0.551517, 18),
+('163', 1, 'Lycee Vaclav Havel', '3 Avenue Danielle Mitterrand, Bègles', 44.785689,  -0.565509, 19),
+('164', 1, 'Pont de Caudérès', '133 Boulevard du Président Franklin Roosevelt, Talence', 44.8172117,  -0.5768853, 18),
+('165', 1, 'Barrière d’Arès', 'Boulevard Antoine Gauthier, Bordeaux', 44.83633465,  -0.5987418, 9),
+('166', 1, 'Centre commercial du Lac', '53 AVENUE DU LAC, BORDEAUX', 44.88192,  -0.565221, 19),
+('167', 1, 'Barrière Judaïque', '66 Boulevard du Président Wilson, Bordeaux', 44.83924258046007,  -0.5990752083266996, 19)
+;
+INSERT INTO "project"."station" ("station_id", "reseau_id", "name", "adresse", "latitude", "longitude", "capacite") VALUES
+('168', 1, 'Polyclinique Bordeaux Nord', '244 Boulevard Godard , Bordeaux', 44.864663,  -0.578664, 20),
+('543', 1, 'Ilot Saint Paul', '6 rue Ravez, Bordeaux', 44.837550229143005,  -0.5727752725007731, 4),
+('557', 1, 'Ilot Eglise St Louis', 'FACE AU 9 RUE SICARD, BORDEAUX', 44.851519,  -0.571724, 4),
 ('559', 1, 'Ilot CAPC', '25 Quai des Chartrons, Bordeaux', 44.850136,  -0.570166, 5),
-('561', 1, 'Ilot Parc aux Angéliques', '1 Rue Reignier, Bordeaux', 44.846152,  -0.564846, 5),
+('561', 1, 'Ilot Parc aux Angéliques', '1 Rue Reignier, Bordeaux', 44.846152,  -0.564846, 4),
 ('567', 1, 'Ilot Allée de Serr Abadie', '1 Rue Abadie, Bègles', 44.843856,  -0.55744, 5),
 ('598', 1, 'Ilot Cap Sciences', '1 Quai de Bacalan, Bordeaux', 44.860149,  -0.554283, 5),
 ('599', 1, 'Ilot Les Hangars', '36 Quai de Bacalan, Bordeaux', 44.857934,  -0.558128, 10),
-('604', 1, 'Ilot Grosse Cloche', '120 Cours Victor Hugo, Bordeaux', 44.8347927,  -0.5720756, 5)
+('604', 1, 'Ilot Grosse Cloche', '120 Cours Victor Hugo, Bordeaux', 44.8347927,  -0.5720756, 4),
+('605', 1, 'Ilot Rue du Mirail', '60 Rue du Mirail, Bordeaux', 44.832614,  -0.571034, 5)
 ;
 INSERT INTO "project"."station" ("station_id", "reseau_id", "name", "adresse", "latitude", "longitude", "capacite") VALUES
-('605', 1, 'Ilot Rue du Mirail', '60 Rue du Mirail, Bordeaux', 44.832614,  -0.571034, 5),
 ('606', 1, 'Ilot Victoire', '23 Place de la Victoire, Bordeaux', 44.830814,  -0.573234, 9),
 ('627', 1, 'Ilot Gare St-Jean', '1 Rue Saint Vincent de Paul, Bordeaux', 44.826202,  -0.557041, 19),
 ('629', 1, 'Ilot Barrière de Bègles', 'Parking du cinéma , Bègles', 44.8131981,  -0.5642255, 4),
@@ -307,11 +294,24 @@ INSERT INTO "project"."station" ("station_id", "reseau_id", "name", "adresse", "
 ('670', 1, 'Ilot Lucien Faure', 'Cours Henri Brunet, Bordeaux', 44.866209,  -0.560707, 5),
 ('672', 1, 'Ilot Cité du Vin', '13 Quai de Bacalan, Bordeaux', 44.861715,  -0.55157, 10),
 ('900', 1, 'Maison Ecocitoyenne', 'Quai richelieu, Bordeaux', 44.839295,  -0.567696, 15),
-('901', 1, 'Stalingrad Lion Bleu Mobile', '2 place de stalingrad, Bordeaux', 44.84027,  -0.56038, 20)
+('901', 1, 'Stalingrad Lion Bleu Mobile', '2 place de stalingrad, Bordeaux', 44.84027,  -0.56038, 20),
+('902', 1, 'Stalingrad 2', 'Place Stalingrad, BORDEAUX', 44.840479,  -0.560372, 20)
 ;
 INSERT INTO "project"."station" ("station_id", "reseau_id", "name", "adresse", "latitude", "longitude", "capacite") VALUES
-('902', 1, 'Stalingrad 2', 'Place Stalingrad, BORDEAUX', 44.840479,  -0.560372, 20),
-('903', 1, 'Cathédrale des sports', 'Quai de Brazza, Bordeaux', 44.859553,  -0.543617, 24)
+('903', 1, 'Cathédrale des sports', 'Quai de Brazza, Bordeaux', 44.859553,  -0.543617, 22),
+('1', 1, 'Meriadeck', 'RUE CLAUDE BONNIER (STATION TRAMWAY) , BORDEAUX', 44.83803,  -0.58437, 42),
+('2', 1, 'Saint-Bruno - Hôtel de Région', 'RUE FRANÇOIS DE SOURDIS (CIMETIÈRE DE LA CHARTREUSE) , BORDEAUX', 44.83784,  -0.59028, 19),
+('4', 1, 'Saint-Seurin', 'PLACE VERCINGÉTORIX, (37 PLACE DES MARTYRS DE LA RÉSISTANCE), BORDEAUX', 44.84221,  -0.58482, 20),
+('38', 1, 'Fondaudege Museum', '16 Place Charles Gruet, Bordeaux', 44.84641,  -0.5802, 14),
+('63', 1, 'Parc Municipal', '10 Avenue du Président François Mitterrand, Floirac', 44.83028,  -0.52697, 17),
+('73', 1, 'Terres Neuves', '307 BOULEVARD J.J. BOSC, BEGLES', 44.815083,  -0.550901, 19),
+('76', 1, 'Pont de la Maye', '564 Route de Toulouse, Villenave-d''Ornon', 44.781742,  -0.566207, 19),
+('110', 1, 'Forum', 'Angle Allée du 7ème Art / Cours de la Libération, Talence', 44.81238,  -0.59103, 39),
+('146', 1, 'Palais des Congres', 'Avenue Jean Gabriel Domergue, Bordeaux', 44.8889239,  -0.5677813, 29)
+;
+INSERT INTO "project"."station" ("station_id", "reseau_id", "name", "adresse", "latitude", "longitude", "capacite") VALUES
+('196', 1, 'Simone Veil rive gauche', '46 Boulevard jean-jacques bosc, Bègles', 44.82014,  -0.54255, 18),
+('539', 1, 'Ilots Quinconces', 'Cours du 30 Juillet, Pavillon des Quinconces, Bordeaux', 44.844354,  -0.574307, 10)
 ;
 
 -- Data for station_status
@@ -18689,7 +18689,5295 @@ INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike
 ;
 INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
 ('902', '2026-11-21T16:25:29+00:00'::timestamptz, 0, 0, 20, false, false, false),
-('903', '2026-11-21T16:25:29+00:00'::timestamptz, 11, 1, 13, true, true, true)
+('903', '2026-11-21T16:25:29+00:00'::timestamptz, 11, 1, 13, true, true, true),
+('1', '2026-11-22T19:27:29+00:00'::timestamptz, 1, 0, 41, true, true, true),
+('2', '2026-11-22T19:27:29+00:00'::timestamptz, 5, 1, 13, true, true, true),
+('3', '2026-11-22T19:27:29+00:00'::timestamptz, 14, 4, 12, true, true, true),
+('4', '2026-11-22T19:27:29+00:00'::timestamptz, 5, 2, 14, true, true, true),
+('5', '2026-11-22T19:27:29+00:00'::timestamptz, 2, 0, 38, true, true, true),
+('6', '2026-11-22T19:27:29+00:00'::timestamptz, 7, 3, 31, true, true, true),
+('7', '2026-11-22T19:27:29+00:00'::timestamptz, 7, 4, 8, true, true, true),
+('8', '2026-11-22T19:27:29+00:00'::timestamptz, 6, 0, 14, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('9', '2026-11-22T19:27:29+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('10', '2026-11-22T19:27:29+00:00'::timestamptz, 6, 3, 15, true, true, true),
+('11', '2026-11-22T19:27:29+00:00'::timestamptz, 7, 2, 21, true, true, true),
+('12', '2026-11-22T19:27:29+00:00'::timestamptz, 1, 0, 12, true, true, true),
+('13', '2026-11-22T19:27:29+00:00'::timestamptz, 3, 3, 17, true, true, true),
+('14', '2026-11-22T19:27:29+00:00'::timestamptz, 6, 3, 20, true, true, true),
+('15', '2026-11-22T19:27:29+00:00'::timestamptz, 6, 6, 5, true, true, true),
+('16', '2026-11-22T19:27:29+00:00'::timestamptz, 18, 3, 8, true, true, true),
+('17', '2026-11-22T19:27:29+00:00'::timestamptz, 6, 2, 6, true, true, true),
+('18', '2026-11-22T19:27:29+00:00'::timestamptz, 4, 2, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('19', '2026-11-22T19:27:29+00:00'::timestamptz, 3, 0, 27, true, true, true),
+('20', '2026-11-22T19:27:29+00:00'::timestamptz, 14, 4, 15, true, true, true),
+('21', '2026-11-22T19:27:29+00:00'::timestamptz, 3, 2, 11, true, true, true),
+('22', '2026-11-22T19:27:29+00:00'::timestamptz, 8, 0, 24, true, true, true),
+('23', '2026-11-22T19:27:29+00:00'::timestamptz, 3, 2, 37, true, true, true),
+('24', '2026-11-22T19:27:29+00:00'::timestamptz, 11, 3, 5, true, true, true),
+('25', '2026-11-22T19:27:29+00:00'::timestamptz, 0, 0, 14, true, true, true),
+('26', '2026-11-22T19:27:29+00:00'::timestamptz, 1, 0, 11, true, true, true),
+('27', '2026-11-22T19:27:29+00:00'::timestamptz, 12, 6, 6, true, true, true),
+('28', '2026-11-22T19:27:29+00:00'::timestamptz, 0, 0, 26, true, false, false)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('29', '2026-11-22T19:27:29+00:00'::timestamptz, 7, 4, 10, true, true, true),
+('30', '2026-11-22T19:27:29+00:00'::timestamptz, 10, 1, 7, true, true, true),
+('31', '2026-11-22T19:27:29+00:00'::timestamptz, 4, 0, 9, true, true, true),
+('32', '2026-11-22T19:27:29+00:00'::timestamptz, 15, 2, 0, true, true, true),
+('33', '2026-11-22T19:27:29+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('34', '2026-11-22T19:27:29+00:00'::timestamptz, 3, 1, 12, true, true, true),
+('35', '2026-11-22T19:27:29+00:00'::timestamptz, 5, 0, 13, true, true, true),
+('36', '2026-11-22T19:27:29+00:00'::timestamptz, 6, 1, 12, true, true, true),
+('37', '2026-11-22T19:27:29+00:00'::timestamptz, 20, 4, 7, true, true, true),
+('38', '2026-11-22T19:27:29+00:00'::timestamptz, 4, 1, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('39', '2026-11-22T19:27:29+00:00'::timestamptz, 7, 1, 57, true, true, true),
+('40', '2026-11-22T19:27:29+00:00'::timestamptz, 7, 5, 12, true, true, true),
+('41', '2026-11-22T19:27:29+00:00'::timestamptz, 2, 0, 15, true, true, true),
+('42', '2026-11-22T19:27:29+00:00'::timestamptz, 1, 0, 18, true, true, true),
+('43', '2026-11-22T19:27:29+00:00'::timestamptz, 6, 1, 8, true, true, true),
+('44', '2026-11-22T19:27:29+00:00'::timestamptz, 3, 0, 16, true, true, true),
+('45', '2026-11-22T19:27:29+00:00'::timestamptz, 1, 1, 14, true, true, true),
+('46', '2026-11-22T19:27:29+00:00'::timestamptz, 13, 1, 7, true, true, true),
+('47', '2026-11-22T19:27:29+00:00'::timestamptz, 1, 0, 13, true, true, true),
+('48', '2026-11-22T19:27:29+00:00'::timestamptz, 7, 3, 8, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('49', '2026-11-22T19:27:29+00:00'::timestamptz, 9, 2, 9, true, true, true),
+('50', '2026-11-22T19:27:29+00:00'::timestamptz, 9, 2, 4, true, true, true),
+('51', '2026-11-22T19:27:29+00:00'::timestamptz, 14, 1, 5, true, true, true),
+('52', '2026-11-22T19:27:29+00:00'::timestamptz, 10, 2, 7, true, true, true),
+('53', '2026-11-22T19:27:29+00:00'::timestamptz, 10, 4, 4, true, true, true),
+('54', '2026-11-22T19:27:29+00:00'::timestamptz, 0, 0, 44, true, true, true),
+('55', '2026-11-22T19:27:29+00:00'::timestamptz, 6, 0, 10, true, true, true),
+('56', '2026-11-22T19:27:29+00:00'::timestamptz, 6, 1, 4, true, true, true),
+('57', '2026-11-22T19:27:29+00:00'::timestamptz, 8, 2, 9, true, true, true),
+('58', '2026-11-22T19:27:29+00:00'::timestamptz, 3, 1, 14, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('59', '2026-11-22T19:27:29+00:00'::timestamptz, 4, 0, 12, true, true, true),
+('60', '2026-11-22T19:27:29+00:00'::timestamptz, 4, 2, 14, true, true, true),
+('61', '2026-11-22T19:27:29+00:00'::timestamptz, 7, 2, 8, true, true, true),
+('62', '2026-11-22T19:27:29+00:00'::timestamptz, 11, 4, 12, true, true, true),
+('63', '2026-11-22T19:27:29+00:00'::timestamptz, 12, 5, 5, true, true, true),
+('64', '2026-11-22T19:27:29+00:00'::timestamptz, 0, 0, 15, true, true, true),
+('65', '2026-11-22T19:27:29+00:00'::timestamptz, 4, 2, 14, true, true, true),
+('66', '2026-11-22T19:27:29+00:00'::timestamptz, 3, 0, 16, true, true, true),
+('67', '2026-11-22T19:27:29+00:00'::timestamptz, 4, 1, 16, true, true, true),
+('68', '2026-11-22T19:27:29+00:00'::timestamptz, 5, 4, 11, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('69', '2026-11-22T19:27:29+00:00'::timestamptz, 2, 1, 12, true, true, true),
+('70', '2026-11-22T19:27:29+00:00'::timestamptz, 2, 2, 17, true, true, true),
+('72', '2026-11-22T19:27:29+00:00'::timestamptz, 7, 4, 16, true, true, true),
+('73', '2026-11-22T19:27:29+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('74', '2026-11-22T19:27:29+00:00'::timestamptz, 17, 11, 5, true, true, true),
+('75', '2026-11-22T19:27:29+00:00'::timestamptz, 10, 4, 6, true, true, true),
+('76', '2026-11-22T19:27:29+00:00'::timestamptz, 13, 2, 5, true, true, true),
+('77', '2026-11-22T19:27:29+00:00'::timestamptz, 10, 3, 9, true, true, true),
+('78', '2026-11-22T19:27:29+00:00'::timestamptz, 9, 4, 11, true, true, true),
+('79', '2026-11-22T19:27:29+00:00'::timestamptz, 14, 3, 5, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('80', '2026-11-22T19:27:29+00:00'::timestamptz, 5, 5, 11, true, true, true),
+('81', '2026-11-22T19:27:29+00:00'::timestamptz, 10, 1, 10, true, true, true),
+('82', '2026-11-22T19:27:29+00:00'::timestamptz, 6, 3, 14, true, true, true),
+('83', '2026-11-22T19:27:29+00:00'::timestamptz, 14, 6, 4, true, true, true),
+('84', '2026-11-22T19:27:29+00:00'::timestamptz, 15, 9, 2, true, true, true),
+('85', '2026-11-22T19:27:29+00:00'::timestamptz, 1, 1, 17, true, true, true),
+('86', '2026-11-22T19:27:29+00:00'::timestamptz, 14, 6, 5, true, true, true),
+('87', '2026-11-22T19:27:29+00:00'::timestamptz, 11, 5, 8, true, true, true),
+('88', '2026-11-22T19:27:29+00:00'::timestamptz, 5, 4, 12, true, true, true),
+('89', '2026-11-22T19:27:29+00:00'::timestamptz, 8, 3, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('90', '2026-11-22T19:27:29+00:00'::timestamptz, 16, 7, 2, true, true, true),
+('91', '2026-11-22T19:27:29+00:00'::timestamptz, 2, 0, 17, true, true, true),
+('92', '2026-11-22T19:27:29+00:00'::timestamptz, 2, 2, 13, true, true, true),
+('93', '2026-11-22T19:27:29+00:00'::timestamptz, 12, 7, 2, true, true, true),
+('94', '2026-11-22T19:27:29+00:00'::timestamptz, 0, 0, 1, true, false, false),
+('95', '2026-11-22T19:27:29+00:00'::timestamptz, 5, 3, 11, true, true, true),
+('96', '2026-11-22T19:27:29+00:00'::timestamptz, 24, 11, 2, true, true, true),
+('97', '2026-11-22T19:27:29+00:00'::timestamptz, 10, 0, 10, true, true, true),
+('98', '2026-11-22T19:27:29+00:00'::timestamptz, 4, 2, 12, true, true, true),
+('99', '2026-11-22T19:27:29+00:00'::timestamptz, 10, 3, 19, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('100', '2026-11-22T19:27:29+00:00'::timestamptz, 20, 5, 36, true, true, true),
+('101', '2026-11-22T19:27:29+00:00'::timestamptz, 6, 5, 13, true, true, true),
+('102', '2026-11-22T19:27:29+00:00'::timestamptz, 3, 3, 36, true, true, true),
+('103', '2026-11-22T19:27:29+00:00'::timestamptz, 4, 1, 28, true, true, true),
+('104', '2026-11-22T19:27:29+00:00'::timestamptz, 1, 0, 3, true, true, true),
+('105', '2026-11-22T19:27:29+00:00'::timestamptz, 6, 5, 14, true, true, true),
+('106', '2026-11-22T19:27:29+00:00'::timestamptz, 0, 0, 39, true, false, false),
+('107', '2026-11-22T19:27:29+00:00'::timestamptz, 3, 1, 9, true, true, true),
+('108', '2026-11-22T19:27:29+00:00'::timestamptz, 1, 1, 14, true, true, true),
+('109', '2026-11-22T19:27:29+00:00'::timestamptz, 3, 0, 29, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('110', '2026-11-22T19:27:29+00:00'::timestamptz, 7, 5, 28, true, true, true),
+('111', '2026-11-22T19:27:29+00:00'::timestamptz, 12, 2, 25, true, true, true),
+('112', '2026-11-22T19:27:29+00:00'::timestamptz, 11, 4, 29, true, true, true),
+('113', '2026-11-22T19:27:29+00:00'::timestamptz, 2, 2, 15, true, true, true),
+('114', '2026-11-22T19:27:29+00:00'::timestamptz, 12, 2, 12, true, true, true),
+('115', '2026-11-22T19:27:29+00:00'::timestamptz, 0, 0, 1, true, true, true),
+('116', '2026-11-22T19:27:29+00:00'::timestamptz, 9, 1, 28, true, true, true),
+('117', '2026-11-22T19:27:29+00:00'::timestamptz, 1, 1, 14, true, true, true),
+('118', '2026-11-22T19:27:29+00:00'::timestamptz, 9, 2, 9, true, true, true),
+('119', '2026-11-22T19:27:29+00:00'::timestamptz, 6, 1, 14, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('120', '2026-11-22T19:27:29+00:00'::timestamptz, 22, 5, 0, true, true, true),
+('121', '2026-11-22T19:27:29+00:00'::timestamptz, 5, 2, 9, true, true, true),
+('122', '2026-11-22T19:27:29+00:00'::timestamptz, 3, 3, 12, true, true, true),
+('123', '2026-11-22T19:27:29+00:00'::timestamptz, 2, 0, 33, true, true, true),
+('124', '2026-11-22T19:27:29+00:00'::timestamptz, 8, 2, 12, true, true, true),
+('125', '2026-11-22T19:27:29+00:00'::timestamptz, 4, 2, 26, true, true, true),
+('126', '2026-11-22T19:27:29+00:00'::timestamptz, 5, 1, 5, true, true, true),
+('127', '2026-11-22T19:27:29+00:00'::timestamptz, 3, 2, 19, true, true, true),
+('128', '2026-11-22T19:27:29+00:00'::timestamptz, 2, 2, 11, true, true, true),
+('129', '2026-11-22T19:27:29+00:00'::timestamptz, 2, 1, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('130', '2026-11-22T19:27:29+00:00'::timestamptz, 9, 2, 9, true, true, true),
+('131', '2026-11-22T19:27:29+00:00'::timestamptz, 1, 0, 13, true, true, true),
+('132', '2026-11-22T19:27:29+00:00'::timestamptz, 5, 1, 8, true, true, true),
+('133', '2026-11-22T19:27:29+00:00'::timestamptz, 2, 1, 16, true, true, true),
+('134', '2026-11-22T19:27:29+00:00'::timestamptz, 5, 3, 14, true, true, true),
+('135', '2026-11-22T19:27:29+00:00'::timestamptz, 1, 0, 18, true, true, true),
+('136', '2026-11-22T19:27:29+00:00'::timestamptz, 1, 1, 17, true, true, true),
+('137', '2026-11-22T19:27:29+00:00'::timestamptz, 4, 1, 20, true, true, true),
+('138', '2026-11-22T19:27:29+00:00'::timestamptz, 6, 3, 12, true, true, true),
+('139', '2026-11-22T19:27:29+00:00'::timestamptz, 3, 1, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('140', '2026-11-22T19:27:29+00:00'::timestamptz, 14, 6, 6, true, true, true),
+('141', '2026-11-22T19:27:29+00:00'::timestamptz, 7, 4, 12, true, true, true),
+('142', '2026-11-22T19:27:29+00:00'::timestamptz, 7, 1, 13, true, true, true),
+('143', '2026-11-22T19:27:29+00:00'::timestamptz, 0, 0, 16, true, true, true),
+('144', '2026-11-22T19:27:29+00:00'::timestamptz, 5, 1, 14, true, true, true),
+('145', '2026-11-22T19:27:29+00:00'::timestamptz, 13, 5, 2, true, true, true),
+('146', '2026-11-22T19:27:29+00:00'::timestamptz, 17, 5, 12, true, true, true),
+('147', '2026-11-22T19:27:29+00:00'::timestamptz, 25, 11, 4, true, true, true),
+('148', '2026-11-22T19:27:29+00:00'::timestamptz, 4, 2, 14, true, true, true),
+('149', '2026-11-22T19:27:29+00:00'::timestamptz, 0, 0, 20, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('150', '2026-11-22T19:27:29+00:00'::timestamptz, 13, 2, 2, true, true, true),
+('151', '2026-11-22T19:27:29+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('152', '2026-11-22T19:27:29+00:00'::timestamptz, 17, 6, 1, true, true, true),
+('153', '2026-11-22T19:27:29+00:00'::timestamptz, 15, 6, 3, true, true, true),
+('154', '2026-11-22T19:27:29+00:00'::timestamptz, 14, 0, 2, true, true, true),
+('155', '2026-11-22T19:27:29+00:00'::timestamptz, 2, 0, 18, true, true, true),
+('156', '2026-11-22T19:27:29+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('157', '2026-11-22T19:27:29+00:00'::timestamptz, 1, 0, 19, true, true, true),
+('158', '2026-11-22T19:27:29+00:00'::timestamptz, 4, 3, 16, true, true, true),
+('159', '2026-11-22T19:27:29+00:00'::timestamptz, 2, 2, 22, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('160', '2026-11-22T19:27:29+00:00'::timestamptz, 3, 1, 17, true, true, true),
+('161', '2026-11-22T19:27:29+00:00'::timestamptz, 14, 6, 6, true, true, true),
+('162', '2026-11-22T19:27:29+00:00'::timestamptz, 16, 1, 2, true, true, true),
+('163', '2026-11-22T19:27:29+00:00'::timestamptz, 17, 5, 2, true, true, true),
+('164', '2026-11-22T19:27:29+00:00'::timestamptz, 5, 1, 13, true, true, true),
+('165', '2026-11-22T19:27:29+00:00'::timestamptz, 8, 5, 0, true, true, true),
+('166', '2026-11-22T19:27:29+00:00'::timestamptz, 8, 1, 10, true, true, true),
+('167', '2026-11-22T19:27:29+00:00'::timestamptz, 7, 2, 12, true, true, true),
+('168', '2026-11-22T19:27:29+00:00'::timestamptz, 17, 7, 2, true, true, true),
+('169', '2026-11-22T19:27:29+00:00'::timestamptz, 7, 6, 13, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('170', '2026-11-22T19:27:29+00:00'::timestamptz, 1, 0, 19, true, true, true),
+('171', '2026-11-22T19:27:29+00:00'::timestamptz, 4, 1, 15, true, true, true),
+('172', '2026-11-22T19:27:29+00:00'::timestamptz, 10, 4, 17, true, true, true),
+('173', '2026-11-22T19:27:29+00:00'::timestamptz, 10, 3, 10, true, true, true),
+('174', '2026-11-22T19:27:29+00:00'::timestamptz, 4, 0, 38, true, true, true),
+('175', '2026-11-22T19:27:29+00:00'::timestamptz, 19, 12, 0, true, true, true),
+('176', '2026-11-22T19:27:29+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('177', '2026-11-22T19:27:29+00:00'::timestamptz, 13, 3, 11, true, true, true),
+('178', '2026-11-22T19:27:29+00:00'::timestamptz, 14, 8, 3, true, true, true),
+('179', '2026-11-22T19:27:29+00:00'::timestamptz, 7, 2, 16, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('180', '2026-11-22T19:27:29+00:00'::timestamptz, 8, 4, 7, true, true, true),
+('181', '2026-11-22T19:27:29+00:00'::timestamptz, 8, 3, 9, true, true, true),
+('182', '2026-11-22T19:27:29+00:00'::timestamptz, 12, 5, 5, true, true, true),
+('183', '2026-11-22T19:27:29+00:00'::timestamptz, 10, 3, 10, true, true, true),
+('184', '2026-11-22T19:27:29+00:00'::timestamptz, 4, 0, 15, true, true, true),
+('185', '2026-11-22T19:27:29+00:00'::timestamptz, 5, 0, 14, true, true, true),
+('186', '2026-11-22T19:27:29+00:00'::timestamptz, 4, 0, 13, true, true, true),
+('188', '2026-11-22T19:27:29+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('189', '2026-11-22T19:27:29+00:00'::timestamptz, 3, 2, 16, true, true, true),
+('190', '2026-11-22T19:27:29+00:00'::timestamptz, 1, 0, 19, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('192', '2026-11-22T19:27:29+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('194', '2026-11-22T19:27:29+00:00'::timestamptz, 17, 7, 1, true, true, true),
+('196', '2026-11-22T19:27:29+00:00'::timestamptz, 11, 3, 9, true, true, true),
+('197', '2026-11-22T19:27:29+00:00'::timestamptz, 3, 2, 13, true, true, true),
+('199', '2026-11-22T19:27:29+00:00'::timestamptz, 11, 3, 12, true, true, true),
+('200', '2026-11-22T19:27:29+00:00'::timestamptz, 0, 0, 13, true, true, true),
+('201', '2026-11-22T19:27:29+00:00'::timestamptz, 7, 5, 11, true, true, true),
+('202', '2026-11-22T19:27:29+00:00'::timestamptz, 7, 1, 11, true, true, true),
+('206', '2026-11-22T19:27:29+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('207', '2026-11-22T19:27:29+00:00'::timestamptz, 5, 0, 15, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('208', '2026-11-22T19:27:29+00:00'::timestamptz, 4, 1, 11, true, true, true),
+('209', '2026-11-22T19:27:29+00:00'::timestamptz, 3, 1, 11, true, true, true),
+('211', '2026-11-22T19:27:29+00:00'::timestamptz, 6, 2, 10, true, true, true),
+('214', '2026-11-22T19:27:29+00:00'::timestamptz, 2, 1, 17, true, true, true),
+('215', '2026-11-22T19:27:29+00:00'::timestamptz, 0, 0, 16, false, false, false),
+('219', '2026-11-22T19:27:29+00:00'::timestamptz, 3, 1, 7, false, false, false),
+('251', '2026-11-22T19:27:29+00:00'::timestamptz, 4, 0, 32, true, true, true),
+('297', '2026-11-22T19:27:29+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('298', '2026-11-22T19:27:29+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('299', '2026-11-22T19:27:29+00:00'::timestamptz, 1, 0, 21, false, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('505', '2026-11-22T19:27:29+00:00'::timestamptz, 5, 0, 0, false, true, true),
+('507', '2026-11-22T19:27:29+00:00'::timestamptz, 5, 1, 3, true, true, true),
+('522', '2026-11-22T19:27:29+00:00'::timestamptz, 4, 2, 1, false, true, true),
+('539', '2026-11-22T19:27:29+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('543', '2026-11-22T19:27:29+00:00'::timestamptz, 3, 2, 2, true, true, true),
+('557', '2026-11-22T19:27:29+00:00'::timestamptz, 2, 1, 3, true, true, true),
+('559', '2026-11-22T19:27:29+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('561', '2026-11-22T19:27:29+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('567', '2026-11-22T19:27:29+00:00'::timestamptz, 1, 1, 4, false, false, false),
+('598', '2026-11-22T19:27:29+00:00'::timestamptz, 1, 0, 4, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('599', '2026-11-22T19:27:29+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('604', '2026-11-22T19:27:29+00:00'::timestamptz, 1, 0, 4, false, true, true),
+('605', '2026-11-22T19:27:29+00:00'::timestamptz, 3, 0, 2, true, true, true),
+('606', '2026-11-22T19:27:29+00:00'::timestamptz, 1, 0, 8, false, false, false),
+('627', '2026-11-22T19:27:29+00:00'::timestamptz, 2, 0, 17, true, true, true),
+('629', '2026-11-22T19:27:29+00:00'::timestamptz, 2, 0, 2, true, true, true),
+('633', '2026-11-22T19:27:29+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('634', '2026-11-22T19:27:29+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('670', '2026-11-22T19:27:29+00:00'::timestamptz, 0, 0, 5, false, false, false),
+('672', '2026-11-22T19:27:29+00:00'::timestamptz, 4, 2, 6, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('900', '2026-11-22T19:27:29+00:00'::timestamptz, 0, 0, 15, false, false, false),
+('901', '2026-11-22T19:27:29+00:00'::timestamptz, 0, 0, 20, true, false, false),
+('902', '2026-11-22T19:27:29+00:00'::timestamptz, 0, 0, 20, false, false, false),
+('903', '2026-11-22T19:27:29+00:00'::timestamptz, 22, 1, 0, true, true, true),
+('1', '2026-11-22T20:27:29+00:00'::timestamptz, 2, 0, 40, true, true, true),
+('2', '2026-11-22T20:27:29+00:00'::timestamptz, 6, 1, 12, true, true, true),
+('3', '2026-11-22T20:27:29+00:00'::timestamptz, 14, 4, 12, true, true, true),
+('4', '2026-11-22T20:27:29+00:00'::timestamptz, 5, 2, 14, true, true, true),
+('5', '2026-11-22T20:27:29+00:00'::timestamptz, 0, 0, 40, true, true, true),
+('6', '2026-11-22T20:27:29+00:00'::timestamptz, 6, 3, 32, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('7', '2026-11-22T20:27:29+00:00'::timestamptz, 7, 4, 8, true, true, true),
+('8', '2026-11-22T20:27:29+00:00'::timestamptz, 5, 0, 15, true, true, true),
+('9', '2026-11-22T20:27:29+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('10', '2026-11-22T20:27:29+00:00'::timestamptz, 5, 2, 16, true, true, true),
+('11', '2026-11-22T20:27:29+00:00'::timestamptz, 6, 2, 22, true, true, true),
+('12', '2026-11-22T20:27:29+00:00'::timestamptz, 2, 1, 11, true, true, true),
+('13', '2026-11-22T20:27:29+00:00'::timestamptz, 3, 3, 17, true, true, true),
+('14', '2026-11-22T20:27:29+00:00'::timestamptz, 5, 2, 21, true, true, true),
+('15', '2026-11-22T20:27:29+00:00'::timestamptz, 4, 4, 7, true, true, true),
+('16', '2026-11-22T20:27:29+00:00'::timestamptz, 18, 3, 8, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('17', '2026-11-22T20:27:29+00:00'::timestamptz, 6, 2, 6, true, true, true),
+('18', '2026-11-22T20:27:29+00:00'::timestamptz, 3, 2, 11, true, true, true),
+('19', '2026-11-22T20:27:29+00:00'::timestamptz, 4, 0, 26, true, true, true),
+('20', '2026-11-22T20:27:29+00:00'::timestamptz, 13, 3, 16, true, true, true),
+('21', '2026-11-22T20:27:29+00:00'::timestamptz, 1, 1, 13, true, true, true),
+('22', '2026-11-22T20:27:29+00:00'::timestamptz, 6, 0, 26, true, true, true),
+('23', '2026-11-22T20:27:29+00:00'::timestamptz, 2, 1, 38, true, true, true),
+('24', '2026-11-22T20:27:29+00:00'::timestamptz, 12, 3, 4, true, true, true),
+('25', '2026-11-22T20:27:29+00:00'::timestamptz, 2, 0, 12, true, true, true),
+('26', '2026-11-22T20:27:29+00:00'::timestamptz, 2, 1, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('27', '2026-11-22T20:27:29+00:00'::timestamptz, 12, 6, 6, true, true, true),
+('28', '2026-11-22T20:27:29+00:00'::timestamptz, 0, 0, 26, true, false, false),
+('29', '2026-11-22T20:27:29+00:00'::timestamptz, 7, 4, 10, true, true, true),
+('30', '2026-11-22T20:27:29+00:00'::timestamptz, 10, 1, 7, true, true, true),
+('31', '2026-11-22T20:27:29+00:00'::timestamptz, 5, 1, 8, true, true, true),
+('32', '2026-11-22T20:27:29+00:00'::timestamptz, 15, 2, 0, true, true, true),
+('33', '2026-11-22T20:27:29+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('34', '2026-11-22T20:27:29+00:00'::timestamptz, 4, 1, 11, true, true, true),
+('35', '2026-11-22T20:27:29+00:00'::timestamptz, 7, 1, 11, true, true, true),
+('36', '2026-11-22T20:27:29+00:00'::timestamptz, 6, 1, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('37', '2026-11-22T20:27:29+00:00'::timestamptz, 20, 4, 7, true, true, true),
+('38', '2026-11-22T20:27:29+00:00'::timestamptz, 1, 0, 13, true, true, true),
+('39', '2026-11-22T20:27:29+00:00'::timestamptz, 7, 1, 57, true, true, true),
+('40', '2026-11-22T20:27:29+00:00'::timestamptz, 7, 5, 12, true, true, true),
+('41', '2026-11-22T20:27:29+00:00'::timestamptz, 1, 0, 16, true, true, true),
+('42', '2026-11-22T20:27:29+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('43', '2026-11-22T20:27:29+00:00'::timestamptz, 5, 1, 9, true, true, true),
+('44', '2026-11-22T20:27:29+00:00'::timestamptz, 6, 1, 13, true, true, true),
+('45', '2026-11-22T20:27:29+00:00'::timestamptz, 1, 1, 13, true, true, true),
+('46', '2026-11-22T20:27:29+00:00'::timestamptz, 13, 1, 7, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('47', '2026-11-22T20:27:29+00:00'::timestamptz, 2, 1, 12, true, true, true),
+('48', '2026-11-22T20:27:29+00:00'::timestamptz, 7, 3, 8, true, true, true),
+('49', '2026-11-22T20:27:29+00:00'::timestamptz, 10, 3, 8, true, true, true),
+('50', '2026-11-22T20:27:29+00:00'::timestamptz, 10, 3, 3, true, true, true),
+('51', '2026-11-22T20:27:29+00:00'::timestamptz, 14, 1, 5, true, true, true),
+('52', '2026-11-22T20:27:29+00:00'::timestamptz, 11, 3, 6, true, true, true),
+('53', '2026-11-22T20:27:29+00:00'::timestamptz, 10, 3, 4, true, true, true),
+('54', '2026-11-22T20:27:29+00:00'::timestamptz, 0, 0, 44, true, true, true),
+('55', '2026-11-22T20:27:29+00:00'::timestamptz, 4, 0, 12, true, true, true),
+('56', '2026-11-22T20:27:29+00:00'::timestamptz, 5, 1, 5, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('57', '2026-11-22T20:27:29+00:00'::timestamptz, 9, 2, 8, true, true, true),
+('58', '2026-11-22T20:27:29+00:00'::timestamptz, 5, 1, 12, true, true, true),
+('59', '2026-11-22T20:27:29+00:00'::timestamptz, 4, 0, 12, true, true, true),
+('60', '2026-11-22T20:27:29+00:00'::timestamptz, 4, 2, 14, true, true, true),
+('61', '2026-11-22T20:27:29+00:00'::timestamptz, 7, 2, 8, true, true, true),
+('62', '2026-11-22T20:27:29+00:00'::timestamptz, 8, 4, 15, true, true, true),
+('63', '2026-11-22T20:27:29+00:00'::timestamptz, 10, 3, 7, true, true, true),
+('64', '2026-11-22T20:27:29+00:00'::timestamptz, 2, 0, 13, true, true, true),
+('65', '2026-11-22T20:27:29+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('66', '2026-11-22T20:27:29+00:00'::timestamptz, 3, 0, 16, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('67', '2026-11-22T20:27:29+00:00'::timestamptz, 3, 1, 17, true, true, true),
+('68', '2026-11-22T20:27:29+00:00'::timestamptz, 6, 4, 10, true, true, true),
+('69', '2026-11-22T20:27:29+00:00'::timestamptz, 2, 1, 12, true, true, true),
+('70', '2026-11-22T20:27:29+00:00'::timestamptz, 2, 2, 17, true, true, true),
+('72', '2026-11-22T20:27:29+00:00'::timestamptz, 7, 4, 16, true, true, true),
+('73', '2026-11-22T20:27:29+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('74', '2026-11-22T20:27:29+00:00'::timestamptz, 17, 11, 5, true, true, true),
+('75', '2026-11-22T20:27:29+00:00'::timestamptz, 11, 3, 5, true, true, true),
+('76', '2026-11-22T20:27:29+00:00'::timestamptz, 13, 2, 5, true, true, true),
+('77', '2026-11-22T20:27:29+00:00'::timestamptz, 8, 1, 11, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('78', '2026-11-22T20:27:29+00:00'::timestamptz, 9, 4, 11, true, true, true),
+('79', '2026-11-22T20:27:29+00:00'::timestamptz, 14, 3, 5, true, true, true),
+('80', '2026-11-22T20:27:29+00:00'::timestamptz, 5, 5, 11, true, true, true),
+('81', '2026-11-22T20:27:29+00:00'::timestamptz, 9, 1, 11, true, true, true),
+('82', '2026-11-22T20:27:29+00:00'::timestamptz, 7, 4, 13, true, true, true),
+('83', '2026-11-22T20:27:29+00:00'::timestamptz, 14, 6, 4, true, true, true),
+('84', '2026-11-22T20:27:29+00:00'::timestamptz, 16, 9, 1, true, true, true),
+('85', '2026-11-22T20:27:29+00:00'::timestamptz, 1, 1, 17, true, true, true),
+('86', '2026-11-22T20:27:29+00:00'::timestamptz, 13, 5, 6, true, true, true),
+('87', '2026-11-22T20:27:29+00:00'::timestamptz, 12, 5, 7, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('88', '2026-11-22T20:27:29+00:00'::timestamptz, 5, 4, 12, true, true, true),
+('89', '2026-11-22T20:27:29+00:00'::timestamptz, 8, 3, 12, true, true, true),
+('90', '2026-11-22T20:27:29+00:00'::timestamptz, 14, 6, 4, true, true, true),
+('91', '2026-11-22T20:27:29+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('92', '2026-11-22T20:27:29+00:00'::timestamptz, 4, 4, 11, true, true, true),
+('93', '2026-11-22T20:27:29+00:00'::timestamptz, 12, 7, 2, true, true, true),
+('94', '2026-11-22T20:27:29+00:00'::timestamptz, 0, 0, 1, true, false, false),
+('95', '2026-11-22T20:27:29+00:00'::timestamptz, 5, 3, 11, true, true, true),
+('96', '2026-11-22T20:27:29+00:00'::timestamptz, 24, 11, 2, true, true, true),
+('97', '2026-11-22T20:27:29+00:00'::timestamptz, 5, 0, 15, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('98', '2026-11-22T20:27:29+00:00'::timestamptz, 4, 2, 12, true, true, true),
+('99', '2026-11-22T20:27:29+00:00'::timestamptz, 10, 3, 19, true, true, true),
+('100', '2026-11-22T20:27:29+00:00'::timestamptz, 20, 5, 36, true, true, true),
+('101', '2026-11-22T20:27:29+00:00'::timestamptz, 6, 4, 13, true, true, true),
+('102', '2026-11-22T20:27:29+00:00'::timestamptz, 3, 3, 36, true, true, true),
+('103', '2026-11-22T20:27:29+00:00'::timestamptz, 4, 1, 28, true, true, true),
+('104', '2026-11-22T20:27:29+00:00'::timestamptz, 2, 0, 2, true, true, true),
+('105', '2026-11-22T20:27:29+00:00'::timestamptz, 7, 5, 13, true, true, true),
+('106', '2026-11-22T20:27:29+00:00'::timestamptz, 0, 0, 39, true, false, false),
+('107', '2026-11-22T20:27:29+00:00'::timestamptz, 3, 1, 9, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('108', '2026-11-22T20:27:29+00:00'::timestamptz, 3, 2, 12, true, true, true),
+('109', '2026-11-22T20:27:29+00:00'::timestamptz, 3, 0, 29, true, true, true),
+('110', '2026-11-22T20:27:29+00:00'::timestamptz, 8, 6, 27, true, true, true),
+('111', '2026-11-22T20:27:29+00:00'::timestamptz, 11, 1, 26, true, true, true),
+('112', '2026-11-22T20:27:29+00:00'::timestamptz, 9, 3, 30, true, true, true),
+('113', '2026-11-22T20:27:29+00:00'::timestamptz, 0, 0, 17, true, true, true),
+('114', '2026-11-22T20:27:29+00:00'::timestamptz, 12, 2, 12, true, true, true),
+('115', '2026-11-22T20:27:29+00:00'::timestamptz, 0, 0, 1, true, true, true),
+('116', '2026-11-22T20:27:29+00:00'::timestamptz, 9, 1, 28, true, true, true),
+('117', '2026-11-22T20:27:29+00:00'::timestamptz, 3, 3, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('118', '2026-11-22T20:27:29+00:00'::timestamptz, 9, 2, 9, true, true, true),
+('119', '2026-11-22T20:27:29+00:00'::timestamptz, 6, 1, 14, true, true, true),
+('120', '2026-11-22T20:27:29+00:00'::timestamptz, 22, 5, 0, true, true, true),
+('121', '2026-11-22T20:27:29+00:00'::timestamptz, 7, 4, 7, true, true, true),
+('122', '2026-11-22T20:27:29+00:00'::timestamptz, 1, 1, 14, true, true, true),
+('123', '2026-11-22T20:27:29+00:00'::timestamptz, 2, 0, 33, true, true, true),
+('124', '2026-11-22T20:27:29+00:00'::timestamptz, 6, 2, 14, true, true, true),
+('125', '2026-11-22T20:27:29+00:00'::timestamptz, 3, 2, 27, true, true, true),
+('126', '2026-11-22T20:27:29+00:00'::timestamptz, 5, 1, 5, true, true, true),
+('127', '2026-11-22T20:27:29+00:00'::timestamptz, 3, 2, 19, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('128', '2026-11-22T20:27:29+00:00'::timestamptz, 5, 2, 8, true, true, true),
+('129', '2026-11-22T20:27:29+00:00'::timestamptz, 2, 1, 12, true, true, true),
+('130', '2026-11-22T20:27:29+00:00'::timestamptz, 9, 2, 9, true, true, true),
+('131', '2026-11-22T20:27:29+00:00'::timestamptz, 0, 0, 14, true, true, true),
+('132', '2026-11-22T20:27:29+00:00'::timestamptz, 7, 1, 6, true, true, true),
+('133', '2026-11-22T20:27:29+00:00'::timestamptz, 4, 3, 14, true, true, true),
+('134', '2026-11-22T20:27:29+00:00'::timestamptz, 6, 3, 13, true, true, true),
+('135', '2026-11-22T20:27:29+00:00'::timestamptz, 1, 0, 18, true, true, true),
+('136', '2026-11-22T20:27:29+00:00'::timestamptz, 2, 1, 16, true, true, true),
+('137', '2026-11-22T20:27:29+00:00'::timestamptz, 4, 0, 21, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('138', '2026-11-22T20:27:29+00:00'::timestamptz, 8, 4, 10, true, true, true),
+('139', '2026-11-22T20:27:29+00:00'::timestamptz, 1, 1, 14, true, true, true),
+('140', '2026-11-22T20:27:29+00:00'::timestamptz, 16, 6, 4, true, true, true),
+('141', '2026-11-22T20:27:29+00:00'::timestamptz, 9, 4, 10, true, true, true),
+('142', '2026-11-22T20:27:29+00:00'::timestamptz, 7, 1, 13, true, true, true),
+('143', '2026-11-22T20:27:29+00:00'::timestamptz, 1, 1, 15, true, true, true),
+('144', '2026-11-22T20:27:29+00:00'::timestamptz, 5, 1, 14, true, true, true),
+('145', '2026-11-22T20:27:29+00:00'::timestamptz, 13, 5, 2, true, true, true),
+('146', '2026-11-22T20:27:29+00:00'::timestamptz, 16, 5, 13, true, true, true),
+('147', '2026-11-22T20:27:29+00:00'::timestamptz, 25, 11, 4, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('148', '2026-11-22T20:27:29+00:00'::timestamptz, 3, 2, 15, true, true, true),
+('149', '2026-11-22T20:27:29+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('150', '2026-11-22T20:27:29+00:00'::timestamptz, 13, 2, 2, true, true, true),
+('151', '2026-11-22T20:27:29+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('152', '2026-11-22T20:27:29+00:00'::timestamptz, 17, 6, 1, true, true, true),
+('153', '2026-11-22T20:27:29+00:00'::timestamptz, 15, 6, 3, true, true, true),
+('154', '2026-11-22T20:27:29+00:00'::timestamptz, 15, 1, 1, true, true, true),
+('155', '2026-11-22T20:27:29+00:00'::timestamptz, 3, 0, 17, true, true, true),
+('156', '2026-11-22T20:27:29+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('157', '2026-11-22T20:27:29+00:00'::timestamptz, 1, 0, 19, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('158', '2026-11-22T20:27:29+00:00'::timestamptz, 4, 3, 16, true, true, true),
+('159', '2026-11-22T20:27:29+00:00'::timestamptz, 2, 2, 22, true, true, true),
+('160', '2026-11-22T20:27:29+00:00'::timestamptz, 3, 1, 17, true, true, true),
+('161', '2026-11-22T20:27:29+00:00'::timestamptz, 14, 6, 6, true, true, true),
+('162', '2026-11-22T20:27:29+00:00'::timestamptz, 16, 1, 2, true, true, true),
+('163', '2026-11-22T20:27:29+00:00'::timestamptz, 17, 5, 2, true, true, true),
+('164', '2026-11-22T20:27:29+00:00'::timestamptz, 5, 1, 13, true, true, true),
+('165', '2026-11-22T20:27:29+00:00'::timestamptz, 8, 5, 0, true, true, true),
+('166', '2026-11-22T20:27:29+00:00'::timestamptz, 9, 1, 9, true, true, true),
+('167', '2026-11-22T20:27:29+00:00'::timestamptz, 7, 2, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('168', '2026-11-22T20:27:29+00:00'::timestamptz, 17, 7, 2, true, true, true),
+('169', '2026-11-22T20:27:29+00:00'::timestamptz, 7, 6, 13, true, true, true),
+('170', '2026-11-22T20:27:29+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('171', '2026-11-22T20:27:29+00:00'::timestamptz, 8, 2, 11, true, true, true),
+('172', '2026-11-22T20:27:29+00:00'::timestamptz, 13, 4, 14, true, true, true),
+('173', '2026-11-22T20:27:29+00:00'::timestamptz, 10, 3, 10, true, true, true),
+('174', '2026-11-22T20:27:29+00:00'::timestamptz, 7, 1, 35, true, true, true),
+('175', '2026-11-22T20:27:29+00:00'::timestamptz, 19, 12, 0, true, true, true),
+('176', '2026-11-22T20:27:29+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('177', '2026-11-22T20:27:29+00:00'::timestamptz, 13, 3, 11, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('178', '2026-11-22T20:27:29+00:00'::timestamptz, 14, 8, 3, true, true, true),
+('179', '2026-11-22T20:27:29+00:00'::timestamptz, 9, 2, 14, true, true, true),
+('180', '2026-11-22T20:27:29+00:00'::timestamptz, 8, 4, 7, true, true, true),
+('181', '2026-11-22T20:27:29+00:00'::timestamptz, 8, 3, 9, true, true, true),
+('182', '2026-11-22T20:27:29+00:00'::timestamptz, 12, 5, 5, true, true, true),
+('183', '2026-11-22T20:27:29+00:00'::timestamptz, 10, 3, 10, true, true, true),
+('184', '2026-11-22T20:27:29+00:00'::timestamptz, 4, 0, 15, true, true, true),
+('185', '2026-11-22T20:27:29+00:00'::timestamptz, 5, 0, 14, true, true, true),
+('186', '2026-11-22T20:27:29+00:00'::timestamptz, 5, 0, 12, true, true, true),
+('188', '2026-11-22T20:27:29+00:00'::timestamptz, 1, 1, 18, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('189', '2026-11-22T20:27:29+00:00'::timestamptz, 4, 2, 15, true, true, true),
+('190', '2026-11-22T20:27:29+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('192', '2026-11-22T20:27:29+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('194', '2026-11-22T20:27:29+00:00'::timestamptz, 17, 7, 1, true, true, true),
+('196', '2026-11-22T20:27:29+00:00'::timestamptz, 10, 3, 10, true, true, true),
+('197', '2026-11-22T20:27:29+00:00'::timestamptz, 8, 2, 8, true, true, true),
+('199', '2026-11-22T20:27:29+00:00'::timestamptz, 11, 3, 12, true, true, true),
+('200', '2026-11-22T20:27:29+00:00'::timestamptz, 1, 1, 12, true, true, true),
+('201', '2026-11-22T20:27:29+00:00'::timestamptz, 7, 5, 11, true, true, true),
+('202', '2026-11-22T20:27:29+00:00'::timestamptz, 7, 1, 11, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('206', '2026-11-22T20:27:29+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('207', '2026-11-22T20:27:29+00:00'::timestamptz, 3, 0, 17, true, true, true),
+('208', '2026-11-22T20:27:29+00:00'::timestamptz, 4, 1, 11, true, true, true),
+('209', '2026-11-22T20:27:29+00:00'::timestamptz, 3, 1, 11, true, true, true),
+('211', '2026-11-22T20:27:29+00:00'::timestamptz, 6, 2, 10, true, true, true),
+('214', '2026-11-22T20:27:29+00:00'::timestamptz, 2, 1, 17, true, true, true),
+('215', '2026-11-22T20:27:29+00:00'::timestamptz, 0, 0, 16, false, false, false),
+('219', '2026-11-22T20:27:29+00:00'::timestamptz, 3, 1, 7, false, false, false),
+('251', '2026-11-22T20:27:29+00:00'::timestamptz, 5, 2, 31, true, true, true),
+('297', '2026-11-22T20:27:29+00:00'::timestamptz, 0, 0, 0, false, false, false)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('298', '2026-11-22T20:27:29+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('299', '2026-11-22T20:27:29+00:00'::timestamptz, 1, 0, 21, false, true, true),
+('505', '2026-11-22T20:27:29+00:00'::timestamptz, 5, 0, 0, false, true, true),
+('507', '2026-11-22T20:27:29+00:00'::timestamptz, 5, 1, 3, true, true, true),
+('522', '2026-11-22T20:27:29+00:00'::timestamptz, 4, 2, 1, false, true, true),
+('539', '2026-11-22T20:27:29+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('543', '2026-11-22T20:27:29+00:00'::timestamptz, 3, 2, 2, true, true, true),
+('557', '2026-11-22T20:27:29+00:00'::timestamptz, 2, 1, 3, true, true, true),
+('559', '2026-11-22T20:27:29+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('561', '2026-11-22T20:27:29+00:00'::timestamptz, 1, 0, 4, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('567', '2026-11-22T20:27:29+00:00'::timestamptz, 1, 1, 4, false, false, false),
+('598', '2026-11-22T20:27:29+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('599', '2026-11-22T20:27:29+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('604', '2026-11-22T20:27:29+00:00'::timestamptz, 1, 0, 4, false, true, true),
+('605', '2026-11-22T20:27:29+00:00'::timestamptz, 3, 0, 2, true, true, true),
+('606', '2026-11-22T20:27:29+00:00'::timestamptz, 1, 0, 8, false, false, false),
+('627', '2026-11-22T20:27:29+00:00'::timestamptz, 2, 0, 17, true, true, true),
+('629', '2026-11-22T20:27:29+00:00'::timestamptz, 2, 0, 2, true, true, true),
+('633', '2026-11-22T20:27:29+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('634', '2026-11-22T20:27:29+00:00'::timestamptz, 0, 0, 5, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('670', '2026-11-22T20:27:29+00:00'::timestamptz, 0, 0, 5, false, false, false),
+('672', '2026-11-22T20:27:29+00:00'::timestamptz, 4, 2, 6, true, true, true),
+('900', '2026-11-22T20:27:29+00:00'::timestamptz, 0, 0, 15, false, false, false),
+('901', '2026-11-22T20:27:29+00:00'::timestamptz, 0, 0, 20, true, false, false),
+('902', '2026-11-22T20:27:29+00:00'::timestamptz, 0, 0, 20, false, false, false),
+('903', '2026-11-22T20:27:29+00:00'::timestamptz, 22, 1, 0, true, true, true),
+('1', '2026-11-22T21:27:48+00:00'::timestamptz, 0, 0, 42, true, true, true),
+('2', '2026-11-22T21:27:48+00:00'::timestamptz, 6, 1, 12, true, true, true),
+('3', '2026-11-22T21:27:48+00:00'::timestamptz, 13, 4, 12, true, true, true),
+('4', '2026-11-22T21:27:48+00:00'::timestamptz, 5, 2, 14, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('5', '2026-11-22T21:27:48+00:00'::timestamptz, 1, 0, 39, true, true, true),
+('6', '2026-11-22T21:27:48+00:00'::timestamptz, 6, 3, 32, true, true, true),
+('7', '2026-11-22T21:27:48+00:00'::timestamptz, 7, 4, 8, true, true, true),
+('8', '2026-11-22T21:27:48+00:00'::timestamptz, 6, 0, 14, true, true, true),
+('9', '2026-11-22T21:27:48+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('10', '2026-11-22T21:27:48+00:00'::timestamptz, 3, 1, 18, true, true, true),
+('11', '2026-11-22T21:27:48+00:00'::timestamptz, 7, 2, 21, true, true, true),
+('12', '2026-11-22T21:27:48+00:00'::timestamptz, 3, 2, 10, true, true, true),
+('13', '2026-11-22T21:27:48+00:00'::timestamptz, 4, 3, 16, true, true, true),
+('14', '2026-11-22T21:27:48+00:00'::timestamptz, 6, 3, 20, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('15', '2026-11-22T21:27:48+00:00'::timestamptz, 4, 4, 7, true, true, true),
+('16', '2026-11-22T21:27:48+00:00'::timestamptz, 19, 4, 7, true, true, true),
+('17', '2026-11-22T21:27:48+00:00'::timestamptz, 6, 2, 6, true, true, true),
+('18', '2026-11-22T21:27:48+00:00'::timestamptz, 2, 2, 12, true, true, true),
+('19', '2026-11-22T21:27:48+00:00'::timestamptz, 4, 0, 26, true, true, true),
+('20', '2026-11-22T21:27:48+00:00'::timestamptz, 12, 2, 17, true, true, true),
+('21', '2026-11-22T21:27:48+00:00'::timestamptz, 1, 1, 13, true, true, true),
+('22', '2026-11-22T21:27:48+00:00'::timestamptz, 7, 0, 25, true, true, true),
+('23', '2026-11-22T21:27:48+00:00'::timestamptz, 2, 1, 38, true, true, true),
+('24', '2026-11-22T21:27:48+00:00'::timestamptz, 11, 2, 5, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('25', '2026-11-22T21:27:48+00:00'::timestamptz, 2, 1, 12, true, true, true),
+('26', '2026-11-22T21:27:48+00:00'::timestamptz, 2, 1, 10, true, true, true),
+('27', '2026-11-22T21:27:48+00:00'::timestamptz, 11, 5, 7, true, true, true),
+('28', '2026-11-22T21:27:48+00:00'::timestamptz, 0, 0, 26, true, false, false),
+('29', '2026-11-22T21:27:48+00:00'::timestamptz, 7, 4, 10, true, true, true),
+('30', '2026-11-22T21:27:48+00:00'::timestamptz, 8, 1, 9, true, true, true),
+('31', '2026-11-22T21:27:48+00:00'::timestamptz, 4, 0, 9, true, true, true),
+('32', '2026-11-22T21:27:48+00:00'::timestamptz, 15, 2, 0, true, true, true),
+('33', '2026-11-22T21:27:48+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('34', '2026-11-22T21:27:48+00:00'::timestamptz, 4, 1, 11, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('35', '2026-11-22T21:27:48+00:00'::timestamptz, 7, 1, 11, true, true, true),
+('36', '2026-11-22T21:27:48+00:00'::timestamptz, 7, 2, 11, true, true, true),
+('37', '2026-11-22T21:27:48+00:00'::timestamptz, 20, 4, 7, true, true, true),
+('38', '2026-11-22T21:27:48+00:00'::timestamptz, 1, 0, 13, true, true, true),
+('39', '2026-11-22T21:27:48+00:00'::timestamptz, 7, 1, 57, true, true, true),
+('40', '2026-11-22T21:27:48+00:00'::timestamptz, 7, 5, 12, true, true, true),
+('41', '2026-11-22T21:27:48+00:00'::timestamptz, 1, 0, 16, true, true, true),
+('42', '2026-11-22T21:27:48+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('43', '2026-11-22T21:27:48+00:00'::timestamptz, 5, 1, 9, true, true, true),
+('44', '2026-11-22T21:27:48+00:00'::timestamptz, 6, 1, 13, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('45', '2026-11-22T21:27:48+00:00'::timestamptz, 2, 2, 12, true, true, true),
+('46', '2026-11-22T21:27:48+00:00'::timestamptz, 12, 1, 8, true, true, true),
+('47', '2026-11-22T21:27:48+00:00'::timestamptz, 2, 1, 12, true, true, true),
+('48', '2026-11-22T21:27:48+00:00'::timestamptz, 7, 3, 8, true, true, true),
+('49', '2026-11-22T21:27:48+00:00'::timestamptz, 10, 3, 8, true, true, true),
+('50', '2026-11-22T21:27:48+00:00'::timestamptz, 10, 3, 3, true, true, true),
+('51', '2026-11-22T21:27:48+00:00'::timestamptz, 15, 1, 4, true, true, true),
+('52', '2026-11-22T21:27:48+00:00'::timestamptz, 11, 3, 6, true, true, true),
+('53', '2026-11-22T21:27:48+00:00'::timestamptz, 10, 2, 4, true, true, true),
+('54', '2026-11-22T21:27:48+00:00'::timestamptz, 1, 1, 43, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('55', '2026-11-22T21:27:48+00:00'::timestamptz, 4, 0, 12, true, true, true),
+('56', '2026-11-22T21:27:48+00:00'::timestamptz, 5, 1, 5, true, true, true),
+('57', '2026-11-22T21:27:48+00:00'::timestamptz, 8, 1, 9, true, true, true),
+('58', '2026-11-22T21:27:48+00:00'::timestamptz, 7, 2, 10, true, true, true),
+('59', '2026-11-22T21:27:48+00:00'::timestamptz, 4, 0, 12, true, true, true),
+('60', '2026-11-22T21:27:48+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('61', '2026-11-22T21:27:48+00:00'::timestamptz, 7, 2, 8, true, true, true),
+('62', '2026-11-22T21:27:48+00:00'::timestamptz, 7, 3, 16, true, true, true),
+('63', '2026-11-22T21:27:48+00:00'::timestamptz, 10, 3, 7, true, true, true),
+('64', '2026-11-22T21:27:48+00:00'::timestamptz, 2, 0, 13, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('65', '2026-11-22T21:27:48+00:00'::timestamptz, 4, 1, 14, true, true, true),
+('66', '2026-11-22T21:27:48+00:00'::timestamptz, 3, 0, 16, true, true, true),
+('67', '2026-11-22T21:27:48+00:00'::timestamptz, 3, 1, 17, true, true, true),
+('68', '2026-11-22T21:27:48+00:00'::timestamptz, 5, 3, 11, true, true, true),
+('69', '2026-11-22T21:27:48+00:00'::timestamptz, 2, 1, 12, true, true, true),
+('70', '2026-11-22T21:27:48+00:00'::timestamptz, 2, 2, 17, true, true, true),
+('72', '2026-11-22T21:27:48+00:00'::timestamptz, 7, 4, 16, true, true, true),
+('73', '2026-11-22T21:27:48+00:00'::timestamptz, 2, 1, 17, true, true, true),
+('74', '2026-11-22T21:27:48+00:00'::timestamptz, 17, 11, 5, true, true, true),
+('75', '2026-11-22T21:27:48+00:00'::timestamptz, 12, 4, 4, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('76', '2026-11-22T21:27:48+00:00'::timestamptz, 13, 2, 5, true, true, true),
+('77', '2026-11-22T21:27:48+00:00'::timestamptz, 8, 1, 11, true, true, true),
+('78', '2026-11-22T21:27:48+00:00'::timestamptz, 9, 4, 11, true, true, true),
+('79', '2026-11-22T21:27:48+00:00'::timestamptz, 14, 3, 5, true, true, true),
+('80', '2026-11-22T21:27:48+00:00'::timestamptz, 5, 5, 11, true, true, true),
+('81', '2026-11-22T21:27:48+00:00'::timestamptz, 10, 2, 10, true, true, true),
+('82', '2026-11-22T21:27:48+00:00'::timestamptz, 7, 4, 13, true, true, true),
+('83', '2026-11-22T21:27:48+00:00'::timestamptz, 13, 5, 5, true, true, true),
+('84', '2026-11-22T21:27:48+00:00'::timestamptz, 16, 9, 1, true, true, true),
+('85', '2026-11-22T21:27:48+00:00'::timestamptz, 0, 0, 18, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('86', '2026-11-22T21:27:48+00:00'::timestamptz, 12, 4, 7, true, true, true),
+('87', '2026-11-22T21:27:48+00:00'::timestamptz, 12, 5, 7, true, true, true),
+('88', '2026-11-22T21:27:48+00:00'::timestamptz, 5, 4, 12, true, true, true),
+('89', '2026-11-22T21:27:48+00:00'::timestamptz, 8, 3, 12, true, true, true),
+('90', '2026-11-22T21:27:48+00:00'::timestamptz, 15, 7, 3, true, true, true),
+('91', '2026-11-22T21:27:48+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('92', '2026-11-22T21:27:48+00:00'::timestamptz, 5, 5, 10, true, true, true),
+('93', '2026-11-22T21:27:48+00:00'::timestamptz, 12, 7, 2, true, true, true),
+('94', '2026-11-22T21:27:48+00:00'::timestamptz, 0, 0, 1, true, false, false),
+('95', '2026-11-22T21:27:48+00:00'::timestamptz, 5, 3, 11, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('96', '2026-11-22T21:27:48+00:00'::timestamptz, 24, 11, 2, true, true, true),
+('97', '2026-11-22T21:27:48+00:00'::timestamptz, 2, 0, 18, true, true, true),
+('98', '2026-11-22T21:27:48+00:00'::timestamptz, 3, 1, 13, true, true, true),
+('99', '2026-11-22T21:27:48+00:00'::timestamptz, 10, 3, 19, true, true, true),
+('100', '2026-11-22T21:27:48+00:00'::timestamptz, 20, 5, 36, true, true, true),
+('101', '2026-11-22T21:27:48+00:00'::timestamptz, 6, 4, 13, true, true, true),
+('102', '2026-11-22T21:27:48+00:00'::timestamptz, 3, 3, 36, true, true, true),
+('103', '2026-11-22T21:27:48+00:00'::timestamptz, 4, 1, 28, true, true, true),
+('104', '2026-11-22T21:27:48+00:00'::timestamptz, 0, 0, 4, true, true, true),
+('105', '2026-11-22T21:27:48+00:00'::timestamptz, 6, 4, 14, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('106', '2026-11-22T21:27:48+00:00'::timestamptz, 0, 0, 39, true, false, false),
+('107', '2026-11-22T21:27:48+00:00'::timestamptz, 4, 1, 8, true, true, true),
+('108', '2026-11-22T21:27:48+00:00'::timestamptz, 3, 2, 12, true, true, true),
+('109', '2026-11-22T21:27:48+00:00'::timestamptz, 1, 0, 31, true, true, true),
+('110', '2026-11-22T21:27:48+00:00'::timestamptz, 11, 6, 24, true, true, true),
+('111', '2026-11-22T21:27:48+00:00'::timestamptz, 8, 1, 29, true, true, true),
+('112', '2026-11-22T21:27:48+00:00'::timestamptz, 8, 3, 31, true, true, true),
+('113', '2026-11-22T21:27:48+00:00'::timestamptz, 1, 0, 16, true, true, true),
+('114', '2026-11-22T21:27:48+00:00'::timestamptz, 14, 2, 10, true, true, true),
+('115', '2026-11-22T21:27:48+00:00'::timestamptz, 0, 0, 1, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('116', '2026-11-22T21:27:48+00:00'::timestamptz, 9, 1, 28, true, true, true),
+('117', '2026-11-22T21:27:48+00:00'::timestamptz, 3, 3, 12, true, true, true),
+('118', '2026-11-22T21:27:48+00:00'::timestamptz, 9, 2, 8, true, true, true),
+('119', '2026-11-22T21:27:48+00:00'::timestamptz, 5, 1, 15, true, true, true),
+('120', '2026-11-22T21:27:48+00:00'::timestamptz, 23, 5, 0, true, true, true),
+('121', '2026-11-22T21:27:48+00:00'::timestamptz, 7, 4, 7, true, true, true),
+('122', '2026-11-22T21:27:48+00:00'::timestamptz, 1, 1, 14, true, true, true),
+('123', '2026-11-22T21:27:48+00:00'::timestamptz, 1, 0, 34, true, true, true),
+('124', '2026-11-22T21:27:48+00:00'::timestamptz, 5, 1, 15, true, true, true),
+('125', '2026-11-22T21:27:48+00:00'::timestamptz, 5, 3, 25, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('126', '2026-11-22T21:27:48+00:00'::timestamptz, 5, 1, 5, true, true, true),
+('127', '2026-11-22T21:27:48+00:00'::timestamptz, 3, 2, 19, true, true, true),
+('128', '2026-11-22T21:27:48+00:00'::timestamptz, 7, 2, 6, true, true, true),
+('129', '2026-11-22T21:27:48+00:00'::timestamptz, 3, 2, 10, true, true, true),
+('130', '2026-11-22T21:27:48+00:00'::timestamptz, 9, 2, 9, true, true, true),
+('131', '2026-11-22T21:27:48+00:00'::timestamptz, 1, 1, 12, true, true, true),
+('132', '2026-11-22T21:27:48+00:00'::timestamptz, 6, 1, 7, true, true, true),
+('133', '2026-11-22T21:27:48+00:00'::timestamptz, 5, 3, 13, true, true, true),
+('134', '2026-11-22T21:27:48+00:00'::timestamptz, 6, 3, 13, true, true, true),
+('135', '2026-11-22T21:27:48+00:00'::timestamptz, 3, 1, 16, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('136', '2026-11-22T21:27:48+00:00'::timestamptz, 1, 0, 17, true, true, true),
+('137', '2026-11-22T21:27:48+00:00'::timestamptz, 1, 0, 24, true, true, true),
+('138', '2026-11-22T21:27:48+00:00'::timestamptz, 7, 3, 11, true, true, true),
+('139', '2026-11-22T21:27:48+00:00'::timestamptz, 2, 2, 13, true, true, true),
+('140', '2026-11-22T21:27:48+00:00'::timestamptz, 16, 6, 4, true, true, true),
+('141', '2026-11-22T21:27:48+00:00'::timestamptz, 13, 6, 6, true, true, true),
+('142', '2026-11-22T21:27:48+00:00'::timestamptz, 7, 1, 13, true, true, true),
+('143', '2026-11-22T21:27:48+00:00'::timestamptz, 1, 1, 15, true, true, true),
+('144', '2026-11-22T21:27:48+00:00'::timestamptz, 5, 1, 14, true, true, true),
+('145', '2026-11-22T21:27:48+00:00'::timestamptz, 13, 6, 2, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('146', '2026-11-22T21:27:48+00:00'::timestamptz, 16, 5, 13, true, true, true),
+('147', '2026-11-22T21:27:48+00:00'::timestamptz, 25, 11, 4, true, true, true),
+('148', '2026-11-22T21:27:48+00:00'::timestamptz, 2, 2, 16, true, true, true),
+('149', '2026-11-22T21:27:48+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('150', '2026-11-22T21:27:48+00:00'::timestamptz, 13, 2, 2, true, true, true),
+('151', '2026-11-22T21:27:48+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('152', '2026-11-22T21:27:48+00:00'::timestamptz, 17, 6, 1, true, true, true),
+('153', '2026-11-22T21:27:48+00:00'::timestamptz, 16, 7, 2, true, true, true),
+('154', '2026-11-22T21:27:48+00:00'::timestamptz, 15, 1, 1, true, true, true),
+('155', '2026-11-22T21:27:48+00:00'::timestamptz, 3, 0, 17, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('156', '2026-11-22T21:27:48+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('157', '2026-11-22T21:27:48+00:00'::timestamptz, 1, 0, 19, true, true, true),
+('158', '2026-11-22T21:27:48+00:00'::timestamptz, 5, 3, 15, true, true, true),
+('159', '2026-11-22T21:27:48+00:00'::timestamptz, 2, 2, 22, true, true, true),
+('160', '2026-11-22T21:27:48+00:00'::timestamptz, 3, 1, 17, true, true, true),
+('161', '2026-11-22T21:27:48+00:00'::timestamptz, 13, 5, 7, true, true, true),
+('162', '2026-11-22T21:27:48+00:00'::timestamptz, 16, 1, 2, true, true, true),
+('163', '2026-11-22T21:27:48+00:00'::timestamptz, 17, 5, 2, true, true, true),
+('164', '2026-11-22T21:27:48+00:00'::timestamptz, 5, 1, 13, true, true, true),
+('165', '2026-11-22T21:27:48+00:00'::timestamptz, 8, 5, 0, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('166', '2026-11-22T21:27:48+00:00'::timestamptz, 9, 1, 9, true, true, true),
+('167', '2026-11-22T21:27:48+00:00'::timestamptz, 8, 1, 11, true, true, true),
+('168', '2026-11-22T21:27:48+00:00'::timestamptz, 15, 5, 4, true, true, true),
+('169', '2026-11-22T21:27:48+00:00'::timestamptz, 7, 6, 13, true, true, true),
+('170', '2026-11-22T21:27:48+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('171', '2026-11-22T21:27:48+00:00'::timestamptz, 9, 2, 9, true, true, true),
+('172', '2026-11-22T21:27:48+00:00'::timestamptz, 12, 4, 15, true, true, true),
+('173', '2026-11-22T21:27:48+00:00'::timestamptz, 10, 3, 10, true, true, true),
+('174', '2026-11-22T21:27:48+00:00'::timestamptz, 6, 1, 36, true, true, true),
+('175', '2026-11-22T21:27:48+00:00'::timestamptz, 19, 12, 0, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('176', '2026-11-22T21:27:48+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('177', '2026-11-22T21:27:48+00:00'::timestamptz, 11, 1, 13, true, true, true),
+('178', '2026-11-22T21:27:48+00:00'::timestamptz, 15, 8, 2, true, true, true),
+('179', '2026-11-22T21:27:48+00:00'::timestamptz, 8, 2, 15, true, true, true),
+('180', '2026-11-22T21:27:48+00:00'::timestamptz, 9, 5, 6, true, true, true),
+('181', '2026-11-22T21:27:48+00:00'::timestamptz, 7, 2, 10, true, true, true),
+('182', '2026-11-22T21:27:48+00:00'::timestamptz, 12, 5, 5, true, true, true),
+('183', '2026-11-22T21:27:48+00:00'::timestamptz, 10, 3, 10, true, true, true),
+('184', '2026-11-22T21:27:48+00:00'::timestamptz, 4, 0, 15, true, true, true),
+('185', '2026-11-22T21:27:48+00:00'::timestamptz, 4, 0, 15, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('186', '2026-11-22T21:27:48+00:00'::timestamptz, 4, 1, 13, true, true, true),
+('188', '2026-11-22T21:27:48+00:00'::timestamptz, 1, 1, 18, true, true, true),
+('189', '2026-11-22T21:27:48+00:00'::timestamptz, 5, 2, 14, true, true, true),
+('190', '2026-11-22T21:27:48+00:00'::timestamptz, 1, 0, 19, true, true, true),
+('192', '2026-11-22T21:27:48+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('194', '2026-11-22T21:27:48+00:00'::timestamptz, 17, 7, 1, true, true, true),
+('196', '2026-11-22T21:27:48+00:00'::timestamptz, 10, 3, 10, true, true, true),
+('197', '2026-11-22T21:27:48+00:00'::timestamptz, 7, 2, 9, true, true, true),
+('199', '2026-11-22T21:27:48+00:00'::timestamptz, 11, 3, 12, true, true, true),
+('200', '2026-11-22T21:27:48+00:00'::timestamptz, 1, 1, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('201', '2026-11-22T21:27:48+00:00'::timestamptz, 7, 5, 11, true, true, true),
+('202', '2026-11-22T21:27:48+00:00'::timestamptz, 7, 1, 11, true, true, true),
+('206', '2026-11-22T21:27:48+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('207', '2026-11-22T21:27:48+00:00'::timestamptz, 4, 0, 16, true, true, true),
+('208', '2026-11-22T21:27:48+00:00'::timestamptz, 6, 2, 9, true, true, true),
+('209', '2026-11-22T21:27:48+00:00'::timestamptz, 3, 1, 11, true, true, true),
+('211', '2026-11-22T21:27:48+00:00'::timestamptz, 6, 2, 10, true, true, true),
+('214', '2026-11-22T21:27:48+00:00'::timestamptz, 2, 1, 17, true, true, true),
+('215', '2026-11-22T21:27:48+00:00'::timestamptz, 0, 0, 16, false, false, false),
+('219', '2026-11-22T21:27:48+00:00'::timestamptz, 3, 1, 7, false, false, false)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('251', '2026-11-22T21:27:48+00:00'::timestamptz, 3, 1, 33, true, true, true),
+('297', '2026-11-22T21:27:48+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('298', '2026-11-22T21:27:48+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('299', '2026-11-22T21:27:48+00:00'::timestamptz, 1, 0, 21, false, true, true),
+('505', '2026-11-22T21:27:48+00:00'::timestamptz, 5, 0, 0, false, true, true),
+('507', '2026-11-22T21:27:48+00:00'::timestamptz, 5, 1, 3, true, true, true),
+('522', '2026-11-22T21:27:48+00:00'::timestamptz, 4, 2, 1, false, true, true),
+('539', '2026-11-22T21:27:48+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('543', '2026-11-22T21:27:48+00:00'::timestamptz, 3, 2, 2, true, true, true),
+('557', '2026-11-22T21:27:48+00:00'::timestamptz, 2, 1, 3, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('559', '2026-11-22T21:27:48+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('561', '2026-11-22T21:27:48+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('567', '2026-11-22T21:27:48+00:00'::timestamptz, 1, 1, 4, false, false, false),
+('598', '2026-11-22T21:27:48+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('599', '2026-11-22T21:27:48+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('604', '2026-11-22T21:27:48+00:00'::timestamptz, 1, 0, 4, false, true, true),
+('605', '2026-11-22T21:27:48+00:00'::timestamptz, 3, 0, 2, true, true, true),
+('606', '2026-11-22T21:27:48+00:00'::timestamptz, 1, 0, 8, false, false, false),
+('627', '2026-11-22T21:27:48+00:00'::timestamptz, 2, 0, 17, true, true, true),
+('629', '2026-11-22T21:27:48+00:00'::timestamptz, 2, 0, 2, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('633', '2026-11-22T21:27:48+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('634', '2026-11-22T21:27:48+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('670', '2026-11-22T21:27:48+00:00'::timestamptz, 0, 0, 5, false, false, false),
+('672', '2026-11-22T21:27:48+00:00'::timestamptz, 4, 2, 6, true, true, true),
+('900', '2026-11-22T21:27:48+00:00'::timestamptz, 0, 0, 15, false, false, false),
+('901', '2026-11-22T21:27:48+00:00'::timestamptz, 0, 0, 20, true, false, false),
+('902', '2026-11-22T21:27:48+00:00'::timestamptz, 0, 0, 20, false, false, false),
+('903', '2026-11-22T21:27:48+00:00'::timestamptz, 22, 1, 0, true, true, true),
+('1', '2026-11-22T22:27:49+00:00'::timestamptz, 1, 1, 41, true, true, true),
+('2', '2026-11-22T22:27:49+00:00'::timestamptz, 3, 0, 15, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('3', '2026-11-22T22:27:49+00:00'::timestamptz, 13, 4, 12, true, true, true),
+('4', '2026-11-22T22:27:49+00:00'::timestamptz, 5, 2, 14, true, true, true),
+('5', '2026-11-22T22:27:49+00:00'::timestamptz, 1, 0, 39, true, true, true),
+('6', '2026-11-22T22:27:49+00:00'::timestamptz, 6, 3, 32, true, true, true),
+('7', '2026-11-22T22:27:49+00:00'::timestamptz, 6, 4, 9, true, true, true),
+('8', '2026-11-22T22:27:49+00:00'::timestamptz, 7, 1, 13, true, true, true),
+('9', '2026-11-22T22:27:49+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('10', '2026-11-22T22:27:49+00:00'::timestamptz, 5, 2, 16, true, true, true),
+('11', '2026-11-22T22:27:49+00:00'::timestamptz, 7, 2, 21, true, true, true),
+('12', '2026-11-22T22:27:49+00:00'::timestamptz, 3, 2, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('13', '2026-11-22T22:27:49+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('14', '2026-11-22T22:27:49+00:00'::timestamptz, 6, 3, 20, true, true, true),
+('15', '2026-11-22T22:27:49+00:00'::timestamptz, 4, 4, 7, true, true, true),
+('16', '2026-11-22T22:27:49+00:00'::timestamptz, 18, 4, 8, true, true, true),
+('17', '2026-11-22T22:27:49+00:00'::timestamptz, 6, 2, 6, true, true, true),
+('18', '2026-11-22T22:27:49+00:00'::timestamptz, 2, 2, 12, true, true, true),
+('19', '2026-11-22T22:27:49+00:00'::timestamptz, 4, 0, 26, true, true, true),
+('20', '2026-11-22T22:27:49+00:00'::timestamptz, 11, 1, 18, true, true, true),
+('21', '2026-11-22T22:27:49+00:00'::timestamptz, 1, 1, 13, true, true, true),
+('22', '2026-11-22T22:27:49+00:00'::timestamptz, 7, 0, 25, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('23', '2026-11-22T22:27:49+00:00'::timestamptz, 2, 1, 38, true, true, true),
+('24', '2026-11-22T22:27:49+00:00'::timestamptz, 12, 3, 4, true, true, true),
+('25', '2026-11-22T22:27:49+00:00'::timestamptz, 3, 2, 11, true, true, true),
+('26', '2026-11-22T22:27:49+00:00'::timestamptz, 2, 1, 10, true, true, true),
+('27', '2026-11-22T22:27:49+00:00'::timestamptz, 10, 5, 8, true, true, true),
+('28', '2026-11-22T22:27:49+00:00'::timestamptz, 0, 0, 26, true, false, false),
+('29', '2026-11-22T22:27:49+00:00'::timestamptz, 8, 4, 9, true, true, true),
+('30', '2026-11-22T22:27:49+00:00'::timestamptz, 8, 1, 9, true, true, true),
+('31', '2026-11-22T22:27:49+00:00'::timestamptz, 4, 0, 9, true, true, true),
+('32', '2026-11-22T22:27:49+00:00'::timestamptz, 15, 2, 0, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('33', '2026-11-22T22:27:49+00:00'::timestamptz, 3, 1, 17, true, true, true),
+('34', '2026-11-22T22:27:49+00:00'::timestamptz, 4, 1, 11, true, true, true),
+('35', '2026-11-22T22:27:49+00:00'::timestamptz, 7, 1, 11, true, true, true),
+('36', '2026-11-22T22:27:49+00:00'::timestamptz, 7, 2, 11, true, true, true),
+('37', '2026-11-22T22:27:49+00:00'::timestamptz, 20, 4, 7, true, true, true),
+('38', '2026-11-22T22:27:49+00:00'::timestamptz, 1, 0, 13, true, true, true),
+('39', '2026-11-22T22:27:49+00:00'::timestamptz, 8, 2, 56, true, true, true),
+('40', '2026-11-22T22:27:49+00:00'::timestamptz, 5, 3, 14, true, true, true),
+('41', '2026-11-22T22:27:49+00:00'::timestamptz, 1, 0, 16, true, true, true),
+('42', '2026-11-22T22:27:49+00:00'::timestamptz, 0, 0, 19, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('43', '2026-11-22T22:27:49+00:00'::timestamptz, 3, 0, 11, true, true, true),
+('44', '2026-11-22T22:27:49+00:00'::timestamptz, 6, 0, 13, true, true, true),
+('45', '2026-11-22T22:27:49+00:00'::timestamptz, 2, 2, 12, true, true, true),
+('46', '2026-11-22T22:27:49+00:00'::timestamptz, 12, 1, 8, true, true, true),
+('47', '2026-11-22T22:27:49+00:00'::timestamptz, 2, 2, 12, true, true, true),
+('48', '2026-11-22T22:27:49+00:00'::timestamptz, 7, 3, 8, true, true, true),
+('49', '2026-11-22T22:27:49+00:00'::timestamptz, 11, 3, 7, true, true, true),
+('50', '2026-11-22T22:27:49+00:00'::timestamptz, 12, 4, 1, true, true, true),
+('51', '2026-11-22T22:27:49+00:00'::timestamptz, 15, 1, 4, true, true, true),
+('52', '2026-11-22T22:27:49+00:00'::timestamptz, 12, 3, 5, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('53', '2026-11-22T22:27:49+00:00'::timestamptz, 13, 5, 1, true, true, true),
+('54', '2026-11-22T22:27:49+00:00'::timestamptz, 0, 0, 44, true, true, true),
+('55', '2026-11-22T22:27:49+00:00'::timestamptz, 5, 0, 11, true, true, true),
+('56', '2026-11-22T22:27:49+00:00'::timestamptz, 5, 1, 5, true, true, true),
+('57', '2026-11-22T22:27:49+00:00'::timestamptz, 6, 0, 10, true, true, true),
+('58', '2026-11-22T22:27:49+00:00'::timestamptz, 6, 2, 11, true, true, true),
+('59', '2026-11-22T22:27:49+00:00'::timestamptz, 6, 1, 10, true, true, true),
+('60', '2026-11-22T22:27:49+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('61', '2026-11-22T22:27:49+00:00'::timestamptz, 7, 2, 8, true, true, true),
+('62', '2026-11-22T22:27:49+00:00'::timestamptz, 7, 3, 16, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('63', '2026-11-22T22:27:49+00:00'::timestamptz, 10, 3, 7, true, true, true),
+('64', '2026-11-22T22:27:49+00:00'::timestamptz, 2, 0, 13, true, true, true),
+('65', '2026-11-22T22:27:49+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('66', '2026-11-22T22:27:49+00:00'::timestamptz, 3, 0, 16, true, true, true),
+('67', '2026-11-22T22:27:49+00:00'::timestamptz, 3, 1, 17, true, true, true),
+('68', '2026-11-22T22:27:49+00:00'::timestamptz, 6, 3, 10, true, true, true),
+('69', '2026-11-22T22:27:49+00:00'::timestamptz, 2, 1, 12, true, true, true),
+('70', '2026-11-22T22:27:49+00:00'::timestamptz, 2, 2, 17, true, true, true),
+('72', '2026-11-22T22:27:49+00:00'::timestamptz, 7, 4, 16, true, true, true),
+('73', '2026-11-22T22:27:49+00:00'::timestamptz, 2, 1, 17, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('74', '2026-11-22T22:27:49+00:00'::timestamptz, 17, 11, 5, true, true, true),
+('75', '2026-11-22T22:27:49+00:00'::timestamptz, 12, 4, 4, true, true, true),
+('76', '2026-11-22T22:27:49+00:00'::timestamptz, 13, 2, 5, true, true, true),
+('77', '2026-11-22T22:27:49+00:00'::timestamptz, 7, 1, 12, true, true, true),
+('78', '2026-11-22T22:27:49+00:00'::timestamptz, 9, 4, 11, true, true, true),
+('79', '2026-11-22T22:27:49+00:00'::timestamptz, 14, 3, 5, true, true, true),
+('80', '2026-11-22T22:27:49+00:00'::timestamptz, 5, 5, 11, true, true, true),
+('81', '2026-11-22T22:27:49+00:00'::timestamptz, 9, 2, 11, true, true, true),
+('82', '2026-11-22T22:27:49+00:00'::timestamptz, 7, 4, 13, true, true, true),
+('83', '2026-11-22T22:27:49+00:00'::timestamptz, 14, 5, 4, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('84', '2026-11-22T22:27:49+00:00'::timestamptz, 16, 9, 1, true, true, true),
+('85', '2026-11-22T22:27:49+00:00'::timestamptz, 0, 0, 18, true, true, true),
+('86', '2026-11-22T22:27:49+00:00'::timestamptz, 10, 2, 9, true, true, true),
+('87', '2026-11-22T22:27:49+00:00'::timestamptz, 12, 5, 7, true, true, true),
+('88', '2026-11-22T22:27:49+00:00'::timestamptz, 6, 5, 11, true, true, true),
+('89', '2026-11-22T22:27:49+00:00'::timestamptz, 9, 4, 11, true, true, true),
+('90', '2026-11-22T22:27:49+00:00'::timestamptz, 15, 8, 3, true, true, true),
+('91', '2026-11-22T22:27:49+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('92', '2026-11-22T22:27:49+00:00'::timestamptz, 5, 5, 10, true, true, true),
+('93', '2026-11-22T22:27:49+00:00'::timestamptz, 12, 7, 2, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('94', '2026-11-22T22:27:49+00:00'::timestamptz, 0, 0, 1, true, false, false),
+('95', '2026-11-22T22:27:49+00:00'::timestamptz, 5, 3, 11, true, true, true),
+('96', '2026-11-22T22:27:49+00:00'::timestamptz, 24, 11, 2, true, true, true),
+('97', '2026-11-22T22:27:49+00:00'::timestamptz, 2, 0, 18, true, true, true),
+('98', '2026-11-22T22:27:49+00:00'::timestamptz, 1, 0, 15, true, true, true),
+('99', '2026-11-22T22:27:49+00:00'::timestamptz, 11, 3, 18, true, true, true),
+('100', '2026-11-22T22:27:49+00:00'::timestamptz, 20, 5, 36, true, true, true),
+('101', '2026-11-22T22:27:49+00:00'::timestamptz, 6, 4, 13, true, true, true),
+('102', '2026-11-22T22:27:49+00:00'::timestamptz, 1, 1, 38, true, true, true),
+('103', '2026-11-22T22:27:49+00:00'::timestamptz, 4, 1, 28, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('104', '2026-11-22T22:27:49+00:00'::timestamptz, 1, 0, 3, true, true, true),
+('105', '2026-11-22T22:27:49+00:00'::timestamptz, 6, 4, 14, true, true, true),
+('106', '2026-11-22T22:27:49+00:00'::timestamptz, 0, 0, 39, true, false, false),
+('107', '2026-11-22T22:27:49+00:00'::timestamptz, 6, 2, 6, true, true, true),
+('108', '2026-11-22T22:27:49+00:00'::timestamptz, 4, 2, 11, true, true, true),
+('109', '2026-11-22T22:27:49+00:00'::timestamptz, 1, 0, 31, true, true, true),
+('110', '2026-11-22T22:27:49+00:00'::timestamptz, 10, 5, 25, true, true, true),
+('111', '2026-11-22T22:27:49+00:00'::timestamptz, 6, 1, 31, true, true, true),
+('112', '2026-11-22T22:27:49+00:00'::timestamptz, 9, 3, 30, true, true, true),
+('113', '2026-11-22T22:27:49+00:00'::timestamptz, 2, 0, 15, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('114', '2026-11-22T22:27:49+00:00'::timestamptz, 16, 2, 8, true, true, true),
+('115', '2026-11-22T22:27:49+00:00'::timestamptz, 0, 0, 1, true, true, true),
+('116', '2026-11-22T22:27:49+00:00'::timestamptz, 10, 1, 27, true, true, true),
+('117', '2026-11-22T22:27:49+00:00'::timestamptz, 6, 3, 9, true, true, true),
+('118', '2026-11-22T22:27:49+00:00'::timestamptz, 9, 2, 8, true, true, true),
+('119', '2026-11-22T22:27:49+00:00'::timestamptz, 4, 1, 16, true, true, true),
+('120', '2026-11-22T22:27:49+00:00'::timestamptz, 23, 5, 0, true, true, true),
+('121', '2026-11-22T22:27:49+00:00'::timestamptz, 7, 4, 7, true, true, true),
+('122', '2026-11-22T22:27:49+00:00'::timestamptz, 1, 1, 14, true, true, true),
+('123', '2026-11-22T22:27:49+00:00'::timestamptz, 2, 0, 32, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('124', '2026-11-22T22:27:49+00:00'::timestamptz, 5, 0, 15, true, true, true),
+('125', '2026-11-22T22:27:49+00:00'::timestamptz, 5, 2, 25, true, true, true),
+('126', '2026-11-22T22:27:49+00:00'::timestamptz, 4, 0, 6, true, true, true),
+('127', '2026-11-22T22:27:49+00:00'::timestamptz, 3, 2, 19, true, true, true),
+('128', '2026-11-22T22:27:49+00:00'::timestamptz, 7, 2, 6, true, true, true),
+('129', '2026-11-22T22:27:49+00:00'::timestamptz, 3, 2, 10, true, true, true),
+('130', '2026-11-22T22:27:49+00:00'::timestamptz, 10, 3, 8, true, true, true),
+('131', '2026-11-22T22:27:49+00:00'::timestamptz, 1, 0, 12, true, true, true),
+('132', '2026-11-22T22:27:49+00:00'::timestamptz, 8, 2, 5, true, true, true),
+('133', '2026-11-22T22:27:49+00:00'::timestamptz, 6, 4, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('134', '2026-11-22T22:27:49+00:00'::timestamptz, 7, 3, 12, true, true, true),
+('135', '2026-11-22T22:27:49+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('136', '2026-11-22T22:27:49+00:00'::timestamptz, 1, 0, 17, true, true, true),
+('137', '2026-11-22T22:27:49+00:00'::timestamptz, 0, 0, 25, true, true, true),
+('138', '2026-11-22T22:27:49+00:00'::timestamptz, 5, 2, 13, true, true, true),
+('139', '2026-11-22T22:27:49+00:00'::timestamptz, 4, 2, 11, true, true, true),
+('140', '2026-11-22T22:27:49+00:00'::timestamptz, 16, 6, 4, true, true, true),
+('141', '2026-11-22T22:27:49+00:00'::timestamptz, 13, 6, 6, true, true, true),
+('142', '2026-11-22T22:27:49+00:00'::timestamptz, 7, 1, 13, true, true, true),
+('143', '2026-11-22T22:27:49+00:00'::timestamptz, 1, 1, 15, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('144', '2026-11-22T22:27:49+00:00'::timestamptz, 5, 1, 14, true, true, true),
+('145', '2026-11-22T22:27:49+00:00'::timestamptz, 11, 5, 4, true, true, true),
+('146', '2026-11-22T22:27:49+00:00'::timestamptz, 16, 5, 13, true, true, true),
+('147', '2026-11-22T22:27:49+00:00'::timestamptz, 26, 11, 3, true, true, true),
+('148', '2026-11-22T22:27:49+00:00'::timestamptz, 1, 1, 17, true, true, true),
+('149', '2026-11-22T22:27:49+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('150', '2026-11-22T22:27:49+00:00'::timestamptz, 13, 2, 2, true, true, true),
+('151', '2026-11-22T22:27:49+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('152', '2026-11-22T22:27:49+00:00'::timestamptz, 17, 6, 1, true, true, true),
+('153', '2026-11-22T22:27:49+00:00'::timestamptz, 16, 7, 2, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('154', '2026-11-22T22:27:49+00:00'::timestamptz, 15, 1, 1, true, true, true),
+('155', '2026-11-22T22:27:49+00:00'::timestamptz, 3, 0, 17, true, true, true),
+('156', '2026-11-22T22:27:49+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('157', '2026-11-22T22:27:49+00:00'::timestamptz, 1, 0, 19, true, true, true),
+('158', '2026-11-22T22:27:49+00:00'::timestamptz, 6, 4, 14, true, true, true),
+('159', '2026-11-22T22:27:49+00:00'::timestamptz, 2, 2, 22, true, true, true),
+('160', '2026-11-22T22:27:49+00:00'::timestamptz, 3, 1, 17, true, true, true),
+('161', '2026-11-22T22:27:49+00:00'::timestamptz, 13, 5, 7, true, true, true),
+('162', '2026-11-22T22:27:49+00:00'::timestamptz, 15, 1, 3, true, true, true),
+('163', '2026-11-22T22:27:49+00:00'::timestamptz, 17, 5, 2, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('164', '2026-11-22T22:27:49+00:00'::timestamptz, 6, 2, 12, true, true, true),
+('165', '2026-11-22T22:27:49+00:00'::timestamptz, 10, 7, 0, true, true, true),
+('166', '2026-11-22T22:27:49+00:00'::timestamptz, 9, 1, 9, true, true, true),
+('167', '2026-11-22T22:27:49+00:00'::timestamptz, 8, 1, 11, true, true, true),
+('168', '2026-11-22T22:27:49+00:00'::timestamptz, 15, 5, 4, true, true, true),
+('169', '2026-11-22T22:27:49+00:00'::timestamptz, 7, 6, 13, true, true, true),
+('170', '2026-11-22T22:27:49+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('171', '2026-11-22T22:27:49+00:00'::timestamptz, 9, 2, 9, true, true, true),
+('172', '2026-11-22T22:27:49+00:00'::timestamptz, 12, 4, 15, true, true, true),
+('173', '2026-11-22T22:27:49+00:00'::timestamptz, 10, 3, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('174', '2026-11-22T22:27:49+00:00'::timestamptz, 6, 1, 36, true, true, true),
+('175', '2026-11-22T22:27:49+00:00'::timestamptz, 19, 12, 0, true, true, true),
+('176', '2026-11-22T22:27:49+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('177', '2026-11-22T22:27:49+00:00'::timestamptz, 10, 0, 14, true, true, true),
+('178', '2026-11-22T22:27:49+00:00'::timestamptz, 15, 8, 2, true, true, true),
+('179', '2026-11-22T22:27:49+00:00'::timestamptz, 9, 3, 14, true, true, true),
+('180', '2026-11-22T22:27:49+00:00'::timestamptz, 9, 5, 6, true, true, true),
+('181', '2026-11-22T22:27:49+00:00'::timestamptz, 7, 2, 9, true, true, true),
+('182', '2026-11-22T22:27:49+00:00'::timestamptz, 12, 5, 5, true, true, true),
+('183', '2026-11-22T22:27:49+00:00'::timestamptz, 8, 1, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('184', '2026-11-22T22:27:49+00:00'::timestamptz, 4, 0, 15, true, true, true),
+('185', '2026-11-22T22:27:49+00:00'::timestamptz, 4, 0, 15, true, true, true),
+('186', '2026-11-22T22:27:49+00:00'::timestamptz, 5, 3, 12, true, true, true),
+('188', '2026-11-22T22:27:49+00:00'::timestamptz, 1, 1, 18, true, true, true),
+('189', '2026-11-22T22:27:49+00:00'::timestamptz, 6, 2, 13, true, true, true),
+('190', '2026-11-22T22:27:49+00:00'::timestamptz, 1, 0, 19, true, true, true),
+('192', '2026-11-22T22:27:49+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('194', '2026-11-22T22:27:49+00:00'::timestamptz, 17, 7, 1, true, true, true),
+('196', '2026-11-22T22:27:49+00:00'::timestamptz, 11, 4, 9, true, true, true),
+('197', '2026-11-22T22:27:49+00:00'::timestamptz, 7, 2, 9, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('199', '2026-11-22T22:27:49+00:00'::timestamptz, 11, 3, 12, true, true, true),
+('200', '2026-11-22T22:27:49+00:00'::timestamptz, 1, 1, 12, true, true, true),
+('201', '2026-11-22T22:27:49+00:00'::timestamptz, 7, 5, 11, true, true, true),
+('202', '2026-11-22T22:27:49+00:00'::timestamptz, 7, 1, 11, true, true, true),
+('206', '2026-11-22T22:27:49+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('207', '2026-11-22T22:27:49+00:00'::timestamptz, 2, 0, 18, true, true, true),
+('208', '2026-11-22T22:27:49+00:00'::timestamptz, 6, 2, 9, true, true, true),
+('209', '2026-11-22T22:27:49+00:00'::timestamptz, 3, 1, 11, true, true, true),
+('211', '2026-11-22T22:27:49+00:00'::timestamptz, 6, 2, 10, true, true, true),
+('214', '2026-11-22T22:27:49+00:00'::timestamptz, 2, 1, 17, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('215', '2026-11-22T22:27:49+00:00'::timestamptz, 0, 0, 16, false, false, false),
+('219', '2026-11-22T22:27:49+00:00'::timestamptz, 3, 1, 7, false, false, false),
+('251', '2026-11-22T22:27:49+00:00'::timestamptz, 3, 1, 33, true, true, true),
+('297', '2026-11-22T22:27:49+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('298', '2026-11-22T22:27:49+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('299', '2026-11-22T22:27:49+00:00'::timestamptz, 1, 0, 21, false, true, true),
+('505', '2026-11-22T22:27:49+00:00'::timestamptz, 5, 0, 0, false, true, true),
+('507', '2026-11-22T22:27:49+00:00'::timestamptz, 5, 1, 3, true, true, true),
+('522', '2026-11-22T22:27:49+00:00'::timestamptz, 4, 2, 1, false, true, true),
+('539', '2026-11-22T22:27:49+00:00'::timestamptz, 0, 0, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('543', '2026-11-22T22:27:49+00:00'::timestamptz, 3, 2, 2, true, true, true),
+('557', '2026-11-22T22:27:49+00:00'::timestamptz, 2, 1, 3, true, true, true),
+('559', '2026-11-22T22:27:49+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('561', '2026-11-22T22:27:49+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('567', '2026-11-22T22:27:49+00:00'::timestamptz, 1, 1, 4, false, false, false),
+('598', '2026-11-22T22:27:49+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('599', '2026-11-22T22:27:49+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('604', '2026-11-22T22:27:49+00:00'::timestamptz, 1, 0, 4, false, true, true),
+('605', '2026-11-22T22:27:49+00:00'::timestamptz, 3, 0, 2, true, true, true),
+('606', '2026-11-22T22:27:49+00:00'::timestamptz, 1, 0, 8, false, false, false)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('627', '2026-11-22T22:27:49+00:00'::timestamptz, 2, 0, 17, true, true, true),
+('629', '2026-11-22T22:27:49+00:00'::timestamptz, 2, 0, 2, true, true, true),
+('633', '2026-11-22T22:27:49+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('634', '2026-11-22T22:27:49+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('670', '2026-11-22T22:27:49+00:00'::timestamptz, 0, 0, 5, false, false, false),
+('672', '2026-11-22T22:27:49+00:00'::timestamptz, 4, 2, 6, true, true, true),
+('900', '2026-11-22T22:27:49+00:00'::timestamptz, 0, 0, 15, false, false, false),
+('901', '2026-11-22T22:27:49+00:00'::timestamptz, 0, 0, 20, true, false, false),
+('902', '2026-11-22T22:27:49+00:00'::timestamptz, 0, 0, 20, false, false, false),
+('903', '2026-11-22T22:27:49+00:00'::timestamptz, 21, 1, 1, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('1', '2026-11-22T23:27:48+00:00'::timestamptz, 1, 1, 41, true, true, true),
+('2', '2026-11-22T23:27:48+00:00'::timestamptz, 3, 0, 15, true, true, true),
+('3', '2026-11-22T23:27:48+00:00'::timestamptz, 13, 4, 12, true, true, true),
+('4', '2026-11-22T23:27:48+00:00'::timestamptz, 5, 2, 14, true, true, true),
+('5', '2026-11-22T23:27:48+00:00'::timestamptz, 0, 0, 40, true, true, true),
+('6', '2026-11-22T23:27:48+00:00'::timestamptz, 5, 3, 33, true, true, true),
+('7', '2026-11-22T23:27:48+00:00'::timestamptz, 4, 3, 11, true, true, true),
+('8', '2026-11-22T23:27:48+00:00'::timestamptz, 6, 1, 14, true, true, true),
+('9', '2026-11-22T23:27:48+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('10', '2026-11-22T23:27:48+00:00'::timestamptz, 5, 2, 16, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('11', '2026-11-22T23:27:48+00:00'::timestamptz, 7, 2, 21, true, true, true),
+('12', '2026-11-22T23:27:48+00:00'::timestamptz, 4, 2, 9, true, true, true),
+('13', '2026-11-22T23:27:48+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('14', '2026-11-22T23:27:48+00:00'::timestamptz, 6, 3, 20, true, true, true),
+('15', '2026-11-22T23:27:48+00:00'::timestamptz, 5, 4, 6, true, true, true),
+('16', '2026-11-22T23:27:48+00:00'::timestamptz, 18, 4, 8, true, true, true),
+('17', '2026-11-22T23:27:48+00:00'::timestamptz, 5, 2, 7, true, true, true),
+('18', '2026-11-22T23:27:48+00:00'::timestamptz, 2, 2, 12, true, true, true),
+('19', '2026-11-22T23:27:48+00:00'::timestamptz, 4, 0, 26, true, true, true),
+('20', '2026-11-22T23:27:48+00:00'::timestamptz, 11, 1, 18, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('21', '2026-11-22T23:27:48+00:00'::timestamptz, 1, 1, 13, true, true, true),
+('22', '2026-11-22T23:27:48+00:00'::timestamptz, 6, 0, 26, true, true, true),
+('23', '2026-11-22T23:27:48+00:00'::timestamptz, 4, 1, 36, true, true, true),
+('24', '2026-11-22T23:27:48+00:00'::timestamptz, 12, 3, 4, true, true, true),
+('25', '2026-11-22T23:27:48+00:00'::timestamptz, 2, 2, 12, true, true, true),
+('26', '2026-11-22T23:27:48+00:00'::timestamptz, 2, 1, 10, true, true, true),
+('27', '2026-11-22T23:27:48+00:00'::timestamptz, 11, 5, 7, true, true, true),
+('28', '2026-11-22T23:27:48+00:00'::timestamptz, 0, 0, 26, true, false, false),
+('29', '2026-11-22T23:27:48+00:00'::timestamptz, 8, 4, 9, true, true, true),
+('30', '2026-11-22T23:27:48+00:00'::timestamptz, 8, 1, 9, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('31', '2026-11-22T23:27:48+00:00'::timestamptz, 4, 0, 9, true, true, true),
+('32', '2026-11-22T23:27:48+00:00'::timestamptz, 15, 2, 0, true, true, true),
+('33', '2026-11-22T23:27:48+00:00'::timestamptz, 3, 1, 17, true, true, true),
+('34', '2026-11-22T23:27:48+00:00'::timestamptz, 4, 1, 11, true, true, true),
+('35', '2026-11-22T23:27:48+00:00'::timestamptz, 6, 1, 12, true, true, true),
+('36', '2026-11-22T23:27:48+00:00'::timestamptz, 7, 2, 11, true, true, true),
+('37', '2026-11-22T23:27:48+00:00'::timestamptz, 19, 3, 8, true, true, true),
+('38', '2026-11-22T23:27:48+00:00'::timestamptz, 1, 0, 13, true, true, true),
+('39', '2026-11-22T23:27:48+00:00'::timestamptz, 6, 1, 58, true, true, true),
+('40', '2026-11-22T23:27:48+00:00'::timestamptz, 5, 3, 14, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('41', '2026-11-22T23:27:48+00:00'::timestamptz, 2, 1, 15, true, true, true),
+('42', '2026-11-22T23:27:48+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('43', '2026-11-22T23:27:48+00:00'::timestamptz, 4, 1, 10, true, true, true),
+('44', '2026-11-22T23:27:48+00:00'::timestamptz, 5, 0, 14, true, true, true),
+('45', '2026-11-22T23:27:48+00:00'::timestamptz, 3, 3, 11, true, true, true),
+('46', '2026-11-22T23:27:48+00:00'::timestamptz, 11, 1, 9, true, true, true),
+('47', '2026-11-22T23:27:48+00:00'::timestamptz, 1, 1, 13, true, true, true),
+('48', '2026-11-22T23:27:48+00:00'::timestamptz, 7, 3, 8, true, true, true),
+('49', '2026-11-22T23:27:48+00:00'::timestamptz, 11, 3, 7, true, true, true),
+('50', '2026-11-22T23:27:48+00:00'::timestamptz, 12, 4, 1, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('51', '2026-11-22T23:27:48+00:00'::timestamptz, 15, 1, 4, true, true, true),
+('52', '2026-11-22T23:27:48+00:00'::timestamptz, 13, 4, 4, true, true, true),
+('53', '2026-11-22T23:27:48+00:00'::timestamptz, 13, 5, 1, true, true, true),
+('54', '2026-11-22T23:27:48+00:00'::timestamptz, 0, 0, 44, true, true, true),
+('55', '2026-11-22T23:27:48+00:00'::timestamptz, 6, 1, 10, true, true, true),
+('56', '2026-11-22T23:27:48+00:00'::timestamptz, 7, 2, 3, true, true, true),
+('57', '2026-11-22T23:27:48+00:00'::timestamptz, 6, 0, 10, true, true, true),
+('58', '2026-11-22T23:27:48+00:00'::timestamptz, 8, 2, 9, true, true, true),
+('59', '2026-11-22T23:27:48+00:00'::timestamptz, 6, 1, 10, true, true, true),
+('60', '2026-11-22T23:27:48+00:00'::timestamptz, 3, 1, 15, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('61', '2026-11-22T23:27:48+00:00'::timestamptz, 7, 2, 8, true, true, true),
+('62', '2026-11-22T23:27:48+00:00'::timestamptz, 7, 3, 16, true, true, true),
+('63', '2026-11-22T23:27:48+00:00'::timestamptz, 10, 3, 7, true, true, true),
+('64', '2026-11-22T23:27:48+00:00'::timestamptz, 2, 0, 13, true, true, true),
+('65', '2026-11-22T23:27:48+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('66', '2026-11-22T23:27:48+00:00'::timestamptz, 3, 0, 16, true, true, true),
+('67', '2026-11-22T23:27:48+00:00'::timestamptz, 3, 1, 17, true, true, true),
+('68', '2026-11-22T23:27:48+00:00'::timestamptz, 6, 3, 10, true, true, true),
+('69', '2026-11-22T23:27:48+00:00'::timestamptz, 2, 1, 12, true, true, true),
+('70', '2026-11-22T23:27:48+00:00'::timestamptz, 2, 2, 17, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('72', '2026-11-22T23:27:48+00:00'::timestamptz, 7, 4, 16, true, true, true),
+('73', '2026-11-22T23:27:48+00:00'::timestamptz, 1, 0, 18, true, true, true),
+('74', '2026-11-22T23:27:48+00:00'::timestamptz, 17, 11, 5, true, true, true),
+('75', '2026-11-22T23:27:48+00:00'::timestamptz, 12, 4, 4, true, true, true),
+('76', '2026-11-22T23:27:48+00:00'::timestamptz, 13, 2, 5, true, true, true),
+('77', '2026-11-22T23:27:48+00:00'::timestamptz, 7, 1, 12, true, true, true),
+('78', '2026-11-22T23:27:48+00:00'::timestamptz, 10, 5, 10, true, true, true),
+('79', '2026-11-22T23:27:48+00:00'::timestamptz, 14, 3, 5, true, true, true),
+('80', '2026-11-22T23:27:48+00:00'::timestamptz, 5, 5, 11, true, true, true),
+('81', '2026-11-22T23:27:48+00:00'::timestamptz, 9, 2, 11, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('82', '2026-11-22T23:27:48+00:00'::timestamptz, 7, 4, 13, true, true, true),
+('83', '2026-11-22T23:27:48+00:00'::timestamptz, 14, 5, 4, true, true, true),
+('84', '2026-11-22T23:27:48+00:00'::timestamptz, 16, 9, 1, true, true, true),
+('85', '2026-11-22T23:27:48+00:00'::timestamptz, 0, 0, 18, true, true, true),
+('86', '2026-11-22T23:27:48+00:00'::timestamptz, 10, 2, 9, true, true, true),
+('87', '2026-11-22T23:27:48+00:00'::timestamptz, 12, 5, 7, true, true, true),
+('88', '2026-11-22T23:27:48+00:00'::timestamptz, 6, 5, 11, true, true, true),
+('89', '2026-11-22T23:27:48+00:00'::timestamptz, 11, 4, 9, true, true, true),
+('90', '2026-11-22T23:27:48+00:00'::timestamptz, 14, 7, 4, true, true, true),
+('91', '2026-11-22T23:27:48+00:00'::timestamptz, 3, 1, 16, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('92', '2026-11-22T23:27:48+00:00'::timestamptz, 5, 5, 10, true, true, true),
+('93', '2026-11-22T23:27:48+00:00'::timestamptz, 12, 7, 2, true, true, true),
+('94', '2026-11-22T23:27:48+00:00'::timestamptz, 0, 0, 1, true, false, false),
+('95', '2026-11-22T23:27:48+00:00'::timestamptz, 5, 3, 11, true, true, true),
+('96', '2026-11-22T23:27:48+00:00'::timestamptz, 24, 11, 2, true, true, true),
+('97', '2026-11-22T23:27:48+00:00'::timestamptz, 2, 0, 18, true, true, true),
+('98', '2026-11-22T23:27:48+00:00'::timestamptz, 0, 0, 16, true, true, true),
+('99', '2026-11-22T23:27:48+00:00'::timestamptz, 10, 2, 19, true, true, true),
+('100', '2026-11-22T23:27:48+00:00'::timestamptz, 21, 5, 35, true, true, true),
+('101', '2026-11-22T23:27:48+00:00'::timestamptz, 6, 4, 13, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('102', '2026-11-22T23:27:48+00:00'::timestamptz, 0, 0, 39, true, true, true),
+('103', '2026-11-22T23:27:48+00:00'::timestamptz, 5, 2, 27, true, true, true),
+('104', '2026-11-22T23:27:48+00:00'::timestamptz, 1, 0, 3, true, true, true),
+('105', '2026-11-22T23:27:48+00:00'::timestamptz, 6, 4, 14, true, true, true),
+('106', '2026-11-22T23:27:48+00:00'::timestamptz, 0, 0, 39, true, false, false),
+('107', '2026-11-22T23:27:48+00:00'::timestamptz, 5, 1, 7, true, true, true),
+('108', '2026-11-22T23:27:48+00:00'::timestamptz, 6, 3, 9, true, true, true),
+('109', '2026-11-22T23:27:48+00:00'::timestamptz, 1, 0, 31, true, true, true),
+('110', '2026-11-22T23:27:48+00:00'::timestamptz, 7, 3, 28, true, true, true),
+('111', '2026-11-22T23:27:48+00:00'::timestamptz, 5, 1, 32, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('112', '2026-11-22T23:27:48+00:00'::timestamptz, 8, 3, 31, true, true, true),
+('113', '2026-11-22T23:27:48+00:00'::timestamptz, 2, 0, 15, true, true, true),
+('114', '2026-11-22T23:27:48+00:00'::timestamptz, 16, 2, 8, true, true, true),
+('115', '2026-11-22T23:27:48+00:00'::timestamptz, 0, 0, 1, true, true, true),
+('116', '2026-11-22T23:27:48+00:00'::timestamptz, 9, 1, 28, true, true, true),
+('117', '2026-11-22T23:27:48+00:00'::timestamptz, 7, 3, 8, true, true, true),
+('118', '2026-11-22T23:27:48+00:00'::timestamptz, 8, 2, 9, true, true, true),
+('119', '2026-11-22T23:27:48+00:00'::timestamptz, 4, 1, 16, true, true, true),
+('120', '2026-11-22T23:27:48+00:00'::timestamptz, 23, 5, 0, true, true, true),
+('121', '2026-11-22T23:27:48+00:00'::timestamptz, 6, 2, 8, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('122', '2026-11-22T23:27:48+00:00'::timestamptz, 1, 1, 14, true, true, true),
+('123', '2026-11-22T23:27:48+00:00'::timestamptz, 3, 1, 31, true, true, true),
+('124', '2026-11-22T23:27:48+00:00'::timestamptz, 2, 0, 18, true, true, true),
+('125', '2026-11-22T23:27:48+00:00'::timestamptz, 5, 2, 25, true, true, true),
+('126', '2026-11-22T23:27:48+00:00'::timestamptz, 6, 1, 4, true, true, true),
+('127', '2026-11-22T23:27:48+00:00'::timestamptz, 3, 2, 19, true, true, true),
+('128', '2026-11-22T23:27:48+00:00'::timestamptz, 7, 2, 6, true, true, true),
+('129', '2026-11-22T23:27:48+00:00'::timestamptz, 3, 2, 10, true, true, true),
+('130', '2026-11-22T23:27:48+00:00'::timestamptz, 8, 2, 10, true, true, true),
+('131', '2026-11-22T23:27:48+00:00'::timestamptz, 1, 0, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('132', '2026-11-22T23:27:48+00:00'::timestamptz, 6, 0, 7, true, true, true),
+('133', '2026-11-22T23:27:48+00:00'::timestamptz, 6, 3, 12, true, true, true),
+('134', '2026-11-22T23:27:48+00:00'::timestamptz, 5, 2, 14, true, true, true),
+('135', '2026-11-22T23:27:48+00:00'::timestamptz, 2, 1, 17, true, true, true),
+('136', '2026-11-22T23:27:48+00:00'::timestamptz, 1, 0, 17, true, true, true),
+('137', '2026-11-22T23:27:48+00:00'::timestamptz, 0, 0, 25, true, true, true),
+('138', '2026-11-22T23:27:48+00:00'::timestamptz, 4, 2, 14, true, true, true),
+('139', '2026-11-22T23:27:48+00:00'::timestamptz, 5, 3, 9, true, true, true),
+('140', '2026-11-22T23:27:48+00:00'::timestamptz, 16, 6, 4, true, true, true),
+('141', '2026-11-22T23:27:48+00:00'::timestamptz, 14, 6, 5, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('142', '2026-11-22T23:27:48+00:00'::timestamptz, 7, 1, 13, true, true, true),
+('143', '2026-11-22T23:27:48+00:00'::timestamptz, 1, 1, 15, true, true, true),
+('144', '2026-11-22T23:27:48+00:00'::timestamptz, 5, 1, 14, true, true, true),
+('145', '2026-11-22T23:27:48+00:00'::timestamptz, 12, 5, 3, true, true, true),
+('146', '2026-11-22T23:27:48+00:00'::timestamptz, 16, 5, 13, true, true, true),
+('147', '2026-11-22T23:27:48+00:00'::timestamptz, 26, 11, 3, true, true, true),
+('148', '2026-11-22T23:27:48+00:00'::timestamptz, 1, 1, 17, true, true, true),
+('149', '2026-11-22T23:27:48+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('150', '2026-11-22T23:27:48+00:00'::timestamptz, 13, 2, 2, true, true, true),
+('151', '2026-11-22T23:27:48+00:00'::timestamptz, 2, 1, 18, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('152', '2026-11-22T23:27:48+00:00'::timestamptz, 17, 6, 1, true, true, true),
+('153', '2026-11-22T23:27:48+00:00'::timestamptz, 16, 7, 2, true, true, true),
+('154', '2026-11-22T23:27:48+00:00'::timestamptz, 15, 1, 1, true, true, true),
+('155', '2026-11-22T23:27:48+00:00'::timestamptz, 3, 0, 17, true, true, true),
+('156', '2026-11-22T23:27:48+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('157', '2026-11-22T23:27:48+00:00'::timestamptz, 1, 0, 19, true, true, true),
+('158', '2026-11-22T23:27:48+00:00'::timestamptz, 6, 4, 14, true, true, true),
+('159', '2026-11-22T23:27:48+00:00'::timestamptz, 2, 2, 22, true, true, true),
+('160', '2026-11-22T23:27:48+00:00'::timestamptz, 3, 1, 17, true, true, true),
+('161', '2026-11-22T23:27:48+00:00'::timestamptz, 14, 6, 6, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('162', '2026-11-22T23:27:48+00:00'::timestamptz, 15, 1, 3, true, true, true),
+('163', '2026-11-22T23:27:48+00:00'::timestamptz, 17, 5, 2, true, true, true),
+('164', '2026-11-22T23:27:48+00:00'::timestamptz, 7, 2, 11, true, true, true),
+('165', '2026-11-22T23:27:48+00:00'::timestamptz, 10, 7, 0, true, true, true),
+('166', '2026-11-22T23:27:48+00:00'::timestamptz, 9, 1, 9, true, true, true),
+('167', '2026-11-22T23:27:48+00:00'::timestamptz, 8, 1, 11, true, true, true),
+('168', '2026-11-22T23:27:48+00:00'::timestamptz, 15, 5, 4, true, true, true),
+('169', '2026-11-22T23:27:48+00:00'::timestamptz, 7, 6, 13, true, true, true),
+('170', '2026-11-22T23:27:48+00:00'::timestamptz, 1, 0, 19, true, true, true),
+('171', '2026-11-22T23:27:48+00:00'::timestamptz, 8, 2, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('172', '2026-11-22T23:27:48+00:00'::timestamptz, 12, 4, 15, true, true, true),
+('173', '2026-11-22T23:27:48+00:00'::timestamptz, 9, 2, 11, true, true, true),
+('174', '2026-11-22T23:27:48+00:00'::timestamptz, 7, 1, 35, true, true, true),
+('175', '2026-11-22T23:27:48+00:00'::timestamptz, 19, 12, 0, true, true, true),
+('176', '2026-11-22T23:27:48+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('177', '2026-11-22T23:27:48+00:00'::timestamptz, 10, 0, 14, true, true, true),
+('178', '2026-11-22T23:27:48+00:00'::timestamptz, 15, 8, 2, true, true, true),
+('179', '2026-11-22T23:27:48+00:00'::timestamptz, 9, 3, 14, true, true, true),
+('180', '2026-11-22T23:27:48+00:00'::timestamptz, 9, 5, 6, true, true, true),
+('181', '2026-11-22T23:27:48+00:00'::timestamptz, 7, 2, 9, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('182', '2026-11-22T23:27:48+00:00'::timestamptz, 12, 5, 5, true, true, true),
+('183', '2026-11-22T23:27:48+00:00'::timestamptz, 8, 1, 12, true, true, true),
+('184', '2026-11-22T23:27:48+00:00'::timestamptz, 4, 0, 15, true, true, true),
+('185', '2026-11-22T23:27:48+00:00'::timestamptz, 3, 0, 16, true, true, true),
+('186', '2026-11-22T23:27:48+00:00'::timestamptz, 6, 3, 11, true, true, true),
+('188', '2026-11-22T23:27:48+00:00'::timestamptz, 1, 1, 18, true, true, true),
+('189', '2026-11-22T23:27:48+00:00'::timestamptz, 8, 3, 11, true, true, true),
+('190', '2026-11-22T23:27:48+00:00'::timestamptz, 1, 0, 19, true, true, true),
+('192', '2026-11-22T23:27:48+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('194', '2026-11-22T23:27:48+00:00'::timestamptz, 17, 7, 1, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('196', '2026-11-22T23:27:48+00:00'::timestamptz, 11, 3, 9, true, true, true),
+('197', '2026-11-22T23:27:48+00:00'::timestamptz, 7, 2, 9, true, true, true),
+('199', '2026-11-22T23:27:48+00:00'::timestamptz, 11, 3, 12, true, true, true),
+('200', '2026-11-22T23:27:48+00:00'::timestamptz, 1, 1, 12, true, true, true),
+('201', '2026-11-22T23:27:48+00:00'::timestamptz, 7, 5, 11, true, true, true),
+('202', '2026-11-22T23:27:48+00:00'::timestamptz, 7, 1, 11, true, true, true),
+('206', '2026-11-22T23:27:48+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('207', '2026-11-22T23:27:48+00:00'::timestamptz, 3, 0, 17, true, true, true),
+('208', '2026-11-22T23:27:48+00:00'::timestamptz, 6, 2, 9, true, true, true),
+('209', '2026-11-22T23:27:48+00:00'::timestamptz, 3, 1, 11, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('211', '2026-11-22T23:27:48+00:00'::timestamptz, 5, 2, 11, true, true, true),
+('214', '2026-11-22T23:27:48+00:00'::timestamptz, 2, 1, 17, true, true, true),
+('215', '2026-11-22T23:27:48+00:00'::timestamptz, 0, 0, 16, false, false, false),
+('219', '2026-11-22T23:27:48+00:00'::timestamptz, 3, 1, 7, false, false, false),
+('251', '2026-11-22T23:27:48+00:00'::timestamptz, 2, 1, 34, true, true, true),
+('297', '2026-11-22T23:27:48+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('298', '2026-11-22T23:27:48+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('299', '2026-11-22T23:27:48+00:00'::timestamptz, 1, 0, 21, false, true, true),
+('505', '2026-11-22T23:27:48+00:00'::timestamptz, 5, 0, 0, false, true, true),
+('507', '2026-11-22T23:27:48+00:00'::timestamptz, 4, 0, 4, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('522', '2026-11-22T23:27:48+00:00'::timestamptz, 4, 2, 1, false, true, true),
+('539', '2026-11-22T23:27:48+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('543', '2026-11-22T23:27:48+00:00'::timestamptz, 3, 2, 2, true, true, true),
+('557', '2026-11-22T23:27:48+00:00'::timestamptz, 2, 1, 3, true, true, true),
+('559', '2026-11-22T23:27:48+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('561', '2026-11-22T23:27:48+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('567', '2026-11-22T23:27:48+00:00'::timestamptz, 1, 1, 4, false, false, false),
+('598', '2026-11-22T23:27:48+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('599', '2026-11-22T23:27:48+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('604', '2026-11-22T23:27:48+00:00'::timestamptz, 1, 0, 4, false, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('605', '2026-11-22T23:27:48+00:00'::timestamptz, 3, 0, 2, true, true, true),
+('606', '2026-11-22T23:27:48+00:00'::timestamptz, 1, 0, 8, false, false, false),
+('627', '2026-11-22T23:27:48+00:00'::timestamptz, 2, 0, 17, true, true, true),
+('629', '2026-11-22T23:27:48+00:00'::timestamptz, 2, 0, 2, true, true, true),
+('633', '2026-11-22T23:27:48+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('634', '2026-11-22T23:27:48+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('670', '2026-11-22T23:27:48+00:00'::timestamptz, 0, 0, 5, false, false, false),
+('672', '2026-11-22T23:27:48+00:00'::timestamptz, 4, 2, 6, true, true, true),
+('900', '2026-11-22T23:27:48+00:00'::timestamptz, 0, 0, 15, false, false, false),
+('901', '2026-11-22T23:27:48+00:00'::timestamptz, 0, 0, 20, true, false, false)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('902', '2026-11-22T23:27:48+00:00'::timestamptz, 0, 0, 20, false, false, false),
+('903', '2026-11-22T23:27:48+00:00'::timestamptz, 22, 2, 0, true, true, true),
+('1', '2026-11-23T00:27:48+00:00'::timestamptz, 1, 1, 41, true, true, true),
+('2', '2026-11-23T00:27:48+00:00'::timestamptz, 4, 0, 14, true, true, true),
+('3', '2026-11-23T00:27:48+00:00'::timestamptz, 13, 4, 12, true, true, true),
+('4', '2026-11-23T00:27:48+00:00'::timestamptz, 5, 2, 14, true, true, true),
+('5', '2026-11-23T00:27:48+00:00'::timestamptz, 1, 1, 39, true, true, true),
+('6', '2026-11-23T00:27:48+00:00'::timestamptz, 5, 3, 33, true, true, true),
+('7', '2026-11-23T00:27:48+00:00'::timestamptz, 4, 3, 11, true, true, true),
+('8', '2026-11-23T00:27:48+00:00'::timestamptz, 5, 1, 15, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('9', '2026-11-23T00:27:48+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('10', '2026-11-23T00:27:48+00:00'::timestamptz, 4, 3, 17, true, true, true),
+('11', '2026-11-23T00:27:48+00:00'::timestamptz, 7, 2, 21, true, true, true),
+('12', '2026-11-23T00:27:48+00:00'::timestamptz, 4, 2, 9, true, true, true),
+('13', '2026-11-23T00:27:48+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('14', '2026-11-23T00:27:48+00:00'::timestamptz, 6, 3, 20, true, true, true),
+('15', '2026-11-23T00:27:48+00:00'::timestamptz, 5, 4, 6, true, true, true),
+('16', '2026-11-23T00:27:48+00:00'::timestamptz, 18, 4, 8, true, true, true),
+('17', '2026-11-23T00:27:48+00:00'::timestamptz, 5, 2, 7, true, true, true),
+('18', '2026-11-23T00:27:48+00:00'::timestamptz, 2, 2, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('19', '2026-11-23T00:27:48+00:00'::timestamptz, 4, 0, 26, true, true, true),
+('20', '2026-11-23T00:27:48+00:00'::timestamptz, 11, 1, 18, true, true, true),
+('21', '2026-11-23T00:27:48+00:00'::timestamptz, 1, 1, 13, true, true, true),
+('22', '2026-11-23T00:27:48+00:00'::timestamptz, 5, 0, 27, true, true, true),
+('23', '2026-11-23T00:27:48+00:00'::timestamptz, 4, 1, 36, true, true, true),
+('24', '2026-11-23T00:27:48+00:00'::timestamptz, 12, 3, 4, true, true, true),
+('25', '2026-11-23T00:27:48+00:00'::timestamptz, 3, 2, 11, true, true, true),
+('26', '2026-11-23T00:27:48+00:00'::timestamptz, 2, 1, 10, true, true, true),
+('27', '2026-11-23T00:27:48+00:00'::timestamptz, 11, 5, 7, true, true, true),
+('28', '2026-11-23T00:27:48+00:00'::timestamptz, 0, 0, 26, true, false, false)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('29', '2026-11-23T00:27:48+00:00'::timestamptz, 8, 4, 9, true, true, true),
+('30', '2026-11-23T00:27:48+00:00'::timestamptz, 11, 3, 6, true, true, true),
+('31', '2026-11-23T00:27:48+00:00'::timestamptz, 5, 0, 8, true, true, true),
+('32', '2026-11-23T00:27:48+00:00'::timestamptz, 15, 2, 0, true, true, true),
+('33', '2026-11-23T00:27:48+00:00'::timestamptz, 2, 0, 18, true, true, true),
+('34', '2026-11-23T00:27:48+00:00'::timestamptz, 4, 1, 11, true, true, true),
+('35', '2026-11-23T00:27:48+00:00'::timestamptz, 7, 2, 11, true, true, true),
+('36', '2026-11-23T00:27:48+00:00'::timestamptz, 7, 2, 11, true, true, true),
+('37', '2026-11-23T00:27:48+00:00'::timestamptz, 19, 3, 8, true, true, true),
+('38', '2026-11-23T00:27:48+00:00'::timestamptz, 2, 1, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('39', '2026-11-23T00:27:48+00:00'::timestamptz, 8, 2, 56, true, true, true),
+('40', '2026-11-23T00:27:48+00:00'::timestamptz, 4, 3, 15, true, true, true),
+('41', '2026-11-23T00:27:48+00:00'::timestamptz, 2, 1, 15, true, true, true),
+('42', '2026-11-23T00:27:48+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('43', '2026-11-23T00:27:48+00:00'::timestamptz, 4, 1, 10, true, true, true),
+('44', '2026-11-23T00:27:48+00:00'::timestamptz, 5, 0, 14, true, true, true),
+('45', '2026-11-23T00:27:48+00:00'::timestamptz, 2, 2, 12, true, true, true),
+('46', '2026-11-23T00:27:48+00:00'::timestamptz, 11, 1, 9, true, true, true),
+('47', '2026-11-23T00:27:48+00:00'::timestamptz, 1, 1, 13, true, true, true),
+('48', '2026-11-23T00:27:48+00:00'::timestamptz, 8, 4, 7, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('49', '2026-11-23T00:27:48+00:00'::timestamptz, 11, 3, 7, true, true, true),
+('50', '2026-11-23T00:27:48+00:00'::timestamptz, 12, 4, 1, true, true, true),
+('51', '2026-11-23T00:27:48+00:00'::timestamptz, 15, 1, 4, true, true, true),
+('52', '2026-11-23T00:27:48+00:00'::timestamptz, 13, 4, 4, true, true, true),
+('53', '2026-11-23T00:27:48+00:00'::timestamptz, 13, 5, 1, true, true, true),
+('54', '2026-11-23T00:27:48+00:00'::timestamptz, 0, 0, 44, true, true, true),
+('55', '2026-11-23T00:27:48+00:00'::timestamptz, 4, 0, 12, true, true, true),
+('56', '2026-11-23T00:27:48+00:00'::timestamptz, 6, 2, 4, true, true, true),
+('57', '2026-11-23T00:27:48+00:00'::timestamptz, 6, 0, 10, true, true, true),
+('58', '2026-11-23T00:27:48+00:00'::timestamptz, 7, 2, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('59', '2026-11-23T00:27:48+00:00'::timestamptz, 6, 1, 10, true, true, true),
+('60', '2026-11-23T00:27:48+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('61', '2026-11-23T00:27:48+00:00'::timestamptz, 7, 2, 8, true, true, true),
+('62', '2026-11-23T00:27:48+00:00'::timestamptz, 7, 3, 16, true, true, true),
+('63', '2026-11-23T00:27:48+00:00'::timestamptz, 10, 3, 7, true, true, true),
+('64', '2026-11-23T00:27:48+00:00'::timestamptz, 1, 0, 14, true, true, true),
+('65', '2026-11-23T00:27:48+00:00'::timestamptz, 4, 1, 14, true, true, true),
+('66', '2026-11-23T00:27:48+00:00'::timestamptz, 3, 0, 16, true, true, true),
+('67', '2026-11-23T00:27:48+00:00'::timestamptz, 3, 1, 17, true, true, true),
+('68', '2026-11-23T00:27:48+00:00'::timestamptz, 5, 3, 11, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('69', '2026-11-23T00:27:48+00:00'::timestamptz, 2, 1, 12, true, true, true),
+('70', '2026-11-23T00:27:48+00:00'::timestamptz, 2, 2, 17, true, true, true),
+('72', '2026-11-23T00:27:48+00:00'::timestamptz, 7, 4, 16, true, true, true),
+('73', '2026-11-23T00:27:48+00:00'::timestamptz, 2, 1, 17, true, true, true),
+('74', '2026-11-23T00:27:48+00:00'::timestamptz, 17, 11, 5, true, true, true),
+('75', '2026-11-23T00:27:48+00:00'::timestamptz, 13, 4, 3, true, true, true),
+('76', '2026-11-23T00:27:48+00:00'::timestamptz, 13, 2, 5, true, true, true),
+('77', '2026-11-23T00:27:48+00:00'::timestamptz, 7, 1, 12, true, true, true),
+('78', '2026-11-23T00:27:48+00:00'::timestamptz, 9, 5, 11, true, true, true),
+('79', '2026-11-23T00:27:48+00:00'::timestamptz, 14, 3, 5, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('80', '2026-11-23T00:27:48+00:00'::timestamptz, 5, 5, 11, true, true, true),
+('81', '2026-11-23T00:27:48+00:00'::timestamptz, 10, 2, 10, true, true, true),
+('82', '2026-11-23T00:27:48+00:00'::timestamptz, 8, 4, 12, true, true, true),
+('83', '2026-11-23T00:27:48+00:00'::timestamptz, 14, 5, 4, true, true, true),
+('84', '2026-11-23T00:27:48+00:00'::timestamptz, 15, 9, 2, true, true, true),
+('85', '2026-11-23T00:27:48+00:00'::timestamptz, 0, 0, 18, true, true, true),
+('86', '2026-11-23T00:27:48+00:00'::timestamptz, 10, 2, 9, true, true, true),
+('87', '2026-11-23T00:27:48+00:00'::timestamptz, 12, 5, 7, true, true, true),
+('88', '2026-11-23T00:27:48+00:00'::timestamptz, 6, 5, 11, true, true, true),
+('89', '2026-11-23T00:27:48+00:00'::timestamptz, 10, 3, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('90', '2026-11-23T00:27:48+00:00'::timestamptz, 14, 7, 4, true, true, true),
+('91', '2026-11-23T00:27:48+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('92', '2026-11-23T00:27:48+00:00'::timestamptz, 6, 5, 9, true, true, true),
+('93', '2026-11-23T00:27:48+00:00'::timestamptz, 12, 7, 2, true, true, true),
+('94', '2026-11-23T00:27:48+00:00'::timestamptz, 0, 0, 1, true, false, false),
+('95', '2026-11-23T00:27:48+00:00'::timestamptz, 5, 3, 11, true, true, true),
+('96', '2026-11-23T00:27:48+00:00'::timestamptz, 24, 11, 2, true, true, true),
+('97', '2026-11-23T00:27:48+00:00'::timestamptz, 2, 0, 18, true, true, true),
+('98', '2026-11-23T00:27:48+00:00'::timestamptz, 0, 0, 16, true, true, true),
+('99', '2026-11-23T00:27:48+00:00'::timestamptz, 9, 1, 20, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('100', '2026-11-23T00:27:48+00:00'::timestamptz, 20, 5, 36, true, true, true),
+('101', '2026-11-23T00:27:48+00:00'::timestamptz, 6, 4, 13, true, true, true),
+('102', '2026-11-23T00:27:48+00:00'::timestamptz, 0, 0, 39, true, true, true),
+('103', '2026-11-23T00:27:48+00:00'::timestamptz, 5, 1, 27, true, true, true),
+('104', '2026-11-23T00:27:48+00:00'::timestamptz, 1, 0, 3, true, true, true),
+('105', '2026-11-23T00:27:48+00:00'::timestamptz, 6, 3, 14, true, true, true),
+('106', '2026-11-23T00:27:48+00:00'::timestamptz, 0, 0, 39, true, false, false),
+('107', '2026-11-23T00:27:48+00:00'::timestamptz, 1, 0, 11, true, true, true),
+('108', '2026-11-23T00:27:48+00:00'::timestamptz, 6, 3, 8, true, true, true),
+('109', '2026-11-23T00:27:48+00:00'::timestamptz, 2, 0, 30, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('110', '2026-11-23T00:27:48+00:00'::timestamptz, 8, 3, 27, true, true, true),
+('111', '2026-11-23T00:27:48+00:00'::timestamptz, 5, 1, 32, true, true, true),
+('112', '2026-11-23T00:27:48+00:00'::timestamptz, 11, 3, 28, true, true, true),
+('113', '2026-11-23T00:27:48+00:00'::timestamptz, 2, 0, 15, true, true, true),
+('114', '2026-11-23T00:27:48+00:00'::timestamptz, 14, 1, 10, true, true, true),
+('115', '2026-11-23T00:27:48+00:00'::timestamptz, 0, 0, 1, true, true, true),
+('116', '2026-11-23T00:27:48+00:00'::timestamptz, 9, 1, 28, true, true, true),
+('117', '2026-11-23T00:27:48+00:00'::timestamptz, 6, 3, 9, true, true, true),
+('118', '2026-11-23T00:27:48+00:00'::timestamptz, 9, 2, 8, true, true, true),
+('119', '2026-11-23T00:27:48+00:00'::timestamptz, 5, 2, 15, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('120', '2026-11-23T00:27:48+00:00'::timestamptz, 23, 5, 0, true, true, true),
+('121', '2026-11-23T00:27:48+00:00'::timestamptz, 6, 2, 8, true, true, true),
+('122', '2026-11-23T00:27:48+00:00'::timestamptz, 1, 1, 14, true, true, true),
+('123', '2026-11-23T00:27:48+00:00'::timestamptz, 2, 1, 32, true, true, true),
+('124', '2026-11-23T00:27:48+00:00'::timestamptz, 2, 0, 18, true, true, true),
+('125', '2026-11-23T00:27:48+00:00'::timestamptz, 5, 2, 25, true, true, true),
+('126', '2026-11-23T00:27:48+00:00'::timestamptz, 6, 1, 4, true, true, true),
+('127', '2026-11-23T00:27:48+00:00'::timestamptz, 3, 2, 19, true, true, true),
+('128', '2026-11-23T00:27:48+00:00'::timestamptz, 8, 3, 5, true, true, true),
+('129', '2026-11-23T00:27:48+00:00'::timestamptz, 3, 2, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('130', '2026-11-23T00:27:48+00:00'::timestamptz, 8, 2, 10, true, true, true),
+('131', '2026-11-23T00:27:48+00:00'::timestamptz, 2, 0, 11, true, true, true),
+('132', '2026-11-23T00:27:48+00:00'::timestamptz, 6, 0, 7, true, true, true),
+('133', '2026-11-23T00:27:48+00:00'::timestamptz, 3, 3, 15, true, true, true),
+('134', '2026-11-23T00:27:48+00:00'::timestamptz, 4, 1, 15, true, true, true),
+('135', '2026-11-23T00:27:48+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('136', '2026-11-23T00:27:48+00:00'::timestamptz, 1, 0, 17, true, true, true),
+('137', '2026-11-23T00:27:48+00:00'::timestamptz, 0, 0, 25, true, true, true),
+('138', '2026-11-23T00:27:48+00:00'::timestamptz, 5, 3, 13, true, true, true),
+('139', '2026-11-23T00:27:48+00:00'::timestamptz, 5, 2, 9, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('140', '2026-11-23T00:27:48+00:00'::timestamptz, 16, 6, 4, true, true, true),
+('141', '2026-11-23T00:27:48+00:00'::timestamptz, 14, 6, 5, true, true, true),
+('142', '2026-11-23T00:27:48+00:00'::timestamptz, 7, 1, 13, true, true, true),
+('143', '2026-11-23T00:27:48+00:00'::timestamptz, 1, 1, 15, true, true, true),
+('144', '2026-11-23T00:27:48+00:00'::timestamptz, 5, 1, 14, true, true, true),
+('145', '2026-11-23T00:27:48+00:00'::timestamptz, 12, 5, 3, true, true, true),
+('146', '2026-11-23T00:27:48+00:00'::timestamptz, 16, 5, 13, true, true, true),
+('147', '2026-11-23T00:27:48+00:00'::timestamptz, 26, 11, 3, true, true, true),
+('148', '2026-11-23T00:27:48+00:00'::timestamptz, 1, 1, 17, true, true, true),
+('149', '2026-11-23T00:27:48+00:00'::timestamptz, 0, 0, 20, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('150', '2026-11-23T00:27:48+00:00'::timestamptz, 13, 2, 2, true, true, true),
+('151', '2026-11-23T00:27:48+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('152', '2026-11-23T00:27:48+00:00'::timestamptz, 17, 6, 1, true, true, true),
+('153', '2026-11-23T00:27:48+00:00'::timestamptz, 17, 7, 1, true, true, true),
+('154', '2026-11-23T00:27:48+00:00'::timestamptz, 15, 1, 1, true, true, true),
+('155', '2026-11-23T00:27:48+00:00'::timestamptz, 5, 1, 15, true, true, true),
+('156', '2026-11-23T00:27:48+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('157', '2026-11-23T00:27:48+00:00'::timestamptz, 1, 0, 19, true, true, true),
+('158', '2026-11-23T00:27:48+00:00'::timestamptz, 7, 4, 13, true, true, true),
+('159', '2026-11-23T00:27:48+00:00'::timestamptz, 2, 2, 22, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('160', '2026-11-23T00:27:48+00:00'::timestamptz, 2, 0, 17, true, true, true),
+('161', '2026-11-23T00:27:48+00:00'::timestamptz, 14, 6, 6, true, true, true),
+('162', '2026-11-23T00:27:48+00:00'::timestamptz, 15, 1, 3, true, true, true),
+('163', '2026-11-23T00:27:48+00:00'::timestamptz, 17, 5, 2, true, true, true),
+('164', '2026-11-23T00:27:48+00:00'::timestamptz, 6, 2, 12, true, true, true),
+('165', '2026-11-23T00:27:48+00:00'::timestamptz, 10, 7, 0, true, true, true),
+('166', '2026-11-23T00:27:48+00:00'::timestamptz, 9, 1, 9, true, true, true),
+('167', '2026-11-23T00:27:48+00:00'::timestamptz, 8, 1, 11, true, true, true),
+('168', '2026-11-23T00:27:48+00:00'::timestamptz, 15, 5, 4, true, true, true),
+('169', '2026-11-23T00:27:48+00:00'::timestamptz, 7, 6, 13, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('170', '2026-11-23T00:27:48+00:00'::timestamptz, 1, 0, 19, true, true, true),
+('171', '2026-11-23T00:27:48+00:00'::timestamptz, 8, 2, 10, true, true, true),
+('172', '2026-11-23T00:27:48+00:00'::timestamptz, 12, 4, 16, true, true, true),
+('173', '2026-11-23T00:27:48+00:00'::timestamptz, 9, 2, 11, true, true, true),
+('174', '2026-11-23T00:27:48+00:00'::timestamptz, 7, 1, 35, true, true, true),
+('175', '2026-11-23T00:27:48+00:00'::timestamptz, 19, 12, 0, true, true, true),
+('176', '2026-11-23T00:27:48+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('177', '2026-11-23T00:27:48+00:00'::timestamptz, 10, 0, 14, true, true, true),
+('178', '2026-11-23T00:27:48+00:00'::timestamptz, 16, 8, 1, true, true, true),
+('179', '2026-11-23T00:27:48+00:00'::timestamptz, 7, 1, 16, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('180', '2026-11-23T00:27:48+00:00'::timestamptz, 9, 5, 6, true, true, true),
+('181', '2026-11-23T00:27:48+00:00'::timestamptz, 7, 2, 9, true, true, true),
+('182', '2026-11-23T00:27:48+00:00'::timestamptz, 12, 5, 5, true, true, true),
+('183', '2026-11-23T00:27:48+00:00'::timestamptz, 8, 1, 12, true, true, true),
+('184', '2026-11-23T00:27:48+00:00'::timestamptz, 4, 0, 15, true, true, true),
+('185', '2026-11-23T00:27:48+00:00'::timestamptz, 3, 0, 16, true, true, true),
+('186', '2026-11-23T00:27:48+00:00'::timestamptz, 9, 5, 8, true, true, true),
+('188', '2026-11-23T00:27:48+00:00'::timestamptz, 1, 1, 18, true, true, true),
+('189', '2026-11-23T00:27:48+00:00'::timestamptz, 8, 3, 11, true, true, true),
+('190', '2026-11-23T00:27:48+00:00'::timestamptz, 1, 0, 18, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('192', '2026-11-23T00:27:48+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('194', '2026-11-23T00:27:48+00:00'::timestamptz, 17, 7, 1, true, true, true),
+('196', '2026-11-23T00:27:48+00:00'::timestamptz, 12, 4, 8, true, true, true),
+('197', '2026-11-23T00:27:48+00:00'::timestamptz, 8, 2, 8, true, true, true),
+('199', '2026-11-23T00:27:48+00:00'::timestamptz, 11, 3, 12, true, true, true),
+('200', '2026-11-23T00:27:48+00:00'::timestamptz, 1, 1, 12, true, true, true),
+('201', '2026-11-23T00:27:48+00:00'::timestamptz, 7, 5, 11, true, true, true),
+('202', '2026-11-23T00:27:48+00:00'::timestamptz, 7, 1, 11, true, true, true),
+('206', '2026-11-23T00:27:48+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('207', '2026-11-23T00:27:48+00:00'::timestamptz, 2, 0, 18, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('208', '2026-11-23T00:27:48+00:00'::timestamptz, 6, 2, 9, true, true, true),
+('209', '2026-11-23T00:27:48+00:00'::timestamptz, 3, 1, 11, true, true, true),
+('211', '2026-11-23T00:27:48+00:00'::timestamptz, 6, 2, 10, true, true, true),
+('214', '2026-11-23T00:27:48+00:00'::timestamptz, 2, 1, 17, true, true, true),
+('215', '2026-11-23T00:27:48+00:00'::timestamptz, 0, 0, 16, false, false, false),
+('219', '2026-11-23T00:27:48+00:00'::timestamptz, 3, 1, 7, false, false, false),
+('251', '2026-11-23T00:27:48+00:00'::timestamptz, 0, 0, 36, true, true, true),
+('297', '2026-11-23T00:27:48+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('298', '2026-11-23T00:27:48+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('299', '2026-11-23T00:27:48+00:00'::timestamptz, 1, 0, 21, false, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('505', '2026-11-23T00:27:48+00:00'::timestamptz, 5, 0, 0, false, true, true),
+('507', '2026-11-23T00:27:48+00:00'::timestamptz, 4, 0, 4, true, true, true),
+('522', '2026-11-23T00:27:48+00:00'::timestamptz, 4, 2, 1, false, true, true),
+('539', '2026-11-23T00:27:48+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('543', '2026-11-23T00:27:48+00:00'::timestamptz, 3, 2, 2, true, true, true),
+('557', '2026-11-23T00:27:48+00:00'::timestamptz, 2, 1, 3, true, true, true),
+('559', '2026-11-23T00:27:48+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('561', '2026-11-23T00:27:48+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('567', '2026-11-23T00:27:48+00:00'::timestamptz, 1, 1, 4, false, false, false),
+('598', '2026-11-23T00:27:48+00:00'::timestamptz, 1, 0, 4, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('599', '2026-11-23T00:27:48+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('604', '2026-11-23T00:27:48+00:00'::timestamptz, 1, 0, 4, false, true, true),
+('605', '2026-11-23T00:27:48+00:00'::timestamptz, 3, 0, 2, true, true, true),
+('606', '2026-11-23T00:27:48+00:00'::timestamptz, 1, 0, 8, false, false, false),
+('627', '2026-11-23T00:27:48+00:00'::timestamptz, 2, 0, 17, true, true, true),
+('629', '2026-11-23T00:27:48+00:00'::timestamptz, 2, 0, 2, true, true, true),
+('633', '2026-11-23T00:27:48+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('634', '2026-11-23T00:27:48+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('670', '2026-11-23T00:27:48+00:00'::timestamptz, 0, 0, 5, false, false, false),
+('672', '2026-11-23T00:27:48+00:00'::timestamptz, 4, 2, 6, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('900', '2026-11-23T00:27:48+00:00'::timestamptz, 0, 0, 15, false, false, false),
+('901', '2026-11-23T00:27:48+00:00'::timestamptz, 0, 0, 20, true, false, false),
+('902', '2026-11-23T00:27:48+00:00'::timestamptz, 0, 0, 20, false, false, false),
+('903', '2026-11-23T00:27:48+00:00'::timestamptz, 22, 2, 0, true, true, true),
+('1', '2026-11-23T01:27:48+00:00'::timestamptz, 1, 1, 41, true, true, true),
+('2', '2026-11-23T01:27:48+00:00'::timestamptz, 4, 0, 14, true, true, true),
+('3', '2026-11-23T01:27:48+00:00'::timestamptz, 13, 4, 12, true, true, true),
+('4', '2026-11-23T01:27:48+00:00'::timestamptz, 5, 2, 14, true, true, true),
+('5', '2026-11-23T01:27:48+00:00'::timestamptz, 1, 1, 39, true, true, true),
+('6', '2026-11-23T01:27:48+00:00'::timestamptz, 5, 3, 33, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('7', '2026-11-23T01:27:48+00:00'::timestamptz, 4, 3, 11, true, true, true),
+('8', '2026-11-23T01:27:48+00:00'::timestamptz, 5, 1, 15, true, true, true),
+('9', '2026-11-23T01:27:48+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('10', '2026-11-23T01:27:48+00:00'::timestamptz, 4, 3, 17, true, true, true),
+('11', '2026-11-23T01:27:48+00:00'::timestamptz, 7, 2, 21, true, true, true),
+('12', '2026-11-23T01:27:48+00:00'::timestamptz, 4, 2, 9, true, true, true),
+('13', '2026-11-23T01:27:48+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('14', '2026-11-23T01:27:48+00:00'::timestamptz, 6, 3, 20, true, true, true),
+('15', '2026-11-23T01:27:48+00:00'::timestamptz, 5, 4, 6, true, true, true),
+('16', '2026-11-23T01:27:48+00:00'::timestamptz, 18, 4, 8, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('17', '2026-11-23T01:27:48+00:00'::timestamptz, 6, 2, 6, true, true, true),
+('18', '2026-11-23T01:27:48+00:00'::timestamptz, 3, 3, 11, true, true, true),
+('19', '2026-11-23T01:27:48+00:00'::timestamptz, 4, 0, 26, true, true, true),
+('20', '2026-11-23T01:27:48+00:00'::timestamptz, 11, 1, 18, true, true, true),
+('21', '2026-11-23T01:27:48+00:00'::timestamptz, 1, 1, 13, true, true, true),
+('22', '2026-11-23T01:27:48+00:00'::timestamptz, 5, 0, 27, true, true, true),
+('23', '2026-11-23T01:27:48+00:00'::timestamptz, 4, 1, 36, true, true, true),
+('24', '2026-11-23T01:27:48+00:00'::timestamptz, 12, 3, 4, true, true, true),
+('25', '2026-11-23T01:27:48+00:00'::timestamptz, 3, 2, 11, true, true, true),
+('26', '2026-11-23T01:27:48+00:00'::timestamptz, 2, 1, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('27', '2026-11-23T01:27:48+00:00'::timestamptz, 11, 5, 7, true, true, true),
+('28', '2026-11-23T01:27:48+00:00'::timestamptz, 0, 0, 26, true, false, false),
+('29', '2026-11-23T01:27:48+00:00'::timestamptz, 8, 4, 9, true, true, true),
+('30', '2026-11-23T01:27:48+00:00'::timestamptz, 13, 4, 4, true, true, true),
+('31', '2026-11-23T01:27:48+00:00'::timestamptz, 5, 0, 8, true, true, true),
+('32', '2026-11-23T01:27:48+00:00'::timestamptz, 15, 2, 0, true, true, true),
+('33', '2026-11-23T01:27:48+00:00'::timestamptz, 2, 0, 18, true, true, true),
+('34', '2026-11-23T01:27:48+00:00'::timestamptz, 4, 1, 11, true, true, true),
+('35', '2026-11-23T01:27:48+00:00'::timestamptz, 7, 2, 11, true, true, true),
+('36', '2026-11-23T01:27:48+00:00'::timestamptz, 7, 2, 11, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('37', '2026-11-23T01:27:48+00:00'::timestamptz, 19, 3, 8, true, true, true),
+('38', '2026-11-23T01:27:48+00:00'::timestamptz, 1, 0, 13, true, true, true),
+('39', '2026-11-23T01:27:48+00:00'::timestamptz, 7, 2, 57, true, true, true),
+('40', '2026-11-23T01:27:48+00:00'::timestamptz, 3, 3, 16, true, true, true),
+('41', '2026-11-23T01:27:48+00:00'::timestamptz, 2, 1, 15, true, true, true),
+('42', '2026-11-23T01:27:48+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('43', '2026-11-23T01:27:48+00:00'::timestamptz, 5, 1, 9, true, true, true),
+('44', '2026-11-23T01:27:48+00:00'::timestamptz, 5, 0, 14, true, true, true),
+('45', '2026-11-23T01:27:48+00:00'::timestamptz, 2, 2, 12, true, true, true),
+('46', '2026-11-23T01:27:48+00:00'::timestamptz, 11, 1, 9, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('47', '2026-11-23T01:27:48+00:00'::timestamptz, 1, 1, 13, true, true, true),
+('48', '2026-11-23T01:27:48+00:00'::timestamptz, 7, 3, 8, true, true, true),
+('49', '2026-11-23T01:27:48+00:00'::timestamptz, 11, 3, 7, true, true, true),
+('50', '2026-11-23T01:27:48+00:00'::timestamptz, 12, 4, 1, true, true, true),
+('51', '2026-11-23T01:27:48+00:00'::timestamptz, 14, 1, 5, true, true, true),
+('52', '2026-11-23T01:27:48+00:00'::timestamptz, 13, 4, 4, true, true, true),
+('53', '2026-11-23T01:27:48+00:00'::timestamptz, 13, 5, 1, true, true, true),
+('54', '2026-11-23T01:27:48+00:00'::timestamptz, 0, 0, 44, true, true, true),
+('55', '2026-11-23T01:27:48+00:00'::timestamptz, 3, 0, 13, true, true, true),
+('56', '2026-11-23T01:27:48+00:00'::timestamptz, 6, 2, 4, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('57', '2026-11-23T01:27:48+00:00'::timestamptz, 6, 0, 10, true, true, true),
+('58', '2026-11-23T01:27:48+00:00'::timestamptz, 7, 2, 10, true, true, true),
+('59', '2026-11-23T01:27:48+00:00'::timestamptz, 6, 1, 10, true, true, true),
+('60', '2026-11-23T01:27:48+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('61', '2026-11-23T01:27:48+00:00'::timestamptz, 7, 2, 8, true, true, true),
+('62', '2026-11-23T01:27:48+00:00'::timestamptz, 8, 3, 15, true, true, true),
+('63', '2026-11-23T01:27:48+00:00'::timestamptz, 10, 3, 7, true, true, true),
+('64', '2026-11-23T01:27:48+00:00'::timestamptz, 1, 0, 14, true, true, true),
+('65', '2026-11-23T01:27:48+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('66', '2026-11-23T01:27:48+00:00'::timestamptz, 3, 0, 16, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('67', '2026-11-23T01:27:48+00:00'::timestamptz, 3, 1, 17, true, true, true),
+('68', '2026-11-23T01:27:48+00:00'::timestamptz, 5, 3, 11, true, true, true),
+('69', '2026-11-23T01:27:48+00:00'::timestamptz, 2, 1, 12, true, true, true),
+('70', '2026-11-23T01:27:48+00:00'::timestamptz, 2, 2, 17, true, true, true),
+('72', '2026-11-23T01:27:48+00:00'::timestamptz, 7, 4, 16, true, true, true),
+('73', '2026-11-23T01:27:48+00:00'::timestamptz, 2, 1, 17, true, true, true),
+('74', '2026-11-23T01:27:48+00:00'::timestamptz, 17, 11, 5, true, true, true),
+('75', '2026-11-23T01:27:48+00:00'::timestamptz, 13, 4, 3, true, true, true),
+('76', '2026-11-23T01:27:48+00:00'::timestamptz, 13, 2, 5, true, true, true),
+('77', '2026-11-23T01:27:48+00:00'::timestamptz, 7, 1, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('78', '2026-11-23T01:27:48+00:00'::timestamptz, 9, 5, 11, true, true, true),
+('79', '2026-11-23T01:27:48+00:00'::timestamptz, 14, 3, 5, true, true, true),
+('80', '2026-11-23T01:27:48+00:00'::timestamptz, 5, 5, 11, true, true, true),
+('81', '2026-11-23T01:27:48+00:00'::timestamptz, 10, 2, 10, true, true, true),
+('82', '2026-11-23T01:27:48+00:00'::timestamptz, 8, 4, 12, true, true, true),
+('83', '2026-11-23T01:27:48+00:00'::timestamptz, 14, 5, 4, true, true, true),
+('84', '2026-11-23T01:27:48+00:00'::timestamptz, 15, 9, 2, true, true, true),
+('85', '2026-11-23T01:27:48+00:00'::timestamptz, 0, 0, 18, true, true, true),
+('86', '2026-11-23T01:27:48+00:00'::timestamptz, 11, 3, 8, true, true, true),
+('87', '2026-11-23T01:27:48+00:00'::timestamptz, 12, 5, 7, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('88', '2026-11-23T01:27:48+00:00'::timestamptz, 6, 5, 11, true, true, true),
+('89', '2026-11-23T01:27:48+00:00'::timestamptz, 10, 3, 10, true, true, true),
+('90', '2026-11-23T01:27:48+00:00'::timestamptz, 14, 7, 4, true, true, true),
+('91', '2026-11-23T01:27:48+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('92', '2026-11-23T01:27:48+00:00'::timestamptz, 6, 5, 9, true, true, true),
+('93', '2026-11-23T01:27:48+00:00'::timestamptz, 12, 7, 2, true, true, true),
+('94', '2026-11-23T01:27:48+00:00'::timestamptz, 0, 0, 1, true, false, false),
+('95', '2026-11-23T01:27:48+00:00'::timestamptz, 5, 3, 11, true, true, true),
+('96', '2026-11-23T01:27:48+00:00'::timestamptz, 24, 11, 2, true, true, true),
+('97', '2026-11-23T01:27:48+00:00'::timestamptz, 2, 0, 18, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('98', '2026-11-23T01:27:48+00:00'::timestamptz, 0, 0, 16, true, true, true),
+('99', '2026-11-23T01:27:48+00:00'::timestamptz, 9, 1, 20, true, true, true),
+('100', '2026-11-23T01:27:48+00:00'::timestamptz, 21, 5, 35, true, true, true),
+('101', '2026-11-23T01:27:48+00:00'::timestamptz, 7, 5, 12, true, true, true),
+('102', '2026-11-23T01:27:48+00:00'::timestamptz, 0, 0, 39, true, true, true),
+('103', '2026-11-23T01:27:48+00:00'::timestamptz, 5, 1, 27, true, true, true),
+('104', '2026-11-23T01:27:48+00:00'::timestamptz, 1, 0, 3, true, true, true),
+('105', '2026-11-23T01:27:48+00:00'::timestamptz, 3, 2, 17, true, true, true),
+('106', '2026-11-23T01:27:48+00:00'::timestamptz, 0, 0, 39, true, false, false),
+('107', '2026-11-23T01:27:48+00:00'::timestamptz, 2, 1, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('108', '2026-11-23T01:27:48+00:00'::timestamptz, 7, 4, 7, true, true, true),
+('109', '2026-11-23T01:27:48+00:00'::timestamptz, 2, 0, 30, true, true, true),
+('110', '2026-11-23T01:27:48+00:00'::timestamptz, 8, 3, 27, true, true, true),
+('111', '2026-11-23T01:27:48+00:00'::timestamptz, 3, 0, 34, true, true, true),
+('112', '2026-11-23T01:27:48+00:00'::timestamptz, 10, 2, 29, true, true, true),
+('113', '2026-11-23T01:27:48+00:00'::timestamptz, 2, 0, 15, true, true, true),
+('114', '2026-11-23T01:27:48+00:00'::timestamptz, 14, 1, 10, true, true, true),
+('115', '2026-11-23T01:27:48+00:00'::timestamptz, 0, 0, 1, true, true, true),
+('116', '2026-11-23T01:27:48+00:00'::timestamptz, 9, 1, 28, true, true, true),
+('117', '2026-11-23T01:27:48+00:00'::timestamptz, 11, 5, 4, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('118', '2026-11-23T01:27:48+00:00'::timestamptz, 9, 2, 8, true, true, true),
+('119', '2026-11-23T01:27:48+00:00'::timestamptz, 5, 2, 15, true, true, true),
+('120', '2026-11-23T01:27:48+00:00'::timestamptz, 23, 5, 0, true, true, true),
+('121', '2026-11-23T01:27:48+00:00'::timestamptz, 6, 2, 8, true, true, true),
+('122', '2026-11-23T01:27:48+00:00'::timestamptz, 2, 2, 13, true, true, true),
+('123', '2026-11-23T01:27:48+00:00'::timestamptz, 2, 1, 32, true, true, true),
+('124', '2026-11-23T01:27:48+00:00'::timestamptz, 2, 0, 18, true, true, true),
+('125', '2026-11-23T01:27:48+00:00'::timestamptz, 5, 2, 25, true, true, true),
+('126', '2026-11-23T01:27:48+00:00'::timestamptz, 6, 1, 4, true, true, true),
+('127', '2026-11-23T01:27:48+00:00'::timestamptz, 3, 2, 19, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('128', '2026-11-23T01:27:48+00:00'::timestamptz, 7, 3, 6, true, true, true),
+('129', '2026-11-23T01:27:48+00:00'::timestamptz, 2, 1, 11, true, true, true),
+('130', '2026-11-23T01:27:48+00:00'::timestamptz, 8, 2, 10, true, true, true),
+('131', '2026-11-23T01:27:48+00:00'::timestamptz, 4, 1, 9, true, true, true),
+('132', '2026-11-23T01:27:48+00:00'::timestamptz, 4, 0, 9, true, true, true),
+('133', '2026-11-23T01:27:48+00:00'::timestamptz, 3, 2, 15, true, true, true),
+('134', '2026-11-23T01:27:48+00:00'::timestamptz, 5, 2, 14, true, true, true),
+('135', '2026-11-23T01:27:48+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('136', '2026-11-23T01:27:48+00:00'::timestamptz, 1, 0, 17, true, true, true),
+('137', '2026-11-23T01:27:48+00:00'::timestamptz, 0, 0, 25, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('138', '2026-11-23T01:27:48+00:00'::timestamptz, 4, 2, 14, true, true, true),
+('139', '2026-11-23T01:27:48+00:00'::timestamptz, 5, 2, 9, true, true, true),
+('140', '2026-11-23T01:27:48+00:00'::timestamptz, 16, 6, 4, true, true, true),
+('141', '2026-11-23T01:27:48+00:00'::timestamptz, 14, 6, 5, true, true, true),
+('142', '2026-11-23T01:27:48+00:00'::timestamptz, 7, 1, 13, true, true, true),
+('143', '2026-11-23T01:27:48+00:00'::timestamptz, 1, 1, 15, true, true, true),
+('144', '2026-11-23T01:27:48+00:00'::timestamptz, 5, 1, 14, true, true, true),
+('145', '2026-11-23T01:27:48+00:00'::timestamptz, 12, 5, 3, true, true, true),
+('146', '2026-11-23T01:27:48+00:00'::timestamptz, 16, 5, 13, true, true, true),
+('147', '2026-11-23T01:27:48+00:00'::timestamptz, 25, 10, 4, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('148', '2026-11-23T01:27:48+00:00'::timestamptz, 1, 1, 17, true, true, true),
+('149', '2026-11-23T01:27:48+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('150', '2026-11-23T01:27:48+00:00'::timestamptz, 13, 2, 2, true, true, true),
+('151', '2026-11-23T01:27:48+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('152', '2026-11-23T01:27:48+00:00'::timestamptz, 17, 6, 1, true, true, true),
+('153', '2026-11-23T01:27:48+00:00'::timestamptz, 17, 7, 1, true, true, true),
+('154', '2026-11-23T01:27:48+00:00'::timestamptz, 15, 1, 1, true, true, true),
+('155', '2026-11-23T01:27:48+00:00'::timestamptz, 6, 2, 14, true, true, true),
+('156', '2026-11-23T01:27:48+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('157', '2026-11-23T01:27:48+00:00'::timestamptz, 1, 0, 19, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('158', '2026-11-23T01:27:48+00:00'::timestamptz, 7, 4, 13, true, true, true),
+('159', '2026-11-23T01:27:48+00:00'::timestamptz, 3, 3, 21, true, true, true),
+('160', '2026-11-23T01:27:48+00:00'::timestamptz, 2, 0, 17, true, true, true),
+('161', '2026-11-23T01:27:48+00:00'::timestamptz, 14, 6, 6, true, true, true),
+('162', '2026-11-23T01:27:48+00:00'::timestamptz, 15, 1, 3, true, true, true),
+('163', '2026-11-23T01:27:48+00:00'::timestamptz, 17, 5, 2, true, true, true),
+('164', '2026-11-23T01:27:48+00:00'::timestamptz, 7, 2, 11, true, true, true),
+('165', '2026-11-23T01:27:48+00:00'::timestamptz, 10, 7, 0, true, true, true),
+('166', '2026-11-23T01:27:48+00:00'::timestamptz, 9, 1, 9, true, true, true),
+('167', '2026-11-23T01:27:48+00:00'::timestamptz, 8, 1, 11, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('168', '2026-11-23T01:27:48+00:00'::timestamptz, 15, 5, 4, true, true, true),
+('169', '2026-11-23T01:27:48+00:00'::timestamptz, 7, 6, 13, true, true, true),
+('170', '2026-11-23T01:27:48+00:00'::timestamptz, 1, 0, 19, true, true, true),
+('171', '2026-11-23T01:27:48+00:00'::timestamptz, 8, 2, 10, true, true, true),
+('172', '2026-11-23T01:27:48+00:00'::timestamptz, 12, 4, 16, true, true, true),
+('173', '2026-11-23T01:27:48+00:00'::timestamptz, 9, 2, 11, true, true, true),
+('174', '2026-11-23T01:27:48+00:00'::timestamptz, 7, 1, 35, true, true, true),
+('175', '2026-11-23T01:27:48+00:00'::timestamptz, 19, 12, 0, true, true, true),
+('176', '2026-11-23T01:27:48+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('177', '2026-11-23T01:27:48+00:00'::timestamptz, 10, 0, 14, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('178', '2026-11-23T01:27:48+00:00'::timestamptz, 16, 8, 1, true, true, true),
+('179', '2026-11-23T01:27:48+00:00'::timestamptz, 7, 1, 16, true, true, true),
+('180', '2026-11-23T01:27:48+00:00'::timestamptz, 9, 5, 6, true, true, true),
+('181', '2026-11-23T01:27:48+00:00'::timestamptz, 7, 2, 9, true, true, true),
+('182', '2026-11-23T01:27:48+00:00'::timestamptz, 12, 5, 5, true, true, true),
+('183', '2026-11-23T01:27:48+00:00'::timestamptz, 8, 1, 12, true, true, true),
+('184', '2026-11-23T01:27:48+00:00'::timestamptz, 4, 0, 15, true, true, true),
+('185', '2026-11-23T01:27:48+00:00'::timestamptz, 3, 0, 16, true, true, true),
+('186', '2026-11-23T01:27:48+00:00'::timestamptz, 9, 5, 8, true, true, true),
+('188', '2026-11-23T01:27:48+00:00'::timestamptz, 1, 1, 18, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('189', '2026-11-23T01:27:48+00:00'::timestamptz, 8, 3, 11, true, true, true),
+('190', '2026-11-23T01:27:48+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('192', '2026-11-23T01:27:48+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('194', '2026-11-23T01:27:48+00:00'::timestamptz, 17, 7, 1, true, true, true),
+('196', '2026-11-23T01:27:48+00:00'::timestamptz, 12, 4, 8, true, true, true),
+('197', '2026-11-23T01:27:48+00:00'::timestamptz, 8, 2, 8, true, true, true),
+('199', '2026-11-23T01:27:48+00:00'::timestamptz, 11, 3, 12, true, true, true),
+('200', '2026-11-23T01:27:48+00:00'::timestamptz, 1, 1, 12, true, true, true),
+('201', '2026-11-23T01:27:48+00:00'::timestamptz, 7, 5, 11, true, true, true),
+('202', '2026-11-23T01:27:48+00:00'::timestamptz, 8, 1, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('206', '2026-11-23T01:27:48+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('207', '2026-11-23T01:27:48+00:00'::timestamptz, 3, 0, 17, true, true, true),
+('208', '2026-11-23T01:27:48+00:00'::timestamptz, 6, 2, 9, true, true, true),
+('209', '2026-11-23T01:27:48+00:00'::timestamptz, 3, 1, 11, true, true, true),
+('211', '2026-11-23T01:27:48+00:00'::timestamptz, 5, 2, 11, true, true, true),
+('214', '2026-11-23T01:27:48+00:00'::timestamptz, 2, 1, 17, true, true, true),
+('215', '2026-11-23T01:27:48+00:00'::timestamptz, 0, 0, 16, false, false, false),
+('219', '2026-11-23T01:27:48+00:00'::timestamptz, 3, 1, 7, false, false, false),
+('251', '2026-11-23T01:27:48+00:00'::timestamptz, 0, 0, 36, true, true, true),
+('297', '2026-11-23T01:27:48+00:00'::timestamptz, 0, 0, 0, false, false, false)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('298', '2026-11-23T01:27:48+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('299', '2026-11-23T01:27:48+00:00'::timestamptz, 1, 0, 21, false, true, true),
+('505', '2026-11-23T01:27:48+00:00'::timestamptz, 5, 0, 0, false, true, true),
+('507', '2026-11-23T01:27:48+00:00'::timestamptz, 4, 0, 4, true, true, true),
+('522', '2026-11-23T01:27:48+00:00'::timestamptz, 4, 2, 1, false, true, true),
+('539', '2026-11-23T01:27:48+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('543', '2026-11-23T01:27:48+00:00'::timestamptz, 3, 2, 2, true, true, true),
+('557', '2026-11-23T01:27:48+00:00'::timestamptz, 2, 1, 3, true, true, true),
+('559', '2026-11-23T01:27:48+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('561', '2026-11-23T01:27:48+00:00'::timestamptz, 1, 0, 4, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('567', '2026-11-23T01:27:48+00:00'::timestamptz, 1, 1, 4, false, false, false),
+('598', '2026-11-23T01:27:48+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('599', '2026-11-23T01:27:48+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('604', '2026-11-23T01:27:48+00:00'::timestamptz, 1, 0, 4, false, true, true),
+('605', '2026-11-23T01:27:48+00:00'::timestamptz, 3, 0, 2, true, true, true),
+('606', '2026-11-23T01:27:48+00:00'::timestamptz, 1, 0, 8, false, false, false),
+('627', '2026-11-23T01:27:48+00:00'::timestamptz, 2, 0, 17, true, true, true),
+('629', '2026-11-23T01:27:48+00:00'::timestamptz, 2, 0, 2, true, true, true),
+('633', '2026-11-23T01:27:48+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('634', '2026-11-23T01:27:48+00:00'::timestamptz, 0, 0, 5, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('670', '2026-11-23T01:27:48+00:00'::timestamptz, 0, 0, 5, false, false, false),
+('672', '2026-11-23T01:27:48+00:00'::timestamptz, 4, 2, 6, true, true, true),
+('900', '2026-11-23T01:27:48+00:00'::timestamptz, 0, 0, 15, false, false, false),
+('901', '2026-11-23T01:27:48+00:00'::timestamptz, 0, 0, 20, true, false, false),
+('902', '2026-11-23T01:27:48+00:00'::timestamptz, 0, 0, 20, false, false, false),
+('903', '2026-11-23T01:27:48+00:00'::timestamptz, 22, 2, 0, true, true, true),
+('1', '2026-11-23T02:28:09+00:00'::timestamptz, 1, 1, 41, true, true, true),
+('2', '2026-11-23T02:28:09+00:00'::timestamptz, 4, 0, 14, true, true, true),
+('3', '2026-11-23T02:28:09+00:00'::timestamptz, 13, 4, 12, true, true, true),
+('4', '2026-11-23T02:28:09+00:00'::timestamptz, 5, 2, 14, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('5', '2026-11-23T02:28:09+00:00'::timestamptz, 1, 1, 39, true, true, true),
+('6', '2026-11-23T02:28:09+00:00'::timestamptz, 5, 3, 33, true, true, true),
+('7', '2026-11-23T02:28:09+00:00'::timestamptz, 3, 3, 12, true, true, true),
+('8', '2026-11-23T02:28:09+00:00'::timestamptz, 6, 1, 14, true, true, true),
+('9', '2026-11-23T02:28:09+00:00'::timestamptz, 3, 1, 17, true, true, true),
+('10', '2026-11-23T02:28:09+00:00'::timestamptz, 4, 3, 17, true, true, true),
+('11', '2026-11-23T02:28:09+00:00'::timestamptz, 7, 2, 21, true, true, true),
+('12', '2026-11-23T02:28:09+00:00'::timestamptz, 3, 2, 10, true, true, true),
+('13', '2026-11-23T02:28:09+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('14', '2026-11-23T02:28:09+00:00'::timestamptz, 6, 3, 20, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('15', '2026-11-23T02:28:09+00:00'::timestamptz, 6, 4, 5, true, true, true),
+('16', '2026-11-23T02:28:09+00:00'::timestamptz, 19, 4, 7, true, true, true),
+('17', '2026-11-23T02:28:09+00:00'::timestamptz, 6, 2, 6, true, true, true),
+('18', '2026-11-23T02:28:09+00:00'::timestamptz, 3, 3, 11, true, true, true),
+('19', '2026-11-23T02:28:09+00:00'::timestamptz, 4, 0, 26, true, true, true),
+('20', '2026-11-23T02:28:09+00:00'::timestamptz, 11, 1, 18, true, true, true),
+('21', '2026-11-23T02:28:09+00:00'::timestamptz, 1, 1, 13, true, true, true),
+('22', '2026-11-23T02:28:09+00:00'::timestamptz, 5, 0, 27, true, true, true),
+('23', '2026-11-23T02:28:09+00:00'::timestamptz, 4, 1, 36, true, true, true),
+('24', '2026-11-23T02:28:09+00:00'::timestamptz, 12, 3, 4, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('25', '2026-11-23T02:28:09+00:00'::timestamptz, 3, 2, 11, true, true, true),
+('26', '2026-11-23T02:28:09+00:00'::timestamptz, 2, 1, 10, true, true, true),
+('27', '2026-11-23T02:28:09+00:00'::timestamptz, 11, 5, 7, true, true, true),
+('28', '2026-11-23T02:28:09+00:00'::timestamptz, 0, 0, 26, true, false, false),
+('29', '2026-11-23T02:28:09+00:00'::timestamptz, 8, 4, 9, true, true, true),
+('30', '2026-11-23T02:28:09+00:00'::timestamptz, 13, 4, 4, true, true, true),
+('31', '2026-11-23T02:28:09+00:00'::timestamptz, 5, 0, 8, true, true, true),
+('32', '2026-11-23T02:28:09+00:00'::timestamptz, 15, 2, 0, true, true, true),
+('33', '2026-11-23T02:28:09+00:00'::timestamptz, 2, 0, 18, true, true, true),
+('34', '2026-11-23T02:28:09+00:00'::timestamptz, 4, 1, 11, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('35', '2026-11-23T02:28:09+00:00'::timestamptz, 7, 2, 11, true, true, true),
+('36', '2026-11-23T02:28:09+00:00'::timestamptz, 7, 2, 11, true, true, true),
+('37', '2026-11-23T02:28:09+00:00'::timestamptz, 19, 3, 8, true, true, true),
+('38', '2026-11-23T02:28:09+00:00'::timestamptz, 2, 0, 12, true, true, true),
+('39', '2026-11-23T02:28:09+00:00'::timestamptz, 6, 1, 58, true, true, true),
+('40', '2026-11-23T02:28:09+00:00'::timestamptz, 3, 3, 16, true, true, true),
+('41', '2026-11-23T02:28:09+00:00'::timestamptz, 2, 1, 15, true, true, true),
+('42', '2026-11-23T02:28:09+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('43', '2026-11-23T02:28:09+00:00'::timestamptz, 4, 0, 10, true, true, true),
+('44', '2026-11-23T02:28:09+00:00'::timestamptz, 6, 0, 13, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('45', '2026-11-23T02:28:09+00:00'::timestamptz, 2, 2, 12, true, true, true),
+('46', '2026-11-23T02:28:09+00:00'::timestamptz, 11, 1, 9, true, true, true),
+('47', '2026-11-23T02:28:09+00:00'::timestamptz, 1, 1, 13, true, true, true),
+('48', '2026-11-23T02:28:09+00:00'::timestamptz, 7, 3, 8, true, true, true),
+('49', '2026-11-23T02:28:09+00:00'::timestamptz, 11, 3, 7, true, true, true),
+('50', '2026-11-23T02:28:09+00:00'::timestamptz, 12, 4, 1, true, true, true),
+('51', '2026-11-23T02:28:09+00:00'::timestamptz, 14, 1, 5, true, true, true),
+('52', '2026-11-23T02:28:09+00:00'::timestamptz, 13, 4, 4, true, true, true),
+('53', '2026-11-23T02:28:09+00:00'::timestamptz, 13, 5, 1, true, true, true),
+('54', '2026-11-23T02:28:09+00:00'::timestamptz, 0, 0, 44, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('55', '2026-11-23T02:28:09+00:00'::timestamptz, 3, 0, 13, true, true, true),
+('56', '2026-11-23T02:28:09+00:00'::timestamptz, 6, 2, 4, true, true, true),
+('57', '2026-11-23T02:28:09+00:00'::timestamptz, 6, 0, 10, true, true, true),
+('58', '2026-11-23T02:28:09+00:00'::timestamptz, 7, 2, 10, true, true, true),
+('59', '2026-11-23T02:28:09+00:00'::timestamptz, 6, 1, 10, true, true, true),
+('60', '2026-11-23T02:28:09+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('61', '2026-11-23T02:28:09+00:00'::timestamptz, 7, 2, 8, true, true, true),
+('62', '2026-11-23T02:28:09+00:00'::timestamptz, 8, 3, 15, true, true, true),
+('63', '2026-11-23T02:28:09+00:00'::timestamptz, 10, 3, 7, true, true, true),
+('64', '2026-11-23T02:28:09+00:00'::timestamptz, 1, 0, 14, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('65', '2026-11-23T02:28:09+00:00'::timestamptz, 2, 1, 16, true, true, true),
+('66', '2026-11-23T02:28:09+00:00'::timestamptz, 3, 0, 16, true, true, true),
+('67', '2026-11-23T02:28:09+00:00'::timestamptz, 3, 1, 17, true, true, true),
+('68', '2026-11-23T02:28:09+00:00'::timestamptz, 4, 3, 12, true, true, true),
+('69', '2026-11-23T02:28:09+00:00'::timestamptz, 2, 1, 12, true, true, true),
+('70', '2026-11-23T02:28:09+00:00'::timestamptz, 2, 2, 17, true, true, true),
+('72', '2026-11-23T02:28:09+00:00'::timestamptz, 6, 4, 17, true, true, true),
+('73', '2026-11-23T02:28:09+00:00'::timestamptz, 2, 1, 17, true, true, true),
+('74', '2026-11-23T02:28:09+00:00'::timestamptz, 17, 11, 5, true, true, true),
+('75', '2026-11-23T02:28:09+00:00'::timestamptz, 13, 4, 3, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('76', '2026-11-23T02:28:09+00:00'::timestamptz, 13, 2, 5, true, true, true),
+('77', '2026-11-23T02:28:09+00:00'::timestamptz, 8, 1, 11, true, true, true),
+('78', '2026-11-23T02:28:09+00:00'::timestamptz, 10, 5, 10, true, true, true),
+('79', '2026-11-23T02:28:09+00:00'::timestamptz, 14, 3, 5, true, true, true),
+('80', '2026-11-23T02:28:09+00:00'::timestamptz, 5, 5, 11, true, true, true),
+('81', '2026-11-23T02:28:09+00:00'::timestamptz, 10, 2, 10, true, true, true),
+('82', '2026-11-23T02:28:09+00:00'::timestamptz, 9, 4, 11, true, true, true),
+('83', '2026-11-23T02:28:09+00:00'::timestamptz, 13, 4, 4, true, true, true),
+('84', '2026-11-23T02:28:09+00:00'::timestamptz, 15, 9, 2, true, true, true),
+('85', '2026-11-23T02:28:09+00:00'::timestamptz, 0, 0, 18, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('86', '2026-11-23T02:28:09+00:00'::timestamptz, 11, 3, 8, true, true, true),
+('87', '2026-11-23T02:28:09+00:00'::timestamptz, 12, 5, 7, true, true, true),
+('88', '2026-11-23T02:28:09+00:00'::timestamptz, 6, 5, 11, true, true, true),
+('89', '2026-11-23T02:28:09+00:00'::timestamptz, 10, 3, 10, true, true, true),
+('90', '2026-11-23T02:28:09+00:00'::timestamptz, 14, 7, 4, true, true, true),
+('91', '2026-11-23T02:28:09+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('92', '2026-11-23T02:28:09+00:00'::timestamptz, 6, 5, 9, true, true, true),
+('93', '2026-11-23T02:28:09+00:00'::timestamptz, 12, 7, 2, true, true, true),
+('94', '2026-11-23T02:28:09+00:00'::timestamptz, 0, 0, 1, true, false, false),
+('95', '2026-11-23T02:28:09+00:00'::timestamptz, 5, 3, 11, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('96', '2026-11-23T02:28:09+00:00'::timestamptz, 24, 11, 2, true, true, true),
+('97', '2026-11-23T02:28:09+00:00'::timestamptz, 2, 0, 18, true, true, true),
+('98', '2026-11-23T02:28:09+00:00'::timestamptz, 0, 0, 16, true, true, true),
+('99', '2026-11-23T02:28:09+00:00'::timestamptz, 9, 1, 20, true, true, true),
+('100', '2026-11-23T02:28:09+00:00'::timestamptz, 21, 5, 35, true, true, true),
+('101', '2026-11-23T02:28:09+00:00'::timestamptz, 7, 5, 12, true, true, true),
+('102', '2026-11-23T02:28:09+00:00'::timestamptz, 0, 0, 39, true, true, true),
+('103', '2026-11-23T02:28:09+00:00'::timestamptz, 5, 1, 27, true, true, true),
+('104', '2026-11-23T02:28:09+00:00'::timestamptz, 1, 0, 3, true, true, true),
+('105', '2026-11-23T02:28:09+00:00'::timestamptz, 4, 3, 16, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('106', '2026-11-23T02:28:09+00:00'::timestamptz, 0, 0, 39, true, false, false),
+('107', '2026-11-23T02:28:09+00:00'::timestamptz, 1, 1, 11, true, true, true),
+('108', '2026-11-23T02:28:09+00:00'::timestamptz, 7, 3, 7, true, true, true),
+('109', '2026-11-23T02:28:09+00:00'::timestamptz, 2, 0, 30, true, true, true),
+('110', '2026-11-23T02:28:09+00:00'::timestamptz, 9, 4, 26, true, true, true),
+('111', '2026-11-23T02:28:09+00:00'::timestamptz, 4, 1, 33, true, true, true),
+('112', '2026-11-23T02:28:09+00:00'::timestamptz, 10, 2, 29, true, true, true),
+('113', '2026-11-23T02:28:09+00:00'::timestamptz, 2, 0, 15, true, true, true),
+('114', '2026-11-23T02:28:09+00:00'::timestamptz, 14, 1, 10, true, true, true),
+('115', '2026-11-23T02:28:09+00:00'::timestamptz, 0, 0, 1, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('116', '2026-11-23T02:28:09+00:00'::timestamptz, 8, 0, 28, true, true, true),
+('117', '2026-11-23T02:28:09+00:00'::timestamptz, 12, 6, 3, true, true, true),
+('118', '2026-11-23T02:28:09+00:00'::timestamptz, 9, 2, 8, true, true, true),
+('119', '2026-11-23T02:28:09+00:00'::timestamptz, 5, 2, 15, true, true, true),
+('120', '2026-11-23T02:28:09+00:00'::timestamptz, 23, 5, 0, true, true, true),
+('121', '2026-11-23T02:28:09+00:00'::timestamptz, 7, 2, 7, true, true, true),
+('122', '2026-11-23T02:28:09+00:00'::timestamptz, 2, 2, 13, true, true, true),
+('123', '2026-11-23T02:28:09+00:00'::timestamptz, 2, 1, 32, true, true, true),
+('124', '2026-11-23T02:28:09+00:00'::timestamptz, 2, 0, 18, true, true, true),
+('125', '2026-11-23T02:28:09+00:00'::timestamptz, 5, 2, 25, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('126', '2026-11-23T02:28:09+00:00'::timestamptz, 6, 1, 4, true, true, true),
+('127', '2026-11-23T02:28:09+00:00'::timestamptz, 3, 2, 19, true, true, true),
+('128', '2026-11-23T02:28:09+00:00'::timestamptz, 7, 3, 6, true, true, true),
+('129', '2026-11-23T02:28:09+00:00'::timestamptz, 2, 1, 11, true, true, true),
+('130', '2026-11-23T02:28:09+00:00'::timestamptz, 8, 2, 10, true, true, true),
+('131', '2026-11-23T02:28:09+00:00'::timestamptz, 3, 0, 10, true, true, true),
+('132', '2026-11-23T02:28:09+00:00'::timestamptz, 4, 0, 9, true, true, true),
+('133', '2026-11-23T02:28:09+00:00'::timestamptz, 4, 2, 14, true, true, true),
+('134', '2026-11-23T02:28:09+00:00'::timestamptz, 5, 2, 14, true, true, true),
+('135', '2026-11-23T02:28:09+00:00'::timestamptz, 0, 0, 19, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('136', '2026-11-23T02:28:09+00:00'::timestamptz, 1, 0, 17, true, true, true),
+('137', '2026-11-23T02:28:09+00:00'::timestamptz, 0, 0, 25, true, true, true),
+('138', '2026-11-23T02:28:09+00:00'::timestamptz, 4, 2, 14, true, true, true),
+('139', '2026-11-23T02:28:09+00:00'::timestamptz, 5, 2, 10, true, true, true),
+('140', '2026-11-23T02:28:09+00:00'::timestamptz, 16, 6, 4, true, true, true),
+('141', '2026-11-23T02:28:09+00:00'::timestamptz, 14, 6, 5, true, true, true),
+('142', '2026-11-23T02:28:09+00:00'::timestamptz, 7, 1, 13, true, true, true),
+('143', '2026-11-23T02:28:09+00:00'::timestamptz, 1, 1, 15, true, true, true),
+('144', '2026-11-23T02:28:09+00:00'::timestamptz, 5, 1, 14, true, true, true),
+('145', '2026-11-23T02:28:09+00:00'::timestamptz, 11, 4, 4, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('146', '2026-11-23T02:28:09+00:00'::timestamptz, 15, 4, 14, true, true, true),
+('147', '2026-11-23T02:28:09+00:00'::timestamptz, 25, 10, 4, true, true, true),
+('148', '2026-11-23T02:28:09+00:00'::timestamptz, 1, 1, 17, true, true, true),
+('149', '2026-11-23T02:28:09+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('150', '2026-11-23T02:28:09+00:00'::timestamptz, 13, 2, 2, true, true, true),
+('151', '2026-11-23T02:28:09+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('152', '2026-11-23T02:28:09+00:00'::timestamptz, 17, 6, 1, true, true, true),
+('153', '2026-11-23T02:28:09+00:00'::timestamptz, 17, 7, 1, true, true, true),
+('154', '2026-11-23T02:28:09+00:00'::timestamptz, 15, 1, 1, true, true, true),
+('155', '2026-11-23T02:28:09+00:00'::timestamptz, 6, 2, 14, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('156', '2026-11-23T02:28:09+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('157', '2026-11-23T02:28:09+00:00'::timestamptz, 1, 0, 19, true, true, true),
+('158', '2026-11-23T02:28:09+00:00'::timestamptz, 7, 4, 13, true, true, true),
+('159', '2026-11-23T02:28:09+00:00'::timestamptz, 3, 3, 21, true, true, true),
+('160', '2026-11-23T02:28:09+00:00'::timestamptz, 2, 0, 17, true, true, true),
+('161', '2026-11-23T02:28:09+00:00'::timestamptz, 14, 6, 6, true, true, true),
+('162', '2026-11-23T02:28:09+00:00'::timestamptz, 15, 1, 3, true, true, true),
+('163', '2026-11-23T02:28:09+00:00'::timestamptz, 17, 5, 2, true, true, true),
+('164', '2026-11-23T02:28:09+00:00'::timestamptz, 7, 2, 11, true, true, true),
+('165', '2026-11-23T02:28:09+00:00'::timestamptz, 10, 7, 0, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('166', '2026-11-23T02:28:09+00:00'::timestamptz, 9, 1, 9, true, true, true),
+('167', '2026-11-23T02:28:09+00:00'::timestamptz, 8, 1, 11, true, true, true),
+('168', '2026-11-23T02:28:09+00:00'::timestamptz, 15, 5, 4, true, true, true),
+('169', '2026-11-23T02:28:09+00:00'::timestamptz, 6, 5, 14, true, true, true),
+('170', '2026-11-23T02:28:09+00:00'::timestamptz, 1, 0, 19, true, true, true),
+('171', '2026-11-23T02:28:09+00:00'::timestamptz, 8, 2, 10, true, true, true),
+('172', '2026-11-23T02:28:09+00:00'::timestamptz, 11, 4, 17, true, true, true),
+('173', '2026-11-23T02:28:09+00:00'::timestamptz, 9, 2, 11, true, true, true),
+('174', '2026-11-23T02:28:09+00:00'::timestamptz, 7, 1, 35, true, true, true),
+('175', '2026-11-23T02:28:09+00:00'::timestamptz, 19, 12, 0, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('176', '2026-11-23T02:28:09+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('177', '2026-11-23T02:28:09+00:00'::timestamptz, 10, 0, 14, true, true, true),
+('178', '2026-11-23T02:28:09+00:00'::timestamptz, 16, 8, 1, true, true, true),
+('179', '2026-11-23T02:28:09+00:00'::timestamptz, 9, 3, 14, true, true, true),
+('180', '2026-11-23T02:28:09+00:00'::timestamptz, 9, 5, 6, true, true, true),
+('181', '2026-11-23T02:28:09+00:00'::timestamptz, 7, 2, 9, true, true, true),
+('182', '2026-11-23T02:28:09+00:00'::timestamptz, 12, 5, 5, true, true, true),
+('183', '2026-11-23T02:28:09+00:00'::timestamptz, 8, 1, 12, true, true, true),
+('184', '2026-11-23T02:28:09+00:00'::timestamptz, 4, 0, 15, true, true, true),
+('185', '2026-11-23T02:28:09+00:00'::timestamptz, 3, 0, 16, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('186', '2026-11-23T02:28:09+00:00'::timestamptz, 9, 5, 8, true, true, true),
+('188', '2026-11-23T02:28:09+00:00'::timestamptz, 1, 1, 18, true, true, true),
+('189', '2026-11-23T02:28:09+00:00'::timestamptz, 8, 3, 11, true, true, true),
+('190', '2026-11-23T02:28:09+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('192', '2026-11-23T02:28:09+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('194', '2026-11-23T02:28:09+00:00'::timestamptz, 17, 7, 1, true, true, true),
+('196', '2026-11-23T02:28:09+00:00'::timestamptz, 13, 5, 7, true, true, true),
+('197', '2026-11-23T02:28:09+00:00'::timestamptz, 8, 2, 8, true, true, true),
+('199', '2026-11-23T02:28:09+00:00'::timestamptz, 11, 3, 12, true, true, true),
+('200', '2026-11-23T02:28:09+00:00'::timestamptz, 1, 1, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('201', '2026-11-23T02:28:09+00:00'::timestamptz, 7, 5, 11, true, true, true),
+('202', '2026-11-23T02:28:09+00:00'::timestamptz, 8, 1, 10, true, true, true),
+('206', '2026-11-23T02:28:09+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('207', '2026-11-23T02:28:09+00:00'::timestamptz, 2, 0, 18, true, true, true),
+('208', '2026-11-23T02:28:09+00:00'::timestamptz, 8, 3, 7, true, true, true),
+('209', '2026-11-23T02:28:09+00:00'::timestamptz, 3, 1, 11, true, true, true),
+('211', '2026-11-23T02:28:09+00:00'::timestamptz, 5, 2, 11, true, true, true),
+('214', '2026-11-23T02:28:09+00:00'::timestamptz, 2, 1, 17, true, true, true),
+('215', '2026-11-23T02:28:09+00:00'::timestamptz, 0, 0, 16, false, false, false),
+('219', '2026-11-23T02:28:09+00:00'::timestamptz, 3, 1, 7, false, false, false)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('251', '2026-11-23T02:28:09+00:00'::timestamptz, 0, 0, 36, true, true, true),
+('297', '2026-11-23T02:28:09+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('298', '2026-11-23T02:28:09+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('299', '2026-11-23T02:28:09+00:00'::timestamptz, 1, 0, 21, false, true, true),
+('505', '2026-11-23T02:28:09+00:00'::timestamptz, 5, 0, 0, false, true, true),
+('507', '2026-11-23T02:28:09+00:00'::timestamptz, 4, 0, 4, true, true, true),
+('522', '2026-11-23T02:28:09+00:00'::timestamptz, 4, 2, 1, false, true, true),
+('539', '2026-11-23T02:28:09+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('543', '2026-11-23T02:28:09+00:00'::timestamptz, 3, 2, 2, true, true, true),
+('557', '2026-11-23T02:28:09+00:00'::timestamptz, 2, 1, 3, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('559', '2026-11-23T02:28:09+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('561', '2026-11-23T02:28:09+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('567', '2026-11-23T02:28:09+00:00'::timestamptz, 1, 1, 4, false, false, false),
+('598', '2026-11-23T02:28:09+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('599', '2026-11-23T02:28:09+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('604', '2026-11-23T02:28:09+00:00'::timestamptz, 1, 0, 4, false, true, true),
+('605', '2026-11-23T02:28:09+00:00'::timestamptz, 3, 0, 2, true, true, true),
+('606', '2026-11-23T02:28:09+00:00'::timestamptz, 1, 0, 8, false, false, false),
+('627', '2026-11-23T02:28:09+00:00'::timestamptz, 2, 0, 17, true, true, true),
+('629', '2026-11-23T02:28:09+00:00'::timestamptz, 2, 0, 2, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('633', '2026-11-23T02:28:09+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('634', '2026-11-23T02:28:09+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('670', '2026-11-23T02:28:09+00:00'::timestamptz, 0, 0, 5, false, false, false),
+('672', '2026-11-23T02:28:09+00:00'::timestamptz, 4, 2, 6, true, true, true),
+('900', '2026-11-23T02:28:09+00:00'::timestamptz, 0, 0, 15, false, false, false),
+('901', '2026-11-23T02:28:09+00:00'::timestamptz, 0, 0, 20, true, false, false),
+('902', '2026-11-23T02:28:09+00:00'::timestamptz, 0, 0, 20, false, false, false),
+('903', '2026-11-23T02:28:09+00:00'::timestamptz, 22, 2, 0, true, true, true),
+('1', '2026-11-23T03:28:11+00:00'::timestamptz, 2, 2, 40, true, true, true),
+('2', '2026-11-23T03:28:11+00:00'::timestamptz, 4, 0, 14, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('3', '2026-11-23T03:28:11+00:00'::timestamptz, 13, 4, 12, true, true, true),
+('4', '2026-11-23T03:28:11+00:00'::timestamptz, 5, 2, 14, true, true, true),
+('5', '2026-11-23T03:28:11+00:00'::timestamptz, 1, 1, 39, true, true, true),
+('6', '2026-11-23T03:28:11+00:00'::timestamptz, 4, 2, 34, true, true, true),
+('7', '2026-11-23T03:28:11+00:00'::timestamptz, 3, 3, 12, true, true, true),
+('8', '2026-11-23T03:28:11+00:00'::timestamptz, 4, 0, 16, true, true, true),
+('9', '2026-11-23T03:28:11+00:00'::timestamptz, 3, 1, 17, true, true, true),
+('10', '2026-11-23T03:28:11+00:00'::timestamptz, 5, 4, 16, true, true, true),
+('11', '2026-11-23T03:28:11+00:00'::timestamptz, 7, 2, 21, true, true, true),
+('12', '2026-11-23T03:28:11+00:00'::timestamptz, 3, 2, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('13', '2026-11-23T03:28:11+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('14', '2026-11-23T03:28:11+00:00'::timestamptz, 6, 3, 20, true, true, true),
+('15', '2026-11-23T03:28:11+00:00'::timestamptz, 6, 4, 5, true, true, true),
+('16', '2026-11-23T03:28:11+00:00'::timestamptz, 18, 3, 8, true, true, true),
+('17', '2026-11-23T03:28:11+00:00'::timestamptz, 6, 2, 6, true, true, true),
+('18', '2026-11-23T03:28:11+00:00'::timestamptz, 3, 3, 11, true, true, true),
+('19', '2026-11-23T03:28:11+00:00'::timestamptz, 4, 0, 26, true, true, true),
+('20', '2026-11-23T03:28:11+00:00'::timestamptz, 11, 1, 18, true, true, true),
+('21', '2026-11-23T03:28:11+00:00'::timestamptz, 1, 1, 13, true, true, true),
+('22', '2026-11-23T03:28:11+00:00'::timestamptz, 5, 0, 27, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('23', '2026-11-23T03:28:11+00:00'::timestamptz, 3, 0, 37, true, true, true),
+('24', '2026-11-23T03:28:11+00:00'::timestamptz, 12, 3, 4, true, true, true),
+('25', '2026-11-23T03:28:11+00:00'::timestamptz, 3, 2, 11, true, true, true),
+('26', '2026-11-23T03:28:11+00:00'::timestamptz, 2, 1, 10, true, true, true),
+('27', '2026-11-23T03:28:11+00:00'::timestamptz, 11, 5, 7, true, true, true),
+('28', '2026-11-23T03:28:11+00:00'::timestamptz, 0, 0, 26, true, false, false),
+('29', '2026-11-23T03:28:11+00:00'::timestamptz, 8, 4, 9, true, true, true),
+('30', '2026-11-23T03:28:11+00:00'::timestamptz, 13, 4, 4, true, true, true),
+('31', '2026-11-23T03:28:11+00:00'::timestamptz, 5, 0, 8, true, true, true),
+('32', '2026-11-23T03:28:11+00:00'::timestamptz, 15, 2, 0, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('33', '2026-11-23T03:28:11+00:00'::timestamptz, 2, 0, 18, true, true, true),
+('34', '2026-11-23T03:28:11+00:00'::timestamptz, 4, 1, 11, true, true, true),
+('35', '2026-11-23T03:28:11+00:00'::timestamptz, 7, 2, 11, true, true, true),
+('36', '2026-11-23T03:28:11+00:00'::timestamptz, 7, 2, 11, true, true, true),
+('37', '2026-11-23T03:28:11+00:00'::timestamptz, 19, 3, 8, true, true, true),
+('38', '2026-11-23T03:28:11+00:00'::timestamptz, 2, 0, 12, true, true, true),
+('39', '2026-11-23T03:28:11+00:00'::timestamptz, 6, 1, 58, true, true, true),
+('40', '2026-11-23T03:28:11+00:00'::timestamptz, 3, 3, 16, true, true, true),
+('41', '2026-11-23T03:28:11+00:00'::timestamptz, 2, 1, 15, true, true, true),
+('42', '2026-11-23T03:28:11+00:00'::timestamptz, 0, 0, 19, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('43', '2026-11-23T03:28:11+00:00'::timestamptz, 4, 0, 10, true, true, true),
+('44', '2026-11-23T03:28:11+00:00'::timestamptz, 5, 0, 14, true, true, true),
+('45', '2026-11-23T03:28:11+00:00'::timestamptz, 2, 2, 12, true, true, true),
+('46', '2026-11-23T03:28:11+00:00'::timestamptz, 11, 1, 9, true, true, true),
+('47', '2026-11-23T03:28:11+00:00'::timestamptz, 1, 1, 13, true, true, true),
+('48', '2026-11-23T03:28:11+00:00'::timestamptz, 7, 3, 8, true, true, true),
+('49', '2026-11-23T03:28:11+00:00'::timestamptz, 11, 3, 7, true, true, true),
+('50', '2026-11-23T03:28:11+00:00'::timestamptz, 12, 4, 1, true, true, true),
+('51', '2026-11-23T03:28:11+00:00'::timestamptz, 14, 1, 5, true, true, true),
+('52', '2026-11-23T03:28:11+00:00'::timestamptz, 13, 4, 4, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('53', '2026-11-23T03:28:11+00:00'::timestamptz, 13, 5, 1, true, true, true),
+('54', '2026-11-23T03:28:11+00:00'::timestamptz, 0, 0, 44, true, true, true),
+('55', '2026-11-23T03:28:11+00:00'::timestamptz, 3, 0, 13, true, true, true),
+('56', '2026-11-23T03:28:11+00:00'::timestamptz, 6, 2, 4, true, true, true),
+('57', '2026-11-23T03:28:11+00:00'::timestamptz, 6, 0, 10, true, true, true),
+('58', '2026-11-23T03:28:11+00:00'::timestamptz, 7, 2, 10, true, true, true),
+('59', '2026-11-23T03:28:11+00:00'::timestamptz, 6, 1, 10, true, true, true),
+('60', '2026-11-23T03:28:11+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('61', '2026-11-23T03:28:11+00:00'::timestamptz, 7, 2, 8, true, true, true),
+('62', '2026-11-23T03:28:11+00:00'::timestamptz, 8, 3, 15, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('63', '2026-11-23T03:28:11+00:00'::timestamptz, 10, 3, 7, true, true, true),
+('64', '2026-11-23T03:28:11+00:00'::timestamptz, 1, 0, 14, true, true, true),
+('65', '2026-11-23T03:28:11+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('66', '2026-11-23T03:28:11+00:00'::timestamptz, 3, 0, 16, true, true, true),
+('67', '2026-11-23T03:28:11+00:00'::timestamptz, 3, 1, 17, true, true, true),
+('68', '2026-11-23T03:28:11+00:00'::timestamptz, 4, 3, 12, true, true, true),
+('69', '2026-11-23T03:28:11+00:00'::timestamptz, 2, 1, 12, true, true, true),
+('70', '2026-11-23T03:28:11+00:00'::timestamptz, 2, 2, 17, true, true, true),
+('72', '2026-11-23T03:28:11+00:00'::timestamptz, 6, 4, 17, true, true, true),
+('73', '2026-11-23T03:28:11+00:00'::timestamptz, 2, 1, 17, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('74', '2026-11-23T03:28:11+00:00'::timestamptz, 16, 10, 6, true, true, true),
+('75', '2026-11-23T03:28:11+00:00'::timestamptz, 13, 4, 3, true, true, true),
+('76', '2026-11-23T03:28:11+00:00'::timestamptz, 13, 2, 5, true, true, true),
+('77', '2026-11-23T03:28:11+00:00'::timestamptz, 8, 1, 11, true, true, true),
+('78', '2026-11-23T03:28:11+00:00'::timestamptz, 10, 5, 10, true, true, true),
+('79', '2026-11-23T03:28:11+00:00'::timestamptz, 15, 4, 4, true, true, true),
+('80', '2026-11-23T03:28:11+00:00'::timestamptz, 4, 4, 12, true, true, true),
+('81', '2026-11-23T03:28:11+00:00'::timestamptz, 10, 2, 10, true, true, true),
+('82', '2026-11-23T03:28:11+00:00'::timestamptz, 9, 4, 11, true, true, true),
+('83', '2026-11-23T03:28:11+00:00'::timestamptz, 13, 4, 4, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('84', '2026-11-23T03:28:11+00:00'::timestamptz, 15, 9, 2, true, true, true),
+('85', '2026-11-23T03:28:11+00:00'::timestamptz, 1, 1, 17, true, true, true),
+('86', '2026-11-23T03:28:11+00:00'::timestamptz, 11, 3, 8, true, true, true),
+('87', '2026-11-23T03:28:11+00:00'::timestamptz, 12, 5, 7, true, true, true),
+('88', '2026-11-23T03:28:11+00:00'::timestamptz, 6, 5, 11, true, true, true),
+('89', '2026-11-23T03:28:11+00:00'::timestamptz, 10, 3, 10, true, true, true),
+('90', '2026-11-23T03:28:11+00:00'::timestamptz, 14, 7, 4, true, true, true),
+('91', '2026-11-23T03:28:11+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('92', '2026-11-23T03:28:11+00:00'::timestamptz, 6, 5, 9, true, true, true),
+('93', '2026-11-23T03:28:11+00:00'::timestamptz, 12, 7, 2, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('94', '2026-11-23T03:28:11+00:00'::timestamptz, 0, 0, 1, true, false, false),
+('95', '2026-11-23T03:28:11+00:00'::timestamptz, 5, 3, 11, true, true, true),
+('96', '2026-11-23T03:28:11+00:00'::timestamptz, 24, 11, 2, true, true, true),
+('97', '2026-11-23T03:28:11+00:00'::timestamptz, 2, 0, 18, true, true, true),
+('98', '2026-11-23T03:28:11+00:00'::timestamptz, 0, 0, 16, true, true, true),
+('99', '2026-11-23T03:28:11+00:00'::timestamptz, 9, 1, 20, true, true, true),
+('100', '2026-11-23T03:28:11+00:00'::timestamptz, 22, 6, 34, true, true, true),
+('101', '2026-11-23T03:28:11+00:00'::timestamptz, 6, 4, 13, true, true, true),
+('102', '2026-11-23T03:28:11+00:00'::timestamptz, 0, 0, 39, true, true, true),
+('103', '2026-11-23T03:28:11+00:00'::timestamptz, 5, 1, 27, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('104', '2026-11-23T03:28:11+00:00'::timestamptz, 1, 0, 3, true, true, true),
+('105', '2026-11-23T03:28:11+00:00'::timestamptz, 4, 3, 16, true, true, true),
+('106', '2026-11-23T03:28:11+00:00'::timestamptz, 0, 0, 39, true, false, false),
+('107', '2026-11-23T03:28:11+00:00'::timestamptz, 1, 1, 11, true, true, true),
+('108', '2026-11-23T03:28:11+00:00'::timestamptz, 7, 3, 7, true, true, true),
+('109', '2026-11-23T03:28:11+00:00'::timestamptz, 2, 0, 30, true, true, true),
+('110', '2026-11-23T03:28:11+00:00'::timestamptz, 8, 3, 27, true, true, true),
+('111', '2026-11-23T03:28:11+00:00'::timestamptz, 4, 1, 33, true, true, true),
+('112', '2026-11-23T03:28:11+00:00'::timestamptz, 10, 2, 29, true, true, true),
+('113', '2026-11-23T03:28:11+00:00'::timestamptz, 2, 0, 15, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('114', '2026-11-23T03:28:11+00:00'::timestamptz, 14, 1, 10, true, true, true),
+('115', '2026-11-23T03:28:11+00:00'::timestamptz, 0, 0, 1, true, true, true),
+('116', '2026-11-23T03:28:11+00:00'::timestamptz, 8, 0, 28, true, true, true),
+('117', '2026-11-23T03:28:11+00:00'::timestamptz, 12, 6, 3, true, true, true),
+('118', '2026-11-23T03:28:11+00:00'::timestamptz, 9, 2, 8, true, true, true),
+('119', '2026-11-23T03:28:11+00:00'::timestamptz, 5, 2, 15, true, true, true),
+('120', '2026-11-23T03:28:11+00:00'::timestamptz, 23, 5, 0, true, true, true),
+('121', '2026-11-23T03:28:11+00:00'::timestamptz, 7, 2, 7, true, true, true),
+('122', '2026-11-23T03:28:11+00:00'::timestamptz, 2, 2, 13, true, true, true),
+('123', '2026-11-23T03:28:11+00:00'::timestamptz, 2, 1, 33, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('124', '2026-11-23T03:28:11+00:00'::timestamptz, 2, 0, 18, true, true, true),
+('125', '2026-11-23T03:28:11+00:00'::timestamptz, 6, 3, 24, true, true, true),
+('126', '2026-11-23T03:28:11+00:00'::timestamptz, 6, 2, 4, true, true, true),
+('127', '2026-11-23T03:28:11+00:00'::timestamptz, 3, 2, 19, true, true, true),
+('128', '2026-11-23T03:28:11+00:00'::timestamptz, 7, 3, 6, true, true, true),
+('129', '2026-11-23T03:28:11+00:00'::timestamptz, 1, 0, 12, true, true, true),
+('130', '2026-11-23T03:28:11+00:00'::timestamptz, 7, 1, 11, true, true, true),
+('131', '2026-11-23T03:28:11+00:00'::timestamptz, 3, 0, 10, true, true, true),
+('132', '2026-11-23T03:28:11+00:00'::timestamptz, 3, 0, 10, true, true, true),
+('133', '2026-11-23T03:28:11+00:00'::timestamptz, 4, 2, 14, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('134', '2026-11-23T03:28:11+00:00'::timestamptz, 5, 2, 14, true, true, true),
+('135', '2026-11-23T03:28:11+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('136', '2026-11-23T03:28:11+00:00'::timestamptz, 1, 0, 17, true, true, true),
+('137', '2026-11-23T03:28:11+00:00'::timestamptz, 1, 1, 24, true, true, true),
+('138', '2026-11-23T03:28:11+00:00'::timestamptz, 4, 2, 14, true, true, true),
+('139', '2026-11-23T03:28:11+00:00'::timestamptz, 5, 2, 9, true, true, true),
+('140', '2026-11-23T03:28:11+00:00'::timestamptz, 16, 6, 4, true, true, true),
+('141', '2026-11-23T03:28:11+00:00'::timestamptz, 14, 6, 5, true, true, true),
+('142', '2026-11-23T03:28:11+00:00'::timestamptz, 7, 1, 13, true, true, true),
+('143', '2026-11-23T03:28:11+00:00'::timestamptz, 1, 1, 15, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('144', '2026-11-23T03:28:11+00:00'::timestamptz, 5, 1, 14, true, true, true),
+('145', '2026-11-23T03:28:11+00:00'::timestamptz, 11, 4, 4, true, true, true),
+('146', '2026-11-23T03:28:11+00:00'::timestamptz, 15, 4, 14, true, true, true),
+('147', '2026-11-23T03:28:11+00:00'::timestamptz, 25, 10, 4, true, true, true),
+('148', '2026-11-23T03:28:11+00:00'::timestamptz, 1, 1, 17, true, true, true),
+('149', '2026-11-23T03:28:11+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('150', '2026-11-23T03:28:11+00:00'::timestamptz, 13, 2, 2, true, true, true),
+('151', '2026-11-23T03:28:11+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('152', '2026-11-23T03:28:11+00:00'::timestamptz, 17, 6, 1, true, true, true),
+('153', '2026-11-23T03:28:11+00:00'::timestamptz, 17, 7, 1, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('154', '2026-11-23T03:28:11+00:00'::timestamptz, 15, 1, 1, true, true, true),
+('155', '2026-11-23T03:28:11+00:00'::timestamptz, 7, 3, 13, true, true, true),
+('156', '2026-11-23T03:28:11+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('157', '2026-11-23T03:28:11+00:00'::timestamptz, 1, 0, 19, true, true, true),
+('158', '2026-11-23T03:28:11+00:00'::timestamptz, 6, 3, 14, true, true, true),
+('159', '2026-11-23T03:28:11+00:00'::timestamptz, 3, 3, 21, true, true, true),
+('160', '2026-11-23T03:28:11+00:00'::timestamptz, 2, 0, 17, true, true, true),
+('161', '2026-11-23T03:28:11+00:00'::timestamptz, 14, 6, 6, true, true, true),
+('162', '2026-11-23T03:28:11+00:00'::timestamptz, 15, 1, 3, true, true, true),
+('163', '2026-11-23T03:28:11+00:00'::timestamptz, 17, 5, 2, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('164', '2026-11-23T03:28:11+00:00'::timestamptz, 7, 2, 11, true, true, true),
+('165', '2026-11-23T03:28:11+00:00'::timestamptz, 10, 7, 0, true, true, true),
+('166', '2026-11-23T03:28:11+00:00'::timestamptz, 10, 2, 8, true, true, true),
+('167', '2026-11-23T03:28:11+00:00'::timestamptz, 7, 1, 12, true, true, true),
+('168', '2026-11-23T03:28:11+00:00'::timestamptz, 15, 5, 4, true, true, true),
+('169', '2026-11-23T03:28:11+00:00'::timestamptz, 6, 5, 14, true, true, true),
+('170', '2026-11-23T03:28:11+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('171', '2026-11-23T03:28:11+00:00'::timestamptz, 8, 2, 10, true, true, true),
+('172', '2026-11-23T03:28:11+00:00'::timestamptz, 12, 4, 16, true, true, true),
+('173', '2026-11-23T03:28:11+00:00'::timestamptz, 9, 2, 11, true, false, false)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('174', '2026-11-23T03:28:11+00:00'::timestamptz, 7, 1, 35, true, true, true),
+('175', '2026-11-23T03:28:11+00:00'::timestamptz, 19, 12, 0, true, true, true),
+('176', '2026-11-23T03:28:11+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('177', '2026-11-23T03:28:11+00:00'::timestamptz, 10, 0, 14, true, true, true),
+('178', '2026-11-23T03:28:11+00:00'::timestamptz, 16, 8, 1, true, true, true),
+('179', '2026-11-23T03:28:11+00:00'::timestamptz, 9, 3, 14, true, true, true),
+('180', '2026-11-23T03:28:11+00:00'::timestamptz, 9, 5, 6, true, true, true),
+('181', '2026-11-23T03:28:11+00:00'::timestamptz, 7, 2, 9, true, true, true),
+('182', '2026-11-23T03:28:11+00:00'::timestamptz, 12, 5, 5, true, true, true),
+('183', '2026-11-23T03:28:11+00:00'::timestamptz, 8, 1, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('184', '2026-11-23T03:28:11+00:00'::timestamptz, 4, 0, 15, true, true, true),
+('185', '2026-11-23T03:28:11+00:00'::timestamptz, 3, 0, 16, true, true, true),
+('186', '2026-11-23T03:28:11+00:00'::timestamptz, 9, 5, 8, true, true, true),
+('188', '2026-11-23T03:28:11+00:00'::timestamptz, 1, 1, 18, true, true, true),
+('189', '2026-11-23T03:28:11+00:00'::timestamptz, 8, 3, 11, true, true, true),
+('190', '2026-11-23T03:28:11+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('192', '2026-11-23T03:28:11+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('194', '2026-11-23T03:28:11+00:00'::timestamptz, 17, 7, 1, true, true, true),
+('196', '2026-11-23T03:28:11+00:00'::timestamptz, 13, 5, 7, true, true, true),
+('197', '2026-11-23T03:28:11+00:00'::timestamptz, 8, 2, 8, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('199', '2026-11-23T03:28:11+00:00'::timestamptz, 11, 3, 12, true, true, true),
+('200', '2026-11-23T03:28:11+00:00'::timestamptz, 1, 1, 12, true, true, true),
+('201', '2026-11-23T03:28:11+00:00'::timestamptz, 7, 5, 11, true, true, true),
+('202', '2026-11-23T03:28:11+00:00'::timestamptz, 8, 1, 10, true, true, true),
+('206', '2026-11-23T03:28:11+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('207', '2026-11-23T03:28:11+00:00'::timestamptz, 3, 0, 17, true, true, true),
+('208', '2026-11-23T03:28:11+00:00'::timestamptz, 8, 3, 7, true, true, true),
+('209', '2026-11-23T03:28:11+00:00'::timestamptz, 3, 1, 11, true, true, true),
+('211', '2026-11-23T03:28:11+00:00'::timestamptz, 5, 2, 11, true, true, true),
+('214', '2026-11-23T03:28:11+00:00'::timestamptz, 2, 1, 17, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('215', '2026-11-23T03:28:11+00:00'::timestamptz, 0, 0, 16, false, false, false),
+('219', '2026-11-23T03:28:11+00:00'::timestamptz, 3, 1, 7, false, false, false),
+('251', '2026-11-23T03:28:11+00:00'::timestamptz, 0, 0, 36, true, true, true),
+('297', '2026-11-23T03:28:11+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('298', '2026-11-23T03:28:11+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('299', '2026-11-23T03:28:11+00:00'::timestamptz, 1, 0, 21, false, true, true),
+('505', '2026-11-23T03:28:11+00:00'::timestamptz, 5, 0, 0, false, true, true),
+('507', '2026-11-23T03:28:11+00:00'::timestamptz, 4, 0, 4, true, true, true),
+('522', '2026-11-23T03:28:11+00:00'::timestamptz, 4, 2, 1, false, true, true),
+('539', '2026-11-23T03:28:11+00:00'::timestamptz, 0, 0, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('543', '2026-11-23T03:28:11+00:00'::timestamptz, 3, 2, 2, true, true, true),
+('557', '2026-11-23T03:28:11+00:00'::timestamptz, 2, 1, 3, true, true, true),
+('559', '2026-11-23T03:28:11+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('561', '2026-11-23T03:28:11+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('567', '2026-11-23T03:28:11+00:00'::timestamptz, 1, 1, 4, false, false, false),
+('598', '2026-11-23T03:28:11+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('599', '2026-11-23T03:28:11+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('604', '2026-11-23T03:28:11+00:00'::timestamptz, 1, 0, 4, false, true, true),
+('605', '2026-11-23T03:28:11+00:00'::timestamptz, 3, 0, 2, true, true, true),
+('606', '2026-11-23T03:28:11+00:00'::timestamptz, 1, 0, 8, false, false, false)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('627', '2026-11-23T03:28:11+00:00'::timestamptz, 2, 0, 17, true, true, true),
+('629', '2026-11-23T03:28:11+00:00'::timestamptz, 2, 0, 2, true, true, true),
+('633', '2026-11-23T03:28:11+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('634', '2026-11-23T03:28:11+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('670', '2026-11-23T03:28:11+00:00'::timestamptz, 0, 0, 5, false, false, false),
+('672', '2026-11-23T03:28:11+00:00'::timestamptz, 4, 2, 6, true, true, true),
+('900', '2026-11-23T03:28:11+00:00'::timestamptz, 0, 0, 15, false, false, false),
+('901', '2026-11-23T03:28:11+00:00'::timestamptz, 0, 0, 20, true, false, false),
+('902', '2026-11-23T03:28:11+00:00'::timestamptz, 0, 0, 20, false, false, false),
+('903', '2026-11-23T03:28:11+00:00'::timestamptz, 22, 2, 0, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('1', '2026-11-23T04:28:09+00:00'::timestamptz, 3, 2, 39, true, true, true),
+('2', '2026-11-23T04:28:09+00:00'::timestamptz, 4, 0, 14, true, true, true),
+('3', '2026-11-23T04:28:09+00:00'::timestamptz, 13, 4, 12, true, true, true),
+('4', '2026-11-23T04:28:09+00:00'::timestamptz, 5, 2, 14, true, true, true),
+('5', '2026-11-23T04:28:09+00:00'::timestamptz, 1, 1, 39, true, true, true),
+('6', '2026-11-23T04:28:09+00:00'::timestamptz, 4, 2, 34, true, true, true),
+('7', '2026-11-23T04:28:09+00:00'::timestamptz, 3, 3, 12, true, true, true),
+('8', '2026-11-23T04:28:09+00:00'::timestamptz, 4, 0, 16, true, true, true),
+('9', '2026-11-23T04:28:09+00:00'::timestamptz, 3, 1, 17, true, true, true),
+('10', '2026-11-23T04:28:09+00:00'::timestamptz, 6, 5, 15, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('11', '2026-11-23T04:28:09+00:00'::timestamptz, 7, 2, 21, true, true, true),
+('12', '2026-11-23T04:28:09+00:00'::timestamptz, 3, 2, 10, true, true, true),
+('13', '2026-11-23T04:28:09+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('14', '2026-11-23T04:28:09+00:00'::timestamptz, 6, 3, 20, true, true, true),
+('15', '2026-11-23T04:28:09+00:00'::timestamptz, 7, 4, 4, true, true, true),
+('16', '2026-11-23T04:28:09+00:00'::timestamptz, 18, 3, 8, true, true, true),
+('17', '2026-11-23T04:28:09+00:00'::timestamptz, 6, 2, 6, true, true, true),
+('18', '2026-11-23T04:28:09+00:00'::timestamptz, 3, 3, 11, true, true, true),
+('19', '2026-11-23T04:28:09+00:00'::timestamptz, 4, 0, 26, true, true, true),
+('20', '2026-11-23T04:28:09+00:00'::timestamptz, 11, 1, 18, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('21', '2026-11-23T04:28:09+00:00'::timestamptz, 1, 1, 13, true, true, true),
+('22', '2026-11-23T04:28:09+00:00'::timestamptz, 5, 0, 27, true, true, true),
+('23', '2026-11-23T04:28:09+00:00'::timestamptz, 3, 0, 37, true, true, true),
+('24', '2026-11-23T04:28:09+00:00'::timestamptz, 12, 3, 4, true, true, true),
+('25', '2026-11-23T04:28:09+00:00'::timestamptz, 1, 0, 13, true, true, true),
+('26', '2026-11-23T04:28:09+00:00'::timestamptz, 2, 1, 10, true, true, true),
+('27', '2026-11-23T04:28:09+00:00'::timestamptz, 11, 5, 7, true, true, true),
+('28', '2026-11-23T04:28:09+00:00'::timestamptz, 0, 0, 26, true, false, false),
+('29', '2026-11-23T04:28:09+00:00'::timestamptz, 8, 4, 9, true, true, true),
+('30', '2026-11-23T04:28:09+00:00'::timestamptz, 13, 4, 4, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('31', '2026-11-23T04:28:09+00:00'::timestamptz, 5, 0, 8, true, true, true),
+('32', '2026-11-23T04:28:09+00:00'::timestamptz, 15, 2, 0, true, true, true),
+('33', '2026-11-23T04:28:09+00:00'::timestamptz, 2, 0, 18, true, true, true),
+('34', '2026-11-23T04:28:09+00:00'::timestamptz, 4, 1, 11, true, true, true),
+('35', '2026-11-23T04:28:09+00:00'::timestamptz, 7, 2, 11, true, true, true),
+('36', '2026-11-23T04:28:09+00:00'::timestamptz, 7, 2, 11, true, true, true),
+('37', '2026-11-23T04:28:09+00:00'::timestamptz, 19, 3, 8, true, true, true),
+('38', '2026-11-23T04:28:09+00:00'::timestamptz, 2, 0, 12, true, true, true),
+('39', '2026-11-23T04:28:09+00:00'::timestamptz, 6, 1, 58, true, true, true),
+('40', '2026-11-23T04:28:09+00:00'::timestamptz, 3, 3, 16, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('41', '2026-11-23T04:28:09+00:00'::timestamptz, 2, 1, 15, true, true, true),
+('42', '2026-11-23T04:28:09+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('43', '2026-11-23T04:28:09+00:00'::timestamptz, 4, 0, 10, true, true, true),
+('44', '2026-11-23T04:28:09+00:00'::timestamptz, 5, 0, 14, true, true, true),
+('45', '2026-11-23T04:28:09+00:00'::timestamptz, 2, 2, 12, true, true, true),
+('46', '2026-11-23T04:28:09+00:00'::timestamptz, 10, 0, 10, true, true, true),
+('47', '2026-11-23T04:28:09+00:00'::timestamptz, 0, 0, 14, true, true, true),
+('48', '2026-11-23T04:28:09+00:00'::timestamptz, 7, 3, 8, true, true, true),
+('49', '2026-11-23T04:28:09+00:00'::timestamptz, 11, 3, 7, true, true, true),
+('50', '2026-11-23T04:28:09+00:00'::timestamptz, 12, 4, 1, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('51', '2026-11-23T04:28:09+00:00'::timestamptz, 14, 1, 5, true, true, true),
+('52', '2026-11-23T04:28:09+00:00'::timestamptz, 13, 4, 4, true, true, true),
+('53', '2026-11-23T04:28:09+00:00'::timestamptz, 13, 5, 1, true, true, true),
+('54', '2026-11-23T04:28:09+00:00'::timestamptz, 1, 1, 43, true, true, true),
+('55', '2026-11-23T04:28:09+00:00'::timestamptz, 3, 0, 13, true, true, true),
+('56', '2026-11-23T04:28:09+00:00'::timestamptz, 6, 2, 4, true, true, true),
+('57', '2026-11-23T04:28:09+00:00'::timestamptz, 7, 1, 9, true, true, true),
+('58', '2026-11-23T04:28:09+00:00'::timestamptz, 7, 2, 10, true, true, true),
+('59', '2026-11-23T04:28:09+00:00'::timestamptz, 6, 1, 10, true, true, true),
+('60', '2026-11-23T04:28:09+00:00'::timestamptz, 3, 1, 15, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('61', '2026-11-23T04:28:09+00:00'::timestamptz, 7, 2, 8, true, true, true),
+('62', '2026-11-23T04:28:09+00:00'::timestamptz, 8, 3, 15, true, true, true),
+('63', '2026-11-23T04:28:09+00:00'::timestamptz, 9, 2, 8, true, true, true),
+('64', '2026-11-23T04:28:09+00:00'::timestamptz, 1, 0, 14, true, true, true),
+('65', '2026-11-23T04:28:09+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('66', '2026-11-23T04:28:09+00:00'::timestamptz, 3, 0, 16, true, true, true),
+('67', '2026-11-23T04:28:09+00:00'::timestamptz, 1, 0, 19, true, true, true),
+('68', '2026-11-23T04:28:09+00:00'::timestamptz, 4, 3, 12, true, true, true),
+('69', '2026-11-23T04:28:09+00:00'::timestamptz, 2, 1, 12, true, true, true),
+('70', '2026-11-23T04:28:09+00:00'::timestamptz, 2, 2, 17, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('72', '2026-11-23T04:28:09+00:00'::timestamptz, 6, 4, 17, true, true, true),
+('73', '2026-11-23T04:28:09+00:00'::timestamptz, 2, 1, 17, true, true, true),
+('74', '2026-11-23T04:28:09+00:00'::timestamptz, 16, 10, 6, true, true, true),
+('75', '2026-11-23T04:28:09+00:00'::timestamptz, 13, 4, 3, true, true, true),
+('76', '2026-11-23T04:28:09+00:00'::timestamptz, 13, 2, 5, true, true, true),
+('77', '2026-11-23T04:28:09+00:00'::timestamptz, 8, 1, 11, true, true, true),
+('78', '2026-11-23T04:28:09+00:00'::timestamptz, 9, 3, 11, true, true, true),
+('79', '2026-11-23T04:28:09+00:00'::timestamptz, 16, 5, 3, true, true, true),
+('80', '2026-11-23T04:28:09+00:00'::timestamptz, 4, 4, 12, true, true, true),
+('81', '2026-11-23T04:28:09+00:00'::timestamptz, 10, 2, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('82', '2026-11-23T04:28:09+00:00'::timestamptz, 9, 4, 11, true, true, true),
+('83', '2026-11-23T04:28:09+00:00'::timestamptz, 13, 4, 4, true, true, true),
+('84', '2026-11-23T04:28:09+00:00'::timestamptz, 15, 9, 2, true, true, true),
+('85', '2026-11-23T04:28:09+00:00'::timestamptz, 1, 1, 17, true, true, true),
+('86', '2026-11-23T04:28:09+00:00'::timestamptz, 11, 3, 8, true, true, true),
+('87', '2026-11-23T04:28:09+00:00'::timestamptz, 11, 4, 8, true, true, true),
+('88', '2026-11-23T04:28:09+00:00'::timestamptz, 6, 5, 11, true, true, true),
+('89', '2026-11-23T04:28:09+00:00'::timestamptz, 9, 2, 11, true, true, true),
+('90', '2026-11-23T04:28:09+00:00'::timestamptz, 14, 7, 3, true, true, true),
+('91', '2026-11-23T04:28:09+00:00'::timestamptz, 3, 1, 16, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('92', '2026-11-23T04:28:09+00:00'::timestamptz, 5, 5, 10, true, true, true),
+('93', '2026-11-23T04:28:09+00:00'::timestamptz, 12, 7, 2, true, true, true),
+('94', '2026-11-23T04:28:09+00:00'::timestamptz, 0, 0, 1, true, false, false),
+('95', '2026-11-23T04:28:09+00:00'::timestamptz, 5, 3, 11, true, true, true),
+('96', '2026-11-23T04:28:09+00:00'::timestamptz, 24, 11, 2, true, true, true),
+('97', '2026-11-23T04:28:09+00:00'::timestamptz, 2, 0, 18, true, true, true),
+('98', '2026-11-23T04:28:09+00:00'::timestamptz, 0, 0, 16, true, true, true),
+('99', '2026-11-23T04:28:09+00:00'::timestamptz, 9, 1, 20, true, true, true),
+('100', '2026-11-23T04:28:09+00:00'::timestamptz, 22, 6, 34, true, true, true),
+('101', '2026-11-23T04:28:09+00:00'::timestamptz, 6, 4, 13, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('102', '2026-11-23T04:28:09+00:00'::timestamptz, 0, 0, 39, true, true, true),
+('103', '2026-11-23T04:28:09+00:00'::timestamptz, 5, 1, 27, true, true, true),
+('104', '2026-11-23T04:28:09+00:00'::timestamptz, 2, 0, 2, true, true, true),
+('105', '2026-11-23T04:28:09+00:00'::timestamptz, 4, 3, 16, true, true, true),
+('106', '2026-11-23T04:28:09+00:00'::timestamptz, 0, 0, 39, true, false, false),
+('107', '2026-11-23T04:28:09+00:00'::timestamptz, 1, 1, 11, true, true, true),
+('108', '2026-11-23T04:28:09+00:00'::timestamptz, 7, 3, 7, true, true, true),
+('109', '2026-11-23T04:28:09+00:00'::timestamptz, 2, 0, 30, true, true, true),
+('110', '2026-11-23T04:28:09+00:00'::timestamptz, 7, 2, 28, true, true, true),
+('111', '2026-11-23T04:28:09+00:00'::timestamptz, 4, 1, 33, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('112', '2026-11-23T04:28:09+00:00'::timestamptz, 9, 1, 30, true, true, true),
+('113', '2026-11-23T04:28:09+00:00'::timestamptz, 2, 0, 15, true, true, true),
+('114', '2026-11-23T04:28:09+00:00'::timestamptz, 15, 2, 9, true, true, true),
+('115', '2026-11-23T04:28:09+00:00'::timestamptz, 0, 0, 1, true, true, true),
+('116', '2026-11-23T04:28:09+00:00'::timestamptz, 8, 0, 28, true, true, true),
+('117', '2026-11-23T04:28:09+00:00'::timestamptz, 12, 6, 3, true, true, true),
+('118', '2026-11-23T04:28:09+00:00'::timestamptz, 9, 2, 8, true, true, true),
+('119', '2026-11-23T04:28:09+00:00'::timestamptz, 5, 2, 15, true, true, true),
+('120', '2026-11-23T04:28:09+00:00'::timestamptz, 23, 5, 0, true, true, true),
+('121', '2026-11-23T04:28:09+00:00'::timestamptz, 6, 1, 8, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('122', '2026-11-23T04:28:09+00:00'::timestamptz, 2, 2, 13, true, true, true),
+('123', '2026-11-23T04:28:09+00:00'::timestamptz, 2, 1, 33, true, true, true),
+('124', '2026-11-23T04:28:09+00:00'::timestamptz, 2, 0, 18, true, true, true),
+('125', '2026-11-23T04:28:09+00:00'::timestamptz, 4, 2, 26, true, true, true),
+('126', '2026-11-23T04:28:09+00:00'::timestamptz, 6, 2, 4, true, true, true),
+('127', '2026-11-23T04:28:09+00:00'::timestamptz, 10, 7, 12, true, true, true),
+('128', '2026-11-23T04:28:09+00:00'::timestamptz, 7, 3, 6, true, true, true),
+('129', '2026-11-23T04:28:09+00:00'::timestamptz, 1, 0, 12, true, true, true),
+('130', '2026-11-23T04:28:09+00:00'::timestamptz, 6, 0, 12, true, true, true),
+('131', '2026-11-23T04:28:09+00:00'::timestamptz, 3, 0, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('132', '2026-11-23T04:28:09+00:00'::timestamptz, 2, 0, 11, true, true, true),
+('133', '2026-11-23T04:28:09+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('134', '2026-11-23T04:28:09+00:00'::timestamptz, 4, 1, 15, true, true, true),
+('135', '2026-11-23T04:28:09+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('136', '2026-11-23T04:28:09+00:00'::timestamptz, 1, 0, 17, true, true, true),
+('137', '2026-11-23T04:28:09+00:00'::timestamptz, 1, 1, 24, true, true, true),
+('138', '2026-11-23T04:28:09+00:00'::timestamptz, 3, 2, 15, true, true, true),
+('139', '2026-11-23T04:28:09+00:00'::timestamptz, 5, 2, 9, true, true, true),
+('140', '2026-11-23T04:28:09+00:00'::timestamptz, 16, 6, 4, true, true, true),
+('141', '2026-11-23T04:28:09+00:00'::timestamptz, 14, 6, 5, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('142', '2026-11-23T04:28:09+00:00'::timestamptz, 7, 1, 13, true, true, true),
+('143', '2026-11-23T04:28:09+00:00'::timestamptz, 1, 1, 15, true, true, true),
+('144', '2026-11-23T04:28:09+00:00'::timestamptz, 5, 1, 14, true, true, true),
+('145', '2026-11-23T04:28:09+00:00'::timestamptz, 11, 4, 4, true, true, true),
+('146', '2026-11-23T04:28:09+00:00'::timestamptz, 15, 4, 13, true, true, true),
+('147', '2026-11-23T04:28:09+00:00'::timestamptz, 25, 10, 4, true, true, true),
+('148', '2026-11-23T04:28:09+00:00'::timestamptz, 1, 1, 17, true, true, true),
+('149', '2026-11-23T04:28:09+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('150', '2026-11-23T04:28:09+00:00'::timestamptz, 13, 2, 2, true, true, true),
+('151', '2026-11-23T04:28:09+00:00'::timestamptz, 2, 1, 18, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('152', '2026-11-23T04:28:09+00:00'::timestamptz, 17, 6, 1, true, true, true),
+('153', '2026-11-23T04:28:09+00:00'::timestamptz, 17, 7, 1, true, true, true),
+('154', '2026-11-23T04:28:09+00:00'::timestamptz, 15, 1, 1, true, true, true),
+('155', '2026-11-23T04:28:09+00:00'::timestamptz, 7, 3, 13, true, true, true),
+('156', '2026-11-23T04:28:09+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('157', '2026-11-23T04:28:09+00:00'::timestamptz, 1, 0, 19, true, true, true),
+('158', '2026-11-23T04:28:09+00:00'::timestamptz, 6, 3, 14, true, true, true),
+('159', '2026-11-23T04:28:09+00:00'::timestamptz, 3, 3, 21, true, true, true),
+('160', '2026-11-23T04:28:09+00:00'::timestamptz, 2, 0, 17, true, true, true),
+('161', '2026-11-23T04:28:09+00:00'::timestamptz, 14, 6, 6, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('162', '2026-11-23T04:28:09+00:00'::timestamptz, 15, 1, 3, true, true, true),
+('163', '2026-11-23T04:28:09+00:00'::timestamptz, 17, 5, 2, true, true, true),
+('164', '2026-11-23T04:28:09+00:00'::timestamptz, 7, 2, 11, true, true, true),
+('165', '2026-11-23T04:28:09+00:00'::timestamptz, 10, 7, 0, true, true, true),
+('166', '2026-11-23T04:28:09+00:00'::timestamptz, 10, 2, 8, true, true, true),
+('167', '2026-11-23T04:28:09+00:00'::timestamptz, 7, 1, 12, true, true, true),
+('168', '2026-11-23T04:28:09+00:00'::timestamptz, 15, 5, 4, true, true, true),
+('169', '2026-11-23T04:28:09+00:00'::timestamptz, 6, 5, 14, true, true, true),
+('170', '2026-11-23T04:28:09+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('171', '2026-11-23T04:28:09+00:00'::timestamptz, 8, 2, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('172', '2026-11-23T04:28:09+00:00'::timestamptz, 12, 4, 16, true, true, true),
+('173', '2026-11-23T04:28:09+00:00'::timestamptz, 9, 2, 11, true, false, false),
+('174', '2026-11-23T04:28:09+00:00'::timestamptz, 6, 0, 36, true, true, true),
+('175', '2026-11-23T04:28:09+00:00'::timestamptz, 19, 12, 0, true, true, true),
+('176', '2026-11-23T04:28:09+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('177', '2026-11-23T04:28:09+00:00'::timestamptz, 10, 0, 14, true, true, true),
+('178', '2026-11-23T04:28:09+00:00'::timestamptz, 16, 8, 1, true, true, true),
+('179', '2026-11-23T04:28:09+00:00'::timestamptz, 9, 3, 14, true, true, true),
+('180', '2026-11-23T04:28:09+00:00'::timestamptz, 9, 5, 6, true, true, true),
+('181', '2026-11-23T04:28:09+00:00'::timestamptz, 7, 2, 9, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('182', '2026-11-23T04:28:09+00:00'::timestamptz, 12, 5, 5, true, true, true),
+('183', '2026-11-23T04:28:09+00:00'::timestamptz, 7, 1, 13, true, true, true),
+('184', '2026-11-23T04:28:09+00:00'::timestamptz, 4, 0, 15, true, true, true),
+('185', '2026-11-23T04:28:09+00:00'::timestamptz, 4, 1, 15, true, true, true),
+('186', '2026-11-23T04:28:09+00:00'::timestamptz, 11, 6, 6, true, true, true),
+('188', '2026-11-23T04:28:09+00:00'::timestamptz, 1, 1, 18, true, true, true),
+('189', '2026-11-23T04:28:09+00:00'::timestamptz, 8, 3, 11, true, true, true),
+('190', '2026-11-23T04:28:09+00:00'::timestamptz, 3, 2, 16, true, true, true),
+('192', '2026-11-23T04:28:09+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('194', '2026-11-23T04:28:09+00:00'::timestamptz, 17, 7, 1, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('196', '2026-11-23T04:28:09+00:00'::timestamptz, 14, 6, 6, true, true, true),
+('197', '2026-11-23T04:28:09+00:00'::timestamptz, 8, 2, 8, true, true, true),
+('199', '2026-11-23T04:28:09+00:00'::timestamptz, 11, 3, 12, true, true, true),
+('200', '2026-11-23T04:28:09+00:00'::timestamptz, 1, 1, 12, true, true, true),
+('201', '2026-11-23T04:28:09+00:00'::timestamptz, 7, 5, 11, true, true, true),
+('202', '2026-11-23T04:28:09+00:00'::timestamptz, 7, 1, 11, true, true, true),
+('206', '2026-11-23T04:28:09+00:00'::timestamptz, 4, 1, 15, true, true, true),
+('207', '2026-11-23T04:28:09+00:00'::timestamptz, 2, 0, 18, true, true, true),
+('208', '2026-11-23T04:28:09+00:00'::timestamptz, 8, 3, 7, true, true, true),
+('209', '2026-11-23T04:28:09+00:00'::timestamptz, 3, 1, 11, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('211', '2026-11-23T04:28:09+00:00'::timestamptz, 6, 3, 10, true, true, true),
+('214', '2026-11-23T04:28:09+00:00'::timestamptz, 2, 1, 17, true, true, true),
+('215', '2026-11-23T04:28:09+00:00'::timestamptz, 0, 0, 16, false, false, false),
+('219', '2026-11-23T04:28:09+00:00'::timestamptz, 3, 1, 7, false, false, false),
+('251', '2026-11-23T04:28:09+00:00'::timestamptz, 2, 1, 34, true, true, true),
+('297', '2026-11-23T04:28:09+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('298', '2026-11-23T04:28:09+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('299', '2026-11-23T04:28:09+00:00'::timestamptz, 1, 0, 21, false, true, true),
+('505', '2026-11-23T04:28:09+00:00'::timestamptz, 5, 0, 0, false, true, true),
+('507', '2026-11-23T04:28:09+00:00'::timestamptz, 4, 0, 4, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('522', '2026-11-23T04:28:09+00:00'::timestamptz, 4, 2, 1, false, true, true),
+('539', '2026-11-23T04:28:09+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('543', '2026-11-23T04:28:09+00:00'::timestamptz, 3, 2, 2, true, true, true),
+('557', '2026-11-23T04:28:09+00:00'::timestamptz, 2, 1, 3, true, true, true),
+('559', '2026-11-23T04:28:09+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('561', '2026-11-23T04:28:09+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('567', '2026-11-23T04:28:09+00:00'::timestamptz, 1, 1, 4, false, false, false),
+('598', '2026-11-23T04:28:09+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('599', '2026-11-23T04:28:09+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('604', '2026-11-23T04:28:09+00:00'::timestamptz, 1, 0, 4, false, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('605', '2026-11-23T04:28:09+00:00'::timestamptz, 3, 0, 2, true, true, true),
+('606', '2026-11-23T04:28:09+00:00'::timestamptz, 1, 0, 8, false, false, false),
+('627', '2026-11-23T04:28:09+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('629', '2026-11-23T04:28:09+00:00'::timestamptz, 2, 0, 2, true, true, true),
+('633', '2026-11-23T04:28:09+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('634', '2026-11-23T04:28:09+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('670', '2026-11-23T04:28:09+00:00'::timestamptz, 0, 0, 5, false, false, false),
+('672', '2026-11-23T04:28:09+00:00'::timestamptz, 4, 2, 6, true, true, true),
+('900', '2026-11-23T04:28:09+00:00'::timestamptz, 0, 0, 15, false, false, false),
+('901', '2026-11-23T04:28:09+00:00'::timestamptz, 0, 0, 20, true, false, false)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('902', '2026-11-23T04:28:09+00:00'::timestamptz, 0, 0, 20, false, false, false),
+('903', '2026-11-23T04:28:09+00:00'::timestamptz, 21, 1, 1, true, true, true),
+('1', '2026-11-23T05:28:09+00:00'::timestamptz, 3, 3, 39, true, true, true),
+('2', '2026-11-23T05:28:09+00:00'::timestamptz, 4, 0, 14, true, true, true),
+('3', '2026-11-23T05:28:09+00:00'::timestamptz, 13, 4, 12, true, true, true),
+('4', '2026-11-23T05:28:09+00:00'::timestamptz, 4, 2, 15, true, true, true),
+('5', '2026-11-23T05:28:09+00:00'::timestamptz, 1, 1, 39, true, true, true),
+('6', '2026-11-23T05:28:09+00:00'::timestamptz, 5, 2, 33, true, true, true),
+('7', '2026-11-23T05:28:09+00:00'::timestamptz, 2, 2, 13, true, true, true),
+('8', '2026-11-23T05:28:09+00:00'::timestamptz, 5, 1, 15, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('9', '2026-11-23T05:28:09+00:00'::timestamptz, 3, 1, 17, true, true, true),
+('10', '2026-11-23T05:28:09+00:00'::timestamptz, 5, 4, 16, true, true, true),
+('11', '2026-11-23T05:28:09+00:00'::timestamptz, 7, 2, 21, true, true, true),
+('12', '2026-11-23T05:28:09+00:00'::timestamptz, 2, 1, 11, true, true, true),
+('13', '2026-11-23T05:28:09+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('14', '2026-11-23T05:28:09+00:00'::timestamptz, 6, 3, 20, true, true, true),
+('15', '2026-11-23T05:28:09+00:00'::timestamptz, 7, 4, 4, true, true, true),
+('16', '2026-11-23T05:28:09+00:00'::timestamptz, 17, 3, 9, true, true, true),
+('17', '2026-11-23T05:28:09+00:00'::timestamptz, 6, 2, 6, true, true, true),
+('18', '2026-11-23T05:28:09+00:00'::timestamptz, 3, 3, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('19', '2026-11-23T05:28:09+00:00'::timestamptz, 4, 0, 26, true, true, true),
+('20', '2026-11-23T05:28:09+00:00'::timestamptz, 11, 1, 18, true, true, true),
+('21', '2026-11-23T05:28:09+00:00'::timestamptz, 1, 1, 13, true, true, true),
+('22', '2026-11-23T05:28:09+00:00'::timestamptz, 5, 0, 27, true, true, true),
+('23', '2026-11-23T05:28:09+00:00'::timestamptz, 3, 0, 37, true, true, true),
+('24', '2026-11-23T05:28:09+00:00'::timestamptz, 12, 3, 4, true, true, true),
+('25', '2026-11-23T05:28:09+00:00'::timestamptz, 1, 0, 13, true, true, true),
+('26', '2026-11-23T05:28:09+00:00'::timestamptz, 2, 1, 10, true, true, true),
+('27', '2026-11-23T05:28:09+00:00'::timestamptz, 12, 6, 6, true, true, true),
+('28', '2026-11-23T05:28:09+00:00'::timestamptz, 0, 0, 26, true, false, false)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('29', '2026-11-23T05:28:09+00:00'::timestamptz, 11, 7, 9, true, true, true),
+('30', '2026-11-23T05:28:09+00:00'::timestamptz, 12, 3, 5, true, true, true),
+('31', '2026-11-23T05:28:09+00:00'::timestamptz, 5, 0, 8, true, true, true),
+('32', '2026-11-23T05:28:09+00:00'::timestamptz, 15, 2, 0, true, true, true),
+('33', '2026-11-23T05:28:09+00:00'::timestamptz, 2, 0, 18, true, true, true),
+('34', '2026-11-23T05:28:09+00:00'::timestamptz, 4, 1, 11, true, true, true),
+('35', '2026-11-23T05:28:09+00:00'::timestamptz, 7, 2, 11, true, true, true),
+('36', '2026-11-23T05:28:09+00:00'::timestamptz, 6, 1, 12, true, true, true),
+('37', '2026-11-23T05:28:09+00:00'::timestamptz, 20, 3, 7, true, true, true),
+('38', '2026-11-23T05:28:09+00:00'::timestamptz, 2, 0, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('39', '2026-11-23T05:28:09+00:00'::timestamptz, 7, 2, 57, true, true, true),
+('40', '2026-11-23T05:28:09+00:00'::timestamptz, 3, 3, 16, true, true, true),
+('41', '2026-11-23T05:28:09+00:00'::timestamptz, 2, 1, 15, true, true, true),
+('42', '2026-11-23T05:28:09+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('43', '2026-11-23T05:28:09+00:00'::timestamptz, 3, 0, 11, true, true, true),
+('44', '2026-11-23T05:28:09+00:00'::timestamptz, 4, 0, 15, true, true, true),
+('45', '2026-11-23T05:28:09+00:00'::timestamptz, 2, 2, 12, true, true, true),
+('46', '2026-11-23T05:28:09+00:00'::timestamptz, 9, 0, 11, true, true, true),
+('47', '2026-11-23T05:28:09+00:00'::timestamptz, 0, 0, 14, true, true, true),
+('48', '2026-11-23T05:28:09+00:00'::timestamptz, 7, 3, 8, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('49', '2026-11-23T05:28:09+00:00'::timestamptz, 11, 3, 7, true, true, true),
+('50', '2026-11-23T05:28:09+00:00'::timestamptz, 11, 3, 2, true, true, true),
+('51', '2026-11-23T05:28:09+00:00'::timestamptz, 14, 1, 5, true, true, true),
+('52', '2026-11-23T05:28:09+00:00'::timestamptz, 13, 4, 4, true, true, true),
+('53', '2026-11-23T05:28:09+00:00'::timestamptz, 12, 5, 2, true, true, true),
+('54', '2026-11-23T05:28:09+00:00'::timestamptz, 13, 6, 31, true, true, true),
+('55', '2026-11-23T05:28:09+00:00'::timestamptz, 3, 0, 13, true, true, true),
+('56', '2026-11-23T05:28:09+00:00'::timestamptz, 6, 2, 4, true, true, true),
+('57', '2026-11-23T05:28:09+00:00'::timestamptz, 6, 0, 10, true, true, true),
+('58', '2026-11-23T05:28:09+00:00'::timestamptz, 7, 2, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('59', '2026-11-23T05:28:09+00:00'::timestamptz, 6, 1, 10, true, true, true),
+('60', '2026-11-23T05:28:09+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('61', '2026-11-23T05:28:09+00:00'::timestamptz, 6, 2, 8, true, true, true),
+('62', '2026-11-23T05:28:09+00:00'::timestamptz, 7, 3, 16, true, true, true),
+('63', '2026-11-23T05:28:09+00:00'::timestamptz, 10, 3, 7, true, true, true),
+('64', '2026-11-23T05:28:09+00:00'::timestamptz, 1, 0, 14, true, true, true),
+('65', '2026-11-23T05:28:09+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('66', '2026-11-23T05:28:09+00:00'::timestamptz, 3, 0, 16, true, true, true),
+('67', '2026-11-23T05:28:09+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('68', '2026-11-23T05:28:09+00:00'::timestamptz, 4, 3, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('69', '2026-11-23T05:28:09+00:00'::timestamptz, 2, 1, 12, true, true, true),
+('70', '2026-11-23T05:28:09+00:00'::timestamptz, 2, 2, 17, true, true, true),
+('72', '2026-11-23T05:28:09+00:00'::timestamptz, 7, 4, 16, true, true, true),
+('73', '2026-11-23T05:28:09+00:00'::timestamptz, 1, 1, 18, true, true, true),
+('74', '2026-11-23T05:28:09+00:00'::timestamptz, 16, 10, 6, true, true, true),
+('75', '2026-11-23T05:28:09+00:00'::timestamptz, 13, 4, 3, true, true, true),
+('76', '2026-11-23T05:28:09+00:00'::timestamptz, 13, 2, 5, true, true, true),
+('77', '2026-11-23T05:28:09+00:00'::timestamptz, 8, 1, 11, true, true, true),
+('78', '2026-11-23T05:28:09+00:00'::timestamptz, 10, 4, 10, true, true, true),
+('79', '2026-11-23T05:28:09+00:00'::timestamptz, 16, 5, 3, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('80', '2026-11-23T05:28:09+00:00'::timestamptz, 4, 4, 12, true, true, true),
+('81', '2026-11-23T05:28:09+00:00'::timestamptz, 10, 2, 10, true, true, true),
+('82', '2026-11-23T05:28:09+00:00'::timestamptz, 9, 4, 11, true, true, true),
+('83', '2026-11-23T05:28:09+00:00'::timestamptz, 13, 4, 4, true, true, true),
+('84', '2026-11-23T05:28:09+00:00'::timestamptz, 15, 9, 2, true, true, true),
+('85', '2026-11-23T05:28:09+00:00'::timestamptz, 1, 1, 17, true, true, true),
+('86', '2026-11-23T05:28:09+00:00'::timestamptz, 12, 4, 7, true, true, true),
+('87', '2026-11-23T05:28:09+00:00'::timestamptz, 11, 4, 8, true, true, true),
+('88', '2026-11-23T05:28:09+00:00'::timestamptz, 6, 5, 11, true, true, true),
+('89', '2026-11-23T05:28:09+00:00'::timestamptz, 9, 2, 11, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('90', '2026-11-23T05:28:09+00:00'::timestamptz, 14, 7, 3, true, true, true),
+('91', '2026-11-23T05:28:09+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('92', '2026-11-23T05:28:09+00:00'::timestamptz, 5, 5, 10, true, true, true),
+('93', '2026-11-23T05:28:09+00:00'::timestamptz, 12, 7, 2, true, true, true),
+('94', '2026-11-23T05:28:09+00:00'::timestamptz, 0, 0, 1, true, false, false),
+('95', '2026-11-23T05:28:09+00:00'::timestamptz, 5, 3, 11, true, true, true),
+('96', '2026-11-23T05:28:09+00:00'::timestamptz, 25, 12, 1, true, true, true),
+('97', '2026-11-23T05:28:09+00:00'::timestamptz, 3, 0, 17, true, true, true),
+('98', '2026-11-23T05:28:09+00:00'::timestamptz, 0, 0, 16, true, true, true),
+('99', '2026-11-23T05:28:09+00:00'::timestamptz, 9, 1, 20, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('100', '2026-11-23T05:28:09+00:00'::timestamptz, 22, 6, 34, true, true, true),
+('101', '2026-11-23T05:28:09+00:00'::timestamptz, 6, 4, 13, true, true, true),
+('102', '2026-11-23T05:28:09+00:00'::timestamptz, 0, 0, 39, true, true, true),
+('103', '2026-11-23T05:28:09+00:00'::timestamptz, 4, 1, 27, true, true, true),
+('104', '2026-11-23T05:28:09+00:00'::timestamptz, 2, 0, 2, true, true, true),
+('105', '2026-11-23T05:28:09+00:00'::timestamptz, 3, 2, 17, true, true, true),
+('106', '2026-11-23T05:28:09+00:00'::timestamptz, 0, 0, 39, true, false, false),
+('107', '2026-11-23T05:28:09+00:00'::timestamptz, 1, 1, 11, true, true, true),
+('108', '2026-11-23T05:28:09+00:00'::timestamptz, 6, 3, 8, true, true, true),
+('109', '2026-11-23T05:28:09+00:00'::timestamptz, 2, 0, 30, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('110', '2026-11-23T05:28:09+00:00'::timestamptz, 11, 5, 27, true, true, true),
+('111', '2026-11-23T05:28:09+00:00'::timestamptz, 4, 1, 33, true, true, true),
+('112', '2026-11-23T05:28:09+00:00'::timestamptz, 9, 1, 30, true, true, true),
+('113', '2026-11-23T05:28:09+00:00'::timestamptz, 3, 1, 14, true, true, true),
+('114', '2026-11-23T05:28:09+00:00'::timestamptz, 15, 2, 9, true, true, true),
+('115', '2026-11-23T05:28:09+00:00'::timestamptz, 0, 0, 1, true, true, true),
+('116', '2026-11-23T05:28:09+00:00'::timestamptz, 8, 0, 28, true, true, true),
+('117', '2026-11-23T05:28:09+00:00'::timestamptz, 12, 6, 3, true, true, true),
+('118', '2026-11-23T05:28:09+00:00'::timestamptz, 9, 2, 8, true, true, true),
+('119', '2026-11-23T05:28:09+00:00'::timestamptz, 5, 2, 15, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('120', '2026-11-23T05:28:09+00:00'::timestamptz, 23, 5, 0, true, true, true),
+('121', '2026-11-23T05:28:09+00:00'::timestamptz, 7, 2, 7, true, true, true),
+('122', '2026-11-23T05:28:09+00:00'::timestamptz, 3, 3, 12, true, true, true),
+('123', '2026-11-23T05:28:09+00:00'::timestamptz, 2, 1, 33, true, true, true),
+('124', '2026-11-23T05:28:09+00:00'::timestamptz, 2, 0, 18, true, true, true),
+('125', '2026-11-23T05:28:09+00:00'::timestamptz, 4, 2, 26, true, true, true),
+('126', '2026-11-23T05:28:09+00:00'::timestamptz, 6, 2, 4, true, true, true),
+('127', '2026-11-23T05:28:09+00:00'::timestamptz, 11, 7, 11, true, true, true),
+('128', '2026-11-23T05:28:09+00:00'::timestamptz, 6, 3, 7, true, true, true),
+('129', '2026-11-23T05:28:09+00:00'::timestamptz, 2, 0, 11, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('130', '2026-11-23T05:28:09+00:00'::timestamptz, 6, 0, 12, true, true, true),
+('131', '2026-11-23T05:28:09+00:00'::timestamptz, 1, 0, 12, true, true, true),
+('132', '2026-11-23T05:28:09+00:00'::timestamptz, 1, 0, 12, true, true, true),
+('133', '2026-11-23T05:28:09+00:00'::timestamptz, 4, 1, 14, true, true, true),
+('134', '2026-11-23T05:28:09+00:00'::timestamptz, 3, 0, 16, true, true, true),
+('135', '2026-11-23T05:28:09+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('136', '2026-11-23T05:28:09+00:00'::timestamptz, 1, 0, 17, true, true, true),
+('137', '2026-11-23T05:28:09+00:00'::timestamptz, 1, 1, 24, true, true, true),
+('138', '2026-11-23T05:28:09+00:00'::timestamptz, 2, 1, 16, true, true, true),
+('139', '2026-11-23T05:28:09+00:00'::timestamptz, 4, 2, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('140', '2026-11-23T05:28:09+00:00'::timestamptz, 16, 6, 4, true, true, true),
+('141', '2026-11-23T05:28:09+00:00'::timestamptz, 14, 6, 5, true, true, true),
+('142', '2026-11-23T05:28:09+00:00'::timestamptz, 7, 1, 13, true, true, true),
+('143', '2026-11-23T05:28:09+00:00'::timestamptz, 3, 3, 15, true, true, true),
+('144', '2026-11-23T05:28:09+00:00'::timestamptz, 5, 1, 14, true, true, true),
+('145', '2026-11-23T05:28:09+00:00'::timestamptz, 10, 4, 5, true, true, true),
+('146', '2026-11-23T05:28:09+00:00'::timestamptz, 15, 4, 13, true, true, true),
+('147', '2026-11-23T05:28:09+00:00'::timestamptz, 25, 10, 4, true, true, true),
+('148', '2026-11-23T05:28:09+00:00'::timestamptz, 2, 2, 16, true, true, true),
+('149', '2026-11-23T05:28:09+00:00'::timestamptz, 0, 0, 20, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('150', '2026-11-23T05:28:09+00:00'::timestamptz, 13, 2, 2, true, true, true),
+('151', '2026-11-23T05:28:09+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('152', '2026-11-23T05:28:09+00:00'::timestamptz, 9, 3, 11, true, true, true),
+('153', '2026-11-23T05:28:09+00:00'::timestamptz, 17, 7, 1, true, true, true),
+('154', '2026-11-23T05:28:09+00:00'::timestamptz, 15, 1, 1, true, true, true),
+('155', '2026-11-23T05:28:09+00:00'::timestamptz, 7, 3, 13, true, true, true),
+('156', '2026-11-23T05:28:09+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('157', '2026-11-23T05:28:09+00:00'::timestamptz, 1, 0, 19, true, true, true),
+('158', '2026-11-23T05:28:09+00:00'::timestamptz, 6, 3, 14, true, true, true),
+('159', '2026-11-23T05:28:09+00:00'::timestamptz, 3, 3, 21, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('160', '2026-11-23T05:28:09+00:00'::timestamptz, 2, 0, 17, true, true, true),
+('161', '2026-11-23T05:28:09+00:00'::timestamptz, 14, 6, 6, true, true, true),
+('162', '2026-11-23T05:28:09+00:00'::timestamptz, 15, 1, 3, true, true, true),
+('163', '2026-11-23T05:28:09+00:00'::timestamptz, 17, 5, 2, true, true, true),
+('164', '2026-11-23T05:28:09+00:00'::timestamptz, 7, 2, 11, true, true, true),
+('165', '2026-11-23T05:28:09+00:00'::timestamptz, 10, 7, 0, true, true, true),
+('166', '2026-11-23T05:28:09+00:00'::timestamptz, 11, 2, 7, true, true, true),
+('167', '2026-11-23T05:28:09+00:00'::timestamptz, 7, 1, 12, true, true, true),
+('168', '2026-11-23T05:28:09+00:00'::timestamptz, 15, 5, 4, true, true, true),
+('169', '2026-11-23T05:28:09+00:00'::timestamptz, 6, 5, 14, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('170', '2026-11-23T05:28:09+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('171', '2026-11-23T05:28:09+00:00'::timestamptz, 8, 2, 10, true, true, true),
+('172', '2026-11-23T05:28:09+00:00'::timestamptz, 12, 4, 15, true, true, true),
+('173', '2026-11-23T05:28:09+00:00'::timestamptz, 9, 2, 11, true, false, false),
+('174', '2026-11-23T05:28:09+00:00'::timestamptz, 6, 0, 36, true, true, true),
+('175', '2026-11-23T05:28:09+00:00'::timestamptz, 19, 12, 0, true, true, true),
+('176', '2026-11-23T05:28:09+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('177', '2026-11-23T05:28:09+00:00'::timestamptz, 10, 0, 14, true, true, true),
+('178', '2026-11-23T05:28:09+00:00'::timestamptz, 16, 8, 2, true, true, true),
+('179', '2026-11-23T05:28:09+00:00'::timestamptz, 8, 3, 15, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('180', '2026-11-23T05:28:09+00:00'::timestamptz, 9, 5, 6, true, true, true),
+('181', '2026-11-23T05:28:09+00:00'::timestamptz, 7, 2, 9, true, true, true),
+('182', '2026-11-23T05:28:09+00:00'::timestamptz, 12, 5, 5, true, true, true),
+('183', '2026-11-23T05:28:09+00:00'::timestamptz, 7, 1, 13, true, true, true),
+('184', '2026-11-23T05:28:09+00:00'::timestamptz, 4, 0, 15, true, true, true),
+('185', '2026-11-23T05:28:09+00:00'::timestamptz, 3, 0, 16, true, true, true),
+('186', '2026-11-23T05:28:09+00:00'::timestamptz, 11, 6, 7, true, true, true),
+('188', '2026-11-23T05:28:09+00:00'::timestamptz, 1, 1, 18, true, true, true),
+('189', '2026-11-23T05:28:09+00:00'::timestamptz, 9, 3, 10, true, true, true),
+('190', '2026-11-23T05:28:09+00:00'::timestamptz, 3, 2, 16, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('192', '2026-11-23T05:28:09+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('194', '2026-11-23T05:28:09+00:00'::timestamptz, 17, 7, 1, true, true, true),
+('196', '2026-11-23T05:28:09+00:00'::timestamptz, 15, 6, 5, true, true, true),
+('197', '2026-11-23T05:28:09+00:00'::timestamptz, 8, 2, 8, true, true, true),
+('199', '2026-11-23T05:28:09+00:00'::timestamptz, 11, 3, 12, true, true, true),
+('200', '2026-11-23T05:28:09+00:00'::timestamptz, 2, 2, 11, true, true, true),
+('201', '2026-11-23T05:28:09+00:00'::timestamptz, 6, 4, 12, true, true, true),
+('202', '2026-11-23T05:28:09+00:00'::timestamptz, 7, 1, 11, true, true, true),
+('206', '2026-11-23T05:28:09+00:00'::timestamptz, 4, 0, 15, true, true, true),
+('207', '2026-11-23T05:28:09+00:00'::timestamptz, 2, 0, 18, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('208', '2026-11-23T05:28:09+00:00'::timestamptz, 8, 3, 7, true, true, true),
+('209', '2026-11-23T05:28:09+00:00'::timestamptz, 3, 1, 11, true, true, true),
+('211', '2026-11-23T05:28:09+00:00'::timestamptz, 6, 3, 10, true, true, true),
+('214', '2026-11-23T05:28:09+00:00'::timestamptz, 2, 1, 17, true, true, true),
+('215', '2026-11-23T05:28:09+00:00'::timestamptz, 0, 0, 16, false, false, false),
+('219', '2026-11-23T05:28:09+00:00'::timestamptz, 3, 1, 7, false, false, false),
+('251', '2026-11-23T05:28:09+00:00'::timestamptz, 2, 1, 34, true, true, true),
+('297', '2026-11-23T05:28:09+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('298', '2026-11-23T05:28:09+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('299', '2026-11-23T05:28:09+00:00'::timestamptz, 1, 0, 21, false, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('505', '2026-11-23T05:28:09+00:00'::timestamptz, 5, 0, 0, false, true, true),
+('507', '2026-11-23T05:28:09+00:00'::timestamptz, 4, 0, 4, true, true, true),
+('522', '2026-11-23T05:28:09+00:00'::timestamptz, 4, 2, 1, false, true, true),
+('539', '2026-11-23T05:28:09+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('543', '2026-11-23T05:28:09+00:00'::timestamptz, 3, 2, 2, true, true, true),
+('557', '2026-11-23T05:28:09+00:00'::timestamptz, 2, 1, 3, true, true, true),
+('559', '2026-11-23T05:28:09+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('561', '2026-11-23T05:28:09+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('567', '2026-11-23T05:28:09+00:00'::timestamptz, 1, 1, 4, false, false, false),
+('598', '2026-11-23T05:28:09+00:00'::timestamptz, 1, 0, 4, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('599', '2026-11-23T05:28:09+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('604', '2026-11-23T05:28:09+00:00'::timestamptz, 1, 0, 4, false, true, true),
+('605', '2026-11-23T05:28:09+00:00'::timestamptz, 3, 0, 2, true, true, true),
+('606', '2026-11-23T05:28:09+00:00'::timestamptz, 1, 0, 8, false, false, false),
+('627', '2026-11-23T05:28:09+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('629', '2026-11-23T05:28:09+00:00'::timestamptz, 2, 0, 2, true, true, true),
+('633', '2026-11-23T05:28:09+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('634', '2026-11-23T05:28:09+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('670', '2026-11-23T05:28:09+00:00'::timestamptz, 0, 0, 5, false, false, false),
+('672', '2026-11-23T05:28:09+00:00'::timestamptz, 4, 2, 6, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('900', '2026-11-23T05:28:09+00:00'::timestamptz, 0, 0, 15, false, false, false),
+('901', '2026-11-23T05:28:09+00:00'::timestamptz, 0, 0, 20, true, false, false),
+('902', '2026-11-23T05:28:09+00:00'::timestamptz, 0, 0, 20, false, false, false),
+('903', '2026-11-23T05:28:09+00:00'::timestamptz, 21, 1, 1, true, true, true),
+('1', '2026-11-23T06:28:10+00:00'::timestamptz, 4, 2, 38, true, true, true),
+('2', '2026-11-23T06:28:10+00:00'::timestamptz, 4, 0, 14, true, true, true),
+('3', '2026-11-23T06:28:10+00:00'::timestamptz, 13, 4, 12, true, true, true),
+('4', '2026-11-23T06:28:10+00:00'::timestamptz, 2, 2, 17, true, true, true),
+('5', '2026-11-23T06:28:10+00:00'::timestamptz, 1, 1, 39, true, true, true),
+('6', '2026-11-23T06:28:10+00:00'::timestamptz, 4, 1, 34, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('7', '2026-11-23T06:28:10+00:00'::timestamptz, 2, 2, 13, true, true, true),
+('8', '2026-11-23T06:28:10+00:00'::timestamptz, 3, 0, 17, true, true, true),
+('9', '2026-11-23T06:28:10+00:00'::timestamptz, 3, 1, 17, true, true, true),
+('10', '2026-11-23T06:28:10+00:00'::timestamptz, 6, 5, 15, true, true, true),
+('11', '2026-11-23T06:28:10+00:00'::timestamptz, 6, 2, 22, true, true, true),
+('12', '2026-11-23T06:28:10+00:00'::timestamptz, 2, 1, 11, true, true, true),
+('13', '2026-11-23T06:28:10+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('14', '2026-11-23T06:28:10+00:00'::timestamptz, 5, 3, 21, true, true, true),
+('15', '2026-11-23T06:28:10+00:00'::timestamptz, 7, 4, 4, true, true, true),
+('16', '2026-11-23T06:28:10+00:00'::timestamptz, 16, 2, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('17', '2026-11-23T06:28:10+00:00'::timestamptz, 6, 2, 6, true, true, true),
+('18', '2026-11-23T06:28:10+00:00'::timestamptz, 4, 3, 9, true, true, true),
+('19', '2026-11-23T06:28:10+00:00'::timestamptz, 4, 0, 26, true, true, true),
+('20', '2026-11-23T06:28:10+00:00'::timestamptz, 12, 1, 17, true, true, true),
+('21', '2026-11-23T06:28:10+00:00'::timestamptz, 2, 0, 12, true, true, true),
+('22', '2026-11-23T06:28:10+00:00'::timestamptz, 5, 0, 27, true, true, true),
+('23', '2026-11-23T06:28:10+00:00'::timestamptz, 4, 0, 36, true, true, true),
+('24', '2026-11-23T06:28:10+00:00'::timestamptz, 10, 2, 6, true, true, true),
+('25', '2026-11-23T06:28:10+00:00'::timestamptz, 1, 0, 13, true, true, true),
+('26', '2026-11-23T06:28:10+00:00'::timestamptz, 4, 3, 8, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('27', '2026-11-23T06:28:10+00:00'::timestamptz, 4, 3, 15, true, true, true),
+('28', '2026-11-23T06:28:10+00:00'::timestamptz, 0, 0, 26, true, false, false),
+('29', '2026-11-23T06:28:10+00:00'::timestamptz, 9, 6, 11, true, true, true),
+('30', '2026-11-23T06:28:10+00:00'::timestamptz, 12, 3, 5, true, true, true),
+('31', '2026-11-23T06:28:10+00:00'::timestamptz, 5, 0, 8, true, true, true),
+('32', '2026-11-23T06:28:10+00:00'::timestamptz, 15, 2, 0, true, true, true),
+('33', '2026-11-23T06:28:10+00:00'::timestamptz, 2, 0, 18, true, true, true),
+('34', '2026-11-23T06:28:10+00:00'::timestamptz, 3, 1, 12, true, true, true),
+('35', '2026-11-23T06:28:10+00:00'::timestamptz, 4, 0, 14, true, true, true),
+('36', '2026-11-23T06:28:10+00:00'::timestamptz, 5, 1, 13, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('37', '2026-11-23T06:28:10+00:00'::timestamptz, 20, 3, 7, true, true, true),
+('38', '2026-11-23T06:28:10+00:00'::timestamptz, 2, 0, 12, true, true, true),
+('39', '2026-11-23T06:28:10+00:00'::timestamptz, 9, 3, 55, true, true, true),
+('40', '2026-11-23T06:28:10+00:00'::timestamptz, 3, 3, 16, true, true, true),
+('41', '2026-11-23T06:28:10+00:00'::timestamptz, 2, 1, 15, true, true, true),
+('42', '2026-11-23T06:28:10+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('43', '2026-11-23T06:28:10+00:00'::timestamptz, 4, 1, 10, true, true, true),
+('44', '2026-11-23T06:28:10+00:00'::timestamptz, 4, 0, 15, true, true, true),
+('45', '2026-11-23T06:28:10+00:00'::timestamptz, 2, 2, 12, true, true, true),
+('46', '2026-11-23T06:28:10+00:00'::timestamptz, 9, 0, 11, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('47', '2026-11-23T06:28:10+00:00'::timestamptz, 0, 0, 14, true, true, true),
+('48', '2026-11-23T06:28:10+00:00'::timestamptz, 7, 3, 8, true, true, true),
+('49', '2026-11-23T06:28:10+00:00'::timestamptz, 10, 2, 8, true, true, true),
+('50', '2026-11-23T06:28:10+00:00'::timestamptz, 11, 3, 2, true, true, true),
+('51', '2026-11-23T06:28:10+00:00'::timestamptz, 13, 1, 6, true, true, true),
+('52', '2026-11-23T06:28:10+00:00'::timestamptz, 13, 4, 4, true, true, true),
+('53', '2026-11-23T06:28:10+00:00'::timestamptz, 11, 4, 3, true, true, true),
+('54', '2026-11-23T06:28:10+00:00'::timestamptz, 14, 5, 29, true, true, true),
+('55', '2026-11-23T06:28:10+00:00'::timestamptz, 3, 0, 13, true, true, true),
+('56', '2026-11-23T06:28:10+00:00'::timestamptz, 6, 2, 4, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('57', '2026-11-23T06:28:10+00:00'::timestamptz, 6, 0, 10, true, true, true),
+('58', '2026-11-23T06:28:10+00:00'::timestamptz, 7, 1, 10, true, true, true),
+('59', '2026-11-23T06:28:10+00:00'::timestamptz, 6, 1, 10, true, true, true),
+('60', '2026-11-23T06:28:10+00:00'::timestamptz, 4, 1, 14, true, true, true),
+('61', '2026-11-23T06:28:10+00:00'::timestamptz, 6, 2, 8, true, true, true),
+('62', '2026-11-23T06:28:10+00:00'::timestamptz, 4, 2, 19, true, true, true),
+('63', '2026-11-23T06:28:10+00:00'::timestamptz, 8, 2, 9, true, true, true),
+('64', '2026-11-23T06:28:10+00:00'::timestamptz, 2, 0, 13, true, true, true),
+('65', '2026-11-23T06:28:10+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('66', '2026-11-23T06:28:10+00:00'::timestamptz, 4, 0, 15, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('67', '2026-11-23T06:28:10+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('68', '2026-11-23T06:28:10+00:00'::timestamptz, 5, 4, 11, true, true, true),
+('69', '2026-11-23T06:28:10+00:00'::timestamptz, 2, 1, 12, true, true, true),
+('70', '2026-11-23T06:28:10+00:00'::timestamptz, 1, 1, 18, true, true, true),
+('72', '2026-11-23T06:28:10+00:00'::timestamptz, 7, 4, 16, true, true, true),
+('73', '2026-11-23T06:28:10+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('74', '2026-11-23T06:28:10+00:00'::timestamptz, 16, 10, 6, true, true, true),
+('75', '2026-11-23T06:28:10+00:00'::timestamptz, 13, 4, 3, true, true, true),
+('76', '2026-11-23T06:28:10+00:00'::timestamptz, 12, 1, 6, true, true, true),
+('77', '2026-11-23T06:28:10+00:00'::timestamptz, 7, 1, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('78', '2026-11-23T06:28:10+00:00'::timestamptz, 10, 4, 10, true, true, true),
+('79', '2026-11-23T06:28:10+00:00'::timestamptz, 14, 4, 5, true, true, true),
+('80', '2026-11-23T06:28:10+00:00'::timestamptz, 5, 5, 12, true, true, true),
+('81', '2026-11-23T06:28:10+00:00'::timestamptz, 9, 1, 11, true, true, true),
+('82', '2026-11-23T06:28:10+00:00'::timestamptz, 9, 4, 11, true, true, true),
+('83', '2026-11-23T06:28:10+00:00'::timestamptz, 16, 7, 4, true, true, true),
+('84', '2026-11-23T06:28:10+00:00'::timestamptz, 14, 8, 3, true, true, true),
+('85', '2026-11-23T06:28:10+00:00'::timestamptz, 2, 2, 16, true, true, true),
+('86', '2026-11-23T06:28:10+00:00'::timestamptz, 13, 4, 6, true, true, true),
+('87', '2026-11-23T06:28:10+00:00'::timestamptz, 10, 3, 9, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('88', '2026-11-23T06:28:10+00:00'::timestamptz, 6, 5, 11, true, true, true),
+('89', '2026-11-23T06:28:10+00:00'::timestamptz, 8, 1, 12, true, true, true),
+('90', '2026-11-23T06:28:10+00:00'::timestamptz, 11, 5, 6, true, true, true),
+('91', '2026-11-23T06:28:10+00:00'::timestamptz, 3, 2, 16, true, true, true),
+('92', '2026-11-23T06:28:10+00:00'::timestamptz, 3, 3, 12, true, true, true),
+('93', '2026-11-23T06:28:10+00:00'::timestamptz, 13, 8, 3, true, true, true),
+('94', '2026-11-23T06:28:10+00:00'::timestamptz, 0, 0, 1, true, false, false),
+('95', '2026-11-23T06:28:10+00:00'::timestamptz, 5, 3, 11, true, true, true),
+('96', '2026-11-23T06:28:10+00:00'::timestamptz, 25, 12, 1, true, true, true),
+('97', '2026-11-23T06:28:10+00:00'::timestamptz, 3, 0, 17, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('98', '2026-11-23T06:28:10+00:00'::timestamptz, 0, 0, 15, true, true, true),
+('99', '2026-11-23T06:28:10+00:00'::timestamptz, 10, 1, 19, true, true, true),
+('100', '2026-11-23T06:28:10+00:00'::timestamptz, 24, 6, 32, true, true, true),
+('101', '2026-11-23T06:28:10+00:00'::timestamptz, 6, 4, 13, true, true, true),
+('102', '2026-11-23T06:28:10+00:00'::timestamptz, 0, 0, 39, true, true, true),
+('103', '2026-11-23T06:28:10+00:00'::timestamptz, 5, 2, 27, true, true, true),
+('104', '2026-11-23T06:28:10+00:00'::timestamptz, 1, 0, 3, true, true, true),
+('105', '2026-11-23T06:28:10+00:00'::timestamptz, 4, 3, 16, true, true, true),
+('106', '2026-11-23T06:28:10+00:00'::timestamptz, 0, 0, 39, true, false, false),
+('107', '2026-11-23T06:28:10+00:00'::timestamptz, 1, 1, 11, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('108', '2026-11-23T06:28:10+00:00'::timestamptz, 7, 3, 7, true, true, true),
+('109', '2026-11-23T06:28:10+00:00'::timestamptz, 2, 0, 30, true, true, true),
+('110', '2026-11-23T06:28:10+00:00'::timestamptz, 11, 5, 27, true, true, true),
+('111', '2026-11-23T06:28:10+00:00'::timestamptz, 4, 1, 33, true, true, true),
+('112', '2026-11-23T06:28:10+00:00'::timestamptz, 9, 1, 30, true, true, true),
+('113', '2026-11-23T06:28:10+00:00'::timestamptz, 2, 0, 15, true, true, true),
+('114', '2026-11-23T06:28:10+00:00'::timestamptz, 16, 3, 8, true, true, true),
+('115', '2026-11-23T06:28:10+00:00'::timestamptz, 0, 0, 1, true, true, true),
+('116', '2026-11-23T06:28:10+00:00'::timestamptz, 9, 0, 27, true, true, true),
+('117', '2026-11-23T06:28:10+00:00'::timestamptz, 16, 10, 3, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('118', '2026-11-23T06:28:10+00:00'::timestamptz, 10, 2, 7, true, true, true),
+('119', '2026-11-23T06:28:10+00:00'::timestamptz, 5, 2, 15, true, true, true),
+('120', '2026-11-23T06:28:10+00:00'::timestamptz, 18, 1, 0, true, true, true),
+('121', '2026-11-23T06:28:10+00:00'::timestamptz, 7, 2, 7, true, true, true),
+('122', '2026-11-23T06:28:10+00:00'::timestamptz, 3, 3, 12, true, true, true),
+('123', '2026-11-23T06:28:10+00:00'::timestamptz, 2, 1, 33, true, true, true),
+('124', '2026-11-23T06:28:10+00:00'::timestamptz, 1, 0, 19, true, true, true),
+('125', '2026-11-23T06:28:10+00:00'::timestamptz, 1, 1, 29, true, true, true),
+('126', '2026-11-23T06:28:10+00:00'::timestamptz, 6, 2, 4, true, true, true),
+('127', '2026-11-23T06:28:10+00:00'::timestamptz, 15, 8, 7, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('128', '2026-11-23T06:28:10+00:00'::timestamptz, 5, 2, 8, true, true, true),
+('129', '2026-11-23T06:28:10+00:00'::timestamptz, 1, 0, 12, true, true, true),
+('130', '2026-11-23T06:28:10+00:00'::timestamptz, 5, 0, 13, true, true, true),
+('131', '2026-11-23T06:28:10+00:00'::timestamptz, 1, 1, 12, true, true, true),
+('132', '2026-11-23T06:28:10+00:00'::timestamptz, 0, 0, 13, true, true, true),
+('133', '2026-11-23T06:28:10+00:00'::timestamptz, 3, 0, 15, true, true, true),
+('134', '2026-11-23T06:28:10+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('135', '2026-11-23T06:28:10+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('136', '2026-11-23T06:28:10+00:00'::timestamptz, 1, 0, 17, true, true, true),
+('137', '2026-11-23T06:28:10+00:00'::timestamptz, 1, 1, 24, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('138', '2026-11-23T06:28:10+00:00'::timestamptz, 1, 1, 17, true, true, true),
+('139', '2026-11-23T06:28:10+00:00'::timestamptz, 2, 0, 12, true, true, true),
+('140', '2026-11-23T06:28:10+00:00'::timestamptz, 15, 6, 5, true, true, true),
+('141', '2026-11-23T06:28:10+00:00'::timestamptz, 14, 6, 5, true, true, true),
+('142', '2026-11-23T06:28:10+00:00'::timestamptz, 6, 0, 14, true, true, true),
+('143', '2026-11-23T06:28:10+00:00'::timestamptz, 3, 3, 15, true, true, true),
+('144', '2026-11-23T06:28:10+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('145', '2026-11-23T06:28:10+00:00'::timestamptz, 8, 4, 7, true, true, true),
+('146', '2026-11-23T06:28:10+00:00'::timestamptz, 15, 4, 13, true, true, true),
+('147', '2026-11-23T06:28:10+00:00'::timestamptz, 25, 10, 4, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('148', '2026-11-23T06:28:10+00:00'::timestamptz, 2, 2, 16, true, true, true),
+('149', '2026-11-23T06:28:10+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('150', '2026-11-23T06:28:10+00:00'::timestamptz, 13, 2, 2, true, true, true),
+('151', '2026-11-23T06:28:10+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('152', '2026-11-23T06:28:10+00:00'::timestamptz, 8, 2, 12, true, true, true),
+('153', '2026-11-23T06:28:10+00:00'::timestamptz, 17, 7, 1, true, true, true),
+('154', '2026-11-23T06:28:10+00:00'::timestamptz, 15, 1, 1, true, true, true),
+('155', '2026-11-23T06:28:10+00:00'::timestamptz, 10, 7, 14, true, true, true),
+('156', '2026-11-23T06:28:10+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('157', '2026-11-23T06:28:10+00:00'::timestamptz, 1, 0, 19, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('158', '2026-11-23T06:28:10+00:00'::timestamptz, 6, 3, 14, true, true, true),
+('159', '2026-11-23T06:28:10+00:00'::timestamptz, 3, 3, 21, true, true, true),
+('160', '2026-11-23T06:28:10+00:00'::timestamptz, 2, 0, 17, true, true, true),
+('161', '2026-11-23T06:28:10+00:00'::timestamptz, 13, 5, 6, true, true, true),
+('162', '2026-11-23T06:28:10+00:00'::timestamptz, 14, 1, 4, true, true, true),
+('163', '2026-11-23T06:28:10+00:00'::timestamptz, 16, 5, 3, true, true, true),
+('164', '2026-11-23T06:28:10+00:00'::timestamptz, 7, 2, 11, true, true, true),
+('165', '2026-11-23T06:28:10+00:00'::timestamptz, 10, 7, 0, true, true, true),
+('166', '2026-11-23T06:28:10+00:00'::timestamptz, 12, 3, 6, true, true, true),
+('167', '2026-11-23T06:28:10+00:00'::timestamptz, 8, 2, 11, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('168', '2026-11-23T06:28:10+00:00'::timestamptz, 15, 5, 4, true, true, true),
+('169', '2026-11-23T06:28:10+00:00'::timestamptz, 6, 5, 14, true, true, true),
+('170', '2026-11-23T06:28:10+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('171', '2026-11-23T06:28:10+00:00'::timestamptz, 5, 1, 13, true, true, true),
+('172', '2026-11-23T06:28:10+00:00'::timestamptz, 16, 7, 11, true, true, true),
+('173', '2026-11-23T06:28:10+00:00'::timestamptz, 9, 2, 11, true, false, false),
+('174', '2026-11-23T06:28:10+00:00'::timestamptz, 5, 0, 37, true, true, true),
+('175', '2026-11-23T06:28:10+00:00'::timestamptz, 19, 12, 0, true, true, true),
+('176', '2026-11-23T06:28:10+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('177', '2026-11-23T06:28:10+00:00'::timestamptz, 11, 1, 13, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('178', '2026-11-23T06:28:10+00:00'::timestamptz, 16, 8, 1, true, true, true),
+('179', '2026-11-23T06:28:10+00:00'::timestamptz, 6, 2, 17, true, true, true),
+('180', '2026-11-23T06:28:10+00:00'::timestamptz, 8, 5, 7, true, true, true),
+('181', '2026-11-23T06:28:10+00:00'::timestamptz, 9, 5, 10, true, true, true),
+('182', '2026-11-23T06:28:10+00:00'::timestamptz, 16, 9, 4, true, true, true),
+('183', '2026-11-23T06:28:10+00:00'::timestamptz, 7, 1, 13, true, true, true),
+('184', '2026-11-23T06:28:10+00:00'::timestamptz, 4, 0, 15, true, true, true),
+('185', '2026-11-23T06:28:10+00:00'::timestamptz, 4, 0, 15, true, true, true),
+('186', '2026-11-23T06:28:10+00:00'::timestamptz, 15, 7, 3, true, true, true),
+('188', '2026-11-23T06:28:10+00:00'::timestamptz, 1, 1, 18, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('189', '2026-11-23T06:28:10+00:00'::timestamptz, 7, 3, 12, true, true, true),
+('190', '2026-11-23T06:28:10+00:00'::timestamptz, 3, 3, 16, true, true, true),
+('192', '2026-11-23T06:28:10+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('194', '2026-11-23T06:28:10+00:00'::timestamptz, 17, 7, 1, true, true, true),
+('196', '2026-11-23T06:28:10+00:00'::timestamptz, 16, 7, 4, true, true, true),
+('197', '2026-11-23T06:28:10+00:00'::timestamptz, 8, 2, 8, true, true, true),
+('199', '2026-11-23T06:28:10+00:00'::timestamptz, 11, 3, 13, true, true, true),
+('200', '2026-11-23T06:28:10+00:00'::timestamptz, 2, 2, 11, true, true, true),
+('201', '2026-11-23T06:28:10+00:00'::timestamptz, 8, 6, 12, true, true, true),
+('202', '2026-11-23T06:28:10+00:00'::timestamptz, 7, 1, 11, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('206', '2026-11-23T06:28:10+00:00'::timestamptz, 4, 0, 15, true, true, true),
+('207', '2026-11-23T06:28:10+00:00'::timestamptz, 7, 1, 13, true, true, true),
+('208', '2026-11-23T06:28:10+00:00'::timestamptz, 2, 1, 14, true, true, true),
+('209', '2026-11-23T06:28:10+00:00'::timestamptz, 3, 1, 11, true, true, true),
+('211', '2026-11-23T06:28:10+00:00'::timestamptz, 6, 2, 10, true, true, true),
+('214', '2026-11-23T06:28:10+00:00'::timestamptz, 1, 1, 18, true, true, true),
+('215', '2026-11-23T06:28:10+00:00'::timestamptz, 0, 0, 16, false, false, false),
+('219', '2026-11-23T06:28:10+00:00'::timestamptz, 3, 1, 7, false, false, false),
+('251', '2026-11-23T06:28:10+00:00'::timestamptz, 1, 0, 35, true, true, true),
+('297', '2026-11-23T06:28:10+00:00'::timestamptz, 0, 0, 0, false, false, false)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('298', '2026-11-23T06:28:10+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('299', '2026-11-23T06:28:10+00:00'::timestamptz, 1, 0, 21, false, true, true),
+('505', '2026-11-23T06:28:10+00:00'::timestamptz, 5, 0, 0, false, true, true),
+('507', '2026-11-23T06:28:10+00:00'::timestamptz, 4, 0, 4, true, true, true),
+('522', '2026-11-23T06:28:10+00:00'::timestamptz, 4, 2, 1, false, true, true),
+('539', '2026-11-23T06:28:10+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('543', '2026-11-23T06:28:10+00:00'::timestamptz, 3, 2, 2, true, true, true),
+('557', '2026-11-23T06:28:10+00:00'::timestamptz, 2, 1, 3, true, true, true),
+('559', '2026-11-23T06:28:10+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('561', '2026-11-23T06:28:10+00:00'::timestamptz, 1, 0, 4, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('567', '2026-11-23T06:28:10+00:00'::timestamptz, 1, 1, 4, false, false, false),
+('598', '2026-11-23T06:28:10+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('599', '2026-11-23T06:28:10+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('604', '2026-11-23T06:28:10+00:00'::timestamptz, 1, 0, 4, false, true, true),
+('605', '2026-11-23T06:28:10+00:00'::timestamptz, 3, 0, 2, true, true, true),
+('606', '2026-11-23T06:28:10+00:00'::timestamptz, 1, 0, 8, false, false, false),
+('627', '2026-11-23T06:28:10+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('629', '2026-11-23T06:28:10+00:00'::timestamptz, 2, 0, 2, true, true, true),
+('633', '2026-11-23T06:28:10+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('634', '2026-11-23T06:28:10+00:00'::timestamptz, 0, 0, 5, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('670', '2026-11-23T06:28:10+00:00'::timestamptz, 0, 0, 5, false, false, false),
+('672', '2026-11-23T06:28:10+00:00'::timestamptz, 4, 2, 6, true, true, true),
+('900', '2026-11-23T06:28:10+00:00'::timestamptz, 0, 0, 15, false, false, false),
+('901', '2026-11-23T06:28:10+00:00'::timestamptz, 0, 0, 20, true, false, false),
+('902', '2026-11-23T06:28:10+00:00'::timestamptz, 0, 0, 20, false, false, false),
+('903', '2026-11-23T06:28:10+00:00'::timestamptz, 22, 1, 0, true, true, true),
+('1', '2026-11-23T08:28:09+00:00'::timestamptz, 4, 1, 38, true, true, true),
+('2', '2026-11-23T08:28:09+00:00'::timestamptz, 1, 0, 17, true, true, true),
+('3', '2026-11-23T08:28:09+00:00'::timestamptz, 11, 6, 14, true, true, true),
+('4', '2026-11-23T08:28:09+00:00'::timestamptz, 6, 4, 14, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('5', '2026-11-23T08:28:09+00:00'::timestamptz, 0, 0, 39, true, true, true),
+('6', '2026-11-23T08:28:09+00:00'::timestamptz, 9, 4, 29, true, true, true),
+('7', '2026-11-23T08:28:09+00:00'::timestamptz, 1, 1, 14, true, true, true),
+('8', '2026-11-23T08:28:09+00:00'::timestamptz, 1, 0, 19, true, true, true),
+('9', '2026-11-23T08:28:09+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('10', '2026-11-23T08:28:09+00:00'::timestamptz, 2, 0, 19, true, true, true),
+('11', '2026-11-23T08:28:09+00:00'::timestamptz, 8, 0, 20, true, true, true),
+('12', '2026-11-23T08:28:09+00:00'::timestamptz, 7, 5, 7, true, true, true),
+('13', '2026-11-23T08:28:09+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('14', '2026-11-23T08:28:09+00:00'::timestamptz, 7, 4, 19, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('15', '2026-11-23T08:28:09+00:00'::timestamptz, 5, 2, 6, true, true, true),
+('16', '2026-11-23T08:28:09+00:00'::timestamptz, 9, 2, 18, true, true, true),
+('17', '2026-11-23T08:28:09+00:00'::timestamptz, 3, 1, 9, true, true, true),
+('18', '2026-11-23T08:28:09+00:00'::timestamptz, 3, 2, 10, true, true, true),
+('19', '2026-11-23T08:28:09+00:00'::timestamptz, 7, 2, 23, true, true, true),
+('20', '2026-11-23T08:28:09+00:00'::timestamptz, 12, 2, 16, true, true, true),
+('21', '2026-11-23T08:28:09+00:00'::timestamptz, 5, 3, 9, true, true, true),
+('22', '2026-11-23T08:28:09+00:00'::timestamptz, 11, 4, 20, true, true, true),
+('23', '2026-11-23T08:28:09+00:00'::timestamptz, 7, 3, 33, true, true, true),
+('24', '2026-11-23T08:28:09+00:00'::timestamptz, 4, 1, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('25', '2026-11-23T08:28:09+00:00'::timestamptz, 0, 0, 14, true, true, true),
+('26', '2026-11-23T08:28:09+00:00'::timestamptz, 0, 0, 12, true, true, true),
+('27', '2026-11-23T08:28:09+00:00'::timestamptz, 13, 10, 6, true, true, true),
+('28', '2026-11-23T08:28:09+00:00'::timestamptz, 0, 0, 26, true, false, false),
+('29', '2026-11-23T08:28:09+00:00'::timestamptz, 2, 2, 18, true, true, true),
+('30', '2026-11-23T08:28:09+00:00'::timestamptz, 8, 2, 9, true, true, true),
+('31', '2026-11-23T08:28:09+00:00'::timestamptz, 5, 1, 11, true, true, true),
+('32', '2026-11-23T08:28:09+00:00'::timestamptz, 14, 1, 1, true, true, true),
+('33', '2026-11-23T08:28:09+00:00'::timestamptz, 7, 1, 12, true, true, true),
+('34', '2026-11-23T08:28:09+00:00'::timestamptz, 3, 1, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('35', '2026-11-23T08:28:09+00:00'::timestamptz, 2, 0, 15, true, true, true),
+('36', '2026-11-23T08:28:09+00:00'::timestamptz, 5, 0, 12, true, true, true),
+('37', '2026-11-23T08:28:09+00:00'::timestamptz, 26, 8, 1, true, true, true),
+('38', '2026-11-23T08:28:09+00:00'::timestamptz, 1, 0, 13, true, true, true),
+('39', '2026-11-23T08:28:09+00:00'::timestamptz, 12, 4, 53, true, true, true),
+('40', '2026-11-23T08:28:09+00:00'::timestamptz, 7, 4, 12, true, true, true),
+('41', '2026-11-23T08:28:09+00:00'::timestamptz, 2, 1, 15, true, true, true),
+('42', '2026-11-23T08:28:09+00:00'::timestamptz, 2, 0, 17, true, true, true),
+('43', '2026-11-23T08:28:09+00:00'::timestamptz, 8, 5, 6, true, true, true),
+('44', '2026-11-23T08:28:09+00:00'::timestamptz, 11, 7, 7, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('45', '2026-11-23T08:28:09+00:00'::timestamptz, 8, 6, 9, true, true, true),
+('46', '2026-11-23T08:28:09+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('47', '2026-11-23T08:28:09+00:00'::timestamptz, 3, 1, 13, true, true, true),
+('48', '2026-11-23T08:28:09+00:00'::timestamptz, 0, 0, 14, true, true, true),
+('49', '2026-11-23T08:28:09+00:00'::timestamptz, 4, 0, 14, true, true, true),
+('50', '2026-11-23T08:28:09+00:00'::timestamptz, 10, 1, 3, true, true, true),
+('51', '2026-11-23T08:28:09+00:00'::timestamptz, 15, 2, 4, true, true, true),
+('52', '2026-11-23T08:28:09+00:00'::timestamptz, 10, 1, 7, true, true, true),
+('53', '2026-11-23T08:28:09+00:00'::timestamptz, 4, 3, 10, true, true, true),
+('54', '2026-11-23T08:28:09+00:00'::timestamptz, 1, 0, 42, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('55', '2026-11-23T08:28:09+00:00'::timestamptz, 3, 1, 13, true, true, true),
+('56', '2026-11-23T08:28:09+00:00'::timestamptz, 6, 2, 4, true, true, true),
+('57', '2026-11-23T08:28:09+00:00'::timestamptz, 11, 4, 5, true, true, true),
+('58', '2026-11-23T08:28:09+00:00'::timestamptz, 9, 3, 7, true, true, true),
+('59', '2026-11-23T08:28:09+00:00'::timestamptz, 12, 2, 2, true, true, true),
+('60', '2026-11-23T08:28:09+00:00'::timestamptz, 4, 1, 14, true, true, true),
+('61', '2026-11-23T08:28:09+00:00'::timestamptz, 11, 3, 3, true, true, true),
+('62', '2026-11-23T08:28:09+00:00'::timestamptz, 4, 1, 20, true, true, true),
+('63', '2026-11-23T08:28:09+00:00'::timestamptz, 6, 1, 11, true, true, true),
+('64', '2026-11-23T08:28:09+00:00'::timestamptz, 5, 2, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('65', '2026-11-23T08:28:09+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('66', '2026-11-23T08:28:09+00:00'::timestamptz, 9, 1, 10, true, true, true),
+('67', '2026-11-23T08:28:09+00:00'::timestamptz, 3, 0, 17, true, true, true),
+('68', '2026-11-23T08:28:09+00:00'::timestamptz, 6, 3, 8, true, true, true),
+('69', '2026-11-23T08:28:09+00:00'::timestamptz, 0, 0, 14, true, true, true),
+('70', '2026-11-23T08:28:09+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('72', '2026-11-23T08:28:09+00:00'::timestamptz, 7, 4, 16, true, true, true),
+('73', '2026-11-23T08:28:09+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('74', '2026-11-23T08:28:09+00:00'::timestamptz, 20, 12, 2, true, true, true),
+('75', '2026-11-23T08:28:09+00:00'::timestamptz, 10, 1, 6, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('76', '2026-11-23T08:28:09+00:00'::timestamptz, 10, 0, 9, true, true, true),
+('77', '2026-11-23T08:28:09+00:00'::timestamptz, 6, 1, 13, true, true, true),
+('78', '2026-11-23T08:28:09+00:00'::timestamptz, 10, 4, 10, true, true, true),
+('79', '2026-11-23T08:28:09+00:00'::timestamptz, 14, 5, 5, true, true, true),
+('80', '2026-11-23T08:28:09+00:00'::timestamptz, 6, 6, 11, true, true, true),
+('81', '2026-11-23T08:28:09+00:00'::timestamptz, 6, 1, 14, true, true, true),
+('82', '2026-11-23T08:28:09+00:00'::timestamptz, 8, 3, 12, true, true, true),
+('83', '2026-11-23T08:28:09+00:00'::timestamptz, 14, 6, 5, true, true, true),
+('84', '2026-11-23T08:28:09+00:00'::timestamptz, 11, 6, 6, true, true, true),
+('85', '2026-11-23T08:28:09+00:00'::timestamptz, 1, 1, 17, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('86', '2026-11-23T08:28:09+00:00'::timestamptz, 14, 4, 5, true, true, true),
+('87', '2026-11-23T08:28:09+00:00'::timestamptz, 9, 2, 11, true, true, true),
+('88', '2026-11-23T08:28:09+00:00'::timestamptz, 4, 3, 13, true, true, true),
+('89', '2026-11-23T08:28:09+00:00'::timestamptz, 8, 1, 12, true, true, true),
+('90', '2026-11-23T08:28:09+00:00'::timestamptz, 7, 1, 10, true, true, true),
+('91', '2026-11-23T08:28:09+00:00'::timestamptz, 4, 1, 15, true, true, true),
+('92', '2026-11-23T08:28:09+00:00'::timestamptz, 10, 5, 5, true, true, true),
+('93', '2026-11-23T08:28:09+00:00'::timestamptz, 12, 7, 4, true, true, true),
+('94', '2026-11-23T08:28:09+00:00'::timestamptz, 0, 0, 1, true, false, false),
+('95', '2026-11-23T08:28:09+00:00'::timestamptz, 4, 2, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('96', '2026-11-23T08:28:09+00:00'::timestamptz, 26, 12, 0, true, true, true),
+('97', '2026-11-23T08:28:09+00:00'::timestamptz, 3, 0, 17, true, true, true),
+('98', '2026-11-23T08:28:09+00:00'::timestamptz, 6, 0, 9, true, true, true),
+('99', '2026-11-23T08:28:09+00:00'::timestamptz, 9, 0, 20, true, true, true),
+('100', '2026-11-23T08:28:09+00:00'::timestamptz, 30, 7, 26, true, true, true),
+('101', '2026-11-23T08:28:09+00:00'::timestamptz, 5, 3, 14, true, true, true),
+('102', '2026-11-23T08:28:09+00:00'::timestamptz, 1, 0, 38, true, true, true),
+('103', '2026-11-23T08:28:09+00:00'::timestamptz, 3, 1, 29, true, true, true),
+('104', '2026-11-23T08:28:09+00:00'::timestamptz, 1, 1, 3, true, true, true),
+('105', '2026-11-23T08:28:09+00:00'::timestamptz, 2, 1, 18, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('106', '2026-11-23T08:28:09+00:00'::timestamptz, 0, 0, 39, true, false, false),
+('107', '2026-11-23T08:28:09+00:00'::timestamptz, 1, 1, 11, true, true, true),
+('108', '2026-11-23T08:28:09+00:00'::timestamptz, 3, 1, 9, true, true, true),
+('109', '2026-11-23T08:28:09+00:00'::timestamptz, 14, 6, 22, true, true, true),
+('110', '2026-11-23T08:28:09+00:00'::timestamptz, 10, 4, 28, true, true, true),
+('111', '2026-11-23T08:28:09+00:00'::timestamptz, 12, 6, 25, true, true, true),
+('112', '2026-11-23T08:28:09+00:00'::timestamptz, 13, 3, 26, true, true, true),
+('113', '2026-11-23T08:28:09+00:00'::timestamptz, 15, 7, 3, true, true, true),
+('114', '2026-11-23T08:28:09+00:00'::timestamptz, 24, 7, 3, true, true, true),
+('115', '2026-11-23T08:28:09+00:00'::timestamptz, 0, 0, 1, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('116', '2026-11-23T08:28:09+00:00'::timestamptz, 14, 8, 24, true, true, true),
+('117', '2026-11-23T08:28:09+00:00'::timestamptz, 11, 7, 8, true, true, true),
+('118', '2026-11-23T08:28:09+00:00'::timestamptz, 9, 3, 8, true, true, true),
+('119', '2026-11-23T08:28:09+00:00'::timestamptz, 13, 7, 7, true, true, true),
+('120', '2026-11-23T08:28:09+00:00'::timestamptz, 16, 1, 0, true, true, true),
+('121', '2026-11-23T08:28:09+00:00'::timestamptz, 4, 1, 10, true, true, true),
+('122', '2026-11-23T08:28:09+00:00'::timestamptz, 0, 0, 15, true, true, true),
+('123', '2026-11-23T08:28:09+00:00'::timestamptz, 2, 1, 33, true, true, true),
+('124', '2026-11-23T08:28:09+00:00'::timestamptz, 1, 0, 19, true, true, true),
+('125', '2026-11-23T08:28:09+00:00'::timestamptz, 3, 2, 27, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('126', '2026-11-23T08:28:09+00:00'::timestamptz, 8, 1, 3, true, true, true),
+('127', '2026-11-23T08:28:09+00:00'::timestamptz, 3, 2, 18, true, true, true),
+('128', '2026-11-23T08:28:09+00:00'::timestamptz, 0, 0, 14, true, true, true),
+('129', '2026-11-23T08:28:09+00:00'::timestamptz, 3, 3, 12, true, true, true),
+('130', '2026-11-23T08:28:09+00:00'::timestamptz, 1, 0, 17, true, true, true),
+('131', '2026-11-23T08:28:09+00:00'::timestamptz, 6, 6, 12, true, true, true),
+('132', '2026-11-23T08:28:09+00:00'::timestamptz, 1, 0, 12, true, true, true),
+('133', '2026-11-23T08:28:09+00:00'::timestamptz, 5, 0, 13, true, true, true),
+('134', '2026-11-23T08:28:09+00:00'::timestamptz, 1, 0, 17, true, true, true),
+('135', '2026-11-23T08:28:09+00:00'::timestamptz, 1, 0, 18, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('136', '2026-11-23T08:28:09+00:00'::timestamptz, 8, 3, 10, true, true, true),
+('137', '2026-11-23T08:28:09+00:00'::timestamptz, 5, 4, 20, true, true, true),
+('138', '2026-11-23T08:28:09+00:00'::timestamptz, 2, 0, 16, true, true, true),
+('139', '2026-11-23T08:28:09+00:00'::timestamptz, 7, 5, 9, true, true, true),
+('140', '2026-11-23T08:28:09+00:00'::timestamptz, 11, 5, 9, true, true, true),
+('141', '2026-11-23T08:28:09+00:00'::timestamptz, 8, 1, 11, true, true, true),
+('142', '2026-11-23T08:28:09+00:00'::timestamptz, 5, 1, 13, true, true, true),
+('143', '2026-11-23T08:28:09+00:00'::timestamptz, 3, 2, 15, true, true, true),
+('144', '2026-11-23T08:28:09+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('145', '2026-11-23T08:28:09+00:00'::timestamptz, 12, 7, 5, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('146', '2026-11-23T08:28:09+00:00'::timestamptz, 16, 5, 12, true, true, true),
+('147', '2026-11-23T08:28:09+00:00'::timestamptz, 25, 10, 4, true, true, true),
+('148', '2026-11-23T08:28:09+00:00'::timestamptz, 1, 1, 18, true, true, true),
+('149', '2026-11-23T08:28:09+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('150', '2026-11-23T08:28:09+00:00'::timestamptz, 13, 2, 2, true, true, true),
+('151', '2026-11-23T08:28:09+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('152', '2026-11-23T08:28:09+00:00'::timestamptz, 10, 3, 10, true, true, true),
+('153', '2026-11-23T08:28:09+00:00'::timestamptz, 20, 8, 0, true, true, true),
+('154', '2026-11-23T08:28:09+00:00'::timestamptz, 15, 4, 4, true, true, true),
+('155', '2026-11-23T08:28:09+00:00'::timestamptz, 14, 8, 9, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('156', '2026-11-23T08:28:09+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('157', '2026-11-23T08:28:09+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('158', '2026-11-23T08:28:09+00:00'::timestamptz, 2, 0, 18, true, true, true),
+('159', '2026-11-23T08:28:09+00:00'::timestamptz, 3, 3, 21, true, true, true),
+('160', '2026-11-23T08:28:09+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('161', '2026-11-23T08:28:09+00:00'::timestamptz, 4, 0, 15, true, true, true),
+('162', '2026-11-23T08:28:09+00:00'::timestamptz, 12, 1, 6, true, true, true),
+('163', '2026-11-23T08:28:09+00:00'::timestamptz, 18, 6, 1, true, true, true),
+('164', '2026-11-23T08:28:09+00:00'::timestamptz, 4, 1, 14, true, true, true),
+('165', '2026-11-23T08:28:09+00:00'::timestamptz, 8, 5, 0, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('166', '2026-11-23T08:28:09+00:00'::timestamptz, 13, 4, 5, true, true, true),
+('167', '2026-11-23T08:28:09+00:00'::timestamptz, 9, 3, 10, true, true, true),
+('168', '2026-11-23T08:28:09+00:00'::timestamptz, 16, 5, 1, true, true, true),
+('169', '2026-11-23T08:28:09+00:00'::timestamptz, 7, 6, 13, true, true, true),
+('170', '2026-11-23T08:28:09+00:00'::timestamptz, 6, 2, 14, true, true, true),
+('171', '2026-11-23T08:28:09+00:00'::timestamptz, 3, 2, 15, true, true, true),
+('172', '2026-11-23T08:28:09+00:00'::timestamptz, 23, 6, 4, true, true, true),
+('173', '2026-11-23T08:28:09+00:00'::timestamptz, 9, 2, 11, true, false, false),
+('174', '2026-11-23T08:28:09+00:00'::timestamptz, 7, 0, 34, true, true, true),
+('175', '2026-11-23T08:28:09+00:00'::timestamptz, 15, 9, 4, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('176', '2026-11-23T08:28:09+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('177', '2026-11-23T08:28:09+00:00'::timestamptz, 12, 2, 12, true, true, true),
+('178', '2026-11-23T08:28:09+00:00'::timestamptz, 5, 3, 12, true, true, true),
+('179', '2026-11-23T08:28:09+00:00'::timestamptz, 3, 0, 20, true, true, true),
+('180', '2026-11-23T08:28:09+00:00'::timestamptz, 4, 1, 11, true, true, true),
+('181', '2026-11-23T08:28:09+00:00'::timestamptz, 2, 0, 18, true, true, true),
+('182', '2026-11-23T08:28:09+00:00'::timestamptz, 17, 9, 3, true, true, true),
+('183', '2026-11-23T08:28:09+00:00'::timestamptz, 9, 2, 11, true, true, true),
+('184', '2026-11-23T08:28:09+00:00'::timestamptz, 3, 0, 16, true, true, true),
+('185', '2026-11-23T08:28:09+00:00'::timestamptz, 7, 2, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('186', '2026-11-23T08:28:09+00:00'::timestamptz, 13, 3, 5, true, true, true),
+('188', '2026-11-23T08:28:09+00:00'::timestamptz, 2, 1, 17, true, true, true),
+('189', '2026-11-23T08:28:09+00:00'::timestamptz, 1, 1, 18, true, true, true),
+('190', '2026-11-23T08:28:09+00:00'::timestamptz, 9, 2, 10, true, true, true),
+('192', '2026-11-23T08:28:09+00:00'::timestamptz, 2, 1, 16, true, true, true),
+('194', '2026-11-23T08:28:09+00:00'::timestamptz, 15, 6, 3, true, true, true),
+('196', '2026-11-23T08:28:09+00:00'::timestamptz, 13, 4, 7, true, true, true),
+('197', '2026-11-23T08:28:09+00:00'::timestamptz, 6, 0, 10, true, true, true),
+('199', '2026-11-23T08:28:09+00:00'::timestamptz, 9, 2, 15, true, true, true),
+('200', '2026-11-23T08:28:09+00:00'::timestamptz, 4, 4, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('201', '2026-11-23T08:28:09+00:00'::timestamptz, 8, 6, 12, true, true, true),
+('202', '2026-11-23T08:28:09+00:00'::timestamptz, 3, 0, 15, true, true, true),
+('206', '2026-11-23T08:28:09+00:00'::timestamptz, 5, 1, 15, true, true, true),
+('207', '2026-11-23T08:28:09+00:00'::timestamptz, 4, 1, 16, true, true, true),
+('208', '2026-11-23T08:28:09+00:00'::timestamptz, 2, 2, 15, true, true, true),
+('209', '2026-11-23T08:28:09+00:00'::timestamptz, 2, 1, 12, true, true, true),
+('211', '2026-11-23T08:28:09+00:00'::timestamptz, 9, 3, 7, true, true, true),
+('214', '2026-11-23T08:28:09+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('215', '2026-11-23T08:28:09+00:00'::timestamptz, 0, 0, 16, false, false, false),
+('219', '2026-11-23T08:28:09+00:00'::timestamptz, 3, 1, 7, false, false, false)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('251', '2026-11-23T08:28:09+00:00'::timestamptz, 0, 0, 36, true, true, true),
+('297', '2026-11-23T08:28:09+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('298', '2026-11-23T08:28:09+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('299', '2026-11-23T08:28:09+00:00'::timestamptz, 2, 0, 20, false, true, true),
+('505', '2026-11-23T08:28:09+00:00'::timestamptz, 5, 0, 0, false, true, true),
+('507', '2026-11-23T08:28:09+00:00'::timestamptz, 4, 0, 4, true, true, true),
+('522', '2026-11-23T08:28:09+00:00'::timestamptz, 4, 2, 1, false, true, true),
+('539', '2026-11-23T08:28:09+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('543', '2026-11-23T08:28:09+00:00'::timestamptz, 3, 2, 2, true, true, true),
+('557', '2026-11-23T08:28:09+00:00'::timestamptz, 2, 1, 3, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('559', '2026-11-23T08:28:09+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('561', '2026-11-23T08:28:09+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('567', '2026-11-23T08:28:09+00:00'::timestamptz, 1, 1, 4, false, false, false),
+('598', '2026-11-23T08:28:09+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('599', '2026-11-23T08:28:09+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('604', '2026-11-23T08:28:09+00:00'::timestamptz, 1, 0, 4, false, true, true),
+('605', '2026-11-23T08:28:09+00:00'::timestamptz, 3, 0, 2, true, true, true),
+('606', '2026-11-23T08:28:09+00:00'::timestamptz, 1, 0, 8, false, false, false),
+('627', '2026-11-23T08:28:09+00:00'::timestamptz, 2, 0, 17, true, true, true),
+('629', '2026-11-23T08:28:09+00:00'::timestamptz, 2, 0, 2, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('633', '2026-11-23T08:28:09+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('634', '2026-11-23T08:28:09+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('670', '2026-11-23T08:28:09+00:00'::timestamptz, 0, 0, 5, false, false, false),
+('672', '2026-11-23T08:28:09+00:00'::timestamptz, 6, 3, 4, true, true, true),
+('900', '2026-11-23T08:28:09+00:00'::timestamptz, 0, 0, 15, false, false, false),
+('901', '2026-11-23T08:28:09+00:00'::timestamptz, 0, 0, 20, true, false, false),
+('902', '2026-11-23T08:28:09+00:00'::timestamptz, 0, 0, 20, false, false, false),
+('903', '2026-11-23T08:28:09+00:00'::timestamptz, 16, 0, 5, true, true, true),
+('1', '2026-11-23T09:28:09+00:00'::timestamptz, 5, 1, 37, true, true, true),
+('2', '2026-11-23T09:28:09+00:00'::timestamptz, 1, 0, 18, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('3', '2026-11-23T09:28:09+00:00'::timestamptz, 9, 4, 16, true, true, true),
+('4', '2026-11-23T09:28:09+00:00'::timestamptz, 12, 8, 8, true, true, true),
+('5', '2026-11-23T09:28:09+00:00'::timestamptz, 3, 1, 35, true, true, true),
+('6', '2026-11-23T09:28:09+00:00'::timestamptz, 9, 5, 29, true, true, true),
+('7', '2026-11-23T09:28:09+00:00'::timestamptz, 1, 1, 13, true, true, true),
+('8', '2026-11-23T09:28:09+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('9', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('10', '2026-11-23T09:28:09+00:00'::timestamptz, 4, 1, 17, true, true, true),
+('11', '2026-11-23T09:28:09+00:00'::timestamptz, 9, 1, 19, true, true, true),
+('12', '2026-11-23T09:28:09+00:00'::timestamptz, 5, 3, 9, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('13', '2026-11-23T09:28:09+00:00'::timestamptz, 2, 2, 18, true, true, true),
+('14', '2026-11-23T09:28:09+00:00'::timestamptz, 4, 1, 22, true, true, true),
+('15', '2026-11-23T09:28:09+00:00'::timestamptz, 5, 2, 6, true, true, true),
+('16', '2026-11-23T09:28:09+00:00'::timestamptz, 8, 2, 20, true, true, true),
+('17', '2026-11-23T09:28:09+00:00'::timestamptz, 4, 1, 8, true, true, true),
+('18', '2026-11-23T09:28:09+00:00'::timestamptz, 2, 2, 11, true, true, true),
+('19', '2026-11-23T09:28:09+00:00'::timestamptz, 13, 2, 17, true, true, true),
+('20', '2026-11-23T09:28:09+00:00'::timestamptz, 12, 2, 16, true, true, true),
+('21', '2026-11-23T09:28:09+00:00'::timestamptz, 4, 2, 10, true, true, true),
+('22', '2026-11-23T09:28:09+00:00'::timestamptz, 14, 7, 17, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('23', '2026-11-23T09:28:09+00:00'::timestamptz, 8, 3, 32, true, true, true),
+('24', '2026-11-23T09:28:09+00:00'::timestamptz, 3, 0, 13, true, true, true),
+('25', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 14, true, true, true),
+('26', '2026-11-23T09:28:09+00:00'::timestamptz, 1, 1, 11, true, true, true),
+('27', '2026-11-23T09:28:09+00:00'::timestamptz, 14, 8, 5, true, true, true),
+('28', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 26, true, false, false),
+('29', '2026-11-23T09:28:09+00:00'::timestamptz, 2, 2, 18, true, true, true),
+('30', '2026-11-23T09:28:09+00:00'::timestamptz, 6, 1, 11, true, true, true),
+('31', '2026-11-23T09:28:09+00:00'::timestamptz, 5, 1, 11, true, true, true),
+('32', '2026-11-23T09:28:09+00:00'::timestamptz, 14, 1, 1, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('33', '2026-11-23T09:28:09+00:00'::timestamptz, 6, 0, 13, true, true, true),
+('34', '2026-11-23T09:28:09+00:00'::timestamptz, 3, 1, 12, true, true, true),
+('35', '2026-11-23T09:28:09+00:00'::timestamptz, 2, 1, 15, true, true, true),
+('36', '2026-11-23T09:28:09+00:00'::timestamptz, 7, 4, 10, true, true, true),
+('37', '2026-11-23T09:28:09+00:00'::timestamptz, 26, 7, 1, true, true, true),
+('38', '2026-11-23T09:28:09+00:00'::timestamptz, 2, 0, 12, true, true, true),
+('39', '2026-11-23T09:28:09+00:00'::timestamptz, 15, 6, 50, true, true, true),
+('40', '2026-11-23T09:28:09+00:00'::timestamptz, 7, 3, 12, true, true, true),
+('41', '2026-11-23T09:28:09+00:00'::timestamptz, 3, 1, 14, true, true, true),
+('42', '2026-11-23T09:28:09+00:00'::timestamptz, 2, 0, 17, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('43', '2026-11-23T09:28:09+00:00'::timestamptz, 7, 3, 7, true, true, true),
+('44', '2026-11-23T09:28:09+00:00'::timestamptz, 11, 6, 7, true, true, true),
+('45', '2026-11-23T09:28:09+00:00'::timestamptz, 7, 4, 10, true, true, true),
+('46', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('47', '2026-11-23T09:28:09+00:00'::timestamptz, 6, 4, 10, true, true, true),
+('48', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 16, true, true, true),
+('49', '2026-11-23T09:28:09+00:00'::timestamptz, 4, 0, 14, true, true, true),
+('50', '2026-11-23T09:28:09+00:00'::timestamptz, 9, 1, 4, true, true, true),
+('51', '2026-11-23T09:28:09+00:00'::timestamptz, 16, 2, 3, true, true, true),
+('52', '2026-11-23T09:28:09+00:00'::timestamptz, 8, 0, 8, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('53', '2026-11-23T09:28:09+00:00'::timestamptz, 3, 2, 11, true, true, true),
+('54', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 43, true, true, true),
+('55', '2026-11-23T09:28:09+00:00'::timestamptz, 4, 3, 11, true, true, true),
+('56', '2026-11-23T09:28:09+00:00'::timestamptz, 3, 0, 7, true, true, true),
+('57', '2026-11-23T09:28:09+00:00'::timestamptz, 13, 5, 3, true, true, true),
+('58', '2026-11-23T09:28:09+00:00'::timestamptz, 6, 2, 10, true, true, true),
+('59', '2026-11-23T09:28:09+00:00'::timestamptz, 12, 2, 2, true, true, true),
+('60', '2026-11-23T09:28:09+00:00'::timestamptz, 4, 1, 14, true, true, true),
+('61', '2026-11-23T09:28:09+00:00'::timestamptz, 12, 3, 2, true, true, true),
+('62', '2026-11-23T09:28:09+00:00'::timestamptz, 5, 2, 19, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('63', '2026-11-23T09:28:09+00:00'::timestamptz, 5, 1, 12, true, true, true),
+('64', '2026-11-23T09:28:09+00:00'::timestamptz, 4, 2, 11, true, true, true),
+('65', '2026-11-23T09:28:09+00:00'::timestamptz, 7, 3, 11, true, true, true),
+('66', '2026-11-23T09:28:09+00:00'::timestamptz, 8, 0, 11, true, true, true),
+('67', '2026-11-23T09:28:09+00:00'::timestamptz, 10, 6, 10, true, true, true),
+('68', '2026-11-23T09:28:09+00:00'::timestamptz, 7, 4, 7, true, true, true),
+('69', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 14, true, true, true),
+('70', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('72', '2026-11-23T09:28:09+00:00'::timestamptz, 7, 4, 16, true, true, true),
+('73', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 19, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('74', '2026-11-23T09:28:09+00:00'::timestamptz, 19, 11, 3, true, true, true),
+('75', '2026-11-23T09:28:09+00:00'::timestamptz, 9, 1, 7, true, true, true),
+('76', '2026-11-23T09:28:09+00:00'::timestamptz, 10, 0, 9, true, true, true),
+('77', '2026-11-23T09:28:09+00:00'::timestamptz, 6, 1, 13, true, true, true),
+('78', '2026-11-23T09:28:09+00:00'::timestamptz, 10, 4, 10, true, true, true),
+('79', '2026-11-23T09:28:09+00:00'::timestamptz, 14, 5, 5, true, true, true),
+('80', '2026-11-23T09:28:09+00:00'::timestamptz, 6, 6, 11, true, true, true),
+('81', '2026-11-23T09:28:09+00:00'::timestamptz, 5, 1, 15, true, true, true),
+('82', '2026-11-23T09:28:09+00:00'::timestamptz, 7, 3, 13, true, true, true),
+('83', '2026-11-23T09:28:09+00:00'::timestamptz, 14, 6, 5, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('84', '2026-11-23T09:28:09+00:00'::timestamptz, 10, 5, 7, true, true, true),
+('85', '2026-11-23T09:28:09+00:00'::timestamptz, 1, 1, 17, true, true, true),
+('86', '2026-11-23T09:28:09+00:00'::timestamptz, 14, 4, 5, true, true, true),
+('87', '2026-11-23T09:28:09+00:00'::timestamptz, 8, 1, 11, true, true, true),
+('88', '2026-11-23T09:28:09+00:00'::timestamptz, 4, 3, 13, true, true, true),
+('89', '2026-11-23T09:28:09+00:00'::timestamptz, 6, 0, 14, true, true, true),
+('90', '2026-11-23T09:28:09+00:00'::timestamptz, 6, 0, 11, true, true, true),
+('91', '2026-11-23T09:28:09+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('92', '2026-11-23T09:28:09+00:00'::timestamptz, 7, 1, 8, true, true, true),
+('93', '2026-11-23T09:28:09+00:00'::timestamptz, 12, 7, 4, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('94', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 1, true, false, false),
+('95', '2026-11-23T09:28:09+00:00'::timestamptz, 4, 2, 12, true, true, true),
+('96', '2026-11-23T09:28:09+00:00'::timestamptz, 26, 12, 0, true, true, true),
+('97', '2026-11-23T09:28:09+00:00'::timestamptz, 2, 0, 18, true, true, true),
+('98', '2026-11-23T09:28:09+00:00'::timestamptz, 8, 0, 7, true, true, true),
+('99', '2026-11-23T09:28:09+00:00'::timestamptz, 12, 0, 17, true, true, true),
+('100', '2026-11-23T09:28:09+00:00'::timestamptz, 28, 5, 28, true, true, true),
+('101', '2026-11-23T09:28:09+00:00'::timestamptz, 9, 3, 10, true, true, true),
+('102', '2026-11-23T09:28:09+00:00'::timestamptz, 1, 0, 38, true, true, true),
+('103', '2026-11-23T09:28:09+00:00'::timestamptz, 2, 1, 30, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('104', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 4, true, true, true),
+('105', '2026-11-23T09:28:09+00:00'::timestamptz, 4, 2, 16, true, true, true),
+('106', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 39, true, false, false),
+('107', '2026-11-23T09:28:09+00:00'::timestamptz, 2, 2, 10, true, true, true),
+('108', '2026-11-23T09:28:09+00:00'::timestamptz, 3, 2, 8, true, true, true),
+('109', '2026-11-23T09:28:09+00:00'::timestamptz, 13, 3, 23, true, true, true),
+('110', '2026-11-23T09:28:09+00:00'::timestamptz, 10, 4, 28, true, true, true),
+('111', '2026-11-23T09:28:09+00:00'::timestamptz, 16, 8, 21, true, true, true),
+('112', '2026-11-23T09:28:09+00:00'::timestamptz, 15, 5, 24, true, true, true),
+('113', '2026-11-23T09:28:09+00:00'::timestamptz, 16, 9, 2, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('114', '2026-11-23T09:28:09+00:00'::timestamptz, 23, 7, 4, true, true, true),
+('115', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 1, true, true, true),
+('116', '2026-11-23T09:28:09+00:00'::timestamptz, 13, 7, 25, true, true, true),
+('117', '2026-11-23T09:28:09+00:00'::timestamptz, 13, 8, 6, true, true, true),
+('118', '2026-11-23T09:28:09+00:00'::timestamptz, 9, 3, 8, true, true, true),
+('119', '2026-11-23T09:28:09+00:00'::timestamptz, 12, 6, 8, true, true, true),
+('120', '2026-11-23T09:28:09+00:00'::timestamptz, 17, 2, 0, true, true, true),
+('121', '2026-11-23T09:28:09+00:00'::timestamptz, 2, 1, 12, true, true, true),
+('122', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 15, true, true, true),
+('123', '2026-11-23T09:28:09+00:00'::timestamptz, 1, 0, 34, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('124', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('125', '2026-11-23T09:28:09+00:00'::timestamptz, 4, 2, 26, true, true, true),
+('126', '2026-11-23T09:28:09+00:00'::timestamptz, 8, 1, 3, true, true, true),
+('127', '2026-11-23T09:28:09+00:00'::timestamptz, 3, 2, 18, true, true, true),
+('128', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 14, true, true, true),
+('129', '2026-11-23T09:28:09+00:00'::timestamptz, 2, 2, 13, true, true, true),
+('130', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 18, true, true, true),
+('131', '2026-11-23T09:28:09+00:00'::timestamptz, 4, 3, 13, true, true, true),
+('132', '2026-11-23T09:28:09+00:00'::timestamptz, 1, 0, 12, true, true, true),
+('133', '2026-11-23T09:28:09+00:00'::timestamptz, 7, 3, 11, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('134', '2026-11-23T09:28:09+00:00'::timestamptz, 2, 1, 16, true, true, true),
+('135', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('136', '2026-11-23T09:28:09+00:00'::timestamptz, 7, 3, 11, true, true, true),
+('137', '2026-11-23T09:28:09+00:00'::timestamptz, 7, 7, 18, true, true, true),
+('138', '2026-11-23T09:28:09+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('139', '2026-11-23T09:28:09+00:00'::timestamptz, 8, 7, 9, true, true, true),
+('140', '2026-11-23T09:28:09+00:00'::timestamptz, 9, 4, 11, true, true, true),
+('141', '2026-11-23T09:28:09+00:00'::timestamptz, 7, 1, 12, true, true, true),
+('142', '2026-11-23T09:28:09+00:00'::timestamptz, 4, 1, 14, true, true, true),
+('143', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 18, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('144', '2026-11-23T09:28:09+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('145', '2026-11-23T09:28:09+00:00'::timestamptz, 10, 7, 7, true, true, true),
+('146', '2026-11-23T09:28:09+00:00'::timestamptz, 17, 6, 12, true, true, true),
+('147', '2026-11-23T09:28:09+00:00'::timestamptz, 25, 10, 4, true, true, true),
+('148', '2026-11-23T09:28:09+00:00'::timestamptz, 1, 1, 18, true, true, true),
+('149', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('150', '2026-11-23T09:28:09+00:00'::timestamptz, 13, 2, 2, true, true, true),
+('151', '2026-11-23T09:28:09+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('152', '2026-11-23T09:28:09+00:00'::timestamptz, 11, 4, 9, true, true, true),
+('153', '2026-11-23T09:28:09+00:00'::timestamptz, 20, 8, 0, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('154', '2026-11-23T09:28:09+00:00'::timestamptz, 15, 2, 4, true, true, true),
+('155', '2026-11-23T09:28:09+00:00'::timestamptz, 16, 9, 7, true, true, true),
+('156', '2026-11-23T09:28:09+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('157', '2026-11-23T09:28:09+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('158', '2026-11-23T09:28:09+00:00'::timestamptz, 3, 0, 17, true, true, true),
+('159', '2026-11-23T09:28:09+00:00'::timestamptz, 3, 3, 21, true, true, true),
+('160', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('161', '2026-11-23T09:28:09+00:00'::timestamptz, 3, 0, 16, true, true, true),
+('162', '2026-11-23T09:28:09+00:00'::timestamptz, 13, 2, 5, true, true, true),
+('163', '2026-11-23T09:28:09+00:00'::timestamptz, 18, 6, 1, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('164', '2026-11-23T09:28:09+00:00'::timestamptz, 4, 1, 14, true, true, true),
+('165', '2026-11-23T09:28:09+00:00'::timestamptz, 10, 7, 0, true, true, true),
+('166', '2026-11-23T09:28:09+00:00'::timestamptz, 14, 5, 5, true, true, true),
+('167', '2026-11-23T09:28:09+00:00'::timestamptz, 8, 3, 11, true, true, true),
+('168', '2026-11-23T09:28:09+00:00'::timestamptz, 16, 5, 1, true, false, false),
+('169', '2026-11-23T09:28:09+00:00'::timestamptz, 6, 5, 13, true, true, true),
+('170', '2026-11-23T09:28:09+00:00'::timestamptz, 6, 2, 14, true, true, true),
+('171', '2026-11-23T09:28:09+00:00'::timestamptz, 2, 1, 16, true, true, true),
+('172', '2026-11-23T09:28:09+00:00'::timestamptz, 24, 7, 3, true, true, true),
+('173', '2026-11-23T09:28:09+00:00'::timestamptz, 9, 2, 11, true, false, false)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('174', '2026-11-23T09:28:09+00:00'::timestamptz, 8, 0, 33, true, true, true),
+('175', '2026-11-23T09:28:09+00:00'::timestamptz, 15, 8, 4, true, true, true),
+('176', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('177', '2026-11-23T09:28:09+00:00'::timestamptz, 13, 1, 11, true, true, true),
+('178', '2026-11-23T09:28:09+00:00'::timestamptz, 4, 2, 13, true, true, true),
+('179', '2026-11-23T09:28:09+00:00'::timestamptz, 5, 0, 18, true, true, true),
+('180', '2026-11-23T09:28:09+00:00'::timestamptz, 6, 1, 9, true, true, true),
+('181', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('182', '2026-11-23T09:28:09+00:00'::timestamptz, 15, 7, 5, true, true, true),
+('183', '2026-11-23T09:28:09+00:00'::timestamptz, 9, 2, 11, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('184', '2026-11-23T09:28:09+00:00'::timestamptz, 2, 0, 17, true, true, true),
+('185', '2026-11-23T09:28:09+00:00'::timestamptz, 7, 2, 12, true, true, true),
+('186', '2026-11-23T09:28:09+00:00'::timestamptz, 12, 3, 6, true, true, true),
+('188', '2026-11-23T09:28:09+00:00'::timestamptz, 2, 1, 17, true, true, true),
+('189', '2026-11-23T09:28:09+00:00'::timestamptz, 1, 1, 18, true, true, true),
+('190', '2026-11-23T09:28:09+00:00'::timestamptz, 9, 3, 10, true, true, true),
+('192', '2026-11-23T09:28:09+00:00'::timestamptz, 2, 1, 16, true, true, true),
+('194', '2026-11-23T09:28:09+00:00'::timestamptz, 16, 6, 2, true, true, true),
+('196', '2026-11-23T09:28:09+00:00'::timestamptz, 11, 3, 8, true, true, true),
+('197', '2026-11-23T09:28:09+00:00'::timestamptz, 6, 0, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('199', '2026-11-23T09:28:09+00:00'::timestamptz, 9, 2, 15, true, true, true),
+('200', '2026-11-23T09:28:09+00:00'::timestamptz, 3, 3, 13, true, true, true),
+('201', '2026-11-23T09:28:09+00:00'::timestamptz, 8, 6, 12, true, true, true),
+('202', '2026-11-23T09:28:09+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('206', '2026-11-23T09:28:09+00:00'::timestamptz, 5, 1, 15, true, true, true),
+('207', '2026-11-23T09:28:09+00:00'::timestamptz, 3, 1, 17, true, true, true),
+('208', '2026-11-23T09:28:09+00:00'::timestamptz, 3, 2, 14, true, true, true),
+('209', '2026-11-23T09:28:09+00:00'::timestamptz, 4, 3, 10, true, true, true),
+('211', '2026-11-23T09:28:09+00:00'::timestamptz, 9, 3, 7, true, true, true),
+('214', '2026-11-23T09:28:09+00:00'::timestamptz, 4, 2, 15, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('215', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 16, false, false, false),
+('219', '2026-11-23T09:28:09+00:00'::timestamptz, 3, 1, 7, false, false, false),
+('251', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 36, true, true, true),
+('297', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('298', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('299', '2026-11-23T09:28:09+00:00'::timestamptz, 2, 0, 20, false, false, false),
+('505', '2026-11-23T09:28:09+00:00'::timestamptz, 5, 0, 0, false, true, true),
+('507', '2026-11-23T09:28:09+00:00'::timestamptz, 4, 0, 4, true, true, true),
+('522', '2026-11-23T09:28:09+00:00'::timestamptz, 4, 2, 1, false, true, true),
+('539', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('543', '2026-11-23T09:28:09+00:00'::timestamptz, 3, 2, 2, true, true, true),
+('557', '2026-11-23T09:28:09+00:00'::timestamptz, 2, 1, 3, true, true, true),
+('559', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('561', '2026-11-23T09:28:09+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('567', '2026-11-23T09:28:09+00:00'::timestamptz, 1, 1, 4, false, false, false),
+('598', '2026-11-23T09:28:09+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('599', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('604', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 4, false, true, true),
+('605', '2026-11-23T09:28:09+00:00'::timestamptz, 3, 0, 2, true, true, true),
+('606', '2026-11-23T09:28:09+00:00'::timestamptz, 1, 0, 8, false, false, false)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('627', '2026-11-23T09:28:09+00:00'::timestamptz, 2, 0, 17, true, true, true),
+('629', '2026-11-23T09:28:09+00:00'::timestamptz, 2, 0, 2, true, true, true),
+('633', '2026-11-23T09:28:09+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('634', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('670', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 5, false, false, false),
+('672', '2026-11-23T09:28:09+00:00'::timestamptz, 7, 4, 3, true, true, true),
+('900', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 15, false, false, false),
+('901', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 20, true, false, false),
+('902', '2026-11-23T09:28:09+00:00'::timestamptz, 0, 0, 20, false, false, false),
+('903', '2026-11-23T09:28:09+00:00'::timestamptz, 16, 0, 6, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('1', '2026-11-23T10:28:30+00:00'::timestamptz, 6, 3, 36, true, true, true),
+('2', '2026-11-23T10:28:30+00:00'::timestamptz, 2, 1, 17, true, true, true),
+('3', '2026-11-23T10:28:30+00:00'::timestamptz, 9, 5, 16, true, true, true),
+('4', '2026-11-23T10:28:30+00:00'::timestamptz, 12, 7, 8, true, true, true),
+('5', '2026-11-23T10:28:30+00:00'::timestamptz, 7, 4, 30, true, true, true),
+('6', '2026-11-23T10:28:30+00:00'::timestamptz, 10, 6, 28, true, true, true),
+('7', '2026-11-23T10:28:30+00:00'::timestamptz, 1, 1, 13, true, true, true),
+('8', '2026-11-23T10:28:30+00:00'::timestamptz, 2, 0, 18, true, true, true),
+('9', '2026-11-23T10:28:30+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('10', '2026-11-23T10:28:30+00:00'::timestamptz, 4, 2, 16, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('11', '2026-11-23T10:28:30+00:00'::timestamptz, 9, 1, 19, true, true, true),
+('12', '2026-11-23T10:28:30+00:00'::timestamptz, 5, 2, 8, true, true, true),
+('13', '2026-11-23T10:28:30+00:00'::timestamptz, 2, 2, 18, true, true, true),
+('14', '2026-11-23T10:28:30+00:00'::timestamptz, 5, 1, 21, true, true, true),
+('15', '2026-11-23T10:28:30+00:00'::timestamptz, 4, 2, 7, true, true, true),
+('16', '2026-11-23T10:28:30+00:00'::timestamptz, 5, 1, 23, true, true, true),
+('17', '2026-11-23T10:28:30+00:00'::timestamptz, 5, 1, 7, true, true, true),
+('18', '2026-11-23T10:28:30+00:00'::timestamptz, 1, 1, 12, true, true, true),
+('19', '2026-11-23T10:28:30+00:00'::timestamptz, 16, 2, 14, true, true, true),
+('20', '2026-11-23T10:28:30+00:00'::timestamptz, 11, 1, 17, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('21', '2026-11-23T10:28:30+00:00'::timestamptz, 3, 2, 11, true, true, true),
+('22', '2026-11-23T10:28:30+00:00'::timestamptz, 12, 4, 19, true, true, true),
+('23', '2026-11-23T10:28:30+00:00'::timestamptz, 9, 4, 31, true, true, true),
+('24', '2026-11-23T10:28:30+00:00'::timestamptz, 4, 1, 12, true, true, true),
+('25', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 14, true, true, true),
+('26', '2026-11-23T10:28:30+00:00'::timestamptz, 1, 1, 11, true, true, true),
+('27', '2026-11-23T10:28:30+00:00'::timestamptz, 12, 7, 7, true, true, true),
+('28', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 26, true, false, false),
+('29', '2026-11-23T10:28:30+00:00'::timestamptz, 3, 3, 17, true, true, true),
+('30', '2026-11-23T10:28:30+00:00'::timestamptz, 6, 1, 11, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('31', '2026-11-23T10:28:30+00:00'::timestamptz, 4, 0, 12, true, true, true),
+('32', '2026-11-23T10:28:30+00:00'::timestamptz, 14, 1, 1, true, true, true),
+('33', '2026-11-23T10:28:30+00:00'::timestamptz, 3, 0, 17, true, true, true),
+('34', '2026-11-23T10:28:30+00:00'::timestamptz, 4, 2, 11, true, true, true),
+('35', '2026-11-23T10:28:30+00:00'::timestamptz, 2, 0, 15, true, true, true),
+('36', '2026-11-23T10:28:30+00:00'::timestamptz, 3, 0, 14, true, true, true),
+('37', '2026-11-23T10:28:30+00:00'::timestamptz, 26, 7, 1, true, true, true),
+('38', '2026-11-23T10:28:30+00:00'::timestamptz, 2, 0, 12, true, true, true),
+('39', '2026-11-23T10:28:30+00:00'::timestamptz, 16, 6, 49, true, true, true),
+('40', '2026-11-23T10:28:30+00:00'::timestamptz, 10, 5, 9, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('41', '2026-11-23T10:28:30+00:00'::timestamptz, 4, 1, 13, true, true, true),
+('42', '2026-11-23T10:28:30+00:00'::timestamptz, 2, 1, 17, true, true, true),
+('43', '2026-11-23T10:28:30+00:00'::timestamptz, 7, 1, 7, true, true, true),
+('44', '2026-11-23T10:28:30+00:00'::timestamptz, 10, 4, 8, true, true, true),
+('45', '2026-11-23T10:28:30+00:00'::timestamptz, 5, 3, 12, true, true, true),
+('46', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('47', '2026-11-23T10:28:30+00:00'::timestamptz, 2, 1, 14, true, true, true),
+('48', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 16, true, true, true),
+('49', '2026-11-23T10:28:30+00:00'::timestamptz, 4, 0, 14, true, true, true),
+('50', '2026-11-23T10:28:30+00:00'::timestamptz, 7, 1, 6, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('51', '2026-11-23T10:28:30+00:00'::timestamptz, 15, 2, 4, true, true, true),
+('52', '2026-11-23T10:28:30+00:00'::timestamptz, 8, 0, 8, true, true, true),
+('53', '2026-11-23T10:28:30+00:00'::timestamptz, 3, 2, 11, true, true, true),
+('54', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 43, true, true, true),
+('55', '2026-11-23T10:28:30+00:00'::timestamptz, 2, 2, 13, true, true, true),
+('56', '2026-11-23T10:28:30+00:00'::timestamptz, 4, 0, 6, true, true, true),
+('57', '2026-11-23T10:28:30+00:00'::timestamptz, 12, 5, 5, true, true, true),
+('58', '2026-11-23T10:28:30+00:00'::timestamptz, 6, 2, 10, true, true, true),
+('59', '2026-11-23T10:28:30+00:00'::timestamptz, 12, 2, 2, true, true, true),
+('60', '2026-11-23T10:28:30+00:00'::timestamptz, 4, 1, 14, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('61', '2026-11-23T10:28:30+00:00'::timestamptz, 12, 3, 2, true, true, true),
+('62', '2026-11-23T10:28:30+00:00'::timestamptz, 7, 5, 22, true, true, true),
+('63', '2026-11-23T10:28:30+00:00'::timestamptz, 4, 1, 13, true, true, true),
+('64', '2026-11-23T10:28:30+00:00'::timestamptz, 5, 3, 10, true, true, true),
+('65', '2026-11-23T10:28:30+00:00'::timestamptz, 5, 1, 13, true, true, true),
+('66', '2026-11-23T10:28:30+00:00'::timestamptz, 8, 0, 11, true, true, true),
+('67', '2026-11-23T10:28:30+00:00'::timestamptz, 10, 7, 10, true, true, true),
+('68', '2026-11-23T10:28:30+00:00'::timestamptz, 8, 5, 7, true, true, true),
+('69', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 14, true, true, true),
+('70', '2026-11-23T10:28:30+00:00'::timestamptz, 11, 0, 9, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('72', '2026-11-23T10:28:30+00:00'::timestamptz, 5, 3, 18, true, true, true),
+('73', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('74', '2026-11-23T10:28:30+00:00'::timestamptz, 20, 12, 2, true, true, true),
+('75', '2026-11-23T10:28:30+00:00'::timestamptz, 9, 1, 7, true, true, true),
+('76', '2026-11-23T10:28:30+00:00'::timestamptz, 9, 0, 10, true, true, true),
+('77', '2026-11-23T10:28:30+00:00'::timestamptz, 6, 1, 13, true, true, true),
+('78', '2026-11-23T10:28:30+00:00'::timestamptz, 9, 3, 11, true, true, true),
+('79', '2026-11-23T10:28:30+00:00'::timestamptz, 14, 5, 5, true, true, true),
+('80', '2026-11-23T10:28:30+00:00'::timestamptz, 6, 6, 11, true, true, true),
+('81', '2026-11-23T10:28:30+00:00'::timestamptz, 3, 1, 17, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('82', '2026-11-23T10:28:30+00:00'::timestamptz, 8, 3, 12, true, true, true),
+('83', '2026-11-23T10:28:30+00:00'::timestamptz, 13, 5, 6, true, true, true),
+('84', '2026-11-23T10:28:30+00:00'::timestamptz, 11, 6, 6, true, true, true),
+('85', '2026-11-23T10:28:30+00:00'::timestamptz, 1, 1, 17, true, true, true),
+('86', '2026-11-23T10:28:30+00:00'::timestamptz, 15, 4, 4, true, true, true),
+('87', '2026-11-23T10:28:30+00:00'::timestamptz, 10, 1, 9, true, true, true),
+('88', '2026-11-23T10:28:30+00:00'::timestamptz, 4, 3, 13, true, true, true),
+('89', '2026-11-23T10:28:30+00:00'::timestamptz, 5, 0, 15, true, true, true),
+('90', '2026-11-23T10:28:30+00:00'::timestamptz, 7, 0, 10, true, true, true),
+('91', '2026-11-23T10:28:30+00:00'::timestamptz, 4, 2, 15, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('92', '2026-11-23T10:28:30+00:00'::timestamptz, 11, 3, 4, true, true, true),
+('93', '2026-11-23T10:28:30+00:00'::timestamptz, 12, 7, 4, true, true, true),
+('94', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 1, true, false, false),
+('95', '2026-11-23T10:28:30+00:00'::timestamptz, 4, 2, 12, true, true, true),
+('96', '2026-11-23T10:28:30+00:00'::timestamptz, 26, 12, 0, true, true, true),
+('97', '2026-11-23T10:28:30+00:00'::timestamptz, 1, 0, 19, true, true, true),
+('98', '2026-11-23T10:28:30+00:00'::timestamptz, 8, 0, 7, true, true, true),
+('99', '2026-11-23T10:28:30+00:00'::timestamptz, 12, 1, 17, true, true, true),
+('100', '2026-11-23T10:28:30+00:00'::timestamptz, 28, 5, 28, true, true, true),
+('101', '2026-11-23T10:28:30+00:00'::timestamptz, 8, 2, 11, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('102', '2026-11-23T10:28:30+00:00'::timestamptz, 2, 0, 37, true, true, true),
+('103', '2026-11-23T10:28:30+00:00'::timestamptz, 3, 1, 29, true, true, true),
+('104', '2026-11-23T10:28:30+00:00'::timestamptz, 1, 0, 3, true, true, true),
+('105', '2026-11-23T10:28:30+00:00'::timestamptz, 6, 4, 14, true, true, true),
+('106', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 39, true, false, false),
+('107', '2026-11-23T10:28:30+00:00'::timestamptz, 2, 2, 10, true, true, true),
+('108', '2026-11-23T10:28:30+00:00'::timestamptz, 4, 2, 7, true, true, true),
+('109', '2026-11-23T10:28:30+00:00'::timestamptz, 13, 3, 23, true, true, true),
+('110', '2026-11-23T10:28:30+00:00'::timestamptz, 10, 4, 28, true, true, true),
+('111', '2026-11-23T10:28:30+00:00'::timestamptz, 21, 9, 16, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('112', '2026-11-23T10:28:30+00:00'::timestamptz, 13, 3, 26, true, true, true),
+('113', '2026-11-23T10:28:30+00:00'::timestamptz, 15, 9, 3, true, true, true),
+('114', '2026-11-23T10:28:30+00:00'::timestamptz, 23, 9, 4, true, true, true),
+('115', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 1, true, true, true),
+('116', '2026-11-23T10:28:30+00:00'::timestamptz, 14, 7, 24, true, true, true),
+('117', '2026-11-23T10:28:30+00:00'::timestamptz, 14, 8, 5, true, true, true),
+('118', '2026-11-23T10:28:30+00:00'::timestamptz, 8, 2, 8, true, true, true),
+('119', '2026-11-23T10:28:30+00:00'::timestamptz, 11, 5, 9, true, true, true),
+('120', '2026-11-23T10:28:30+00:00'::timestamptz, 18, 2, 0, true, true, true),
+('121', '2026-11-23T10:28:30+00:00'::timestamptz, 4, 2, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('122', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 15, true, true, true),
+('123', '2026-11-23T10:28:30+00:00'::timestamptz, 2, 1, 33, true, true, true),
+('124', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('125', '2026-11-23T10:28:30+00:00'::timestamptz, 4, 3, 26, true, true, true),
+('126', '2026-11-23T10:28:30+00:00'::timestamptz, 7, 1, 4, true, true, true),
+('127', '2026-11-23T10:28:30+00:00'::timestamptz, 4, 2, 17, true, true, true),
+('128', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 14, true, true, true),
+('129', '2026-11-23T10:28:30+00:00'::timestamptz, 3, 2, 12, true, true, true),
+('130', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 18, true, true, true),
+('131', '2026-11-23T10:28:30+00:00'::timestamptz, 5, 4, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('132', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 13, true, true, true),
+('133', '2026-11-23T10:28:30+00:00'::timestamptz, 11, 2, 7, true, true, true),
+('134', '2026-11-23T10:28:30+00:00'::timestamptz, 1, 0, 17, true, true, true),
+('135', '2026-11-23T10:28:30+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('136', '2026-11-23T10:28:30+00:00'::timestamptz, 5, 2, 13, true, true, true),
+('137', '2026-11-23T10:28:30+00:00'::timestamptz, 3, 3, 22, true, true, true),
+('138', '2026-11-23T10:28:30+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('139', '2026-11-23T10:28:30+00:00'::timestamptz, 6, 4, 11, true, true, true),
+('140', '2026-11-23T10:28:30+00:00'::timestamptz, 11, 5, 9, true, true, true),
+('141', '2026-11-23T10:28:30+00:00'::timestamptz, 4, 0, 15, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('142', '2026-11-23T10:28:30+00:00'::timestamptz, 4, 1, 15, true, true, true),
+('143', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 18, true, true, true),
+('144', '2026-11-23T10:28:30+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('145', '2026-11-23T10:28:30+00:00'::timestamptz, 9, 7, 8, true, true, true),
+('146', '2026-11-23T10:28:30+00:00'::timestamptz, 17, 6, 12, true, true, true),
+('147', '2026-11-23T10:28:30+00:00'::timestamptz, 24, 9, 5, true, true, true),
+('148', '2026-11-23T10:28:30+00:00'::timestamptz, 1, 1, 18, true, true, true),
+('149', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('150', '2026-11-23T10:28:30+00:00'::timestamptz, 13, 2, 2, true, true, true),
+('151', '2026-11-23T10:28:30+00:00'::timestamptz, 1, 1, 19, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('152', '2026-11-23T10:28:30+00:00'::timestamptz, 11, 4, 9, true, true, true),
+('153', '2026-11-23T10:28:30+00:00'::timestamptz, 20, 8, 0, true, true, true),
+('154', '2026-11-23T10:28:30+00:00'::timestamptz, 17, 4, 2, true, true, true),
+('155', '2026-11-23T10:28:30+00:00'::timestamptz, 14, 8, 9, true, true, true),
+('156', '2026-11-23T10:28:30+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('157', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('158', '2026-11-23T10:28:30+00:00'::timestamptz, 4, 0, 16, true, true, true),
+('159', '2026-11-23T10:28:30+00:00'::timestamptz, 3, 3, 21, true, true, true),
+('160', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('161', '2026-11-23T10:28:30+00:00'::timestamptz, 3, 0, 15, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('162', '2026-11-23T10:28:30+00:00'::timestamptz, 13, 2, 5, true, true, true),
+('163', '2026-11-23T10:28:30+00:00'::timestamptz, 17, 5, 2, true, true, true),
+('164', '2026-11-23T10:28:30+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('165', '2026-11-23T10:28:30+00:00'::timestamptz, 10, 7, 0, true, true, true),
+('166', '2026-11-23T10:28:30+00:00'::timestamptz, 14, 5, 5, true, true, true),
+('167', '2026-11-23T10:28:30+00:00'::timestamptz, 9, 3, 10, true, true, true),
+('168', '2026-11-23T10:28:30+00:00'::timestamptz, 16, 5, 1, true, false, false),
+('169', '2026-11-23T10:28:30+00:00'::timestamptz, 6, 5, 13, true, true, true),
+('170', '2026-11-23T10:28:30+00:00'::timestamptz, 6, 3, 14, true, true, true),
+('171', '2026-11-23T10:28:30+00:00'::timestamptz, 1, 0, 17, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('172', '2026-11-23T10:28:30+00:00'::timestamptz, 22, 7, 5, true, true, true),
+('173', '2026-11-23T10:28:30+00:00'::timestamptz, 9, 2, 11, true, false, false),
+('174', '2026-11-23T10:28:30+00:00'::timestamptz, 4, 0, 37, true, true, true),
+('175', '2026-11-23T10:28:30+00:00'::timestamptz, 16, 8, 3, true, true, true),
+('176', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('177', '2026-11-23T10:28:30+00:00'::timestamptz, 10, 1, 14, true, true, true),
+('178', '2026-11-23T10:28:30+00:00'::timestamptz, 4, 2, 13, true, true, true),
+('179', '2026-11-23T10:28:30+00:00'::timestamptz, 4, 0, 19, true, true, true),
+('180', '2026-11-23T10:28:30+00:00'::timestamptz, 4, 1, 12, true, true, true),
+('181', '2026-11-23T10:28:30+00:00'::timestamptz, 2, 1, 18, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('182', '2026-11-23T10:28:30+00:00'::timestamptz, 15, 7, 5, true, true, true),
+('183', '2026-11-23T10:28:30+00:00'::timestamptz, 9, 2, 11, true, true, true),
+('184', '2026-11-23T10:28:30+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('185', '2026-11-23T10:28:30+00:00'::timestamptz, 9, 4, 10, true, true, true),
+('186', '2026-11-23T10:28:30+00:00'::timestamptz, 12, 3, 6, true, true, true),
+('188', '2026-11-23T10:28:30+00:00'::timestamptz, 2, 0, 17, true, true, true),
+('189', '2026-11-23T10:28:30+00:00'::timestamptz, 2, 1, 17, true, true, true),
+('190', '2026-11-23T10:28:30+00:00'::timestamptz, 9, 3, 10, true, true, true),
+('192', '2026-11-23T10:28:30+00:00'::timestamptz, 3, 2, 15, true, true, true),
+('194', '2026-11-23T10:28:30+00:00'::timestamptz, 17, 7, 2, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('196', '2026-11-23T10:28:30+00:00'::timestamptz, 12, 2, 7, true, true, true),
+('197', '2026-11-23T10:28:30+00:00'::timestamptz, 7, 1, 9, true, true, true),
+('199', '2026-11-23T10:28:30+00:00'::timestamptz, 9, 2, 15, true, true, true),
+('200', '2026-11-23T10:28:30+00:00'::timestamptz, 3, 3, 13, true, true, true),
+('201', '2026-11-23T10:28:30+00:00'::timestamptz, 9, 6, 11, true, true, true),
+('202', '2026-11-23T10:28:30+00:00'::timestamptz, 2, 1, 16, true, true, true),
+('206', '2026-11-23T10:28:30+00:00'::timestamptz, 5, 1, 15, true, true, true),
+('207', '2026-11-23T10:28:30+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('208', '2026-11-23T10:28:30+00:00'::timestamptz, 3, 2, 14, true, true, true),
+('209', '2026-11-23T10:28:30+00:00'::timestamptz, 2, 1, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('211', '2026-11-23T10:28:30+00:00'::timestamptz, 8, 3, 8, true, true, true),
+('214', '2026-11-23T10:28:30+00:00'::timestamptz, 4, 2, 15, true, true, true),
+('215', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 16, false, false, false),
+('219', '2026-11-23T10:28:30+00:00'::timestamptz, 3, 1, 7, false, false, false),
+('251', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 36, true, true, true),
+('297', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('298', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('299', '2026-11-23T10:28:30+00:00'::timestamptz, 2, 0, 20, false, false, false),
+('505', '2026-11-23T10:28:30+00:00'::timestamptz, 1, 0, 0, false, true, true),
+('507', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 4, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('522', '2026-11-23T10:28:30+00:00'::timestamptz, 4, 2, 1, false, true, true),
+('539', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('543', '2026-11-23T10:28:30+00:00'::timestamptz, 3, 2, 2, true, true, true),
+('557', '2026-11-23T10:28:30+00:00'::timestamptz, 2, 1, 3, true, true, true),
+('559', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('561', '2026-11-23T10:28:30+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('567', '2026-11-23T10:28:30+00:00'::timestamptz, 1, 1, 4, false, false, false),
+('598', '2026-11-23T10:28:30+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('599', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('604', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 4, false, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('605', '2026-11-23T10:28:30+00:00'::timestamptz, 3, 0, 2, true, true, true),
+('606', '2026-11-23T10:28:30+00:00'::timestamptz, 1, 0, 8, false, false, false),
+('627', '2026-11-23T10:28:30+00:00'::timestamptz, 2, 0, 17, true, true, true),
+('629', '2026-11-23T10:28:30+00:00'::timestamptz, 2, 0, 2, true, true, true),
+('633', '2026-11-23T10:28:30+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('634', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('670', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 5, false, false, false),
+('672', '2026-11-23T10:28:30+00:00'::timestamptz, 7, 4, 3, true, true, true),
+('900', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 15, false, false, false),
+('901', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 20, true, false, false)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('902', '2026-11-23T10:28:30+00:00'::timestamptz, 0, 0, 20, false, false, false),
+('903', '2026-11-23T10:28:30+00:00'::timestamptz, 16, 0, 6, true, true, true),
+('1', '2026-11-23T11:28:29+00:00'::timestamptz, 5, 1, 37, true, true, true),
+('2', '2026-11-23T11:28:29+00:00'::timestamptz, 4, 3, 15, true, true, true),
+('3', '2026-11-23T11:28:29+00:00'::timestamptz, 9, 5, 16, true, true, true),
+('4', '2026-11-23T11:28:29+00:00'::timestamptz, 11, 6, 9, true, true, true),
+('5', '2026-11-23T11:28:29+00:00'::timestamptz, 11, 5, 26, true, true, true),
+('6', '2026-11-23T11:28:29+00:00'::timestamptz, 10, 7, 28, true, true, true),
+('7', '2026-11-23T11:28:29+00:00'::timestamptz, 1, 1, 13, true, true, true),
+('8', '2026-11-23T11:28:29+00:00'::timestamptz, 4, 0, 16, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('9', '2026-11-23T11:28:29+00:00'::timestamptz, 3, 2, 17, true, true, true),
+('10', '2026-11-23T11:28:29+00:00'::timestamptz, 2, 1, 19, true, true, true),
+('11', '2026-11-23T11:28:29+00:00'::timestamptz, 6, 0, 22, true, true, true),
+('12', '2026-11-23T11:28:29+00:00'::timestamptz, 3, 1, 11, true, true, true),
+('13', '2026-11-23T11:28:29+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('14', '2026-11-23T11:28:29+00:00'::timestamptz, 2, 0, 24, true, true, true),
+('15', '2026-11-23T11:28:29+00:00'::timestamptz, 4, 3, 7, true, true, true),
+('16', '2026-11-23T11:28:29+00:00'::timestamptz, 4, 1, 23, true, true, true),
+('17', '2026-11-23T11:28:29+00:00'::timestamptz, 5, 1, 6, true, true, true),
+('18', '2026-11-23T11:28:29+00:00'::timestamptz, 1, 1, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('19', '2026-11-23T11:28:29+00:00'::timestamptz, 14, 2, 16, true, true, true),
+('20', '2026-11-23T11:28:29+00:00'::timestamptz, 10, 2, 18, true, true, true),
+('21', '2026-11-23T11:28:29+00:00'::timestamptz, 1, 1, 12, true, true, true),
+('22', '2026-11-23T11:28:29+00:00'::timestamptz, 15, 6, 16, true, true, true),
+('23', '2026-11-23T11:28:29+00:00'::timestamptz, 9, 4, 31, true, true, true),
+('24', '2026-11-23T11:28:29+00:00'::timestamptz, 3, 0, 13, true, true, true),
+('25', '2026-11-23T11:28:29+00:00'::timestamptz, 0, 0, 14, true, true, true),
+('26', '2026-11-23T11:28:29+00:00'::timestamptz, 0, 0, 12, true, true, true),
+('27', '2026-11-23T11:28:29+00:00'::timestamptz, 12, 8, 7, true, true, true),
+('28', '2026-11-23T11:28:29+00:00'::timestamptz, 0, 0, 26, true, false, false)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('29', '2026-11-23T11:28:29+00:00'::timestamptz, 6, 6, 14, true, true, true),
+('30', '2026-11-23T11:28:29+00:00'::timestamptz, 5, 1, 12, true, true, true),
+('31', '2026-11-23T11:28:29+00:00'::timestamptz, 3, 0, 13, true, true, true),
+('32', '2026-11-23T11:28:29+00:00'::timestamptz, 12, 1, 3, true, true, true),
+('33', '2026-11-23T11:28:29+00:00'::timestamptz, 1, 0, 18, true, true, true),
+('34', '2026-11-23T11:28:29+00:00'::timestamptz, 5, 3, 10, true, true, true),
+('35', '2026-11-23T11:28:29+00:00'::timestamptz, 1, 0, 16, true, true, true),
+('36', '2026-11-23T11:28:29+00:00'::timestamptz, 2, 1, 15, true, true, true),
+('37', '2026-11-23T11:28:29+00:00'::timestamptz, 24, 6, 3, true, true, true),
+('38', '2026-11-23T11:28:29+00:00'::timestamptz, 4, 1, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('39', '2026-11-23T11:28:29+00:00'::timestamptz, 13, 2, 52, true, true, true),
+('40', '2026-11-23T11:28:29+00:00'::timestamptz, 12, 5, 7, true, true, true),
+('41', '2026-11-23T11:28:29+00:00'::timestamptz, 2, 1, 15, true, true, true),
+('42', '2026-11-23T11:28:29+00:00'::timestamptz, 2, 1, 17, true, true, true),
+('43', '2026-11-23T11:28:29+00:00'::timestamptz, 8, 1, 6, true, true, true),
+('44', '2026-11-23T11:28:29+00:00'::timestamptz, 11, 5, 7, true, true, true),
+('45', '2026-11-23T11:28:29+00:00'::timestamptz, 5, 2, 12, true, true, true),
+('46', '2026-11-23T11:28:29+00:00'::timestamptz, 1, 0, 19, true, true, true),
+('47', '2026-11-23T11:28:29+00:00'::timestamptz, 3, 2, 13, true, true, true),
+('48', '2026-11-23T11:28:29+00:00'::timestamptz, 1, 0, 15, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('49', '2026-11-23T11:28:29+00:00'::timestamptz, 4, 0, 14, true, true, true),
+('50', '2026-11-23T11:28:29+00:00'::timestamptz, 6, 1, 7, true, true, true),
+('51', '2026-11-23T11:28:29+00:00'::timestamptz, 16, 2, 3, true, true, true),
+('52', '2026-11-23T11:28:29+00:00'::timestamptz, 10, 1, 6, true, true, true),
+('53', '2026-11-23T11:28:29+00:00'::timestamptz, 5, 2, 9, true, true, true),
+('54', '2026-11-23T11:28:29+00:00'::timestamptz, 0, 0, 43, true, true, true),
+('55', '2026-11-23T11:28:29+00:00'::timestamptz, 3, 1, 12, true, true, true),
+('56', '2026-11-23T11:28:29+00:00'::timestamptz, 4, 0, 6, true, true, true),
+('57', '2026-11-23T11:28:29+00:00'::timestamptz, 11, 4, 5, true, true, true),
+('58', '2026-11-23T11:28:29+00:00'::timestamptz, 4, 1, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('59', '2026-11-23T11:28:29+00:00'::timestamptz, 10, 1, 4, true, true, true),
+('60', '2026-11-23T11:28:29+00:00'::timestamptz, 3, 0, 15, true, true, true),
+('61', '2026-11-23T11:28:29+00:00'::timestamptz, 12, 3, 2, true, true, true),
+('62', '2026-11-23T11:28:29+00:00'::timestamptz, 4, 2, 25, true, true, true),
+('63', '2026-11-23T11:28:29+00:00'::timestamptz, 4, 1, 13, true, true, true),
+('64', '2026-11-23T11:28:29+00:00'::timestamptz, 3, 1, 12, true, true, true),
+('65', '2026-11-23T11:28:29+00:00'::timestamptz, 4, 1, 14, true, true, true),
+('66', '2026-11-23T11:28:29+00:00'::timestamptz, 7, 0, 12, true, true, true),
+('67', '2026-11-23T11:28:29+00:00'::timestamptz, 15, 6, 5, true, true, true),
+('68', '2026-11-23T11:28:29+00:00'::timestamptz, 6, 4, 9, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('69', '2026-11-23T11:28:29+00:00'::timestamptz, 0, 0, 14, true, true, true),
+('70', '2026-11-23T11:28:29+00:00'::timestamptz, 11, 0, 9, true, true, true),
+('72', '2026-11-23T11:28:29+00:00'::timestamptz, 5, 3, 18, true, true, true),
+('73', '2026-11-23T11:28:29+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('74', '2026-11-23T11:28:29+00:00'::timestamptz, 20, 12, 2, true, true, true),
+('75', '2026-11-23T11:28:29+00:00'::timestamptz, 11, 3, 5, true, true, true),
+('76', '2026-11-23T11:28:29+00:00'::timestamptz, 9, 0, 10, true, true, true),
+('77', '2026-11-23T11:28:29+00:00'::timestamptz, 5, 1, 14, true, true, true),
+('78', '2026-11-23T11:28:29+00:00'::timestamptz, 10, 4, 10, true, true, true),
+('79', '2026-11-23T11:28:29+00:00'::timestamptz, 14, 5, 5, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('80', '2026-11-23T11:28:29+00:00'::timestamptz, 5, 5, 12, true, true, true),
+('81', '2026-11-23T11:28:29+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('82', '2026-11-23T11:28:29+00:00'::timestamptz, 7, 3, 13, true, true, true),
+('83', '2026-11-23T11:28:29+00:00'::timestamptz, 13, 5, 6, true, true, true),
+('84', '2026-11-23T11:28:29+00:00'::timestamptz, 10, 5, 7, true, true, true),
+('85', '2026-11-23T11:28:29+00:00'::timestamptz, 1, 1, 17, true, true, true),
+('86', '2026-11-23T11:28:29+00:00'::timestamptz, 15, 4, 4, true, true, true),
+('87', '2026-11-23T11:28:29+00:00'::timestamptz, 10, 1, 9, true, true, true),
+('88', '2026-11-23T11:28:29+00:00'::timestamptz, 3, 2, 14, true, true, true),
+('89', '2026-11-23T11:28:29+00:00'::timestamptz, 5, 1, 15, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('90', '2026-11-23T11:28:29+00:00'::timestamptz, 6, 0, 11, true, true, true),
+('91', '2026-11-23T11:28:29+00:00'::timestamptz, 2, 1, 17, true, true, true),
+('92', '2026-11-23T11:28:29+00:00'::timestamptz, 2, 2, 13, true, true, true),
+('93', '2026-11-23T11:28:29+00:00'::timestamptz, 12, 7, 4, true, true, true),
+('94', '2026-11-23T11:28:29+00:00'::timestamptz, 0, 0, 1, true, false, false),
+('95', '2026-11-23T11:28:29+00:00'::timestamptz, 4, 2, 12, true, true, true),
+('96', '2026-11-23T11:28:29+00:00'::timestamptz, 26, 12, 0, true, true, true),
+('97', '2026-11-23T11:28:29+00:00'::timestamptz, 1, 0, 19, true, true, true),
+('98', '2026-11-23T11:28:29+00:00'::timestamptz, 8, 0, 7, true, true, true),
+('99', '2026-11-23T11:28:29+00:00'::timestamptz, 13, 3, 16, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('100', '2026-11-23T11:28:29+00:00'::timestamptz, 30, 4, 26, true, true, true),
+('101', '2026-11-23T11:28:29+00:00'::timestamptz, 5, 2, 14, true, true, true),
+('102', '2026-11-23T11:28:29+00:00'::timestamptz, 3, 1, 36, true, true, true),
+('103', '2026-11-23T11:28:29+00:00'::timestamptz, 5, 3, 27, true, true, true),
+('104', '2026-11-23T11:28:29+00:00'::timestamptz, 1, 0, 3, true, true, true),
+('105', '2026-11-23T11:28:29+00:00'::timestamptz, 7, 4, 13, true, true, true),
+('106', '2026-11-23T11:28:29+00:00'::timestamptz, 0, 0, 39, true, false, false),
+('107', '2026-11-23T11:28:29+00:00'::timestamptz, 2, 2, 10, true, true, true),
+('108', '2026-11-23T11:28:29+00:00'::timestamptz, 4, 2, 7, true, true, true),
+('109', '2026-11-23T11:28:29+00:00'::timestamptz, 13, 4, 23, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('110', '2026-11-23T11:28:29+00:00'::timestamptz, 16, 6, 23, true, true, true),
+('111', '2026-11-23T11:28:29+00:00'::timestamptz, 22, 10, 15, true, true, true),
+('112', '2026-11-23T11:28:29+00:00'::timestamptz, 12, 5, 26, true, true, true),
+('113', '2026-11-23T11:28:29+00:00'::timestamptz, 6, 3, 12, true, true, true),
+('114', '2026-11-23T11:28:29+00:00'::timestamptz, 21, 7, 6, true, true, true),
+('115', '2026-11-23T11:28:29+00:00'::timestamptz, 0, 0, 1, true, true, true),
+('116', '2026-11-23T11:28:29+00:00'::timestamptz, 12, 5, 26, true, true, true),
+('117', '2026-11-23T11:28:29+00:00'::timestamptz, 16, 7, 3, true, true, true),
+('118', '2026-11-23T11:28:29+00:00'::timestamptz, 7, 1, 9, true, true, true),
+('119', '2026-11-23T11:28:29+00:00'::timestamptz, 13, 6, 7, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('120', '2026-11-23T11:28:29+00:00'::timestamptz, 19, 2, 0, true, true, true),
+('121', '2026-11-23T11:28:29+00:00'::timestamptz, 1, 0, 12, true, true, true),
+('122', '2026-11-23T11:28:29+00:00'::timestamptz, 0, 0, 15, true, true, true),
+('123', '2026-11-23T11:28:29+00:00'::timestamptz, 1, 0, 35, true, true, true),
+('124', '2026-11-23T11:28:29+00:00'::timestamptz, 1, 0, 19, true, true, true),
+('125', '2026-11-23T11:28:29+00:00'::timestamptz, 4, 4, 26, true, true, true),
+('126', '2026-11-23T11:28:29+00:00'::timestamptz, 7, 0, 4, true, true, true),
+('127', '2026-11-23T11:28:29+00:00'::timestamptz, 4, 2, 17, true, true, true),
+('128', '2026-11-23T11:28:29+00:00'::timestamptz, 0, 0, 14, true, true, true),
+('129', '2026-11-23T11:28:29+00:00'::timestamptz, 1, 1, 14, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('130', '2026-11-23T11:28:29+00:00'::timestamptz, 1, 1, 17, true, true, true),
+('131', '2026-11-23T11:28:29+00:00'::timestamptz, 7, 5, 9, true, true, true),
+('132', '2026-11-23T11:28:29+00:00'::timestamptz, 11, 4, 2, true, true, true),
+('133', '2026-11-23T11:28:29+00:00'::timestamptz, 12, 4, 6, true, true, true),
+('134', '2026-11-23T11:28:29+00:00'::timestamptz, 2, 1, 16, true, true, true),
+('135', '2026-11-23T11:28:29+00:00'::timestamptz, 4, 2, 16, true, true, true),
+('136', '2026-11-23T11:28:29+00:00'::timestamptz, 6, 1, 12, true, true, true),
+('137', '2026-11-23T11:28:29+00:00'::timestamptz, 10, 5, 15, true, true, true),
+('138', '2026-11-23T11:28:29+00:00'::timestamptz, 0, 0, 18, true, true, true),
+('139', '2026-11-23T11:28:29+00:00'::timestamptz, 1, 1, 16, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('140', '2026-11-23T11:28:29+00:00'::timestamptz, 9, 4, 11, true, true, true),
+('141', '2026-11-23T11:28:29+00:00'::timestamptz, 5, 2, 14, true, true, true),
+('142', '2026-11-23T11:28:29+00:00'::timestamptz, 3, 1, 8, true, true, true),
+('143', '2026-11-23T11:28:29+00:00'::timestamptz, 0, 0, 18, true, true, true),
+('144', '2026-11-23T11:28:29+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('145', '2026-11-23T11:28:29+00:00'::timestamptz, 11, 8, 6, true, true, true),
+('146', '2026-11-23T11:28:29+00:00'::timestamptz, 17, 6, 12, true, true, true),
+('147', '2026-11-23T11:28:29+00:00'::timestamptz, 26, 11, 3, true, true, true),
+('148', '2026-11-23T11:28:29+00:00'::timestamptz, 2, 2, 17, true, true, true),
+('149', '2026-11-23T11:28:29+00:00'::timestamptz, 0, 0, 19, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('150', '2026-11-23T11:28:29+00:00'::timestamptz, 13, 2, 2, true, true, true),
+('151', '2026-11-23T11:28:29+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('152', '2026-11-23T11:28:29+00:00'::timestamptz, 11, 4, 9, true, true, true),
+('153', '2026-11-23T11:28:29+00:00'::timestamptz, 18, 6, 2, true, true, true),
+('154', '2026-11-23T11:28:29+00:00'::timestamptz, 17, 4, 2, true, true, true),
+('155', '2026-11-23T11:28:29+00:00'::timestamptz, 16, 10, 7, true, true, true),
+('156', '2026-11-23T11:28:29+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('157', '2026-11-23T11:28:29+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('158', '2026-11-23T11:28:29+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('159', '2026-11-23T11:28:29+00:00'::timestamptz, 3, 3, 21, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('160', '2026-11-23T11:28:29+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('161', '2026-11-23T11:28:29+00:00'::timestamptz, 2, 0, 16, true, true, true),
+('162', '2026-11-23T11:28:29+00:00'::timestamptz, 13, 1, 5, true, true, true),
+('163', '2026-11-23T11:28:29+00:00'::timestamptz, 17, 5, 2, true, true, true),
+('164', '2026-11-23T11:28:29+00:00'::timestamptz, 4, 3, 14, true, true, true),
+('165', '2026-11-23T11:28:29+00:00'::timestamptz, 8, 5, 0, true, true, true),
+('166', '2026-11-23T11:28:29+00:00'::timestamptz, 15, 5, 4, true, true, true),
+('167', '2026-11-23T11:28:29+00:00'::timestamptz, 9, 3, 10, true, true, true),
+('168', '2026-11-23T11:28:29+00:00'::timestamptz, 16, 5, 1, true, false, false),
+('169', '2026-11-23T11:28:29+00:00'::timestamptz, 8, 7, 11, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('170', '2026-11-23T11:28:29+00:00'::timestamptz, 6, 2, 14, true, true, true),
+('171', '2026-11-23T11:28:29+00:00'::timestamptz, 1, 0, 17, true, false, false),
+('172', '2026-11-23T11:28:29+00:00'::timestamptz, 20, 5, 7, true, true, true),
+('173', '2026-11-23T11:28:29+00:00'::timestamptz, 9, 2, 11, true, false, false),
+('174', '2026-11-23T11:28:29+00:00'::timestamptz, 4, 0, 37, true, true, true),
+('175', '2026-11-23T11:28:29+00:00'::timestamptz, 16, 8, 3, true, true, true),
+('176', '2026-11-23T11:28:29+00:00'::timestamptz, 2, 0, 17, true, true, true),
+('177', '2026-11-23T11:28:29+00:00'::timestamptz, 9, 1, 15, true, true, true),
+('178', '2026-11-23T11:28:29+00:00'::timestamptz, 5, 3, 13, true, true, true),
+('179', '2026-11-23T11:28:29+00:00'::timestamptz, 2, 0, 21, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('180', '2026-11-23T11:28:29+00:00'::timestamptz, 3, 0, 12, true, true, true),
+('181', '2026-11-23T11:28:29+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('182', '2026-11-23T11:28:29+00:00'::timestamptz, 16, 8, 4, true, true, true),
+('183', '2026-11-23T11:28:29+00:00'::timestamptz, 9, 2, 11, true, true, true),
+('184', '2026-11-23T11:28:29+00:00'::timestamptz, 2, 1, 17, true, true, true),
+('185', '2026-11-23T11:28:29+00:00'::timestamptz, 7, 3, 12, true, true, true),
+('186', '2026-11-23T11:28:29+00:00'::timestamptz, 12, 2, 6, true, true, true),
+('188', '2026-11-23T11:28:29+00:00'::timestamptz, 1, 0, 18, true, true, true),
+('189', '2026-11-23T11:28:29+00:00'::timestamptz, 6, 2, 13, true, true, true),
+('190', '2026-11-23T11:28:29+00:00'::timestamptz, 7, 1, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('192', '2026-11-23T11:28:29+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('194', '2026-11-23T11:28:29+00:00'::timestamptz, 18, 8, 1, true, true, true),
+('196', '2026-11-23T11:28:29+00:00'::timestamptz, 12, 1, 7, true, true, true),
+('197', '2026-11-23T11:28:29+00:00'::timestamptz, 6, 0, 10, true, true, true),
+('199', '2026-11-23T11:28:29+00:00'::timestamptz, 8, 1, 16, true, true, true),
+('200', '2026-11-23T11:28:29+00:00'::timestamptz, 3, 3, 13, true, true, true),
+('201', '2026-11-23T11:28:29+00:00'::timestamptz, 10, 7, 10, true, true, true),
+('202', '2026-11-23T11:28:29+00:00'::timestamptz, 4, 2, 14, true, true, true),
+('206', '2026-11-23T11:28:29+00:00'::timestamptz, 5, 1, 15, true, true, true),
+('207', '2026-11-23T11:28:29+00:00'::timestamptz, 1, 1, 19, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('208', '2026-11-23T11:28:29+00:00'::timestamptz, 3, 2, 14, true, true, true),
+('209', '2026-11-23T11:28:29+00:00'::timestamptz, 4, 1, 10, true, true, true),
+('211', '2026-11-23T11:28:29+00:00'::timestamptz, 10, 4, 8, true, true, true),
+('214', '2026-11-23T11:28:29+00:00'::timestamptz, 4, 2, 15, true, true, true),
+('215', '2026-11-23T11:28:29+00:00'::timestamptz, 0, 0, 16, false, false, false),
+('219', '2026-11-23T11:28:29+00:00'::timestamptz, 3, 1, 7, false, false, false),
+('251', '2026-11-23T11:28:29+00:00'::timestamptz, 1, 1, 35, true, true, true),
+('297', '2026-11-23T11:28:29+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('298', '2026-11-23T11:28:29+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('299', '2026-11-23T11:28:29+00:00'::timestamptz, 2, 1, 20, false, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('505', '2026-11-23T11:28:29+00:00'::timestamptz, 1, 0, 0, false, true, true),
+('507', '2026-11-23T11:28:29+00:00'::timestamptz, 0, 0, 4, true, true, true),
+('522', '2026-11-23T11:28:29+00:00'::timestamptz, 3, 2, 1, false, true, true),
+('539', '2026-11-23T11:28:29+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('543', '2026-11-23T11:28:29+00:00'::timestamptz, 2, 2, 2, true, true, true),
+('557', '2026-11-23T11:28:29+00:00'::timestamptz, 1, 1, 3, true, true, true),
+('559', '2026-11-23T11:28:29+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('561', '2026-11-23T11:28:29+00:00'::timestamptz, 0, 0, 4, true, true, true),
+('567', '2026-11-23T11:28:29+00:00'::timestamptz, 1, 1, 4, false, false, false),
+('598', '2026-11-23T11:28:29+00:00'::timestamptz, 1, 0, 4, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('599', '2026-11-23T11:28:29+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('604', '2026-11-23T11:28:29+00:00'::timestamptz, 0, 0, 4, false, true, true),
+('605', '2026-11-23T11:28:29+00:00'::timestamptz, 3, 0, 2, true, true, true),
+('606', '2026-11-23T11:28:29+00:00'::timestamptz, 1, 0, 8, false, false, false),
+('627', '2026-11-23T11:28:29+00:00'::timestamptz, 2, 0, 17, true, true, true),
+('629', '2026-11-23T11:28:29+00:00'::timestamptz, 2, 0, 2, true, true, true),
+('633', '2026-11-23T11:28:29+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('634', '2026-11-23T11:28:29+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('670', '2026-11-23T11:28:29+00:00'::timestamptz, 0, 0, 5, false, false, false),
+('672', '2026-11-23T11:28:29+00:00'::timestamptz, 7, 4, 3, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('900', '2026-11-23T11:28:29+00:00'::timestamptz, 0, 0, 15, false, false, false),
+('901', '2026-11-23T11:28:29+00:00'::timestamptz, 0, 0, 20, true, false, false),
+('902', '2026-11-23T11:28:29+00:00'::timestamptz, 0, 0, 20, false, false, false),
+('903', '2026-11-23T11:28:29+00:00'::timestamptz, 16, 0, 6, true, true, true),
+('1', '2026-11-23T12:28:29+00:00'::timestamptz, 3, 0, 39, true, true, true),
+('2', '2026-11-23T12:28:29+00:00'::timestamptz, 4, 3, 15, true, true, true),
+('3', '2026-11-23T12:28:29+00:00'::timestamptz, 7, 3, 18, true, true, true),
+('4', '2026-11-23T12:28:29+00:00'::timestamptz, 9, 2, 11, true, true, true),
+('5', '2026-11-23T12:28:29+00:00'::timestamptz, 14, 10, 26, true, true, true),
+('6', '2026-11-23T12:28:29+00:00'::timestamptz, 8, 5, 30, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('7', '2026-11-23T12:28:29+00:00'::timestamptz, 6, 2, 8, true, true, true),
+('8', '2026-11-23T12:28:29+00:00'::timestamptz, 3, 0, 17, true, true, true),
+('9', '2026-11-23T12:28:29+00:00'::timestamptz, 3, 2, 17, true, true, true),
+('10', '2026-11-23T12:28:29+00:00'::timestamptz, 2, 1, 19, true, true, true),
+('11', '2026-11-23T12:28:29+00:00'::timestamptz, 7, 0, 21, true, true, true),
+('12', '2026-11-23T12:28:29+00:00'::timestamptz, 1, 0, 13, true, true, true),
+('13', '2026-11-23T12:28:29+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('14', '2026-11-23T12:28:29+00:00'::timestamptz, 6, 4, 23, true, true, true),
+('15', '2026-11-23T12:28:29+00:00'::timestamptz, 5, 4, 6, true, true, true),
+('16', '2026-11-23T12:28:29+00:00'::timestamptz, 6, 1, 21, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('17', '2026-11-23T12:28:29+00:00'::timestamptz, 2, 0, 9, true, true, true),
+('18', '2026-11-23T12:28:29+00:00'::timestamptz, 2, 2, 11, true, true, true),
+('19', '2026-11-23T12:28:29+00:00'::timestamptz, 12, 2, 18, true, true, true),
+('20', '2026-11-23T12:28:29+00:00'::timestamptz, 10, 2, 18, true, true, true),
+('21', '2026-11-23T12:28:29+00:00'::timestamptz, 0, 0, 13, true, true, true),
+('22', '2026-11-23T12:28:29+00:00'::timestamptz, 13, 4, 18, true, true, true),
+('23', '2026-11-23T12:28:29+00:00'::timestamptz, 5, 2, 35, true, true, true),
+('24', '2026-11-23T12:28:29+00:00'::timestamptz, 5, 1, 11, true, true, true),
+('25', '2026-11-23T12:28:29+00:00'::timestamptz, 1, 1, 13, true, true, true),
+('26', '2026-11-23T12:28:29+00:00'::timestamptz, 3, 3, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('27', '2026-11-23T12:28:29+00:00'::timestamptz, 12, 9, 7, true, true, true),
+('28', '2026-11-23T12:28:29+00:00'::timestamptz, 0, 0, 26, true, false, false),
+('29', '2026-11-23T12:28:29+00:00'::timestamptz, 8, 7, 12, true, true, true),
+('30', '2026-11-23T12:28:29+00:00'::timestamptz, 5, 1, 12, true, true, true),
+('31', '2026-11-23T12:28:29+00:00'::timestamptz, 5, 1, 11, true, true, true),
+('32', '2026-11-23T12:28:29+00:00'::timestamptz, 11, 1, 4, true, true, true),
+('33', '2026-11-23T12:28:29+00:00'::timestamptz, 2, 0, 17, true, true, true),
+('34', '2026-11-23T12:28:29+00:00'::timestamptz, 4, 2, 11, true, true, true),
+('35', '2026-11-23T12:28:29+00:00'::timestamptz, 2, 1, 14, true, true, true),
+('36', '2026-11-23T12:28:29+00:00'::timestamptz, 3, 1, 14, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('37', '2026-11-23T12:28:29+00:00'::timestamptz, 26, 7, 1, true, true, true),
+('38', '2026-11-23T12:28:29+00:00'::timestamptz, 5, 2, 9, true, true, true),
+('39', '2026-11-23T12:28:29+00:00'::timestamptz, 11, 2, 54, true, true, true),
+('40', '2026-11-23T12:28:29+00:00'::timestamptz, 11, 4, 8, true, true, true),
+('41', '2026-11-23T12:28:29+00:00'::timestamptz, 5, 4, 12, true, true, true),
+('42', '2026-11-23T12:28:29+00:00'::timestamptz, 2, 1, 17, true, true, true),
+('43', '2026-11-23T12:28:29+00:00'::timestamptz, 9, 2, 5, true, true, true),
+('44', '2026-11-23T12:28:29+00:00'::timestamptz, 11, 4, 7, true, true, true),
+('45', '2026-11-23T12:28:29+00:00'::timestamptz, 2, 1, 15, true, true, true),
+('46', '2026-11-23T12:28:29+00:00'::timestamptz, 2, 1, 18, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('47', '2026-11-23T12:28:29+00:00'::timestamptz, 4, 2, 11, true, true, true),
+('48', '2026-11-23T12:28:29+00:00'::timestamptz, 2, 0, 14, true, true, true),
+('49', '2026-11-23T12:28:29+00:00'::timestamptz, 4, 0, 14, true, true, true),
+('50', '2026-11-23T12:28:29+00:00'::timestamptz, 7, 1, 6, true, true, true),
+('51', '2026-11-23T12:28:29+00:00'::timestamptz, 16, 2, 3, true, true, true),
+('52', '2026-11-23T12:28:29+00:00'::timestamptz, 12, 1, 4, true, true, true),
+('53', '2026-11-23T12:28:29+00:00'::timestamptz, 6, 3, 8, true, true, true),
+('54', '2026-11-23T12:28:29+00:00'::timestamptz, 1, 1, 42, true, true, true),
+('55', '2026-11-23T12:28:29+00:00'::timestamptz, 1, 0, 14, true, true, true),
+('56', '2026-11-23T12:28:29+00:00'::timestamptz, 4, 0, 6, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('57', '2026-11-23T12:28:29+00:00'::timestamptz, 10, 3, 6, true, true, true),
+('58', '2026-11-23T12:28:29+00:00'::timestamptz, 4, 0, 12, true, true, true),
+('59', '2026-11-23T12:28:29+00:00'::timestamptz, 10, 1, 4, true, true, true),
+('60', '2026-11-23T12:28:29+00:00'::timestamptz, 3, 0, 15, true, true, true),
+('61', '2026-11-23T12:28:29+00:00'::timestamptz, 11, 2, 3, true, true, true),
+('62', '2026-11-23T12:28:29+00:00'::timestamptz, 3, 0, 26, true, true, true),
+('63', '2026-11-23T12:28:29+00:00'::timestamptz, 3, 1, 14, true, true, true),
+('64', '2026-11-23T12:28:29+00:00'::timestamptz, 0, 0, 15, true, true, true),
+('65', '2026-11-23T12:28:29+00:00'::timestamptz, 4, 2, 14, true, true, true),
+('66', '2026-11-23T12:28:29+00:00'::timestamptz, 9, 1, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('67', '2026-11-23T12:28:29+00:00'::timestamptz, 1, 0, 19, true, true, true),
+('68', '2026-11-23T12:28:29+00:00'::timestamptz, 2, 1, 14, true, true, true),
+('69', '2026-11-23T12:28:29+00:00'::timestamptz, 0, 0, 14, true, true, true),
+('70', '2026-11-23T12:28:29+00:00'::timestamptz, 11, 0, 9, true, true, true),
+('72', '2026-11-23T12:28:29+00:00'::timestamptz, 5, 3, 18, true, true, true),
+('73', '2026-11-23T12:28:29+00:00'::timestamptz, 1, 0, 18, true, true, true),
+('74', '2026-11-23T12:28:29+00:00'::timestamptz, 19, 11, 3, true, true, true),
+('75', '2026-11-23T12:28:29+00:00'::timestamptz, 11, 2, 5, true, true, true),
+('76', '2026-11-23T12:28:29+00:00'::timestamptz, 10, 1, 9, true, true, true),
+('77', '2026-11-23T12:28:29+00:00'::timestamptz, 5, 1, 14, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('78', '2026-11-23T12:28:29+00:00'::timestamptz, 10, 4, 10, true, true, true),
+('79', '2026-11-23T12:28:29+00:00'::timestamptz, 13, 4, 6, true, true, true),
+('80', '2026-11-23T12:28:29+00:00'::timestamptz, 5, 5, 12, true, true, true),
+('81', '2026-11-23T12:28:29+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('82', '2026-11-23T12:28:29+00:00'::timestamptz, 7, 3, 13, true, true, true),
+('83', '2026-11-23T12:28:29+00:00'::timestamptz, 13, 5, 6, true, true, true),
+('84', '2026-11-23T12:28:29+00:00'::timestamptz, 10, 5, 7, true, true, true),
+('85', '2026-11-23T12:28:29+00:00'::timestamptz, 1, 1, 17, true, true, true),
+('86', '2026-11-23T12:28:29+00:00'::timestamptz, 17, 7, 2, true, true, true),
+('87', '2026-11-23T12:28:29+00:00'::timestamptz, 12, 3, 7, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('88', '2026-11-23T12:28:29+00:00'::timestamptz, 3, 2, 14, true, true, true),
+('89', '2026-11-23T12:28:29+00:00'::timestamptz, 4, 0, 16, true, true, true),
+('90', '2026-11-23T12:28:29+00:00'::timestamptz, 6, 1, 11, true, true, true),
+('91', '2026-11-23T12:28:29+00:00'::timestamptz, 1, 1, 18, true, true, true),
+('92', '2026-11-23T12:28:29+00:00'::timestamptz, 11, 3, 3, true, true, true),
+('93', '2026-11-23T12:28:29+00:00'::timestamptz, 12, 7, 4, true, true, true),
+('94', '2026-11-23T12:28:29+00:00'::timestamptz, 0, 0, 1, true, false, false),
+('95', '2026-11-23T12:28:29+00:00'::timestamptz, 4, 2, 12, true, true, true),
+('96', '2026-11-23T12:28:29+00:00'::timestamptz, 26, 12, 0, true, true, true),
+('97', '2026-11-23T12:28:29+00:00'::timestamptz, 2, 0, 18, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('98', '2026-11-23T12:28:29+00:00'::timestamptz, 8, 1, 7, true, true, true),
+('99', '2026-11-23T12:28:29+00:00'::timestamptz, 13, 3, 16, true, true, true),
+('100', '2026-11-23T12:28:29+00:00'::timestamptz, 26, 4, 30, true, true, true),
+('101', '2026-11-23T12:28:29+00:00'::timestamptz, 4, 3, 15, true, true, true),
+('102', '2026-11-23T12:28:29+00:00'::timestamptz, 5, 2, 34, true, true, true),
+('103', '2026-11-23T12:28:29+00:00'::timestamptz, 8, 4, 24, true, true, true),
+('104', '2026-11-23T12:28:29+00:00'::timestamptz, 1, 1, 3, true, true, true),
+('105', '2026-11-23T12:28:29+00:00'::timestamptz, 6, 4, 14, true, true, true),
+('106', '2026-11-23T12:28:29+00:00'::timestamptz, 0, 0, 39, true, false, false),
+('107', '2026-11-23T12:28:29+00:00'::timestamptz, 2, 1, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('108', '2026-11-23T12:28:29+00:00'::timestamptz, 8, 7, 8, true, true, true),
+('109', '2026-11-23T12:28:29+00:00'::timestamptz, 11, 3, 25, true, true, true),
+('110', '2026-11-23T12:28:29+00:00'::timestamptz, 16, 6, 23, true, true, true),
+('111', '2026-11-23T12:28:29+00:00'::timestamptz, 18, 6, 19, true, true, true),
+('112', '2026-11-23T12:28:29+00:00'::timestamptz, 9, 3, 29, true, true, true),
+('113', '2026-11-23T12:28:29+00:00'::timestamptz, 8, 3, 10, true, true, true),
+('114', '2026-11-23T12:28:29+00:00'::timestamptz, 21, 6, 6, true, true, true),
+('115', '2026-11-23T12:28:29+00:00'::timestamptz, 0, 0, 1, true, true, true),
+('116', '2026-11-23T12:28:29+00:00'::timestamptz, 10, 3, 27, true, true, true),
+('117', '2026-11-23T12:28:29+00:00'::timestamptz, 16, 7, 3, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('118', '2026-11-23T12:28:29+00:00'::timestamptz, 7, 0, 10, true, true, true),
+('119', '2026-11-23T12:28:29+00:00'::timestamptz, 15, 8, 5, true, true, true),
+('120', '2026-11-23T12:28:29+00:00'::timestamptz, 17, 2, 0, true, true, true),
+('121', '2026-11-23T12:28:29+00:00'::timestamptz, 1, 1, 12, true, true, true),
+('122', '2026-11-23T12:28:29+00:00'::timestamptz, 1, 0, 14, true, true, true),
+('123', '2026-11-23T12:28:29+00:00'::timestamptz, 1, 1, 35, true, true, true),
+('124', '2026-11-23T12:28:29+00:00'::timestamptz, 1, 0, 19, true, true, true),
+('125', '2026-11-23T12:28:29+00:00'::timestamptz, 6, 4, 24, true, true, true),
+('126', '2026-11-23T12:28:29+00:00'::timestamptz, 9, 0, 2, true, true, true),
+('127', '2026-11-23T12:28:29+00:00'::timestamptz, 3, 2, 17, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('128', '2026-11-23T12:28:29+00:00'::timestamptz, 0, 0, 14, true, true, true),
+('129', '2026-11-23T12:28:29+00:00'::timestamptz, 4, 3, 11, true, true, true),
+('130', '2026-11-23T12:28:29+00:00'::timestamptz, 1, 1, 18, true, true, true),
+('131', '2026-11-23T12:28:29+00:00'::timestamptz, 6, 5, 11, true, true, true),
+('132', '2026-11-23T12:28:29+00:00'::timestamptz, 10, 2, 3, true, true, true),
+('133', '2026-11-23T12:28:29+00:00'::timestamptz, 7, 3, 11, true, true, true),
+('134', '2026-11-23T12:28:29+00:00'::timestamptz, 5, 4, 13, true, true, true),
+('135', '2026-11-23T12:28:29+00:00'::timestamptz, 4, 2, 16, true, true, true),
+('136', '2026-11-23T12:28:29+00:00'::timestamptz, 7, 0, 11, true, true, true),
+('137', '2026-11-23T12:28:29+00:00'::timestamptz, 10, 2, 15, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('138', '2026-11-23T12:28:29+00:00'::timestamptz, 1, 0, 17, true, true, true),
+('139', '2026-11-23T12:28:29+00:00'::timestamptz, 2, 1, 15, true, true, true),
+('140', '2026-11-23T12:28:29+00:00'::timestamptz, 10, 6, 10, true, true, true),
+('141', '2026-11-23T12:28:29+00:00'::timestamptz, 3, 0, 16, true, true, true),
+('142', '2026-11-23T12:28:29+00:00'::timestamptz, 4, 1, 16, true, true, true),
+('143', '2026-11-23T12:28:29+00:00'::timestamptz, 0, 0, 18, true, true, true),
+('144', '2026-11-23T12:28:29+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('145', '2026-11-23T12:28:29+00:00'::timestamptz, 14, 10, 3, true, true, true),
+('146', '2026-11-23T12:28:29+00:00'::timestamptz, 17, 6, 12, true, true, true),
+('147', '2026-11-23T12:28:29+00:00'::timestamptz, 26, 11, 3, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('148', '2026-11-23T12:28:29+00:00'::timestamptz, 3, 3, 16, true, true, true),
+('149', '2026-11-23T12:28:29+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('150', '2026-11-23T12:28:29+00:00'::timestamptz, 13, 2, 2, true, true, true),
+('151', '2026-11-23T12:28:29+00:00'::timestamptz, 15, 9, 5, true, true, true),
+('152', '2026-11-23T12:28:29+00:00'::timestamptz, 11, 4, 9, true, true, true),
+('153', '2026-11-23T12:28:29+00:00'::timestamptz, 18, 7, 2, true, true, true),
+('154', '2026-11-23T12:28:29+00:00'::timestamptz, 15, 2, 4, true, true, true),
+('155', '2026-11-23T12:28:29+00:00'::timestamptz, 15, 10, 8, true, true, true),
+('156', '2026-11-23T12:28:29+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('157', '2026-11-23T12:28:29+00:00'::timestamptz, 1, 0, 19, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('158', '2026-11-23T12:28:29+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('159', '2026-11-23T12:28:29+00:00'::timestamptz, 3, 3, 21, true, true, true),
+('160', '2026-11-23T12:28:29+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('161', '2026-11-23T12:28:29+00:00'::timestamptz, 0, 0, 18, true, true, true),
+('162', '2026-11-23T12:28:29+00:00'::timestamptz, 12, 0, 6, true, true, true),
+('163', '2026-11-23T12:28:29+00:00'::timestamptz, 18, 6, 1, true, true, true),
+('164', '2026-11-23T12:28:29+00:00'::timestamptz, 2, 1, 16, true, true, true),
+('165', '2026-11-23T12:28:29+00:00'::timestamptz, 9, 6, 0, true, true, true),
+('166', '2026-11-23T12:28:29+00:00'::timestamptz, 15, 5, 4, true, true, true),
+('167', '2026-11-23T12:28:29+00:00'::timestamptz, 9, 2, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('168', '2026-11-23T12:28:29+00:00'::timestamptz, 16, 5, 1, true, false, false),
+('169', '2026-11-23T12:28:29+00:00'::timestamptz, 8, 7, 11, true, true, true),
+('170', '2026-11-23T12:28:29+00:00'::timestamptz, 5, 0, 15, true, true, true),
+('171', '2026-11-23T12:28:29+00:00'::timestamptz, 1, 0, 17, true, false, false),
+('172', '2026-11-23T12:28:29+00:00'::timestamptz, 19, 5, 8, true, true, true),
+('173', '2026-11-23T12:28:29+00:00'::timestamptz, 9, 2, 11, true, false, false),
+('174', '2026-11-23T12:28:29+00:00'::timestamptz, 5, 2, 36, true, true, true),
+('175', '2026-11-23T12:28:29+00:00'::timestamptz, 17, 9, 2, true, true, true),
+('176', '2026-11-23T12:28:29+00:00'::timestamptz, 2, 0, 17, true, true, true),
+('177', '2026-11-23T12:28:29+00:00'::timestamptz, 8, 1, 16, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('178', '2026-11-23T12:28:29+00:00'::timestamptz, 8, 5, 10, true, true, true),
+('179', '2026-11-23T12:28:29+00:00'::timestamptz, 4, 2, 21, true, true, true),
+('180', '2026-11-23T12:28:29+00:00'::timestamptz, 3, 0, 12, true, true, true),
+('181', '2026-11-23T12:28:29+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('182', '2026-11-23T12:28:29+00:00'::timestamptz, 16, 8, 4, true, true, true),
+('183', '2026-11-23T12:28:29+00:00'::timestamptz, 8, 1, 12, true, true, true),
+('184', '2026-11-23T12:28:29+00:00'::timestamptz, 1, 1, 18, true, true, true),
+('185', '2026-11-23T12:28:29+00:00'::timestamptz, 6, 1, 12, true, true, true),
+('186', '2026-11-23T12:28:29+00:00'::timestamptz, 16, 7, 3, true, true, true),
+('188', '2026-11-23T12:28:29+00:00'::timestamptz, 1, 1, 18, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('189', '2026-11-23T12:28:29+00:00'::timestamptz, 10, 3, 9, true, true, true),
+('190', '2026-11-23T12:28:29+00:00'::timestamptz, 7, 2, 12, true, true, true),
+('192', '2026-11-23T12:28:29+00:00'::timestamptz, 4, 1, 14, true, true, true),
+('194', '2026-11-23T12:28:29+00:00'::timestamptz, 18, 8, 1, true, true, true),
+('196', '2026-11-23T12:28:29+00:00'::timestamptz, 10, 2, 9, true, true, true),
+('197', '2026-11-23T12:28:29+00:00'::timestamptz, 8, 2, 8, true, true, true),
+('199', '2026-11-23T12:28:29+00:00'::timestamptz, 8, 1, 16, true, true, true),
+('200', '2026-11-23T12:28:29+00:00'::timestamptz, 3, 3, 13, true, true, true),
+('201', '2026-11-23T12:28:29+00:00'::timestamptz, 10, 7, 10, true, true, true),
+('202', '2026-11-23T12:28:29+00:00'::timestamptz, 4, 2, 14, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('206', '2026-11-23T12:28:29+00:00'::timestamptz, 5, 1, 15, true, true, true),
+('207', '2026-11-23T12:28:29+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('208', '2026-11-23T12:28:29+00:00'::timestamptz, 6, 4, 11, true, true, true),
+('209', '2026-11-23T12:28:29+00:00'::timestamptz, 6, 3, 8, true, true, true),
+('211', '2026-11-23T12:28:29+00:00'::timestamptz, 7, 2, 11, true, true, true),
+('214', '2026-11-23T12:28:29+00:00'::timestamptz, 4, 2, 15, true, true, true),
+('215', '2026-11-23T12:28:29+00:00'::timestamptz, 0, 0, 16, false, false, false),
+('219', '2026-11-23T12:28:29+00:00'::timestamptz, 3, 1, 7, false, false, false),
+('251', '2026-11-23T12:28:29+00:00'::timestamptz, 1, 1, 35, true, true, true),
+('297', '2026-11-23T12:28:29+00:00'::timestamptz, 0, 0, 0, false, false, false)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('298', '2026-11-23T12:28:29+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('299', '2026-11-23T12:28:29+00:00'::timestamptz, 2, 1, 20, false, true, true),
+('505', '2026-11-23T12:28:29+00:00'::timestamptz, 1, 0, 0, true, true, true),
+('507', '2026-11-23T12:28:29+00:00'::timestamptz, 0, 0, 4, true, true, true),
+('522', '2026-11-23T12:28:29+00:00'::timestamptz, 3, 2, 1, true, true, true),
+('539', '2026-11-23T12:28:29+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('543', '2026-11-23T12:28:29+00:00'::timestamptz, 2, 2, 2, true, true, true),
+('557', '2026-11-23T12:28:29+00:00'::timestamptz, 1, 1, 3, true, true, true),
+('559', '2026-11-23T12:28:29+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('561', '2026-11-23T12:28:29+00:00'::timestamptz, 0, 0, 4, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('567', '2026-11-23T12:28:29+00:00'::timestamptz, 1, 1, 4, false, false, false),
+('598', '2026-11-23T12:28:29+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('599', '2026-11-23T12:28:29+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('604', '2026-11-23T12:28:29+00:00'::timestamptz, 0, 0, 4, true, true, true),
+('605', '2026-11-23T12:28:29+00:00'::timestamptz, 3, 0, 2, true, true, true),
+('606', '2026-11-23T12:28:29+00:00'::timestamptz, 1, 0, 8, false, false, false),
+('627', '2026-11-23T12:28:29+00:00'::timestamptz, 3, 0, 16, true, true, true),
+('629', '2026-11-23T12:28:29+00:00'::timestamptz, 2, 0, 2, true, true, true),
+('633', '2026-11-23T12:28:29+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('634', '2026-11-23T12:28:29+00:00'::timestamptz, 0, 0, 5, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('670', '2026-11-23T12:28:29+00:00'::timestamptz, 0, 0, 5, false, false, false),
+('672', '2026-11-23T12:28:29+00:00'::timestamptz, 7, 4, 3, true, true, true),
+('900', '2026-11-23T12:28:29+00:00'::timestamptz, 0, 0, 15, false, false, false),
+('901', '2026-11-23T12:28:29+00:00'::timestamptz, 0, 0, 20, true, false, false),
+('902', '2026-11-23T12:28:29+00:00'::timestamptz, 0, 0, 20, false, false, false),
+('903', '2026-11-23T12:28:29+00:00'::timestamptz, 18, 1, 4, true, true, true),
+('1', '2026-11-23T13:28:29+00:00'::timestamptz, 3, 1, 39, true, true, true),
+('2', '2026-11-23T13:28:29+00:00'::timestamptz, 4, 3, 15, true, true, true),
+('3', '2026-11-23T13:28:29+00:00'::timestamptz, 7, 4, 18, true, true, true),
+('4', '2026-11-23T13:28:29+00:00'::timestamptz, 10, 3, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('5', '2026-11-23T13:28:29+00:00'::timestamptz, 15, 11, 25, true, true, true),
+('6', '2026-11-23T13:28:29+00:00'::timestamptz, 9, 5, 29, true, true, true),
+('7', '2026-11-23T13:28:29+00:00'::timestamptz, 8, 3, 6, true, true, true),
+('8', '2026-11-23T13:28:29+00:00'::timestamptz, 4, 0, 16, true, true, true),
+('9', '2026-11-23T13:28:29+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('10', '2026-11-23T13:28:29+00:00'::timestamptz, 3, 0, 18, true, true, true),
+('11', '2026-11-23T13:28:29+00:00'::timestamptz, 6, 0, 22, true, true, true),
+('12', '2026-11-23T13:28:29+00:00'::timestamptz, 2, 0, 12, true, true, true),
+('13', '2026-11-23T13:28:29+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('14', '2026-11-23T13:28:29+00:00'::timestamptz, 5, 3, 24, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('15', '2026-11-23T13:28:29+00:00'::timestamptz, 9, 5, 2, true, true, true),
+('16', '2026-11-23T13:28:29+00:00'::timestamptz, 9, 3, 18, true, true, true),
+('17', '2026-11-23T13:28:29+00:00'::timestamptz, 3, 1, 8, true, true, true),
+('18', '2026-11-23T13:28:29+00:00'::timestamptz, 2, 1, 11, true, true, true),
+('19', '2026-11-23T13:28:29+00:00'::timestamptz, 11, 2, 19, true, true, true),
+('20', '2026-11-23T13:28:29+00:00'::timestamptz, 8, 0, 20, true, true, true),
+('21', '2026-11-23T13:28:29+00:00'::timestamptz, 1, 1, 12, true, true, true),
+('22', '2026-11-23T13:28:29+00:00'::timestamptz, 20, 7, 11, true, true, true),
+('23', '2026-11-23T13:28:29+00:00'::timestamptz, 8, 3, 32, true, true, true),
+('24', '2026-11-23T13:28:29+00:00'::timestamptz, 3, 0, 13, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('25', '2026-11-23T13:28:29+00:00'::timestamptz, 1, 0, 13, true, true, true),
+('26', '2026-11-23T13:28:29+00:00'::timestamptz, 4, 3, 10, true, true, true),
+('27', '2026-11-23T13:28:29+00:00'::timestamptz, 14, 10, 5, true, true, true),
+('28', '2026-11-23T13:28:29+00:00'::timestamptz, 0, 0, 26, true, false, false),
+('29', '2026-11-23T13:28:29+00:00'::timestamptz, 8, 6, 12, true, true, true),
+('30', '2026-11-23T13:28:29+00:00'::timestamptz, 4, 0, 13, true, true, true),
+('31', '2026-11-23T13:28:29+00:00'::timestamptz, 6, 2, 10, true, true, true),
+('32', '2026-11-23T13:28:29+00:00'::timestamptz, 13, 2, 2, true, true, true),
+('33', '2026-11-23T13:28:29+00:00'::timestamptz, 6, 4, 13, true, true, true),
+('34', '2026-11-23T13:28:29+00:00'::timestamptz, 3, 1, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('35', '2026-11-23T13:28:29+00:00'::timestamptz, 6, 2, 10, true, true, true),
+('36', '2026-11-23T13:28:29+00:00'::timestamptz, 8, 3, 9, true, true, true),
+('37', '2026-11-23T13:28:29+00:00'::timestamptz, 28, 9, 1, true, true, true),
+('38', '2026-11-23T13:28:29+00:00'::timestamptz, 5, 0, 9, true, true, true),
+('39', '2026-11-23T13:28:29+00:00'::timestamptz, 5, 2, 60, true, true, true),
+('40', '2026-11-23T13:28:29+00:00'::timestamptz, 12, 2, 7, true, true, true),
+('41', '2026-11-23T13:28:29+00:00'::timestamptz, 6, 5, 11, true, true, true),
+('42', '2026-11-23T13:28:29+00:00'::timestamptz, 4, 2, 15, true, true, true),
+('43', '2026-11-23T13:28:29+00:00'::timestamptz, 13, 6, 4, true, true, true),
+('44', '2026-11-23T13:28:29+00:00'::timestamptz, 11, 4, 8, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('45', '2026-11-23T13:28:29+00:00'::timestamptz, 3, 1, 14, true, false, false),
+('46', '2026-11-23T13:28:29+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('47', '2026-11-23T13:28:29+00:00'::timestamptz, 6, 5, 9, true, true, true),
+('48', '2026-11-23T13:28:29+00:00'::timestamptz, 3, 1, 13, true, true, true),
+('49', '2026-11-23T13:28:29+00:00'::timestamptz, 4, 0, 14, true, true, true),
+('50', '2026-11-23T13:28:29+00:00'::timestamptz, 7, 1, 6, true, true, true),
+('51', '2026-11-23T13:28:29+00:00'::timestamptz, 17, 2, 2, true, true, true),
+('52', '2026-11-23T13:28:29+00:00'::timestamptz, 10, 2, 6, true, true, true),
+('53', '2026-11-23T13:28:29+00:00'::timestamptz, 6, 2, 8, true, true, true),
+('54', '2026-11-23T13:28:29+00:00'::timestamptz, 1, 1, 42, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('55', '2026-11-23T13:28:29+00:00'::timestamptz, 2, 1, 14, true, true, true),
+('56', '2026-11-23T13:28:29+00:00'::timestamptz, 3, 0, 6, true, true, true),
+('57', '2026-11-23T13:28:29+00:00'::timestamptz, 10, 5, 6, true, true, true),
+('58', '2026-11-23T13:28:29+00:00'::timestamptz, 5, 0, 11, true, true, true),
+('59', '2026-11-23T13:28:29+00:00'::timestamptz, 9, 1, 5, true, true, true),
+('60', '2026-11-23T13:28:29+00:00'::timestamptz, 3, 0, 15, true, true, true),
+('61', '2026-11-23T13:28:29+00:00'::timestamptz, 11, 2, 3, true, true, true),
+('62', '2026-11-23T13:28:29+00:00'::timestamptz, 5, 0, 24, true, true, true),
+('63', '2026-11-23T13:28:29+00:00'::timestamptz, 4, 2, 13, true, true, true),
+('64', '2026-11-23T13:28:29+00:00'::timestamptz, 2, 2, 13, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('65', '2026-11-23T13:28:29+00:00'::timestamptz, 5, 2, 13, true, true, true),
+('66', '2026-11-23T13:28:29+00:00'::timestamptz, 11, 2, 8, true, true, true),
+('67', '2026-11-23T13:28:29+00:00'::timestamptz, 9, 3, 11, true, true, true),
+('68', '2026-11-23T13:28:29+00:00'::timestamptz, 4, 2, 12, true, true, true),
+('69', '2026-11-23T13:28:29+00:00'::timestamptz, 0, 0, 14, true, true, true),
+('70', '2026-11-23T13:28:29+00:00'::timestamptz, 8, 0, 12, true, true, true),
+('72', '2026-11-23T13:28:29+00:00'::timestamptz, 5, 3, 18, true, true, true),
+('73', '2026-11-23T13:28:29+00:00'::timestamptz, 3, 3, 16, true, true, true),
+('74', '2026-11-23T13:28:29+00:00'::timestamptz, 20, 11, 2, true, true, true),
+('75', '2026-11-23T13:28:29+00:00'::timestamptz, 10, 1, 6, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('76', '2026-11-23T13:28:29+00:00'::timestamptz, 11, 1, 8, true, true, true),
+('77', '2026-11-23T13:28:29+00:00'::timestamptz, 4, 1, 15, true, true, true),
+('78', '2026-11-23T13:28:29+00:00'::timestamptz, 9, 3, 11, true, true, true),
+('79', '2026-11-23T13:28:29+00:00'::timestamptz, 14, 4, 5, true, true, true),
+('80', '2026-11-23T13:28:29+00:00'::timestamptz, 5, 5, 12, true, true, true),
+('81', '2026-11-23T13:28:29+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('82', '2026-11-23T13:28:29+00:00'::timestamptz, 8, 3, 12, true, true, true),
+('83', '2026-11-23T13:28:29+00:00'::timestamptz, 12, 4, 7, true, true, true),
+('84', '2026-11-23T13:28:29+00:00'::timestamptz, 9, 4, 8, true, true, true),
+('85', '2026-11-23T13:28:29+00:00'::timestamptz, 1, 1, 17, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('86', '2026-11-23T13:28:29+00:00'::timestamptz, 17, 7, 2, true, true, true),
+('87', '2026-11-23T13:28:29+00:00'::timestamptz, 10, 3, 9, true, true, true),
+('88', '2026-11-23T13:28:29+00:00'::timestamptz, 3, 2, 14, true, true, true),
+('89', '2026-11-23T13:28:29+00:00'::timestamptz, 5, 2, 15, true, true, true),
+('90', '2026-11-23T13:28:29+00:00'::timestamptz, 6, 1, 11, true, true, true),
+('91', '2026-11-23T13:28:29+00:00'::timestamptz, 2, 2, 17, true, true, true),
+('92', '2026-11-23T13:28:29+00:00'::timestamptz, 11, 2, 3, true, true, true),
+('93', '2026-11-23T13:28:29+00:00'::timestamptz, 12, 7, 4, true, true, true),
+('94', '2026-11-23T13:28:29+00:00'::timestamptz, 0, 0, 1, true, false, false),
+('95', '2026-11-23T13:28:29+00:00'::timestamptz, 4, 2, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('96', '2026-11-23T13:28:29+00:00'::timestamptz, 26, 12, 0, true, true, true),
+('97', '2026-11-23T13:28:29+00:00'::timestamptz, 1, 0, 18, true, true, true),
+('98', '2026-11-23T13:28:29+00:00'::timestamptz, 6, 1, 9, true, true, true),
+('99', '2026-11-23T13:28:29+00:00'::timestamptz, 15, 5, 14, true, true, true),
+('100', '2026-11-23T13:28:29+00:00'::timestamptz, 32, 4, 24, true, true, true),
+('101', '2026-11-23T13:28:29+00:00'::timestamptz, 5, 4, 14, true, true, true),
+('102', '2026-11-23T13:28:29+00:00'::timestamptz, 3, 2, 36, true, true, true),
+('103', '2026-11-23T13:28:29+00:00'::timestamptz, 7, 4, 24, true, true, true),
+('104', '2026-11-23T13:28:29+00:00'::timestamptz, 1, 1, 3, true, true, true),
+('105', '2026-11-23T13:28:29+00:00'::timestamptz, 2, 1, 18, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('106', '2026-11-23T13:28:29+00:00'::timestamptz, 0, 0, 39, true, false, false),
+('107', '2026-11-23T13:28:29+00:00'::timestamptz, 3, 3, 11, true, true, true),
+('108', '2026-11-23T13:28:29+00:00'::timestamptz, 7, 7, 9, true, true, true),
+('109', '2026-11-23T13:28:29+00:00'::timestamptz, 9, 2, 27, true, true, true),
+('110', '2026-11-23T13:28:29+00:00'::timestamptz, 17, 7, 22, true, true, true),
+('111', '2026-11-23T13:28:29+00:00'::timestamptz, 20, 7, 18, true, true, true),
+('112', '2026-11-23T13:28:29+00:00'::timestamptz, 14, 4, 24, true, true, true),
+('113', '2026-11-23T13:28:29+00:00'::timestamptz, 8, 3, 10, true, true, true),
+('114', '2026-11-23T13:28:29+00:00'::timestamptz, 20, 6, 7, true, true, true),
+('115', '2026-11-23T13:28:29+00:00'::timestamptz, 0, 0, 1, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('116', '2026-11-23T13:28:29+00:00'::timestamptz, 14, 8, 23, true, true, true),
+('117', '2026-11-23T13:28:29+00:00'::timestamptz, 15, 6, 4, true, true, true),
+('118', '2026-11-23T13:28:29+00:00'::timestamptz, 13, 4, 7, true, true, true),
+('119', '2026-11-23T13:28:29+00:00'::timestamptz, 14, 6, 6, true, true, true),
+('120', '2026-11-23T13:28:29+00:00'::timestamptz, 18, 2, 0, true, true, true),
+('121', '2026-11-23T13:28:29+00:00'::timestamptz, 0, 0, 14, true, true, true),
+('122', '2026-11-23T13:28:29+00:00'::timestamptz, 1, 0, 14, true, true, true),
+('123', '2026-11-23T13:28:29+00:00'::timestamptz, 0, 0, 36, true, true, true),
+('124', '2026-11-23T13:28:29+00:00'::timestamptz, 4, 1, 16, true, true, true),
+('125', '2026-11-23T13:28:29+00:00'::timestamptz, 16, 5, 14, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('126', '2026-11-23T13:28:29+00:00'::timestamptz, 9, 2, 2, true, true, true),
+('127', '2026-11-23T13:28:29+00:00'::timestamptz, 4, 3, 16, true, true, true),
+('128', '2026-11-23T13:28:29+00:00'::timestamptz, 0, 0, 14, true, true, true),
+('129', '2026-11-23T13:28:29+00:00'::timestamptz, 2, 1, 13, true, true, true),
+('130', '2026-11-23T13:28:29+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('131', '2026-11-23T13:28:29+00:00'::timestamptz, 1, 1, 17, true, true, true),
+('132', '2026-11-23T13:28:29+00:00'::timestamptz, 10, 3, 3, true, true, true),
+('133', '2026-11-23T13:28:29+00:00'::timestamptz, 1, 0, 17, true, true, true),
+('134', '2026-11-23T13:28:29+00:00'::timestamptz, 3, 3, 15, true, true, true),
+('135', '2026-11-23T13:28:29+00:00'::timestamptz, 4, 2, 16, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('136', '2026-11-23T13:28:29+00:00'::timestamptz, 6, 2, 12, true, true, true),
+('137', '2026-11-23T13:28:29+00:00'::timestamptz, 9, 2, 15, true, true, true),
+('138', '2026-11-23T13:28:29+00:00'::timestamptz, 1, 0, 17, true, true, true),
+('139', '2026-11-23T13:28:29+00:00'::timestamptz, 5, 3, 12, true, true, true),
+('140', '2026-11-23T13:28:29+00:00'::timestamptz, 10, 5, 10, true, true, true),
+('141', '2026-11-23T13:28:29+00:00'::timestamptz, 4, 1, 15, true, true, true),
+('142', '2026-11-23T13:28:29+00:00'::timestamptz, 6, 3, 14, true, true, true),
+('143', '2026-11-23T13:28:29+00:00'::timestamptz, 1, 0, 17, true, true, true),
+('144', '2026-11-23T13:28:29+00:00'::timestamptz, 2, 1, 17, true, true, true),
+('145', '2026-11-23T13:28:29+00:00'::timestamptz, 14, 9, 3, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('146', '2026-11-23T13:28:29+00:00'::timestamptz, 17, 6, 12, true, true, true),
+('147', '2026-11-23T13:28:29+00:00'::timestamptz, 26, 11, 4, true, true, true),
+('148', '2026-11-23T13:28:29+00:00'::timestamptz, 1, 1, 18, true, true, true),
+('149', '2026-11-23T13:28:29+00:00'::timestamptz, 1, 0, 18, true, true, true),
+('150', '2026-11-23T13:28:29+00:00'::timestamptz, 13, 2, 2, true, true, true),
+('151', '2026-11-23T13:28:29+00:00'::timestamptz, 15, 8, 5, true, true, true),
+('152', '2026-11-23T13:28:29+00:00'::timestamptz, 12, 5, 8, true, true, true),
+('153', '2026-11-23T13:28:29+00:00'::timestamptz, 18, 7, 2, true, true, true),
+('154', '2026-11-23T13:28:29+00:00'::timestamptz, 14, 1, 5, true, true, true),
+('155', '2026-11-23T13:28:29+00:00'::timestamptz, 16, 9, 7, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('156', '2026-11-23T13:28:29+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('157', '2026-11-23T13:28:29+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('158', '2026-11-23T13:28:29+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('159', '2026-11-23T13:28:29+00:00'::timestamptz, 3, 3, 21, true, true, true),
+('160', '2026-11-23T13:28:29+00:00'::timestamptz, 1, 0, 18, true, true, true),
+('161', '2026-11-23T13:28:29+00:00'::timestamptz, 1, 0, 17, true, true, true),
+('162', '2026-11-23T13:28:29+00:00'::timestamptz, 12, 0, 6, true, true, true),
+('163', '2026-11-23T13:28:29+00:00'::timestamptz, 16, 6, 3, true, true, true),
+('164', '2026-11-23T13:28:29+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('165', '2026-11-23T13:28:29+00:00'::timestamptz, 9, 6, 0, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('166', '2026-11-23T13:28:29+00:00'::timestamptz, 14, 5, 5, true, true, true),
+('167', '2026-11-23T13:28:29+00:00'::timestamptz, 10, 3, 9, true, true, true),
+('168', '2026-11-23T13:28:29+00:00'::timestamptz, 16, 5, 1, true, true, true),
+('169', '2026-11-23T13:28:29+00:00'::timestamptz, 8, 7, 11, true, true, true),
+('170', '2026-11-23T13:28:29+00:00'::timestamptz, 5, 0, 15, true, true, true),
+('171', '2026-11-23T13:28:29+00:00'::timestamptz, 2, 1, 16, true, true, true),
+('172', '2026-11-23T13:28:29+00:00'::timestamptz, 22, 5, 6, true, true, true),
+('173', '2026-11-23T13:28:29+00:00'::timestamptz, 9, 2, 11, true, false, false),
+('174', '2026-11-23T13:28:29+00:00'::timestamptz, 6, 2, 35, true, true, true),
+('175', '2026-11-23T13:28:29+00:00'::timestamptz, 16, 8, 3, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('176', '2026-11-23T13:28:29+00:00'::timestamptz, 0, 0, 19, true, true, true),
+('177', '2026-11-23T13:28:29+00:00'::timestamptz, 7, 2, 17, true, true, true),
+('178', '2026-11-23T13:28:29+00:00'::timestamptz, 6, 4, 13, true, true, true),
+('179', '2026-11-23T13:28:29+00:00'::timestamptz, 4, 2, 21, true, true, true),
+('180', '2026-11-23T13:28:29+00:00'::timestamptz, 2, 0, 13, true, true, true),
+('181', '2026-11-23T13:28:29+00:00'::timestamptz, 1, 0, 19, true, true, true),
+('182', '2026-11-23T13:28:29+00:00'::timestamptz, 16, 8, 4, true, true, true),
+('183', '2026-11-23T13:28:29+00:00'::timestamptz, 9, 1, 11, true, true, true),
+('184', '2026-11-23T13:28:29+00:00'::timestamptz, 2, 2, 17, true, true, true),
+('185', '2026-11-23T13:28:29+00:00'::timestamptz, 6, 2, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('186', '2026-11-23T13:28:29+00:00'::timestamptz, 13, 6, 6, true, true, true),
+('188', '2026-11-23T13:28:29+00:00'::timestamptz, 1, 1, 18, true, true, true),
+('189', '2026-11-23T13:28:29+00:00'::timestamptz, 11, 3, 8, true, true, true),
+('190', '2026-11-23T13:28:29+00:00'::timestamptz, 6, 1, 13, true, true, true),
+('192', '2026-11-23T13:28:29+00:00'::timestamptz, 4, 1, 14, true, true, true),
+('194', '2026-11-23T13:28:29+00:00'::timestamptz, 18, 8, 1, true, true, true),
+('196', '2026-11-23T13:28:29+00:00'::timestamptz, 11, 4, 7, true, true, true),
+('197', '2026-11-23T13:28:29+00:00'::timestamptz, 8, 2, 8, true, true, true),
+('199', '2026-11-23T13:28:29+00:00'::timestamptz, 5, 1, 19, true, true, true),
+('200', '2026-11-23T13:28:29+00:00'::timestamptz, 2, 2, 14, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('201', '2026-11-23T13:28:29+00:00'::timestamptz, 9, 6, 11, true, true, true),
+('202', '2026-11-23T13:28:29+00:00'::timestamptz, 4, 2, 14, true, true, true),
+('206', '2026-11-23T13:28:29+00:00'::timestamptz, 4, 1, 16, true, true, true),
+('207', '2026-11-23T13:28:29+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('208', '2026-11-23T13:28:29+00:00'::timestamptz, 7, 5, 10, true, true, true),
+('209', '2026-11-23T13:28:29+00:00'::timestamptz, 6, 3, 8, true, false, false),
+('211', '2026-11-23T13:28:29+00:00'::timestamptz, 10, 4, 8, true, true, true),
+('214', '2026-11-23T13:28:29+00:00'::timestamptz, 4, 2, 15, true, true, true),
+('215', '2026-11-23T13:28:29+00:00'::timestamptz, 0, 0, 16, false, false, false),
+('219', '2026-11-23T13:28:29+00:00'::timestamptz, 3, 1, 7, false, false, false)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('251', '2026-11-23T13:28:29+00:00'::timestamptz, 1, 0, 35, true, true, true),
+('297', '2026-11-23T13:28:29+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('298', '2026-11-23T13:28:29+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('299', '2026-11-23T13:28:29+00:00'::timestamptz, 2, 1, 20, false, true, true),
+('505', '2026-11-23T13:28:29+00:00'::timestamptz, 1, 0, 0, true, true, true),
+('507', '2026-11-23T13:28:29+00:00'::timestamptz, 0, 0, 4, true, true, true),
+('522', '2026-11-23T13:28:29+00:00'::timestamptz, 3, 2, 1, true, true, true),
+('539', '2026-11-23T13:28:29+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('543', '2026-11-23T13:28:29+00:00'::timestamptz, 2, 2, 2, true, true, true),
+('557', '2026-11-23T13:28:29+00:00'::timestamptz, 1, 1, 3, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('559', '2026-11-23T13:28:29+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('561', '2026-11-23T13:28:29+00:00'::timestamptz, 0, 0, 4, true, true, true),
+('567', '2026-11-23T13:28:29+00:00'::timestamptz, 1, 1, 4, false, false, false),
+('598', '2026-11-23T13:28:29+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('599', '2026-11-23T13:28:29+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('604', '2026-11-23T13:28:29+00:00'::timestamptz, 0, 0, 4, true, true, true),
+('605', '2026-11-23T13:28:29+00:00'::timestamptz, 3, 0, 2, true, true, true),
+('606', '2026-11-23T13:28:29+00:00'::timestamptz, 1, 0, 8, false, false, false),
+('627', '2026-11-23T13:28:29+00:00'::timestamptz, 2, 0, 17, true, true, true),
+('629', '2026-11-23T13:28:29+00:00'::timestamptz, 2, 0, 2, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('633', '2026-11-23T13:28:29+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('634', '2026-11-23T13:28:29+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('670', '2026-11-23T13:28:29+00:00'::timestamptz, 0, 0, 5, false, false, false),
+('672', '2026-11-23T13:28:29+00:00'::timestamptz, 7, 4, 3, true, true, true),
+('900', '2026-11-23T13:28:29+00:00'::timestamptz, 0, 0, 15, false, false, false),
+('901', '2026-11-23T13:28:29+00:00'::timestamptz, 0, 0, 20, true, false, false),
+('902', '2026-11-23T13:28:29+00:00'::timestamptz, 0, 0, 20, false, false, false),
+('903', '2026-11-23T13:28:29+00:00'::timestamptz, 15, 0, 7, true, true, true),
+('1', '2026-11-23T14:28:29+00:00'::timestamptz, 4, 1, 38, true, true, true),
+('2', '2026-11-23T14:28:29+00:00'::timestamptz, 1, 0, 18, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('3', '2026-11-23T14:28:29+00:00'::timestamptz, 7, 4, 18, true, true, true),
+('4', '2026-11-23T14:28:29+00:00'::timestamptz, 10, 3, 10, true, true, true),
+('5', '2026-11-23T14:28:29+00:00'::timestamptz, 14, 9, 25, true, true, true),
+('6', '2026-11-23T14:28:29+00:00'::timestamptz, 6, 3, 32, true, true, true),
+('7', '2026-11-23T14:28:29+00:00'::timestamptz, 7, 3, 7, true, true, true),
+('8', '2026-11-23T14:28:29+00:00'::timestamptz, 7, 2, 13, true, true, true),
+('9', '2026-11-23T14:28:29+00:00'::timestamptz, 1, 0, 19, true, true, true),
+('10', '2026-11-23T14:28:29+00:00'::timestamptz, 2, 1, 19, true, true, true),
+('11', '2026-11-23T14:28:29+00:00'::timestamptz, 8, 0, 20, true, true, true),
+('12', '2026-11-23T14:28:29+00:00'::timestamptz, 2, 0, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('13', '2026-11-23T14:28:29+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('14', '2026-11-23T14:28:29+00:00'::timestamptz, 3, 2, 26, true, true, true),
+('15', '2026-11-23T14:28:29+00:00'::timestamptz, 2, 2, 9, true, true, true),
+('16', '2026-11-23T14:28:29+00:00'::timestamptz, 9, 3, 17, true, true, true),
+('17', '2026-11-23T14:28:29+00:00'::timestamptz, 4, 1, 7, true, true, true),
+('18', '2026-11-23T14:28:29+00:00'::timestamptz, 3, 2, 10, true, true, true),
+('19', '2026-11-23T14:28:29+00:00'::timestamptz, 10, 2, 20, true, true, true),
+('20', '2026-11-23T14:28:29+00:00'::timestamptz, 4, 1, 24, true, true, true),
+('21', '2026-11-23T14:28:29+00:00'::timestamptz, 1, 1, 12, true, true, true),
+('22', '2026-11-23T14:28:29+00:00'::timestamptz, 20, 6, 11, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('23', '2026-11-23T14:28:29+00:00'::timestamptz, 7, 3, 33, true, true, true),
+('24', '2026-11-23T14:28:29+00:00'::timestamptz, 4, 0, 12, true, true, true),
+('25', '2026-11-23T14:28:29+00:00'::timestamptz, 4, 4, 11, true, true, true),
+('26', '2026-11-23T14:28:29+00:00'::timestamptz, 3, 2, 12, true, true, true),
+('27', '2026-11-23T14:28:29+00:00'::timestamptz, 8, 4, 11, true, true, true),
+('28', '2026-11-23T14:28:29+00:00'::timestamptz, 0, 0, 26, true, false, false),
+('29', '2026-11-23T14:28:29+00:00'::timestamptz, 12, 10, 8, true, true, true),
+('30', '2026-11-23T14:28:29+00:00'::timestamptz, 4, 0, 13, true, true, true),
+('31', '2026-11-23T14:28:29+00:00'::timestamptz, 5, 1, 11, true, true, true),
+('32', '2026-11-23T14:28:29+00:00'::timestamptz, 12, 1, 3, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('33', '2026-11-23T14:28:29+00:00'::timestamptz, 4, 4, 15, true, true, true),
+('34', '2026-11-23T14:28:29+00:00'::timestamptz, 5, 3, 10, true, true, true),
+('35', '2026-11-23T14:28:29+00:00'::timestamptz, 1, 0, 15, true, true, true),
+('36', '2026-11-23T14:28:29+00:00'::timestamptz, 8, 4, 9, true, true, true),
+('37', '2026-11-23T14:28:29+00:00'::timestamptz, 28, 8, 1, true, true, true),
+('38', '2026-11-23T14:28:29+00:00'::timestamptz, 6, 1, 8, true, true, true),
+('39', '2026-11-23T14:28:29+00:00'::timestamptz, 7, 2, 58, true, true, true),
+('40', '2026-11-23T14:28:29+00:00'::timestamptz, 13, 3, 6, true, true, true),
+('41', '2026-11-23T14:28:29+00:00'::timestamptz, 5, 3, 12, true, true, true),
+('42', '2026-11-23T14:28:29+00:00'::timestamptz, 5, 3, 14, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('43', '2026-11-23T14:28:29+00:00'::timestamptz, 12, 3, 5, true, true, true),
+('44', '2026-11-23T14:28:29+00:00'::timestamptz, 9, 2, 10, true, true, true),
+('45', '2026-11-23T14:28:29+00:00'::timestamptz, 3, 3, 14, true, false, false),
+('46', '2026-11-23T14:28:29+00:00'::timestamptz, 1, 0, 19, true, true, true),
+('47', '2026-11-23T14:28:29+00:00'::timestamptz, 3, 1, 12, true, true, true),
+('48', '2026-11-23T14:28:29+00:00'::timestamptz, 0, 0, 16, true, true, true),
+('49', '2026-11-23T14:28:29+00:00'::timestamptz, 3, 0, 15, true, true, true),
+('50', '2026-11-23T14:28:29+00:00'::timestamptz, 8, 1, 5, true, true, true),
+('51', '2026-11-23T14:28:29+00:00'::timestamptz, 16, 2, 3, true, true, true),
+('52', '2026-11-23T14:28:29+00:00'::timestamptz, 13, 6, 4, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('53', '2026-11-23T14:28:29+00:00'::timestamptz, 7, 2, 7, true, true, true),
+('54', '2026-11-23T14:28:29+00:00'::timestamptz, 2, 1, 41, true, true, true),
+('55', '2026-11-23T14:28:29+00:00'::timestamptz, 3, 2, 13, true, true, true),
+('56', '2026-11-23T14:28:29+00:00'::timestamptz, 5, 2, 4, true, true, true),
+('57', '2026-11-23T14:28:29+00:00'::timestamptz, 8, 3, 8, true, true, true),
+('58', '2026-11-23T14:28:29+00:00'::timestamptz, 7, 1, 9, true, true, true),
+('59', '2026-11-23T14:28:29+00:00'::timestamptz, 9, 1, 5, true, true, true),
+('60', '2026-11-23T14:28:29+00:00'::timestamptz, 2, 0, 16, true, true, true),
+('61', '2026-11-23T14:28:29+00:00'::timestamptz, 12, 2, 2, true, true, true),
+('62', '2026-11-23T14:28:29+00:00'::timestamptz, 5, 0, 24, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('63', '2026-11-23T14:28:29+00:00'::timestamptz, 3, 1, 14, true, true, true),
+('64', '2026-11-23T14:28:29+00:00'::timestamptz, 1, 1, 14, true, true, true),
+('65', '2026-11-23T14:28:29+00:00'::timestamptz, 6, 3, 12, true, true, true),
+('66', '2026-11-23T14:28:29+00:00'::timestamptz, 10, 2, 10, true, true, true),
+('67', '2026-11-23T14:28:29+00:00'::timestamptz, 6, 1, 14, true, true, true),
+('68', '2026-11-23T14:28:29+00:00'::timestamptz, 5, 3, 10, true, true, true),
+('69', '2026-11-23T14:28:29+00:00'::timestamptz, 0, 0, 14, true, true, true),
+('70', '2026-11-23T14:28:29+00:00'::timestamptz, 8, 0, 12, true, true, true),
+('72', '2026-11-23T14:28:29+00:00'::timestamptz, 5, 3, 18, true, true, true),
+('73', '2026-11-23T14:28:29+00:00'::timestamptz, 3, 3, 16, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('74', '2026-11-23T14:28:29+00:00'::timestamptz, 20, 11, 2, true, true, true),
+('75', '2026-11-23T14:28:29+00:00'::timestamptz, 10, 2, 6, true, true, true),
+('76', '2026-11-23T14:28:29+00:00'::timestamptz, 10, 1, 9, true, true, true),
+('77', '2026-11-23T14:28:29+00:00'::timestamptz, 4, 1, 15, true, true, true),
+('78', '2026-11-23T14:28:29+00:00'::timestamptz, 10, 4, 10, true, true, true),
+('79', '2026-11-23T14:28:29+00:00'::timestamptz, 14, 4, 5, true, true, true),
+('80', '2026-11-23T14:28:29+00:00'::timestamptz, 5, 5, 12, true, true, true),
+('81', '2026-11-23T14:28:29+00:00'::timestamptz, 3, 1, 17, true, true, true),
+('82', '2026-11-23T14:28:29+00:00'::timestamptz, 7, 3, 13, true, true, true),
+('83', '2026-11-23T14:28:29+00:00'::timestamptz, 11, 3, 8, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('84', '2026-11-23T14:28:29+00:00'::timestamptz, 9, 4, 8, true, true, true),
+('85', '2026-11-23T14:28:29+00:00'::timestamptz, 1, 1, 17, true, true, true),
+('86', '2026-11-23T14:28:29+00:00'::timestamptz, 17, 7, 2, true, true, true),
+('87', '2026-11-23T14:28:29+00:00'::timestamptz, 10, 3, 9, true, true, true),
+('88', '2026-11-23T14:28:29+00:00'::timestamptz, 3, 2, 14, true, true, true),
+('89', '2026-11-23T14:28:29+00:00'::timestamptz, 5, 2, 15, true, true, true),
+('90', '2026-11-23T14:28:29+00:00'::timestamptz, 6, 2, 11, true, true, true),
+('91', '2026-11-23T14:28:29+00:00'::timestamptz, 2, 2, 17, true, true, true),
+('92', '2026-11-23T14:28:29+00:00'::timestamptz, 10, 3, 4, true, true, true),
+('93', '2026-11-23T14:28:29+00:00'::timestamptz, 12, 7, 4, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('94', '2026-11-23T14:28:29+00:00'::timestamptz, 0, 0, 1, true, false, false),
+('95', '2026-11-23T14:28:29+00:00'::timestamptz, 4, 2, 12, true, true, true),
+('96', '2026-11-23T14:28:29+00:00'::timestamptz, 25, 12, 1, true, true, true),
+('97', '2026-11-23T14:28:29+00:00'::timestamptz, 2, 0, 18, true, true, true),
+('98', '2026-11-23T14:28:29+00:00'::timestamptz, 4, 0, 11, true, true, true),
+('99', '2026-11-23T14:28:29+00:00'::timestamptz, 17, 7, 14, true, true, true),
+('100', '2026-11-23T14:28:29+00:00'::timestamptz, 29, 3, 27, true, true, true),
+('101', '2026-11-23T14:28:29+00:00'::timestamptz, 6, 4, 12, true, true, true),
+('102', '2026-11-23T14:28:29+00:00'::timestamptz, 3, 2, 36, true, true, true),
+('103', '2026-11-23T14:28:29+00:00'::timestamptz, 9, 5, 23, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('104', '2026-11-23T14:28:29+00:00'::timestamptz, 1, 1, 3, true, true, true),
+('105', '2026-11-23T14:28:29+00:00'::timestamptz, 3, 0, 17, true, true, true),
+('106', '2026-11-23T14:28:29+00:00'::timestamptz, 0, 0, 39, true, false, false),
+('107', '2026-11-23T14:28:29+00:00'::timestamptz, 2, 2, 12, true, true, true),
+('108', '2026-11-23T14:28:29+00:00'::timestamptz, 5, 5, 11, true, true, true),
+('109', '2026-11-23T14:28:29+00:00'::timestamptz, 9, 1, 27, true, true, true),
+('110', '2026-11-23T14:28:29+00:00'::timestamptz, 16, 6, 23, true, true, true),
+('111', '2026-11-23T14:28:29+00:00'::timestamptz, 18, 6, 19, true, true, true),
+('112', '2026-11-23T14:28:29+00:00'::timestamptz, 13, 3, 25, true, true, true),
+('113', '2026-11-23T14:28:29+00:00'::timestamptz, 5, 3, 13, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('114', '2026-11-23T14:28:29+00:00'::timestamptz, 22, 6, 4, true, true, true),
+('115', '2026-11-23T14:28:29+00:00'::timestamptz, 0, 0, 1, true, true, true),
+('116', '2026-11-23T14:28:29+00:00'::timestamptz, 16, 10, 21, true, true, true),
+('117', '2026-11-23T14:28:29+00:00'::timestamptz, 11, 5, 8, true, true, true),
+('118', '2026-11-23T14:28:29+00:00'::timestamptz, 9, 2, 11, true, true, true),
+('119', '2026-11-23T14:28:29+00:00'::timestamptz, 18, 7, 2, true, true, true),
+('120', '2026-11-23T14:28:29+00:00'::timestamptz, 18, 2, 0, true, true, true),
+('121', '2026-11-23T14:28:29+00:00'::timestamptz, 0, 0, 14, true, true, true),
+('122', '2026-11-23T14:28:29+00:00'::timestamptz, 5, 2, 10, true, true, true),
+('123', '2026-11-23T14:28:29+00:00'::timestamptz, 1, 1, 35, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('124', '2026-11-23T14:28:29+00:00'::timestamptz, 5, 2, 15, true, true, true),
+('125', '2026-11-23T14:28:29+00:00'::timestamptz, 17, 5, 13, true, true, true),
+('126', '2026-11-23T14:28:29+00:00'::timestamptz, 9, 2, 2, true, true, true),
+('127', '2026-11-23T14:28:29+00:00'::timestamptz, 3, 1, 19, true, true, true),
+('128', '2026-11-23T14:28:29+00:00'::timestamptz, 3, 3, 13, true, true, true),
+('129', '2026-11-23T14:28:29+00:00'::timestamptz, 2, 1, 13, true, true, true),
+('130', '2026-11-23T14:28:29+00:00'::timestamptz, 4, 3, 15, true, true, true),
+('131', '2026-11-23T14:28:29+00:00'::timestamptz, 1, 0, 17, true, true, true),
+('132', '2026-11-23T14:28:29+00:00'::timestamptz, 6, 1, 7, true, true, true),
+('133', '2026-11-23T14:28:29+00:00'::timestamptz, 1, 0, 17, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('134', '2026-11-23T14:28:29+00:00'::timestamptz, 1, 0, 17, true, true, true),
+('135', '2026-11-23T14:28:29+00:00'::timestamptz, 4, 2, 16, true, true, true),
+('136', '2026-11-23T14:28:29+00:00'::timestamptz, 5, 2, 13, true, true, true),
+('137', '2026-11-23T14:28:29+00:00'::timestamptz, 1, 0, 22, true, true, true),
+('138', '2026-11-23T14:28:29+00:00'::timestamptz, 4, 4, 15, true, true, true),
+('139', '2026-11-23T14:28:29+00:00'::timestamptz, 5, 1, 12, true, true, true),
+('140', '2026-11-23T14:28:29+00:00'::timestamptz, 10, 5, 10, true, true, true),
+('141', '2026-11-23T14:28:29+00:00'::timestamptz, 3, 2, 16, true, true, true),
+('142', '2026-11-23T14:28:29+00:00'::timestamptz, 5, 2, 15, true, true, true),
+('143', '2026-11-23T14:28:29+00:00'::timestamptz, 0, 0, 18, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('144', '2026-11-23T14:28:29+00:00'::timestamptz, 5, 3, 14, true, true, true),
+('145', '2026-11-23T14:28:29+00:00'::timestamptz, 13, 8, 4, true, true, true),
+('146', '2026-11-23T14:28:29+00:00'::timestamptz, 18, 7, 11, true, true, true),
+('147', '2026-11-23T14:28:29+00:00'::timestamptz, 26, 11, 3, true, true, true),
+('148', '2026-11-23T14:28:29+00:00'::timestamptz, 2, 2, 17, true, true, true),
+('149', '2026-11-23T14:28:29+00:00'::timestamptz, 1, 0, 17, true, true, true),
+('150', '2026-11-23T14:28:29+00:00'::timestamptz, 13, 2, 2, true, true, true),
+('151', '2026-11-23T14:28:29+00:00'::timestamptz, 14, 8, 6, true, true, true),
+('152', '2026-11-23T14:28:29+00:00'::timestamptz, 12, 5, 8, true, true, true),
+('153', '2026-11-23T14:28:29+00:00'::timestamptz, 18, 7, 2, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('154', '2026-11-23T14:28:29+00:00'::timestamptz, 15, 1, 4, true, true, true),
+('155', '2026-11-23T14:28:29+00:00'::timestamptz, 12, 7, 11, true, true, true),
+('156', '2026-11-23T14:28:29+00:00'::timestamptz, 2, 1, 18, true, true, true),
+('157', '2026-11-23T14:28:29+00:00'::timestamptz, 0, 0, 20, true, true, true),
+('158', '2026-11-23T14:28:29+00:00'::timestamptz, 3, 1, 17, true, true, true),
+('159', '2026-11-23T14:28:29+00:00'::timestamptz, 3, 3, 21, true, true, true),
+('160', '2026-11-23T14:28:29+00:00'::timestamptz, 3, 1, 16, true, true, true),
+('161', '2026-11-23T14:28:29+00:00'::timestamptz, 2, 1, 16, true, true, true),
+('162', '2026-11-23T14:28:29+00:00'::timestamptz, 12, 0, 6, true, true, true),
+('163', '2026-11-23T14:28:29+00:00'::timestamptz, 17, 5, 2, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('164', '2026-11-23T14:28:29+00:00'::timestamptz, 2, 1, 16, true, true, true),
+('165', '2026-11-23T14:28:29+00:00'::timestamptz, 9, 6, 0, true, true, true),
+('166', '2026-11-23T14:28:29+00:00'::timestamptz, 13, 4, 6, true, true, true),
+('167', '2026-11-23T14:28:29+00:00'::timestamptz, 10, 3, 9, true, true, true),
+('168', '2026-11-23T14:28:29+00:00'::timestamptz, 20, 9, 0, true, true, true),
+('169', '2026-11-23T14:28:29+00:00'::timestamptz, 7, 6, 12, true, true, true),
+('170', '2026-11-23T14:28:29+00:00'::timestamptz, 4, 0, 16, true, true, true),
+('171', '2026-11-23T14:28:29+00:00'::timestamptz, 3, 1, 15, true, true, true),
+('172', '2026-11-23T14:28:29+00:00'::timestamptz, 19, 3, 9, true, true, true),
+('173', '2026-11-23T14:28:29+00:00'::timestamptz, 9, 2, 11, true, false, false)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('174', '2026-11-23T14:28:29+00:00'::timestamptz, 8, 3, 33, true, true, true),
+('175', '2026-11-23T14:28:29+00:00'::timestamptz, 18, 9, 1, true, true, true),
+('176', '2026-11-23T14:28:29+00:00'::timestamptz, 3, 2, 16, true, true, true),
+('177', '2026-11-23T14:28:29+00:00'::timestamptz, 8, 1, 16, true, true, true),
+('178', '2026-11-23T14:28:29+00:00'::timestamptz, 7, 5, 11, true, true, true),
+('179', '2026-11-23T14:28:29+00:00'::timestamptz, 3, 1, 22, true, true, true),
+('180', '2026-11-23T14:28:29+00:00'::timestamptz, 2, 0, 13, true, true, true),
+('181', '2026-11-23T14:28:29+00:00'::timestamptz, 1, 0, 19, true, true, true),
+('182', '2026-11-23T14:28:29+00:00'::timestamptz, 17, 8, 3, true, true, true),
+('183', '2026-11-23T14:28:29+00:00'::timestamptz, 8, 0, 12, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('184', '2026-11-23T14:28:29+00:00'::timestamptz, 2, 2, 17, true, true, true),
+('185', '2026-11-23T14:28:29+00:00'::timestamptz, 7, 3, 13, true, true, true),
+('186', '2026-11-23T14:28:29+00:00'::timestamptz, 16, 6, 3, true, true, true),
+('188', '2026-11-23T14:28:29+00:00'::timestamptz, 2, 2, 17, true, true, true),
+('189', '2026-11-23T14:28:29+00:00'::timestamptz, 12, 4, 7, true, true, true),
+('190', '2026-11-23T14:28:29+00:00'::timestamptz, 6, 1, 13, true, true, true),
+('192', '2026-11-23T14:28:29+00:00'::timestamptz, 4, 1, 14, true, true, true),
+('194', '2026-11-23T14:28:29+00:00'::timestamptz, 18, 8, 1, true, true, true),
+('196', '2026-11-23T14:28:29+00:00'::timestamptz, 12, 5, 6, true, true, true),
+('197', '2026-11-23T14:28:29+00:00'::timestamptz, 6, 0, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('199', '2026-11-23T14:28:29+00:00'::timestamptz, 5, 1, 19, true, true, true),
+('200', '2026-11-23T14:28:29+00:00'::timestamptz, 3, 2, 13, true, true, true),
+('201', '2026-11-23T14:28:29+00:00'::timestamptz, 10, 7, 10, true, true, true),
+('202', '2026-11-23T14:28:29+00:00'::timestamptz, 4, 0, 14, true, true, true),
+('206', '2026-11-23T14:28:29+00:00'::timestamptz, 3, 0, 17, true, true, true),
+('207', '2026-11-23T14:28:29+00:00'::timestamptz, 1, 1, 19, true, true, true),
+('208', '2026-11-23T14:28:29+00:00'::timestamptz, 7, 5, 10, true, true, true),
+('209', '2026-11-23T14:28:29+00:00'::timestamptz, 4, 2, 10, true, true, true),
+('211', '2026-11-23T14:28:29+00:00'::timestamptz, 11, 6, 8, true, true, true),
+('214', '2026-11-23T14:28:29+00:00'::timestamptz, 4, 2, 15, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('215', '2026-11-23T14:28:29+00:00'::timestamptz, 0, 0, 16, false, false, false),
+('219', '2026-11-23T14:28:29+00:00'::timestamptz, 3, 1, 7, false, false, false),
+('251', '2026-11-23T14:28:29+00:00'::timestamptz, 2, 2, 36, true, true, true),
+('297', '2026-11-23T14:28:29+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('298', '2026-11-23T14:28:29+00:00'::timestamptz, 0, 0, 0, false, false, false),
+('299', '2026-11-23T14:28:29+00:00'::timestamptz, 1, 0, 21, false, false, false),
+('505', '2026-11-23T14:28:29+00:00'::timestamptz, 1, 0, 0, true, true, true),
+('507', '2026-11-23T14:28:29+00:00'::timestamptz, 0, 0, 4, true, true, true),
+('522', '2026-11-23T14:28:29+00:00'::timestamptz, 3, 2, 1, true, true, true),
+('539', '2026-11-23T14:28:29+00:00'::timestamptz, 0, 0, 10, true, true, true)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('543', '2026-11-23T14:28:29+00:00'::timestamptz, 2, 2, 2, true, true, true),
+('557', '2026-11-23T14:28:29+00:00'::timestamptz, 1, 1, 3, true, true, true),
+('559', '2026-11-23T14:28:29+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('561', '2026-11-23T14:28:29+00:00'::timestamptz, 0, 0, 4, true, true, true),
+('567', '2026-11-23T14:28:29+00:00'::timestamptz, 1, 1, 4, false, false, false),
+('598', '2026-11-23T14:28:29+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('599', '2026-11-23T14:28:29+00:00'::timestamptz, 0, 0, 10, true, true, true),
+('604', '2026-11-23T14:28:29+00:00'::timestamptz, 0, 0, 4, true, true, true),
+('605', '2026-11-23T14:28:29+00:00'::timestamptz, 3, 0, 2, true, true, true),
+('606', '2026-11-23T14:28:29+00:00'::timestamptz, 1, 0, 8, false, false, false)
+;
+INSERT INTO "project"."station_status" ("station_id", "last_reported", "num_bike_available", "num_bike_elec_available", "num_docks_available", "is_installed", "is_renting", "is_returning") VALUES
+('627', '2026-11-23T14:28:29+00:00'::timestamptz, 2, 0, 17, true, true, true),
+('629', '2026-11-23T14:28:29+00:00'::timestamptz, 2, 0, 2, true, true, true),
+('633', '2026-11-23T14:28:29+00:00'::timestamptz, 1, 0, 4, true, true, true),
+('634', '2026-11-23T14:28:29+00:00'::timestamptz, 0, 0, 5, true, true, true),
+('670', '2026-11-23T14:28:29+00:00'::timestamptz, 0, 0, 5, false, false, false),
+('672', '2026-11-23T14:28:29+00:00'::timestamptz, 7, 4, 3, true, true, true),
+('900', '2026-11-23T14:28:29+00:00'::timestamptz, 0, 0, 15, false, false, false),
+('901', '2026-11-23T14:28:29+00:00'::timestamptz, 0, 0, 20, true, false, false),
+('902', '2026-11-23T14:28:29+00:00'::timestamptz, 0, 0, 20, false, false, false),
+('903', '2026-11-23T14:28:29+00:00'::timestamptz, 14, 0, 8, true, true, true)
 ;
 
 -- Data for favoris
