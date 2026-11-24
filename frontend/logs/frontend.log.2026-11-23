@@ -1,0 +1,20 @@
+23/11/2026 18:48:11 root                 INFO   - --------------------------------------------------
+23/11/2026 18:48:11 root                 INFO   - Launch FRONTEND : Streamlit App
+23/11/2026 18:48:11 root                 INFO   - --------------------------------------------------
+23/11/2026 18:48:11 root                 INFO   - Load environment variables: FAIL
+23/11/2026 18:48:11 home                 INFO   - None -> home
+23/11/2026 18:56:27 home                 INFO   - Attempting login for user: audrey2
+23/11/2026 18:56:27 home                 INFO   -   POST http://localhost:5000/login-compte/
+23/11/2026 18:56:27 home                 INFO   -   200 OK
+23/11/2026 18:56:27 home                 INFO   - User audrey2 successfully logged in.
+23/11/2026 18:56:27 main_menu            INFO   - home -> main_menu
+23/11/2026 18:56:32 route_search         INFO   - main_menu -> route_search
+23/11/2026 18:56:35 recommendation       INFO   - route_search -> recommendation
+23/11/2026 18:56:55 recommendation       INFO   -   GET http://localhost:5000/station/?name=aja
+23/11/2026 18:56:55 recommendation       INFO   -   200 OK
+23/11/2026 18:56:55 recommendation       INFO   -   GET http://localhost:5000/favoris
+23/11/2026 18:56:55 recommendation       INFO   -   200 OK
+23/11/2026 18:56:55 recommendation       INFO   -   GET http://localhost:5000/station/67/status
+23/11/2026 18:56:55 recommendation       INFO   -   200 OK
+23/11/2026 18:56:55 recommendation       INFO   -   GET http://localhost:5000/station/67/availability-history?period=24h
+23/11/2026 18:56:55 recommendation       INFO   -   200 OK

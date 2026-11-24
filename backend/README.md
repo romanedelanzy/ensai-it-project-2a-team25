@@ -1,100 +1,150 @@
+# Backend – VeloScope
 
-# Backend - Engine API
+Le backend constitue le cœur de l'application VeloScope. Il repose sur une API REST développée avec [FastAPI](https://fastapi.tiangolo.com/), organisée selon une architecture en couches. Il assure la gestion des stations, des comptes utilisateurs, des favoris, des indicateurs de fiabilité et des recommandations.
 
-This is the core engine of the application. It is a layered REST API built with [FastAPI](https://fastapi.tiangolo.com/), responsible for game logic, player management, and data persistence.
+Il est également responsable de la collecte périodique des données du réseau de vélos en libre-service de Bordeaux, à partir de son API GBFS, et de leur stockage dans une base de données PostgreSQL.
 
-## 🚀 Run the application
+## Lancer l'application
 
-Command to run from the repository's root directory:
+Les commandes suivantes sont à exécuter dans un terminal ouvert depuis la racine du dépôt.
 
-- Install all dependencies: `uv sync --project backend --all-extras`
-  - option all-extras: including dev dependancies
-- Launch the API in development mode: `uv run --project backend python backend/src/main.py`
+- Installer les dépendances du backend :
 
-:bulb: First Launch: Click on **Reset Database** to initialize it.
+```bash
+uv sync --project backend --all-extras
+```
+  - L'option `--all-extras` permet également d'installer les dépendances de développement.
 
-## 🏛️ Architecture
+- Lancer le backend :
 
-The backend follows a **Layered Architecture** (N-Tier) to ensure separation of concerns and maintainability:
+```bash
+uv run --project backend python backend/src/main.py
+```
 
-- **Business Object** (`business_object/`) : Represents the pure domain entities
-- **Controller** (`controller/`) : Handles HTTP requests and routing via FastAPI
-- **Service** (`service/`) : Contains the core business logic
-- **DAO** (`dao/`) : Manages database interactions
-- **Schema** (`schema/`) : Data contract via [Pydantic](https://pydantic.dev/docs/validation/latest/get-started/) to ensure API requests and responses follow a strict structure
+L'API est alors accessible sur le port 5000 en environnement local.
 
-### Layers
+**Documentation de l'API :**
 
-Sequence diagram of the player retrieval flow through the application layers:
+- Swagger : `/docs`
+- ReDoc : `/redoc`
+
+**Configuration :**
+
+Le backend nécessite des variables d'environnement pour se connecter à la base de données PostgreSQL. Elles permettent notamment de définir l'hôte, le port, le nom de la base, l'utilisateur, le mot de passe et le schéma utilisé.
+
+La collecte automatique des données GBFS peut être activée ou désactivée au démarrage du backend (option o/n).
+
+## Architecture
+
+Le backend suit une **architecture en couches (Layered Architecture)** afin de séparer les responsabilités et de faciliter la maintenance et l'évolution du projet.
+
+Les différentes couches sont organisées comme suit :
+
+- **Business Objects** (`business_object/`) : représentent les objets métier de l'application, indépendamment des mécanismes de stockage et de communication.
+- **Controllers** (`controller/`) : définissent les routes de l'API avec FastAPI, reçoivent les requêtes HTTP et transmettent les opérations aux services.
+- **Services** (`service/`) : regroupent la logique métier et coordonnent les traitements nécessaires.
+- **DAOs** (`dao/`) : assurent les interactions avec la base de données PostgreSQL (lecture, insertion, modification et suppression).
+- **Schemas** (`schema/`) : définissent, à l'aide de [Pydantic](https://docs.pydantic.dev/), la structure et la validation des données échangées par l'API.
+
+### Fonctionnement des couches
+
+Exemple du parcours d'une requête permettant de consulter une station à partir de son identifiant :
 
 ```mermaid
 sequenceDiagram
-    participant Client as Client
-    participant Router as API Router (main)
-    participant WS as PlayerController
-    participant Service as PlayerService
-    participant DAO as PlayerDao
+    participant Client
+    participant Router as API Router
+    participant Controller as StationController
+    participant Service as StationService
+    participant DAO as StationDao
+    participant DB as PostgreSQL
 
-    Client->>Router: GET /player/1
-    Note right of Router: Route matching /player
-    Router->>WS: player_by_id(id_player=1)
-
-    WS->>Service: find_by_id(1)
-
-    Service->>DAO: find_by_id(1)
-    DAO-->>DAO: Database request <br/>SELECT *<br/>FROM player<br/> WHERE id = 1
-    DAO-->>Service: Player instance (or None)
-    Service-->>WS: Player instance (or None)
-    WS-->>Client: 200 OK JSON {id_player: 1, username: "...", ...} <br/> or 404 Not Found
+    Client->>Router: GET /station/{station_id}
+    Router->>Controller: station_by_id(station_id)
+    Controller->>Service: find_by_id(station_id)
+    Service->>DAO: find_by_id(station_id)
+    DAO->>DB: Requête SQL
+    DB-->>DAO: Données de la station
+    DAO-->>Service: Station ou None
+    Service-->>Controller: Station ou None
+    Controller-->>Client: 200 OK ou 404 Not Found
 ```
 
-### Config files
+### Collecte des données externes
 
-In both the backend and frontend folders, you will find:
+La collecte des données GBFS est organisée indépendamment du fonctionnement classique de l'API. Elle repose sur une séparation entre la récupération des données brutes et leur adaptation au format métier attendu.
 
-| Item                  | Description                                         | 
-| --------------------- | --------------------------------------------------- | 
-| logging_config.yml    | Configuration for the structured logging system.    | 
-| pyproject.toml        | Project metadata and dependency definitions.        | 
-| uv.lock               | Lockfile that ensures reproducible environments by pinning exact dependency versions. |
-| \_\_init\_\_.py       | Marks a directory as a Python package, enabling module imports. |
+Les principaux composants sont :
 
+- **Background Collection** (`background_collection`) : organise le lancement périodique de la collecte en arrière-plan.
+- **Collection Service** (`service/`) : coordonne le traitement des données collectées et leur transmission à la couche DAO.
+- **GBFS Provider** : coordonne les composants chargés de la collecte et de l'adaptation des données.
+- **GBFS Client** : interroge l'API externe et récupère les données brutes au format JSON.
+- **Adapter** : transforme les données reçues en objets métier compatibles avec l'application.
 
-## ⚒️ Development toolkit
+La collecte est réalisée de manière périodique et en arrière-plan afin de ne pas bloquer le fonctionnement principal de l'API.
 
-### Debugging & Logs
+## Base de données
 
-The application uses a structured logging system. Logs are written to the `backend/logs/` directory and follow the format defined in `logging_config.yml`.
+Les données de l'application sont stockées dans une base PostgreSQL.
 
-A custom `@log` decorator is available to automatically log method inputs and outputs, making it much easier to trace the flow of data through the services.
+Elle contient notamment :
+- Les informations générales des stations.
+- Les relevés successifs de disponibilité des stations.
+- Les comptes utilisateurs et leurs informations d'authentification.
+- Les associations entre utilisateurs et stations favorites.
 
-### Unit tests
+Les relevés de disponibilité sont conservés dans le temps afin de permettre le calcul des indicateurs de fiabilité et l'analyse de l'évolution de la disponibilité des stations.
 
-To ensure tests are repeatable, safe, and **do not interfere with the real database**, we use a dedicated schema for unit testing.
+## Outils de développement
 
-The DAO unit tests use data from the `data/pop_db_test.sql` file.
+### Journalisation et débogage
 
-This data is loaded into a separate schema (project_test_dao) so as not to pollute the other data.
+Le backend utilise un système de journalisation configuré dans `logging_config.yml`.
 
-- [ ] Lanch unit tests: `uv run --project backend pytest -v` 
+Les événements et les erreurs sont enregistrés dans le dossier `backend/logs/`. Un décorateur personnalisé `@log` permet également de journaliser automatiquement les appels de certaines méthodes, notamment leurs entrées et leurs sorties, afin de faciliter le suivi des traitements.
 
-It is also possible to generate test coverage using [Coverage](https://coverage.readthedocs.io/en/)
+### Tests unitaires
 
-- [ ] `uv run --project backend coverage run -m pytest backend`
-- [ ] `uv run --project backend coverage report -m`
-- [ ] `uv run --project backend coverage html`
-  - Download and open coverage_report/index.html
+Les tests permettent de vérifier le bon fonctionnement des différentes couches du backend, notamment les services et les DAO.
+
+La configuration des tests est définie dans le `pyproject.toml` :
+- Répertoire des tests : `backend/tests/`
+- Fichiers de tests : `*test*.py`
+- Exécution avec `pytest`.
+
+Pour lancer l'ensemble des tests :
+
+```bash
+uv run --project backend pytest -v
+```
+
+Il est également possible de mesurer la couverture des tests avec [Coverage.py](https://coverage.readthedocs.io/).
+
+```bash
+# Exécuter les tests en mesurant leur couverture
+uv run --project backend coverage run -m pytest backend
+
+# Afficher le rapport de couverture dans le terminal
+uv run --project backend coverage report -m
+
+# Générer un rapport HTML
+uv run --project backend coverage html
+```
+
+Le rapport détaillé est ensuite consultable dans `htmlcov/index.html`.
 
 ### Ruff
 
-The **format on save** with [Ruff](https://docs.astral.sh/ruff/) is enabled by default in the workspace (cf. *.vscode/settings.json*).
+Le projet utilise [Ruff](https://docs.astral.sh/ruff/) pour maintenir un code Python homogène et détecter certaines erreurs.
 
-To do it manually:
+Le formatage automatique à l'enregistrement est configuré dans les paramètres de l'espace de travail VS Code.
 
-- ensures consistent and readable code style: `uv run --project backend ruff format backend/`
-- identifies and fixes potential issues: `uv run --project frontend ruff check --fix backend/`
+Les commandes suivantes permettent également de lancer les vérifications manuellement :
 
+```bash
+# Formater le code
+uv run --project backend ruff format backend/
 
-### Pylint
-
-Static analysis with **pylint**: `uv run --project backend --extra dev pylint --output-format=colorized --disable=C0114,C0411,C0415,W0718 $(git ls-files 'backend/**/*.py') --fail-under=7.5`
+# Vérifier le code et corriger les erreurs automatiquement lorsque possible
+uv run --project backend ruff check --fix backend/

@@ -2,7 +2,9 @@
 
 ## Objectifs du groupe
 
-### Fonctionnalités (récap)
+Véloscope est un site permettant de visualiser en temps réel les stations services de vélo de la ville de Bordeaux. L'utilisateur peut créer un compte, gérer ses stations favorites, et naviguer sur le site pour connaître différentes statistiques utiles sur les stations de vélo. Il peut également se faire recommander des stations en indiquant une adresse de Bordeaux. 
+
+### Fonctionnalités 
 
 * F1 gestion des utilisateurs (créer un compte, se connecter, consulter les données & stats, gérer ses stations favorites)
 
@@ -30,56 +32,40 @@ une station est considérée comme :
     disponibilité de vélos électriques ;
     tendance récente de la station. Deux stations à distance équivalente ne doivent donc pas nécessairement être classées de la même manière. La formule de classement devra être justifiée et testée.
 
+### Ressources
+
+[Site de la base de données](https://transport.data.gouv.fr/datasets/station-le-velo-en-temps-reel-1)
+
+### Lancement du projet depuis un service Onyxia VsCode
+
+- [ ] Lancer un service **VSCode-python** (qui inclut Visual Studio Code, Python 3.13, Git)
+  - Dans les paramètres du service au niveau "Network access", ouvrir les ports 5000 et 8000.
+- [ ] Cocher dans les paramètres GIT l'option "Cloner le dépôt" et "Ouvrir un dossier du dépôt"
+  - Indiquer l'adresse du dépôt
 
 
-Donc il faut : 
+### Installer les packages requis
 
-* créer aussi les fonctions : 
-- calcul du nombre de vélos dispos (total)
-- taux de remplissage
-- évolution de la disponibilité sur une période donnée (options 24h, 7 derniers j, 30 derniers j)
+Pour installer et gérer les dépendances avec [uv](https://docs.astral.sh/uv/), exécuter dans un terminal les lignes de codes ci-dessous :
 
-* prévoir un endroit pour stocker les stations favorites
+```bash
+# curl -LsSf https://astral.sh/uv/install.sh | sh
+uv sync --project backend
+uv sync --project frontend
+```
 
-### Cas d'utilisations
+### Variables d'environnement
 
-[Diagramme](https://lucid.app/lucidchart/11385ae2-093a-4a4a-a18d-7719b361128d/edit?viewport_loc=24%2C-8%2C991%2C517%2C0_0&invitationId=inv_ad916afa-9387-41ec-bbb5-33822a07e556)
+- [ ] Ouvrir dans Onyxia un service PostGreSQL pour la base de données
+- [ ] Dans l'onglet "File", créer un nouveau fichier nommé  `.env` à la racine du projet
+- [ ] Copier dans ce fichier le texte ci-contre. Remplacer les éléments par ceux du service PostGre, visibles dans la page "Mes services" d'Onyxia en cliquant sur le service Postgre.
 
---> est-ce qu'il faut mettre sign up & sign in dans le diagramme ?
-Si oui est-ce qu'il faut mettre le rôle admin & user après le sign up & sign in ?
-
-## Ressources
-
-[Site pour trouver une base de données](https://mobilitydatabase.org/feeds?gbfs=true)
-A creuser : il faut une base de données qui contient les infos sur les stations dont 
-* nom de la station
-* date et heure
-* nombre de vélos simples dispos
-* nombres de places dispos
-* capacité
-* nombre des vélos électriques dispos
-* état de la station
-Il faut trouver une base de données utilisable en PostgreSQL
-
-Fonctionnement API / base de données : 
-* On choisit un flux Json GBFS actif sur le site
-* On fait des requêtes toutes les 15 minutes vers ce flux en utilisant le backend
-* On stocke ces données soi-même dans notre propre base PostgreSQL.
-Chacun de nous aura son propre service postgre sql sur le SSPCloud & le reliera à l'application.
-
-Lien vers des flux qui pourraient fonctionner : 
-
-[7 Vallées vélo](https://mobilitydatabase.org/feeds/gbfs/gbfs-7vallees) Mais seulement 4 stations, et que des vélos électriques ou à assistance électrique
-
-[Cité Cycle](https://mobilitydatabase.org/feeds/gbfs/gbfs-citecycle) pareil
-
-### fichier .env
-
-POSTGRES_HOST=postgresql-cnpg-4770-rw.user-jeanpohardy
+```default
+POSTGRES_HOST=postgresql-cnpg-<suffixe>
 POSTGRES_PORT=5432
 POSTGRES_DATABASE=defaultdb
-POSTGRES_USER=user-jeanpohardy
-POSTGRES_PASSWORD=qd3struc45ae8qdz6qob
+POSTGRES_USER=user-<username>
+POSTGRES_PASSWORD=<password>
 POSTGRES_SCHEMA=project
 
 UVICORN_HOST=0.0.0.0
@@ -88,6 +74,129 @@ UVICORN_PORT=5000
 BACKEND_URL=http://localhost:5000
 BACKEND_TIMEOUT=5
 
-# Lancement de l'application 
-backend : uv run --project backend python backend/src/main.py
-frontend : uv run --project . streamlit run src/app.py
+ELO_K_FACTOR=32
+```
+
+### Lancement de l'application
+
+Ouvrir deux terminaux :
+
+- Un terminal pour le backend FastApi: executer la commande `uv run --project backend python backend/src/main.py`
+- Un terminal pour le frontend Streamlit: `cd frontend` puis `uv run --project . streamlit run src/app.py`
+
+Lors du lancement, une demande pour activer la collecte automatique de données sera proposée. Cliquer sur "o" pour lancer la collecte depuis l'API externe et sur "n" pour utiliser l'application sans lancer la collecte. 
+
+Lors du premier lancement, aller dans le port 5000 et naviguer jusqu'à la fin de la page pour lancer la fonction **Reset Database**. Cela permettra de mettre à jour la base de données avec les données contenues dans pop_db.sql. 
+
+:warning: **Ne pas cliquer sur le pop-up pour ouvrir le port. Ouvrir le port directement depuis le service Onyxia**
+
+
+### Accéder à l'application depuis le web
+
+Comme l'application s'exécute dans un conteneur cloud, les services ne sont pas directement accessibles via *localhost* depuis un navigateur local. Utiliser les URL publiques fournies par Onyxia.
+
+Pour obtenir l'URL publique des services (Frontend ou Backend) :
+
+- Rendez-vous sur la page [Mes services Onyxia](https://datalab.sspcloud.fr/my-services?utm_source=chatgpt.com).
+- Cliquer sur le bouton **« Open »** : des liens permettant d'accéder à l'API et/ou à l'interface graphique (GUI) vous seront alors proposés.
+
+
+### Endpoints de l'API
+
+L'API REST de VeloScope permet d'interagir avec les différentes fonctionnalités de l'application : consultation des stations, gestion des favoris, fiabilité, recommandations et gestion des comptes.
+
+**Documentation interactive**
+
+La documentation complète des endpoints est accessible via les interfaces Swagger (`/docs`) et ReDoc (`/redoc`). Elles permettent de consulter les routes disponibles, leurs paramètres, les données attendues et les réponses possibles. Swagger permet également de tester directement les requêtes.
+
+**Utilisation des endpoints**
+
+Pour effectuer des requêtes depuis un terminal, il faut d'abord définir l'URL du backend dans une variable d'environnement `API_URL`. Celle-ci correspond à l'URL publique fournie par Onyxia lorsque l'application est déployée dans le cloud, ou à l'adresse locale du backend en environnement de développement.
+
+Exemple en local :
+
+```bash
+export API_URL=http://localhost:5000
+```
+
+**Exemples de requêtes**
+
+Les exemples suivants utilisent `curl` pour interroger l'API. Le résultat est formaté avec `jq` pour faciliter sa lecture.
+
+- **Consulter l'ensemble des stations :**
+
+```bash
+curl -L -X GET "$API_URL/station/" | jq .
+```
+
+- **Consulter une station à partir de son identifiant :**
+
+```bash
+curl -L -X GET "$API_URL/station/IDENTIFIANT_STATION" | jq .
+```
+
+- **Consulter le dernier relevé d'une station :**
+
+```bash
+curl -L -X GET "$API_URL/station/IDENTIFIANT_STATION/status" | jq .
+```
+
+- **Consulter l'évolution de la disponibilité d'une station :**
+
+```bash
+curl -L -X GET "$API_URL/station/IDENTIFIANT_STATION/availability-history?period=24h" | jq .
+```
+
+- **Consulter les stations favorites de l'utilisateur connecté :**
+
+```bash
+curl -L -X GET "$API_URL/favoris/" \
+  -H "X-Auth-Token: VOTRE_JETON" | jq .
+```
+
+- **Ajouter une station aux favoris :**
+
+```bash
+curl -L -X POST "$API_URL/favoris/IDENTIFIANT_STATION" \
+  -H "X-Auth-Token: VOTRE_JETON" | jq .
+```
+
+- **Retirer une station des favoris :**
+
+```bash
+curl -L -X DELETE "$API_URL/favoris/IDENTIFIANT_STATION" \
+  -H "X-Auth-Token: VOTRE_JETON" | jq .
+```
+
+- **Consulter le score de fiabilité d'une station :**
+
+```bash
+curl -L -X GET "$API_URL/reliability/IDENTIFIANT_STATION" | jq .
+```
+
+**Authentification**
+
+Certaines routes nécessitent d'être authentifié. Il faut alors transmettre le jeton obtenu lors de la connexion dans l'en-tête HTTP `X-Auth-Token`. En l'absence de jeton valide, l'API renvoie une erreur 401 (Unauthorized).
+
+
+## :arrow_forward: Structure du projet
+
+### Dossiers
+
+| Item                       | Description                                                              |
+| -------------------------- | ------------------------------------------------------------------------ |
+| `data`                     | Scripts SQL pour créer les tables de la base de données et insérer les lignes                     |
+| `doc`                      | Diagrammes, rapports...                               |
+| `backend`                  | code API code organisé en architecture par couches                     |
+| `frontend`                 | code GUI code (interface graphique pour l'utilisateur)                                      |
+
+
+### Fichiers 
+
+| Élément                    | Description                                                                                                                 |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `README.md`                | Présente l'application et fournit des informations utiles pour son installation et son utilisation.                         |
+| `LICENSE`                  | Définit les droits d'utilisation et les conditions de licence du dépôt.                                                     |
+| `.github/workflows/ci.yml` | Définit un processus automatisé exécutant des tâches prédéfinies (tests, vérification du code ou déploiement, par exemple). |
+| `.vscode/settings.json`    | Contient les paramètres de configuration de VS Code propres à ce projet.                                                    |
+| `.gitignore`               | Liste les fichiers et dossiers qui ne doivent pas être suivis par Git.                                                      |
