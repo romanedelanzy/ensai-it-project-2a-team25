@@ -260,8 +260,7 @@ Enfin, l'utilisateur interagit avec notre application dans son navigateur via un
 
 ## Schéma d'architecture et décomposition en couche 
 
-Comme évoqué précédemment notre code est organisé en cinq couches qui communiquent entre elles de manière ordonnée. Cette structure est schématisée par le diagramme d'architecture. L’application est articulée autour du Backend qui contient la logique de gestion des données, et du Frontend qui permet à l’utilisateur d’interagir
-avec l’application. L’application communique également avec une source de données externe afin de récupérer les informations sur des stations de vélo.
+Comme évoqué précédemment notre code est organisé en cinq couches qui communiquent entre elles, permettant de séparer les différentes responsabilités du programme et de faciliter sa maintenance et son évolution. Le Backend contient la logique de gestion des données, et le Frontend permet à l’utilisateur d’interagir avec l’application. L’application communique également avec une source de données externe afin de récupérer les informations sur des stations de vélo.
 
 
 ![Diagramme d'architecture](../ressources/Diagramme/diagramme_architecture_final.png)
