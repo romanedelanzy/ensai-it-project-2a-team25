@@ -20,10 +20,7 @@ from controller import (
     compte_controller,
     favori_controller,
     fiabilite_controller,
-    game_controller,
     login_compte_controller,
-    login_controller,
-    player_controller,
     recommendation_controller,
     station_controller,
 )
@@ -112,10 +109,6 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
         content={"detail": exc.errors(), "body": body_str},
     )
 
-
-app.include_router(player_controller.router, prefix="/player", tags=["Players"])
-app.include_router(login_controller.router, prefix="/login", tags=["Login"])
-app.include_router(game_controller.router, prefix="/game", tags=["Games"])
 app.include_router(station_controller.router, prefix="/station", tags=["Stations"])
 app.include_router(favori_controller.router, prefix="/favoris", tags=["Favoris"])
 app.include_router(fiabilite_controller.router, prefix="/reliability", tags=["Fiabilite"])

@@ -12,9 +12,7 @@ check_authentification()
 st.title("Stations recommandées")
 
 st.write(
-    "Entrez une adresse à Bordeaux pour obtenir les stations les plus adaptées "
-    "à proximité. Le backend convertit l’adresse en coordonnées puis calcule "
-    "les meilleures stations."
+    "Entrez une adresse à Bordeaux pour obtenir les stations les plus adaptées."
 )
 
 address = st.text_input(

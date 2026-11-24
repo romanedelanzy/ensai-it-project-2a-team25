@@ -1,11 +1,10 @@
 import hashlib
 
-from fastapi import Header, HTTPException, Security
+from fastapi import HTTPException, Security
 from fastapi.security import APIKeyHeader
 
 from business_object.compte import Compte
 from dao.CompteDAO import CompteDAO
-from dao.player_dao import PlayerDao
 
 
 def hash_password(password: str, salt: str = "") -> str:
@@ -22,31 +21,9 @@ def hash_password(password: str, salt: str = "") -> str:
     return hash_object.hexdigest()
 
 
-def verify_token(x_auth_token=Header(None)) -> PlayerDao:
-    """Verifies the authenticity of a player via the provided auth token.
-
-    This function checks if a token is present in the request headers and
-    validates it against the database.
-    Args:
-        x_auth_token (str, optional): The token extracted from the
-            'X-Auth-Token' HTTP header. Defaults to None.
-    Returns:
-        Player object associated with the valid token.
-    Raises:
-        HTTPException: 401 error if the token is missing.
-        HTTPException: 401 error if the token is not found in the database.
-    """
-    if not x_auth_token:
-        raise HTTPException(status_code=401, detail="Missing token.")
-
-    player = PlayerDao().find_by_token(x_auth_token)
-    if not player:
-        raise HTTPException(status_code=401, detail="Invalid token.")
-
-    return player
-
 # On définit le schéma de sécurité basé sur l'en-tête "X-Auth-Token"
 api_key_header = APIKeyHeader(name="X-Auth-Token", auto_error=True)
+
 
 def get_current_user(x_auth_token: str = Security(api_key_header)) -> Compte:
     """Vérifie l'authenticité d'un utilisateur via le header X-Auth-Token."""

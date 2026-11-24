@@ -5,9 +5,7 @@ from unittest import mock
 import dotenv
 
 from dao.db_connection import DBConnection
-from dao.player_dao import PlayerDao
 from utils.log_utils import get_logger, log
-from utils.security import hash_password
 from utils.singleton import Singleton
 
 logger = get_logger(__name__)
@@ -77,11 +75,6 @@ class ResetDatabase(metaclass=Singleton):
         except Exception:
             logger.exception("Échec du reset de la base de données.")
             raise
-
-        # Apply password hashing to all players
-        for p in PlayerDao().find_all():
-            p.password = hash_password(p.password, p.username)
-            PlayerDao().update(p)
 
         return True
 
