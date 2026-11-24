@@ -74,24 +74,23 @@ André RIVIERE\\
 ## Remise en contexte et problématique
 
 Dans un contexte de transition écologique et de décongestion des centres urbains, l'encouragement à l'usage du vélo au quotidien est devenu une priorité majeure pour les collectivités. Les réseaux de vélos en libre-service jouent un rôle clé dans cette dynamique de mobilité douce. Aujourd'hui, la plupart des métropoles mettent à disposition des applications mobiles affichant une carte des stations en temps réel.
-Son usage reste pourtant soumis à certaines incertitudes. Par exemple, on ne sait pas si l'on trouvera un vélo ou une place libre pour rendre un vélo lorsqu'on arrivera à une station. Les réseaux publient la disponibilité à l’instant présent, mais cette information ne dit rien de la régularité d’une station : certaines sont fréquemment vides aux heures de pointe ou saturées le soir, d’autres sont presque toujours utilisables.
+Son usage reste pourtant soumis à certaines incertitudes. Par exemple, on ne sait pas si l'on trouvera un vélo ou une place libre pour le rendre lorsqu'on arrivera à une station. Les réseaux publient la disponibilité à l’instant présent, mais cette information ne dit rien de la régularité d’une station : certaines sont fréquemment vides aux heures de pointe ou saturées le soir, d’autres sont presque toujours utilisables.
 
 Comment dépasser la simple visualisation instantanée de l'état d'un réseau de vélos en libre-service pour fournir aux usagers des indicateurs historiques de fiabilité et des recommandations personnalisées fiables ?
 
-Notre réponse avec VeloScope : Contrairement aux applications classiques qui affichent l'état du réseau à la dernière date de relevé seulement, VeloScope construit sa propre mémoire. Notre application interroge périodiquement les serveurs de données publiques de la ville de Bordeaux (VLS Le Vélo TBM Bordeaux Métropole) et historise chaque relevé dans une base de données. En analysant cet historique, VeloScope calcule des indicateurs de performance (taux de pénurie, taux de saturation, score de fiabilité) et propose un moteur de recommandation multicritère aidant l'usager à choisir la station la plus pertinente.
+L'application VeloScope est notre réponse à cette problématique. Contrairement aux applications classiques qui affichent l'état du réseau à la dernière date de relevé seulement, VeloScope construit sa propre mémoire. Notre application interroge périodiquement les serveurs de données publiques de la ville de Bordeaux (VLS Le Vélo TBM Bordeaux Métropole) et historise chaque relevé dans une base de données. En analysant cet historique, VeloScope calcule des indicateurs de performance (taux de pénurie, taux de saturation, score de fiabilité) et propose un moteur de recommandation multicritère aidant l'usager à choisir la station la plus pertinente.
 
 Sera décrit dans ce rapport le nécessaire pour connaître le fonctionnement de l'application : fonctionnalités, données utilisées, architecture de l'application, rapport de tests qualité. Nous détaillons en particulier la fonctionnalité principale de recommandation de stations dans la partie "Réponse aux besoins". 
 
-## A qui s'adresse l'application?
+## A qui s'adresse l'application ?
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+VeloScope s'adresse à deux profils d'utilisateurs distincts et structurés selon un principe d'héritage des droits afin de simplifier l'usage quotidien :
 
+* **L'Usager du réseau** (Utilisateur standard) : Il représente tout citoyen, étudiant ou travailleur souhaitant optimiser ses déplacements à vélo en ville. Après avoir créé son compte personnel et s'être connecté, il peut rechercher une station, visualiser l'évolution de sa disponibilité sur différentes périodes (24h, 7 jours, 30 jours), consulter son score de fiabilité, enregistrer ses stations habituelles en favoris, explorer la carte interactive du réseau ou demander une recommandation de station et d'itinéraire. Une liste de toutes les stations de vélo de la ville de Bordeaux lui est également disponible.
 
-VeloScope s'adresse à deux profils d'utilisateurs distincts, structurés selon un principe d'héritage des droits afin de simplifier l'usage quotidien :
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-* L'Usager du réseau (Utilisateur standard) : Il représente tout citoyen, étudiant ou travailleur souhaitant optimiser ses déplacements à vélo en ville. Après avoir créé son compte personnel et s'être connecté, il peut rechercher une station, visualiser l'évolution de sa disponibilité sur différentes périodes (24h, 7 jours, 30 jours), consulter son score de fiabilité, enregistrer ses stations habituelles en favoris, explorer la carte interactive du réseau ou demander une recommandation de station et d'itinéraire. Une liste de toutes les stations de vélo de la ville de Bordeaux lui est également disponible.
-
-* L'Administrateur : Il s'agit du gestionnaire technique de la plateforme. Il dispose exactement des mêmes fonctionnalités qu'un usager standard (il n'a donc pas besoin de jongler entre deux comptes distincts pour utiliser l'application), mais bénéficie en plus d'un espace d'administration lui permettant de superviser les comptes inscrits. Il peut ainsi accéder à la liste de tous les utilisateurs, modifier les informations d'un compte si nécessaire (nom d'utiliateur, email, mot de passe, droits administrateur), ou supprimer un compte. Ce profil s'adresse principalement aux techniciens de maintenance et développeurs, dans le cas par exemple où un utilisateur aurait oublié son mot de passe. Notons que nous n'avons volontairement pas donné de droits sur la base de données à l'administrateur afin de préserver son intégrité. La gestion de cette base est faite automatiquement grâce au système de collecte présent en arrière plan de manière permanente dans notre application.
+* **L'Administrateur** : Il s'agit du gestionnaire technique de la plateforme. Il dispose exactement des mêmes fonctionnalités qu'un usager standard (il n'a donc pas besoin de jongler entre deux comptes distincts pour utiliser l'application), mais bénéficie en plus d'un espace d'administration lui permettant de superviser les comptes inscrits. Il peut ainsi accéder à la liste de tous les utilisateurs, modifier les informations d'un compte si nécessaire (nom d'utilisateur, email, mot de passe, droits administrateur), ou supprimer un compte. Ce profil s'adresse principalement aux techniciens de maintenance et développeurs, dans le cas par exemple où un utilisateur aurait oublié son mot de passe. Notons que nous n'avons volontairement pas donné de droits sur la base de données à l'administrateur afin de préserver son intégrité. La gestion de cette base est faite automatiquement grâce au système de collecte présent en arrière plan de manière permanente dans notre application.
 
 
 \pagebreak
@@ -101,19 +100,21 @@ VeloScope s'adresse à deux profils d'utilisateurs distincts, structurés selon 
 ## Organisation du groupe et gestion du projet
 
 
-Pour mener à bien ce projet sur une durée de trois mois (de septembre à novembre 2026), notre équipe de cinq étudiants a adopté l'organisation suivante. Nous devions à la fois répartir les différentes tâches dans le temps et entre les membres du groupe. 
+Pour mener à bien ce projet sur une durée de trois mois (de septembre à novembre 2026),nous devions à la fois répartir les différentes tâches dans le temps et entre les membres du groupe. Notre équipe de cinq étudiants a adopté l'organisation suivante. . 
 
-Pour ce faire, nous avons, dès le début du projet organisé les grandes phases de notre travail dans le temps grâce à un diagramme de Gantt. Il nous a permit de découper le projet en 2 temps.  Une première phase de conception en septembre dont les objectifs principaux étaient: la compréhension du sujet, la recherche de bases de données, la réflexion sur la structure de l'application et les réalisations des différents graphiques. La deuxième phase a débuté après le rendu du rapport intermédiaire. Elle était centrée sur la construction progressive et incrémentable de l'application via l'écriture du code.
+Pour ce faire, nous avons, dès le début du projet organisé les grandes phases de notre travail dans le temps grâce au diagramme de Gantt ci-dessous. Il nous a permis de découper le projet en 2 temps.  Une première phase de conception en septembre dont les objectifs principaux étaient: la compréhension du sujet, la recherche de bases de données, la réflexion sur la structure de l'application et les réalisations des différents graphiques. La deuxième phase a débuté après le rendu du rapport intermédiaire. Elle était centrée sur la construction progressive et incrémentable de l'application via l'écriture du code.
 
 
 ![Diagramme de Gantt du Rapport d'Analyse](../ressources/Diagramme/Diagramme_gantt1.png)
 ![Diagramme de Gantt du Code et du Rapport Final](../ressources/Diagramme/Diagramme_gantt2.png)
 
-D'autre part, nous avons essayé de nous réunir assez régulièrement pour nous répartir les différentes tâches et faire le point sur ce qui avait été fait. La répartition des tâches s'est faite de manière à ce que chaque membre puisse toucher à un élément de chaque couche de l'application. Ainsi, chaque membre a participé a codé au moins un business object, un DAO, un controller et un service. Nous avons essayé de tenir compte au mieux des atouts et des préferences de chacun dans la répartition des tâches. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+D'autre part, nous avons essayé de nous réunir assez régulièrement pour nous répartir les différentes tâches et faire le point sur ce qui avait été fait. La répartition des tâches s'est faite de manière à ce que chaque membre puisse toucher à un élément de chaque couche de l'application. Ainsi, chaque membre a participé à coder au moins un business object, un DAO, un controller et un service. Nous avons essayé de tenir compte au mieux des atouts et des préférences de chacun dans la répartition des tâches. 
 
 Ainsi, les élèves ayant davantage de facilités en informatique se sont concentrés sur le code des classes les plus complexes (authentification/gestion des comptes, collecte depuis l'API externe, recommandation de station et calcul de fiabilité). 
 
-Chaque semaine jusqu'aux 3 jours de code intensif était consacrée au code d'une couche de l'application, dans l'ordre suivant : business object, DAO, services, controller. Nous testions l'intégralité des classes de chaque couche avant de passer à la suivante afin de ne pas rencontrer de problème lors du raccordement final. 
+Chaque semaine jusqu'à 3 jours de code intensif était consacrée au code d'une couche de l'application, dans l'ordre suivant : business object, DAO, services, controller. Nous testions l'intégralité des classes de chaque couche avant de passer à la suivante afin de ne pas rencontrer de problème lors du raccordement final. 
 
 L'ensemble du code a été versionné sur un dépôt GitHub commun garantissant ainsi la cohérence et la qualité du code produit. 
 
@@ -169,7 +170,7 @@ Le score de proximité décroît avec la distance, et la fiabilité est le score
 
 ## Les données de l'application
 
-L'application VéloScope s'appuie sur des données ouvertes pour fonctionner. Nous avons choisis d'utiliser celles fournies par la métropole de Bordeaux concernant son réseau de vélos en libre-service (TBM). C'était pour nous la base de donnée la plus complète compte-tenu des fonctionnalités que nous avions à développer, ayant un nombre raisonnable de stations (232). Son détail est disponible à l'adresse : https://bdx.mecatran.com/utw/ws/gbfs/bordeaux/v3/gbfs.json?apiKey=opendata-bordeaux-metropole-flux-gtfs-rt 
+L'application VéloScope s'appuie sur des données ouvertes pour fonctionner. Nous avons choisi d'utiliser celles fournies par la métropole de Bordeaux concernant son réseau de vélos en libre-service (TBM). C'était pour nous la base de données la plus complète compte-tenu des fonctionnalités que nous avions à développer, ayant un nombre raisonnable de stations (232). Son détail est disponible à l'adresse : https://bdx.mecatran.com/utw/ws/gbfs/bordeaux/v3/gbfs.json?apiKey=opendata-bordeaux-metropole-flux-gtfs-rt 
 
 Les données externes sont récupérées via Internet au format JSON. C'est un format texte léger et structuré très répandu pour l'échange de données entre serveurs. Les données sur les systèmes de vélo en libre service sont stockées selon le standard international GBFS (General Bikeshare Feed Specification). 
 
@@ -200,11 +201,15 @@ Certaines des données présentes dans l'API externe n'ont pas été collectées
 | `is_renting` | BOOLEAN | Indique si la station permet actuellement d'emprunter des vélos. |
 | `is_returning` | BOOLEAN | Indique si la station permet actuellement de rendre des vélos. |
 
-Ces données sont par la suite stockées et mises à jour à l'aide d'une collecte automatique toute les heures sur notre service PostGreSQL. Par sécurité supplémentaire, les services PostGreSQL Onyxia pouvant être fermés, nous mettons à jour à chaque collecte le fichier `pop_db.sql` dans le dossier data contenant notre base SQL sous forme de requêtes. Il peut aussi servir pour le reset de la base de données (qu'il faut utiliser avec parcimonie).
+Ces données sont par la suite stockées et mises à jour à l'aide d'une collecte automatique toute les heures sur notre service PostgreSQL. Par sécurité supplémentaire, les services PostGreSQL Onyxia pouvant être fermés, nous mettons à jour à chaque collecte le fichier `pop_db.sql` dans le dossier data contenant notre base SQL sous forme de requêtes. Il peut aussi servir pour le reset de la base de données (qu'il faut utiliser avec parcimonie).
 
-Le détail de la base finale de travail sous forme de schéma est proposé ci-dessous. 
+Le détail de la base finale de travail sous forme de schéma est proposé ci-dessous.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 ![Modèle de données](../ressources/Diagramme/modele_BDD.png)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 Pour l'instant, notre réseau n'est composé que de celui de Bordeaux (id 1), mais il est possible d'ajouter d'autres villes.
 
 Il est à noter que certaines difficultés ont été rencontrées en confrontant notre application aux données réelles de Bordeaux sur plusieurs semaines.
@@ -216,35 +221,40 @@ Parmi ces dernières, nous avons identifié plusieurs particularités nécessita
 
 Notre module de collecte a été conçu pour filtrer les doublons temporels et ignorer les relevés incohérents afin de ne pas fausser nos calculs statistiques. Ce pré-traitement est notamment effectué au sein du DAO des stations.
 
-Le rôle de Véloscope de s'arrête pas à la simple extraction de ces données. À partir de ces relevés bruts archivés toutes les 1h, VeloScope produit ses propres indicateurs à forte valeur ajoutée. L'application apporte à l'utilisateur des informations quant à l'état d'une station à chaque instant, calcule des pourcentages de temps passé en pénurie ou en saturation, la durée moyenne de ces épisodes d'indisponibilité, un score global de fiabilité sur 100, ainsi qu'un score de recommandation personnalisé. Ces calculs ne sont pas stockés dans notre base de données mais effectués à la volée.
+Le rôle de Véloscope ne s'arrête pas à la simple extraction de ces données. À partir de ces relevés bruts archivés toutes les 1h, VeloScope produit ses propres indicateurs à forte valeur ajoutée. L'application apporte à l'utilisateur des informations quant à l'état d'une station à chaque instant, calcule des pourcentages de temps passé en pénurie ou en saturation, la durée moyenne de ces épisodes d'indisponibilité, un score global de fiabilité sur 100, ainsi qu'un score de recommandation personnalisé. Ces calculs ne sont pas stockés dans notre base de données mais effectués à la volée.
 
 \pagebreak
+
 # Architecture et système de stockage
 ## Nature de l'application et choix technologiques
 
 Notre objectif principal était de créer une application fiable et facile à faire évoluer. Ainsi, nous avons fait le choix d'utiliser les outils suivants et de la découper en plusieurs briques. 
 
-Pour ce faire, nous avons utilisé les outils technologiques suivants. Notre projet utilise entièrement le langage de programmation Python connu pour sa clarté et sa puissance quant à l'analyse de données. Nous avons choisi FastAPI pour gérer la partie invisible de l'application. Elle réalise les calculs, gère la sécurité et communique avec la base de données. ELle est connue pour être rapide et génère automatiquement une documentation claire de toutes ses commandes. Notre base de données est stockée grace au logiciel spécialisé PostgreSQL. Il est sécurisé et permet le stockage d'une grande quantité d'informations. Ainsi, il conserve l'historique des relevés des stations vélo de Bordeaux. 
-Enfin, l'utilisateur intéragit avec notre application dans son navigateyr via une interface visuelle grâce à l'outil Streamlit. 
+Pour ce faire, nous avons utilisé les outils technologiques suivants. Notre projet utilise entièrement le langage de programmation Python connu pour sa clarté et sa puissance quant à l'analyse de données. Nous avons choisi FastAPI pour gérer la partie invisible de l'application. Elle réalise les calculs, gère la sécurité et communique avec la base de données. ELle est connue pour être rapide et génère automatiquement une documentation claire de toutes ses commandes. Notre base de données est stockée grâce au logiciel spécialisé PostgreSQL. Il est sécurisé et permet le stockage d'une grande quantité d'informations. Ainsi, il conserve l'historique des relevés des stations vélo de Bordeaux. 
+Enfin, l'utilisateur interagit avec notre application dans son navigateur via une interface visuelle grâce à l'outil Streamlit. 
 
 ## Schéma d'architecture et décomposition en couche 
 
-Comme évoqué précédemment notre code est organisé en cinq couches qui communiquent entre elles de manière ordonnée. Cette structure est schématisée par la diagramme d'architecture. L’application est articulée autour du Backend qui contient la logique de gestion des données, et du Frontend qui permet à l’utilisateur d’intéragir
+Comme évoqué précédemment notre code est organisé en cinq couches qui communiquent entre elles de manière ordonnée. Cette structure est schématisée par le diagramme d'architecture. L’application est articulée autour du Backend qui contient la logique de gestion des données, et du Frontend qui permet à l’utilisateur d’interagir
 avec l’application. L’application communique également avec une source de données externe afin de récupérer les informations sur des stations de vélo.
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 ![Diagramme d'architecture](../ressources/Diagramme/diagramme_architecture_final.png)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 La première couche, la seule visible par l'utilisateur est l'Interface (Streamlit). On l'appelle le Frontend. C'est la vitrine de notre application. Elle affiche les différentes pages et permet à l'utilisateur d'intéragir avec l'application. Elle ne fait aucun calcul complexe elle même. Elle transmet seulement les instructions au Backend. 
 
 Les quatre autres couches forment le Backend. 
 
-La deuxième couche est celle des controleurs ( API FastAPI). C'est cette couche qui reçoit les demandes de l'interface, verifient qu'elles soient bien formulées et les transmets aux services. 
+La deuxième couche est celle des controllers (API FastAPI). C'est cette couche qui reçoit les demandes de l'interface, vérifient qu'elles soient bien formulées et les transmet aux services. 
 
-Les services sont la troisième couche du code. C'est ici que de trouve toute la logique métier de l'application. Cette partie rassemble l'ensemble des méthodes qui permettent à notre application de fonctionner (calcul du score de fiabilité, tri des recommandations, vérification des mots de passe, etc). C'est également un Service qui va chercher les données sur Internet auprès de l'API de la ville de Bordeaux.
+Les services sont la troisième couche du code. C'est ici que se trouve toute la logique métier de l'application. Cette partie rassemble l'ensemble des méthodes qui permettent à notre application de fonctionner (calcul du score de fiabilité, tri des recommandations, vérification des mots de passe, etc). C'est également un Service qui va chercher les données sur Internet auprès de l'API de la ville de Bordeaux.
 
 La quatrième couche du projet est les modèles. Ils permettent de structurer les données utilisées par l'application. Ils définissent à quoi ressemble une station ou un utilisateur dans notre code.
 
-Enfin, la derniere couche est constituée des DAO. Les DAO (Data Access Objects) assurent la communication avec la base de données. Ils peuvent lire et écrire dans la base de données PostgreSQL.
+Enfin, la dernière couche est constituée des DAO. Les DAO (Data Access Objects) assurent la communication avec la base de données. Ils peuvent lire et écrire dans la base de données PostgreSQL.
 
 \pagebreak
 
@@ -252,16 +262,25 @@ Enfin, la derniere couche est constituée des DAO. Les DAO (Data Access Objects)
 
 ## Détails de la fonctionnalité F5 : Recommandation de station 
 
-Nous détaillons dans cette partie la fonctionnalité F5 : Recommandation d'une station. Il s'agit de la fonctionnalité principale de notre application. Un utilisateur peut ainsi fournir une adresse de Bordeaux, par exemple "Place Pey Berland", choisir le nombre maximal de stations qu'il veut avoir en recommandation et le périmètre de recherche (rayon en km ayant pour centre l'adresse indiquée). L'application lui renvoit les stations recommandées selon le meilleur compromis compte tenu de la distance et de la fiabilité. Le diagramme de séquence de cette fonctionnalité est proposé ci-contre.
+Nous détaillons dans cette partie la fonctionnalité F5 : Recommandation d'une station. Il s'agit de la fonctionnalité principale de notre application. Un utilisateur peut ainsi fournir une adresse de Bordeaux, par exemple "Place Pey Berland", choisir le nombre maximal de stations qu'il veut avoir en recommandation et le périmètre de recherche (rayon en km ayant pour centre l'adresse indiquée). L'application lui renvoie les stations recommandées selon le meilleur compromis compte tenu de la distance et de la fiabilité. Le diagramme de séquence de cette fonctionnalité est proposé ci-contre.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 ![Diagramme de séquence F5](../ressources/Diagramme/diagramme_sequence_F5.png)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 Zoomons sur ce processus de manière plus précise. 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 1) Recherche à partir d’une adresse
 
-Partons de la page `recommendation`du frontend. Dans l’interface, une zone de saisie est crée afin que l’usager saisisse une adresse à Bordeaux et choisisse le nombre maximal de résultats ainsi qu’un rayon de recherche. L'utilisateur clique sur le bouton "Rechercher des stations". À ce moment, la requête HTTP est envoyée au backend sous forme de dictionnaire.
+Partons de la page `recommendation`du frontend. Dans l’interface, une zone de saisie est créee afin que l’usager saisisse une adresse à Bordeaux et choisisse le nombre maximal de résultats ainsi qu’un rayon de recherche. L'utilisateur clique sur le bouton "Rechercher des stations". À ce moment, la requête HTTP est envoyée au backend sous forme de dictionnaire.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 ![Saisie de l’adresse et des critères de recherche dans l’interface.](../ressources/Screenshots/reco_interface_requete.png){#fig-reco-form}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 2) Traitement de la requête : conversion de l'adresse 
 
@@ -271,6 +290,8 @@ Pour ce faire, le controller appelle la fonction *geocode_bordeaux_address* dans
 
 L’API peut également recevoir directement une latitude et une longitude, sans passer par le géocodage (mais cela n'est pas disponible sur l'interface Streamlit). Dans les deux cas, le service de recommandation travaille finalement à partir de coordonnées.
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 3) Sélection des stations et calcul du score
 
 Le service récupère la liste de toutes les stations par appel au DAO et calcule la distance à vol d’oiseau entre la position recherchée et chaque station. Il utilise ensuite le dernier statut enregistré pour écarter les stations qui ne sont pas installées, qui ne permettent pas l’emprunt ou qui ne disposent d’aucun vélo, comme elles ne constituent pas une bonne recommandation. Pour les stations qui ne sont pas écartées, on calcule le score de fiabilité global par appel au service `fiabilite`. 
@@ -279,24 +300,25 @@ Le paramètre `rayon_km` permet de limiter la recherche aux stations situées da
 
 Les stations qui satisfont ces critères sont classées selon un score combinant à parts égales la proximité et la fiabilité :
 
-\[
+$$
 S_{\mathrm{recommandation}}
 = 0{,}5 \times S_{\mathrm{proximité}}
 + 0{,}5 \times S_{\mathrm{fiabilité}}
-\]
-
+$$
 Le score de proximité décroît avec la distance selon une fonction gaussienne :
 
-\[
+$$
 S_{\mathrm{proximité}} = e^{-\frac{d^2}{2\sigma^2}},
 \qquad \sigma = 1\ \mathrm{km}
-\]
+$$
 
 où d désigne la distance entre l’adresse recherchée et la station. Le score de fiabilité est calculé à partir de l’état actuel de la station et de son historique : les proportions de temps passé vide ou saturée ainsi que la durée moyenne des épisodes correspondants. Il est renvoyé sous la forme d’une valeur comprise entre 0 et 1.
 
 La décroissance gaussienne favorise nettement les stations proches, tout en évitant une coupure brutale au-delà d’une distance fixée. Avec (\sigma = 1) km, une station située à 1 km conserve un score de proximité d’environ 0,61, mais celui-ci baisse rapidement plus loin. Cela est pratique pour l’usager : la distance compte, sans être le seul critère, car la fiabilité peut départager des stations proches.
 
-Une fois le calcul de chaque score effectué et le classement établit, l’API renvoie au frontend au plus le nombre de stations demandé. Si deux scores de recommandations sont égaux, on classe par distance, puis par ordre alphabétique. Pour chaque station, la réponse contient ses informations, la distance arrondie au millième de kilomètre, le score de fiabilité et le score de recommandation arrondi à quatre décimales.
+Une fois le calcul de chaque score effectué et le classement établi, l’API renvoie au frontend au plus le nombre de stations demandé. Si deux scores de recommandations sont égaux, on classe par distance, puis par ordre alphabétique. Pour chaque station, la réponse contient ses informations, la distance arrondie au millième de kilomètre, le score de fiabilité et le score de recommandation arrondi à quatre décimales.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 4) Résultats affichés et vérification de l’API
 
@@ -306,9 +328,12 @@ L’interface présente les stations recommandées avec leur nom, leur adresse, 
 
 L’endpoint `GET /recommendation/` est également documenté dans Swagger. Sa documentation permet de vérifier les paramètres acceptés — adresse ou coordonnées, limite et rayon — et la structure de la réponse renvoyée.
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 ![Requête de recommandation et paramètres dans Swagger.](../ressources/Screenshots/reco_swagger_requete.png){#fig-reco-swagger-requete}
 
 ![Exemple de réponse renvoyée par l’API dans Swagger.](../ressources/Screenshots/reco_swagger_reponse.png){#fig-reco-swagger-reponse}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 Les tests existants vérifient notamment l’appel de l’API avec des coordonnées, la prise en charge d’une adresse à l’aide d’un géocodeur simulé et le rejet de coordonnées hors limites. Le fonctionnement complet du classement — filtres, calcul des scores et tri — pourrait être davantage couvert par des tests. La recherche par adresse dépend aussi de la disponibilité de Nominatim et de la qualité de l’adresse saisie.
 
@@ -322,7 +347,7 @@ Pour sécuriser les mots de passe, ceux-ci ne sont jamais stockés en clair, mai
 
 ### Favoris (F1)
 
-Un utilisateur peut consulter ses stations favorites depuis l'onglet **favoris**. Il peut choisir de supprimer un favoris depuis cette page par une requête HTTP. Une station peut être ajoutée en favoris depuis la page de liste déroulante contenant toutes les stations du réseau, ou depuis la page de recherche d'une station à partir de son nom. Une station déjà présente dans les favoris renvoie une erreur 409.
+Un utilisateur peut consulter ses stations favorites depuis l'onglet **favoris**. Il peut choisir de supprimer un favori depuis cette page par une requête HTTP. Une station peut être ajoutée en favoris depuis la page de liste déroulante contenant toutes les stations du réseau, ou depuis la page de recherche d'une station à partir de son nom. Une station déjà présente dans les favoris renvoie une erreur 409.
 
 ### Collecte des données depuis l'API externe (F2)
 
@@ -339,13 +364,13 @@ des informations sur son état actuel (si la station est disponible, vide, satur
 
 * L'évolution de sa disponibilité sur 24h, 7 jours ou 31 jours; ainsi que les détails de sa fiabilité (son score actuel, la part du temps passée vide et saturée, la durée moyenne des épisodes de vide et de saturation, et l'évolution du score).
 
-Une station est considérée comme disponible si elle est installée, permet les emprunts et retours et possède au moins une place libre et un vélo. Elle est renvoyé sous forme d'un booléen (1 si pisponible, 0 sinon). Le calcul de disponibilité est gérée par le service station.
+Une station est considérée comme disponible si elle est installée, permet les emprunts et retours et possède au moins une place libre et un vélo. Elle est renvoyé sous forme d'un booléen (1 si pisponible, 0 sinon). Le calcul de disponibilité est géré par le service station.
 
 ### Fiabilité des stations (F4)
 
-Comme indiqué plus haut, le score de fiabilité d'une station est calculé à partir de l’historique de ses statuts selon la moyenne de 5 composantes : le pourcentage de temps passé vide et saturée, la durée moyenne des périodes de vide et de saturation, et l'état actuelle de la station (si elle est à la fois ni vide ni saturée). Il est à prendre avec parcimonie : une station qui est toujours vide mais jamais saturée possède un score non nul. Pour cette raison, on affiche de détail de chaque composante qui a permis le calcul de la fiabilité afin de donner davantage d'informations à l'utilisateur. 
+Comme indiqué plus haut, le score de fiabilité d'une station est calculé à partir de l’historique de ses statuts selon la moyenne de 5 composantes : le pourcentage de temps passé vide et saturée, la durée moyenne des périodes de vide et de saturation, et l'état actuel de la station (si elle est à la fois ni vide ni saturée). Il est à prendre avec parcimonie : une station qui est toujours vide mais jamais saturée possède un score non nul. Pour cette raison, on affiche de détail de chaque composante qui a permis le calcul de la fiabilité afin de donner davantage d'informations à l'utilisateur. 
 
-Le calcul du score se fait à partir du service fiabilité. Il est calculé depuis la date la plus ancienne d'historique présent sur la base de données. Le calcul de l'historique demandant de parcourir chaque date de relevé présent sur la base de données en tenant compte des précédents, il a été optimisé pour réutiliser les indicateurs ayant été déjà calculés par le passé afin de ne pas les recalculer et éviter une surcharge. La sélection des statuts qui ne concernent qu'une station selon une date limite de début de relevé se fait grâce à une fonction de la dao des status.
+Le calcul du score se fait à partir du service fiabilité. Il est calculé depuis la date la plus ancienne d'historique présent sur la base de données. Le calcul de l'historique demandant de parcourir chaque date de relevé présent sur la base de données en tenant compte des précédents, il a été optimisé pour réutiliser les indicateurs ayant été déjà calculés par le passé afin de ne pas les recalculer et éviter une surcharge. La sélection des statuts qui ne concernent qu'une station selon une date limite de début de relevé se fait grâce à une fonction de le DAO des statuts.
 
 ### Fonctionnalité supplémentaire
 
@@ -361,7 +386,7 @@ Pour garantir que VeloScope produise des résultats fiables et résiste aux erre
 
 Nous avons testé le comportement de l'application aussi bien dans les cas nominaux que dans des situations dégradées ou aux limites, afin d'éviter les blocages, les calculs faussés ou les erreurs non maîtrisées :
 
-**Authentification, droits et gestion des favoris (F1) :** Nous avons vérifié qu'un compte ne peut être créé que lorsqu'il respecte les modalités suivantes. L'utilisateur doit impérativement confirmer son mot de passe, la longueur de son nom d'utilisateur est contrôlé, et si ce nom est déjà pris, le compte est rejeté. Nous avons également testé le hachage des mots de passe, la génération puis le remplacement du token à chaque nouvelle connexion, ainsi que le contrôle d'accès via token. L'accès est effectivement refusé lorsqu'un token est absent ou invalide. Le blocage des routes d'administration pour un compte standard a également été vérifié. Nous avons également contrôlé l'ajout, la consultation et la suppression des stations favorites, y compris lorsque l'utilisateur tente d'ajouter une station déjà enregistrée ou inexistante.
+* **Authentification, droits et gestion des favoris (F1) :** Nous avons vérifié qu'un compte ne peut être créé que lorsqu'il respecte les modalités suivantes. L'utilisateur doit impérativement confirmer son mot de passe, la longueur de son nom d'utilisateur est contrôlée, et si ce nom est déjà pris, le compte est rejeté. Nous avons également testé le hachage des mots de passe, la génération puis le remplacement du token à chaque nouvelle connexion, ainsi que le contrôle d'accès via token. L'accès est effectivement refusé lorsqu'un token est absent ou invalide. Le blocage des routes d'administration pour un compte standard a également été vérifié. Nous avons également contrôlé l'ajout, la consultation et la suppression des stations favorites, y compris lorsque l'utilisateur tente d'ajouter une station déjà enregistrée ou inexistante.
 
 * **Collecte et nettoyage des données (F2) :** Nous avons contrôlé la récupération périodique des flux GBFS de Bordeaux Métropole et l'archivage des relevés dans PostgreSQL sans écraser l'historique existant. Cela permet de pouvoir reconstituer l'état passé du réseau. Nous avons prêté une attention particulière aux anomalies observées sur les données réelles : doublons temporels, horodatages figés sur plusieurs relevés consécutifs ou incohérences entre la capacité déclarée et les vélos ou places libres disponibles, afin que ces cas ne faussent pas les analyses ultérieures.
 
@@ -383,7 +408,7 @@ Dans la couche DAO nous testons principalement les requêtes SQL (lecture, créa
 
 
 -> A relire et compléter 
--> rajouter uen partie sur les score de fiabilité !!
+-> rajouter une partie sur les score de fiabilité !!
 
 
 Nous avons également cherché à garantir la qualité du code via une analyse statique avec Ruff. 
@@ -396,7 +421,7 @@ Dans le cadre des trois mois impartis pour ce projet, nous avons concentré nos 
 Prévision de disponibilité par apprentissage statistique (FO1) : Actuellement, notre score de fiabilité reflète le comportement passé d'une station. Avec plusieurs mois d'historique accumulés en base, il serait pertinent d'implémenter un modèle de prévision (régression ou séries temporelles intégrant l'heure de la journée, le jour de la semaine et la météo) dans un nouveau service dédié afin d'estimer la probabilité qu'une station soit vide dans l'heure suivante.
 Détection automatique d'anomalies (FO3) : Bien que notre adaptateur filtre déjà certains relevés aberrants lors de la collecte, nous pourrions ajouter un module d'alerte analysant l'historique pour signaler automatiquement aux administrateurs les stations bloquées dans un état figé pendant plus de 24 heures (panne de capteur) ou présentant des variations impossibles du nombre de vélos
 
-Au delà des fonctionnalités optionnelles, l'architecture de Véloscope a été conçue de manière à faciliter son extension à de nouvelles métropoles. Grâce à l'utilisation du standard GBFS, qui harmonise la structure des données des systèmes de vélos en libre-service, l'application pourrait être adaptée à de nouveaux réseaux de vélos sans nécessiter une modification importante du code.L'ajout d'une nouvelle ville nécessiterait principalement de configurer la source de données correspondante. À plus long terme, il serait également possible de développer une fonctionnalité permettant aux utilisateurs de sélectionner leur ville et de consulter les stations et informations correspondantes.
+Au-delà des fonctionnalités optionnelles, l'architecture de VeloScope a été conçue de manière à faciliter son extension à de nouvelles métropoles. Grâce à l'utilisation du standard GBFS, qui harmonise la structure des données des systèmes de vélos en libre-service, l'application pourrait être adaptée à de nouveaux réseaux de vélos sans nécessiter une modification importante du code.L'ajout d'une nouvelle ville nécessiterait principalement de configurer la source de données correspondante. À plus long terme, il serait également possible de développer une fonctionnalité permettant aux utilisateurs de sélectionner leur ville et de consulter les stations et informations correspondantes.
 
 
 \pagebreak
