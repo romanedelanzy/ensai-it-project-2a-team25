@@ -205,10 +205,11 @@ Ces données sont par la suite stockées et mises à jour à l'aide d'une collec
 Le détail de la base finale de travail sous forme de schéma est proposé ci-dessous. 
 
 ![Modèle de données](../ressources/Diagramme/modele_BDD.png)
-Pour l'instant, notre réseau n'est composé que de celui de Bordeaux (id 1), mais il est possible d'ajouter d'autres villes.
+Notre modèle de données est composé de 5 tables. La table Compte gère les informations relatives aux utilisateurs. Station contient toutes les stations de la ville de Bordeaux. Station Statut possède l'ensemble des relevés de statuts de chaque station issus de la collecte. Réseau liste la liste des villes de notre réseau de vélo. Favoris gère les favoris de chaque utilisateur.
 
-Il est à noter que certaines difficultés ont été rencontrées en confrontant notre application aux données réelles de Bordeaux sur plusieurs semaines.
-Parmi ces dernières, nous avons identifié plusieurs particularités nécessitant un nettoyage préalable :
+Pour l'instant, notre réseau n'est composé que de celui de Bordeaux (id 1), mais il est possible d'ajouter d'autres villes. Notre table Compte est 3NF, les informations ne dépendant que de l'identifiant. Il en va de même pour la table station. La clé primaire de station_statut est le couple (station_id, last_reported) : on enregistre le statut d'une station à une date et heure donnée. Chaque favori est associé à un identifiant utilisateur (user_id, station_id). 
+
+Il est à noter que certaines difficultés ont été rencontrées en confrontant notre application aux données réelles de Bordeaux sur plusieurs semaines.Parmi ces dernières, nous avons identifié plusieurs particularités nécessitant un nettoyage préalable :
 
 - Stations en maintenance ou hors service : Certains relevés indiquent une station comme ouverte (is_renting = true), alors que la somme des vélos disponibles et des places libres est strictement inférieure à la capacité officielle de la station (bornes défectueuses ou vélos bloqués).
 
@@ -216,35 +217,43 @@ Parmi ces dernières, nous avons identifié plusieurs particularités nécessita
 
 Notre module de collecte a été conçu pour filtrer les doublons temporels et ignorer les relevés incohérents afin de ne pas fausser nos calculs statistiques. Ce pré-traitement est notamment effectué au sein du DAO des stations.
 
-Le rôle de Véloscope de s'arrête pas à la simple extraction de ces données. À partir de ces relevés bruts archivés toutes les 1h, VeloScope produit ses propres indicateurs à forte valeur ajoutée. L'application apporte à l'utilisateur des informations quant à l'état d'une station à chaque instant, calcule des pourcentages de temps passé en pénurie ou en saturation, la durée moyenne de ces épisodes d'indisponibilité, un score global de fiabilité sur 100, ainsi qu'un score de recommandation personnalisé. Ces calculs ne sont pas stockés dans notre base de données mais effectués à la volée.
+L'ensemble des calculs concernant la fiabilité ne sont pas stockés dans notre base de données mais effectués à la volée. 
 
 \pagebreak
-# Architecture et système de stockage
+
+# Architecture 
+
 ## Nature de l'application et choix technologiques
 
-Notre objectif principal était de créer une application fiable et facile à faire évoluer. Ainsi, nous avons fait le choix d'utiliser les outils suivants et de la découper en plusieurs briques. 
+Véloscope est une application avec un client et un serveur qui communiquent via requête http. Notre objectif principal était de créer une application fiable et facile à faire évoluer. Ainsi, nous avons fait le choix de la découper en plusieurs briques et d'utiliser les outils cités ci-dessous. 
 
-Pour ce faire, nous avons utilisé les outils technologiques suivants. Notre projet utilise entièrement le langage de programmation Python connu pour sa clarté et sa puissance quant à l'analyse de données. Nous avons choisi FastAPI pour gérer la partie invisible de l'application. Elle réalise les calculs, gère la sécurité et communique avec la base de données. ELle est connue pour être rapide et génère automatiquement une documentation claire de toutes ses commandes. Notre base de données est stockée grace au logiciel spécialisé PostgreSQL. Il est sécurisé et permet le stockage d'une grande quantité d'informations. Ainsi, il conserve l'historique des relevés des stations vélo de Bordeaux. 
-Enfin, l'utilisateur intéragit avec notre application dans son navigateyr via une interface visuelle grâce à l'outil Streamlit. 
+Notre projet utilise entièrement le langage de programmation Python connu pour sa clarté et sa puissance quant à l'analyse de données. Nous avons choisi FastAPI comme framework Python pour mettre à disposition les fonctionnalités du backend sous forme d'API REST. Elle réalise les calculs, gère la sécurité et communique avec la base de données. ELle est connue pour être rapide et génère automatiquement une documentation claire de toutes ses commandes. 
+
+Les dépendances du frontend et du backend sont gérées par le gestionnaire de projets, de dépendances et d'environnements `uv`.Le frontend est crée grâce à Streamlit. Il s'agit d'un framework Python open source permettant de créer rapidement des applications web interactives
+
+Notre base de données est stockée grace au logiciel spécialisé PostgreSQL. Il est sécurisé et permet le stockage d'une grande quantité d'informations. Ainsi, il conserve l'historique des relevés des stations vélo de Bordeaux. 
 
 ## Schéma d'architecture et décomposition en couche 
 
-Comme évoqué précédemment notre code est organisé en cinq couches qui communiquent entre elles de manière ordonnée. Cette structure est schématisée par la diagramme d'architecture. L’application est articulée autour du Backend qui contient la logique de gestion des données, et du Frontend qui permet à l’utilisateur d’intéragir
-avec l’application. L’application communique également avec une source de données externe afin de récupérer les informations sur des stations de vélo.
+Notre application est organisée en cinq couches qui communiquent entre elles de manière ordonnée, permettant de séparer les différentes responsabilités du programme et de faciliter sa maintenance et son évolution. Le backend contient la logique de gestion des données, et le Frontend permet à l’utilisateur d’intéragir avec l’application. L’application communique également avec une source de données externe afin de récupérer les informations sur des stations de vélo.
 
 ![Diagramme d'architecture](../ressources/Diagramme/diagramme_architecture_final.png)
 
-La première couche, la seule visible par l'utilisateur est l'Interface (Streamlit). On l'appelle le Frontend. C'est la vitrine de notre application. Elle affiche les différentes pages et permet à l'utilisateur d'intéragir avec l'application. Elle ne fait aucun calcul complexe elle même. Elle transmet seulement les instructions au Backend. 
+La première couche, la seule visible par l'utilisateur est l'Interface (Streamlit). Il s'agit du Frontend. Il est la vitrine de notre application. L'interface affiche les différentes pages et permet à l'utilisateur d'intéragir avec l'application. Elle ne fait aucun calcul complexe elle même. Elle transmet seulement les instructions au Backend via requêtes HTTP. 
 
 Les quatre autres couches forment le Backend. 
 
-La deuxième couche est celle des controleurs ( API FastAPI). C'est cette couche qui reçoit les demandes de l'interface, verifient qu'elles soient bien formulées et les transmets aux services. 
+La deuxième couche est celle des contrôleurs (Controller Layer), développés avec FastAPI. Ils reçoivent les requêtes HTTP provenant du frontend, s'assurent que les paramètres nécessaires sont correctement transmis et font appel aux services correspondants. FastAPI prend également en charge une partie de la validation des données reçues.
 
-Les services sont la troisième couche du code. C'est ici que de trouve toute la logique métier de l'application. Cette partie rassemble l'ensemble des méthodes qui permettent à notre application de fonctionner (calcul du score de fiabilité, tri des recommandations, vérification des mots de passe, etc). C'est également un Service qui va chercher les données sur Internet auprès de l'API de la ville de Bordeaux.
+La troisième couche est celle des services (Service Layer). Elle constitue le cœur de l'application et rassemble l'essentiel de la logique métier. On y retrouve les méthodes permettant le fonctionnement de VeloScope : calcul du score de fiabilité, génération des recommandations, vérification des mots de passe, gestion des favoris, etc. C'est également à ce niveau qu'est organisée la collecte des données provenant de l'API GBFS de Bordeaux Métropole, en s'appuyant sur des composants dédiés à leur récupération et à leur transformation.
 
-La quatrième couche du projet est les modèles. Ils permettent de structurer les données utilisées par l'application. Ils définissent à quoi ressemble une station ou un utilisateur dans notre code.
+La quatrième couche du projet est constituée des modèles. Il s'agit de classes représentant les entités manipulées par l'application sous forme d'objets Python. Ils permettent de aux autres couches de fonctionner, notamment les services, sans avoir à connaître directement la structure des données provenant de PostgreSQL ou de l'API GBFS.
 
-Enfin, la derniere couche est constituée des DAO. Les DAO (Data Access Objects) assurent la communication avec la base de données. Ils peuvent lire et écrire dans la base de données PostgreSQL.
+Enfin, la derniere couche est constituée des DAO. Les DAO assurent les interactions avec la base de données PostgreSQL. Ils permettent notamment de lire, d'insérer, de modifier et de supprimer les données, en isolant les opérations d'accès à la base du reste de la logique métier.
+
+Ci-dessous un détail du diagramme de classe de notre application.
+
+[diagramme de classe]
 
 \pagebreak
 
