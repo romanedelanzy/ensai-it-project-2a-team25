@@ -1,0 +1,216 @@
+22/11/2026 14:51:09 root                 INFO   - --------------------------------------------------
+22/11/2026 14:51:09 root                 INFO   - Launch FRONTEND : Streamlit App
+22/11/2026 14:51:09 root                 INFO   - --------------------------------------------------
+22/11/2026 14:51:09 root                 INFO   - Load environment variables: FAIL
+22/11/2026 14:51:09 home                 INFO   - None -> home
+22/11/2026 14:51:20 home                 INFO   - Attempting login for user: audrey2
+22/11/2026 14:51:20 home                 INFO   -   POST http://localhost:5000/login-compte/
+22/11/2026 14:51:21 home                 INFO   -   200 OK
+22/11/2026 14:51:21 home                 INFO   - User audrey2 successfully logged in.
+22/11/2026 14:51:21 main_menu            INFO   - home -> main_menu
+22/11/2026 14:51:34 main_menu            INFO   -   GET http://localhost:5000/station/?name=ajaa
+22/11/2026 14:51:34 main_menu            INFO   -   200 OK
+22/11/2026 14:51:34 main_menu            INFO   -   GET http://localhost:5000/favoris
+22/11/2026 14:51:34 main_menu            INFO   -   200 OK
+22/11/2026 14:51:34 main_menu            INFO   -   GET http://localhost:5000/station/67/status
+22/11/2026 14:51:34 main_menu            INFO   -   200 OK
+22/11/2026 14:51:34 main_menu            INFO   -   GET http://localhost:5000/station/67/availability-history?period=24h
+22/11/2026 14:51:34 main_menu            INFO   -   200 OK
+22/11/2026 14:51:37 main_menu            INFO   -   GET http://localhost:5000/station/?name=ajaa
+22/11/2026 14:51:37 main_menu            INFO   -   200 OK
+22/11/2026 14:51:37 main_menu            INFO   -   GET http://localhost:5000/favoris
+22/11/2026 14:51:37 main_menu            INFO   -   200 OK
+22/11/2026 14:51:37 main_menu            INFO   -   GET http://localhost:5000/station/175/status
+22/11/2026 14:51:37 main_menu            INFO   -   200 OK
+22/11/2026 14:51:37 main_menu            INFO   -   GET http://localhost:5000/station/175/availability-history?period=24h
+22/11/2026 14:51:37 main_menu            INFO   -   200 OK
+22/11/2026 14:51:41 main_menu            INFO   -   GET http://localhost:5000/station/?name=ajaa
+22/11/2026 14:51:41 main_menu            INFO   -   200 OK
+22/11/2026 14:51:41 main_menu            INFO   -   GET http://localhost:5000/favoris
+22/11/2026 14:51:41 main_menu            INFO   -   200 OK
+22/11/2026 14:51:41 main_menu            INFO   -   GET http://localhost:5000/reliability/175
+22/11/2026 14:51:42 main_menu            INFO   -   200 OK
+22/11/2026 14:51:42 main_menu            INFO   -   GET http://localhost:5000/station/175/status
+22/11/2026 14:51:42 main_menu            INFO   -   200 OK
+22/11/2026 14:51:42 main_menu            INFO   -   GET http://localhost:5000/station/175/availability-history?period=24h
+22/11/2026 14:51:42 main_menu            INFO   -   200 OK
+22/11/2026 14:59:42 root                 INFO   - --------------------------------------------------
+22/11/2026 14:59:42 root                 INFO   - Launch FRONTEND : Streamlit App
+22/11/2026 14:59:42 root                 INFO   - --------------------------------------------------
+22/11/2026 14:59:42 root                 INFO   - Load environment variables: FAIL
+22/11/2026 14:59:42 home                 INFO   - None -> home
+22/11/2026 14:59:51 home                 INFO   - Attempting login for user: audrey2
+22/11/2026 14:59:51 home                 INFO   -   POST http://localhost:5000/login-compte/
+22/11/2026 14:59:51 home                 INFO   -   200 OK
+22/11/2026 14:59:51 home                 INFO   - User audrey2 successfully logged in.
+22/11/2026 14:59:51 main_menu            INFO   - home -> main_menu
+22/11/2026 14:59:58 main_menu            INFO   -   GET http://localhost:5000/station/?name=aja
+22/11/2026 14:59:58 main_menu            INFO   -   200 OK
+22/11/2026 14:59:58 main_menu            INFO   -   GET http://localhost:5000/favoris
+22/11/2026 14:59:58 main_menu            INFO   -   200 OK
+22/11/2026 14:59:58 main_menu            INFO   -   GET http://localhost:5000/station/67/status
+22/11/2026 14:59:58 main_menu            INFO   -   200 OK
+22/11/2026 14:59:58 main_menu            INFO   -   GET http://localhost:5000/station/67/availability-history?period=24h
+22/11/2026 14:59:58 main_menu            INFO   -   200 OK
+22/11/2026 15:00:01 main_menu            INFO   -   GET http://localhost:5000/station/?name=aja
+22/11/2026 15:00:01 main_menu            INFO   -   200 OK
+22/11/2026 15:00:01 main_menu            INFO   -   GET http://localhost:5000/favoris
+22/11/2026 15:00:01 main_menu            INFO   -   200 OK
+22/11/2026 15:00:01 main_menu            INFO   -   GET http://localhost:5000/station/175/status
+22/11/2026 15:00:01 main_menu            INFO   -   200 OK
+22/11/2026 15:00:01 main_menu            INFO   -   GET http://localhost:5000/station/175/availability-history?period=24h
+22/11/2026 15:00:01 main_menu            INFO   -   200 OK
+22/11/2026 15:00:04 main_menu            INFO   -   GET http://localhost:5000/station/?name=aja
+22/11/2026 15:00:04 main_menu            INFO   -   200 OK
+22/11/2026 15:00:04 main_menu            INFO   -   GET http://localhost:5000/favoris
+22/11/2026 15:00:04 main_menu            INFO   -   200 OK
+22/11/2026 15:00:04 main_menu            INFO   -   GET http://localhost:5000/reliability/175
+22/11/2026 15:00:04 main_menu            INFO   -   200 OK
+22/11/2026 15:00:04 main_menu            INFO   -   GET http://localhost:5000/station/175/status
+22/11/2026 15:00:04 main_menu            INFO   -   200 OK
+22/11/2026 15:00:04 main_menu            INFO   -   GET http://localhost:5000/station/175/availability-history?period=24h
+22/11/2026 15:00:04 main_menu            INFO   -   200 OK
+22/11/2026 15:00:15 main_menu            INFO   -   GET http://localhost:5000/station/?name=aja
+22/11/2026 15:00:15 main_menu            INFO   -   200 OK
+22/11/2026 15:00:15 main_menu            INFO   -   GET http://localhost:5000/favoris
+22/11/2026 15:00:15 main_menu            INFO   -   200 OK
+22/11/2026 15:00:15 main_menu            INFO   -   GET http://localhost:5000/station/89/status
+22/11/2026 15:00:15 main_menu            INFO   -   200 OK
+22/11/2026 15:00:15 main_menu            INFO   -   GET http://localhost:5000/station/89/availability-history?period=24h
+22/11/2026 15:00:15 main_menu            INFO   -   200 OK
+22/11/2026 15:00:19 main_menu            INFO   -   GET http://localhost:5000/station/?name=aja
+22/11/2026 15:00:19 main_menu            INFO   -   200 OK
+22/11/2026 15:00:19 main_menu            INFO   -   GET http://localhost:5000/favoris
+22/11/2026 15:00:19 main_menu            INFO   -   200 OK
+22/11/2026 15:00:19 main_menu            INFO   -   GET http://localhost:5000/reliability/89
+22/11/2026 15:00:19 main_menu            INFO   -   200 OK
+22/11/2026 15:00:19 main_menu            INFO   -   GET http://localhost:5000/station/89/status
+22/11/2026 15:00:19 main_menu            INFO   -   200 OK
+22/11/2026 15:00:19 main_menu            INFO   -   GET http://localhost:5000/station/89/availability-history?period=24h
+22/11/2026 15:00:19 main_menu            INFO   -   200 OK
+22/11/2026 15:00:24 main_menu            INFO   -   GET http://localhost:5000/station/?name=aja
+22/11/2026 15:00:24 main_menu            INFO   -   200 OK
+22/11/2026 15:00:24 main_menu            INFO   -   GET http://localhost:5000/favoris
+22/11/2026 15:00:25 main_menu            INFO   -   200 OK
+22/11/2026 15:00:25 main_menu            INFO   -   GET http://localhost:5000/station/85/status
+22/11/2026 15:00:25 main_menu            INFO   -   200 OK
+22/11/2026 15:00:25 main_menu            INFO   -   GET http://localhost:5000/station/85/availability-history?period=24h
+22/11/2026 15:00:25 main_menu            INFO   -   200 OK
+22/11/2026 15:00:28 main_menu            INFO   -   GET http://localhost:5000/station/?name=aja
+22/11/2026 15:00:28 main_menu            INFO   -   200 OK
+22/11/2026 15:00:28 main_menu            INFO   -   GET http://localhost:5000/favoris
+22/11/2026 15:00:28 main_menu            INFO   -   200 OK
+22/11/2026 15:00:28 main_menu            INFO   -   GET http://localhost:5000/reliability/85
+22/11/2026 15:00:28 main_menu            INFO   -   200 OK
+22/11/2026 15:00:28 main_menu            INFO   -   GET http://localhost:5000/station/85/status
+22/11/2026 15:00:28 main_menu            INFO   -   200 OK
+22/11/2026 15:00:28 main_menu            INFO   -   GET http://localhost:5000/station/85/availability-history?period=24h
+22/11/2026 15:00:28 main_menu            INFO   -   200 OK
+22/11/2026 15:00:35 main_menu            INFO   -   GET http://localhost:5000/station/?name=aja
+22/11/2026 15:00:35 main_menu            INFO   -   200 OK
+22/11/2026 15:00:35 main_menu            INFO   -   GET http://localhost:5000/favoris
+22/11/2026 15:00:35 main_menu            INFO   -   200 OK
+22/11/2026 15:00:35 main_menu            INFO   -   GET http://localhost:5000/station/7/status
+22/11/2026 15:00:35 main_menu            INFO   -   200 OK
+22/11/2026 15:00:35 main_menu            INFO   -   GET http://localhost:5000/station/7/availability-history?period=24h
+22/11/2026 15:00:35 main_menu            INFO   -   200 OK
+22/11/2026 15:00:43 main_menu            INFO   -   GET http://localhost:5000/station/?name=aja
+22/11/2026 15:00:43 main_menu            INFO   -   200 OK
+22/11/2026 15:00:43 main_menu            INFO   -   GET http://localhost:5000/favoris
+22/11/2026 15:00:43 main_menu            INFO   -   200 OK
+22/11/2026 15:00:43 main_menu            INFO   -   GET http://localhost:5000/reliability/7
+22/11/2026 15:00:43 main_menu            INFO   -   200 OK
+22/11/2026 15:00:44 main_menu            INFO   -   GET http://localhost:5000/station/7/status
+22/11/2026 15:00:44 main_menu            INFO   -   200 OK
+22/11/2026 15:00:44 main_menu            INFO   -   GET http://localhost:5000/station/7/availability-history?period=24h
+22/11/2026 15:00:44 main_menu            INFO   -   200 OK
+22/11/2026 15:00:51 main_menu            INFO   -   GET http://localhost:5000/station/?name=aja
+22/11/2026 15:00:51 main_menu            INFO   -   200 OK
+22/11/2026 15:00:51 main_menu            INFO   -   GET http://localhost:5000/favoris
+22/11/2026 15:00:51 main_menu            INFO   -   200 OK
+22/11/2026 15:00:51 main_menu            INFO   -   GET http://localhost:5000/station/79/status
+22/11/2026 15:00:51 main_menu            INFO   -   200 OK
+22/11/2026 15:00:51 main_menu            INFO   -   GET http://localhost:5000/station/79/availability-history?period=24h
+22/11/2026 15:00:51 main_menu            INFO   -   200 OK
+22/11/2026 15:00:54 main_menu            INFO   -   GET http://localhost:5000/station/?name=aja
+22/11/2026 15:00:54 main_menu            INFO   -   200 OK
+22/11/2026 15:00:54 main_menu            INFO   -   GET http://localhost:5000/favoris
+22/11/2026 15:00:54 main_menu            INFO   -   200 OK
+22/11/2026 15:00:54 main_menu            INFO   -   GET http://localhost:5000/reliability/79
+22/11/2026 15:00:54 main_menu            INFO   -   200 OK
+22/11/2026 15:00:54 main_menu            INFO   -   GET http://localhost:5000/station/79/status
+22/11/2026 15:00:54 main_menu            INFO   -   200 OK
+22/11/2026 15:00:54 main_menu            INFO   -   GET http://localhost:5000/station/79/availability-history?period=24h
+22/11/2026 15:00:54 main_menu            INFO   -   200 OK
+22/11/2026 15:05:25 personal_information INFO   - main_menu -> personal_information
+22/11/2026 15:05:25 personal_information INFO   -   GET http://localhost:5000/compte/username/audrey2
+22/11/2026 15:05:25 personal_information INFO   -   200 OK
+22/11/2026 15:05:27 recommendation       INFO   - personal_information -> recommendation
+22/11/2026 15:05:37 recommendation       INFO   -   GET http://localhost:5000/recommendation/
+22/11/2026 15:05:38 recommendation       INFO   -   400 Bad Request
+22/11/2026 15:05:38 recommendation       ERROR  - Recommendation request failed: {'status_code': 400, 'data': {'detail': "Aucune adresse Bordeaux n'a été trouvée."}}
+22/11/2026 15:05:42 recommendation       INFO   -   GET http://localhost:5000/recommendation/
+22/11/2026 15:05:43 recommendation       INFO   -   200 OK
+22/11/2026 15:51:04 recommendation       INFO   -   GET http://localhost:5000/station/?name=rue%20du%20mirail
+22/11/2026 15:51:04 recommendation       INFO   -   200 OK
+22/11/2026 15:51:04 recommendation       INFO   -   GET http://localhost:5000/favoris
+22/11/2026 15:51:04 recommendation       INFO   -   200 OK
+22/11/2026 15:51:04 recommendation       INFO   -   GET http://localhost:5000/station/67/status
+22/11/2026 15:51:04 recommendation       INFO   -   200 OK
+22/11/2026 15:51:04 recommendation       INFO   -   GET http://localhost:5000/station/67/availability-history?period=24h
+22/11/2026 15:51:04 recommendation       INFO   -   200 OK
+22/11/2026 15:51:10 recommendation       INFO   -   GET http://localhost:5000/station/?name=rue%20du%20mirail
+22/11/2026 15:51:10 recommendation       INFO   -   200 OK
+22/11/2026 15:51:10 recommendation       INFO   -   GET http://localhost:5000/favoris
+22/11/2026 15:51:10 recommendation       INFO   -   200 OK
+22/11/2026 15:51:10 recommendation       INFO   -   GET http://localhost:5000/station/105/status
+22/11/2026 15:51:10 recommendation       INFO   -   200 OK
+22/11/2026 15:51:10 recommendation       INFO   -   GET http://localhost:5000/station/105/availability-history?period=24h
+22/11/2026 15:51:10 recommendation       INFO   -   200 OK
+22/11/2026 15:51:15 recommendation       INFO   -   GET http://localhost:5000/station/?name=rue%20du%20mirail
+22/11/2026 15:51:15 recommendation       INFO   -   200 OK
+22/11/2026 15:51:15 recommendation       INFO   -   GET http://localhost:5000/favoris
+22/11/2026 15:51:15 recommendation       INFO   -   200 OK
+22/11/2026 15:51:15 recommendation       INFO   -   GET http://localhost:5000/reliability/105
+22/11/2026 15:51:15 recommendation       INFO   -   200 OK
+22/11/2026 15:51:15 recommendation       INFO   -   GET http://localhost:5000/station/105/status
+22/11/2026 15:51:15 recommendation       INFO   -   200 OK
+22/11/2026 15:51:15 recommendation       INFO   -   GET http://localhost:5000/station/105/availability-history?period=24h
+22/11/2026 15:51:15 recommendation       INFO   -   200 OK
+22/11/2026 15:51:16 recommendation       INFO   -   GET http://localhost:5000/station/?name=rue%20du%20mirail
+22/11/2026 15:51:16 recommendation       INFO   -   200 OK
+22/11/2026 15:51:16 recommendation       INFO   -   GET http://localhost:5000/favoris
+22/11/2026 15:51:16 recommendation       INFO   -   200 OK
+22/11/2026 15:51:16 recommendation       INFO   -   GET http://localhost:5000/station/105/status
+22/11/2026 15:51:16 recommendation       INFO   -   200 OK
+22/11/2026 15:51:16 recommendation       INFO   -   GET http://localhost:5000/station/105/availability-history?period=24h
+22/11/2026 15:51:16 recommendation       INFO   -   200 OK
+22/11/2026 15:51:17 recommendation       INFO   -   GET http://localhost:5000/station/?name=rue%20du%20mirail
+22/11/2026 15:51:17 recommendation       INFO   -   200 OK
+22/11/2026 15:51:17 recommendation       INFO   -   GET http://localhost:5000/favoris
+22/11/2026 15:51:17 recommendation       INFO   -   200 OK
+22/11/2026 15:51:17 recommendation       INFO   -   GET http://localhost:5000/reliability/105
+22/11/2026 15:51:17 recommendation       INFO   -   200 OK
+22/11/2026 15:51:18 recommendation       INFO   -   GET http://localhost:5000/station/105/status
+22/11/2026 15:51:18 recommendation       INFO   -   200 OK
+22/11/2026 15:51:18 recommendation       INFO   -   GET http://localhost:5000/station/105/availability-history?period=24h
+22/11/2026 15:51:18 recommendation       INFO   -   200 OK
+22/11/2026 17:31:26 root                 INFO   - --------------------------------------------------
+22/11/2026 17:31:26 root                 INFO   - Launch FRONTEND : Streamlit App
+22/11/2026 17:31:26 root                 INFO   - --------------------------------------------------
+22/11/2026 17:31:26 root                 INFO   - Load environment variables: FAIL
+22/11/2026 17:31:38 admin_users          INFO   - main_menu -> admin_users
+22/11/2026 17:31:38 admin_users          INFO   -   GET http://localhost:5000/compte/list_accounts/
+22/11/2026 17:31:38 admin_users          INFO   -   200 OK
+22/11/2026 17:31:52 admin_users          INFO   -   GET http://localhost:5000/compte/list_accounts/
+22/11/2026 17:31:52 admin_users          INFO   -   200 OK
+22/11/2026 17:31:52 admin_users          INFO   -   GET http://localhost:5000/compte/list_accounts/
+22/11/2026 17:31:52 admin_users          INFO   -   200 OK
+22/11/2026 17:32:03 admin_users          INFO   -   GET http://localhost:5000/compte/list_accounts/
+22/11/2026 17:32:03 admin_users          INFO   -   200 OK
+22/11/2026 17:32:04 admin_users          INFO   -   GET http://localhost:5000/compte/list_accounts/
+22/11/2026 17:32:04 admin_users          INFO   -   200 OK
+22/11/2026 17:32:06 admin_users          INFO   -   GET http://localhost:5000/compte/list_accounts/
+22/11/2026 17:32:06 admin_users          INFO   -   200 OK
+22/11/2026 17:32:06 admin_users          INFO   -   GET http://localhost:5000/compte/list_accounts/
+22/11/2026 17:32:06 admin_users          INFO   -   200 OK
