@@ -17,7 +17,7 @@ def get_reliability_service():
 @router.get(
     "/{station_id}",
     response_model=ReliabilityReadModel,
-    tags=["Reliability"]
+    tags=["Fiabilite"]
 )
 def get_station_reliability(
     station_id: str,
