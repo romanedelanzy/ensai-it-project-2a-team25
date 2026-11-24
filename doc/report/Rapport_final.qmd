@@ -208,13 +208,10 @@ Le détail de la base finale de travail sous forme de schéma est proposé ci-de
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 ![Modèle de données](../ressources/Diagramme/modele_BDD.png)
-<<<<<<< HEAD
-Notre modèle de données est composé de 5 tables. La table Compte gère les informations relatives aux utilisateurs. Station contient toutes les stations de la ville de Bordeaux. Station Statut possède l'ensemble des relevés de statuts de chaque station issus de la collecte. Réseau liste la liste des villes de notre réseau de vélo. Favoris gère les favoris de chaque utilisateur.
-=======
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-Pour l'instant, notre réseau n'est composé que de celui de Bordeaux (id 1), mais il est possible d'ajouter d'autres villes.
->>>>>>> 2dfaae2b796e6ff16fa81b5eff3d684d0eaa92cd
+Notre modèle de données est composé de 5 tables. La table Compte gère les informations relatives aux utilisateurs. Station contient toutes les stations de la ville de Bordeaux. Station Statut possède l'ensemble des relevés de statuts de chaque station issus de la collecte. Réseau liste la liste des villes de notre réseau de vélo. Favoris gère les favoris de chaque utilisateur.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 Pour l'instant, notre réseau n'est composé que de celui de Bordeaux (id 1), mais il est possible d'ajouter d'autres villes. Notre table Compte est 3NF, les informations ne dépendant que de l'identifiant. Il en va de même pour la table station. La clé primaire de station_statut est le couple (station_id, last_reported) : on enregistre le statut d'une station à une date et heure donnée. Chaque favori est associé à un identifiant utilisateur (user_id, station_id). 
 
@@ -226,25 +223,16 @@ Il est à noter que certaines difficultés ont été rencontrées en confrontant
 
 Notre module de collecte a été conçu pour filtrer les doublons temporels et ignorer les relevés incohérents afin de ne pas fausser nos calculs statistiques. Ce pré-traitement est notamment effectué au sein du DAO des stations.
 
-<<<<<<< HEAD
 L'ensemble des calculs concernant la fiabilité ne sont pas stockés dans notre base de données mais effectués à la volée. 
 
 \pagebreak
 
 # Architecture 
 
-=======
-Le rôle de Véloscope ne s'arrête pas à la simple extraction de ces données. À partir de ces relevés bruts archivés toutes les 1h, VeloScope produit ses propres indicateurs à forte valeur ajoutée. L'application apporte à l'utilisateur des informations quant à l'état d'une station à chaque instant, calcule des pourcentages de temps passé en pénurie ou en saturation, la durée moyenne de ces épisodes d'indisponibilité, un score global de fiabilité compris entre 0 et 1, ainsi qu'un score de recommandation personnalisé. Ces calculs ne sont pas stockés dans notre base de données mais effectués à la volée.
-
-\pagebreak
-
-# Architecture et système de stockage
->>>>>>> 2dfaae2b796e6ff16fa81b5eff3d684d0eaa92cd
 ## Nature de l'application et choix technologiques
 
 Véloscope est une application avec un client et un serveur qui communiquent via requête http. Notre objectif principal était de créer une application fiable et facile à faire évoluer. Ainsi, nous avons fait le choix de la découper en plusieurs briques et d'utiliser les outils cités ci-dessous. 
 
-<<<<<<< HEAD
 Notre projet utilise entièrement le langage de programmation Python connu pour sa clarté et sa puissance quant à l'analyse de données. Nous avons choisi FastAPI comme framework Python pour mettre à disposition les fonctionnalités du backend sous forme d'API REST. Elle réalise les calculs, gère la sécurité et communique avec la base de données. ELle est connue pour être rapide et génère automatiquement une documentation claire de toutes ses commandes. 
 
 Les dépendances du frontend et du backend sont gérées par le gestionnaire de projets, de dépendances et d'environnements `uv`.Le frontend est crée grâce à Streamlit. Il s'agit d'un framework Python open source permettant de créer rapidement des applications web interactives
@@ -254,14 +242,6 @@ Notre base de données est stockée grace au logiciel spécialisé PostgreSQL. I
 ## Schéma d'architecture et décomposition en couche 
 
 Notre application est organisée en cinq couches qui communiquent entre elles de manière ordonnée, permettant de séparer les différentes responsabilités du programme et de faciliter sa maintenance et son évolution. Le backend contient la logique de gestion des données, et le Frontend permet à l’utilisateur d’intéragir avec l’application. L’application communique également avec une source de données externe afin de récupérer les informations sur des stations de vélo.
-=======
-Pour ce faire, nous avons utilisé les outils technologiques suivants. Notre projet utilise entièrement le langage de programmation Python connu pour sa clarté et sa puissance quant à l'analyse de données. Nous avons choisi FastAPI pour gérer la partie invisible de l'application. Elle réalise les calculs, gère la sécurité et communique avec la base de données. ELle est connue pour être rapide et génère automatiquement une documentation claire de toutes ses commandes. Notre base de données est stockée grâce au logiciel spécialisé PostgreSQL. Il est sécurisé et permet le stockage d'une grande quantité d'informations. Ainsi, il conserve l'historique des relevés des stations vélo de Bordeaux. 
-Enfin, l'utilisateur interagit avec notre application dans son navigateur via une interface visuelle grâce à l'outil Streamlit. 
-
-## Schéma d'architecture et décomposition en couche 
-
-Comme évoqué précédemment notre code est organisé en cinq couches qui communiquent entre elles, permettant de séparer les différentes responsabilités du programme et de faciliter sa maintenance et son évolution. Le Backend contient la logique de gestion des données, et le Frontend permet à l’utilisateur d’interagir avec l’application. L’application communique également avec une source de données externe afin de récupérer les informations sur des stations de vélo.
-
 
 ![Diagramme d'architecture](../ressources/Diagramme/diagramme_architecture_final.png)
 
@@ -406,36 +386,38 @@ L'utilisateur peut afficher la carte des stations du réseau. En survolant les m
 
 # Tests et qualité logicielle
 
-Pour garantir que VeloScope produise des résultats fiables et résiste aux erreurs d'utilisation comme aux aléas des données réelles de Bordeaux, nous avons mené des vérifications structurées sur l'ensemble des couches de l'application (interface Streamlit, API FastAPI, logique métier, accès aux données et collecte). L'objectif était double : vérifier que chaque fonctionnalité répond bien au cahier des charges dans son fonctionnement normal, et s'assurer que l'application gère proprement les situations dégradées, les saisies inattendues et les imperfections des flux de données.Ces vérifications reposent à la fois sur des tests automatisés, exécutés à chaque push par une chaîne d'intégration continue, et sur des contrôles manuels.
-
-## Vérification des fonctionnalités et des cas limites
-
-Nous avons testé le comportement de l'application aussi bien dans les cas nominaux que dans des situations dégradées ou aux limites, afin d'éviter les blocages, les calculs faussés ou les erreurs non maîtrisées :
-
-* **Authentification, droits et gestion des favoris (F1) :** Nous avons vérifié qu'un compte ne peut être créé que lorsqu'il respecte les modalités suivantes. L'utilisateur doit impérativement confirmer son mot de passe, la longueur de son nom d'utilisateur est contrôlée, et si ce nom est déjà pris, le compte est rejeté. Nous avons également testé le hachage des mots de passe, la génération puis le remplacement du token à chaque nouvelle connexion, ainsi que le contrôle d'accès via token. L'accès est effectivement refusé lorsqu'un token est absent ou invalide. Le blocage des routes d'administration pour un compte standard a également été vérifié. Nous avons également contrôlé l'ajout, la consultation et la suppression des stations favorites, y compris lorsque l'utilisateur tente d'ajouter une station déjà enregistrée ou inexistante.
-
-* **Collecte et nettoyage des données (F2) :** Nous avons contrôlé la récupération périodique des flux GBFS de Bordeaux Métropole et l'archivage des relevés dans PostgreSQL sans écraser l'historique existant. Cela permet de pouvoir reconstituer l'état passé du réseau. Nous avons prêté une attention particulière aux anomalies observées sur les données réelles : doublons temporels, horodatages figés sur plusieurs relevés consécutifs ou incohérences entre la capacité déclarée et les vélos ou places libres disponibles, afin que ces cas ne faussent pas les analyses ultérieures.
-
-* **Consultation, fiabilité et recommandation (F3, F4, F5) :** Nous avons testé la recherche de stations (à partir de 3 caractères saisis), l'affichage des états et des disponibilités ainsi que les courbes d'évolution sur les différentes fenêtres temporelles (24 heures, 7 jours, 30 jours). Nous avons également vérifié le calcul des indicateurs de vide et de saturation ainsi que le score de fiabilité sur des jeux de données variés (station régulière, station souvent vide ou saturée, historique court ou incomplet), et testé le moteur de recommandation dans plusieurs configurations : adresse hors de l'agglomération bordelaise ou introuvable, rayon de recherche étroit ou sans station utilisable, et classement selon le score combinant proximité et fiabilité.
-
-* **Parcours utilisateur sur l'interface Streamlit :** Nous avons contrôlé la cohérence des informations affichées entre les différentes pages, la lisibilité des graphiques et de la carte, ainsi que la présence de messages d'erreur clairs et compréhensibles lorsqu'aucune donnée ne correspond à la demande ou qu'un accès nécessite une authentification.
+Afin de garantir la fiabilité de VeloScope, nous avons réalisé des vérifications portant à la fois sur le fonctionnement normal des fonctionnalités et sur la gestion des situations dégradées. Ces vérifications reposent sur des tests automatisés avec `pytest`, exécutés par notre chaîne d'intégration continue à chaque push, ainsi que sur des contrôles manuels de l'interface.
 
 ## Tests automatisés
 
-Parallèlement à l'écriture du code, nous avons développé des tests avec pytest, qui suivent l'architecture en couches décrite en section 3 : les services, les contrôleurs et les DAO disposent chacun de leurs tests (dossiers tests/test_service, tests/test_controller et tests/test_dao), soit plus de 150 cas de test. Chaque scénario est structuré selon la convention GIVEN / WHEN / THEN : état initial, action testée, résultat attendu.
+Nous avons développé plus de 150 tests automatisés, organisés selon l'architecture en couches de l'application : services, contrôleurs et DAO (dossiers `tests/test_service`, `tests/test_controller` et `tests/test_dao`).
 
-Le principe est de tester chaque couche isolément, en remplaçant les couches voisines par des objets simulés (unittest.mock). Les tests sont ainsi rapides (quelques secondes pour l'ensemble des tests unitaires), déterministes et indépendants du réseau comme de l'API de la métropole.
+Les tests sont structurés selon la logique GIVEN / WHEN / THEN : définition de l'état initial, exécution de l'action testée et vérification du résultat attendu. Afin de tester chaque couche indépendamment, nous utilisons notamment `unittest.mock` pour simuler les interactions avec les couches voisines. Cette approche permet d'obtenir des tests rapides, déterministes et indépendants du réseau ou de l'API de Bordeaux Métropole.
 
-Dans la couche Service nous testons principalement: la création de compte et la connexion, la recherche de station, le taux de remplissage, l'historique sur 24 h / 7 j / 30 j, le calcul du score de fiabilité (durées et pourcentages de vide et de saturation, évolution, cas sans historique), les favoris. Pour ce faire, nous remplaçons les DAO par des MagicMock. 
+### Tests de services
 
-Dans la couche contrôleurs nous testons principalement: les routes FastAPI : codes HTTP (200, 400, 401, 403, 404, 422, 500), la validation des paramètres, les droits administrateur, les tokens , le cloisonnement des favoris par utilisateur.  
+Une attention particulière a été portée aux tests de la couche Service, qui regroupe la principale logique métier de l'application.
 
-Dans la couche DAO nous testons principalement les requêtes SQL (lecture, création, mise à jour, suppressions, cas échec). Nous isolons cette partie via des faux curseur pour StationDAO et FavoriDAO. 
+Nous avons notamment testé :
+- **La gestion des comptes** : création, vérification des identifiants et connexion.
+- **La consultation des stations** : recherche par nom, calcul du taux de remplissage et récupération de l'historique sur différentes périodes (24 h, 7 j et 30 j).
+- **Le calcul de la fiabilité** : pourcentages et durées des épisodes de vide et de saturation, calcul du score actuel et évolution dans le temps. Plusieurs situations ont été étudiées, notamment les stations régulièrement vides ou saturées et les historiques incomplets ou inexistants.
+- **La gestion des favoris** : ajout, consultation et suppression des stations favorites.
+- **Les recommandations** : vérification du classement des stations selon leur proximité et leur fiabilité, ainsi que la prise en compte des situations où aucune station adaptée n'est disponible.
 
+Pour isoler la logique métier, les DAO sont remplacés par des objets simulés (`MagicMock`). Les tests peuvent ainsi se concentrer sur le comportement des services sans dépendre d'une véritable base de données.
 
--> A relire et compléter 
--> rajouter une partie sur les score de fiabilité !!
+### Tests des contrôleurs
 
+Les tests des contrôleurs vérifient le bon fonctionnement des routes FastAPI : codes de réponse HTTP (200, 400, 401, 403, 404, 422, 500), validation des paramètres, gestion des tokens d'authentification, vérification des droits administrateur et cloisonnement des favoris entre utilisateurs.
+
+### Tests des DAO
+
+Les tests des DAO portent sur les opérations réalisées en base de données : lecture, création, mise à jour et suppression des données, ainsi que la gestion des erreurs. Nous utilisons notamment de faux curseurs SQL pour simuler les échanges avec PostgreSQL.
+
+## Vérifications manuelles
+
+Enfin, nous avons réalisé des vérifications directement sur l'interface Streamlit afin de contrôler la cohérence des informations affichées entre les pages, la lisibilité des graphiques et de la carte, ainsi que la bonne gestion des situations particulières : absence de données, erreur de communication avec l'API ou accès nécessitant une authentification.
 
 Nous avons également cherché à garantir la qualité du code via une analyse statique avec Ruff. 
 \pagebreak
