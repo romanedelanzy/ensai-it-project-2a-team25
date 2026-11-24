@@ -273,7 +273,7 @@ La deuxième couche est celle des contrôleurs (Controller Layer), développés 
 
 La troisième couche est celle des services (Service Layer). Elle constitue le cœur de l'application et rassemble l'essentiel de la logique métier. On y retrouve les méthodes permettant le fonctionnement de VeloScope : calcul du score de fiabilité, génération des recommandations, vérification des mots de passe, gestion des favoris, etc. C'est également à ce niveau qu'est organisée la collecte des données provenant de l'API GBFS de Bordeaux Métropole, en s'appuyant sur des composants dédiés à leur récupération et à leur transformation.
 
-La quatrième couche du projet est constituée des modèles. Il s'agit de classes représentant les entités manipulées par l'application sous forme d'objets Python. Ils permettent de aux autres couches de fonctionner, notamment les services, sans avoir à connaître directement la structure des données provenant de PostgreSQL ou de l'API GBFS.
+La quatrième couche du projet est constituée des modèles. Il s'agit de classes représentant les entités manipulées par l'application sous forme d'objets Python. Ils permettent aux autres couches de fonctionner, notamment les services, sans avoir à connaître directement la structure des données provenant de PostgreSQL ou de l'API GBFS.
 
 Enfin, la derniere couche est constituée des DAO. Les DAO assurent les interactions avec la base de données PostgreSQL. Ils permettent notamment de lire, d'insérer, de modifier et de supprimer les données, en isolant les opérations d'accès à la base du reste de la logique métier.
 
