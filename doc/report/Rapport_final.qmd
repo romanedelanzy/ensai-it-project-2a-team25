@@ -221,7 +221,7 @@ Parmi ces dernières, nous avons identifié plusieurs particularités nécessita
 
 Notre module de collecte a été conçu pour filtrer les doublons temporels et ignorer les relevés incohérents afin de ne pas fausser nos calculs statistiques. Ce pré-traitement est notamment effectué au sein du DAO des stations.
 
-Le rôle de Véloscope ne s'arrête pas à la simple extraction de ces données. À partir de ces relevés bruts archivés toutes les 1h, VeloScope produit ses propres indicateurs à forte valeur ajoutée. L'application apporte à l'utilisateur des informations quant à l'état d'une station à chaque instant, calcule des pourcentages de temps passé en pénurie ou en saturation, la durée moyenne de ces épisodes d'indisponibilité, un score global de fiabilité sur 100, ainsi qu'un score de recommandation personnalisé. Ces calculs ne sont pas stockés dans notre base de données mais effectués à la volée.
+Le rôle de Véloscope ne s'arrête pas à la simple extraction de ces données. À partir de ces relevés bruts archivés toutes les 1h, VeloScope produit ses propres indicateurs à forte valeur ajoutée. L'application apporte à l'utilisateur des informations quant à l'état d'une station à chaque instant, calcule des pourcentages de temps passé en pénurie ou en saturation, la durée moyenne de ces épisodes d'indisponibilité, un score global de fiabilité compris entre 0 et 1, ainsi qu'un score de recommandation personnalisé. Ces calculs ne sont pas stockés dans notre base de données mais effectués à la volée.
 
 \pagebreak
 
@@ -362,9 +362,9 @@ L'utilisateur peut aussi utiliser la page "Consultation d'une station" pour se r
 * Son identifiant, adresse, coordonnées ainsi que
 des informations sur son état actuel (si la station est disponible, vide, saturée, non opérationnelle ou inconnue, le nombre de vélos qui y sont disponibles dont les vélos électriques, le nombre de places disponibles, sa capacité, son taux de remplissage ainsi que la date et le détail de son dernier relevé), 
 
-* L'évolution de sa disponibilité sur 24h, 7 jours ou 31 jours; ainsi que les détails de sa fiabilité (son score actuel, la part du temps passée vide et saturée, la durée moyenne des épisodes de vide et de saturation, et l'évolution du score).
+* L'évolution de sa disponibilité sur 24h, 7 jours ou 30 jours; ainsi que les détails de sa fiabilité (son score actuel, la part du temps passée vide et saturée, la durée moyenne des épisodes de vide et de saturation, et l'évolution du score).
 
-Une station est considérée comme disponible si elle est installée, permet les emprunts et retours et possède au moins une place libre et un vélo. Elle est renvoyé sous forme d'un booléen (1 si pisponible, 0 sinon). Le calcul de disponibilité est géré par le service station.
+Une station est considérée comme disponible si elle est installée, permet les emprunts et retours et possède au moins une place libre et un vélo. Elle est renvoyé sous forme d'un booléen (1 si disponible, 0 sinon). Le calcul de disponibilité est géré par le service station.
 
 ### Fiabilité des stations (F4)
 
@@ -429,23 +429,29 @@ Au-delà des fonctionnalités optionnelles, l'architecture de VeloScope a été 
 
 # Conclusion et bilan
 
-Au terme de ces trois mois de développement, le projet VeloScope répond pleinement à l'objectif initial : dépasser la simple consultation instantanée des vélos en libre-service pour offrir aux usagers une véritable aide à la décision fondée sur l'analyse historique des données.
+Au terme de ces trois mois de développement, le projet VeloScope répond pleinement à l'objectif initial : dépasser la simple consultation instantanée des vélos en libre-service pour offrir aux usagers une véritable aide à la décision fondée sur l'analyse historique des données.Grâce à la collecte régulière des relevés du réseau bordelais et à leur stockage en base de données, l'application permet non seulement de suivre l'état des stations dans le temps, mais aussi de quantifier leur fiabilité et d'orienter l'utilisateur vers les points d'emprunt les plus pertinents selon sa position.
 
-Sur le plan technique, ce projet nous a permis de mettre en pratique l'ensemble du cycle de vie d'une application logicielle moderne : de la modélisation UML et relationnelle jusqu'au déploiement d'une architecture client-serveur, en passant par l'intégration d'une API externe réelle. Sur le plan humain, cette expérience nous a appris à structurer notre travail en équipe, à écouter les retours critiques pour faire évoluer nos choix d'architecture, et à maintenir un haut niveau d'exigence sur la qualité du code produit.
+Du point de vue des usages et des profils concernés, l'application offre aux usagers du réseau (étudiants, citoyens, travailleurs) un accès unifié à la consultation des stations, à l'historique sur différentes fenêtres temporelles, à la carte interactive, aux favoris et aux recommandations. Elle dote en parallèle les administrateurs d'une gestion dédiée des comptes sans compromettre l'intégrité de la base de données, alimentée en arrière-plan.
+
+Sur le plan technique, ce projet nous a permis de mettre en pratique l'ensemble du cycle de vie d'une application logicielle moderne : de la modélisation UML et relationnelle jusqu'au déploiement d'une architecture en couches structurée (Python, FastAPI, PostgreSQL, Streamlit). Nous avons également du composer avec les imperfections des flux réels et de sécuriser le code par des tests et une démarche qualité. La séparation en couches a facilité la répartition du travail, la maintenance du code et l'identification des anomalies face aux imperfections des données réelles.
+
+Sur le plan humain et organisationnel, cette expérience nous a appris à structurer notre travail en équipe, à adapter nos méthodes face aux imprévus et aux différences de rythme ou d'aisance technique, ainsi qu'à écouter les retours critiques pour faire évoluer nos choix d'architecture. Malgré les difficultés rencontrées, nous avons réussi à créer une application fonctionnelle, cohérente et évolutive, qui constitue une base solide pour de futures améliorations, qu'il s'agisse de prévision statistique ou d'ouverture à d'autres réseaux urbains.
 
 \pagebreak
 # Annexes
 
 ## Notes individuelles 
 
-### Fanny Bouby
+### Fanny BOUBY
 J'ai principalement travaillé sur les stations, sur toutes les couches du code. J'ai écrit la classe Station qui contrôle la validité des données (types, bornes de latitudes et de longitude, capacité positive), le StationDAO qui lit et écrit les stations dans la base de données et garantit le CRUD, ainsi que les tables reseau et station. J'ai aussi écrit le StationService et le StationController qui reçoit les requêtes de l'API (lister les stations, en chercher une, voir son état et son historique, et créer, modifier ou supprimer pour un administrateur). Il renvoie une erreur claire quand quelque chose ne va pas (403 si l’utilisateur n’est pas administrateur, 404 si la station n’existe pas, 422 si une valeur est invalide. J'ai écrit les tests pour Station pour chaque couche du code. J'ai participé au début du codage des pages du frontend, et j'ai grandement participé à la rédaction du rapport intermédiaire et du rapport final.
 J'ai trouvé que l'organisation du groupe fonctionnait bien. Nous n'avons pas désigné de chef de projet ou de leader technique parce qu'aucun de nous ne se sentait particulièrement adapté à l'un de ces rôles. Nous avons réussi à discuter à plusieurs des difficultés rencontrées, comme par exemple comment enregistrer la base de données ou comment gérer l'affichage de la carte des stations. Les décisions ont toujours été prises à plusieurs et avec l'accord de tous. Il était aussi très pratique que le code soit séparé en couche pour le travail à plusieurs. Je pouvais tester mon DAO sans attendre les autres. Avoir fait toutes les couches des stations m’a aidé à bien comprendre le chemin d’une requête, de l’API jusqu’à la base.
 Au début, j'ai eu du mal à comprendre comment toutes les parties du projet s'assemblaient. Mes plus grosses difficultés ont donc porté sur l'alignement des différentes couche de l'architecture. En parallèle, je ne savais pas comment gérer la création automatique d'un identifiant lors de l'ajout d'une station. J'ai décidé de le calculer en SQL (le maximum des identifiants existants + 1), ce qui a créé un décalage entre les couches. J'ai aussi eu quelques difficultés d'environnement ou d'utilisation de git avec le groupe. À chaque fois, la cause était simple, mais le diagnostic a pris du temps.
 Je pense que ce projet m'a beaucoup aidé à comprendre comment peut s'organiser une application en python. Avant, j'avais du mal à imaginer comment structurer un tel projet. J'ai aussi appris à régler certains conflits Git. Si le projet était à refaire, j’essaierais d’inciter mon groupe à harmoniser plus tôt l’écriture du code et les noms des méthodes et des attributs. J’essaierais aussi de communiquer davantage pendant que chacun écrivait les couches métier de sa partie, car cela a posé problème au moment de les assembler. Par exemple, même si nous en avions parlé dès le début, nos DAO n’avaient pas tous les mêmes conventions (creer et create, trouver_par_id et find_by_id). Aussi, il aurait peut-être été plus pratique d'écrire le rapport en même temps que le code, pour mieux documenter nos questionnements.
 
+##Audrey DANJOIE
 
-### Romane Delanzy
+
+### Romane DELANZY
 Pendant ces trois mois consacrés au projet VeloScope, j'ai pris part à l'organisation collective lors de nos réunions, à la réflexion sur les fonctionnalités, à la conception des graphiques, au développement ainsi qu'à la rédaction des rapports. Ayant davantage de difficultés en informatique, je me suis concentrée, en accord avec le reste du groupe, sur la classe Favori qui me semblait l'une des moins complexes à appréhender ainsi que sur le développement du frontend.
 
 Le travail en groupe s'est révélé très formateur et enrichissant. Nous avons cherché à communiquer au maximum pour répartir les tâches, nous entraider et tenir nos échéances. Naturellement, le rythme a pu varier selon les périodes en raison des autres cours et des contraintes d'emploi du temps de chacun, mais cela ne nous a pas empéché de mener le projet à terme. Chacun a pu trouver sa place, les tâches les plus complexes étant confiées aux personnes les plus à l'aise techniquement, et inversement.
@@ -455,18 +461,9 @@ L'aspect le plus difficile pour moi a été de saisir la structure globale de l'
 Ce projet m'a surtout appris à persévérer face à la complexité technique. Si c'était à refaire, je consacrerais encore davantage de temps en amont à bien cerner l'architecture et le périmètre de chaque couche, car cette vision d'ensemble est essentielle pour que chaque brique s'articule naturellement avec les autres. Au final, je suis fière du chemin parcouru et du travail accompli collectivement.
 
 
+##Jean POHARDY
 
-
-
-
-
-## autres
-
-
-
-
-
-
+##Elouan REGUIGNE GRANCHER
 
 
 
