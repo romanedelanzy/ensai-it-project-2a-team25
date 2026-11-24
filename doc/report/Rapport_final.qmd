@@ -281,7 +281,7 @@ Zoomons sur ce processus de manière plus précise.
 
 1) Recherche à partir d’une adresse
 
-Partons de la page `recommendation`du frontend. Dans l’interface, une zone de saisie est créee afin que l’usager saisisse une adresse à Bordeaux et choisisse le nombre maximal de résultats ainsi qu’un rayon de recherche. L'utilisateur clique sur le bouton "Rechercher des stations". À ce moment, la requête HTTP est envoyée au backend sous forme de dictionnaire.
+Partons de la page `recommendation`du frontend. Dans l’interface, une zone de saisie est créee afin que l’usager saisisse une adresse à Bordeaux et choisisse le nombre maximal de résultats ainsi qu’un rayon de recherche. L'utilisateur clique sur le bouton "Rechercher des stations". À ce moment, la requête HTTP est envoyée au backend.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -302,7 +302,7 @@ L’API peut également recevoir directement une latitude et une longitude, sans
 
 Le service récupère la liste de toutes les stations par appel au DAO et calcule la distance à vol d’oiseau entre la position recherchée et chaque station. Il utilise ensuite le dernier statut enregistré pour écarter les stations qui ne sont pas installées, qui ne permettent pas l’emprunt ou qui ne disposent d’aucun vélo, comme elles ne constituent pas une bonne recommandation. Pour les stations qui ne sont pas écartées, on calcule le score de fiabilité global par appel au service `fiabilite`. 
 
-Le paramètre `rayon_km` permet de limiter la recherche aux stations situées dans un rayon donné. Il est facultatif dans l’API : sans ce paramètre, aucune distance maximale n’est appliquée. Le paramètre `limite`, égal à 5 par défaut, détermine le nombre maximal de résultats renvoyés. Dans l’interface, l’usager peut choisir de 1 à 10 stations et un rayon de 0,1 à 10 km ; le rayon proposé par défaut est de 1 km.
+Le paramètre `rayon_km` permet de limiter la recherche aux stations situées dans un rayon donné. Il est facultatif dans l’API : sans ce paramètre, aucune distance maximale n’est appliquée. Le paramètre `limite`, égal à 5 par défaut, détermine le nombre maximal de résultats renvoyés.
 
 Les stations qui satisfont ces critères sont classées selon un score combinant à parts égales la proximité et la fiabilité :
 
@@ -339,9 +339,6 @@ L’endpoint `GET /recommendation/` est également documenté dans Swagger. Sa d
 ![Requête de recommandation et paramètres dans Swagger.](../ressources/Screenshots/reco_swagger_requete.png){#fig-reco-swagger-requete}
 
 ![Exemple de réponse renvoyée par l’API dans Swagger.](../ressources/Screenshots/reco_swagger_reponse.png){#fig-reco-swagger-reponse}
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-Les tests existants vérifient notamment l’appel de l’API avec des coordonnées, la prise en charge d’une adresse à l’aide d’un géocodeur simulé et le rejet de coordonnées hors limites. Le fonctionnement complet du classement — filtres, calcul des scores et tri — pourrait être davantage couvert par des tests. La recherche par adresse dépend aussi de la disponibilité de Nominatim et de la qualité de l’adresse saisie.
 
 ## Synthèse des autres fonctionnalités 
 
@@ -376,7 +373,7 @@ Une station est considérée comme disponible si elle est installée, permet les
 
 Comme indiqué plus haut, le score de fiabilité d'une station est calculé à partir de l’historique de ses statuts selon la moyenne de 5 composantes : le pourcentage de temps passé vide et saturée, la durée moyenne des périodes de vide et de saturation, et l'état actuel de la station (si elle est à la fois ni vide ni saturée). Il est à prendre avec parcimonie : une station qui est toujours vide mais jamais saturée possède un score non nul. Pour cette raison, on affiche de détail de chaque composante qui a permis le calcul de la fiabilité afin de donner davantage d'informations à l'utilisateur. 
 
-Le calcul du score se fait à partir du service fiabilité. Il est calculé depuis la date la plus ancienne d'historique présent sur la base de données. Le calcul de l'historique demandant de parcourir chaque date de relevé présent sur la base de données en tenant compte des précédents, il a été optimisé pour réutiliser les indicateurs ayant été déjà calculés par le passé afin de ne pas les recalculer et éviter une surcharge. La sélection des statuts qui ne concernent qu'une station selon une date limite de début de relevé se fait grâce à une fonction de le DAO des statuts.
+Le calcul du score se fait à partir du service fiabilité. Il est calculé depuis la date la plus ancienne d'historique présent sur la base de données. Le calcul de l'historique demandant de parcourir chaque date de relevé présent sur la base de données en tenant compte des précédents, il a été optimisé pour réutiliser les indicateurs ayant été déjà calculés par le passé afin de ne pas les recalculer et éviter une surcharge.
 
 ### Fonctionnalité supplémentaire
 
