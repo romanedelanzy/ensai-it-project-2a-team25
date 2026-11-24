@@ -330,7 +330,7 @@ Une fois le calcul de chaque score effectué et le classement établi, l’API r
 
 L’interface présente les stations recommandées avec leur nom, leur adresse, leur distance et leurs scores. La distance est une distance à vol d’oiseau : elle ne représente pas un trajet réel à vélo par le réseau de rues.
 
-![Stations recommandées affichées dans l’interface.](../ressources/Screenshots/reco_interface_resultats.png){#fig-reco-resultats}
+![Stations recommandées affichées dans l’interface.](../ressources/Screenshots/reco_interface_resultats.png){width=65%}
 
 L’endpoint `GET /recommendation/` est également documenté dans Swagger. Sa documentation permet de vérifier les paramètres acceptés — adresse ou coordonnées, limite et rayon — et la structure de la réponse renvoyée.
 
@@ -339,6 +339,8 @@ L’endpoint `GET /recommendation/` est également documenté dans Swagger. Sa d
 ![Requête de recommandation et paramètres dans Swagger.](../ressources/Screenshots/reco_swagger_requete.png){#fig-reco-swagger-requete}
 
 ![Exemple de réponse renvoyée par l’API dans Swagger.](../ressources/Screenshots/reco_swagger_reponse.png){#fig-reco-swagger-reponse}
+
+\clearpage
 
 ## Synthèse des autres fonctionnalités 
 
@@ -468,7 +470,16 @@ Ce projet m'a surtout appris à persévérer face à la complexité technique. S
 
 ##Jean POHARDY
 
-##Elouan REGUIGNE GRANCHER
+### Elouan REGUIGNE GRANCHER
+J’ai principalement travaillé sur l’intégration des données externes et la recommandation de stations. J’ai contribué à la mise en place des composants *provider* et *adapter* : le premier récupère les données GBFS, tandis que le second les convertit au format utilisé par l’application. J’ai également participé à l’adaptation de cette collecte au réseau de vélos de Bordeaux. J’ai ensuite travaillé sur la recommandation, du backend jusqu’à la page Streamlit : saisie d’une adresse bordelaise, géocodage avec Nominatim/OpenStreetMap, sélection des stations disponibles et classement selon leur proximité et leur fiabilité.
+
+Ces tâches m’ont demandé de faire beaucoup de recherches personnelles, notamment sur l’API externe de Bordeaux et le géocodage. Toutes les pistes explorées n’ont pas abouti, ce qui a parfois été frustrant, mais cette démarche a été enrichissante : elle m’a appris à comparer des solutions, à comprendre les services utilisés et à persévérer jusqu’à trouver une approche adaptée.
+
+Au début du projet, je ne me sentais pas encore à l’aise avec le rôle des différentes couches ni avec la conception d’une application Python de cette ampleur. J’avais l’impression que le reste du groupe découvrait ces notions en même temps que moi : comme personne ne les maîtrisait vraiment, il était parfois difficile de savoir vers qui se tourner et je me suis parfois senti un peu noyé. Le rapport intermédiaire, à rendre après seulement trois semaines, nous demandait déjà de présenter nos choix d’architecture et de classes alors que nous commencions tout juste à comprendre certains concepts. Au fil du développement, j’ai toutefois vu que plusieurs éléments étudiés en TP pouvaient nous aider concrètement, comme FastAPI, les DAO et l’importation des données dans la base avec `pop_db`. Faire ces liens entre les cours et le projet m’a permis de mieux comprendre comment les différentes parties s’articulent.
+
+Notre organisation avait aussi un avantage : en suivant un même objet à travers les couches — du *business object* au DAO, au service, au contrôleur puis au frontend — chacun pouvait toucher à l’ensemble de l’architecture et comprendre le parcours d’une donnée. En revanche, comme nous avancions parfois séparément, nous n’étions pas toujours au courant des choix d’implémentation des autres, ce qui a parfois compliqué l’assemblage. Avec le recul, nous aurions pu partager plus régulièrement nos décisions techniques et harmoniser plus tôt nos conventions.
+
+Même si nous avions tous quelques appréhensions au début, chacun a peu à peu trouvé sa place dans le projet. Nous avons appris à partager nos avancées, à nous entraider et à demander conseil lorsque nous étions bloqués. Cette bonne entente nous a permis de progresser ensemble et a rendu les moments difficiles plus faciles à traverser. Pour la suite, je renforcerais notamment les tests du moteur de recommandation et j’évaluerais son classement sur davantage de situations réelles.
 
 
 
