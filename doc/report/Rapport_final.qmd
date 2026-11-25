@@ -88,7 +88,6 @@ VeloScope s'adresse à deux profils d'utilisateurs distincts et structurés selo
 
 * **L'Usager du réseau** (Utilisateur standard) : Il représente tout citoyen, étudiant ou travailleur souhaitant optimiser ses déplacements à vélo en ville. Après avoir créé son compte personnel et s'être connecté, il peut rechercher une station, visualiser l'évolution de sa disponibilité sur différentes périodes (24h, 7 jours, 30 jours), consulter son score de fiabilité, enregistrer ses stations habituelles en favoris, explorer la carte interactive du réseau ou demander une recommandation de station et d'itinéraire. Une liste de toutes les stations de vélo de la ville de Bordeaux lui est également disponible.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 * **L'Administrateur** : Il s'agit du gestionnaire technique de la plateforme. Il dispose exactement des mêmes fonctionnalités qu'un usager standard (il n'a donc pas besoin de jongler entre deux comptes distincts pour utiliser l'application), mais bénéficie en plus d'un espace d'administration lui permettant de superviser les comptes inscrits. Il peut ainsi accéder à la liste de tous les utilisateurs, modifier les informations d'un compte si nécessaire (nom d'utilisateur, email, mot de passe, droits administrateur), ou supprimer un compte. Ce profil s'adresse principalement aux techniciens de maintenance et développeurs, dans le cas par exemple où un utilisateur aurait oublié son mot de passe. Notons que nous n'avons volontairement pas donné de droits sur la base de données à l'administrateur afin de préserver son intégrité. La gestion de cette base est faite automatiquement grâce au système de collecte présent en arrière plan de manière permanente dans notre application.
 
@@ -211,7 +210,10 @@ Le détail de la base finale de travail sous forme de schéma est proposé ci-de
 
 Notre modèle de données est composé de 5 tables. La table Compte gère les informations relatives aux utilisateurs. Station contient toutes les stations de la ville de Bordeaux. Station Statut possède l'ensemble des relevés de statuts de chaque station issus de la collecte. Réseau liste la liste des villes de notre réseau de vélo. Favoris gère les favoris de chaque utilisateur.
 
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
 
 Pour l'instant, notre réseau n'est composé que de celui de Bordeaux (id 1), mais il est possible d'ajouter d'autres villes. Notre table Compte est 3NF, les informations ne dépendant que de l'identifiant. Il en va de même pour la table station. La clé primaire de station_statut est le couple (station_id, last_reported) : on enregistre le statut d'une station à une date et heure donnée. Chaque favori est associé à un identifiant utilisateur (user_id, station_id). 
 
@@ -398,10 +400,15 @@ Les tests sont structurés selon la logique GIVEN / WHEN / THEN : définition de
 Une attention particulière a été portée aux tests de la couche Service, qui regroupe la principale logique métier de l'application.
 
 Nous avons notamment testé :
+
 - **La gestion des comptes** : création, vérification des identifiants et connexion.
+
 - **La consultation des stations** : recherche par nom, calcul du taux de remplissage et récupération de l'historique sur différentes périodes (24 h, 7 j et 30 j).
+
 - **Le calcul de la fiabilité** : pourcentages et durées des épisodes de vide et de saturation, calcul du score actuel et évolution dans le temps. Plusieurs situations ont été étudiées, notamment les stations régulièrement vides ou saturées et les historiques incomplets ou inexistants.
+
 - **La gestion des favoris** : ajout, consultation et suppression des stations favorites.
+
 - **Les recommandations** : vérification du classement des stations selon leur proximité et leur fiabilité, ainsi que la prise en compte des situations où aucune station adaptée n'est disponible.
 
 Pour isoler la logique métier, les DAO sont remplacés par des objets simulés (`MagicMock`). Les tests peuvent ainsi se concentrer sur le comportement des services sans dépendre d'une véritable base de données.
@@ -445,20 +452,20 @@ Sur le plan technique, ce projet nous a permis de mettre en pratique l'ensemble 
 Sur le plan humain et organisationnel, cette expérience nous a appris à structurer notre travail en équipe, à adapter nos méthodes face aux imprévus et aux différences de rythme ou d'aisance technique, ainsi qu'à écouter les retours critiques pour faire évoluer nos choix d'architecture. Malgré les difficultés rencontrées, nous avons réussi à créer une application fonctionnelle, cohérente et évolutive, qui constitue une base solide pour de futures améliorations, qu'il s'agisse de prévision statistique ou d'ouverture à d'autres réseaux urbains.
 
 \pagebreak
-# Annexes
 
-## Notes individuelles 
 
-### Fanny BOUBY
+# Notes individuelles 
+
+## Fanny BOUBY
 J'ai principalement travaillé sur les stations, sur toutes les couches du code. J'ai écrit la classe Station qui contrôle la validité des données (types, bornes de latitudes et de longitude, capacité positive), le StationDAO qui lit et écrit les stations dans la base de données et garantit le CRUD, ainsi que les tables reseau et station. J'ai aussi écrit le StationService et le StationController qui reçoit les requêtes de l'API (lister les stations, en chercher une, voir son état et son historique, et créer, modifier ou supprimer pour un administrateur). Il renvoie une erreur claire quand quelque chose ne va pas (403 si l’utilisateur n’est pas administrateur, 404 si la station n’existe pas, 422 si une valeur est invalide. J'ai écrit les tests pour Station pour chaque couche du code. J'ai participé au début du codage des pages du frontend, et j'ai grandement participé à la rédaction du rapport intermédiaire et du rapport final.
 J'ai trouvé que l'organisation du groupe fonctionnait bien. Nous n'avons pas désigné de chef de projet ou de leader technique parce qu'aucun de nous ne se sentait particulièrement adapté à l'un de ces rôles. Nous avons réussi à discuter à plusieurs des difficultés rencontrées, comme par exemple comment enregistrer la base de données ou comment gérer l'affichage de la carte des stations. Les décisions ont toujours été prises à plusieurs et avec l'accord de tous. Il était aussi très pratique que le code soit séparé en couche pour le travail à plusieurs. Je pouvais tester mon DAO sans attendre les autres. Avoir fait toutes les couches des stations m’a aidé à bien comprendre le chemin d’une requête, de l’API jusqu’à la base.
 Au début, j'ai eu du mal à comprendre comment toutes les parties du projet s'assemblaient. Mes plus grosses difficultés ont donc porté sur l'alignement des différentes couche de l'architecture. En parallèle, je ne savais pas comment gérer la création automatique d'un identifiant lors de l'ajout d'une station. J'ai décidé de le calculer en SQL (le maximum des identifiants existants + 1), ce qui a créé un décalage entre les couches. J'ai aussi eu quelques difficultés d'environnement ou d'utilisation de git avec le groupe. À chaque fois, la cause était simple, mais le diagnostic a pris du temps.
 Je pense que ce projet m'a beaucoup aidé à comprendre comment peut s'organiser une application en python. Avant, j'avais du mal à imaginer comment structurer un tel projet. J'ai aussi appris à régler certains conflits Git. Si le projet était à refaire, j’essaierais d’inciter mon groupe à harmoniser plus tôt l’écriture du code et les noms des méthodes et des attributs. J’essaierais aussi de communiquer davantage pendant que chacun écrivait les couches métier de sa partie, car cela a posé problème au moment de les assembler. Par exemple, même si nous en avions parlé dès le début, nos DAO n’avaient pas tous les mêmes conventions (creer et create, trouver_par_id et find_by_id). Aussi, il aurait peut-être été plus pratique d'écrire le rapport en même temps que le code, pour mieux documenter nos questionnements.
 
-##Audrey DANJOIE
+## Audrey DANJOIE
 
 
-### Romane DELANZY
+## Romane DELANZY
 Pendant ces trois mois consacrés au projet VeloScope, j'ai pris part à l'organisation collective lors de nos réunions, à la réflexion sur les fonctionnalités, à la conception des graphiques, au développement ainsi qu'à la rédaction des rapports. Ayant davantage de difficultés en informatique, je me suis concentrée, en accord avec le reste du groupe, sur la classe Favori qui me semblait l'une des moins complexes à appréhender ainsi que sur le développement du frontend.
 
 Le travail en groupe s'est révélé très formateur et enrichissant. Nous avons cherché à communiquer au maximum pour répartir les tâches, nous entraider et tenir nos échéances. Naturellement, le rythme a pu varier selon les périodes en raison des autres cours et des contraintes d'emploi du temps de chacun, mais cela ne nous a pas empéché de mener le projet à terme. Chacun a pu trouver sa place, les tâches les plus complexes étant confiées aux personnes les plus à l'aise techniquement, et inversement.
@@ -468,9 +475,9 @@ L'aspect le plus difficile pour moi a été de saisir la structure globale de l'
 Ce projet m'a surtout appris à persévérer face à la complexité technique. Si c'était à refaire, je consacrerais encore davantage de temps en amont à bien cerner l'architecture et le périmètre de chaque couche, car cette vision d'ensemble est essentielle pour que chaque brique s'articule naturellement avec les autres. Au final, je suis fière du chemin parcouru et du travail accompli collectivement.
 
 
-##Jean POHARDY
+## Jean POHARDY
 
-### Elouan REGUIGNE GRANCHER
+## Elouan REGUIGNE GRANCHER
 J’ai principalement travaillé sur l’intégration des données externes et la recommandation de stations. J’ai contribué à la mise en place des composants *provider* et *adapter* : le premier récupère les données GBFS, tandis que le second les convertit au format utilisé par l’application. J’ai également participé à l’adaptation de cette collecte au réseau de vélos de Bordeaux. J’ai ensuite travaillé sur la recommandation, du backend jusqu’à la page Streamlit : saisie d’une adresse bordelaise, géocodage avec Nominatim/OpenStreetMap, sélection des stations disponibles et classement selon leur proximité et leur fiabilité.
 
 Ces tâches m’ont demandé de faire beaucoup de recherches personnelles, notamment sur l’API externe de Bordeaux et le géocodage. Toutes les pistes explorées n’ont pas abouti, ce qui a parfois été frustrant, mais cette démarche a été enrichissante : elle m’a appris à comparer des solutions, à comprendre les services utilisés et à persévérer jusqu’à trouver une approche adaptée.
