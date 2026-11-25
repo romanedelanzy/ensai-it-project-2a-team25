@@ -1,8 +1,8 @@
+
 """
 Main entry point for the FastAPI web service.
 
-Initializes logging, loads environment variables, and sets up API routers
-for players, login, and games.
+Initializes logging, loads environment variables, and sets up API routers.
 """
 
 import asyncio
@@ -24,6 +24,7 @@ from controller import (
     recommendation_controller,
     station_controller,
 )
+from utils.database_utils import synchronize_compte_sequence
 from utils.env_variables import display_values, load_environment_variables
 from utils.log_utils import LogMiddleware, get_logger, initialize_logs
 from utils.reset_database import ResetDatabase
@@ -57,6 +58,12 @@ def choose_collection():
 async def lifespan(app: FastAPI):
     """Gère le démarrage et l'arrêt du service."""
 
+    # Synchronisation des identifiants PostgreSQL
+    logger.info("Synchronisation de la séquence des comptes.")
+    synchronize_compte_sequence()
+    logger.info("Séquence des comptes synchronisée.")
+
+    # Démarrage de la collecte GBFS
     if ENABLE_GBFS_COLLECTION:
         logger.info("Démarrage du collecteur GBFS.")
         task = asyncio.create_task(collection_loop())
@@ -68,7 +75,6 @@ async def lifespan(app: FastAPI):
         yield
 
     finally:
-
         if task is not None:
             logger.info("Arrêt du collecteur GBFS.")
 
@@ -108,6 +114,7 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
         status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
         content={"detail": exc.errors(), "body": body_str},
     )
+
 
 app.include_router(station_controller.router, prefix="/station", tags=["Stations"])
 app.include_router(favori_controller.router, prefix="/favoris", tags=["Favoris"])

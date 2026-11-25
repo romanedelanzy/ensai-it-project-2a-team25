@@ -1,3 +1,4 @@
+
 import os
 from pathlib import Path
 from unittest import mock
@@ -5,6 +6,7 @@ from unittest import mock
 import dotenv
 
 from dao.db_connection import DBConnection
+from utils.database_utils import synchronize_compte_sequence
 from utils.log_utils import get_logger, log
 from utils.singleton import Singleton
 
@@ -25,7 +27,9 @@ class ResetDatabase(metaclass=Singleton):
         If test_dao=True: reset test data
         """
         if test_dao:
-            mock.patch.dict(os.environ, {"POSTGRES_SCHEMA": "project_test_dao"}).start()
+            mock.patch.dict(
+                os.environ, {"POSTGRES_SCHEMA": "project_test_dao"}
+            ).start()
             pop_data_path = self.base_path / "data" / "pop_db_test.sql"
         else:
             pop_data_path = self.base_path / "data" / "pop_db.sql"
@@ -35,7 +39,10 @@ class ResetDatabase(metaclass=Singleton):
         dotenv.load_dotenv()
 
         schema = os.environ["POSTGRES_SCHEMA"]
-        create_schema = f"DROP SCHEMA IF EXISTS {schema} CASCADE; CREATE SCHEMA {schema};"
+        create_schema = (
+            f"DROP SCHEMA IF EXISTS {schema} CASCADE; "
+            f"CREATE SCHEMA {schema};"
+        )
 
         # Lecture des fichiers SQL
         try:
@@ -45,12 +52,20 @@ class ResetDatabase(metaclass=Singleton):
             with open(pop_data_path, encoding="utf-8") as pop_db_file:
                 pop_db_as_string = pop_db_file.read()
 
-            # Logs de diagnostic
-            logger.info("Taille init_db.sql : %s caractères", len(init_db_as_string))
-            logger.info("Taille pop_db.sql : %s caractères", len(pop_db_as_string))
+            logger.info(
+                "Taille init_db.sql : %s caractères",
+                len(init_db_as_string),
+            )
+            logger.info(
+                "Taille pop_db.sql : %s caractères",
+                len(pop_db_as_string),
+            )
 
         except FileNotFoundError as e:
-            logger.error(f"Erreur de chemin : impossible de trouver le fichier {e.filename}")
+            logger.error(
+                "Erreur de chemin : impossible de trouver le fichier %s",
+                e.filename,
+            )
             raise
 
         # Exécution des scripts SQL
@@ -71,6 +86,11 @@ class ResetDatabase(metaclass=Singleton):
                     cursor.execute(pop_db_as_string)
 
                     logger.info("Toutes les étapes SQL ont été exécutées.")
+
+            # Synchronisation après le chargement des données
+            logger.info("Synchronisation de la séquence des comptes.")
+            synchronize_compte_sequence()
+            logger.info("Séquence des comptes synchronisée.")
 
         except Exception:
             logger.exception("Échec du reset de la base de données.")

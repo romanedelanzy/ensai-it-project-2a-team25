@@ -200,3 +200,18 @@ Certaines routes nécessitent d'être authentifié. Il faut alors transmettre le
 | `.github/workflows/ci.yml` | Définit un processus automatisé exécutant des tâches prédéfinies (tests, vérification du code ou déploiement, par exemple). |
 | `.vscode/settings.json`    | Contient les paramètres de configuration de VS Code propres à ce projet.                                                    |
 | `.gitignore`               | Liste les fichiers et dossiers qui ne doivent pas être suivis par Git.                                                      |
+
+### Erreur lors du reset
+
+Il se peut que le reset de la database ne marche pas à cause d'un problème de tâche en attente. Dans ce cas, suivre la procédure ci-contre :
+
+- Aller dans CloudBeaver
+- Lancer la requête SQL suivante :
+SELECT pid, state, wait_event_type, wait_event,
+       LEFT(query, 100) AS query
+FROM pg_stat_activity
+WHERE datname = current_database();
+
+- Si une tâche en attente est visible, supprimer-là : Par exemple, s'il s'agit de la tâche n°123975, SELECT pg_terminate_backend(123975);
+
+- Relancer le reset si nécessaire
