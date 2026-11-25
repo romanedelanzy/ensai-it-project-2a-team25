@@ -1,0 +1,33 @@
+24/11/2026 20:29:59 root                      INFO    - --------------------------------------------------
+24/11/2026 20:29:59 root                      INFO    - Starting Webservice                           
+24/11/2026 20:29:59 root                      INFO    - --------------------------------------------------
+24/11/2026 20:29:59 root                      INFO    - Load environment variables: SUCCES
+24/11/2026 20:29:59 root                      INFO    - POSTGRES_HOST=postgresql-cnpg-5856-rw.user-elouan
+24/11/2026 20:29:59 root                      INFO    - POSTGRES_PORT=5432
+24/11/2026 20:29:59 root                      INFO    - POSTGRES_DATABASE=defaultdb
+24/11/2026 20:29:59 root                      INFO    - POSTGRES_USER=user-elouan
+24/11/2026 20:29:59 root                      INFO    - POSTGRES_PASSWORD=*******
+24/11/2026 20:29:59 root                      INFO    - POSTGRES_SCHEMA=project
+24/11/2026 20:29:59 root                      INFO    - UVICORN_HOST=0.0.0.0 UVICORN_PORT=5000
+24/11/2026 20:29:59 root                      INFO    - BACKEND_URL=http://localhost:5000
+24/11/2026 20:29:59 root                      INFO    - BACKEND_TIMEOUT=5
+24/11/2026 20:36:04 root                      INFO    - GET /station/list_stations/ - START
+24/11/2026 20:36:04 root                      INFO    - GET /station/list_stations/ - END [Status: 401]
+24/11/2026 20:36:04 root                      INFO    - GET /station/ - START
+24/11/2026 20:36:04 root                      INFO    - GET /station/ - END [Status: 401]
+24/11/2026 20:36:06 root                      INFO    - GET /station/ - START
+24/11/2026 20:36:06 root                      INFO    - GET /station/ - END [Status: 401]
+24/11/2026 20:36:07 root                      INFO    - GET /station/ - START
+24/11/2026 20:36:07 root                      INFO    - GET /station/ - END [Status: 401]
+24/11/2026 20:36:08 root                      INFO    - GET /station/ - START
+24/11/2026 20:36:08 root                      INFO    - GET /station/ - END [Status: 401]
+24/11/2026 20:36:09 root                      INFO    - GET /station/list_stations/ - START
+24/11/2026 20:36:09 root                      INFO    - GET /station/list_stations/ - END [Status: 401]
+24/11/2026 20:36:11 root                      INFO    - GET /station/list_stations/ - START
+24/11/2026 20:36:11 root                      INFO    - GET /station/list_stations/ - END [Status: 401]
+24/11/2026 20:36:13 root                      INFO    - GET /favoris - START
+24/11/2026 20:36:13 root                      INFO    - GET /favoris - END [Status: 307]
+24/11/2026 20:36:13 root                      INFO    - GET /favoris/ - START
+24/11/2026 20:36:13 root                      INFO    - GET /favoris/ - END [Status: 401]
+24/11/2026 20:36:14 root                      INFO    - GET /station/list_stations/ - START
+24/11/2026 20:36:14 root                      INFO    - GET /station/list_stations/ - END [Status: 401]
