@@ -353,13 +353,13 @@ Une fois le calcul de chaque score effectué et le classement établi, l’API r
 
 L’interface présente les stations recommandées avec leur nom, leur adresse, leur distance et leurs scores. La distance est une distance à vol d’oiseau : elle ne représente pas un trajet réel à vélo par le réseau de rues.
 
-![Stations recommandées affichées dans l’interface.](../ressources/Screenshots/reco_interface_resultats.png){#width=65%}
+![Stations recommandées affichées dans l’interface.](../ressources/Screenshots/reco_interface_resultats.png){width=65%}
 
 L’endpoint `GET /recommendation/` est également documenté dans Swagger. Sa documentation permet de vérifier les paramètres acceptés — adresse ou coordonnées, limite et rayon — et la structure de la réponse renvoyée.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-![Requête de recommandation et paramètres dans Swagger.](../ressources/Screenshots/reco_swagger_requete.png){#fig-reco-swagger-requete}
+![Requête de recommandation et paramètres dans Swagger.](../ressources/Screenshots/reco_swagger_requete.png){#width=80%}
 
 ![Exemple de réponse renvoyée par l’API dans Swagger.](../ressources/Screenshots/reco_swagger_reponse.png){#fig-reco-swagger-reponse}
 
