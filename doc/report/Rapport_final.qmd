@@ -88,6 +88,7 @@ VeloScope s'adresse à deux profils d'utilisateurs distincts et structurés selo
 
 * **L'Usager du réseau** (Utilisateur standard) : Il représente tout citoyen, étudiant ou travailleur souhaitant optimiser ses déplacements à vélo en ville. Après avoir créé son compte personnel et s'être connecté, il peut rechercher une station, visualiser l'évolution de sa disponibilité sur différentes périodes (24h, 7 jours, 30 jours), consulter son score de fiabilité, enregistrer ses stations habituelles en favoris, explorer la carte interactive du réseau ou demander une recommandation de station et d'itinéraire. Une liste de toutes les stations de vélo de la ville de Bordeaux lui est également disponible.
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 * **L'Administrateur** : Il s'agit du gestionnaire technique de la plateforme. Il dispose exactement des mêmes fonctionnalités qu'un usager standard (il n'a donc pas besoin de jongler entre deux comptes distincts pour utiliser l'application), mais bénéficie en plus d'un espace d'administration lui permettant de superviser les comptes inscrits. Il peut ainsi accéder à la liste de tous les utilisateurs, modifier les informations d'un compte si nécessaire (nom d'utilisateur, email, mot de passe, droits administrateur), ou supprimer un compte. Ce profil s'adresse principalement aux techniciens de maintenance et développeurs, dans le cas par exemple où un utilisateur aurait oublié son mot de passe. Notons que nous n'avons volontairement pas donné de droits sur la base de données à l'administrateur afin de préserver son intégrité. La gestion de cette base est faite automatiquement grâce au système de collecte présent en arrière plan de manière permanente dans notre application.
 
@@ -166,6 +167,28 @@ L’évolution du score dans le temps est également disponible. Il est calculé
 
 Le score de proximité décroît avec la distance, et la fiabilité est le score décrit dans F4. Deux stations à distance équivalente ne sont donc pas classées de la même façon si leur score de fiabilité diffère. Le nombre de vélos électriques disponibles et la tendance récente (fiabilité que jusqu'à une certaine date par ex.), cités dans le sujet comme critères possibles, ne sont pas pris en compte dans le classement. Leur prise en compte pourrait être une source d'amélioration de ce score. 
 
+## Différents cas d’utilisation
+
+Pour pouvoir utiliser notre application, tout utilisateur doit en premier lieu se connecter à un compte valide ou créer son compte. Notre application servira à deux types d’utilisateurs.
+
+  — Le premier, l’utilisateur lambda, comme un voyageur bordelais, utilise principalement l’application pour trouver un vélo. Dans ce cadre, notre première fonctionnalité permet de lui fournir les stations les plus proches d'une adresse saisie au préalable (F5).
+  
+  — Le second l'administrateur, comme la ville de Bordeaux, a  accès à l'ensemble des comptes utilisateurs de la plateforme et peut s’il le souhaite ajouter ou modifier des comptes utilisateurs ainsi que les supprimer (F1).
+
+Toutes les fonctionnalités disponibles aux utilisateurs lambda le sont également pour les administrateurs. En somme, voici le diagramme de cas d’utilisation de notre application :
+
+![Diagramme des cas d'utilisation](../ressources/Diagramme/Diagramme cas d'utilisation vf.pdf){width=90% fig-pos='H'}
+
+Voici les fonctionnalités proposées par notre application:
+
+  — L’utilisateur lambda rentre simplement une adresse, une distance maximale et un nombre de station 'x'. Notre application est chargée
+d’obtenir les 'x' stations disponibles les plus proches de l'adresse saisie en respectant la distance maximale (F5).
+
+  — L'utilisateur lambda peut également avoir accès à une carte interactive de l'ensemble du réseau bordelais représentant toutes les stations disponibles avec un rapide aperçu des informations les concernant
+  
+  —L'utilisateur a aussi accès à l'ensemble des stations du réseau et peut rechercher une station précise pour des informations la concernant comme son état, le nombre de vélos et de places libres du dernier relevé, ainsi que son score de fiabilité et de son évolution selon 3 périodes de temps: 24 dernières heures, les 7 derniers jours ou le dernier mois (F3 et F4).
+  
+  — L'utilisateur a également l'option de modifier les informations de son compte et peut ajouter et supprimer des stations de sa liste de stations favorites consultable à tout moment.
 
 ## Les données de l'application
 
@@ -206,14 +229,11 @@ Le détail de la base finale de travail sous forme de schéma est proposé ci-de
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-![Modèle de données](../ressources/Diagramme/modele_BDD.png)
+![Modèle de données](../ressources/Diagramme/modele_BDD.png){width=50%}
 
 Notre modèle de données est composé de 5 tables. La table Compte gère les informations relatives aux utilisateurs. Station contient toutes les stations de la ville de Bordeaux. Station Statut possède l'ensemble des relevés de statuts de chaque station issus de la collecte. Réseau liste la liste des villes de notre réseau de vélo. Favoris gère les favoris de chaque utilisateur.
 
-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-
 
 Pour l'instant, notre réseau n'est composé que de celui de Bordeaux (id 1), mais il est possible d'ajouter d'autres villes. Notre table Compte est 3NF, les informations ne dépendant que de l'identifiant. Il en va de même pour la table station. La clé primaire de station_statut est le couple (station_id, last_reported) : on enregistre le statut d'une station à une date et heure donnée. Chaque favori est associé à un identifiant utilisateur (user_id, station_id). 
 
@@ -259,11 +279,11 @@ La quatrième couche du projet est constituée des modèles. Il s'agit de classe
 
 Enfin, la derniere couche est constituée des DAO. Les DAO assurent les interactions avec la base de données PostgreSQL. Ils permettent notamment de lire, d'insérer, de modifier et de supprimer les données, en isolant les opérations d'accès à la base du reste de la logique métier.
 
-Ci-dessous un détail du diagramme de classe de notre application.
+Ci-dessous un détail du diagramme de classe de notre application, davantage de détails sont apportés en annexe sur les méthodes au sein de chaque classe
 
-[diagramme de classe]
+![Diagramme de classe simplifié](../ressources/Diagramme/Diagramme de classe simplifié vf.pdf)
 
-Notons que nous avons fait le choix de séparer les classes de service concernant les stations, la recommandation et la fiabilité en trois classes distinctes, bien que la recommandation et la fiabilité soient basées sur les détails des stations et de leurs statuts. Ce choix est avant tout fait par soucis de lisibilité du code (les services recommandation et fiabilité étant conséquents), mais également pour distinguer les responsabilités qui concernent la lecture de la basée de données de celles concernant la logique métier de l'application (calculs, valeur ajoutée).
+
 
 \pagebreak
 
@@ -333,7 +353,7 @@ Une fois le calcul de chaque score effectué et le classement établi, l’API r
 
 L’interface présente les stations recommandées avec leur nom, leur adresse, leur distance et leurs scores. La distance est une distance à vol d’oiseau : elle ne représente pas un trajet réel à vélo par le réseau de rues.
 
-![Stations recommandées affichées dans l’interface.](../ressources/Screenshots/reco_interface_resultats.png){width=65%}
+![Stations recommandées affichées dans l’interface.](../ressources/Screenshots/reco_interface_resultats.png){#fig-reco-resultats}
 
 L’endpoint `GET /recommendation/` est également documenté dans Swagger. Sa documentation permet de vérifier les paramètres acceptés — adresse ou coordonnées, limite et rayon — et la structure de la réponse renvoyée.
 
@@ -342,8 +362,6 @@ L’endpoint `GET /recommendation/` est également documenté dans Swagger. Sa d
 ![Requête de recommandation et paramètres dans Swagger.](../ressources/Screenshots/reco_swagger_requete.png){#fig-reco-swagger-requete}
 
 ![Exemple de réponse renvoyée par l’API dans Swagger.](../ressources/Screenshots/reco_swagger_reponse.png){#fig-reco-swagger-reponse}
-
-\clearpage
 
 ## Synthèse des autres fonctionnalités 
 
@@ -401,15 +419,10 @@ Les tests sont structurés selon la logique GIVEN / WHEN / THEN : définition de
 Une attention particulière a été portée aux tests de la couche Service, qui regroupe la principale logique métier de l'application.
 
 Nous avons notamment testé :
-
 - **La gestion des comptes** : création, vérification des identifiants et connexion.
-
 - **La consultation des stations** : recherche par nom, calcul du taux de remplissage et récupération de l'historique sur différentes périodes (24 h, 7 j et 30 j).
-
 - **Le calcul de la fiabilité** : pourcentages et durées des épisodes de vide et de saturation, calcul du score actuel et évolution dans le temps. Plusieurs situations ont été étudiées, notamment les stations régulièrement vides ou saturées et les historiques incomplets ou inexistants.
-
 - **La gestion des favoris** : ajout, consultation et suppression des stations favorites.
-
 - **Les recommandations** : vérification du classement des stations selon leur proximité et leur fiabilité, ainsi que la prise en compte des situations où aucune station adaptée n'est disponible.
 
 Pour isoler la logique métier, les DAO sont remplacés par des objets simulés (`MagicMock`). Les tests peuvent ainsi se concentrer sur le comportement des services sans dépendre d'une véritable base de données.
@@ -453,7 +466,25 @@ Sur le plan technique, ce projet nous a permis de mettre en pratique l'ensemble 
 Sur le plan humain et organisationnel, cette expérience nous a appris à structurer notre travail en équipe, à adapter nos méthodes face aux imprévus et aux différences de rythme ou d'aisance technique, ainsi qu'à écouter les retours critiques pour faire évoluer nos choix d'architecture. Malgré les difficultés rencontrées, nous avons réussi à créer une application fonctionnelle, cohérente et évolutive, qui constitue une base solide pour de futures améliorations, qu'il s'agisse de prévision statistique ou d'ouverture à d'autres réseaux urbains.
 
 \pagebreak
+# Annexes
 
+::: {.no-pagebreak}
+## Détail diagramme de classe
+
+### Module DAO
+![Diagramme de classe module DAO](../ressources/Diagramme/module_dao_vf.pdf){height=8cm fig-pos="H"}
+
+### Module Service
+![Diagramme de classe module Service](../ressources/Diagramme/module_service_vf.pdf){height=15cm fig-pos="H"}
+
+### Module Controller
+![Diagramme de classe simplifié](../ressources/Diagramme/module_controller_vf.pdf){height=17cm fig-pos="H"}
+
+### Module API externe
+![Diagramme de classe simplifié](../ressources/Diagramme/module_api_externe_vf.pdf){height=9cm fig-pos="H"}
+:::
+
+\pagebreak
 
 # Notes individuelles 
 
@@ -486,6 +517,17 @@ Ce projet m'a surtout appris à persévérer face à la complexité technique. S
 
 
 ## Jean POHARDY
+
+Pendant ces trois mois sur le projet VeloScope, j'ai contribué au développement de l'application notamment côté interface d'administration des stations et raccordement aux routes de l'API. J'ai aussi participé à l'organisation collective, aux échanges sur l'avancement et au suivi du dépôt Git.
+
+Le fonctionnement en groupe s'est révélé très positif et formateur. Nous avons pris nos décisions ensemble, réparti les tâches en fonction de l'aisance de chacun et progressé couche par couche pour essayer de garder une vision claire de l'application. L’idée étant de se familiariser petit à petit aux rôles et fonctionnement de chacune des couches.
+
+De mon côté j’ai été amené à m’occuper de toute la partie gestion des utilisateurs. J’ai pu comprendre l’utilité de chacune de mes couches au fur et à mesure du développement de l’application. En revanche, la conception des endpoints dans le controller a été le moment le plus délicat du projet du fait qu’elle se base beaucoup sur le travail effectué dans les couches précédentes et mettait donc en lumière quelques problèmes de conception que j’ai dû régler.
+ 
+Discuter à plusieurs des blocages techniques ou des choix d'affichage a permis cependant d'avancer plus sereinement et de mieux comprendre comment s'articulent le frontend Streamlit, l'API FastAPI, les services, les DAO et la base PostgreSQL au fur et à mesure du temps.
+
+Avec le recul, ce projet m'a permis de gagner en autonomie sur la structuration d'une application complète et l'utilisation de Git en équipe. Si c'était à refaire, j'accorderais encore plus d'attention en amont à l'alignement des conventions entre modules et à détailler davantage le rôle de chaque couche et classe pour préciser comment elles répondent aux besoins et comment garantir davantage l’adaptabilité du code.
+
 
 ## Elouan REGUIGNE GRANCHER
 J’ai principalement travaillé sur l’intégration des données externes et la recommandation de stations. J’ai contribué à la mise en place des composants *provider* et *adapter* : le premier récupère les données GBFS, tandis que le second les convertit au format utilisé par l’application. J’ai également participé à l’adaptation de cette collecte au réseau de vélos de Bordeaux. J’ai ensuite travaillé sur la recommandation, du backend jusqu’à la page Streamlit : saisie d’une adresse bordelaise, géocodage avec Nominatim/OpenStreetMap, sélection des stations disponibles et classement selon leur proximité et leur fiabilité.
