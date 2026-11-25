@@ -261,6 +261,7 @@ Ci-dessous un détail du diagramme de classe de notre application.
 
 [diagramme de classe]
 
+Notons que nous avons fait le choix de séparer les classes de service concernant les stations, la recommandation et la fiabilité en trois classes distinctes, bien que la recommandation et la fiabilité soient basées sur les détails des stations et de leurs statuts. Ce choix est avant tout fait par soucis de lisibilité du code (les services recommandation et fiabilité étant conséquents), mais également pour distinguer les responsabilités qui concernent la lecture de la basée de données de celles concernant la logique métier de l'application (calculs, valeur ajoutée).
 
 \pagebreak
 
@@ -455,6 +456,15 @@ Je pense que ce projet m'a beaucoup aidé à comprendre comment peut s'organiser
 
 ##Audrey DANJOIE
 
+Mon ressenti sur ce projet est mitigé. Il a été fastidieux et frustrant, mais cela est en grande partie dû à ma position de nouvelle entrante 2A.
+
+Commençons par le positif. L'accompagnement par l'équipe pédagogique et le tuteur était très appréciable. On répondait rapidement à nos questions, et de manière assez précise (cela nous a permis d'avancer par exemple sur le problème de perte de connexion à la BDD). Les travaux pratiques étaient bien rédigés, de manière à ce qu'un néophyte puisse quand même essayer de les travailler. Ils permettaient de prendre connaissance des grandes parties du projet. Il était aussi très appréciable que dans notre cas, le tuteur prenne le temps de faire les travaux pratiques avec nous en temps réel. 
+
+Je me suis occupée de la collecte de données depuis l'API externe, de la fiabilité, d'une partie du frontend, du DAO des statuts et des README dans le projet. J'ai essayé, avec plus ou moins de succès, de regarder le fonctionnement des autres fonctionnalités également.
+
+Le début du projet était difficile, car aucun d'entre nous n'était réellement à l'aise en programmation Python. S'ajoute à cela que les rapports demandent la création de graphiques et l'utilisation de GIT/Quarto que je n'avais pas vu dans ma précédente formation. Le TP4, essentiel pour comprendre une bonne partie du projet, était dans mon souvenir plaçé après le rendu intermédiaire. Les fonctionnalités qui sortaient des TP étaient plus difficiles à appréhender. Il n'y a pas eu de problème d'organisation au sein du groupe, comme indiqué l'impression globale est que la répartition s'est faite de manière plus ou moins égale en fonction des appétences de chacun. La communication était claire, chaque avancée était notifiée aux autres. Pourtant, malgré nos efforts, nous avons obtenu une des notes les plus basses de la promotion. 
+
+Si une chose était à refaire, ce serait de prendre plus d'avance sur l'avancée du code, de manière à ce qu'au début des 3 jours les services et contrôleurs soient déjà terminés. Cela aurait permis de dégager plus de temps pour peaufiner et rendre le projet encore plus robuste. Ce projet m'a néamoins apporté de nombreuses connaissances sur la POO python, dont je suis connaissante.
 
 ### Romane DELANZY
 Pendant ces trois mois consacrés au projet VeloScope, j'ai pris part à l'organisation collective lors de nos réunions, à la réflexion sur les fonctionnalités, à la conception des graphiques, au développement ainsi qu'à la rédaction des rapports. Ayant davantage de difficultés en informatique, je me suis concentrée, en accord avec le reste du groupe, sur la classe Favori qui me semblait l'une des moins complexes à appréhender ainsi que sur le développement du frontend.
